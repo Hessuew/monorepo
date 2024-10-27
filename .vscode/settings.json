@@ -11,5 +11,6 @@
   "yaml.schemas": {
     "./.vscode/astrowind/config-schema.json": "/src/config.yaml"
   },
+  "vim.useSystemClipboard": true,
   "eslint.useFlatConfig": true
 }
