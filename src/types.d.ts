@@ -134,11 +134,13 @@ export interface Stat {
 
 export interface Item {
   title?: string;
-  description?: string;
+  description?: string | { text: string; link?: boolean; subtitle?: boolean; classes?: Record<string, string> }[];
+  description2?: { text: string; link?: string };
   icon?: string;
   classes?: Record<string, string>;
   callToAction?: CallToAction;
   image?: Image;
+  link?: boolean;
 }
 
 export interface Price {
@@ -262,15 +264,11 @@ export interface Faqs extends Omit<Headline, 'classes'>, Widget {
 }
 
 export interface Steps extends Omit<Headline, 'classes'>, Widget {
-  items: Array<{
-    title: string;
-    description?: string;
-    icon?: string;
-    classes?: Record<string, string>;
-  }>;
+  items: Array<Item>;
   callToAction?: string | CallToAction;
   image?: string | Image;
   isReversed?: boolean;
+  bigImage?: boolean;
 }
 
 export interface Content extends Omit<Headline, 'classes'>, Widget {
