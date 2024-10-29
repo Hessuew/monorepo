@@ -3,6 +3,7 @@ import type { ItemGrid as Props } from '~/types';
 import { Icon } from 'astro-icon/components';
 import { twMerge } from 'tailwind-merge';
 import Button from './Button.astro';
+import Image from '~/components/common/Image.astro';
 
 const { items = [], columns, defaultIcon = '', classes = {} } = Astro.props;
 
@@ -32,7 +33,7 @@ const {
         containerClass
       )}
     >
-      {items.map(({ title, description, icon, callToAction, classes: itemClasses = {} }) => (
+      {items.map(({ title, description, icon, callToAction, image, classes: itemClasses = {} }) => (
         <div
           class={twMerge(
             'relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
@@ -40,6 +41,26 @@ const {
             itemClasses?.panel
           )}
         >
+          {image && (
+            <div class="h-32 w-32 mb-8 rounded-full border border-slate-200 dark:border-slate-600">
+              {typeof image === 'string' ? (
+                <Fragment set:html={image} />
+              ) : (
+                <Image
+                  class="h-32 w-32 rounded-full border border-slate-200 dark:border-slate-600 min-w-full min-h-full"
+                  width={40}
+                  height={40}
+                  widths={[400, 768]}
+                  sizes="(max-width: 767px) 400px, 768px"
+                  loading="lazy"
+                  decoding="async"
+                  style="object-fit: cover; object-position: center;"
+                  layout="fixed"
+                  {...image}
+                />
+              )}
+            </div>
+          )}
           {(icon || defaultIcon) && (
             <Icon name={icon || defaultIcon} class={twMerge('mb-2 w-10 h-10', defaultIconClass, itemClasses?.icon)} />
           )}

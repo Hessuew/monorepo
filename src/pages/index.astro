@@ -1,5 +1,413 @@
 ---
-import Home from "./en/index.astro";
+import Layout from '~/layouts/PageLayout.astro';
+
+import Spacer from '~/components/widgets/Spacer.astro';
+import GradientText from '~/components/ui/GradientText.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Image from '~/components/common/Image.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+
+const metadata = {
+  title: 'urFIT-child — A treasure box of 21st-century novel discoveries',
+  // ignoreTitleTemplate: true,
+};
 ---
 
-<Home />
+<Layout metadata={metadata}>
+  <Hero tagline="Welcome to">
+    <Fragment slot="image">
+      <Image
+        class="mx-auto rounded-md w-full"
+        widths={[200, 384, 512, 1020]}
+        sizes="(max-width: 767px) 200px, (max-width: 1023px) 384px, (max-width: 2039px) 512px, 1020px"
+        loading="eager"
+        width={640}
+        height={640}
+        src="https://lh3.googleusercontent.com/d/1vPnP_SYQ1cqtQ9a95dFuGWQM1Zn5o6f0"
+        alt="urFIT-child Hero Image"
+      />
+    </Fragment>
+    <Fragment slot="title">
+      <!-- Simplify web design with Astrowind: <br /> your ultimate <span class="text-accent dark:text-white highlight"
+        >SaaS</span
+      > companion<br /> -->
+      <GradientText>U</GradientText>nde<GradientText>R</GradientText>standing
+      <GradientText>FIT</GradientText>ness and
+      <GradientText>C</GradientText>ardiometabolic
+      <GradientText>H</GradientText>ealth
+      <GradientText>I</GradientText>n
+      <GradientText>L</GradientText>ittle
+      <GradientText>D</GradientText>arlings
+      <GradientText>(urFIT-child)</GradientText>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      A treasure box of 21st-century novel discoveries aimed at <GradientText class="font-bold">improving</GradientText>
+      children, adolescents, and young adults' health.
+    </Fragment>
+  </Hero>
+
+  <!-- Features Widget *************** -->
+
+  <Features3
+    id="description"
+    tagline="Description"
+    title="We are a multi-disciplinary and multi-collaborative research group with clear objectives"
+    classes={{ container: 'max-w-6xl pb-0 md:pb-0 lg:pb-0' }}
+    columns={2}
+    items={[
+      {
+        title: 'Improve understanding',
+        description:
+          'Improve understanding of the development of cardiovascular, metabolic, and arterial diseases from childhood until young adulthood.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Identify critical periods',
+        description:
+          'Identify critical time periods of significant deviation from physiology to pathology during growth and maturation.',
+        icon: 'tabler:calendar-month',
+      },
+      {
+        title: 'Simulate potential intervention effects',
+        description:
+          'Simulate potential intervention effects in situation where randomized clinical trials are lacking in apparently healthy children and adolescents.',
+        icon: 'tabler:pill',
+      },
+      {
+        title: 'Examine to find intervention strategies',
+        description:
+          'Examine mechanistic cross-talk within modifiable risk factors and non-modifiable risk factors to inform potentially effective intervention strategies.',
+        icon: 'tabler:zoom-exclamation',
+      },
+      {
+        title: 'Investigate causal inferences',
+        description:
+          'Investigate causal inferences in risk factors relationships that prospectively influence cardiac, metabolic, and arterial health from childhood through young adulthood.',
+        icon: 'tabler:timeline',
+      },
+      {
+        title: 'Discover novel risk factors',
+        description:
+          'Discover novel risk factors for several paediatric diseases such as hypertension, insulin resistance (type 2 diabetes), obesity, premature cardiac damage, atherosclerosis, dyslipidaemia in which several intervention strategies have had limited success.',
+        icon: 'tabler:bulb',
+      },
+      {
+        title: 'Fill knowledge gaps',
+        description:
+          'To fill knowledge gaps identified by the World Health Organization and other global public health agencies through the provision of substantial scientific evidence useful in updating health guidelines in primarily preventing non-communicable diseases.',
+        icon: 'tabler:book',
+      },
+      {
+        title: 'Provide new tools',
+        description: 'Provide new tools for accurately and cheaply diagnosing childhood obesity globally.',
+        icon: 'tabler:tool',
+      },
+    ]}
+  >
+    <Fragment slot="subtitle">
+      <GradientText class="font-semibold">U</GradientText>nde<GradientText class="font-semibold">R</GradientText
+      >standing
+      <GradientText class="font-semibold">FIT</GradientText> ness and
+      <GradientText class="font-semibold">C</GradientText>ardiometabolic
+      <GradientText class="font-semibold">H</GradientText>ealth
+      <GradientText class="font-semibold">I</GradientText>n
+      <GradientText class="font-semibold">L</GradientText>ittle
+      <GradientText class="font-semibold">D</GradientText>arlings (urFIT-child) is a multi-disciplinary and
+      multi-collaborative research group in cooperation with renowned global experts across several continents, viz;
+      Oceania, North America, Africa, Europe, and Asia. Our objectives are to
+    </Fragment>
+  </Features3>
+
+  <!-- Hero Widget ****************** -->
+
+  <Features3 classes={{ container: '' }}>
+    <Fragment slot="subtitle">
+      <span class="text-base"
+        >Modifiable risk factors are total cholesterol, triglyceride, low-density Modifiable risk factors are total
+        cholesterol, triglyceride, low-density lipoprotein cholesterol, high-density lipoprotein cholesterol, insulin
+        resistance (glucose and insulin), blood pressure, heart rate, low-grade inflammation, obesity, body composition
+        (fat mass and muscle mass), sedentary time, light physical activity, moderate-to-vigorous physical activity,
+        smoking habit, cardiorespiratory fitness. Risk factors were measured during clinic visits from childhood
+        starting at age 7 years and repeated either yearly or bi-annually until age 17 years. Young adulthood
+        assessments occurred at age 24 years clinic visit, the 30-year clinic visit is currently ongoing (2022 - 2024).
+      </span>
+    </Fragment>
+  </Features3>
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    title="With an unique data set, broad findings, and simple solutions, we have acquired a global audience"
+    classes={{ container: 'pb-0 md:pb-0 lg:pb-0' }}
+    stats={[
+      { title: 'Participants', amount: '10,000+' },
+      { title: 'Years of data', amount: '23' },
+    ]}
+  />
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    classes={{ item: 'md:w-full pt-0 md:pt-0 lg:pt-0' }}
+    stats={[{ title: 'Global audience of our work', amount: '4,500,000,000+' }]}
+  />
+
+  <!-- Spacer ******************* -->
+
+  <Spacer />
+
+  <!-- Steps Widget ****************** -->
+
+  <!-- <Steps
+    title="PREVENTION"
+    tagline="The critical keyword"
+    isReversed={true}
+    bigImage={true}
+    classes={{
+      container: 'max-w-7xl',
+    }}
+    items={[
+      {
+        title: 'Primordial Prevention',
+        icon: 'tabler:number-1',
+        classes: {
+          icon: 'text-teal-800 border-teal-800 bg-teal-50 dark:text-teal-300 dark:border-teal-300 dark:bg-teal-900/50',
+          line: 'bg-teal-800 dark:bg-teal-300',
+        },
+      },
+      {
+        title: 'Early Primary Prevention',
+        icon: 'tabler:number-2',
+        classes: {
+          icon: 'text-green-800 border-green-800 bg-green-50 dark:text-green-300 dark:border-green-300 dark:bg-green-900/50',
+          line: 'bg-green-800 dark:bg-green-300',
+        },
+      },
+      {
+        title: 'Mid-Primary Prevention',
+        icon: 'tabler:number-3',
+        description: [{ subtitle: true, text: 'Critical time 🔔' }],
+        classes: {
+          icon: 'text-yellow-800 border-yellow-800 bg-yellow-50 dark:text-yellow-300 dark:border-yellow-300 dark:bg-yellow-900/50',
+          description: 'text-yellow-800 dark:text-yellow-300',
+          line: 'bg-yellow-800 dark:bg-yellow-300',
+        },
+      },
+      {
+        title: 'Late-Primary Prevention',
+        icon: 'tabler:number-4',
+        description: [
+          { subtitle: true, text: 'Mid-Twenties' },
+          { subtitle: true, text: '20-Year Opportunity' },
+        ],
+        classes: {
+          icon: 'text-rose-800 border-rose-800 bg-rose-50 dark:text-rose-300 dark:border-rose-300 dark:bg-rose-900/50',
+          line: 'bg-rose-800 dark:bg-rose-300',
+        },
+      },
+      {
+        title: 'Secondary to Tertiary Prevention',
+        icon: 'tabler:number-5',
+        description: [
+          { subtitle: true, text: 'Mid-Forties' },
+          { subtitle: true, text: 'Too Late ❌', classes: { subtitle: 'text-red-600 dark:text-red-6 00' } },
+        ],
+        classes: {
+          icon: 'text-rose-800 border-rose-800 bg-rose-50 dark:text-rose-300 dark:border-rose-300 dark:bg-rose-900/50',
+          line: 'bg-rose-800 dark:bg-rose-300',
+        },
+      },
+    ]}
+    image={{
+      src: 'https://lh3.googleusercontent.com/d/1C7rG2AXVao5pioXhclyrhGvihGfCfZUN',
+      alt: 'Prevention Steps Image',
+    }}
+  /> -->
+
+  <!-- <Hero>
+    <Fragment slot="subtitle" >
+      <span class="text-3xl md:text-4xl font-bold leading-tighter tracking-tighter mb-4 font-heading text-muted">
+      “Let's keep fighting for kids' health, because today's kids are tomorrow's adults.”
+      </span>
+      <br />
+      <span class="text-right text-3xl md:text-4xl font-bold leading-tighter tracking-tighter mb-4 font-heading text-muted">
+        Andrew Agbaje
+      </span>
+    </Fragment>
+  <Fragment slot="image">
+    <Image
+      class="mx-auto rounded-md w-full"
+      widths={[200, 384, 512, 1020]}
+      sizes="(max-width: 767px) 200px, (max-width: 1023px) 384px, (max-width: 2039px) 512px, 1020px"
+      loading="eager"
+      width={768}
+      height={512}
+      src="https://lh3.googleusercontent.com/d/15bFl-CNZdDys3A5dYQMFjF0nXsZbsXGJ"
+      alt="Andrew headshot"
+    />
+    </Fragment>
+  </Hero> -->
+
+  <!-- Note Widget ******************* -->
+
+  <!-- <Note /> -->
+
+  <!-- Spacer ******************* -->
+
+  <!-- <div class="h-16 md:h-24"></div> -->
+
+  <!-- Content Widget **************** -->
+
+  <!-- <Content
+    isReversed
+    tagline="urFIT-child"
+    title="Who are we?"
+    items={[
+      {
+        title:
+          'Improve understanding of the development of cardiovascular, metabolic, and arterial diseases from childhood until young adulthood.',
+      },
+      {
+        title:
+          'Identify critical time periods of significant deviation from physiology to pathology during growth and maturation.',
+      },
+      {
+        title:
+          'Simulate potential intervention effects in situation where randomized clinical trials are lacking in apparently healthy children and adolescents.',
+      },
+      {
+        title:
+          'Examine mechanistic cross-talk within modifiable risk factors and non-modifiable risk factors to inform potentially effective intervention strategies.',
+      },
+    ]}
+    image={{
+      src: 'https://lh3.googleusercontent.com/d/1GlW-w5zAoi8Vedys74nzMpaD-GHbkf72',
+      alt: 'Andrew, Craig, Dimitri and Alan',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Building on modern foundations for children's health
+      </h3>
+      UndeRstanding FITness and Cardiometabolic Health In Little Darlings (urFIT-child) is a multi-disciplinary and multi-collaborative
+      research group in cooperation with renowned global experts across several continents, viz; Oceania, North America,
+      Africa, Europe, and Asia. Our mission is to
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <!-- <Content
+    isAfterContent
+    items={[
+      {
+        title:
+          'Investigate causal inferences in risk factors relationships that prospectively influence cardiac, metabolic, and arterial health from childhood through young adulthood.',
+      },
+      {
+        title:
+          'Discover novel risk factors for several paediatric diseases such as hypertension, insulin resistance (type 2 diabetes), obesity, premature cardiac damage, atherosclerosis, dyslipidaemia in which several intervention strategies have had limited success.',
+      },
+      {
+        title:
+          'Fill knowledge gaps identified by the World Health Organization and other global public health agencies through the provision of substantial scientific evidence useful in updating health guidelines in primarily preventing non-communicable diseases.',
+      },
+      {
+        title:
+          'Provide new tools for accurately and cheaply diagnosing childhood obesity globally.',
+      },
+    ]}
+    image={{
+      src: 'https://lh3.googleusercontent.com/d/1GlW-w5zAoi8Vedys74nzMpaD-GHbkf72',
+      alt: 'Andrew, Craig, Dimitri and Alan',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Building on modern foundations for children's health
+      </h3>
+      UndeRstanding FITness and Cardiometabolic Health In Little Darlings (urFIT-child) is a multi-disciplinary and multi-collaborative
+      research group in cooperation with renowned global experts across several continents, viz; Oceania, North America,
+      Africa, Europe, and Asia. Our mission is to
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content> -->
+
+  <!-- Features Widget *************** -->
+  <!-- 
+  <FAQs
+    id="description"
+    tagline="Description"
+    title="What is urFIT-child?"
+    subtitle="UndeRstanding FITness and Cardiometabolic Health In Little Darlings (urFIT-child) is a multi-disciplinary and multi-collaborative research group in cooperation with renowned global experts across several continents, viz; Oceania, North America, Africa, Europe, and Asia. Our mission is to"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'Improve understanding',
+        description:
+          'Improve understanding of the development of cardiovascular, metabolic, and arterial diseases from childhood until young adulthood.',
+        // icon: 'tabler:brain',
+      },
+      {
+        title: 'Identify critical periods',
+        description:
+          'Identify critical time periods of significant deviation from physiology to pathology during growth and maturation.',
+        // icon: 'tabler:calendar-month',
+      },
+      {
+        title: 'Simulate potential intervention effects',
+        description:
+          'Simulate potential intervention effects in situation where randomized clinical trials are lacking in apparently healthy children and adolescents.',
+        // icon: 'tabler:pill',
+      },
+      {
+        title: 'Examine to find intervention strategies',
+        description:
+          'Examine mechanistic cross-talk within modifiable risk factors and non-modifiable risk factors to inform potentially effective intervention strategies.',
+        // icon: 'tabler:zoom-exclamation',
+      },
+      {
+        title: 'Investigate causal inferences',
+        description:
+          'Investigate causal inferences in risk factors relationships that prospectively influence cardiac, metabolic, and arterial health from childhood through young adulthood.',
+        // icon: 'tabler:timeline',
+      },
+      {
+        title: 'Discover novel risk factors',
+        description:
+          'Discover novel risk factors for several paediatric diseases such as hypertension, insulin resistance (type 2 diabetes), obesity, premature cardiac damage, atherosclerosis, dyslipidaemia in which several intervention strategies have had limited success.',
+        // icon: 'tabler:bulb',
+      },
+      {
+        title: 'Fill knowledge gaps',
+        description:
+          'To fill knowledge gaps identified by the World Health Organization and other global public health agencies through the provision of substantial scientific evidence useful in updating health guidelines in primarily preventing non-communicable diseases.',
+        // icon: 'tabler:book',
+      },
+      {
+        title: 'Provide new tools',
+        description: 'Provide new tools for accurately and cheaply diagnosing childhood obesity globally.',
+        // icon: 'tabler:tool',
+      },
+    ]}
+  /> -->
+
+  <!-- HighlightedPosts Widget ******* -->
+
+  <!-- <BlogLatestPosts
+    title="Find out more content in our Blog"
+    information={`The blog is used to display AstroWind documentation.
+                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
+                        Astro is a very interesting technology. Thanks.
+                `}
+  /> -->
+</Layout>

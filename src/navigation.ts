@@ -3,10 +3,6 @@ import { getPermalink } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'Description',
-      href: getPermalink('/description'),
-    },
-    {
       text: 'People',
       links: [
         {
@@ -38,6 +34,10 @@ export const headerData = {
           text: 'Videos and Podcasts',
           href: getPermalink('/videos-and-podcasts'),
         },
+        {
+          text: 'Thesis',
+          href: getPermalink('/thesis'),
+        },
       ],
     },
     {
@@ -58,22 +58,22 @@ export const headerData = {
       ],
     },
     {
-      text: 'Other',
-      links: [
-        {
-          text: 'Waist/Height Calculator',
-          href: getPermalink('/waist-height-calculator'),
-        },
-        {
-          text: 'Editor/Reviewer',
-          href: getPermalink('/editor-reviewer'),
-        },
-        {
-          text: 'Non-academic',
-          href: getPermalink('/non-academic'),
-        },
-      ],
+      text: 'Waist/Height Calculator',
+      href: getPermalink('/waist-height-calculator'),
     },
+    {
+      text: 'Non-academic',
+      href: getPermalink('/non-academic'),
+    },
+    // {
+    //   text: 'Other',
+    //   links: [
+    //     {
+    //       text: 'Editor/Reviewer',
+    //       href: getPermalink('/editor-reviewer'),
+    //     },
+    //   ],
+    // },
     // {
     //   text: 'Blog',
     //   links: [

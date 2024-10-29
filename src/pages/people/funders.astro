@@ -1,0 +1,41 @@
+---
+
+import Layout from '~/layouts/PageLayout.astro';
+
+import Spacer from '~/components/widgets/Spacer.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Brands from '~/components/widgets/Brands.astro';
+
+const metadata = {
+  title: 'Funders',
+  // ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero classes={{ labelContainer: 'pb-0 md:pb-0 lg:pb-0' }} tagline="Funders" title="urFIT-child Funders"
+   />
+
+ <!-- Brands Widget ****************** -->
+
+  <Brands
+    icons={[]}
+    images={[
+      {
+        src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF7YsVYh8_3bvm4N3qAdGgFB-AnS_7zUFV0Q&s',
+        // src: 'https://skr.fi/sites/default/themes/skr/logo-en.svg',
+// https://lh3.googleusercontent.com/d/
+        alt: 'Finnish Cultural Foundation',
+      },
+      {
+        src: 'https://lh3.googleusercontent.com/d/1Y-kMWXKZRFOnbyhN0njXFN17eCEbuwAT',
+        alt: 'Wihuri Foundation',
+      },
+    ]}
+  />
+
+
+  <!-- Spacer ******************* -->
+
+  <Spacer />
+</Layout>

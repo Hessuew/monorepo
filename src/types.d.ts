@@ -109,6 +109,7 @@ export interface Headline {
   title?: string;
   subtitle?: string;
   tagline?: string;
+  footer?: string;
   classes?: Record<string, string>;
 }
 
@@ -215,7 +216,7 @@ export interface Form {
 }
 
 // WIDGETS
-export interface Hero extends Omit<Headline, 'classes'>, Omit<Widget, 'isDark' | 'classes'> {
+export interface Hero extends Omit<Headline, 'classes'>, Omit<Widget, 'isDark'> {
   content?: string;
   actions?: string | CallToAction[];
   image?: string | unknown;
@@ -278,6 +279,7 @@ export interface Content extends Omit<Headline, 'classes'>, Widget {
   columns?: number;
   isReversed?: boolean;
   isAfterContent?: boolean;
+  defaultIcon?: string;
   callToAction?: CallToAction;
 }
 
