@@ -6,10 +6,10 @@ import ToggleMenu from '~/components/common/ToggleMenu.astro';
 import Button from '~/components/ui/Button.astro';
 
 import { getHomePermalink, getPermalink } from '~/utils/permalinks';
-import { trimSlash, getAsset } from '~/utils/permalinks';
+import { trimSlash } from '~/utils/permalinks';
 import type { CallToAction } from '~/types';
-import LanguagePicker from '../common/LanguagePicker.astro';
-import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+// import LanguagePicker from '../common/LanguagePicker.astro';
+// import { getLangFromUrl, useTranslations } from '~/i18n/utils';
 
 interface Link {
   text?: string;
@@ -43,14 +43,14 @@ const {
   isDark = false,
   isFullWidth = false,
   showToggleTheme = false,
-  showLangPicker = true,
-  showRssFeed = false,
+  // showLangPicker = true,
+  // showRssFeed = false,
   position = 'center',
 } = Astro.props;
 
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+// const lang = getLangFromUrl(Astro.url);
+// const t = useTranslations(lang);
 ---
 
 <header
@@ -111,7 +111,7 @@ const t = useTranslations(lang);
                             'first:rounded-t last:rounded-b xl:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap',
                             { 'aw-link-active': href2 === currentPath },
                           ]}
-                          href={getPermalink(`${lang}${href2}`)}
+                          href={getPermalink(`${href2}`)}
                         >
                           {text2}
                         </a>
@@ -125,7 +125,7 @@ const t = useTranslations(lang);
                     'hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap',
                     { 'aw-link-active': href === currentPath },
                   ]}
-                  href={getPermalink(`${lang}/${href}`)}
+                  href={getPermalink(`${href}`)}
                 >
                   {text}
                   {/* {text ? t(text as any) : text} */}
@@ -144,9 +144,9 @@ const t = useTranslations(lang);
     >
       <div class="items-center flex justify-between w-full xl:w-auto">
         <div class="flex">
-          {showLangPicker && <LanguagePicker />}
+          <!-- {showLangPicker && <LanguagePicker />} -->
           {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 xl:w-5 xl:h-5 xl:inline-block" />}
-          {
+          <!-- {
             showRssFeed && (
               <a
                 class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
@@ -156,7 +156,7 @@ const t = useTranslations(lang);
                 <Icon name="tabler:rss" class="w-5 h-5" />
               </a>
             )
-          }
+          } -->
         </div>
         {
           actions?.length ? (
