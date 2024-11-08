@@ -38,6 +38,10 @@ export const headerData = {
           text: 'Thesis',
           href: getPermalink('/thesis'),
         },
+        {
+          text: 'Press Releases',
+          href: getPermalink('/press-releases'),
+        },
       ],
     },
     {
