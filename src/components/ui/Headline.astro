@@ -6,6 +6,7 @@ const {
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
   tagline,
+  tagline2,
   classes = {},
 } = Astro.props;
 
@@ -21,6 +22,12 @@ const {
     <div class={twMerge('mb-8 md:mx-auto md:mb-12 text-center', containerClass)}>
       {tagline && (
         <p class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase" set:html={tagline} />
+      )}
+      {tagline2 && (
+        <p
+          class="bg-gradient-to-r from-orange-600 to-yellow-500 text-transparent bg-clip-text text-base font-bold tracking-wide uppercase"
+          set:html={tagline2}
+        />
       )}
       {title && (
         <h2

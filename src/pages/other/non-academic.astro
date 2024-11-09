@@ -1,9 +1,11 @@
 ---
-
 import Layout from '~/layouts/PageLayout.astro';
 
 import Spacer from '~/components/widgets/Spacer.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import GradientText from '~/components/ui/GradientText.astro';
 
 const metadata = {
   title: 'Affiliations',
@@ -12,13 +14,132 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Hero classes={{ labelContainer: 'pb-0 md:pb-0 lg:pb-0' }} tagline="Affiliations" title="urFIT-child Affiliations"
-   />
+  <Hero
+    classes={{ labelContainer: 'pb-0 md:pb-0 lg:pb-0' }}
+    tagline="Non-academic"
+    image={{
+      src: 'https://lh3.googleusercontent.com/d/1hmsXqLKkfWQb-WRxW0sCHgrGF-ndPI4y',
+      alt: 'Flame the Freeze website',
+    }}
+  >
 
-Kindly provide the link to Flame the Freeze website
-The link to the PDF version of Flame the Freeze ebook
-Link to Osaze’s testimony
-Link to Kuopio Jesus Festival
+    <Fragment slot="title">
+      Life is spiritual
+    </Fragment>
+    <Fragment slot="subtitle">
+      
+      The magnificence and excellence of all these studies and findings are credited to the Lord
+      Jesus Christ. How can a small research group from a small country like Finland make such discoveries and reach global
+      attention and influence the world just in a couple of years?
+
+      <br />
+      <br />
+      We know that thou art a teacher come from God:
+      <span class="font-semibold">for no man can do these</span> miracles that thou doest,
+      <span class="font-semibold"> except God be with him. </span>
+      John 3:2 KJV
+      <br />
+      <br />
+      This is the Lord's doing; it is marvellous in our eyes. Psalm 118:23 KJV
+
+      <br />
+      <br />
+      <br />
+
+      For this reason we created a website, from which you can enter into the same spiritual realm as we do.
+
+      <br />
+      <br />
+      <a class="text-orange-600 hover:underline font-bold" href="https://flamethefreeze.com" target="_blank">
+        <GradientText class="font-bold pr-3 text-xl" isHeading style2>Flame the Freeze</GradientText>
+      </a>
+    </Fragment>
+</Hero>
+
+  <!-- Spacer ******************* -->
+
+  <Spacer />
+
+  <!-- Content Widget **************** -->
+
+  <Content tagline2="A foretaste" isReversed>
+    <Fragment slot="title">
+      A foretaste of what<br />
+      <GradientText class="italic pr-3" style2 text="Jesus has been doing" /><br />
+      since the start of 2024?
+      <!-- <GradientText text={t("index.content3.title.span2")} /> -->
+    </Fragment>
+
+    <Fragment slot="content">
+      <h3 class="text-2xl tracking-tightsm:text-xl mb-2">
+        ...for all men glorified God for that which was done. For the man was above forty years old, on whom this
+        miracle of healing was shewed. Acts 4:21,22 KJV
+      </h3>
+    </Fragment>
+
+    <Fragment slot="image">
+      <div class="relative pb-[56.25%]">
+        <iframe
+          loading="lazy"
+          width="560"
+          height="315"
+          src="https://www.youtube-nocookie.com/embed/Z1J0yjSdiVY?si=mezqUTnaLAHh_r_G"
+          title="YouTube video player"
+          frameborder="0"
+          class="absolute top-0 left-0 w-full h-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </Fragment>
+  </Content>
+
+  <Content>
+    <Fragment slot="content">
+      <h3 class="text-2xl tracking-tight sm:text-xl mb-2">
+        Excerpt from JESUS FEST Kuopio Gospel Outreach, Finland June 7-9, 2024...
+      </h3>
+      <h3 class="text-2xl tracking-tight sm:text-xl mb-2">
+        ...And he said unto them, Go ye into all the world, and preach the gospel to every creature. Mark 16:15 KJV
+      </h3>
+    </Fragment>
+
+    <Fragment slot="image">
+      <div class="relative pb-[56.25%]">
+        <iframe
+          loading="lazy"
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/g_y65xR5OYE?si=JwRc2jad8g1Swu3h"
+          title="YouTube video player"
+          frameborder="0"
+          class="absolute top-0 left-0 w-full h-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Features Widget *************** -->
+
+  <Features id="features" tagline2="eBook" title="10 stories of life transforming miracles for people who are hungry to know more" />
+  <!-- A free e-book for the exhortation and edification of the body of Christ -->
+
+  <!-- Ebook Widget *************** -->
+
+  <div class="w-full flex justify-center pb-10 h-[520px] lg:h-[640px]">
+    <iframe
+      aria-label="Flame the Freeze pdf"
+      src={'https://drive.google.com/file/d/1D5npgHt176KLtaEir-OE61LcndzssEjp/preview'}
+      width="100%"
+      height="100%"
+      allow="autoplay"
+      class="max-w-2xl"></iframe>
+    <!-- <p> {t("devotions.ebook.text1")} <a class="hover:underline" href={lang === "en" ?
+      "https://drive.google.com/file/d/1D5npgHt176KLtaEir-OE61LcndzssEjp/preview" :
+      "https://drive.google.com/file/d/1JY5xC1_A24QFWG75GzI0ul1JAv1iBjIk/preview"}
+      target="_blank">{t("devotions.ebook.a")}</a > {t("devotions.ebook.text2")}</p> -->
+  </div>
 
   <!-- Spacer ******************* -->
 

@@ -24,23 +24,23 @@ export const headerData = {
       links: [
         {
           text: 'Publications',
-          href: getPermalink('/publications'),
+          href: getPermalink('/publications/publications'),
         },
         {
           text: 'Awards and Honours',
-          href: getPermalink('/awards-and-honours'),
+          href: getPermalink('/publications/awards-and-honours'),
         },
         {
           text: 'Videos and Podcasts',
-          href: getPermalink('/videos-and-podcasts'),
+          href: getPermalink('/publications/videos-and-podcasts'),
         },
         {
           text: 'Thesis',
-          href: getPermalink('/thesis'),
+          href: getPermalink('/publications/thesis'),
         },
         {
           text: 'Press Releases',
-          href: getPermalink('/press-releases'),
+          href: getPermalink('/publications/press-releases'),
         },
       ],
     },
@@ -49,25 +49,30 @@ export const headerData = {
       links: [
         {
           text: 'Affiliations',
-          href: getPermalink('/affiliations'),
+          href: getPermalink('/connections/affiliations'),
         },
         {
           text: 'Collaborators',
-          href: getPermalink('/people/collaborators'),
+          href: getPermalink('/connections/collaborators'),
         },
         {
           text: 'Memberships in International Associations',
-          href: getPermalink('/memberships-in-international-associations'),
+          href: getPermalink('/connections/memberships-in-international-associations'),
         },
       ],
     },
     {
-      text: 'Waist/Height Calculator',
-      href: getPermalink('/waist-height-calculator'),
-    },
-    {
-      text: 'Non-academic',
-      href: getPermalink('/non-academic'),
+      text: 'Other',
+      links: [
+        {
+          text: 'Waist/Height Calculator',
+          href: getPermalink('/other/waist-height-calculator'),
+        },
+        {
+          text: 'Non-academic',
+          href: getPermalink('/other/non-academic'),
+        },
+      ],
     },
     // {
     //   text: 'Other',
@@ -159,6 +164,7 @@ export const footerData = {
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
+    // { ariaLabel: 'UEF', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrdZiiuH4iCX717vfGEGUxjz2j30m7Z0OYYw&s', href: 'https://uefconnect.uef.fi/en/group/understanding-fitness-and-cardiometabolic-health-in-little-darlings-urfit-child/#information'  },
     // { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
     // { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
     // { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },

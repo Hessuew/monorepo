@@ -10,6 +10,7 @@ const {
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
   tagline,
+  tagline2,
   content = await Astro.slots.render('content'),
   callToAction,
   defaultIcon = 'tabler:check',
@@ -40,6 +41,7 @@ const {
     title={title}
     subtitle={subtitle}
     tagline={tagline}
+    tagline2={tagline2}
     classes={{
       container: 'max-w-xl sm:mx-auto lg:max-w-2xl',
       title: 'text-4xl md:text-5xl font-bold tracking-tighter mb-4 font-heading',
