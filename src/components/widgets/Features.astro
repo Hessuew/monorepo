@@ -8,6 +8,7 @@ const {
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
   tagline = await Astro.slots.render('tagline'),
+  tagline2 = await Astro.slots.render('tagline2'),
   items = [],
   columns = 2,
 
@@ -21,7 +22,7 @@ const {
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''}`} bg={bg}>
-  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
+  <Headline title={title} subtitle={subtitle} tagline={tagline} tagline2={tagline2} classes={classes?.headline as Record<string, string>} />
   <ItemGrid
     items={items}
     columns={columns}

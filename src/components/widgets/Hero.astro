@@ -9,7 +9,7 @@ const {
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
   tagline,
-
+  tagline2,
   content = await Astro.slots.render('content'),
   actions = await Astro.slots.render('actions'),
   image = await Astro.slots.render('image'),
@@ -42,6 +42,12 @@ const {
             />
           )
         }
+        {tagline2 && (
+          <p
+            class="bg-gradient-to-r from-orange-600 to-yellow-500 text-transparent bg-clip-text italic text-base font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+            set:html={tagline2}
+          />
+        )}
         {
           title && (
             <h1
@@ -91,6 +97,8 @@ const {
                   widths={[400, 768, 1024, 2040]}
                   sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
                   loading="eager"
+                  decoding="async"
+                  objectPosition="center top"
                   width={1024}
                   height={576}
                   {...image}

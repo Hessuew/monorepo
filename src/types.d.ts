@@ -109,6 +109,7 @@ export interface Headline {
   title?: string;
   subtitle?: string;
   tagline?: string;
+  tagline2?: string;
   footer?: string;
   classes?: Record<string, string>;
 }
@@ -131,6 +132,7 @@ export interface Stat {
   amount?: number | string;
   title?: string;
   icon?: string;
+  lowerCase?: boolean;
 }
 
 export interface Item {
