@@ -1,0 +1,37 @@
+---
+
+import Layout from '~/layouts/PageLayout.astro';
+
+import Spacer from '~/components/widgets/Spacer.astro';
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'Affiliations',
+  // ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero classes={{ labelContainer: 'pb-0 md:pb-0 lg:pb-0' }} tagline="Affiliations" title="urFIT-child Affiliations"
+   />
+
+1. European Society of Cardiology (ESC), France
+2. American Heart Association (AHA), Dallas, US
+3. European Atherosclerosis Society (EAS), Sweden
+4. Association for Research into Arterial Structure and Physiology (Artery Society), UK
+5. American Physiology Society (APS), US
+6. American College of Sports Medicine (ACSM), Indianapolis, US
+7. North American Society for Pediatric Exercise Medicine (NASPEM), Canada/US
+8. International Epidemiology Association (IEA), US
+9. International Society of Behavioral Nutrition and Physical Activity (ISBNPA), Sweden
+10. Finnish Epidemiology Society (FES), Finland
+11. European Association of Preventive Cardiology (EAPC), France
+12. Endocrine Society, US
+13. Finnish Association for the Study of Obesity (FASO), Finland
+14. European Association for the Study of Obesity (EASO), UK
+15. Tampere Society for Associate Professors, Finland
+
+  <!-- Spacer ******************* -->
+
+  <Spacer />
+</Layout>

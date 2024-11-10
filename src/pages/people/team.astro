@@ -1,0 +1,121 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Spacer from '~/components/widgets/Spacer.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+
+const metadata = {
+  title: 'Team',
+  // ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero classes={{ labelContainer: 'pb-0 md:pb-0 lg:pb-0' }} tagline="Team" title="urFIT-child Team" />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    classes={{ container: 'max-w-6xl pt-0 md:pt-0 lg:pt-0' }}
+    items={[
+      {
+        title: 'Principal investigator',
+        description: "Andrew Agbaje MD, MPH, PhD, Professor (associate) of Clinical Epidemiology and Child Health",
+        image: {
+          src: 'https://lh3.googleusercontent.com/d/1evXugzkrWDuN4GuFYBNOQW5gTsFplBzV',
+          alt: 'Andrew Agbaje',
+        },
+      },
+      {
+        title: 'Senior Researcher',
+        description: "Tomi -Pekka Tuomainen MD, PhD, Professor of Epidemiology",
+        image: {
+          src: 'https://lh3.googleusercontent.com/d/1atVeh2i6uYDMxeTuoxjgteb8Aa1Lfr4h',
+        //   src: 'https://www.uef.fi/sites/default/files/styles/contact_card_thumbnail/public/uef_connect_person_photos/1dec443013800261d72c3f260b63209f_profile_file-scaled.jpg?h=6981f79a&itok=xaP1OrwY',
+          alt: 'Tomi -Pekka Tuomainen',
+        },
+      },
+      {
+        title: 'Post-doctoral Researcher',
+        description: "Mounir Ould Setti MD, MPH, PhD",
+        image: {
+        //   src: 'https://lh3.googleusercontent.com/d/1evXugzkrWDuN4GuFYBNOQW5gTsFplBzV',
+          src: 'https://media.licdn.com/dms/image/v2/C5603AQEw4fAAypSsXw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1517403791816?e=2147483647&v=beta&t=DzjBbpbxHhScgBUHte5n6kdRBzWOmKN5STrPX7Ey7Yc',
+          alt: 'Mounir Ould Setti',
+        },
+      },
+      {
+        title: 'Doctoral (PhD) Candidates',
+        description: "Professor Idowu Senbanjo MBChB, MSc, PGD (Boston), FWACP, Cert Paediatric Gastroenterology (South Africa), Consultant/Specialist in Paediatric Gastroenterologist/Nutritionist, PhD candidate",
+        image: {
+          src: 'https://lh3.googleusercontent.com/d/17qT00MXCqGWof1-czffF3xvKgE1z6MHK',
+        //   src: 'https://lasucom.edu.ng/wp-content/uploads/2021/08/Senbanjo-Idowu-Odunayo-01.jpeg',
+          alt: 'Idowu Senbanjo',
+        },
+      },
+      {
+        title: 'Doctoral (PhD) Candidates',
+        description: "Dr. Tolu Shogade MBChB, MWACP, FMCP, Consultant/Specialist in Internal Medicine, PhD candidate",
+        // image: {
+        // //   src: 'https://lh3.googleusercontent.com/d/1evXugzkrWDuN4GuFYBNOQW5gTsFplBzV',
+        //   src: 'https://d1ukaf53hjlapf.cloudfront.net/website_profile_photos/ab235fe8-f783-436e-a2dc-a557ebf3586e_2019080607064640.jpg',
+        //   alt: 'Tolu Shogade',
+        // },
+      },
+      {
+        title: 'Doctoral (PhD) Candidates',
+        description: "Samuel Barmi RN, MPH, PhD candidate",
+        image: {
+        //   src: 'https://lh3.googleusercontent.com/d/1evXugzkrWDuN4GuFYBNOQW5gTsFplBzV',
+          src: '',
+          alt: 'Samuel Barmi',
+        },
+      },
+      {
+        title: 'Doctoral (PhD) Candidates',
+        description: "Dr Benedict Michelle MD, MPH, PhD candidate",
+        image: {
+        //   src: 'https://lh3.googleusercontent.com/d/1evXugzkrWDuN4GuFYBNOQW5gTsFplBzV',
+          src: 'https://media.licdn.com/dms/image/C5603AQG7QSMBZs2jCQ/profile-displayphoto-shrink_200_200/0/1615938984911?e=2147483647&v=beta&t=zU3vo3MCH-j461YLp0hcw2GooljwY_HL7le-QIDPWoU',
+          alt: 'Benedict Michelle',
+        },
+      },
+      {
+        title: "Master's degree and MD candidate",
+        description: "Dr. Basil Apaokwueze MBBS, MPH candidate",
+        image: {
+        //   src: 'https://lh3.googleusercontent.com/d/1evXugzkrWDuN4GuFYBNOQW5gTsFplBzV',
+          src: '',
+          alt: 'Basil Apaokwueze',
+        },
+      },
+      {
+        title: "Master's degree and MD candidate",
+        description: "Ada Korhonen MD candidate",
+        image: {
+        //   src: 'https://lh3.googleusercontent.com/d/1evXugzkrWDuN4GuFYBNOQW5gTsFplBzV',
+          src: '',
+          alt: 'Ada Korhonen',
+        },
+      },
+      {
+        title: 'Alumni',
+        description: "Viivi Heijari Bachelors thesis in Biomedicine (Completed May 2024)",
+        image: {
+        //   src: 'https://lh3.googleusercontent.com/d/1evXugzkrWDuN4GuFYBNOQW5gTsFplBzV',
+          src: '',
+          alt: 'Viivi Heijari',
+        },
+      },
+    ]}
+  >
+    <!-- <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment> -->
+  </Features2>
+
+  <!-- Spacer ******************* -->
+
+  <Spacer />
+</Layout>
