@@ -13,15 +13,14 @@ const {
   content = await Astro.slots.render('content'),
   actions = await Astro.slots.render('actions'),
   image = await Astro.slots.render('image'),
+  imageText = await Astro.slots.render('imageText'),
 
   classes = {},
   id,
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
 
-const {
-    labelContainer: labelContainerClass = '',
-} = classes;
+const { labelContainer: labelContainerClass = '' } = classes;
 ---
 
 <section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
@@ -32,7 +31,7 @@ const {
   </div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
-    <div class={twMerge("py-12 md:py-20", labelContainerClass as string)}>
+    <div class={twMerge('py-12 md:py-20', labelContainerClass as string)}>
       <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
         {
           tagline && (
@@ -42,12 +41,14 @@ const {
             />
           )
         }
-        {tagline2 && (
-          <p
-            class="bg-gradient-to-r from-orange-600 to-yellow-500 text-transparent bg-clip-text italic text-base font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-            set:html={tagline2}
-          />
-        )}
+        {
+          tagline2 && (
+            <p
+              class="bg-gradient-to-r from-orange-600 to-yellow-500 text-transparent bg-clip-text italic text-base font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              set:html={tagline2}
+            />
+          )
+        }
         {
           title && (
             <h1
@@ -103,6 +104,11 @@ const {
                   height={576}
                   {...image}
                 />
+              )}
+              {imageText && (
+                <div class="text-center">
+                  <p>{imageText}</p>
+                </div>
               )}
             </div>
           )
