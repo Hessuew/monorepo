@@ -15,6 +15,7 @@ const metadata = {
   // ignoreTitleTemplate: true,
 };
 ---
+
 <Layout metadata={metadata}>
   <Hero
     tagline="Principal Investigator"
@@ -46,7 +47,10 @@ const metadata = {
   <Steps
     id="academic-excellence"
     title="He has a provenly exercised academic excellency in a global context"
-    classes={{ container: 'max-w-3xl lg:pb-0 lg:mb-0 md:pb-0 md:mb-0', items: { icon: 'border-0 text-primary', line: 'w-0' }  }}
+    classes={{
+      container: 'max-w-3xl lg:pb-0 lg:mb-0 md:pb-0 md:mb-0',
+      items: { icon: 'border-0 text-primary', line: 'w-0' },
+    }}
     items={[
       {
         title:
@@ -151,7 +155,7 @@ const metadata = {
             class="text-blue-700 hover:underline"
             ><b>press</b> conference</a
           >
-           at the ENDO 2024 congress in Boston, US. `
+           at the ENDO 2024 congress in Boston, US. `,
       },
       {
         title: 'European Association for the Study of Obesity',
@@ -174,12 +178,13 @@ const metadata = {
       },
       {
         title: 'Extensive press coverage',
-        description: 'His research has received extensive press coverage, with over 2,000 media mentions in 2022 and 2023 in outlets such as BBC, CNN, The Telegraph, Daily Mail, Mirror, BILD, Infobae, Yahoo Lifestyle, Yahoo Sport, US News & World report, DocCheck, MSN, WebMD, Medscape, The Conversation, Jerusalem Post, Helsingin Sanomat, etc.',
+        description:
+          'His research has received extensive press coverage, with over 2,000 media mentions in 2022 and 2023 in outlets such as BBC, CNN, The Telegraph, Daily Mail, Mirror, BILD, Infobae, Yahoo Lifestyle, Yahoo Sport, US News & World report, DocCheck, MSN, WebMD, Medscape, The Conversation, Jerusalem Post, Helsingin Sanomat, etc.',
       },
       {
-        
         title: 'Global reach',
-        description: 'Potential global audience of more than 4.5 billion. The equivalent advertising value of these news articles is more than 30 million US dollars.',
+        description:
+          'Potential global audience of more than 4.5 billion. The equivalent advertising value of these news articles is more than 30 million US dollars.',
       },
       {
         title: 'Collaborations',
@@ -223,8 +228,7 @@ const metadata = {
     items={[
       {
         title: 'Scientific Statement',
-        description:
-          `He co-authored an American Heart Association Scientific Statement on 
+        description: `He co-authored an American Heart Association Scientific Statement on 
           <a
             href="https://www.ahajournals.org/doi/epdf/10.1161/CIR.0000000000001234"
             target="_blank"
@@ -250,8 +254,7 @@ const metadata = {
       },
       {
         title: 'Honorary Research Fellow',
-        description:
-          `He is an Honorary Research Fellow at the 
+        description: `He is an Honorary Research Fellow at the 
           <a
             href="https://medicine.exeter.ac.uk/phss/research/childrenshealth/"
             target="_blank"
@@ -277,8 +280,7 @@ const metadata = {
     items={[
       {
         title: 'Editorial roles',
-        description:
-          `He was recently appointed an 
+        description: `He was recently appointed an 
           <a
             href="https://onlinelibrary.wiley.com/page/journal/1353921906009/homepage/editorialboard.html"
             target="_blank"
@@ -306,8 +308,7 @@ const metadata = {
       },
       {
         title: 'Fellowships',
-        description:
-          `He is an elected 
+        description: `He is an elected 
           <a
             href="https://www.escardio.org/The-ESC/Who-we-are/Fellowship"
             target="_blank"
@@ -348,12 +349,14 @@ const metadata = {
     items={[
       {
         title: 'Primary email',
-        description: '<a class="text-blue-700 hover:underline" href="mailto:andrew.agbaje@uef.fi">andrew.agbaje@uef.fi</a>',
+        description:
+          '<a class="text-blue-700 hover:underline" href="mailto:andrew.agbaje@uef.fi">andrew.agbaje@uef.fi</a>',
         icon: 'tabler:mail',
       },
       {
         title: 'Secondary email',
-        description: '<a class="text-blue-700 hover:underline" href="mailto:aa.agbaje@exeter.ac.uk">aa.agbaje@exeter.ac.uk</a>',
+        description:
+          '<a class="text-blue-700 hover:underline" href="mailto:aa.agbaje@exeter.ac.uk">aa.agbaje@exeter.ac.uk</a>',
         icon: 'tabler:mail',
       },
       {
@@ -364,9 +367,7 @@ const metadata = {
     ]}
   />
 
-
   <!-- Spacer ******************* -->
 
   <Spacer />
-
 </Layout>
