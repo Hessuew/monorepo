@@ -260,6 +260,26 @@ export interface Features extends Omit<Headline, 'classes'>, Widget {
   isAfterContent?: boolean;
 }
 
+export interface TestItem {
+  title?: string;
+  description?: string | { text: string; link?: boolean; subtitle?: boolean; classes?: Record<string, string> }[];
+  subtitle?: {text1: string, text2: string},
+  rows: Array[{text1: string, text2?: string}]
+  icon?: string;
+  classes?: Record<string, string>;
+}
+
+export interface Test extends Omit<Headline, 'classes'>, Widget {
+  items?: Array<TestItem>;
+  columns?: number;
+  defaultIcon?: string;
+  callToAction1?: CallToAction;
+  callToAction2?: CallToAction;
+  isReversed?: boolean;
+  isBeforeContent?: boolean;
+  isAfterContent?: boolean;
+}
+
 export interface Faqs extends Omit<Headline, 'classes'>, Widget {
   iconUp?: string;
   iconDown?: string;

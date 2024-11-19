@@ -1,0 +1,73 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import type { Test as Props } from '~/types';
+import { twMerge } from 'tailwind-merge';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
+  items = [],
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+---
+
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  containerClass={`max-w-7xl mx-auto px-2 xs:px-4 ${classes?.container ?? ''}`}
+  bg={bg}
+>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
+
+  <div
+    class={'gap-1 xs:gap-3 sm:gap-6 relative flex flex-row py-6 px-1 xs:px-4 sm:px-6 min-w-[300px] rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white dark:bg-slate-900 intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade'}
+  >
+    {
+      items &&
+        items.map(({ title, subtitle, rows, classes: itemClasses }) => (
+          <div class="w-full flex">
+            <div class="flex flex-col gap-2 md:gap-5">
+              <div class={twMerge('text-sm xs:text-base sm:text-xl font-bold')}>{title}</div>
+              <div class="flex-row flex -mt-2 h-6">
+                <p
+                  class={twMerge(
+                    'text-xs xs:text-sm sm:text-base w-8 xs:w-10 sm:w-12 text-muted',
+                    itemClasses?.subtitle
+                  )}
+                  set:html={subtitle?.text1}
+                />
+                <p class={twMerge('text-xs xs:text-sm sm:text-base w-1 text-muted')}>{subtitle ? '|' : ''}</p>
+                {subtitle && (
+                  <p
+                    class={twMerge('text-xs xs:text-sm sm:text-base text-muted pl-1 xs:pl-2', itemClasses?.subtitle)}
+                    set:html={subtitle?.text2}
+                  />
+                )}
+              </div>
+              {rows.map(({ text1, text2 }) => (
+                <div class="flex-row flex">
+                  <p
+                    class={twMerge('text-xs xs:text-sm sm:text-base w-8 xs:w-10 sm:w-12 text-muted')}
+                    set:html={text1}
+                  />
+                  {text2 && <p class={twMerge('text-xs xs:text-sm sm:text-base text-muted')}>|</p>}
+                  {text2 && (
+                    <p
+                      class={twMerge('text-xs xs:text-sm sm:text-base w-12 sm:w-[50px] text-muted pl-1.5 xs:pl-2')}
+                      set:html={text2}
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+    }
+  </div>
+</WidgetWrapper>
