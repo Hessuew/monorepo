@@ -9,6 +9,7 @@ import Features3 from '~/components/widgets/Features3.astro';
 import Content from '~/components/widgets/Content.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Note from '~/components/widgets/Note.astro';
+import Header from '~/components/widgets/Header.astro';
 
 const metadata = {
   title: 'Principal Investigator',
@@ -17,6 +18,28 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header
+      links={[
+        { text: 'Description', href: '#' },
+        { text: 'Academic', href: '#academic' },
+        { text: 'Affiliations', href: '#affiliations' },
+        { text: 'Resume', href: '#resume' },
+        { text: 'Porfolio', href: '#porfolio' },
+        { text: 'Blog', href: '#blog' },
+        { text: 'Github', href: 'https://github.com/onwidget' },
+      ]}
+      actions={[
+        {
+          text: 'Hire me',
+          href: '#',
+        },
+      ]}
+      isSticky
+      showToggleTheme
+    />
+  </Fragment>
+
   <Hero
     tagline="Principal Investigator"
     title="Prof. Andrew Agbaje"
@@ -40,13 +63,16 @@ const metadata = {
 
   <!-- Note ****************** -->
 
-  <Note />
+  <Note
+    text="Let's keep fighting for kids' health, because today's kids are tomorrow's adults"
+    author="Prof. Andrew Agbaje"
+  />
 
   <!-- Steps Widget ****************** -->
 
   <Steps
-    id="academic-excellence"
-    title="He has a provenly exercised academic excellency in a global context"
+    id="academic"
+    title="Academic excellency in a global context"
     classes={{
       container: 'max-w-3xl lg:pb-0 lg:mb-0 md:pb-0 md:mb-0',
       items: { icon: 'border-0 text-primary', line: 'w-0' },
@@ -337,6 +363,49 @@ const metadata = {
       alt: 'Andrew, Craig, Dimitri and Alan',
     }}
   />
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    id="affiliations"
+    title="Memberships in International Associations"
+    columns={3}
+    defaultIcon="tabler:building-community"
+    items={[
+      {
+        title: 'European Affiliations',
+        description: `
+            • European Society of Cardiology (ESC), France<br/>
+            • European Atherosclerosis Society (EAS), Sweden<br/>
+            • Association for Research into Arterial Structure and Physiology (Artery Society), UK<br/>
+            • European Association of Preventive Cardiology (EAPC), France<br/>
+            • European Association for the Study of Obesity (EASO), UK
+          `,
+      },
+      {
+        title: 'American & International',
+        description: `
+            • American Heart Association (AHA), Dallas, US<br/>
+            • American Physiology Society (APS), US<br/>
+            • American College of Sports Medicine (ACSM), Indianapolis, US<br/>
+            • North American Society for Pediatric Exercise Medicine (NASPEM), Canada/US<br/>
+            • International Epidemiology Association (IEA), US<br/>
+            • Endocrine Society, US
+          `,
+      },
+      {
+        title: 'Other Affiliations',
+        description: `
+            • International Society of Behavioral Nutrition and Physical Activity (ISBNPA), Sweden<br/>
+            • Finnish Epidemiology Society (FES), Finland<br/>
+            • Finnish Association for the Study of Obesity (FASO), Finland<br/>
+            • Tampere Society for Associate Professors, Finland
+          `,
+      },
+    ]}
+  />
+
+  <Spacer />
 
   <!-- Separator ******************* -->
 
