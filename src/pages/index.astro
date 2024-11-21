@@ -154,20 +154,9 @@ const metadata = {
     stats={[{ title: 'Global audience of our work', amount: '4,500,000,000+' }]}
   />
 
-  <!-- Image Widget ******************* -->
+  <!-- Hero Widget ******************* -->
 
-  <div class="relative m-auto max-w-5xl pt-10 intersect-once intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade">
-    <Image
-      class="mx-auto rounded-md w-full"
-      widths={[400, 768, 1024, 2040]}
-      sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-      loading="eager"
-      width={1024}
-      height={576}
-      src={'https://lh3.googleusercontent.com/d/1C7rG2AXVao5pioXhclyrhGvihGfCfZUN'}
-      alt={"An soldier praying intensively"}
-    />
-  </div>
+  <Hero image={{src: "https://lh3.googleusercontent.com/d/1C7rG2AXVao5pioXhclyrhGvihGfCfZUN", alt: ""}} />
 
   <!-- Spacer ******************* -->
 
@@ -177,16 +166,14 @@ const metadata = {
 
   <Stats
     classes={{ item: 'md:w-full' }}
-    stats={[
-      { title: 'your ultimate health companion', amount: 'urFIT-child', lowerCase: true },
-    ]}
+    stats={[{ title: 'your ultimate health companion', amount: 'urFIT-child', lowerCase: true }]}
   >
     <Fragment slot="title">
       Simplifying the health of children <br /> around the world:
     </Fragment>
   </Stats>
 
-      <!-- Simplify web design with Astrowind: <br /> your ultimate <span class="text-accent dark:text-white highlight"
+  <!-- Simplify web design with Astrowind: <br /> your ultimate <span class="text-accent dark:text-white highlight"
         >SaaS</span
   > companion<br /> -->
 

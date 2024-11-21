@@ -7,6 +7,14 @@
 ### What changed?
 <!-- What did you change? Write all the changes you made here -->
 
+## 📌 Additional Notes
+<!-- Add any other context about the PR here -->
+
+## 🔗 Related Issues
+<!-- Link related issues below using #issue-number -->
+🔄 Closes #
+- 
+
 ## 🔍 Type of Change
 <!-- Put an `x` in all the boxes that apply -->
 - [ ] 🐛 Bug fix (non-breaking change which fixes an issue)
@@ -24,7 +32,6 @@
 ### Code Quality
 - [ ] 👀 I have performed a self-review
 - [ ] 💬 I have added necessary comments
-<!-- - [ ] 📋 I have updated the documentation -->
 - [ ] ⚠️ No new warnings or errors are generated
 - [ ] ⚡ I have added/updated tests
 - [ ] 🔍 My changes generate no new warnings
@@ -37,16 +44,9 @@
 ## 🧪 Testing
 <!-- How has this been tested? -->
 - [ ] 👉 Manual testing
-- [ ] 🤖 Automated testing
-- [ ] 📱 Cross-browser testing
-- [ ] 📊 Performance testing
+<!-- - [ ] 🤖 Automated testing -->
+<!-- - [ ] 📱 Cross-browser testing -->
+<!-- - [ ] 📊 Performance testing -->
 
 ## 📸 Screenshots
 <!-- If applicable, add screenshots to help explain your changes -->
-
-## 🔗 Related Issues
-<!-- Link related issues below using #issue-number -->
-- 🔄 Closes #
-
-## 📌 Additional Notes
-<!-- Add any other context about the PR here -->

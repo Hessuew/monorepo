@@ -222,6 +222,7 @@ export interface Hero extends Omit<Headline, 'classes'>, Omit<Widget, 'isDark'> 
   content?: string;
   actions?: string | CallToAction[];
   image?: string | unknown;
+  imageText?: string;
 }
 
 export interface Team extends Omit<Headline, 'classes'>, Widget {
@@ -250,6 +251,26 @@ export interface Features extends Omit<Headline, 'classes'>, Widget {
   image?: string | unknown;
   video?: Video;
   items?: Array<Item>;
+  columns?: number;
+  defaultIcon?: string;
+  callToAction1?: CallToAction;
+  callToAction2?: CallToAction;
+  isReversed?: boolean;
+  isBeforeContent?: boolean;
+  isAfterContent?: boolean;
+}
+
+export interface TestItem {
+  title?: string;
+  description?: string | { text: string; link?: boolean; subtitle?: boolean; classes?: Record<string, string> }[];
+  subtitle?: {text1: string, text2: string},
+  rows: Array[{text1: string, text2?: string}]
+  icon?: string;
+  classes?: Record<string, string>;
+}
+
+export interface Test extends Omit<Headline, 'classes'>, Widget {
+  items?: Array<TestItem>;
   columns?: number;
   defaultIcon?: string;
   callToAction1?: CallToAction;

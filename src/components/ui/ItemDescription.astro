@@ -1,5 +1,5 @@
 ---
-import { twMerge } from "tailwind-merge";
+import { twMerge } from 'tailwind-merge';
 
 export interface Props {
   //   items?: Array<Item>;
@@ -18,7 +18,7 @@ export interface Props {
 
 const { classes = {}, description } = Astro.props as Props;
 
-const { description: descriptionClass = "" } = classes;
+const { description: descriptionClass = '' } = classes;
 ---
 
 {
@@ -26,7 +26,7 @@ const { description: descriptionClass = "" } = classes;
     ? description.map((item) =>
         item.link ? (
           <a
-            class={twMerge("text-blue-700 mt-2 hover:underline break-all", descriptionClass, classes?.description)}
+            class={twMerge('text-blue-700 mt-2 hover:underline break-all', descriptionClass, classes?.description)}
             set:html={item.text}
             href={item.text.toString()}
             target="_blank"
@@ -34,11 +34,11 @@ const { description: descriptionClass = "" } = classes;
         ) : (
           <p
             class={twMerge(
-              "text-muted mt-2",
+              'text-muted mt-2',
               descriptionClass,
               classes?.description,
               item.classes?.subtitle,
-              item.subtitle && "font-bold text-lg"
+              item.subtitle && 'font-bold text-lg'
               // item.subtitle && "text-dark dark:text-white font-semibold"
             )}
             set:html={item.text}
@@ -46,6 +46,6 @@ const { description: descriptionClass = "" } = classes;
         )
       )
     : description && (
-        <p class={twMerge("text-muted mt-2", descriptionClass, classes?.description)} set:html={description} />
+        <p class={twMerge('text-muted mt-2', descriptionClass, classes?.description)} set:html={description} />
       )
 }

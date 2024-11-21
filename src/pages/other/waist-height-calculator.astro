@@ -1,9 +1,12 @@
 ---
-
 import Layout from '~/layouts/PageLayout.astro';
 
 import Spacer from '~/components/widgets/Spacer.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import GradientText from '~/components/ui/GradientText.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import GraphGrid from '~/components/widgets/GraphGrid.astro';
+import Calculator from '~/components/ui/Calculator.astro';
 
 const metadata = {
   title: 'Affiliations',
@@ -12,12 +15,127 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Hero classes={{ labelContainer: 'pb-0 md:pb-0 lg:pb-0' }} tagline="Affiliations" title="urFIT-child Affiliations"
-   />
+  <!-- We will develop an online calculator and embed it here, I will give more details later. -->
 
-We will develop an online calculator and embed it here, I will give more details later.
+  <!-- Hero Widget ******************* -->
+
+  <Hero tagline="waist/height calculator" title="Calculate your waist/height ratio">
+    <Fragment slot="image">
+      <Calculator />
+    </Fragment>
+  </Hero>
+
+
+
+  <!-- Features2 Widget ************** -->
+
+  <GraphGrid
+    title="Reading the results"
+    columns={1}
+    items={[
+      {
+        title: 'Age',
+        rows: [
+          { text1: '5–17', text2: '' },
+          { text1: '18–50', text2: '' },
+          { text1: '51–', text2: '' },
+        ],
+      },
+      {
+        title: 'Normal ratio',
+        subtitle: { text1: 'Male', text2: 'Female' },
+        rows: [
+          { text1: '–0.52', text2: '–0.53' },
+          { text1: '–0.50', text2: '–0.51' },
+          { text1: '–0.48', text2: '–0.49' },
+        ],
+      },
+      {
+        title: 'Cut points',
+        subtitle: { text1: 'Male', text2: 'Female' },
+        rows: [
+          { text1: '0.53', text2: '0.54' },
+          { text1: '0.51', text2: '0.52' },
+          { text1: '0.49', text2: '0.50' },
+        ],
+      },
+      {
+        title: 'Higher ratio',
+        subtitle: { text1: 'Male', text2: 'Female' },
+        rows: [
+          { text1: '0.54–', text2: '0.55–' },
+          { text1: '0.52–', text2: '0.53–' },
+          { text1: '0.50–', text2: '0.51–' },
+        ],
+      },
+    ]}
+  />
+
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText tagline="description">
+    <Fragment slot="subtitle">
+      Waist circumference-to-height ratio had a very high agreement of 81 – 89% with DEXA-measured total body fat mass
+      and trunk fat mass, but a low agreement with muscle mass (24 – 39%). BMI had a moderate agreement with total fat
+      mass and trunk fat mass (65 – 72%) and muscle mass (52 – 58%). Since BMI had a moderate agreement with
+      DEXA-measured muscle mass, it is difficult to specify whether BMI measures excess fat or muscle mass. The optimal
+      waist circumference-to-height ratio cut points that predicted the 95th percentile of total fat mass in males was
+      0.53 and 0.54 in females. This cut point detected 8 out of 10 males and 7 out of 10 females who truly had excess
+      DEXA-measured fat. The cut point also identified 93 out of 100 males and 95 out of 100 females who truly do not
+      have excess fat A treasusubtitle='Waist circumference-to-height ratio had a very high agreement of 81 – 89% with
+      DEXA-measured total body fat mass and trunk fat mass, but a low agreement with muscle mass (24 – 39%). BMI had a
+      moderate agreement with total fat mass and trunk fat mass (65 – 72%) and muscle mass (52 – 58%). Since BMI had a
+      moderate agreement with DEXA-measured muscle mass, it is difficult to specify whether BMI measures excess fat or
+      muscle mass.
+      <GradientText class="font-bold">
+        The optimal waist circumference-to-height ratio cut points that predicted the 95th percentile of total fat mass
+        in males was 0.53 and 0.54 in females.
+      </GradientText>
+      This cut point detected 8 out of 10 males and 7 out of 10 females who truly had excess DEXA-measured fat. The cut point
+      also identified 93 out of 100 males and 95 out of 100 females who truly do not have excess fat.
+      <br />
+      <br />
+      “This study provides novel information that would be useful in updating future childhood obesity guidelines and policy
+      statements. The average waist circumference-to-height ratio in childhood, adolescence, and young adulthood is 0.45,
+      it does not vary with age and among individuals like BMI. Waist circumference-to-height ratio might be preferable to
+      BMI assessment in children and adolescent clinics as an inexpensive tool for detecting excess fat. Parents should not
+      be discouraged by the BMI or weight of their children but can inexpensively confirm whether the weight is due to increase
+      in excess fat by examining their kid’s waist circumference-to-height ratio.”
+
+      <GradientText class="font-bold"> says Andrew Agbaje </GradientText>
+    </Fragment>
+  </HeroText>
+
+  <!-- Hero Widget ******************* -->
+
+  <Hero image={{ src: 'https://lh3.googleusercontent.com/d/12WyKWrvPPuwwwbdSMVKBoB0mwkmO9Sv1', alt: '' }} />
 
   <!-- Spacer ******************* -->
 
   <Spacer />
 </Layout>
+
+<script>
+  function calculate() {
+    // Get the input values
+    const waist = (document.getElementById('waist') as HTMLInputElement)?.value;
+    const height = (document.getElementById('height') as HTMLInputElement)?.value;
+
+    // Parse the inputs as integers, default to 0 if empty
+    const waistValue = parseInt(waist) || 0;
+    const heightValue = parseInt(height) || 0;
+
+    // Calculate the result (waist / height) or 0 if any input is empty
+    const result = heightValue === 0 ? 0 : waistValue / heightValue;
+
+    // Set the result to the <p> element
+    const resultElement = document.getElementById('result');
+    if (resultElement) {
+      resultElement.textContent = result === 0 ? '0' : result.toFixed(2).toString();
+    }
+  }
+
+  // Attach the calculate function to the input event for both fields
+  document.getElementById('waist')?.addEventListener('input', calculate);
+  document.getElementById('height')?.addEventListener('input', calculate);
+</script>

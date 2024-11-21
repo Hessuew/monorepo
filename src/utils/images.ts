@@ -71,7 +71,7 @@ export const adaptOpenGraphImages = async (
           };
         }
 
-        let _image;
+        let _image: object;
 
         if (
           typeof resolvedImage === 'string' &&
@@ -89,7 +89,7 @@ export const adaptOpenGraphImages = async (
           )[0];
         }
 
-        if (typeof _image === 'object') {
+        if (typeof _image! === 'object') {
           return {
             url: 'src' in _image && typeof _image.src === 'string' ? String(new URL(_image.src, astroSite)) : '',
             width: 'width' in _image && typeof _image.width === 'number' ? _image.width : undefined,

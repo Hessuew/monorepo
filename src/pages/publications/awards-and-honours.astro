@@ -1,39 +1,69 @@
 ---
-
 import Layout from '~/layouts/PageLayout.astro';
 
 import Spacer from '~/components/widgets/Spacer.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import GradientText from '~/components/ui/GradientText.astro';
 
 const metadata = {
-  title: 'Affiliations',
+  title: 'Awards and Honours',
   // ignoreTitleTemplate: true,
 };
 ---
 
 <Layout metadata={metadata}>
-  <Hero classes={{ labelContainer: 'pb-0 md:pb-0 lg:pb-0' }} tagline="Affiliations" title="urFIT-child Affiliations"
-   />
+  <Hero
+    classes={{ labelContainer: 'pb-0 md:pb-0 lg:pb-0' }}
+    tagline="Awards and honours"
+    title="urFIT-child Affiliations"
+  >
+    <Fragment slot="title">
+      <!-- Simplify web design with Astrowind: <br /> your ultimate <span class="text-accent dark:text-white highlight"
+        >SaaS</span
+      > companion<br /> -->
+      Teaching <GradientText>wisdom</GradientText>to their teachers and <GradientText>understading </GradientText> to the
+      ancients
+    </Fragment>
 
-1. EASO-Novo Nordisk Foundation New Investigator Award in Childhood Obesity 2024. The prestigious award prize is 300,000 Danish Kroner (40,000 euro)
-2. Top Reviewer Award by European Society of Cardiology at ESC 2024, London UK.
-3. Endocrine Society Outstanding Abstract Award at ENDO 2024, Boston, US
-4. Career Development Lecture at Artery Society 2024 Meeting, Cardiff, UK
-5. Docent in Clinical Epidemiology and Child Health, Faculty of Health Sciences, University of Eastern Finland, March 2024.
-6. Fellow of the American Heart Association (FAHA) 2024. The FAHA title is an honorific designation that recognizes scientific and professional accomplishments and contributions, volunteer leadership and service supporting the overall AHA mission: To be a relentless force for a world of longer, healthier lives.
-7. Fellow of the European Society of Cardiology (FESC) 2023. The FESC title honours individuals who have distinguished themselves in the cardiovascular field. A unique and prestigious title, recognising excellence and lifetime achievement.
-8. Elizabeth Barrett-Connor Research Award 2023 for Early Career Investigators of the American Heart Association’s Council on Epidemiology and Prevention
-9. Paul Dudley White International Scholar 2023 Award of the American Heart Association
-10. Best Poster Prize Award 2023 in Post-Doctoral Research by Novo Nordisk Foundation Scientific Conference on Prevention of Childhood Obesity
-11. Reviewer of the Year Award 2022/2023 of the European Journal of Preventive Cardiology / Oxford University Press
-12. Communicator of the Year Award 2022 of the University of Eastern Finland
-13. Reviewer of the Year Award 2021/2022 of the European Journal of Preventive Cardiology
-14. Young Investigator Fellowship Award 2022 of the European Atherosclerosis Society
-15. Paul Dudley White International Scholar 2022 Award of the American Heart Association
-16. Jeremiah and Rose Stamler Research 2022 Award for New Investigators at the Epi Lifestyle Annual Scientific Sessions of the American Heart Association
-17. Paul Dudley White International Scholar 2021 Award of the American Heart Association
-18. Jeremiah and Rose Stamler Research 2021 Award for New Investigators at the Epi Lifestyle Annual Scientific Sessions of the American Heart Association
-19. Distinction (1000/1000 points) in Clinical Research 2020, Harvard University, Boston, US
+    <Fragment slot="subtitle">
+      <GradientText class="font-bold">O how love I thy law!</GradientText> it is my meditation all the day. Thou through
+      thy commandments hast made me wiser than mine enemies: for they are ever with me.
+      <GradientText class="font-bold">I have more understanding than all my teachers:</GradientText>
+      for thy testimonies are my meditation.
+      <GradientText class="font-bold">I understand more than the ancients</GradientText>, because I keep thy precepts. Psalm 119:97–100
+
+      <br />
+      The research group urFIT-child and the principal investigator, Andrew Agbaje, have achieved the recognition of
+      many broad bodies, professionals, and global media channels.
+
+      <br />
+      And in all matters of wisdom and understanding, that the king enquired of them, he found them
+      <GradientText class="font-bold">ten times better</GradientText>
+      than all the magicians and astrologers that were in all his realm. Daniel 1:20 KJV
+    </Fragment>
+  </Hero>
+
+  1. EASO-Novo Nordisk Foundation New Investigator Award in Childhood Obesity 2024. The prestigious award prize is
+  300,000 Danish Kroner (40,000 euro) 2. Top Reviewer Award by European Society of Cardiology at ESC 2024, London UK. 3.
+  Endocrine Society Outstanding Abstract Award at ENDO 2024, Boston, US 4. Career Development Lecture at Artery Society
+  2024 Meeting, Cardiff, UK 5. Docent in Clinical Epidemiology and Child Health, Faculty of Health Sciences, University
+  of Eastern Finland, March 2024. 6. Fellow of the American Heart Association (FAHA) 2024. The FAHA title is an
+  honorific designation that recognizes scientific and professional accomplishments and contributions, volunteer
+  leadership and service supporting the overall AHA mission: To be a relentless force for a world of longer, healthier
+  lives. 7. Fellow of the European Society of Cardiology (FESC) 2023. The FESC title honours individuals who have
+  distinguished themselves in the cardiovascular field. A unique and prestigious title, recognising excellence and
+  lifetime achievement. 8. Elizabeth Barrett-Connor Research Award 2023 for Early Career Investigators of the American
+  Heart Association’s Council on Epidemiology and Prevention 9. Paul Dudley White International Scholar 2023 Award of
+  the American Heart Association 10. Best Poster Prize Award 2023 in Post-Doctoral Research by Novo Nordisk Foundation
+  Scientific Conference on Prevention of Childhood Obesity 11. Reviewer of the Year Award 2022/2023 of the European
+  Journal of Preventive Cardiology / Oxford University Press 12. Communicator of the Year Award 2022 of the University
+  of Eastern Finland 13. Reviewer of the Year Award 2021/2022 of the European Journal of Preventive Cardiology 14. Young
+  Investigator Fellowship Award 2022 of the European Atherosclerosis Society 15. Paul Dudley White International Scholar
+  2022 Award of the American Heart Association 16. Jeremiah and Rose Stamler Research 2022 Award for New Investigators
+  at the Epi Lifestyle Annual Scientific Sessions of the American Heart Association 17. Paul Dudley White International
+  Scholar 2021 Award of the American Heart Association 18. Jeremiah and Rose Stamler Research 2021 Award for New
+  Investigators at the Epi Lifestyle Annual Scientific Sessions of the American Heart Association 19. Distinction
+  (1000/1000 points) in Clinical Research 2020, Harvard University, Boston, US
 
   <!-- Spacer ******************* -->
 

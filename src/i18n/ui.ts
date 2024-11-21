@@ -1,13 +1,11 @@
 export const languages = {
-  en: "EN",
-  fi: "FI",
+  en: 'EN',
+  fi: 'FI',
 };
 
-export const defaultLang = "en";
+export const defaultLang = 'en';
 
 export const ui = {
-  en: {
-  },
-  fi: {
-  },
+  en: {},
+  fi: {},
 } as const;
