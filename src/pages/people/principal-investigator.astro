@@ -10,6 +10,7 @@ import Content from '~/components/widgets/Content.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Note from '~/components/widgets/Note.astro';
 import Header from '~/components/widgets/Header.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
 
 const metadata = {
   title: 'Principal Investigator',
@@ -23,6 +24,7 @@ const metadata = {
       links={[
         { text: 'Description', href: '#' },
         { text: 'Academic', href: '#academic' },
+        { text: 'Editorial', href: '#editorial' },
         { text: 'Affiliations', href: '#affiliations' },
         { text: 'Resume', href: '#resume' },
         { text: 'Porfolio', href: '#porfolio' },
@@ -67,6 +69,10 @@ const metadata = {
     text="Let's keep fighting for kids' health, because today's kids are tomorrow's adults"
     author="Prof. Andrew Agbaje"
   />
+
+  <!-- Spacer ******************* -->
+
+  <Spacer />
 
   <!-- Steps Widget ****************** -->
 
@@ -364,6 +370,160 @@ const metadata = {
     }}
   />
 
+  <!-- Pricing Widget ******************* -->
+
+  <Pricing
+    id="editorial"
+    title="Editor / Reviewer"
+    subtitle="Editorial and board member positions"
+    prices={[
+      {
+        title: 'Editorial Board',
+        subtitle: 'Arteriosclerosis Thrombosis and Vascular Biology',
+        price: '7.4',
+        period: 'Impact Factor',
+        items: [
+          {
+            description: 'Leading cardiovascular journal',
+          },
+          {
+            description: 'Editorial Board member',
+          },
+          {
+            description: 'Focus on vascular biology',
+          },
+        ],
+        hasRibbon: true,
+        ribbonTitle: 'SILVER',
+        medalColor: 'silver',
+        position: 'second',
+      },
+      {
+        title: 'Associate Editor',
+        subtitle: 'Journal of Cachexia, Sarcopenia, and Muscle',
+        price: '9.4',
+        period: 'Impact Factor',
+        items: [
+          {
+            description: 'High-impact medical journal',
+          },
+          {
+            description: 'Associate Editor role',
+          },
+          {
+            description: 'Focus on muscle and metabolism research',
+          },
+        ],
+        hasRibbon: true,
+        ribbonTitle: 'GOLD',
+        medalColor: 'gold',
+        position: 'first',
+
+      },
+      {
+        title: 'Editorial Board',
+        subtitle: 'Paediatric Exercise Science',
+        price: '2.8',
+        period: 'Impact Factor',
+        items: [
+          {
+            description: 'Editorial Board Member',
+          },
+          {
+            description: 'Statistics and Grants Reviewer',
+          },
+          {
+            description: 'Focus on youth exercise research',
+          },
+        ],
+        hasRibbon: true,
+        ribbonTitle: 'BRONZE',
+        medalColor: 'bronze',
+        position: 'third',
+      },
+    ]}
+  />
+
+  <!-- Features3 Widget ******************* -->
+
+
+    <!-- title="Reviewer Positions" -->
+  <Features3
+    subtitle="Regular reviewer for leading journals in cardiovascular medicine, pediatrics, and exercise science"
+    columns={3}
+    defaultIcon="tabler:building-community"
+    classes={{ container: 'lg:pt-0 md:pt-0' }}
+    items={[
+      {
+        title: 'High Impact Journals',
+        description: `
+            • European Heart Journal (IF: 35.8)<br/>
+            • Journal of the American College of Cardiology (IF: 27.2)<br/>
+            • Annals of Internal Medicine (IF: 25.4)<br/>
+            • Diabetes Care (IF: 20.7)<br/>
+            • Circulation Research (IF: 17.4)
+          `,
+        icon: 'tabler:star',
+      },
+      {
+        title: 'Cardiovascular Research',
+        description: `
+            • Arteriosclerosis, Thrombosis, and Vascular Biology<br/>
+            • Hypertension<br/>
+            • European Journal of Preventive Cardiology<br/>
+            • Atherosclerosis<br/>
+            • Journal of Hypertension<br/>
+            • Vascular Medicine
+          `,
+        icon: 'tabler:heart',
+      },
+      {
+        title: 'Pediatrics & Exercise Science',
+        description: `
+            • Pediatrics<br/>
+            • Sports Medicine<br/>
+            • Medicine & Science in Sports & Exercise<br/>
+            • International Journal of Obesity<br/>
+            • Archives of Disease in Childhood<br/>
+            • Pediatric Exercise Science
+          `,
+        icon: 'tabler:run',
+      },
+      {
+        title: 'Endocrinology & Metabolism',
+        description: `
+            • The Journal of Clinical Endocrinology & Metabolism<br/>
+            • Metabolism: Clinical and Experimental<br/>
+            • Journal of the Endocrine Society<br/>
+            • Obesity Reviews<br/>
+            • Journal of Cachexia, Sarcopenia, and Muscle
+          `,
+        icon: 'tabler:dna',
+      },
+      {
+        title: 'Grant Review',
+        description: `
+            • Netherlands Organisation for Scientific Research (NWO/ZonMw)<br/>
+            • National Institute for Health and Care Research, UK<br/>
+            • International Research Grant Reviewer
+          `,
+        icon: 'tabler:coin',
+      },
+      {
+        title: 'Additional Journals',
+        description: `
+            • BMC Medicine<br/>
+            • BMJ Open<br/>
+            • Frontiers in Pediatrics<br/>
+            • Journal of Adolescent Health<br/>
+            • Clinical Epidemiology<br/>
+            • Annals of Medicine
+          `,
+        icon: 'tabler:books',
+      },
+    ]}
+  />
+
   <!-- Features3 Widget ************** -->
 
   <Features3
@@ -404,8 +564,6 @@ const metadata = {
       },
     ]}
   />
-
-  <Spacer />
 
   <!-- Separator ******************* -->
 
