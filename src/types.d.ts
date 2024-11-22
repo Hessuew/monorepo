@@ -156,6 +156,10 @@ export interface Price {
   callToAction?: CallToAction;
   hasRibbon?: boolean;
   ribbonTitle?: string;
+  medalColor?: 'gold' | 'silver' | 'bronze';
+  position?: 'first' | 'second' | 'third';
+  logo?: string | ImageMetadata;  // Path to the organization's logo
+  classes?: Record<string, string>;
 }
 
 export interface Testimonial {
@@ -264,8 +268,8 @@ export interface TestItem {
   title?: string;
   description?: string | { text: string; link?: boolean; subtitle?: boolean; classes?: Record<string, string> }[];
   subtitle?: {text1: string, text2: string},
-  rows: Array[{text1: string, text2?: string}]
-  icon?: string;
+  rows: Array<{text1: string, text2?: string}>
+ icon?: string;
   classes?: Record<string, string>;
 }
 

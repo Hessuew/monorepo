@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { twMerge } from 'tailwind-merge';
 import Button from '~/components/ui/Button.astro';
 import Headline from '~/components/ui/Headline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
@@ -10,12 +11,23 @@ const {
   subtitle = '',
   tagline = '',
   prices = [],
-
   id,
   isDark = false,
   classes = {},
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
+
+const medalColors = {
+  gold: 'from-yellow-300 to-yellow-500 border-t-yellow-600 border-l-yellow-600 border-r-yellow-600',
+  silver: 'from-gray-300 to-gray-500 border-t-gray-600 border-l-gray-600 border-r-gray-600',
+  bronze: 'from-orange-300 to-orange-700 border-t-orange-800 border-l-orange-800 border-r-orange-800'
+};
+
+const podiumPositions = {
+  first: 'transform scale-100 z-20 translate-y-6 pb-12',
+  second: 'transform scale-95 z-10',
+  third: 'transform scale-90 z-0 -translate-y-4'
+};
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
@@ -24,28 +36,38 @@ const {
     <div class="grid grid-cols-3 gap-4 dark:text-white sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
       {
         prices &&
-          prices.map(({ title, subtitle, price, period, items, callToAction, hasRibbon = false, ribbonTitle }) => (
-            <div class="col-span-3 mx-auto flex w-full sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1 intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter">
+          prices.map(({ title, subtitle, price, period, items, callToAction, hasRibbon = false, ribbonTitle, medalColor, position, logo }) => (
+            <div class={`col-span-3 mx-auto flex w-full sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1 ${position && podiumPositions[position]}`}>
+            {/* <div class={`col-span-3 mx-auto flex w-full sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1 ${position && podiumPositions[position]} transition-transform duration-300 ease-in-out intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter`}> */}
               {price && period && (
-                <div class="rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow px-6 py-8 flex w-full max-w-sm flex-col justify-between text-center">
-                  {hasRibbon && ribbonTitle && (
+                <div class="rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow-lg hover:shadow-xl transition-shadow duration-300 px-6 py-8 flex w-full max-w-sm flex-col justify-between text-center">
+                  {hasRibbon && medalColor && (
                     <div class="absolute right-[-5px] 2xl:right-[-8px] rtl:right-auto rtl:left-[-8px] rtl:2xl:left-[-10px] top-[-5px] 2xl:top-[-10px] z-[1] h-[100px] w-[100px] overflow-hidden text-right">
-                      <span class="absolute top-[19px] right-[-21px] rtl:right-auto rtl:left-[-21px] block w-full rotate-45 rtl:-rotate-45 bg-green-700 text-center text-[10px] font-bold uppercase leading-5 text-white shadow-[0_3px_10px_-5px_rgba(0,0,0,0.3)] before:absolute before:left-0 before:top-full before:z-[-1] before:border-[3px] before:border-r-transparent before:border-b-transparent before:border-l-green-800 before:border-t-green-800 before:content-[''] after:absolute after:right-0 after:top-full after:z-[-1] after:border-[3px] after:border-l-transparent after:border-b-transparent after:border-r-green-800 after:border-t-green-800 after:content-['']">
+                      <span class={`absolute top-[19px] right-[-21px] rtl:right-auto rtl:left-[-21px] block w-full rotate-45 rtl:-rotate-45 bg-gradient-to-b ${medalColors[medalColor]} text-center text-[10px] font-bold uppercase leading-5 text-white shadow-[0_3px_10px_-5px_rgba(0,0,0,0.3)]`}>
                         {ribbonTitle}
                       </span>
                     </div>
                   )}
                   <div class="px-2 py-0">
                     {title && (
-                      <h3 class="text-center text-xl font-semibold uppercase leading-6 tracking-wider mb-2">{title}</h3>
+                      <h3 class="text-center text-xl font-semibold uppercase leading-6 tracking-wider mb-2 text-gray-900 dark:text-white">{title}</h3>
                     )}
-                    {subtitle && <p class="font-light sm:text-lg text-gray-600 dark:text-slate-400">{subtitle}</p>}
+                    {subtitle && <p class={twMerge("font-light sm:text-lg text-gray-800 dark:text-slate-400", subtitle.length < 30 && "pb-7")}>{subtitle}</p>}
                     <div class="my-8">
-                      <div class="flex items-center justify-center text-center mb-1">
-                        <span class="text-5xl">$</span>
-                        <span class="text-6xl font-extrabold">{price}</span>
-                      </div>
-                      <span class="text-base leading-6 lowercase text-gray-600 dark:text-slate-400">{period}</span>
+                      {price && logo ? (
+                        <div class="flex items-center justify-center mb-4 p-4 rounded-lg bg-white dark:bg-slate-800">
+                          <img 
+                            src={typeof logo === 'string' ? logo : logo.src} 
+                            alt={`${title} logo`} 
+                            class="h-16 object-contain"
+                          />
+                        </div>
+                      ) : price && (
+                        <div class="flex items-center justify-center text-center mb-1">
+                          <span class="text-6xl font-extrabold text-gray-900 dark:text-white">{price}</span>
+                        </div>
+                      )}
+                      {period && <span class="text-base leading-6 lowercase text-gray-800 dark:text-slate-400">{period}</span>}
                     </div>
                     {items && (
                       <ul class="my-8 md:my-10 space-y-2 text-left">
@@ -56,7 +78,7 @@ const {
                                 <div class="rounded-full bg-primary mt-1">
                                   <Icon name={icon ? icon : 'tabler:check'} class="w-5 h-5 font-bold p-1 text-white" />
                                 </div>
-                                <span>{description}</span>
+                                <span class="text-gray-900 dark:text-white">{description}</span>
                               </li>
                             )
                         )}
