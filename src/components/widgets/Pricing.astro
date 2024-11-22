@@ -10,7 +10,7 @@ const {
   title = '',
   subtitle = '',
   tagline = '',
-  prices = [],
+  impactFactors = [],
   id,
   isDark = false,
   classes = {},
@@ -23,11 +23,14 @@ const medalColors = {
   bronze: 'from-orange-300 to-orange-700 border-t-orange-800 border-l-orange-800 border-r-orange-800'
 };
 
-const podiumPositions = {
-  first: 'transform scale-100 z-20 translate-y-6 pb-12',
-  second: 'transform scale-95 z-10',
-  third: 'transform scale-90 z-0 -translate-y-4'
-};
+ const podiumPositions = {
+// Primary card: full size, elevated position
+   first: 'transform scale-100 z-20 translate-y-6 pb-12',
+// Secondary card: slightly reduced size
+   second: 'transform scale-95 z-10',
+// Tertiary card: further reduced size, lowered position
+   third: 'transform scale-90 z-0 -translate-y-4'
+ };
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
@@ -35,11 +38,10 @@ const podiumPositions = {
   <div class="flex items-stretch justify-center">
     <div class="grid grid-cols-3 gap-4 dark:text-white sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
       {
-        prices &&
-          prices.map(({ title, subtitle, price, period, items, callToAction, hasRibbon = false, ribbonTitle, medalColor, position, logo }) => (
+         impactFactors &&
+          impactFactors.map(({ title, subtitle, impactFactor, impactLabel, items, callToAction, hasRibbon = false, ribbonTitle, medalColor, position, }) => (
             <div class={`col-span-3 mx-auto flex w-full sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1 ${position && podiumPositions[position]}`}>
-            {/* <div class={`col-span-3 mx-auto flex w-full sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1 ${position && podiumPositions[position]} transition-transform duration-300 ease-in-out intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter`}> */}
-              {price && period && (
+              {impactFactor && impactLabel && (
                 <div class="rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow-lg hover:shadow-xl transition-shadow duration-300 px-6 py-8 flex w-full max-w-sm flex-col justify-between text-center">
                   {hasRibbon && medalColor && (
                     <div class="absolute right-[-5px] 2xl:right-[-8px] rtl:right-auto rtl:left-[-8px] rtl:2xl:left-[-10px] top-[-5px] 2xl:top-[-10px] z-[1] h-[100px] w-[100px] overflow-hidden text-right">
@@ -54,20 +56,12 @@ const podiumPositions = {
                     )}
                     {subtitle && <p class={twMerge("font-light sm:text-lg text-gray-800 dark:text-slate-400", subtitle.length < 30 && "pb-7")}>{subtitle}</p>}
                     <div class="my-8">
-                      {price && logo ? (
-                        <div class="flex items-center justify-center mb-4 p-4 rounded-lg bg-white dark:bg-slate-800">
-                          <img 
-                            src={typeof logo === 'string' ? logo : logo.src} 
-                            alt={`${title} logo`} 
-                            class="h-16 object-contain"
-                          />
-                        </div>
-                      ) : price && (
+                      { impactFactor && (
                         <div class="flex items-center justify-center text-center mb-1">
-                          <span class="text-6xl font-extrabold text-gray-900 dark:text-white">{price}</span>
+                          <span class="text-6xl font-extrabold text-gray-900 dark:text-white">{impactFactor}</span>
                         </div>
                       )}
-                      {period && <span class="text-base leading-6 lowercase text-gray-800 dark:text-slate-400">{period}</span>}
+                      {impactLabel && <span class="text-base leading-6 lowercase text-gray-800 dark:text-slate-400">{impactLabel}</span>}
                     </div>
                     {items && (
                       <ul class="my-8 md:my-10 space-y-2 text-left">

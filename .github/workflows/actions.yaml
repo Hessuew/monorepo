@@ -13,29 +13,25 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version:
-          - 18
-          - 20
-          - 22
+        bun-version:
+          - latest
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js v${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+      - name: Use Bun ${{ matrix.bun-version }}
+        uses: oven-sh/setup-bun@v1
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: npm
-      - run: npm ci
-      - run: npm run build
-      # - run: npm test
+          bun-version: ${{ matrix.bun-version }}
+      - run: bun install
+      - run: bun run build
+      # - run: bun test
 
   check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js 22
-        uses: actions/setup-node@v4
+      - name: Use Bun
+        uses: oven-sh/setup-bun@v1
         with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm run check
+          bun-version: latest
+      - run: bun install
+      - run: bun run check
