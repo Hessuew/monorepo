@@ -3,23 +3,116 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Spacer from '~/components/widgets/Spacer.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
 
 const metadata = {
-  title: 'Affiliations',
-  // ignoreTitleTemplate: true,
+  title: 'Theses',
 };
 ---
-
 <Layout metadata={metadata}>
-  <Hero classes={{ labelContainer: 'pb-0 md:pb-0 lg:pb-0' }} tagline="Affiliations" title="urFIT-child Affiliations" />
 
-  Andrew Agbaje PhD thesis The Effect of Cardiometabolic Factors, Body Composition, Cardiorespiratory Fitness, Sedentary
-  Time, and Physical Activity on Arterial and Cardiac Structure and Function in Children and Adolescents and Young
-  Adults. University of Portsmouth, UK. Published 8 Mar 2024. Download thesis
-  https://pure.port.ac.uk/ws/portalfiles/portal/84067319/Agbaje_PhD_commentary_The_effect_of_cardiometabolic_factors_body_composition_cardiorespiratory_fitness_sedentary_time_and.pdf
-  Sansum M. Kate Master’s thesis Associations between physical activity and sedentary time with endothelial function,
-  arterial stiffness, arterial elasticity, and clustered cardiometabolic risk in children: The ALSPAC Study. University
-  of Exeter, Exeter, UK. June 22, 2022. http://hdl.handle.net/10871/130013
+  <Hero 
+    classes={{ labelContainer: 'pb-0 md:pb-0 lg:pb-0' }} 
+    tagline="Theses" 
+    title="Doctoral & Master's Theses"
+    subtitle="Advancing scientific knowledge through rigorous academic research and scholarly contributions"
+  />
+
+  <!-- Content Widget ****************** -->
+
+  <Content
+    id="thesis-1"
+    isReversed={false}
+    image={{
+      src: 'https://lh3.googleusercontent.com/d/1qjL9RdO6hOn_VgpwZ_oTFYvXYwI4y7kL',
+      alt: 'Andrew Agbaje',
+    }}
+    items={[
+      {
+        title: 'PhD Thesis',
+        description: `Comprehensive analysis of cardiometabolic factors' impact on cardiovascular health in young populations`,
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Research Impact',
+        description: `Contributing to the understanding of cardiovascular health determinants in youth through innovative methodologies`,
+        icon: 'tabler:chart-dots',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <div class="space-y-8">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+          <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-2xl mb-2">Doctoral Thesis</h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            The Effect of Cardiometabolic Factors, Body Composition, Cardiorespiratory Fitness, Sedentary Time, and Physical
+            Activity on Arterial and Cardiac Structure and Function in Children and Adolescents and Young Adults
+          </p>
+          <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-4">
+            <span class="mr-2"><i class="fas fa-university"></i> University of Portsmouth, UK</span>
+            <span class="mx-2">•</span>
+            <span>Published: March 8, 2024</span>
+          </div>
+          <a
+            href="https://pure.port.ac.uk/ws/portalfiles/portal/84067319/Agbaje_PhD_commentary_The_effect_of_cardiometabolic_factors_body_composition_cardiorespiratory_fitness_sedentary_time_and.pdf"
+            class="inline-flex items-center text-blue-600 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download Thesis <i class="ml-2 fas fa-download"></i>
+          </a>
+        </div>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget ****************** -->
+
+  <Content
+    id="thesis-2"
+    isReversed={true}
+    image={{
+      src: 'https://lh3.googleusercontent.com/d/1ZaeaMw-nT3WMksFo-Qm0LYhLczGBZyAp',
+      alt: 'Sansum M. Kate',
+    }}
+    items={[
+      {
+        title: "Master's Thesis",
+        description: `Investigation of physical activity effects on cardiovascular markers in children`,
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'Key Findings',
+        description: `Exploring the relationship between physical activity patterns and cardiovascular health indicators in youth`,
+        icon: 'tabler:bulb',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <div class="space-y-8">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+          <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-2xl mb-2">Master's Thesis</h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            Associations between physical activity and sedentary time with endothelial function, arterial stiffness,
+            arterial elasticity, and clustered cardiometabolic risk in children: The ALSPAC Study
+          </p>
+          <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-4">
+            <span class="mr-2"><i class="fas fa-university"></i> University of Exeter, UK</span>
+            <span class="mx-2">•</span>
+            <span>Published: June 22, 2022</span>
+          </div>
+          <a
+            href="http://hdl.handle.net/10871/130013"
+            class="inline-flex items-center text-blue-600 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Access Thesis <i class="ml-2 fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+    </Fragment>
+  </Content>
 
   <!-- Spacer ******************* -->
 
