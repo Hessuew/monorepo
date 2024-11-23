@@ -25,7 +25,7 @@ const metadata = {
         { text: 'Description', href: '#' },
         { text: 'Academic', href: '#academic' },
         { text: 'Editorial', href: '#editorial' },
-        { text: 'Affiliations', href: '#affiliations' },
+        { text: 'Memberships', href: '#memberships' },
         { text: 'Resume', href: '#resume' },
         { text: 'Porfolio', href: '#porfolio' },
         { text: 'Blog', href: '#blog' },
@@ -78,7 +78,7 @@ const metadata = {
 
   <Steps
     id="academic"
-    title="Academic excellency in a global context"
+    title="Academic excellence in a global context"
     classes={{
       container: 'max-w-3xl lg:pb-0 lg:mb-0 md:pb-0 md:mb-0',
       items: { icon: 'border-0 text-primary', line: 'w-0' },
@@ -376,12 +376,12 @@ const metadata = {
     id="editorial"
     title="Editor / Reviewer"
     subtitle="Editorial and board member positions"
-    prices={[
+    impactFactors={[
       {
         title: 'Editorial Board',
         subtitle: 'Arteriosclerosis Thrombosis and Vascular Biology',
-        price: '7.4',
-        period: 'Impact Factor',
+        impactFactor: '7.4',
+        impactLabel: 'Impact Factor',
         items: [
           {
             description: 'Leading cardiovascular journal',
@@ -401,8 +401,8 @@ const metadata = {
       {
         title: 'Associate Editor',
         subtitle: 'Journal of Cachexia, Sarcopenia, and Muscle',
-        price: '9.4',
-        period: 'Impact Factor',
+        impactFactor: '9.4',
+        impactLabel: 'Impact Factor',
         items: [
           {
             description: 'High-impact medical journal',
@@ -423,8 +423,8 @@ const metadata = {
       {
         title: 'Editorial Board',
         subtitle: 'Paediatric Exercise Science',
-        price: '2.8',
-        period: 'Impact Factor',
+        impactFactor: '2.8',
+        impactLabel: 'Impact Factor',
         items: [
           {
             description: 'Editorial Board Member',
@@ -527,13 +527,13 @@ const metadata = {
   <!-- Features3 Widget ************** -->
 
   <Features3
-    id="affiliations"
+    id="memberships"
     title="Memberships in International Associations"
     columns={3}
     defaultIcon="tabler:building-community"
     items={[
       {
-        title: 'European Affiliations',
+        title: 'European Memberships',
         description: `
             • European Society of Cardiology (ESC), France<br/>
             • European Atherosclerosis Society (EAS), Sweden<br/>
@@ -546,7 +546,7 @@ const metadata = {
         title: 'American & International',
         description: `
             • American Heart Association (AHA), Dallas, US<br/>
-            • American Physiology Society (APS), US<br/>
+            • American Physiological Society (APS), US<br/>
             • American College of Sports Medicine (ACSM), Indianapolis, US<br/>
             • North American Society for Pediatric Exercise Medicine (NASPEM), Canada/US<br/>
             • International Epidemiology Association (IEA), US<br/>
@@ -554,7 +554,7 @@ const metadata = {
           `,
       },
       {
-        title: 'Other Affiliations',
+        title: 'Other Memberships',
         description: `
             • International Society of Behavioral Nutrition and Physical Activity (ISBNPA), Sweden<br/>
             • Finnish Epidemiology Society (FES), Finland<br/>
