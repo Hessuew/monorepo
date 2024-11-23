@@ -150,12 +150,15 @@ export interface Price {
   title?: string;
   subtitle?: string;
   description?: string;
-  price?: number | string;
-  period?: string;
+  impactFactor?: number | string;
+  impactLabel?: string;
   items?: Array<Item>;
   callToAction?: CallToAction;
   hasRibbon?: boolean;
   ribbonTitle?: string;
+  medalColor?: 'gold' | 'silver' | 'bronze';
+  position?: 'first' | 'second' | 'third';
+  classes?: Record<string, string>;
 }
 
 export interface Testimonial {
@@ -234,7 +237,7 @@ export interface Stats extends Omit<Headline, 'classes'>, Widget {
 }
 
 export interface Pricing extends Omit<Headline, 'classes'>, Widget {
-  prices?: Array<Price>;
+  impactFactors?: Array<Price>;
 }
 
 export interface Testimonials extends Omit<Headline, 'classes'>, Widget {
@@ -260,17 +263,17 @@ export interface Features extends Omit<Headline, 'classes'>, Widget {
   isAfterContent?: boolean;
 }
 
-export interface TestItem {
+export interface GraphItem {
   title?: string;
   description?: string | { text: string; link?: boolean; subtitle?: boolean; classes?: Record<string, string> }[];
-  subtitle?: {text1: string, text2: string},
-  rows: Array[{text1: string, text2?: string}]
+  subtitle?: { text1: string; text2: string };
+  rows: Array<{ text1: string; text2?: string }>;
   icon?: string;
   classes?: Record<string, string>;
 }
 
-export interface Test extends Omit<Headline, 'classes'>, Widget {
-  items?: Array<TestItem>;
+export interface GraphGrid extends Omit<Headline, 'classes'>, Widget {
+  items?: Array<GraphItem>;
   columns?: number;
   defaultIcon?: string;
   callToAction1?: CallToAction;
