@@ -5,7 +5,11 @@ interface Props {
   highlight?: boolean;
 }
 
-const { text = "Let's keep fighting for kids' health, because today's kids are tomorrow's adults", author, highlight = false } = Astro.props;
+const {
+  text = "Let's keep fighting for kids' health, because today's kids are tomorrow's adults",
+  author,
+  highlight = false,
+} = Astro.props;
 ---
 
 <div class="w-full py-16">
@@ -19,15 +23,15 @@ const { text = "Let's keep fighting for kids' health, because today's kids are t
     ]}
   >
     <blockquote class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
-       <span class="text-4xl text-blue-600/25 dark:text-blue-400/25 font-serif">"</span>
-       <p class="text-xl md:text-2xl font-serif italic mb-4 text-slate-700 dark:text-slate-300">
-         {text}
-       </p>
-       {author && (
-        <cite class="text-sm md:text-base font-medium text-slate-600 dark:text-slate-400 font-sans">
-           — {author}
-        </cite>
-       )}
+      <span class="text-4xl text-blue-600/25 dark:text-blue-400/25 font-serif">"</span>
+      <p class="text-xl md:text-2xl font-serif italic mb-4 text-slate-700 dark:text-slate-300">
+        {text}
+      </p>
+      {
+        author && (
+          <cite class="text-sm md:text-base font-medium text-slate-600 dark:text-slate-400 font-sans">— {author}</cite>
+        )
+      }
     </blockquote>
   </section>
 </div>
