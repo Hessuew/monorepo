@@ -20,27 +20,27 @@ export const headerData = {
       ],
     },
     {
-      text: 'Publications',
+      text: 'Materials',
       links: [
         {
           text: 'Publications',
-          href: getPermalink('/publications/publications'),
+          href: getPermalink('/materials/publications'),
         },
         {
           text: 'Awards and Honours',
-          href: getPermalink('/publications/awards-and-honours'),
+          href: getPermalink('/materials/awards-and-honours'),
         },
         {
           text: 'Videos and Podcasts',
-          href: getPermalink('/publications/videos-and-podcasts'),
+          href: getPermalink('/materials/videos-and-podcasts'),
         },
         {
           text: 'Thesis',
-          href: getPermalink('/publications/thesis'),
+          href: getPermalink('/materials/thesis'),
         },
         {
           text: 'Press Releases',
-          href: getPermalink('/publications/press-releases'),
+          href: getPermalink('/materials/press-releases'),
         },
       ],
     },
@@ -48,16 +48,8 @@ export const headerData = {
       text: 'Connections',
       links: [
         {
-          text: 'Affiliations',
-          href: getPermalink('/connections/affiliations'),
-        },
-        {
           text: 'Collaborators',
           href: getPermalink('/connections/collaborators'),
-        },
-        {
-          text: 'Memberships in International Associations',
-          href: getPermalink('/connections/memberships-in-international-associations'),
         },
       ],
     },

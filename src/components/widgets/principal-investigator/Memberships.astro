@@ -1,0 +1,46 @@
+---
+import Features3 from '../Features3.astro';
+---
+
+<Features3
+  id="memberships"
+  title="Memberships in International Associations"
+  columns={3}
+  defaultIcon="tabler:building-community"
+  items={[
+    {
+      title: 'European Memberships',
+      description: `
+            • European Society of Cardiology (ESC), France<br/>
+            • European Atherosclerosis Society (EAS), Sweden<br/>
+            • Association for Research into Arterial Structure and Physiology (Artery Society), UK<br/>
+            • European Association of Preventive Cardiology (EAPC), France<br/>
+            • European Association for the Study of Obesity (EASO), UK
+          `,
+    },
+    {
+      title: 'American & International',
+      description: `
+            • American Heart Association (AHA), Dallas, US<br/>
+            • American Physiological Society (APS), US<br/>
+            • American College of Sports Medicine (ACSM), Indianapolis, US<br/>
+            • North American Society for Pediatric Exercise Medicine (NASPEM), Canada/US<br/>
+            • International Epidemiology Association (IEA), US<br/>
+            • Endocrine Society, US
+          `,
+    },
+    {
+      title: 'Other Memberships',
+      description: `
+            • International Society of Behavioral Nutrition and Physical Activity (ISBNPA), Sweden<br/>
+            • Finnish Epidemiology Society (FES), Finland<br/>
+            • Finnish Association for the Study of Obesity (FASO), Finland<br/>
+            • Tampere Society for Associate Professors, Finland
+          `,
+    },
+  ]}
+>
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
+</Features3>
