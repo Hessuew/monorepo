@@ -24,17 +24,13 @@ const { impactFactor, impactLabel, items } = Astro.props;
 
 {
   items && (
-    <ul class="my-8 md:my-10 space-y-2 text-left" role="list" aria-label="Impact features">
+    <ul class="my-8 md:my-10 space-y-2 text-left" aria-label="Impact features">
       {items.map(
         ({ description, icon }) =>
           description && (
-            <li class="mb-1.5 flex items-start space-x-3 leading-7" role="listitem">
+            <li class="mb-1.5 flex items-start space-x-3 leading-7">
               <div class="rounded-full bg-primary mt-1">
-                <Icon
-                  name={icon ? icon : 'tabler:check'}
-                  class="w-5 h-5 font-bold p-1 text-white"
-                  aria-hidden="true"
-                />
+                <Icon name={icon ? icon : 'tabler:check'} class="w-5 h-5 font-bold p-1 text-white" aria-hidden="true" />
               </div>
               <span class="text-gray-900 dark:text-white">{description}</span>
             </li>

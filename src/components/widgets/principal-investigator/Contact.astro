@@ -1,0 +1,26 @@
+---
+import Features2 from '~/components/widgets/Features2.astro';
+---
+
+<Features2
+  title="Contact Information"
+  items={[
+    {
+      title: 'Primary email',
+      description:
+        '<a class="text-blue-700 hover:underline" href="mailto:andrew.agbaje@uef.fi">andrew.agbaje@uef.fi</a>',
+      icon: 'tabler:mail',
+    },
+    {
+      title: 'Secondary email',
+      description:
+        '<a class="text-blue-700 hover:underline" href="mailto:aa.agbaje@exeter.ac.uk">aa.agbaje@exeter.ac.uk</a>',
+      icon: 'tabler:mail',
+    },
+    {
+      title: 'Phone',
+      description: '<a class="text-blue-700 hover:underline" href="tel:+358468965633">+358 46 896 5633</a>',
+      icon: 'tabler:phone',
+    },
+  ]}
+/>

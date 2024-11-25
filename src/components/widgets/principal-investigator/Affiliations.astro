@@ -1,0 +1,129 @@
+---
+import Content from '../Content.astro';
+---
+
+<Content
+  id="affiliations"
+  tagline="Academic Affiliations"
+  title="International Research Networks"
+  subtitle="Transforming global health through research partnerships"
+  isReversed={true}
+  image={{
+    src: 'https://lh3.googleusercontent.com/d/1SAZqqZ9uuAvagEb-88PeBVLosdDus8F0',
+    alt: 'University of Eastern Finland Campus',
+  }}
+  classes={{ container: '' }}
+  items={[
+    {
+      title: 'Research Institution',
+      description: `Leading research institution in Finland, known for its strong focus on health sciences and interdisciplinary research approaches.`,
+      icon: 'tabler:building-community',
+    },
+    {
+      title: 'Research Project',
+      description: `Leading research on children's fitness and cardiometabolic health, investigating the relationships between physical activity, fitness, and health outcomes in young populations.`,
+      icon: 'tabler:microscope',
+    },
+    {
+      title: 'Impact & Innovation',
+      description: `Pioneering new methodologies in childhood health research, with findings published in top-tier journals and implemented in health policies.`,
+      icon: 'tabler:chart-arrows',
+    },
+  ]}
+>
+  <Fragment slot="content">
+    <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">University of Eastern Finland</h3>
+    UndeRstanding FITness and Cardiometabolic Health In Little Darlings (urFIT-child)
+    <br />
+    <br />
+    <a
+      href="https://uefconnect.uef.fi/en/understanding-fitness-and-cardiometabolic-health-in-little-darlings-urfit-child/"
+      class="inline-flex items-center text-blue-600 hover:underline"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Learn more about the project →
+    </a>
+  </Fragment>
+</Content>
+
+<Content
+  isReversed={false}
+  image={{
+    src: 'https://lh3.googleusercontent.com/d/1GcK1fZERJf5eKyoRzJAOwXhedRSKBgKN',
+    alt: 'University of Bristol Campus',
+  }}
+  items={[
+    {
+      title: 'Research Institution',
+      description: `One of the UK's leading research universities, particularly renowned for its longitudinal studies and health research.`,
+      icon: 'tabler:building-community',
+    },
+    {
+      title: 'Research Study',
+      description: `A world-leading birth cohort study, following 14,500 families in the Bristol area since the early 1990s, providing invaluable insights into health and development.`,
+      icon: 'tabler:chart-dots',
+    },
+    {
+      title: 'Global Impact',
+      description:
+        'ALSPAC data has contributed to over 2,000 published papers, shaping our understanding of health, development, and environmental influences.',
+      icon: 'tabler:world',
+    },
+  ]}
+>
+  <Fragment slot="content">
+    <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">University of Bristol, UK</h3>
+    Avon Longitudinal Study of Parents and Children (ALSPAC)
+    <br />
+    <br />
+    <a
+      href="https://www.bristol.ac.uk/alspac/"
+      class="inline-flex items-center text-blue-600 hover:underline"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Learn more about ALSPAC →
+    </a>
+  </Fragment>
+</Content>
+
+<Content
+  isReversed={true}
+  image={{
+    src: 'https://images.e-flux-systems.com/Uni_Exeter_hero.jpg,1600',
+    alt: 'University of Exeter Campus',
+  }}
+  items={[
+    {
+      title: 'Research Institution',
+      description: `A Russell Group university recognized for its excellence in sports science and health research, consistently ranked among the top universities globally.`,
+      icon: 'tabler:building-community',
+    },
+    {
+      title: 'Research Center',
+      description: `A leading research center dedicated to understanding physical activity, health, and well-being in children and adolescents, with a focus on exercise science and health outcomes.`,
+      icon: 'tabler:activity',
+    },
+    {
+      title: 'Research Excellence',
+      description: `CHERC's innovative research has influenced international physical activity guidelines and shaped understanding of youth fitness and health.`,
+      icon: 'tabler:award',
+    },
+  ]}
+>
+  <Fragment slot="content">
+    <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">University of Exeter, UK</h3>
+    Children's Health and Exercise Research Centre (CHERC)
+    <br />
+    <br />
+    <a
+      href="https://medicine.exeter.ac.uk/phss/research/childrenshealth/"
+      class="inline-flex items-center text-blue-600 hover:underline"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Learn more about CHERC →
+    </a>
+  </Fragment>
+</Content>

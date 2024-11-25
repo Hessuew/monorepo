@@ -1,0 +1,323 @@
+---
+import Content from '~/components/widgets/Content.astro';
+import Features from '~/components/widgets/Features.astro';
+---
+
+<Features
+  id="academic"
+  columns={1}
+  tagline="Academic"
+  title="Academic excellence in a global context"
+  classes={{}}
+  items={[
+    {
+      title:
+        'BBC World News TV <br /> <span class="font-normal">Waist-to-height ratio to replace BMI for children</span> <br /> <span class="text-sm font-normal">03-14-2024</span>',
+      description: `Agbaje discovered arterial stiffness as a novel risk factor for paediatric obesity and insulin resistance, identified adolescence as the critical time to interrupt fat mass-insulin resistance pathologic cycle, and demonstrated light-intensity physical activity as a highly effective antidote for reversing excessive fat deposit induced by childhood sedentariness. <br /> Recently, he discovered waist-to-height ratio as a specific surrogate for fat mass but not muscle mass that could replace BMI in assessing childhood obesity. Subsequently, he was interviewed LIVE on 
+          <a
+            href="https://www.youtube.com/watch?v=OiA9HlVHsuw"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline"
+            >BBC World News TV</a
+      >
+        to discuss the novel findings.`,
+      icon: 'tabler:news',
+    },
+    {
+      title:
+        'Top publications <br /> <span class="font-normal">Clinical Medicine, Biology Biochemistry</span> <br /> <span class="text-sm font-normal">As of September/October 2023</span>',
+      description: `Two of Prof. Agbaje’s publications were placed in the Top 1% highly cited paper in the academic field of <span class="font-bold">Clinical Medicine</span>, while a third publication was placed in the Top 1% highly cited paper in the academic field of <span class="font-bold">Biology & Biochemistry</span> by Clarivate’s Web of Science.`,
+      icon: 'tabler:award',
+    },
+  ]}
+/>
+
+<!-- Features Widget ************** -->
+
+<Features
+  id="academic-2"
+  columns={2}
+  defaultIcon="tabler:point-filled"
+  classes={{
+    container: 'lg:pt-0 lg:pb-0 md:pt-0 md:pb-0',
+    icon: 'text-white bg-primary rounded-full w-10 h-10 p-2 md:w-12 md:h-12 md:p-3 mr-4 rtl:ml-4 rtl:mr-0',
+  }}
+  items={[
+    {
+      title: 'Nature Communications, BBC',
+      description: `
+        He has a first authored paper in 
+          <a
+            href="https://www.nature.com/articles/s41467-023-43316-w"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline font-bold italic"
+            >Nature Communications</a
+      >
+          and was interviewed LIVE on BBC World Service Radio Newsday programme on 15th Dec 2023, 
+          <a
+            href="https://www.youtube.com/watch?v=Xm1B-ZkP6Bo"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline font-bold"
+            >BBC Radio Devon</a
+      >
+           on 16th Jan 2024, and 
+          <a
+            href="https://www.youtube.com/watch?v=OiA9HlVHsuw"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline font-bold"
+            >BBC World News</a
+          >
+           LIVE TV programme on 14th March 2024.`,
+      icon: 'tabler:device-tv',
+    },
+    {
+      title: 'The University of Eastern Finland',
+      description: `The University of Eastern Finland recently recorded a 
+          <a
+            href="https://www.uef.fi/en/article/podcast-childhood-sedentariness-is-a-real-threat-light-exercise-is-the-overlooked-antidote"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline"
+            ><b>podcast</b> interview</a
+      >
+        of his latest findings as well as a 
+          <a
+            href="https://www.youtube.com/watch?v=oNIDOECJkLw"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline font-bold"
+            >video</a
+      >.`,
+      icon: 'tabler:school',
+    },
+    {
+      title: 'Endocrine Society & Magazine',
+      description: `The Endocrine Society in US, recently recorded a 
+          <a
+            href="https://www.endocrine.org/podcast/enp83-sedentary-time-and-physical-activity-effects-on-childhood-lipid-levels"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline"
+            ><b>podcast</b> interview</a
+         > of his research and discussed his research in the prestigious 
+          <a
+            href="https://endocrinenews.endocrine.org/wp-content/uploads/EN_03_2024_WebRev.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline"
+            >Endocrine Magazine</a
+          >
+          March 2024 edition. He was invited to give a 
+          <a
+            href="https://www.youtube.com/watch?v=1n85Kj7kjfU"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline"
+            ><b>press</b> conference</a
+          >
+           at the ENDO 2024 congress in Boston, US. `,
+      icon: 'tabler:stethoscope',
+    },
+    {
+      title: 'European Association for the Study of Obesity',
+      description: `He was 
+          <a
+            href="https://easo.org/changing-the-way-we-measure-childhood-obesity-in-conversation-with-andrew-agbaje/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline"
+            >interviewed by the European Association for the Study of Obesity</a
+          >
+           and subsequently had a 
+          <a
+            href="https://easo.org/watch-andrew-agbaje-discuss-winning-the-easo-nn-foundation-award-for-child-obesity/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline"
+            ><b>video interview</b>
+           at the European Congress on Obesity </a
+          >.`,
+      icon: 'tabler:activity',
+    },
+    {
+      title: 'Extensive press coverage',
+      description:
+        'His research has received extensive press coverage, with over 2,000 media mentions in 2022 and 2023 in outlets such as BBC, CNN, The Telegraph, Daily Mail, Mirror, BILD, Infobae, Yahoo Lifestyle, Yahoo Sport, US News & World report, DocCheck, MSN, WebMD, Medscape, The Conversation, Jerusalem Post, Helsingin Sanomat, etc.',
+      icon: 'tabler:news',
+    },
+    {
+      title: 'Global reach',
+      description:
+        'Potential global audience of more than 4.5 billion. The equivalent advertising value of these news articles is more than 30 million US dollars.',
+      icon: 'tabler:world',
+    },
+    {
+      title: 'Collaborations',
+      description: `He is the principal investigator of the 
+          <a
+            href="https://uefconnect.uef.fi/en/group/understanding-fitness-and-cardiometabolic-health-in-little-darlings-urfit-child/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline font-bold"
+            >urFIT-child</a
+          >
+         research group and has strong collaboration with world-renowned pediatricians, exercise physiologists, epidemiologists, and adult clinicians in Canada, US, UK, Germany, Australia, Saudi Arabia, Nigeria, etc.`,
+      icon: 'tabler:users',
+    },
+    {
+      title: 'Scientific Excellence Awards',
+      description: `He has received several scientific excellence awards including the prestigious 
+          <a
+            href="https://x.com/EASOobesity/status/1767877116429824453?mx=2"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline font-bold"
+            >EASO-Novo Nordisk Foundation for New Investigator Award in Childhood Obesity</a
+          >
+           with a 300,000 Danish Kroner (€40,000 / 44,000 USD) prize. 
+          `,
+      icon: 'tabler:trophy',
+    },
+    {
+      title: 'Other awards',
+      description: `Other awards are the Endocrine Society Award for outstanding abstract, American Heart Association’s Elizabeth Barrett-Connor Research Award in Epidemiology and Prevention (once), Jeremiah and Rose Stamler Research Award (twice), and Paul Dudley White International Scholar Award (thrice).`,
+      icon: 'tabler:award',
+    },
+  ]}
+/>
+
+<!-- Content Widget **************** -->
+
+<Content
+  id="acedamic-3"
+  isReversed
+  defaultIcon="tabler:point-filled"
+  classes={{
+    icon: 'text-white bg-primary rounded-full w-10 h-10 p-2 md:w-12 md:h-12 md:p-3 mr-4 rtl:ml-4 rtl:mr-0',
+  }}
+  items={[
+    {
+      title: 'Scientific Statement',
+      description: `He co-authored an American Heart Association Scientific Statement on 
+          <a
+            href="https://www.ahajournals.org/doi/epdf/10.1161/CIR.0000000000001234"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline"
+            >Environmental Exposures and Pediatric Cardiology</a
+          >, published in <span class="font-bold italic">Circulation</span>. He had a 
+          <a
+            href="https://www.youtube.com/watch?v=QVhTdHjSOQo"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline"
+            >video discussion</a
+          >
+           of the Scientific Statement. He was an invited guest speaker to the largest mother and child center in Canada – CHU Sainte-Justine Mother and Child University Hospital Center, Canada in March 2023 to speak on the 
+          <a
+            href="https://www.chusj.org/Calendrier-salle-presse/calendrier/Evenements/CDR/2023/Conference-scientifique-du-vendredi-midi-2023(8)"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline italic"
+            >determinants of carotid intima-media thickness and arterial stiffness in pediatrics</a
+          >.`,
+      icon: 'tabler:file-text',
+    },
+    {
+      title: 'Honorary Research Fellow',
+      description: `He is an Honorary Research Fellow at the 
+          <a
+            href="https://medicine.exeter.ac.uk/phss/research/childrenshealth/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline"
+            >Children’s Health and Exercise Research Centre</a
+          >
+          (CHERC), Department of Public Health and Sports Sciences, Faculty of Health and Life Sciences, University of Exeter, Exeter, UK.`,
+      icon: 'tabler:certificate',
+    },
+  ]}
+  image={{
+    src: 'https://lh3.googleusercontent.com/d/13X_VyXh3oY8qiHtFRZxOfeH1trztfmLc',
+    alt: 'Agbaje at the ESC congress, London',
+  }}
+  imageText="Agbaje at the ESC congress, London"
+/>
+
+<!-- Content Widget **************** -->
+
+<Content
+  id="academic-4"
+  defaultIcon="tabler:point-filled"
+  classes={{
+    container: 'lg:pt-0 lg:pt-0 md:pt-0 md:pt-0',
+    icon: 'text-white bg-primary rounded-full w-10 h-10 p-2 md:w-12 md:h-12 md:p-3 mr-4 rtl:ml-4 rtl:mr-0',
+  }}
+  items={[
+    {
+      title: 'Editorial roles',
+      description: `He was recently appointed an 
+          <a
+            href="https://onlinelibrary.wiley.com/page/journal/1353921906009/homepage/editorialboard.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline"
+            >Associate Editor</a
+          >
+           in the Journal of Cachexia, Sarcopenia, and Muscle (JCSM). He serves on the 
+           <a
+            href="https://www.ahajournals.org/atvb/editorial-board"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline"
+            >editorial board</a
+          >
+           of Arteriosclerosis, Thrombosis, and Vascular Biology (ATVB), and mentors early-career editorial board members. He also serves on the 
+           <a
+            href="https://journals.humankinetics.com/view/journals/pes/pes-overview.xml?tab_body=editorial-board"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline"
+            >editorial board</a
+          >
+           of Pediatric Exercise Science journal.`,
+      icon: 'tabler:edit',
+    },
+    {
+      title: 'Fellowships',
+      description: `He is an elected 
+          <a
+            href="https://www.escardio.org/The-ESC/Who-we-are/Fellowship"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline"
+            >Fellow of the European Society of Cardiology</a
+          >
+          (FESC) and an elected 
+          <a
+            href="https://professional.heart.org/en/professional-membership/fellow-of-aha"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 hover:underline"
+            >Fellow of the American Heart Association</a
+          >
+           (FAHA). These titles of honour, symbol of excellence and lifetime achievement recognizes his significant contribution to cardiovascular field in Europe and America.`,
+      icon: 'tabler:badge',
+    },
+    {
+      title: 'Expert advisor',
+      description:
+        'He is an expert advisor to the World Health Organization’s task force on preventing childhood obesity.',
+      icon: 'tabler:brain',
+    },
+  ]}
+  image={{
+    src: 'https://lh3.googleusercontent.com/d/1GlW-w5zAoi8Vedys74nzMpaD-GHbkf72',
+    alt: 'Andrew, Craig, Dimitri and Alan',
+  }}
+  imageText="Andrew, Craig, Dimitri and Alan"
+/>

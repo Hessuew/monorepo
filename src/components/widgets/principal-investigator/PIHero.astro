@@ -1,0 +1,23 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+---
+
+<Hero
+  tagline="Principal Investigator"
+  title="Prof. Andrew Agbaje"
+  image={{
+    src: 'https://lh3.googleusercontent.com/d/1evXugzkrWDuN4GuFYBNOQW5gTsFplBzV',
+    alt: 'Andrew headshot',
+  }}
+>
+  <Fragment slot="subtitle">
+    Prof. Andrew Agbaje MD, MPH, PhD, FESC, FAHA, FNYAM, certified clinical research (Harvard), is an <a
+      href="https://www.uef.fi/en/article/andrew-agbaje-wins-prestigious-easo-novo-nordisk-foundation-new-investigator-award-in-childhood"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-blue-700 hover:underline">award-winning</a
+    >
+    physician and professor (associate) of clinical epidemiology and child health who investigates the causal relationships
+    of aerobic fitness, physical activity, sedentary behaviour, obesity, insulin resistance, dyslipidaemia, and metabolic
+  </Fragment>
+</Hero>
