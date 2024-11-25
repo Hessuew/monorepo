@@ -55,8 +55,7 @@ const podiumPositions = {
           {typeof callToAction === 'string' ? (
             <Fragment set:html={callToAction} />
           ) : (
-            callToAction &&
-            callToAction.href && <Button {...(hasRibbon ? { variant: 'primary' } : {})} {...callToAction} />
+            callToAction?.href && <Button {...(hasRibbon ? { variant: 'primary' } : {})} {...callToAction} />
           )}
         </div>
       )

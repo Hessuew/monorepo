@@ -1,5 +1,15 @@
 ---
+interface Props {
+  size?: 'sm' | 'md' | 'lg';
+}
 
+const { size = 'md' } = Astro.props;
+
+const heights = {
+  sm: 'h-16 md:h-24',
+  md: 'h-32 md:h-48',
+  lg: 'h-48 md:h-64'
+};
 ---
 
-<div class="h-32 md:h-48"></div>
+<div class={heights[size]}></div>
