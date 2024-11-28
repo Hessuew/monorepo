@@ -3,7 +3,7 @@ import { getPermalink } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'People',
+      text: 'Core People',
       links: [
         {
           text: 'Principal Investigator',
@@ -16,6 +16,10 @@ export const headerData = {
         {
           text: 'Team',
           href: getPermalink('/people/team'),
+        },
+        {
+          text: 'Collaborators',
+          href: getPermalink('/people/collaborators'),
         },
       ],
     },
@@ -41,15 +45,6 @@ export const headerData = {
         {
           text: 'Press Releases',
           href: getPermalink('/materials/press-releases'),
-        },
-      ],
-    },
-    {
-      text: 'Connections',
-      links: [
-        {
-          text: 'Collaborators',
-          href: getPermalink('/connections/collaborators'),
         },
       ],
     },

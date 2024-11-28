@@ -51,7 +51,8 @@ const {
   />
   <div class="mx-auto max-w-7xl p-4 md:px-8">
     <div class={`md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-16`}>
-      <div class="md:basis-1/2" aria-label="Main content section">
+      <section class="md:basis-1/2" aria-labelledby="content-heading">
+        <h2 id="content-heading" class="sr-only">Main Content</h2>
         {content && <div class="mb-12 text-lg dark:text-slate-400" set:html={content} />}
 
         {
@@ -75,13 +76,13 @@ const {
             action: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
           }}
         />
-      </div>
+      </section>
       <div aria-hidden="true" class="mt-10 md:mt-0 md:basis-1/2">
         {
           image && (
             <figure class="relative mx-auto max-w-4xl">
               {typeof image === 'string' ? (
-                <div class="image-container" role="img" aria-label={imageText || 'Content image'}>
+                <div class="image-container" aria-label={imageText || 'Content image'}>
                   <Fragment set:html={image} />
                 </div>
               ) : (

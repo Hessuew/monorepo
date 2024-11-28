@@ -1,26 +1,32 @@
 ---
 import Features2 from '~/components/widgets/Features2.astro';
+
+export const contactInfo = {
+  emails: [
+    {
+      type: 'Primary',
+      address: 'andrew.agbaje@uef.fi',
+    },
+    {
+      type: 'Secondary',
+      address: 'aa.agbaje@exeter.ac.uk',
+    },
+  ],
+  phone: '+358 46 896 5633',
+};
+
+const items = [
+  ...contactInfo.emails.map((email) => ({
+    title: `${email.type} email`,
+    description: `<a class="text-blue-700 hover:underline focus:ring-2 focus:ring-blue-500" aria-label="Send email to the email address" href="mailto:${email.address}">${email.address}</a>`,
+    icon: 'tabler:mail',
+  })),
+  {
+    title: 'Phone',
+    description: `<a class="text-blue-700 hover:underline focus:ring-2 focus:ring-blue-500" aria-label="Make call to the phone number" href="tel:${contactInfo.phone}">${contactInfo.phone}</a>`,
+    icon: 'tabler:phone',
+  },
+];
 ---
 
-<Features2
-  title="Contact Information"
-  items={[
-    {
-      title: 'Primary email',
-      description:
-        '<a class="text-blue-700 hover:underline" href="mailto:andrew.agbaje@uef.fi">andrew.agbaje@uef.fi</a>',
-      icon: 'tabler:mail',
-    },
-    {
-      title: 'Secondary email',
-      description:
-        '<a class="text-blue-700 hover:underline" href="mailto:aa.agbaje@exeter.ac.uk">aa.agbaje@exeter.ac.uk</a>',
-      icon: 'tabler:mail',
-    },
-    {
-      title: 'Phone',
-      description: '<a class="text-blue-700 hover:underline" href="tel:+358468965633">+358 46 896 5633</a>',
-      icon: 'tabler:phone',
-    },
-  ]}
-/>
+<Features2 id="contact" title="Contact Information" items={items} />
