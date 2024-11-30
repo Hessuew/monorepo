@@ -10,7 +10,16 @@ const metadata = {
   description: 'Media coverage and interviews featuring urFIT-child research and findings',
 };
 
-const mediaItems = [
+interface MediaItem {
+  title: string;
+  date: string;
+  videoId: string;
+  platform: 'youtube' | 'vimeo' | 'doccheck' | 'soundcloud';
+  author?: string;
+  trackUrl?: string;
+}
+
+const mediaItems: MediaItem[] = [
   {
     title: 'ENDO 2024 Press Conference: Sedentary Time and Liver Damage in Children',
     date: '01.06.2024',
@@ -138,9 +147,11 @@ const platforms = [...new Set(mediaItems.map((item) => item.platform))];
                   <iframe
                     src={`https://player.vimeo.com/video/${item.videoId.split('/')[0]}?h=${item.videoId.split('/')[1]}&badge=0&autopause=0&player_id=0&app_id=58479`}
                     class="absolute top-0 left-0 w-full h-full border-0"
-                    title={item.title}
+                    title={`Vimeo video player: ${item.title}`}
+                    loading="lazy"
                     allowfullscreen
                     allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                    referrerpolicy="no-referrer-when-downgrade"
                   />
                 </div>
               ) : item.platform === 'doccheck' ? (
@@ -170,9 +181,11 @@ const platforms = [...new Set(mediaItems.map((item) => item.platform))];
                   <iframe
                     width="100%"
                     height="300"
-                    scrolling="no"
-                    frameborder="0"
+                    style="border: 0;"
+                    title={`SoundCloud audio player: ${item.title}`}
                     allow="autoplay"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
                     src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${item.videoId}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true`}
                   />
                   <div class="soundcloud-info">
@@ -211,6 +224,14 @@ const platforms = [...new Set(mediaItems.map((item) => item.platform))];
   const filterButtons = document.querySelectorAll('[data-platform]');
   const mediaItems = document.querySelectorAll('[data-platform]');
   const searchInput = document.querySelector('#searchInput') as HTMLInputElement;
+
+  function debounce<T extends (...args: unknown[]) => void>(func: T, wait: number): (...args: Parameters<T>) => void {
+    let timeout: ReturnType<typeof setTimeout>;
+    return (...args: Parameters<T>) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func(...args), wait);
+    };
+  }
 
   function filterContent() {
     const activeFilter = document.querySelector('[data-platform].active')?.getAttribute('data-platform') || 'all';
@@ -258,5 +279,6 @@ const platforms = [...new Set(mediaItems.map((item) => item.platform))];
     }
   });
 
-  searchInput?.addEventListener('input', filterContent);
+  // searchInput?.addEventListener('input', filterContent);
+  searchInput?.addEventListener('input', debounce(filterContent, 300));
 </script>

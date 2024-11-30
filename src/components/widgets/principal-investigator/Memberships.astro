@@ -1,5 +1,38 @@
 ---
 import Features3 from '../Features3.astro';
+// src/config/editorial-items.ts
+export const editorialItems = [
+  {
+    title: 'European Memberships',
+    description: [
+      'European Society of Cardiology (ESC), France',
+      'European Atherosclerosis Society (EAS), Sweden',
+      'Association for Research into Arterial Structure and Physiology (Artery Society), UK',
+      'European Association of Preventive Cardiology (EAPC), France',
+      'European Association for the Study of Obesity (EASO), UK',
+    ],
+  },
+  {
+    title: 'American & International',
+    description: [
+      'American Heart Association (AHA), Dallas, US',
+      'American Physiological Society (APS), US',
+      'American College of Sports Medicine (ACSM), Indianapolis, US',
+      'North American Society for Pediatric Exercise Medicine (NASPEM), Canada/US',
+      'International Epidemiology Association (IEA), US',
+      'Endocrine Society, US',
+    ],
+  },
+  {
+    title: 'Other Memberships',
+    description: [
+      'International Society of Behavioral Nutrition and Physical Activity (ISBNPA), Sweden',
+      'Finnish Epidemiology Society (FES), Finland',
+      'Finnish Association for the Study of Obesity (FASO), Finland',
+      'Tampere Society for Associate Professors, Finland',
+    ],
+  },
+];
 ---
 
 <Features3
@@ -7,38 +40,10 @@ import Features3 from '../Features3.astro';
   title="Memberships in International Associations"
   columns={3}
   defaultIcon="tabler:building-community"
-  items={[
-    {
-      title: 'European Memberships',
-      description: `
-            • European Society of Cardiology (ESC), France<br/>
-            • European Atherosclerosis Society (EAS), Sweden<br/>
-            • Association for Research into Arterial Structure and Physiology (Artery Society), UK<br/>
-            • European Association of Preventive Cardiology (EAPC), France<br/>
-            • European Association for the Study of Obesity (EASO), UK
-          `,
-    },
-    {
-      title: 'American & International',
-      description: `
-            • American Heart Association (AHA), Dallas, US<br/>
-            • American Physiological Society (APS), US<br/>
-            • American College of Sports Medicine (ACSM), Indianapolis, US<br/>
-            • North American Society for Pediatric Exercise Medicine (NASPEM), Canada/US<br/>
-            • International Epidemiology Association (IEA), US<br/>
-            • Endocrine Society, US
-          `,
-    },
-    {
-      title: 'Other Memberships',
-      description: `
-            • International Society of Behavioral Nutrition and Physical Activity (ISBNPA), Sweden<br/>
-            • Finnish Epidemiology Society (FES), Finland<br/>
-            • Finnish Association for the Study of Obesity (FASO), Finland<br/>
-            • Tampere Society for Associate Professors, Finland
-          `,
-    },
-  ]}
+  items={editorialItems.map((item) => ({
+    ...item,
+    description: item.description.map((j) => `• ${j}`).join('<br/>'),
+  }))}
 >
   <Fragment slot="bg">
     <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
