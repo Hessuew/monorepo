@@ -9,6 +9,7 @@ import Editorial from '~/components/widgets/principal-investigator/Editorial.ast
 import Affiliations from '~/components/widgets/principal-investigator/Affiliations.astro';
 import Contact from '~/components/widgets/principal-investigator/Contact.astro';
 import Memberships from '~/components/widgets/principal-investigator/Memberships.astro';
+import AwardsAndHonours from '~/components/widgets/principal-investigator/AwardsAndHonours.astro';
 
 const metadata = {
   title: 'Principal Investigator',
@@ -23,54 +24,22 @@ const metadata = {
 
   <PIHero />
 
-  <!-- Spacer ******************* -->
-
-  <Spacer size="sm" />
-
-  <!-- Note ****************** -->
-
   <Note
     text="Let's keep fighting for kids' health, because today's kids are tomorrow's adults"
     author="Prof. Andrew Agbaje"
   />
 
-  <!-- Spacer ******************* -->
-
   <Spacer size="md" />
-
-  <!-- Academic Widget ****************** -->
 
   <Academic />
 
-  <!-- Editorial Widget ******************* -->
+  <AwardsAndHonours />
 
   <Editorial />
 
-  <!-- Spacer ******************* -->
-
-  <Spacer size="sm" />
-
-  <!-- Affiliations Widget ******************* -->
-
   <Affiliations />
-
-  <!-- Spacer ******************* -->
-
-  <Spacer size="sm" />
-
-  <!-- Memberships Widget ************** -->
 
   <Memberships />
 
-  <!-- Spacer ******************* -->
-
-  <Spacer size="lg" />
-
-  <!-- Contact Widget ************** -->
-
   <Contact />
-
-  <!-- Spacer ******************* -->
-
-  <Spacer size="sm" />
 </Layout>
