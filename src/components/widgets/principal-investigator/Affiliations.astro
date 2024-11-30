@@ -1,5 +1,6 @@
 ---
 import Content from '../Content.astro';
+import AffiliationContent from './AffiliationContent.astro';
 ---
 
 <Content
@@ -32,19 +33,15 @@ import Content from '../Content.astro';
   ]}
 >
   <Fragment slot="content">
-    <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">University of Eastern Finland</h3>
-    UndeRstanding FITness and Cardiometabolic Health In Little Darlings (urFIT-child)
-    <br />
-    <br />
-    <a
-      href="https://uefconnect.uef.fi/en/understanding-fitness-and-cardiometabolic-health-in-little-darlings-urfit-child/"
-      class="inline-flex items-center text-blue-600 hover:underline"
-      target="_blank"
-      rel="noopener noreferrer nofollow"
-      aria-label="Learn more about the urFIT-child project (opens in new tab)"
-    >
-      Learn more about the project →
-    </a>
+    <AffiliationContent
+      title="University of Eastern Finland"
+      description="UndeRstanding FITness and Cardiometabolic Health In Little Darlings (urFIT-child)"
+      hrefLabel="urFIT-child project"
+      link={{
+        url: 'https://uefconnect.uef.fi/en/understanding-fitness-and-cardiometabolic-health-in-little-darlings-urfit-child/',
+        text: 'Learn more about the project',
+      }}
+    />
   </Fragment>
 </Content>
 
@@ -74,19 +71,15 @@ import Content from '../Content.astro';
   ]}
 >
   <Fragment slot="content">
-    <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">University of Bristol, UK</h3>
-    Avon Longitudinal Study of Parents and Children (ALSPAC)
-    <br />
-    <br />
-    <a
-      href="https://www.bristol.ac.uk/alspac/"
-      class="inline-flex items-center text-blue-600 hover:underline"
-      target="_blank"
-      rel="noopener noreferrer nofollow"
-      aria-label="Learn more about the ALSPAC project (opens in new tab)"
-    >
-      Learn more about ALSPAC →
-    </a>
+    <AffiliationContent
+      title="University of Bristol, UK"
+      description="Avon Longitudinal Study of Parents and Children (ALSPAC)"
+      hrefLabel="ALSPAC project"
+      link={{
+        url: 'https://www.bristol.ac.uk/alspac/',
+        text: 'ALSPAC',
+      }}
+    />
   </Fragment>
 </Content>
 
@@ -115,18 +108,14 @@ import Content from '../Content.astro';
   ]}
 >
   <Fragment slot="content">
-    <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">University of Exeter, UK</h3>
-    Children's Health and Exercise Research Centre (CHERC)
-    <br />
-    <br />
-    <a
-      href="https://medicine.exeter.ac.uk/phss/research/childrenshealth/"
-      class="inline-flex items-center text-blue-600 hover:underline"
-      target="_blank"
-      rel="noopener noreferrer nofollow"
-      aria-label="Learn more about the CHERC project (opens in new tab)"
-    >
-      Learn more about CHERC →
-    </a>
+    <AffiliationContent
+      title="University of Exeter, UK"
+      description="Children's Health and Exercise Research Centre (CHERC)"
+      hrefLabel="CHERC project"
+      link={{
+        url: 'https://medicine.exeter.ac.uk/phss/research/childrenshealth/',
+        text: 'CHERC',
+      }}
+    />
   </Fragment>
 </Content>
