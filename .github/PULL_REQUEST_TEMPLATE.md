@@ -34,7 +34,6 @@
 - [ ] 💬 I have added necessary comments
 - [ ] ⚠️ No new warnings or errors are generated
 - [ ] ⚡ I have added/updated tests
-- [ ] 🔍 My changes generate no new warnings
 
 ### Git Hygiene
 - [ ] 🔍 My commits are small and have clear messages

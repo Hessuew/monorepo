@@ -3,7 +3,7 @@ import { getPermalink } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'People',
+      text: 'Core People',
       links: [
         {
           text: 'Principal Investigator',
@@ -17,47 +17,34 @@ export const headerData = {
           text: 'Team',
           href: getPermalink('/people/team'),
         },
+        {
+          text: 'Collaborators',
+          href: getPermalink('/people/collaborators'),
+        },
       ],
     },
     {
-      text: 'Publications',
+      text: 'Materials',
       links: [
         {
           text: 'Publications',
-          href: getPermalink('/publications/publications'),
+          href: getPermalink('/materials/publications'),
         },
         {
           text: 'Awards and Honours',
-          href: getPermalink('/publications/awards-and-honours'),
+          href: getPermalink('/materials/awards-and-honours'),
         },
         {
           text: 'Videos and Podcasts',
-          href: getPermalink('/publications/videos-and-podcasts'),
+          href: getPermalink('/materials/videos-and-podcasts'),
         },
         {
           text: 'Thesis',
-          href: getPermalink('/publications/thesis'),
+          href: getPermalink('/materials/thesis'),
         },
         {
           text: 'Press Releases',
-          href: getPermalink('/publications/press-releases'),
-        },
-      ],
-    },
-    {
-      text: 'Connections',
-      links: [
-        {
-          text: 'Affiliations',
-          href: getPermalink('/connections/affiliations'),
-        },
-        {
-          text: 'Collaborators',
-          href: getPermalink('/connections/collaborators'),
-        },
-        {
-          text: 'Memberships in International Associations',
-          href: getPermalink('/connections/memberships-in-international-associations'),
+          href: getPermalink('/materials/press-releases'),
         },
       ],
     },
