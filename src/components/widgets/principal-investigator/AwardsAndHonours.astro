@@ -1,0 +1,279 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import GradientText from '~/components/ui/GradientText.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Spacer from '~/components/widgets/Spacer.astro';
+
+const recentAwards2024 = [
+  {
+    title: 'EASO-Novo Nordisk Foundation New Investigator Award 2024',
+    subtitle: 'New Investigator Award in Childhood Obesity',
+    details: 'Prize: 300,000 Danish Kroner (€40,000 / $44,000)',
+    location: null,
+  },
+  {
+    title: 'Journal of Human Hypertension Young Investigator Award',
+    subtitle: '2023 Award presented in 2024',
+    location: null,
+  },
+  {
+    title: 'Early Career Investigator Award 2024',
+    subtitle: 'Preventive Cardiovascular Medicine Research Award of the American Heart Association',
+    location: null,
+  },
+  {
+    title: 'Paul Dudley White International Scholar Award 2024',
+    subtitle: 'American Heart Association',
+    location: null,
+  },
+  {
+    title: 'ESC Top Reviewer Award 2024',
+    subtitle: 'European Society of Cardiology',
+    location: 'London, UK',
+  },
+  {
+    title: 'Endocrine Society Outstanding Abstract Award',
+    subtitle: 'ENDO 2024',
+    location: 'Boston, US',
+  },
+  {
+    title: 'Career Development Lecture',
+    subtitle: 'Artery Society 2024 Meeting',
+    location: 'Cardiff, UK',
+  },
+];
+
+const fellowshipsAndPositions = [
+  {
+    title: 'Docent in Clinical Epidemiology and Child Health',
+    subtitle: 'Faculty of Health Sciences, University of Eastern Finland',
+    date: 'March 2024',
+  },
+  {
+    title: 'Associate Editor',
+    subtitle: 'Journal of Cachexia, Sarcopenia and Muscle',
+    details: 'Impact Factor 9.4',
+  },
+  {
+    title: 'Fellow of the New York Academy of Medicine (FNYAM) 2024',
+    description:
+      'The FNYAM title represents a community of distinguished professionals who have shown a high level of achievement, evidenced by strong performance in at least science or research.',
+  },
+  {
+    title: 'Fellow of the American Heart Association (FAHA) 2024',
+    description:
+      'The FAHA title is an honorific designation that recognizes scientific and professional accomplishments and contributions, volunteer leadership and service supporting the overall AHA mission: To be a relentless force for a world of longer, healthier lives.',
+  },
+  {
+    title: 'Fellow of the European Society of Cardiology (FESC) 2023',
+    description:
+      'The FESC title honours individuals who have distinguished themselves in the cardiovascular field. A unique and prestigious title, recognising excellence and lifetime achievement.',
+  },
+];
+
+const pastAwards = [
+  {
+    title: 'Elizabeth Barrett-Connor Research Award 2023',
+    subtitle: "Early Career Investigators of the American Heart Association's Council on Epidemiology and Prevention",
+  },
+  {
+    title: 'Paul Dudley White International Scholar Award 2023',
+    subtitle: 'American Heart Association',
+  },
+  {
+    title: 'Best Poster Prize Award 2023',
+    subtitle:
+      'Post-Doctoral Research, Novo Nordisk Foundation Scientific Conference on Prevention of Childhood Obesity',
+  },
+  {
+    title: 'Reviewer of the Year Award 2022/2023',
+    subtitle: 'European Journal of Preventive Cardiology / Oxford University Press',
+  },
+  {
+    title: 'Communicator of the Year Award 2022',
+    subtitle: 'University of Eastern Finland',
+  },
+  {
+    title: 'Young Investigator Fellowship Award 2022',
+    subtitle: 'European Atherosclerosis Society',
+  },
+  {
+    title: 'Paul Dudley White International Scholar Award 2022',
+    subtitle: 'American Heart Association',
+  },
+  {
+    title: 'Jeremiah and Rose Stamler Research Award 2022',
+    subtitle: 'New Investigators at the Epi Lifestyle Annual Scientific Sessions of the American Heart Association',
+  },
+  {
+    title: 'Paul Dudley White International Scholar Award 2021',
+    subtitle: 'American Heart Association',
+  },
+  {
+    title: 'Jeremiah and Rose Stamler Research Award 2021',
+    subtitle: 'New Investigators at the Epi Lifestyle Annual Scientific Sessions of the American Heart Association',
+  },
+];
+
+const academicAchievements = [
+  {
+    title: 'Clinical Research',
+    subtitle: 'Harvard University, Boston, US',
+    year: '2020',
+    details: 'Distinction, summa cum laude, (1000/1000 points)',
+  },
+  {
+    title: 'Masters in Public Health/Epidemiology',
+    subtitle: 'University of Eastern Finland, Kuopio, Finland',
+    year: '2018',
+    details: 'Distinction, summa cum laude, (5/5 points)',
+  },
+  {
+    title: 'Psychiatry/Mental Health',
+    subtitle: 'University of Benin, Benin City, Edo State, Nigeria',
+    year: '2014',
+    details: 'Distinction, summa cum laude, (5/5 points)',
+  },
+  {
+    title: 'ELF/Total Undergraduate Scholarship Award',
+    subtitle: 'Medical Studies',
+    year: '2009-2012',
+    details: '4000 US dollars',
+  },
+];
+---
+
+<Hero id="awards-and-honours" classes={{ labelContainer: 'pb-0 md:pb-0 lg:pb-0' }}>
+  <Fragment slot="title">
+    <Headline title={'A Legacy of Excellence'} tagline={'Awards and Honours'} />
+  </Fragment>
+
+  <Fragment slot="subtitle">
+    <div class="max-w-4xl mx-auto space-y-12">
+      <!-- Biblical Quote Section -->
+      <div
+        class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+      >
+        <p class="text-gray-700 dark:text-gray-300 italic">
+          <GradientText class="font-bold">O how love I thy law!</GradientText> it is my meditation all the day. Thou through
+          thy commandments hast made me wiser than mine enemies: for they are ever with me.
+          <GradientText class="font-bold">I have more understanding than all my teachers:</GradientText>
+          for thy testimonies are my meditation.
+          <GradientText class="font-bold">I understand more than the ancients</GradientText>, because I keep thy
+          precepts.
+        </p>
+        <p class="text-right mt-2 text-sm text-gray-600 dark:text-gray-400">— Psalm 119:97–100</p>
+      </div>
+
+      <!-- Introduction Text -->
+      <p
+        class="text-lg text-gray-700 dark:text-gray-300 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+      >
+        The research group urFIT-child and its principal investigator, Andrew Agbaje, have received recognition from
+        numerous professional boards, academic institutions, and global media outlets.
+      </p>
+
+      <!-- Recent Awards 2024 -->
+      <div
+        class="space-y-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+      >
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Recent Awards (2024)</h2>
+        <div class="grid gap-6 md:grid-cols-2">
+          {
+            recentAwards2024.map((award) => (
+              <div class="award-item bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{award.title}</h3>
+                <p class="text-gray-600 dark:text-gray-400">{award.subtitle}</p>
+                {award.details && <p class="text-accent dark:text-accent-light mt-2">{award.details}</p>}
+                {award.location && <p class="text-gray-500 dark:text-gray-400 mt-2">{award.location}</p>}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Fellowships and Positions -->
+      <div
+        class="space-y-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+      >
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Fellowships & Academic Positions</h2>
+        <div class="space-y-6">
+          {
+            fellowshipsAndPositions.map((fellowship) => (
+              <div class="bg-gradient-to-r from-primary-100 to-secondary-100 dark:from-primary-900 dark:to-secondary-900 p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">{fellowship.title}</h3>
+                {fellowship.subtitle && (
+                  <p class="text-lg text-gray-800 dark:text-gray-200 mb-2">{fellowship.subtitle}</p>
+                )}
+                {fellowship.date && <p class="text-gray-700 dark:text-gray-300">{fellowship.date}</p>}
+                {fellowship.details && <p class="text-accent dark:text-accent-light mt-2">{fellowship.details}</p>}
+                {fellowship.description && (
+                  <p class="text-gray-700 dark:text-gray-300 mt-3">{fellowship.description}</p>
+                )}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Past Awards -->
+      <div
+        class="space-y-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+      >
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Past Awards & Recognition</h2>
+        <div class="grid gap-6 md:grid-cols-2">
+          {
+            pastAwards.map((award) => (
+              <div class="award-item bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{award.title}</h3>
+                <p class="text-gray-600 dark:text-gray-400">{award.subtitle}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Academic Achievements -->
+      <div
+        class="space-y-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+      >
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Academic Excellence</h2>
+        <div class="grid gap-6 md:grid-cols-2">
+          {
+            academicAchievements.map((achievement) => (
+              <div class="award-item bg-white dark:bg-gray-800 p-6 px-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{achievement.title}</h3>
+                <p class="text-gray-600 dark:text-gray-400">{achievement.subtitle}</p>
+                <p class="text-gray-500 dark:text-gray-400 mt-1">{achievement.year}</p>
+                <p class="text-accent dark:text-accent-light mt-2">{achievement.details}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Biblical Quote Footer -->
+      <div
+        class="text-center mt-8 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+      >
+        <p class="text-gray-700 dark:text-gray-300 italic">
+          "And in all matters of wisdom and understanding, that the king enquired of them, he found them
+          <GradientText class="font-bold">ten times better</GradientText>
+          than all the magicians and astrologers that were in all his realm."
+        </p>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">— Daniel 1:20 KJV</p>
+      </div>
+    </div>
+  </Fragment>
+</Hero>
+
+<Spacer size="sm" />
+
+<style>
+  .award-item {
+    transition: transform 0.2s ease-in-out;
+  }
+  .award-item:hover {
+    transform: translateY(-2px);
+  }
+</style>
