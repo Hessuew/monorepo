@@ -46,7 +46,7 @@ const mediaItems: MediaItem[] = [
   },
   {
     title: 'Endocrine Society US Podcast on Childhood Sedentariness and Lipids',
-    date: '12.4.2024 ',
+    date: '12.4.2024',
     videoId: 'jPY3Gv9zLpI',
     platform: 'youtube',
   },
@@ -124,9 +124,13 @@ const platforms = [...new Set(mediaItems.map((item) => item.platform))];
         <input
           type="text"
           id="searchInput"
+          name="searchInput"
+          aria-label="Search videos and podcasts"
+          aria-describedby="searchHelp"
           placeholder="Search videos..."
           class="w-full md:w-64 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 transition-colors duration-200"
         />
+        <span id="searchHelp" class="sr-only"> Type to filter videos and podcasts by title </span>
       </div>
     </div>
 
@@ -166,13 +170,13 @@ const platforms = [...new Set(mediaItems.map((item) => item.platform))];
                       class="mx-auto rounded-md w-full"
                       widths={[400, 768, 1024, 2040]}
                       sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                      loading="eager"
+                      loading="lazy"
                       decoding="async"
                       objectPosition="center top"
                       width={1024}
                       height={576}
                       src={doccheckImage}
-                      alt={'Physical Activity: Slow And Steady Wins The Race'}
+                      alt={item.title}
                     />
                   </a>
                 </div>
@@ -256,6 +260,14 @@ const platforms = [...new Set(mediaItems.map((item) => item.platform))];
       }
     });
   }
+  const ACTIVE_CLASSES = [
+    'active',
+    'bg-blue-500',
+    'dark:bg-blue-600',
+    'text-white',
+    'border-blue-600',
+    'dark:border-blue-700',
+  ] as const;
 
   filterButtons.forEach((button) => {
     if (button.tagName === 'BUTTON') {
@@ -263,24 +275,10 @@ const platforms = [...new Set(mediaItems.map((item) => item.platform))];
       button.addEventListener('click', () => {
         filterButtons.forEach((btn) => {
           if (btn.tagName === 'BUTTON') {
-            btn.classList.remove(
-              'active',
-              'bg-blue-500',
-              'dark:bg-blue-600',
-              'text-white',
-              'border-blue-600',
-              'dark:border-blue-700'
-            );
+            btn.classList.remove(...ACTIVE_CLASSES);
           }
         });
-        button.classList.add(
-          'active',
-          'bg-blue-500',
-          'dark:bg-blue-600',
-          'text-white',
-          'border-blue-600',
-          'dark:border-blue-700'
-        );
+        button.classList.add(...ACTIVE_CLASSES);
         filterContent();
       });
     }
