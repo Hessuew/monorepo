@@ -31,10 +31,6 @@ export const headerData = {
           href: getPermalink('/materials/publications'),
         },
         {
-          text: 'Awards and Honours',
-          href: getPermalink('/materials/awards-and-honours'),
-        },
-        {
           text: 'Videos and Podcasts',
           href: getPermalink('/materials/videos-and-podcasts'),
         },
