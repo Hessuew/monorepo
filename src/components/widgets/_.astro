@@ -1,0 +1,408 @@
+<!-- 
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import ItemGridLink from '~/components/ui/ItemGridLink.astro';
+import type { ItemLink } from '~/types';
+import { twMerge } from 'tailwind-merge';
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  items: Array<ItemLink>;
+  columns?: 1 | 2 | 3 | 4;
+  id?: string;
+  isDark?: boolean;
+  bg?: string;
+  isProfile?: boolean;
+  classes?: {
+    container?: string;
+    title?: Record<string, string | Record<string, string>>;
+    subtitle?: string;
+    items?: {
+      container?: string;
+      item?: string;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      image?: string;
+    };
+  };
+}
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
+  items = [],
+  columns = 3,
+  id,
+  isDark = false,
+  isProfile = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+---
+
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  animated={false}
+  containerClass={twMerge('max-w-7xl mx-auto', classes?.container)}
+  bg={bg}
+>
+  {
+    (title || subtitle || tagline) && (
+      <div
+        class="mb-12 md:mx-auto md:mb-16 text-center max-w-3xl opacity-0 translate-y-12 duration-[1500ms] ease-out transition-[opacity,transform] delay-300"
+        data-intersect
+      >
+        <Headline
+          title={title}
+          subtitle={subtitle}
+          tagline={tagline}
+          classes={{
+            container: 'max-w-xl sm:mx-auto lg:max-w-2xl',
+            title: twMerge(
+              'text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading',
+              classes?.title?.title?.toString() || ''
+            ),
+            ...((classes?.title as Record<string, string>) ?? {}),
+          }}
+        />
+      </div>
+    )
+  }
+  <div class={`${classes?.container ?? ''}`}>
+    <div class="flex justify-end mb-4">
+      <div class="inline-flex rounded-lg border border-gray-200 dark:border-gray-700">
+        <button id="gridViewBtn" class="px-4 py-2 rounded-l-lg bg-primary text-white text-sm" data-view="grid">
+          Grid
+        </button>
+        <button
+          id="listViewBtn"
+          class="px-4 py-2 rounded-r-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-sm"
+          data-view="list"
+        >
+          List
+        </button>
+      </div>
+    </div>
+
+    <div id="itemsContainer">
+      <ItemGridLink
+        items={items}
+        columns={columns}
+        isProfile={isProfile}
+        viewType="grid"
+        classes={{
+          container: classes?.items?.container,
+          item: classes?.items?.item,
+          title: classes?.items?.title,
+          subtitle: classes?.items?.subtitle,
+          description: classes?.items?.description,
+          image: classes?.items?.image,
+        }}
+      />
+    </div>
+  </div>
+</WidgetWrapper>
+
+<script>
+  const gridViewBtn = document.getElementById('gridViewBtn');
+  const listViewBtn = document.getElementById('listViewBtn');
+  const itemsContainer = document.getElementById('itemsContainer');
+
+  const currentView = localStorage.getItem('teamViewPreference') || 'grid';
+
+  const updateView = (view: string) => {
+    // Update button styles
+    if (view === 'grid') {
+      gridViewBtn?.classList.add('bg-primary', 'text-white');
+      gridViewBtn?.classList.remove('hover:bg-gray-100', 'dark:hover:bg-gray-800');
+      listViewBtn?.classList.remove('bg-primary', 'text-white');
+      listViewBtn?.classList.add('hover:bg-gray-100', 'dark:hover:bg-gray-800');
+    } else {
+      listViewBtn?.classList.add('bg-primary', 'text-white');
+      listViewBtn?.classList.remove('hover:bg-gray-100', 'dark:hover:bg-gray-800');
+      gridViewBtn?.classList.remove('bg-primary', 'text-white');
+      gridViewBtn?.classList.add('hover:bg-gray-100', 'dark:hover:bg-gray-800');
+    }
+
+    // Create a new ItemGridLink with updated view type
+    const currentHTML = itemsContainer?.innerHTML || '';
+    if (itemsContainer) {
+      const newHTML = currentHTML.replace(/viewType="(grid|list)"/, `viewType="${view}"`);
+      itemsContainer.innerHTML = newHTML;
+    }
+  };
+
+  // Set initial view
+  updateView(currentView);
+
+  gridViewBtn?.addEventListener('click', () => {
+    updateView('grid');
+  });
+
+  listViewBtn?.addEventListener('click', () => {
+    updateView('list');
+  });
+
+  // Setup intersection observer for animations
+  const intersectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('intersected');
+        intersectionObserver.unobserve(entry.target);
+      }
+    });
+  });
+
+  // Initialize
+  document.querySelectorAll('[data-intersect]').forEach((element) => {
+    intersectionObserver.observe(element);
+  });
+</script>
+
+<style>
+  [data-intersect].intersected {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+</style>
+
+
+---
+import { twMerge } from 'tailwind-merge';
+import Image from 'astro/components/Image.astro';
+import type { ItemLink } from '~/types';
+
+interface Props {
+  items: ItemLink[];
+  columns?: 1 | 2 | 3 | 4;
+  classes?: {
+    container?: string;
+    item?: string;
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    image?: string;
+  };
+  isProfile?: boolean;
+  viewType?: 'grid' | 'list';
+}
+
+const { items, columns = 3, classes = {}, isProfile = false, viewType = 'grid' } = Astro.props;
+---
+
+<div
+  class={twMerge(
+    'transition-all duration-300',
+    viewType === 'grid'
+      ? `grid gap-8 gap-x-12 sm:gap-y-8 grid-auto-flow-row ${
+          columns === 4
+            ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
+            : columns === 3
+              ? 'lg:grid-cols-3 sm:grid-cols-2'
+              : columns === 2
+                ? 'sm:grid-cols-2'
+                : ''
+        }`
+      : 'space-y-2 divide-y divide-gray-200 dark:divide-gray-700',
+    classes.container
+  )}
+  data-view-type={viewType}
+>
+  {
+    items.map((item, index) => {
+      const row = Math.floor(index / columns);
+      const col = index % columns;
+      const delay = row < 1 ? index * 150 + 300 : 100 + col * 200;
+
+      return (
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={twMerge(
+            'block no-underline hover:no-underline group opacity-0 translate-y-6 md:translate-y-12 duration-[1500ms] ease-out',
+            'focus:outline-none focus:ring-2 focus:ring-primary rounded-lg',
+            viewType === 'list' && 'py-2 flex items-center',
+            classes.item
+          )}
+          data-intersect
+          style={`--animation-delay: ${delay}ms`}
+          aria-label={`Visit ${item.title} website`}
+          role="listitem"
+        >
+          <div
+            class={twMerge(
+              viewType === 'grid'
+                ? 'bg-white dark:bg-transparent rounded-lg shadow-lg dark:shadow-none p-6 h-full transition-all duration-300 hover:bg-gray-100/0 dark:hover:bg-white/0 group-hover:shadow-xl dark:group-hover:shadow-none'
+                : 'flex items-center py-2 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors duration-300'
+            )}
+          >
+            <div
+              class={twMerge(
+                'transition-transform duration-300 ease-out',
+                viewType === 'grid'
+                  ? isProfile
+                    ? 'mb-4 relative rounded-full overflow-hidden w-32 h-32 mx-auto'
+                    : 'mb-4 flex items-center justify-center bg-white dark:bg-white rounded-lg p-4 w-full aspect-[3/2] max-w-[240px]'
+                  : 'flex-shrink-0 w-10 h-10 rounded-full overflow-hidden',
+                isProfile ? 'border-2 border-gray-200 dark:border-gray-700' : 'items-center',
+                classes.image
+              )}
+            >
+              {item.image ? (
+                <Image
+                  src={item.image.src}
+                  alt={item.image.alt || ''}
+                  class={twMerge(
+                    'w-full h-full',
+                    isProfile || viewType === 'list'
+                      ? 'object-cover'
+                      : 'object-contain dark:brightness-110 dark:contrast-125'
+                  )}
+                  width={viewType === 'grid' ? (isProfile ? 256 : 240) : 48}
+                  height={viewType === 'grid' ? (isProfile ? 256 : 150) : 48}
+                  loading={index < 6 ? 'eager' : 'lazy'}
+                  decoding={index < 6 ? 'sync' : 'async'}
+                />
+              ) : (
+                <div
+                  class={twMerge(
+                    'w-full h-full flex items-center justify-center',
+                    'bg-gray-100 dark:bg-gray-800',
+                    isProfile && 'rounded-full'
+                  )}
+                  aria-hidden="true"
+                />
+              )}
+            </div>
+            <div class={twMerge(
+              viewType === 'grid' 
+                ? 'text-center mt-4' 
+                : 'flex-grow ml-4 min-w-0'
+            )}>
+              <h3
+                class={twMerge(
+                  viewType === 'grid' 
+                    ? 'text-xl font-semibold' 
+                    : 'text-base font-medium',
+                  viewType === 'grid' 
+                    ? 'text-gray-800 dark:text-gray-100' 
+                    : 'text-gray-900 dark:text-gray-100',
+                  classes.title
+                )}
+              >
+                {item.title}
+              </h3>
+              {item.subtitle && (
+                <p
+                  class={twMerge(
+                    viewType === 'grid' ? 'mt-2' : 'mt-0.5',
+                    'text-sm',
+                    viewType === 'grid' 
+                      ? 'text-gray-600 dark:text-gray-400' 
+                      : 'text-primary',
+                    classes.subtitle
+                  )}
+                >
+                  {item.subtitle}
+                </p>
+              )}
+              {item.description && (
+                <p
+                  class={twMerge(
+                    viewType === 'grid' ? 'mt-2' : 'mt-0.5',
+                    'text-sm text-gray-500 dark:text-gray-400',
+                    viewType === 'list' && 'line-clamp-1',
+                    classes.description
+                  )}
+                >
+                  {item.description}
+                </p>
+              )}
+              {item.url && viewType === 'grid' && (
+                <span
+                  class="text-sm text-primary mt-2 inline-flex items-center gap-1 transition-all duration-300 group-hover:gap-2"
+                  aria-hidden="true"
+                >
+                  Visit website
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 transition-transform duration-300 transform group-hover:translate-x-1"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    role="presentation"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              )}
+            </div>
+          </div>
+        </a>
+      );
+    })
+  }
+</div>
+
+<style>
+  /* Base animation classes */
+  [data-intersect] {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition:
+      opacity 1s ease-out,
+      transform 1s ease-out;
+    transition-delay: var(--animation-delay, 0ms);
+  }
+
+  @media (min-width: 768px) {
+    [data-intersect] {
+      transform: translateY(3rem);
+    }
+  }
+
+  [data-intersect].intersected {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* View type transitions */
+  [data-view-type] {
+    transition: all 0.3s ease-out;
+  }
+</style>
+
+<script>
+  // Watch for view type changes
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'data-view-type') {
+        const element = mutation.target as HTMLElement;
+        const viewType = element.getAttribute('data-view-type');
+
+        if (viewType === 'grid') {
+          element.className = element.className.replace(/list/g, 'grid');
+        } else {
+          element.className = element.className.replace(/grid/g, 'list');
+        }
+      }
+    });
+  });
+
+  // Observe the container for view type changes
+  const container = document.querySelector('[data-view-type]');
+  if (container) {
+    observer.observe(container, { attributes: true });
+  }
+</script> -->
