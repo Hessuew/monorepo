@@ -146,6 +146,19 @@ export interface Item {
   link?: boolean;
 }
 
+export interface ItemLink {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  url?: string;
+  image?: {
+    src: string | ImageMetadata;
+    alt: string;
+  };
+  wider?: boolean;
+  small?: boolean;
+}
+
 export interface Price {
   title?: string;
   subtitle?: string;
