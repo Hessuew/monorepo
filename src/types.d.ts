@@ -146,6 +146,19 @@ export interface Item {
   link?: boolean;
 }
 
+export interface ItemLink {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  url?: string;
+  image?: {
+    src: string | ImageMetadata;
+    alt: string;
+  };
+  wider?: boolean;
+  small?: boolean;
+}
+
 export interface Price {
   title?: string;
   subtitle?: string;
@@ -221,7 +234,7 @@ export interface Form {
 }
 
 // WIDGETS
-export interface Hero extends Omit<Headline, 'classes'>, Omit<Widget, 'isDark'> {
+export interface Hero extends Omit<Headline, 'classes'>, Widget {
   content?: string;
   actions?: string | CallToAction[];
   image?: string | unknown;

@@ -119,9 +119,9 @@ import { UI } from 'astrowind:config';
     function applyHeaderStylesOnScroll() {
       const header = document.querySelector('#header[data-aw-sticky-header]');
       if (!header) return;
-      if (lastKnownScrollPosition > 60 && !header.classList.contains('scroll')) {
+      if (lastKnownScrollPosition > 1 && !header.classList.contains('scroll')) {
         header.classList.add('scroll');
-      } else if (lastKnownScrollPosition <= 60 && header.classList.contains('scroll')) {
+      } else if (lastKnownScrollPosition <= 1 && header.classList.contains('scroll')) {
         header.classList.remove('scroll');
       }
       ticking = false;
