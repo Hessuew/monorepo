@@ -108,45 +108,6 @@ const {
 </WidgetWrapper>
 
 <script>
-  const gridViewBtn = document.getElementById('gridViewBtn');
-  const listViewBtn = document.getElementById('listViewBtn');
-  const itemsContainer = document.getElementById('itemsContainer');
-
-  const currentView = localStorage.getItem('teamViewPreference') || 'grid';
-
-  const updateView = (view: string) => {
-    // Update button styles
-    if (view === 'grid') {
-      gridViewBtn?.classList.add('bg-primary', 'text-white');
-      gridViewBtn?.classList.remove('hover:bg-gray-100', 'dark:hover:bg-gray-800');
-      listViewBtn?.classList.remove('bg-primary', 'text-white');
-      listViewBtn?.classList.add('hover:bg-gray-100', 'dark:hover:bg-gray-800');
-    } else {
-      listViewBtn?.classList.add('bg-primary', 'text-white');
-      listViewBtn?.classList.remove('hover:bg-gray-100', 'dark:hover:bg-gray-800');
-      gridViewBtn?.classList.remove('bg-primary', 'text-white');
-      gridViewBtn?.classList.add('hover:bg-gray-100', 'dark:hover:bg-gray-800');
-    }
-
-    // Create a new ItemGridLink with updated view type
-    const currentHTML = itemsContainer?.innerHTML || '';
-    if (itemsContainer) {
-      const newHTML = currentHTML.replace(/viewType="(grid|list)"/, `viewType="${view}"`);
-      itemsContainer.innerHTML = newHTML;
-    }
-  };
-
-  // Set initial view
-  updateView(currentView);
-
-  gridViewBtn?.addEventListener('click', () => {
-    updateView('grid');
-  });
-
-  listViewBtn?.addEventListener('click', () => {
-    updateView('list');
-  });
-
   // Setup intersection observer for animations
   const intersectionObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
