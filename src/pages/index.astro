@@ -7,6 +7,7 @@ import Stats from '~/components/widgets/Stats.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Image from '~/components/common/Image.astro';
 import Features3 from '~/components/widgets/Features3.astro';
+import Stars from '~/components/widgets/Stars.astro';
 
 const metadata = {
   title: 'urFIT-child — A treasure box of 21st-century novel discoveries',
@@ -15,38 +16,42 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Hero tagline="Welcome to">
-    <Fragment slot="image">
-      <Image
-        class="mx-auto rounded-md w-full"
-        widths={[200, 384, 512, 1020]}
-        sizes="(max-width: 767px) 200px, (max-width: 1023px) 384px, (max-width: 2039px) 512px, 1020px"
-        loading="eager"
-        width={640}
-        height={640}
-        src="https://lh3.googleusercontent.com/d/1vPnP_SYQ1cqtQ9a95dFuGWQM1Zn5o6f0"
-        alt="urFIT-child Hero Image"
-      />
-    </Fragment>
-    <Fragment slot="title">
-      <!-- Simplify web design with Astrowind: <br /> your ultimate <span class="text-accent dark:text-white highlight"
+  <Stars>
+    <Hero tagline="Welcome to">
+      <Fragment slot="image">
+        <Image
+          class="mx-auto rounded-md w-full"
+          widths={[200, 384, 512, 1020]}
+          sizes="(max-width: 767px) 200px, (max-width: 1023px) 384px, (max-width: 2039px) 512px, 1020px"
+          loading="eager"
+          width={640}
+          height={640}
+          src="https://lh3.googleusercontent.com/d/1vPnP_SYQ1cqtQ9a95dFuGWQM1Zn5o6f0"
+          alt="urFIT-child Hero Image"
+        />
+      </Fragment>
+      <Fragment slot="title">
+        <!-- Simplify web design with Astrowind: <br /> your ultimate <span class="text-accent dark:text-white highlight"
         >SaaS</span
       > companion<br /> -->
-      <GradientText>U</GradientText>nde<GradientText>R</GradientText>standing
-      <GradientText>FIT</GradientText>ness and
-      <GradientText>C</GradientText>ardiometabolic
-      <GradientText>H</GradientText>ealth
-      <GradientText>I</GradientText>n
-      <GradientText>L</GradientText>ittle
-      <GradientText>D</GradientText>arlings
-      <GradientText>(urFIT-child)</GradientText>
-    </Fragment>
+        <GradientText>U</GradientText>nde<GradientText>R</GradientText>standing
+        <GradientText>FIT</GradientText>ness and
+        <GradientText>C</GradientText>ardiometabolic
+        <GradientText>H</GradientText>ealth
+        <GradientText>I</GradientText>n
+        <GradientText>L</GradientText>ittle
+        <GradientText>D</GradientText>arlings
+        <GradientText>(urFIT-child)</GradientText>
+      </Fragment>
 
-    <Fragment slot="subtitle">
-      A treasure box of 21st-century novel discoveries aimed at <GradientText class="font-bold">improving</GradientText>
-      children, adolescents, and young adults' health.
-    </Fragment>
-  </Hero>
+      <Fragment slot="subtitle">
+        A treasure box of 21st-century novel discoveries aimed at <GradientText class="font-bold"
+          >improving</GradientText
+        >
+        children, adolescents, and young adults' health.
+      </Fragment>
+    </Hero>
+  </Stars>
 
   <!-- Features Widget *************** -->
 
