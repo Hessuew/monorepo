@@ -14,7 +14,7 @@ const stars = [
   {/* Main content with stars */}
   <div class="relative w-full min-h-screen overflow-hidden dark:bg-gradient-to-b from-black via-page to-black">
     {/* Stars background layer */}
-    <div class="absolute inset-0 z-0 overflow-hidden">
+    <div class="absolute inset-0 z-0 overflow-hidden" aria-hidden="true" role="presentation">
       {
         stars.map((star) => (
           <div
