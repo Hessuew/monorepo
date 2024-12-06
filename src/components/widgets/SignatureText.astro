@@ -79,7 +79,7 @@ const { class: className = '' } = Astro.props;
     fill: #60a5fa; /* Default state is blue */
     stroke: #60a5fa;
   }
-  
+
   /* Google chrome */
   @-webkit-keyframes svg-text-anim {
     40% {
@@ -150,4 +150,11 @@ const { class: className = '' } = Astro.props;
   if (signatureContainer) {
     observer.observe(signatureContainer);
   }
+
+  // Cleanup function to disconnect observer
+  document.addEventListener('astro:before-swap', () => {
+    if (observer) {
+      observer.disconnect();
+    }
+  });
 </script>
