@@ -166,7 +166,7 @@ const finalStroke = strokeClass ? 'currentColor' : stroke;
         document.addEventListener('astro:page-load', setupWaveObserver);
 
         // Fallback for scroll events
-        let timeout;
+        let timeout: number;
         window.addEventListener('scroll', () => {
           if (timeout) {
             window.cancelAnimationFrame(timeout);
