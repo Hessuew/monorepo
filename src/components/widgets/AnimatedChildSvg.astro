@@ -1,0 +1,198 @@
+---
+interface Props {
+  animate?: boolean;
+  classes?: string;
+  stroke?: string;
+  strokeWidth?: number;
+  delay?: number;
+}
+
+const {
+  animate = true,
+  classes= '',
+  stroke = 'currentColor',
+  strokeWidth = 40,
+  delay = 0
+} = Astro.props;
+
+// Determine Tailwind color class
+const strokeClass = stroke.startsWith('text-') ? stroke : '';
+const finalStroke = strokeClass ? 'currentColor' : stroke;
+---
+<div class={animate ? 'wave-wrapper' : 'static-wrapper'}>
+  <svg 
+    class={`curvy-wave ${classes} ${strokeClass} w-full h-full`} 
+    viewBox="0 0 580 500"
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path 
+      d="M13.999793,336.587441c17.060409,27.643823,43.273652,58.456135,79.650804,81.175079c39.390622,25.732414,92.790435,39.397228,138.503041,41.8277c54.484885,.906264,109.025508,-9.899,147.56657,-22.48027c28.045424,-11.074534,42.591716,-34.968061,50.463372,-69.018392c7.922864,-42.126524,-4.375433,-72.276774,-46.011887,-99.945525c-33.629146,-19.644109,-65.254384,-11.534466,-96.966423,5.976131c-28.716411,22.538374,-41.21372,46.838782,-39.528553,83.490898c6.205471,38.192959,25.46211,62.26853,49.989618,74.519468c37.089828,21.256574,67.175512,4.681428,82.269362,4.689209c43.214094,-24.724886,79.704828,-60.396565,109.494037,-114.608338c21.643964,-41.003642,40.826435,-93.067643,36.783285,-149.866414c1.492529,-32.011549,-8.386586,-60.870078,-15.454793,-79.79817"
+      stroke={finalStroke} 
+      stroke-width={strokeWidth} 
+      stroke-linecap="round"
+      fill="none"
+      class={animate ? 'wave-path' : 'static-path'}
+      style={animate ? `
+        stroke-dasharray: 1400;
+        stroke-dashoffset: 1400;
+        animation-delay: ${delay}ms;
+      ` : ''}
+    />
+    <line 
+      x1="380" 
+      y1="160" 
+      x2="375" 
+      y2="120" 
+      stroke={finalStroke}
+      stroke-width={strokeWidth}
+      stroke-linecap="round"
+      stroke-dasharray="2 4"
+      class={animate ? 'dash-line dash-1' : 'static-dash'}
+    />
+    <line 
+      x1="430" 
+      y1="150" 
+      x2="440" 
+      y2="110" 
+      stroke={finalStroke}
+      stroke-width={strokeWidth}
+      stroke-linecap="round"
+      stroke-dasharray="2 4"
+      class={animate ? 'dash-line dash-2' : 'static-dash'}
+    />
+  </svg>
+
+  {animate && (
+    <>
+      <style is:inline>
+        .wave-wrapper {
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        .wave-path {
+          opacity: 0;
+        }
+
+        .wave-path.visible {
+          opacity: 1;
+          animation: drawWave 2s ease-out forwards;
+        }
+
+        .wave-wrapper.visible {
+          animation: pulse 400ms ease-in-out forwards;
+          animation-delay: 3.1s;
+        }
+
+        .dash-line {
+          opacity: 0;
+          transform-origin: center;
+          transform: scale(0.8);
+        }
+
+        .wave-wrapper.visible .dash-line {
+          animation: appearAndScale 400ms ease-in-out forwards;
+          animation-delay: 3.1s;
+        }
+
+        .dash-2 {
+          animation-delay: 3.2s;
+        }
+
+        @keyframes drawWave {
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+
+        @keyframes pulse {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+
+        @keyframes appearAndScale {
+          0% {
+            opacity: 0;
+            transform: scale(0.8);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1.1);
+          }
+        }
+      </style>
+
+      <script>
+        function setupWaveObserver() {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('visible');
+                  entry.target.querySelector('.wave-path')?.classList.add('visible');
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { 
+              threshold: 0.1,
+              rootMargin: '50px'
+            }
+          );
+
+          document.querySelectorAll('.wave-wrapper').forEach((wrapper) => {
+            if (wrapper && !wrapper.classList.contains('visible')) {
+              observer.observe(wrapper);
+            }
+          });
+        }
+
+        // Run immediately
+        setupWaveObserver();
+
+        // Run again after page load to catch any dynamically loaded elements
+        window.addEventListener('load', setupWaveObserver);
+
+        // Run when Astro view transitions complete
+        document.addEventListener('astro:page-load', setupWaveObserver);
+
+        {/* // Fallback for scroll events
+        let timeout: number;
+        window.addEventListener('scroll', () => {
+          if (timeout) {
+            window.cancelAnimationFrame(timeout);
+          }
+          timeout = window.requestAnimationFrame(() => {
+            setupWaveObserver();
+          });
+        }, { passive: true }); */}
+      </script>
+    </>
+  )}
+</div>
+
+<style is:global>
+  .curvy-wave {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .static-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .static-path, .static-dash {
+    opacity: 1;
+  }
+</style>

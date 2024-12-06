@@ -41,7 +41,7 @@ const metadata = {
         <GradientText>I</GradientText>n
         <GradientText>L</GradientText>ittle
         <GradientText>D</GradientText>arlings
-        <GradientText>(urFIT-child)</GradientText>
+        <GradientText class="block sm:inline">(urFIT-child)</GradientText>
       </Fragment>
 
       <Fragment slot="subtitle">
@@ -174,7 +174,17 @@ const metadata = {
 
   <!-- Stats Widget ****************** -->
 
-  <Stats classes={{ item: 'md:w-full' }} stats={[{ amount: 'urFIT-child', lowerCase: true }]}>
+  <Stats
+    classes={{ item: 'md:w-full' }}
+    stats={[
+      {
+        amount: 'urFIT-child',
+        classes: { amount: 'text-[2.6rem] font-bold dark:text-secondary lg:text-7xl xl:text-7xl' },
+        lowerCase: true,
+        curve: true,
+      },
+    ]}
+  >
     <Fragment slot="title">
       Simplifying the health of children <br /> around the world:
     </Fragment>
