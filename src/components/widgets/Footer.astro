@@ -1,71 +1,103 @@
 ---
 import { Icon } from 'astro-icon/components';
-// import { SITE } from 'astrowind:config';
-// import { getHomePermalink } from '~/utils/permalinks';
-
-interface Link {
-  text?: string;
-  href?: string;
-  ariaLabel?: string;
-  icon?: string;
-  image?: string;
-}
-
-interface Links {
-  title?: string;
-  links: Array<Link>;
-}
+import AnimatedChildSvg from './AnimatedChildSvg.astro';
+import SignatureText from './SignatureText.astro';
 
 export interface Props {
-  links: Array<Links>;
-  secondaryLinks: Array<Link>;
-  socialLinks: Array<Link>;
-  footNote?: string;
   theme?: string;
 }
 
-const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
+const links = [
+  {
+    title: 'About',
+    links: [
+      { text: 'Team', href: '/people/team' },
+      { text: 'Collaborators', href: '/people/collaborators' },
+      { text: 'Funders', href: '/people/funders' },
+      { text: 'Thesis', href: '/materials/thesis' },
+      { text: 'Publications', href: '/materials/publications' },
+      { text: 'Videos and Podcasts', href: '/materials/videos-and-podcasts' },
+      { text: 'Press Releases', href: '/materials/press-releases' },
+    ],
+  },
+  {
+    title: 'Principal Investigator',
+    links: [
+      { text: 'About', href: '/people/principal-investigator' },
+      { text: 'Academic', href: '/people/principal-investigator#academic' },
+      { text: 'Awards and Honours', href: '/people/principal-investigator#awards-and-honours' },
+      { text: 'Editorial', href: '/people/principal-investigator#editorial' },
+      { text: 'Affiliations', href: '/people/principal-investigator#affiliations' },
+      { text: 'Memberships', href: '/people/principal-investigator#memberships' },
+      { text: 'Contact', href: '/people/principal-investigator#contact' },
+    ],
+  },
+  {
+    title: 'Resources',
+    links: [
+      { text: 'Waist/Height Calculator', href: '/waist-height-calculator' },
+      { text: 'Non-academic', href: '/non-academic' },
+    ],
+  },
+];
+
+const socialLinks = [
+  {
+    ariaLabel: 'UEF',
+    icon: 'tabler:school',
+    href: 'https://uefconnect.uef.fi/en/group/understanding-fitness-and-cardiometabolic-health-in-little-darlings-urfit-child',
+  },
+  {
+    ariaLabel: 'ResearchGate',
+    icon: 'tabler:letter-r',
+    href: 'https://www.researchgate.net/project/UndeRstanding-FITness-and-cardiometabolic-health-in-little-darlings-urFIT-child',
+  },
+  {
+    ariaLabel: 'Google Scholar',
+    icon: 'tabler:brand-google',
+    href: 'https://scholar.google.com/citations?user=YOUR_ID',
+  },
+  {
+    ariaLabel: 'ORCID',
+    icon: 'tabler:id',
+    href: 'https://orcid.org/YOUR_ORCID_ID',
+  },
+  {
+    ariaLabel: 'PubMed',
+    icon: 'tabler:books',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/?term=urfit-child',
+  },
+];
+
+const { theme = 'light' } = Astro.props;
 ---
 
 <footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-gray-200 dark:border-slate-800 not-prose']}>
-  <div class="dark:bg-dark absolute inset-0 pointer-events-none" aria-hidden="true"></div>
-  <div
-    class="relative max-w-7xl mx-auto px-4 sm:px-6 dark:text-slate-300 intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-  >
-    <div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 py-8 md:py-12">
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 dark:text-slate-300">
+    <div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 pt-8 pb-4 md:pt-12 md:pb-8">
       <div class="col-span-12 lg:col-span-4">
-        <!-- <div class="mb-2">
-          <a class="inline-block font-bold text-xl" href={getHomePermalink()}>{SITE?.name}</a>
-        </div> -->
-        <div class="text-sm text-muted flex gap-1">
-          {
-            secondaryLinks.map(({ text, href }, index) => (
-              <>
-                {index !== 0 ? ' · ' : ''}
-                <a
-                  class="text-muted hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out"
-                  href={href}
-                  set:html={text}
-                />
-              </>
-            ))
-          }
+        <div class="mb-2 relative inline-block">
+          <a class="inline-block font-bold text-xl" href="/">urFIT-child</a>
+          <div class="absolute w-6 h-6 -bottom-2 -right-3.5">
+            <AnimatedChildSvg animate={false} class="w-full h-full" />
+          </div>
         </div>
+        <div class="text-sm text-muted">UndeRstanding FITness and Cardiometabolic Health In Little Darlings</div>
       </div>
       {
         links.map(({ title, links }) => (
           <div class="col-span-6 md:col-span-3 lg:col-span-2">
             <div class="dark:text-gray-300 font-medium mb-2">{title}</div>
-            {links && Array.isArray(links) && links.length > 0 && (
+            {links && Array.isArray(links) && (
               <ul class="text-sm">
-                {links.map(({ text, href, ariaLabel }) => (
+                {links.map(({ text, href }) => (
                   <li class="mb-2">
                     <a
                       class="text-muted hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out"
                       href={href}
-                      aria-label={ariaLabel}
                     >
-                      <Fragment set:html={text} />
+                      {text}
                     </a>
                   </li>
                 ))}
@@ -76,32 +108,33 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
       }
     </div>
     <div class="md:flex md:items-center md:justify-between py-6 md:py-8">
+      <div class="text-sm mr-4 dark:text-muted">
+        {new Date().getFullYear()} urFIT-child Research Project · Created by<a
+          href="https://github.com/juhanijuusola"
+          class="inline-block hover:text-blue-600 transition-colors ml-1"
+        >
+          <SignatureText class="w-24" />
+        </a>
+      </div>
       {
         socialLinks?.length ? (
-          <ul class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
-            {socialLinks.map(({ ariaLabel, href, text, icon, image }) => (
-              <li>
-                <a
-                  class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                  aria-label={ariaLabel}
-                  href={href}
-                  target="_blank"
-                >
-                  {icon && <Icon name={icon} class="w-6 h-6" />}
-                  {image && <img src={image} alt={ariaLabel} class="w-6 h-6" />}
-                  <Fragment set:html={text} />
-                </a>
-              </li>
+          <div class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
+            {socialLinks.map(({ ariaLabel, href, icon }) => (
+              <a
+                class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                aria-label={ariaLabel}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {icon && <Icon name={icon} class="w-5 h-5" />}
+              </a>
             ))}
-          </ul>
+          </div>
         ) : (
           ''
         )
       }
-
-      <div class="text-sm mr-4 dark:text-muted">
-        <Fragment set:html={footNote} />
-      </div>
     </div>
   </div>
 </footer>

@@ -19,7 +19,7 @@ const {
 const strokeClass = stroke.startsWith('text-') ? stroke : '';
 const finalStroke = strokeClass ? 'currentColor' : stroke;
 ---
-<div class={animate ? 'wave-wrapper' : ''}>
+<div class={animate ? 'wave-wrapper' : 'static-wrapper'}>
   <svg 
     class={`curvy-wave ${className} ${strokeClass} w-full h-full`} 
     viewBox="0 0 580 500"
@@ -32,12 +32,12 @@ const finalStroke = strokeClass ? 'currentColor' : stroke;
       stroke-width={strokeWidth} 
       stroke-linecap="round"
       fill="none"
-      class="wave-path"
-      style={`
+      class={animate ? 'wave-path' : 'static-path'}
+      style={animate ? `
         stroke-dasharray: 1400;
         stroke-dashoffset: 1400;
         animation-delay: ${delay}ms;
-      `}
+      ` : ''}
     />
     <line 
       x1="380" 
@@ -48,7 +48,7 @@ const finalStroke = strokeClass ? 'currentColor' : stroke;
       stroke-width={strokeWidth}
       stroke-linecap="round"
       stroke-dasharray="2 4"
-      class="dash-line dash-1"
+      class={animate ? 'dash-line dash-1' : 'static-dash'}
     />
     <line 
       x1="430" 
@@ -59,7 +59,7 @@ const finalStroke = strokeClass ? 'currentColor' : stroke;
       stroke-width={strokeWidth}
       stroke-linecap="round"
       stroke-dasharray="2 4"
-      class="dash-line dash-2"
+      class={animate ? 'dash-line dash-2' : 'static-dash'}
     />
   </svg>
 
@@ -83,7 +83,7 @@ const finalStroke = strokeClass ? 'currentColor' : stroke;
 
         .wave-wrapper.visible {
           animation: pulse 400ms ease-in-out forwards;
-          animation-delay: 3s;
+          animation-delay: 3.1s;
         }
 
         .dash-line {
@@ -94,7 +94,7 @@ const finalStroke = strokeClass ? 'currentColor' : stroke;
 
         .wave-wrapper.visible .dash-line {
           animation: appearAndScale 400ms ease-in-out forwards;
-          animation-delay: 3.2s;
+          animation-delay: 3.1s;
         }
 
         .dash-2 {
@@ -184,5 +184,15 @@ const finalStroke = strokeClass ? 'currentColor' : stroke;
   .curvy-wave {
     max-width: 100%;
     height: auto;
+  }
+
+  .static-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .static-path, .static-dash {
+    opacity: 1;
   }
 </style>

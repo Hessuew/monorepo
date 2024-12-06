@@ -4,7 +4,7 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
 import Headline from '../ui/Headline.astro';
 import { Icon } from 'astro-icon/components';
 import { twMerge } from 'tailwind-merge';
-import CurvyWave from './CurvyWave.astro';
+import AnimatedChildSvg from './AnimatedChildSvg.astro';
 
 const {
   title = await Astro.slots.render('title'),
@@ -50,8 +50,8 @@ const { item: itemClass = '' } = classes;
                 </div>
               )}
               {curve && (
-                <div class="absolute -bottom-2.5 -right-6 lg:-bottom-10 lg:-right-10 w-16 h-12 lg:w-24 lg:h-20">
-                  <CurvyWave stroke="text-theme" delay={1000} class="w-full h-full" />
+                <div class="absolute -bottom-2.5 -right-8 lg:-bottom-10 lg:-right-12 w-16 h-12 lg:w-24 lg:h-20">
+                  <AnimatedChildSvg stroke="text-theme" delay={1000} class="w-full h-full" />
                 </div>
               )}
             </div>
