@@ -1,7 +1,7 @@
 ---
 interface Props {
   animate?: boolean;
-  class?: string;
+  classes?: string;
   stroke?: string;
   strokeWidth?: number;
   delay?: number;
@@ -9,7 +9,7 @@ interface Props {
 
 const {
   animate = true,
-  class: className = '',
+  classes= '',
   stroke = 'currentColor',
   strokeWidth = 40,
   delay = 0
@@ -21,7 +21,7 @@ const finalStroke = strokeClass ? 'currentColor' : stroke;
 ---
 <div class={animate ? 'wave-wrapper' : 'static-wrapper'}>
   <svg 
-    class={`curvy-wave ${className} ${strokeClass} w-full h-full`} 
+    class={`curvy-wave ${classes} ${strokeClass} w-full h-full`} 
     viewBox="0 0 580 500"
     fill="none" 
     xmlns="http://www.w3.org/2000/svg"
@@ -165,7 +165,7 @@ const finalStroke = strokeClass ? 'currentColor' : stroke;
         // Run when Astro view transitions complete
         document.addEventListener('astro:page-load', setupWaveObserver);
 
-        // Fallback for scroll events
+        {/* // Fallback for scroll events
         let timeout: number;
         window.addEventListener('scroll', () => {
           if (timeout) {
@@ -174,7 +174,7 @@ const finalStroke = strokeClass ? 'currentColor' : stroke;
           timeout = window.requestAnimationFrame(() => {
             setupWaveObserver();
           });
-        }, { passive: true });
+        }, { passive: true }); */}
       </script>
     </>
   )}

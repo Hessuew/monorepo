@@ -80,7 +80,7 @@ const { theme = 'light' } = Astro.props;
         <div class="mb-2 relative inline-block">
           <a class="inline-block font-bold text-xl" href="/">urFIT-child</a>
           <div class="absolute w-6 h-6 -bottom-2 -right-3.5">
-            <AnimatedChildSvg animate={false} class="w-full h-full" />
+            <AnimatedChildSvg animate={false} classes="w-full h-full" />
           </div>
         </div>
         <div class="text-sm text-muted">UndeRstanding FITness and Cardiometabolic Health In Little Darlings</div>
@@ -113,12 +113,15 @@ const { theme = 'light' } = Astro.props;
           href="https://github.com/juhanijuusola"
           class="inline-block hover:text-blue-600 transition-colors ml-1"
         >
-          <SignatureText class="w-24" />
+          <SignatureText classes="w-24" />
         </a>
       </div>
       {
         socialLinks?.length ? (
-          <div class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
+          <nav
+            aria-label="Social media links"
+            class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4"
+          >
             {socialLinks.map(({ ariaLabel, href, icon }) => (
               <a
                 class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
@@ -130,7 +133,7 @@ const { theme = 'light' } = Astro.props;
                 {icon && <Icon name={icon} class="w-5 h-5" />}
               </a>
             ))}
-          </div>
+          </nav>
         ) : (
           ''
         )
