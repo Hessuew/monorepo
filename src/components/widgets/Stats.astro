@@ -4,6 +4,7 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
 import Headline from '../ui/Headline.astro';
 import { Icon } from 'astro-icon/components';
 import { twMerge } from 'tailwind-merge';
+import CurvyWave from './CurvyWave.astro';
 
 const {
   title = await Astro.slots.render('title'),
@@ -25,7 +26,7 @@ const { item: itemClass = '' } = classes;
   <div class="flex flex-wrap justify-center -m-4 text-center">
     {
       stats &&
-        stats.map(({ amount, title, icon, lowerCase }) => (
+        stats.map(({ amount, classes, title, icon, lowerCase, curve }) => (
           <div
             class={twMerge(
               'p-4 md:w-1/4 sm:w-1/2 w-full min-w-[220px] text-center md:border-r md:last:border-none dark:md:border-slate-500 intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade intersect-quarter',
@@ -37,11 +38,23 @@ const { item: itemClass = '' } = classes;
                 <Icon name={icon} class="w-10 h-10" />
               </div>
             )}
-            {amount && (
-              <div class="font-heading text-primary text-[2.6rem] font-bold dark:text-secondary lg:text-5xl xl:text-6xl">
-                {amount}
-              </div>
-            )}
+            <div class="relative inline-block">
+              {amount && (
+                <div
+                  class={twMerge(
+                    'font-heading text-primary text-[2.6rem] font-bold dark:text-secondary lg:text-5xl xl:text-6xl',
+                    classes?.amount
+                  )}
+                >
+                  {amount}
+                </div>
+              )}
+              {curve && (
+                <div class="absolute -bottom-2.5 -right-6 lg:-bottom-10 lg:-right-10 w-16 h-12 lg:w-24 lg:h-20">
+                  <CurvyWave stroke="text-theme" delay={1000} class="w-full h-full" />
+                </div>
+              )}
+            </div>
             {title && (
               <div
                 class={twMerge(

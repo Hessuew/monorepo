@@ -130,9 +130,11 @@ interface Social {
 
 export interface Stat {
   amount?: number | string;
+  classes?: Record<string, string>;
   title?: string;
   icon?: string;
   lowerCase?: boolean;
+  curve?: boolean;
 }
 
 export interface Item {
