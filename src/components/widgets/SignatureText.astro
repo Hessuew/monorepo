@@ -1,13 +1,20 @@
 ---
 interface Props {
-  class?: string;
+  classes?: string;
 }
 
-const { class: className = '' } = Astro.props;
+const { classes = '' } = Astro.props;
 ---
 
-<div class={`signature-container ${className}`}>
-  <svg width="90.903" height="14.658" viewBox="0 0 90.903 14.658" xmlns="http://www.w3.org/2000/svg">
+<div class={`signature-container ${classes}`}>
+  <svg
+    role="img"
+    aria-label="Signature"
+    aria-hidden="false"
+    width="90.903"
+    viewBox="0 0 90.903 14.658"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <g
       id="svgGroup"
       stroke-linecap="round"
