@@ -1,0 +1,167 @@
+---
+interface Props {
+  options: string[];
+  allLabel?: string;
+  variant?: 'default' | 'topic';
+}
+
+const { options = [], variant = 'default' } = Astro.props;
+
+const buttonClass = 'rounded-full px-4 py-2 text-sm font-medium transition-all whitespace-nowrap';
+const hoverClass =
+  variant === 'topic' ? 'hover:bg-gray-100 dark:hover:bg-gray-800' : 'hover:bg-blue-100 dark:hover:bg-blue-900';
+const filterType = variant === 'topic' ? 'topic' : 'category';
+---
+
+<div class="relative">
+  <div class="overflow-x-auto hide-scrollbar" data-scroll-container>
+    <div class="flex gap-2 min-w-max px-2" data-filter-buttons data-variant={variant}>
+      <button
+        type="button"
+        class:list={[buttonClass, hoverClass]}
+        data-filter-type={filterType}
+        data-filter="all"
+        data-selected="true"
+      >
+        {`All ${filterType === 'category' ? 'Categories' : 'Topics'}`}
+      </button>
+      {
+        options.map((option) => (
+          <button
+            type="button"
+            class:list={[buttonClass, hoverClass]}
+            data-filter-type={filterType}
+            data-filter={option}
+            data-selected="false"
+          >
+            {option}
+          </button>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Left scroll button with gradient -->
+  <div class="absolute left-0 top-0 bottom-0 items-center hidden" data-scroll-indicator="left">
+    <button
+      type="button"
+      class="h-full px-3 flex items-center bg-page text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 z-10"
+      data-scroll-left
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path
+          fill-rule="evenodd"
+          d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </button>
+    <div class="absolute left-full top-0 bottom-0 w-12 bg-gradient-to-r from-page to-transparent pointer-events-none">
+    </div>
+  </div>
+
+  <!-- Right scroll button with gradient -->
+  <div class="absolute right-0 top-0 bottom-0 items-center hidden" data-scroll-indicator="right">
+    <button
+      type="button"
+      class="h-full px-3 flex items-center bg-page text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 z-10"
+      data-scroll-right
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path
+          fill-rule="evenodd"
+          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </button>
+    <div class="absolute right-full top-0 bottom-0 w-12 bg-gradient-to-l from-page to-transparent pointer-events-none">
+    </div>
+  </div>
+</div>
+
+<style>
+  [data-filter-buttons][data-variant='default'] [data-selected='true'] {
+    @apply bg-blue-100 dark:bg-blue-900;
+  }
+
+  [data-filter-buttons][data-variant='topic'] [data-selected='true'] {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  [data-scroll-indicator].show {
+    @apply flex;
+  }
+</style>
+
+<script>
+  function initializeFilterButtons(container: Element) {
+    const buttons = container.querySelectorAll('button');
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        buttons.forEach((btn) => btn.setAttribute('data-selected', 'false'));
+        button.setAttribute('data-selected', 'true');
+
+        container.dispatchEvent(
+          new CustomEvent('filterChanged', {
+            bubbles: true,
+            detail: {
+              filter: button.getAttribute('data-filter'),
+              variant: container.getAttribute('data-variant'),
+            },
+          })
+        );
+      });
+    });
+  }
+
+  function initializeScroll(container: Element) {
+    const scrollContainer = container.querySelector('[data-scroll-container]') as HTMLElement;
+    const leftIndicator = container.querySelector('[data-scroll-indicator="left"]') as HTMLElement;
+    const rightIndicator = container.querySelector('[data-scroll-indicator="right"]') as HTMLElement;
+    const leftButton = container.querySelector('[data-scroll-left]') as HTMLButtonElement;
+    const rightButton = container.querySelector('[data-scroll-right]') as HTMLButtonElement;
+
+    if (!scrollContainer || !leftIndicator || !rightIndicator || !leftButton || !rightButton) return;
+
+    const updateScrollIndicators = () => {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
+
+      // Show left indicator if we've scrolled right
+      leftIndicator.classList.toggle('show', scrollLeft > 0);
+
+      // Show right indicator if there's more content to scroll to
+      rightIndicator.classList.toggle('show', scrollLeft < scrollWidth - clientWidth - 1);
+    };
+
+    const scroll = (direction: 'left' | 'right') => {
+      const scrollAmount = scrollContainer.clientWidth * 0.8;
+      scrollContainer.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth',
+      });
+    };
+
+    leftButton.addEventListener('click', () => scroll('left'));
+    rightButton.addEventListener('click', () => scroll('right'));
+    scrollContainer.addEventListener('scroll', updateScrollIndicators);
+    window.addEventListener('resize', updateScrollIndicators);
+
+    // Initial check
+    updateScrollIndicators();
+  }
+
+  // Initialize on page load
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll('[data-filter-buttons]').forEach(initializeFilterButtons);
+    document.querySelectorAll('.relative').forEach(initializeScroll);
+  });
+</script>

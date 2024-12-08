@@ -4,6 +4,7 @@ import { YouTube } from 'astro-embed';
 import Hero from '~/components/widgets/Hero.astro';
 import doccheckImage from '~/assets/images/physical_activity_slow_and_steady_wins_the_race.webp';
 import Image from '~/components/common/Image.astro';
+import FilterContainer from '~/components/filters/FilterContainer.astro';
 
 const metadata = {
   title: 'Videos and Podcasts',
@@ -98,40 +99,14 @@ const platforms = [...new Set(mediaItems.map((item) => item.platform))];
   <Hero classes={{ labelContainer: 'pb-0 md:pb-0 lg:pb-0' }} tagline="Media Coverage" title="Videos and Podcasts" />
 
   <section class="py-12 px-4 mx-auto max-w-7xl">
-    {/* Search and Filter Controls */}
-    <div
-      class="mb-8 flex flex-col md:flex-row gap-4 justify-between items-center intersect-once intersect-quarter intersect-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-    >
-      <div class="flex flex-wrap gap-2">
-        <button
-          class="px-4 py-2 rounded-lg font-medium bg-blue-500 dark:bg-blue-600 border border-blue-600 dark:border-blue-700 text-white hover:bg-gray-100 hover:text-gray-900 dark:hover:text-white dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-200 active"
-          data-platform="all"
-        >
-          All
-        </button>
-        {
-          platforms.map((platform) => (
-            <button
-              class="px-4 py-2 rounded-lg font-medium bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-200 [&.active]:bg-blue-500 [&.active]:dark:bg-blue-600 [&.active]:text-white [&.active]:border-blue-600 [&.active]:dark:border-blue-700 [&.active]:hover:text-black [&.active]:hover:bg-gray-100 [&.active]:hover:border-gray-300 [&.active]:hover:dark:text-gray-300 [&.active]:hover:dark:bg-gray-700 [&.active]:hover:dark:border-gray-500"
-              data-platform={platform}
-            >
-              {platform.charAt(0).toUpperCase() + platform.slice(1)}
-            </button>
-          ))
-        }
-      </div>
-      <div class="w-full md:w-auto">
-        <input
-          type="text"
-          id="searchInput"
-          name="searchInput"
-          aria-label="Search videos and podcasts"
-          aria-describedby="searchHelp"
-          placeholder="Search videos..."
-          class="w-full md:w-64 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 transition-colors duration-200"
-        />
-        <span id="searchHelp" class="sr-only"> Type to filter videos and podcasts by title </span>
-      </div>
+    <div class="mb-8">
+      <FilterContainer
+        options={[platforms]}
+        allLabels={['All Platforms']}
+        classes={{
+          container: 'py-0 lg:py-0 lg:py-0 md:py-0 md:py-0',
+        }}
+      />
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -139,7 +114,9 @@ const platforms = [...new Set(mediaItems.map((item) => item.platform))];
         mediaItems.map((item) => (
           <div
             class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-md dark:shadow-gray-900/20 hover:shadow-lg dark:hover:shadow-gray-900/30 transition-shadow duration-300 intersect-once intersect-quarter intersect-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-            data-platform={item.platform}
+            data-filterable-item
+            data-item-type={item.platform}
+            data-item-title={item.title}
           >
             <h2 class="text-2xl font-bold mb-2 text-gray-800 dark:text-gray-100">{item.title}</h2>
             <p class="text-gray-600 dark:text-gray-400 mb-4">{item.date}</p>
@@ -213,76 +190,10 @@ const platforms = [...new Set(mediaItems.map((item) => item.platform))];
 
 <style>
   lite-youtube {
-    @apply relative block bg-center bg-cover;
-    contain: content;
-    aspect-ratio: 16/9;
+    @apply relative block w-full aspect-video bg-black;
   }
 
   lite-youtube > iframe {
     @apply absolute top-0 left-0 w-full h-full border-0;
   }
 </style>
-
-<script>
-  // Filter functionality
-  const filterButtons = document.querySelectorAll('[data-platform]');
-  const mediaItems = document.querySelectorAll('[data-platform]');
-  const searchInput = document.querySelector('#searchInput') as HTMLInputElement;
-
-  function debounce<T extends (...args: unknown[]) => void>(func: T, wait: number): (...args: Parameters<T>) => void {
-    let timeout: ReturnType<typeof setTimeout>;
-    return (...args: Parameters<T>) => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => func(...args), wait);
-    };
-  }
-
-  function filterContent() {
-    const activeButton = document.querySelector('[data-platform].active');
-    if (!activeButton && process.env.NODE_ENV === 'development') {
-      console.warn('No active filter button found, defaulting to "all"');
-    }
-    const activeFilter = activeButton?.getAttribute('data-platform') || 'all';
-    const searchTerm = searchInput?.value.toLowerCase();
-
-    mediaItems.forEach((item) => {
-      if (item.tagName !== 'BUTTON') {
-        // Skip filter buttons
-        const platform = item.getAttribute('data-platform');
-        const title = item.querySelector('h2')?.textContent?.toLowerCase();
-        if (!title && process.env.NODE_ENV === 'development') {
-          console.warn(`No title found for item with platform ${platform}`);
-        }
-        const matchesFilter = activeFilter === 'all' || platform === activeFilter;
-        const matchesSearch = searchTerm ? title?.includes(searchTerm) : true;
-
-        item.classList.toggle('hidden', !(matchesFilter && matchesSearch));
-      }
-    });
-  }
-  const ACTIVE_CLASSES = [
-    'active',
-    'bg-blue-500',
-    'dark:bg-blue-600',
-    'text-white',
-    'border-blue-600',
-    'dark:border-blue-700',
-  ] as const;
-
-  filterButtons.forEach((button) => {
-    if (button.tagName === 'BUTTON') {
-      // Only add click handlers to buttons
-      button.addEventListener('click', () => {
-        filterButtons.forEach((btn) => {
-          if (btn.tagName === 'BUTTON') {
-            btn.classList.remove(...ACTIVE_CLASSES);
-          }
-        });
-        button.classList.add(...ACTIVE_CLASSES);
-        filterContent();
-      });
-    }
-  });
-
-  searchInput?.addEventListener('input', debounce(filterContent, 300));
-</script>
