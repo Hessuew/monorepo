@@ -29,12 +29,7 @@ const buttonGroups = Array.isArray(options[0]) ? options : [options];
 const labels = Array.isArray(allLabels) ? allLabels : [allLabels];
 ---
 
-<WidgetWrapper 
-  id={id} 
-  isDark={isDark} 
-  containerClass={classes?.container ?? `max-w-7xl mx-auto`} 
-  bg={bg}
->
+<WidgetWrapper id={id} isDark={isDark} containerClass={classes?.container ?? `max-w-7xl mx-auto`} bg={bg}>
   <div class="w-full">
     <div class="flex flex-col gap-4">
       <div class="flex flex-wrap-reverse items-center justify-between gap-4">
@@ -51,9 +46,11 @@ const labels = Array.isArray(allLabels) ? allLabels : [allLabels];
       </div>
       {
         buttonGroups.length > 1 &&
-          buttonGroups.slice(1).map((group, index) => (
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore - Type inference for map parameters in Astro
+          buttonGroups.slice(1).map((group: string[], i: number) => (
             <div class="w-full">
-              <FilterButtons options={group as string[]} allLabel={labels[index + 1] || 'All'} variant="topic" />
+              <FilterButtons options={group} allLabel={labels[i + 1] || 'All'} variant="topic" />
             </div>
           ))
       }

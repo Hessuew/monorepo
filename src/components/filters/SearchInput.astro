@@ -6,13 +6,7 @@ interface Props {
   gridId?: string;
 }
 
-const { 
-  placeholder = 'Search...', 
-  value = '', 
-  name, 
-  gridId, 
-  ...rest 
-} = Astro.props;
+const { placeholder = 'Search...', value = '', name, gridId, ...rest } = Astro.props;
 ---
 
 <div class="relative">

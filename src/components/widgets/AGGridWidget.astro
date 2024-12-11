@@ -2,15 +2,16 @@
 import FilterContainer from '~/components/filters/FilterContainer.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 
-interface Props {
-  gridId: string;
-  categories?: string[];
-  topics?: string[];
-  height?: string;
-  width?: string;
-  data: unknown[];
-  columnDefs?: unknown[];
-}
+/**
+ * @typedef {Object} Props
+ * @property {string} gridId
+ * @property {string[]} [categories]
+ * @property {string[]} [topics]
+ * @property {string} [height]
+ * @property {string} [width]
+ * @property {unknown[]} data
+ * @property {unknown[]} [columnDefs]
+ */
 
 const { gridId, categories = [], topics = [], height = '600px', width = '100%', data, columnDefs = [] } = Astro.props;
 
@@ -24,22 +25,10 @@ const defaultColumnDefs = [
     sort: 'desc',
   },
   {
-    headerName: 'Title',
-    field: 'title',
+    headerName: 'Category & Topic',
+    field: 'categoryAndTopic',
     sortable: true,
-    width: 480,
-  },
-  {
-    headerName: 'Category',
-    field: 'category',
-    sortable: true,
-    width: 150,
-  },
-  {
-    headerName: 'Topic',
-    field: 'topic',
-    sortable: true,
-    width: 240,
+    width: 'auto',
   },
   {
     headerName: 'Date',
@@ -53,13 +42,16 @@ const defaultColumnDefs = [
     sortable: true,
     width: 240,
   },
+  {
+    headerName: 'Title',
+    field: 'title',
+    sortable: true,
+    width: 480,
+  },
 ];
 
 const finalColumnDefs = columnDefs.length > 0 ? columnDefs : defaultColumnDefs;
 ---
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@32.3.3/styles/ag-grid.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@32.3.3/styles/ag-theme-quartz.css" />
 
 {
   (categories.length > 0 || topics.length > 0) && (
@@ -75,7 +67,9 @@ const finalColumnDefs = columnDefs.length > 0 ? columnDefs : defaultColumnDefs;
 }
 
 <WidgetWrapper containerClass="py-0 lg:py-0 md:py-0">
-  <div class="ag-theme-quartz" style={`height: ${height}; width: ${width};`} id={gridId}></div>
+  <div class="ag-grid-container">
+    <div class="ag-theme-quartz" style={`height: ${height}; width: ${width};`} id={gridId}></div>
+  </div>
 </WidgetWrapper>
 
 <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js" is:inline></script>
@@ -109,68 +103,60 @@ const finalColumnDefs = columnDefs.length > 0 ? columnDefs : defaultColumnDefs;
       const gridOptions = {
         columnDefs: [
           ...finalColumnDefs.map((col) => {
-            if (col.field === 'category') {
+            if (col.field === 'date') {
               return {
                 ...col,
+                /**
+                 * @param {Object} params - Cell renderer parameters
+                 * @param {Object} params.data - Row data
+                 * @param {string} params.data.title - Title
+                 * @param {string} params.value - Cell value
+                 */
                 cellRenderer: (params) => {
-                  return `
-                   <span class="inline-block px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                     ${params.value}
-                   </span>
-                 `;
+                  return `<div class='flex flex-col'>
+                    <h3 class='text-lg font-semibold title-link'>${params.data.title}</h3>
+                    <p class='text-sm text-gray-600'>Published on: ${params.value}</p>
+                  </div>`;
                 },
               };
             }
-
-            if (col.field === 'topic') {
+            if (col.field === 'category') {
               return {
                 ...col,
+                /**
+                 * @param {Object} params - Cell renderer parameters
+                 * @param {Object} params.data - Row data
+                 * @param {string} params.data.category - Category
+                 * @param {string} params.data.topic - Topic
+                 */
                 cellRenderer: (params) => {
-                  return `
-                   <span class="inline-block px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                     ${params.value}
-                   </span>
-                 `;
+                  return `<div class='mt-2 flex flex-wrap gap-2'>
+                    <span class='bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 text-xs font-medium mr-2 px-2.5 py-0.5 rounded'>${params.data.category}</span>
+                    <span class='bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 text-xs font-medium mr-2 px-2.5 py-0.5 rounded'>${params.data.topic}</span>
+                  </div>`;
                 },
               };
             }
 
             return col;
           }),
-          {
-            headerName: 'Visit',
-            field: 'url',
-            sortable: false,
-            width: 150,
-            cellRenderer: (params) => {
-              if (!params.value) return '';
-              
-              return `
-                <span class="inline-flex items-center gap-1 text-primary hover:text-primary-darker transition-colors duration-300 cursor-pointer group">
-                  Visit website
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300 transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
-                </span>
-              `;
-            },
-            cellClass: 'flex items-center justify-center',
-          }
         ],
-        onCellClicked: (event) => {
-          if (event.data && event.data.url) {
-            window.open(event.data.url, '_blank');
-          }
-        },
         rowData: data,
-        pagination: true,
-        paginationPageSize: 100,
         defaultColDef: {
-          resizable: true,
+          resizable: false,
         },
         sortingOrder: ['desc', 'asc', null],
+        rowClass: 'cursor-pointer',
+        getRowClass: () => {
+          return 'ag-row-hover';
+        },
+        onRowClicked: (params) => {
+          if (params.data.url) {
+            window.open(params.data.url, '_blank');
+          }
+        },
         isExternalFilterPresent: () => {
-          return currentCategoryFilter !== 'All Categories' || currentTopicFilter !== 'All Topics';
+          return true;
         },
         doesExternalFilterPass: (node) => {
           const data = node.data;
@@ -186,49 +172,8 @@ const finalColumnDefs = columnDefs.length > 0 ? columnDefs : defaultColumnDefs;
 
           return categoryMatch && topicMatch;
         },
-        getRowClass: (params) => {
-          return 'cursor-pointer hover:bg-gray-50 transition-colors duration-300 group';
-        },
-        onRowMouseOver: (event) => {
-          const rowElement = event.node.rowElement;
-          if (rowElement) {
-            const visitBadge = rowElement.querySelector('.visit-badge');
-            if (visitBadge) {
-              visitBadge.classList.remove('opacity-0', 'invisible');
-              visitBadge.classList.add('opacity-100');
-            }
-          }
-        },
-        onRowMouseOut: (event) => {
-          const rowElement = event.node.rowElement;
-          if (rowElement) {
-            const visitBadge = rowElement.querySelector('.visit-badge');
-            if (visitBadge) {
-              visitBadge.classList.remove('opacity-100');
-              visitBadge.classList.add('opacity-0', 'invisible');
-            }
-          }
-        },
         onGridReady: (params) => {
           const gridApi = params.api;
-
-          // Add visit badge to each row
-          gridApi.forEachNode((rowNode) => {
-            const rowElement = rowNode.rowElement;
-            if (rowElement && rowNode.data && rowNode.data.url) {
-              const visitBadge = document.createElement('div');
-              visitBadge.className = 'visit-badge opacity-0 invisible';
-              visitBadge.innerHTML = `
-                <span class="text-sm text-primary inline-flex items-center gap-1 group-hover:gap-2">
-                  Visit website
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300 transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
-                </span>
-              `;
-              rowElement.appendChild(visitBadge);
-            }
-          });
 
           // Quick filter setup
           const quickFilterInput = document.getElementById(`${gridId}-quick-filter`);
@@ -273,27 +218,55 @@ const finalColumnDefs = columnDefs.length > 0 ? columnDefs : defaultColumnDefs;
 </script>
 
 <style>
-  /* Ensure Tailwind classes are applied */
-  .ag-cell-value {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+  :root {
     width: 100%;
     height: 100%;
   }
 
-  .visit-badge {
-    @apply absolute top-1/2 right-4 transform -translate-y-1/2 
-           opacity-0 invisible transition-all duration-300 
-           text-sm text-primary inline-flex items-center gap-1 
-           group-hover:gap-2;
+  .ag-theme-quartz {
+    --ag-row-height: 68px;
+    --ag-foreground-color: var(--aw-color-text-default);
+    --ag-background-color: transparent;
+    --ag-header-foreground-color: var(--aw-color-text-muted);
+    --ag-header-background-color: transparent;
+    --ag-odd-row-background-color: transparent;
+    --ag-row-border-color: rgb(229 231 235);
+    --ag-border-color: transparent;
+    --ag-font-family: var(--aw-font-sans);
+    --ag-font-size: 14px;
+    --ag-header-column-separator-display: none;
+    --ag-selected-row-background-color: rgb(243 244 246 / 50%);
+    --ag-row-hover-color: transparent;
+    --ag-header-column-resize-handle-display: none;
+    --ag-grid-size: 6px;
+    --ag-list-item-height: 40px;
   }
 
-  .visit-badge svg {
-    @apply h-4 w-4 transition-transform duration-300 transform group-hover:translate-x-1;
+  /* Dark theme overrides */
+  :global(.dark) .ag-theme-quartz {
+    --ag-foreground-color: rgb(226 232 240);
+    --ag-background-color: transparent;
+    --ag-header-foreground-color: rgb(148 163 184);
+    --ag-header-background-color: transparent;
+    --ag-odd-row-background-color: transparent;
+    --ag-row-border-color: rgb(51 65 85 / 50%);
+    --ag-selected-row-background-color: rgb(30 41 59 / 50%);
+    --ag-row-hover-color: transparent;
   }
 
-  .ag-row {
-    @apply relative;
+  .ag-grid-container {
+    @apply p-2 rounded-lg shadow-md;
+  }
+
+  :global(.ag-row) {
+    transition: background-color 0.2s ease;
+  }
+
+  :global(.ag-row:hover .title-link) {
+    @apply text-secondary;
+  }
+
+  :global(.title-link) {
+    @apply text-primary transition-colors duration-0;
   }
 </style>
