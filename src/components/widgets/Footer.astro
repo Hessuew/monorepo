@@ -1,6 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-import AnimatedChildSvg from './AnimatedChildSvg.astro';
 import SignatureText from './SignatureText.astro';
 
 export interface Props {
@@ -77,11 +76,8 @@ const { theme = 'light' } = Astro.props;
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 dark:text-slate-300">
     <div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 pt-8 pb-4 md:pt-12 md:pb-8">
       <div class="col-span-12 lg:col-span-4">
-        <div class="mb-2 relative inline-block">
+        <div class="mb-2">
           <a class="inline-block font-bold text-xl" href="/">urFIT-child</a>
-          <div class="absolute w-6 h-6 -bottom-2 -right-3.5">
-            <AnimatedChildSvg animate={false} classes="w-full h-full" />
-          </div>
         </div>
         <div class="text-sm text-muted">UndeRstanding FITness and Cardiometabolic Health In Little Darlings</div>
       </div>
@@ -109,12 +105,10 @@ const { theme = 'light' } = Astro.props;
     </div>
     <div class="md:flex md:items-center md:justify-between py-6 md:py-8">
       <div class="text-sm mr-4 dark:text-muted">
-        {new Date().getFullYear()} urFIT-child Research Project · Created by<a
-          href="https://github.com/juhanijuusola"
-          class="inline-block hover:text-blue-600 transition-colors ml-1"
-        >
+        {new Date().getFullYear()} urFIT-child Research Project · Created by
+        <div class="inline-flex items-center hover:text-blue-600 transition-colors mt-0.5">
           <SignatureText classes="w-24" />
-        </a>
+        </div>
       </div>
       {
         socialLinks?.length ? (

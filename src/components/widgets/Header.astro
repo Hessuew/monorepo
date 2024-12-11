@@ -4,6 +4,7 @@ import Logo from '~/components/Logo.astro';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
 import Button from '~/components/ui/Button.astro';
+import AnimatedChildSvg from '~/components/widgets/AnimatedChildSvg.astro';
 
 import { getHomePermalink, getPermalink } from '~/utils/permalinks';
 import { trimSlash } from '~/utils/permalinks';
@@ -77,8 +78,11 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
     ]}
   >
     <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'flex justify-between']}>
-      <a class="flex items-center" href={getHomePermalink()}>
+      <a class="items-center relative inline-block" href={getHomePermalink()}>
         <Logo />
+        <div class="absolute w-6 h-6 bottom-2 -right-3.5 md:bottom-3 xl:-bottom-2.5">
+          <AnimatedChildSvg animate={false} classes="w-full h-full" />
+        </div>
       </a>
       <div class="flex items-center xl:hidden">
         <ToggleMenu />

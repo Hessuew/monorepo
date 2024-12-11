@@ -46,11 +46,11 @@ export const headerData = {
     },
     {
       text: 'Waist/Height Calculator',
-      href: getPermalink('/other/waist-height-calculator'),
+      href: getPermalink('/waist-height-calculator'),
     },
     {
       text: 'Non-academic',
-      href: getPermalink('/other/non-academic'),
+      href: getPermalink('/non-academic'),
     },
     // {
     //   text: 'Other',

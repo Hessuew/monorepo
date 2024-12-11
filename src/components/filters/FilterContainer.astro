@@ -1,0 +1,106 @@
+---
+import FilterButtons from './FilterButtons.astro';
+import SearchInput from './SearchInput.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+
+interface Props {
+  options: string[] | string[][];
+  allLabels?: string[];
+  showSearch?: boolean;
+  id?: string;
+  classes?: Record<string, string>;
+  isDark?: boolean;
+  bg?: string;
+  gridId?: string;
+}
+
+const {
+  options,
+  allLabels = ['All'],
+  showSearch = true,
+  id,
+  classes = {},
+  isDark = false,
+  bg = await Astro.slots.render('bg'),
+  gridId,
+} = Astro.props;
+
+const buttonGroups = Array.isArray(options[0]) ? options : [options];
+const labels = Array.isArray(allLabels) ? allLabels : [allLabels];
+---
+
+<WidgetWrapper 
+  id={id} 
+  isDark={isDark} 
+  containerClass={classes?.container ?? `max-w-7xl mx-auto`} 
+  bg={bg}
+>
+  <div class="w-full">
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-wrap-reverse items-center justify-between gap-4">
+        <div class="w-full md:w-auto">
+          <FilterButtons options={buttonGroups[0] as string[]} allLabel={labels[0]} variant="default" />
+        </div>
+        {
+          showSearch && (
+            <div class="w-full md:w-auto">
+              <SearchInput gridId={gridId} />
+            </div>
+          )
+        }
+      </div>
+      {
+        buttonGroups.length > 1 &&
+          buttonGroups.slice(1).map((group, index) => (
+            <div class="w-full">
+              <FilterButtons options={group as string[]} allLabel={labels[index + 1] || 'All'} variant="topic" />
+            </div>
+          ))
+      }
+    </div>
+  </div>
+</WidgetWrapper>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const filterGroups = document.querySelectorAll('[data-filter-buttons]') as NodeListOf<HTMLElement>;
+    const searchInput = document.querySelector('[data-search-input]') as HTMLInputElement | null;
+    const items = document.querySelectorAll('[data-filterable-item]') as NodeListOf<HTMLElement>;
+
+    function getActiveFilters() {
+      const filters: string[] = [];
+      filterGroups.forEach((group) => {
+        const activeButton = group.querySelector('[data-selected="true"]') as HTMLElement | null;
+        filters.push(activeButton?.getAttribute('data-filter') || 'all');
+      });
+      return filters;
+    }
+
+    function updateVisibility() {
+      const searchTerm = (searchInput?.value || '').toLowerCase();
+      const activeFilters = getActiveFilters();
+
+      items.forEach((item) => {
+        const title = (item.getAttribute('data-item-title') || '').toLowerCase();
+        const type = item.getAttribute('data-item-type');
+        const topic = item.getAttribute('data-item-topic');
+
+        const matchesSearch = !searchTerm || title.includes(searchTerm);
+        const matchesType = !activeFilters[0] || activeFilters[0] === 'all' || type === activeFilters[0];
+        const matchesTopic = !activeFilters[1] || activeFilters[1] === 'all' || topic === activeFilters[1];
+
+        item.classList.toggle('hidden', !matchesSearch || !matchesType || !matchesTopic);
+      });
+    }
+
+    // Listen for custom event from FilterButtons
+    document.addEventListener('filterChanged', () => {
+      updateVisibility();
+    });
+
+    searchInput?.addEventListener('input', updateVisibility);
+
+    // Initial visibility update
+    updateVisibility();
+  });
+</script>
