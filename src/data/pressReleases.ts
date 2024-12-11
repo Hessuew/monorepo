@@ -1,6 +1,5 @@
 export const pressReleases = [
   {
-    id: 44,
     title: 'Childhood Inactivity Linked to Increased Risk of Liver Disease',
     date: '2024-06-04',
     url: 'https://www.msn.com/en-gb/health/other/childhood-inactivity-linked-to-increased-risk-of-liver-disease-by-young-adulthood/ar-BB1nxl5S',
@@ -9,7 +8,6 @@ export const pressReleases = [
     topic: 'liver-health',
   },
   {
-    id: 43,
     title: "Too Much Sitting Could Be Harming Kids' Livers",
     date: '2024-06-04',
     url: 'https://www.usnews.com/news/health-news/articles/2024-06-04/too-much-sitting-could-be-harming-kids-livers',
@@ -18,7 +16,6 @@ export const pressReleases = [
     topic: 'liver-health',
   },
   {
-    id: 42,
     title: 'Sedentary Time and Liver Damage in Children',
     date: '2024-06-04',
     url: 'https://www.healthday.com/health-news/child-health/too-much-sitting-could-be-harming-kids-livers',
@@ -27,7 +24,6 @@ export const pressReleases = [
     topic: 'liver-health',
   },
   {
-    id: 41,
     title: 'Sedentary Children Risk Liver Disease in Young Adulthood',
     date: '2024-06-01',
     url: 'https://www.healio.com/news/endocrinology/20240601/sedentary-children-risk-liver-disease-in-young-adulthood',
@@ -36,7 +32,6 @@ export const pressReleases = [
     topic: 'liver-health',
   },
   {
-    id: 40,
     title: 'ENDO 2024 Press Conference on Childhood Sedentary Behavior',
     date: '2024-06-01',
     url: 'https://www.youtube.com/watch?v=1n85Kj7kjfU&t=2s',
@@ -45,7 +40,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 39,
     title: 'Groundbreaking Research on Childhood Sedentary Behavior',
     date: '2024-06-01',
     url: 'https://www.endocrine.org/news-and-advocacy/news-room/2024/endo-2024-press-agbaje',
@@ -54,7 +48,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 38,
     title: 'EASO Pre-conference Interview on Childhood Obesity',
     date: '2024-05-11',
     url: 'https://vimeo.com/944938770/8269ce30e4',
@@ -63,7 +56,6 @@ export const pressReleases = [
     topic: 'obesity',
   },
   {
-    id: 37,
     title: 'Couch Potato Children at Risk of Premature Heart Damage',
     date: '2024-05-07',
     url: 'https://www.telegraph.co.uk/news/2024/05/07/couch-potato-children-premature-heart-damage-risk/',
@@ -72,7 +64,6 @@ export const pressReleases = [
     topic: 'heart-health',
   },
   {
-    id: 36,
     title: 'BBC World News Interview on Child Health Research',
     date: '2024-03-14',
     url: 'https://www.youtube.com/watch?v=OiA9HlVHsuw',
@@ -81,7 +72,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 35,
     title: 'New Insights into Childhood Obesity Measurement',
     date: '2024-03-14',
     url: 'https://www.bbc.com/news/uk-england-bristol-68490682',
@@ -90,7 +80,6 @@ export const pressReleases = [
     topic: 'obesity',
   },
   {
-    id: 34,
     title: "Child's Waist-to-Height Ratio: Better Way to Measure Fat",
     date: '2024-03-14',
     url: 'https://www.telegraph.co.uk/news/2024/03/14/childs-waist-to-height-ratio-is-better-way-to-measure-fat/',
@@ -99,7 +88,6 @@ export const pressReleases = [
     topic: 'obesity',
   },
   {
-    id: 33,
     title: 'Changing the Way We Measure Childhood Obesity',
     date: '2024-03-09',
     url: 'https://easo.org/changing-the-way-we-measure-childhood-obesity-in-conversation-with-andrew-agbaje/',
@@ -108,7 +96,6 @@ export const pressReleases = [
     topic: 'obesity',
   },
   {
-    id: 32,
     title: 'Waist Circumference to Height Ratio: A Better Measure',
     date: '2024-03-06',
     url: 'https://ca.style.yahoo.com/waist-circumference-to-height-ratio-how-to-130121272.html',
@@ -117,7 +104,6 @@ export const pressReleases = [
     topic: 'obesity',
   },
   {
-    id: 31,
     title: 'New Method Better Than BMI for Measuring Obesity',
     date: '2024-03-06',
     url: 'https://www.thesun.co.uk/health/26412740/string-waist-height-ratio-better-bmi-obesity/',
@@ -126,7 +112,6 @@ export const pressReleases = [
     topic: 'obesity',
   },
   {
-    id: 30,
     title: 'Sedentary Time and Physical Activity Effects on Childhood Lipid Levels',
     date: '2024-01-24',
     url: 'https://www.endocrine.org/podcast/enp83-sedentary-time-and-physical-activity-effects-on-childhood-lipid-levels',
@@ -135,7 +120,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 29,
     title: 'University of Eastern Finland Interview on Sedentariness',
     date: '2024-01-24',
     url: 'https://www.youtube.com/watch?v=oNIDOECJkLw',
@@ -144,7 +128,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 28,
     title: 'International Awards for Scientific Excellence',
     date: '2024-01-24',
     url: 'https://www.uef.fi/en/article/andrew-agbaje-receives-international-awards-for-scientific-excellence',
@@ -153,7 +136,6 @@ export const pressReleases = [
     topic: 'research-awards',
   },
   {
-    id: 27,
     title: 'Light Exercise: The Overlooked Antidote to Childhood Sedentariness',
     date: '2024-01-24',
     url: 'https://soundcloud.com/uniuef/childhood-sedentariness-is-a-real-health-threat-light-exercise-is-the-overlooked-antidote',
@@ -162,7 +144,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 26,
     title: 'BBC Radio Interview on Childhood Health',
     date: '2024-01-19',
     url: 'https://www.youtube.com/watch?v=Xm1B-ZkP6Bo',
@@ -171,7 +152,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 25,
     title: 'Screen Time and Heart Disease Risk in Children',
     date: '2023-08-24',
     url: 'https://edition.cnn.com/2023/08/24/health/kids-sedentary-heart-disease-wellness/index.html',
@@ -180,7 +160,6 @@ export const pressReleases = [
     topic: 'heart-health',
   },
   {
-    id: 24,
     title: 'Screen Time in Childhood Linked to Health Risks',
     date: '2023-08-24',
     url: 'https://www.mirror.co.uk/news/health/screen-time-childhood-adds-up-31200846',
@@ -189,7 +168,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 23,
     title: "Heart Damage: Another Reason to Cut Down on Children's Screen Time",
     date: '2023-08-24',
     url: 'https://theconversation.com/heart-damage-another-reason-to-cut-down-on-childrens-screen-time-213580',
@@ -198,7 +176,6 @@ export const pressReleases = [
     topic: 'heart-health',
   },
   {
-    id: 22,
     title: 'Physical Activity: Slow and Steady Wins the Race',
     date: '2023-08-15',
     url: 'https://www.doccheck.com/en/detail/videos/6066-physical-activity-slow-and-steady-wins-the-race',
@@ -207,7 +184,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 21,
     title: 'Sedentary Lifestyle Impact on Child Health',
     date: '2023-08-10',
     url: 'https://biznes.newseria.pl/news/siedzacy-tryb-zycia,p1221013204',
@@ -216,7 +192,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 20,
     title: 'Sedentary Time Linked with Heart Damage in Young Adulthood',
     date: '2023-07-20',
     url: 'https://www.escardio.org/The-ESC/Press-Office/Press-releases/Sedentary-time-in-children-linked-with-heart-damage-in-young-adulthood',
@@ -225,7 +200,6 @@ export const pressReleases = [
     topic: 'heart-health',
   },
   {
-    id: 19,
     title: 'Children Who Are Sedentary May Have Higher Risk of Heart Attack',
     date: '2023-07-15',
     url: 'https://www.endocrine.org/news-and-advocacy/news-room/2023/children-who-are-sedentary-may-have-a-higher-risk-of-heart-attack-or-stroke-later-in-life',
@@ -234,7 +208,6 @@ export const pressReleases = [
     topic: 'heart-health',
   },
   {
-    id: 18,
     title: 'Exercise Benefits Without Breaking a Sweat',
     date: '2023-07-14',
     url: 'https://www.webmd.com/fitness-exercise/news/20230714/get-benefits-exercise-without-breaking-sweat',
@@ -243,7 +216,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 17,
     title: 'Metabolic Syndrome Risk Doubled from Adolescence to Young Adulthood',
     date: '2023-07-11',
     url: 'https://www.physiology.org/detail/news/2023/07/11/metabolic-syndrome-risk-doubled-from-adolescence-to-young-adulthood',
@@ -252,7 +224,6 @@ export const pressReleases = [
     topic: 'metabolic-health',
   },
   {
-    id: 16,
     title: 'Light Physical Activity Benefits in Youth',
     date: '2023-07-10',
     url: 'https://www.bristol.ac.uk/alspac/news/2023/light-physical-activity.html',
@@ -261,7 +232,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 15,
     title: "Sedentary Time May Significantly Enlarge Adolescents' Heart",
     date: '2023-07-05',
     url: 'https://news.exeter.ac.uk/faculty-of-health-and-life-sciences/university-of-exeter-medical-school/public-health-and-sports-sciences/sedentary-time-may-significantly-enlarge-adolescents-heart/',
@@ -270,7 +240,6 @@ export const pressReleases = [
     topic: 'heart-health',
   },
   {
-    id: 14,
     title: 'Exercise and Heart Health in Children',
     date: '2023-07-01',
     url: 'https://www.jpost.com/health-and-wellness/exercise/article-778113',
@@ -279,7 +248,6 @@ export const pressReleases = [
     topic: 'heart-health',
   },
   {
-    id: 13,
     title: 'Teen Sedentary Time Tied to Changes in Heart Structure',
     date: '2022-11-30',
     url: 'https://www.drugs.com/news/teen-sedentary-time-tied-changes-heart-structure-111978.html',
@@ -288,7 +256,6 @@ export const pressReleases = [
     topic: 'heart-health',
   },
   {
-    id: 12,
     title: 'Insulin Resistance Plays a Role in How Arterial Stiffness Raises Blood Pressure in Adolescents',
     date: '2022-09-01',
     url: 'https://www.diabetes.co.uk/news/2022/sep/insulin-resistance-plays-a-role-in-how-arterial-stiffness-raises-blood-pressure-in-adolescents-new-study-shows.html',
@@ -297,7 +264,6 @@ export const pressReleases = [
     topic: 'metabolic-health',
   },
   {
-    id: 11,
     title: 'Drop in Insulin Resistance in Mid-Adolescence Protects Against Worsening Arterial Stiffness',
     date: '2023-04-24',
     url: 'https://www.sciencedaily.com/releases/2023/04/230424102055.htm',
@@ -306,7 +272,6 @@ export const pressReleases = [
     topic: 'metabolic-health',
   },
   {
-    id: 10,
     title: 'Talouselämä Finnish News',
     date: '2024-06-09',
     url: 'https://www.talouselama.fi/uutiset/te/196de66a-abd8-4775-80a2-aa32699dc6dc',
@@ -315,7 +280,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 9,
     title: 'Savon Sanomat Finnish News',
     date: '2024-06-03',
     url: 'https://www.savonsanomat.fi/paikalliset/6814172',
@@ -324,7 +288,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 8,
     title: 'Savon Sanomat Finnish News',
     date: '2024-05-07',
     url: 'https://www.savonsanomat.fi/paikalliset/6750034',
@@ -333,7 +296,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 7,
     title: 'Helsingin Sanomat Finnish News',
     date: '2024-04-10',
     url: 'https://www.hs.fi/tiede/art-2000010347404.html',
@@ -342,7 +304,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 6,
     title: 'Helsingin Sanomat Finnish News',
     date: '2024-03-14',
     url: 'https://www.hs.fi/perhe/art-2000010276145.html',
@@ -351,7 +312,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 5,
     title: 'Helsingin Sanomat Finnish News',
     date: '2023-12-01',
     url: 'https://www.hs.fi/hyvinvointi/art-2000009378112.html',
@@ -360,7 +320,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 4,
     title: 'YLE Finnish News',
     date: '2023-11-01',
     url: 'https://yle.fi/a/74-20001852',
@@ -369,7 +328,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 3,
     title: 'Savon Sanomat Finnish News',
     date: '2023-09-01',
     url: 'https://www.savonsanomat.fi/paikalliset/5776348',
@@ -378,7 +336,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 2,
     title: 'Iltalehti Finnish News',
     date: '2023-08-01',
     url: 'https://www.iltalehti.fi/terveysuutiset/a/f734b6cc-f50b-48a6-a7b1-395e401ae302',
@@ -387,7 +344,6 @@ export const pressReleases = [
     topic: 'physical-activity',
   },
   {
-    id: 1,
     title: 'Iltalehti Finnish News',
     date: '2023-04-09',
     url: 'https://www.iltalehti.fi/laihdutus/a/cb179463-9bd9-4f25-93cd-9131d66653f0',
@@ -403,43 +359,20 @@ export const topics = [...new Set(pressReleases.map((item) => item.topic))];
 // Column definitions specific to press releases
 export const pressReleaseColumnDefs = [
   {
-    headerName: '#',
-    field: 'id',
-    width: 80,
+    headerName: 'Title',
+    field: 'date',
     sortable: true,
-    sort: 'desc',
+    flex: 1,
   },
   {
     headerName: 'Category',
     field: 'category',
-    sortable: true,
-    width: 124,
-  },
-  {
-    headerName: 'Topic',
-    field: 'topic',
-    sortable: true,
-    width: 124,
-  },
-  {
-    headerName: 'Date',
-    field: 'date',
-    sortable: true,
-    width: 120,
-  },
-  {
-    headerName: 'Title',
-    field: 'title',
-    sortable: true,
-    width: 440,
-    cellRenderer: (params) => {
-      return `<a href="${params.data.url}" target="_blank" class="text-blue-600 hover:underline">${params.value}</a>`;
-    },
+    width: 150,
   },
   {
     headerName: 'Source',
     field: 'source',
     sortable: true,
-    width: 200,
+    width: 240,
   },
 ];

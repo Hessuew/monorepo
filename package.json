@@ -22,6 +22,7 @@
     "fix:prettier": "prettier -w ."
   },
   "dependencies": {
+    "@ag-grid-community/theming": "^32.3.3",
     "@astrojs/rss": "^4.0.8",
     "@astrojs/sitemap": "^3.2.0",
     "@astrolib/analytics": "^0.6.1",

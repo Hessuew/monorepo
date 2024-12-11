@@ -3,6 +3,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import AGGridWidget from '~/components/widgets/AGGridWidget.astro';
 import { pressReleases, categories, topics, pressReleaseColumnDefs } from '~/data/pressReleases';
+import Spacer from '~/components/widgets/Spacer.astro';
 
 const metadata = {
   title: 'Press Releases',
@@ -20,4 +21,6 @@ const metadata = {
     data={pressReleases}
     columnDefs={pressReleaseColumnDefs}
   />
+
+  <Spacer />
 </Layout>
