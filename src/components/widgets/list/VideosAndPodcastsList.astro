@@ -1,0 +1,178 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import { YouTube } from 'astro-embed';
+import doccheckImage from '~/assets/images/physical_activity_slow_and_steady_wins_the_race.webp';
+import Image from '~/components/common/Image.astro';
+import { videosAndPodcasts } from '~/data/videosAndPodcasts';
+
+// Group media items by year
+const mediaItemsByYear = videosAndPodcasts.reduce(
+  (acc, item) => {
+    const year = new Date(item.date.split('.').reverse().join('-')).getFullYear();
+    acc[year] = [...(acc[year] || []), item];
+    return acc;
+  },
+  {} as Record<number, typeof videosAndPodcasts>
+);
+
+// Sort years in descending order
+const sortedYears = Object.keys(mediaItemsByYear)
+  .map(Number)
+  .sort((a, b) => b - a);
+---
+
+<WidgetWrapper animated={false} containerClass="py-0 lg:py-0 md:py-0">
+  <div class="max-w-7xl mx-auto">
+    {
+      sortedYears.map((year) => (
+        <div
+          class="mb-16 sm:mb-24 item-year-card opacity-0 translate-y-12 duration-[1500ms] ease-out transition-[opacity,transform] delay-300"
+          data-intersect
+        >
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 sm:mb-12 text-center intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:translate-y-8 motion-safe:md:intersect:animate-fade motion-safe:md:intersect:animate-slide-up">
+            {year}
+          </h2>
+          {/* <div class="grid gap-8 sm:gap-12 md:grid-cols-2 lg:grid-cols-3"> */}
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {mediaItemsByYear[year].map((item) => (
+              <div
+                class="item-card bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-md dark:shadow-gray-900/20 hover:shadow-lg dark:hover:shadow-gray-900/30 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:translate-y-8 motion-safe:md:intersect:animate-fade motion-safe:md:intersect:animate-slide-up"
+                data-type={item.platform}
+              >
+                <h2 class="text-2xl font-bold mb-2 text-gray-800 dark:text-gray-100">{item.title}</h2>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">{item.date}</p>
+                <div class="relative w-full aspect-video">
+                  {item.platform === 'youtube' ? (
+                    <YouTube id={item.videoId} title={item.title} poster="" />
+                  ) : item.platform === 'vimeo' ? (
+                    <div class="relative w-full h-0 pb-[56.25%]">
+                      <iframe
+                        src={`https://player.vimeo.com/video/${item.videoId.split('/')[0]}?h=${item.videoId.split('/')[1]}&badge=0&autopause=0&player_id=0&app_id=58479`}
+                        class="absolute top-0 left-0 w-full h-full border-0"
+                        title={`Vimeo video player: ${item.title}`}
+                        loading="lazy"
+                        allowfullscreen
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                        referrerpolicy="no-referrer-when-downgrade"
+                      />
+                    </div>
+                  ) : item.platform === 'doccheck' ? (
+                    <div class="relative w-full aspect-video">
+                      <a
+                        href={`https://www.doccheck.com/en/detail/videos/${item.videoId}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="block w-full h-full"
+                      >
+                        <Image
+                          class="mx-auto rounded-md w-full"
+                          widths={[400, 768, 1024, 2040]}
+                          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                          loading="lazy"
+                          decoding="async"
+                          objectPosition="center top"
+                          width={1024}
+                          height={576}
+                          src={doccheckImage}
+                          alt={item.title}
+                        />
+                      </a>
+                    </div>
+                  ) : item.platform === 'soundcloud' ? (
+                    <div class="soundcloud-container">
+                      <iframe
+                        width="100%"
+                        height="300"
+                        style="border: 0;"
+                        title={`SoundCloud audio player: ${item.title}`}
+                        allow="autoplay"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${item.videoId}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true`}
+                      />
+                      <div class="soundcloud-info">
+                        <a href={`https://soundcloud.com/uniuef`} title={item.author} target="_blank">
+                          {item.author}
+                        </a>{' '}
+                        ·
+                        <a href={`https://soundcloud.com/uniuef/${item.trackUrl}`} title={item.title} target="_blank">
+                          {item.title}
+                        </a>
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</WidgetWrapper>
+
+<style>
+  lite-youtube {
+    @apply relative block w-full aspect-video bg-black;
+  }
+
+  lite-youtube > iframe {
+    @apply absolute top-0 left-0 w-full h-full border-0;
+  }
+
+  [data-intersect] {
+    opacity: 0;
+    transform: translateY(1rem);
+    transition:
+      opacity 1s ease-out,
+      transform 1s ease-out;
+  }
+
+  [data-intersect].intersected {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  function initIntersectionObserver() {
+    const elements = document.querySelectorAll('[data-intersect]');
+
+    const observer = new IntersectionObserver(
+      (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry: IntersectionObserverEntry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('intersected');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.05,
+      }
+    );
+
+    elements.forEach((element: Element) => observer.observe(element));
+  }
+
+  // Initialize on page load
+  initIntersectionObserver();
+
+  // Re-initialize on view transitions
+  document.addEventListener('astro:page-load', initIntersectionObserver);
+
+  // Add keyboard navigation
+  document.addEventListener('astro:page-load', () => {
+    const links = document.querySelectorAll<HTMLAnchorElement>('[role="listitem"]');
+    links.forEach((link) => {
+      link.addEventListener('keydown', (e: KeyboardEvent) => {
+        if (e.key === ' ') {
+          e.preventDefault();
+          link.click();
+        }
+      });
+    });
+  });
+</script>

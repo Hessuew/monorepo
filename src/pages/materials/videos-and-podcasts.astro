@@ -1,199 +1,27 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import { YouTube } from 'astro-embed';
 import Hero from '~/components/widgets/Hero.astro';
-import doccheckImage from '~/assets/images/physical_activity_slow_and_steady_wins_the_race.webp';
-import Image from '~/components/common/Image.astro';
 import FilterContainer from '~/components/filters/FilterContainer.astro';
+import { platforms } from '~/data/videosAndPodcasts';
+import VideosAndPodcastsList from '~/components/widgets/list/VideosAndPodcastsList.astro';
 
 const metadata = {
   title: 'Videos and Podcasts',
   description: 'Media coverage and interviews featuring urFIT-child research and findings',
 };
-
-interface MediaItem {
-  title: string;
-  date: string;
-  videoId: string;
-  platform: 'youtube' | 'vimeo' | 'doccheck' | 'soundcloud';
-  author?: string;
-  trackUrl?: string;
-}
-
-const mediaItems: MediaItem[] = [
-  {
-    title: 'ENDO 2024 Press Conference: Sedentary Time and Liver Damage in Children',
-    date: '01.06.2024',
-    videoId: '1n85Kj7kjfU',
-    platform: 'youtube',
-  },
-  {
-    title: 'European Congress on Obesity 2024: EASO Pre-conference Interview',
-    date: '11.05.2024',
-    videoId: '944938770/8269ce30e4',
-    platform: 'vimeo',
-  },
-  {
-    title: 'CTV News: Sedentariness and Heart Damage',
-    date: '07.05.2024',
-    videoId: 'X36zEtdqU-o',
-    platform: 'youtube',
-  },
-  {
-    title: 'American Heart Association: Environmental Exposure and Pediatric Cardiology',
-    date: '15.4.2024',
-    videoId: 'QVhTdHjSOQo',
-    platform: 'youtube',
-  },
-  {
-    title: 'Endocrine Society US Podcast on Childhood Sedentariness and Lipids',
-    date: '12.4.2024',
-    videoId: 'jPY3Gv9zLpI',
-    platform: 'youtube',
-  },
-  {
-    title: 'BBC World News: Waist-to-Height Ratio in Assessing Childhood Obesity',
-    date: '19.3.2024',
-    videoId: 'OiA9HlVHsuw',
-    platform: 'youtube',
-  },
-  {
-    title: 'BBC Point West News on Assessing Childhood Obesity',
-    date: '19.3.2024',
-    videoId: 'AuFbnDornog',
-    platform: 'youtube',
-  },
-  {
-    title: 'University of Eastern Finland Video Interview on Sedentariness',
-    date: '24.1.2024',
-    videoId: 'oNIDOECJkLw',
-    platform: 'youtube',
-  },
-  {
-    title: 'BBC Radio Devon LIVE interview on Dyslipidemia and Cardiac Damage',
-    date: '19.1.2024',
-    videoId: 'Xm1B-ZkP6Bo',
-    platform: 'youtube',
-  },
-  {
-    title: 'University of Eastern Finland Podcast Interview on Sedentariness',
-    date: '24.1.2024',
-    videoId: '1714264971',
-    platform: 'soundcloud',
-    author: 'University of Eastern Finland',
-    trackUrl: 'childhood-sedentariness-is-a-real-health-threat-light-exercise-is-the-overlooked-antidote',
-  },
-  {
-    title: 'DocCheck Interview on Slow and Steady Wins the Race- Light Physical Activity',
-    date: '12.9.2023',
-    videoId: '6066-physical-activity-slow-and-steady-wins-the-race',
-    platform: 'doccheck',
-  },
-];
-
-// Get unique platforms for filter buttons
-const platforms = [...new Set(mediaItems.map((item) => item.platform))];
 ---
 
 <Layout metadata={metadata}>
-  <Hero classes={{ labelContainer: 'pb-0 md:pb-0 lg:pb-0' }} tagline="Media Coverage" title="Videos and Podcasts" />
+  <Hero tagline="Media Coverage" title="Videos and Podcasts" />
 
-  <section class="py-12 px-4 mx-auto max-w-7xl">
-    <div class="mb-8">
-      <FilterContainer
-        options={[platforms]}
-        allLabels={['All Platforms']}
-        classes={{
-          container: 'py-0 lg:py-0 lg:py-0 md:py-0 md:py-0',
-        }}
-      />
-    </div>
+  <FilterContainer
+    options={[platforms]}
+    allLabels={['All Platforms']}
+    showSearch={true}
+    classes={{
+      container: 'py-0 lg:py-0 md:py-0 mb-8',
+    }}
+  />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {
-        mediaItems.map((item) => (
-          <div
-            class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-md dark:shadow-gray-900/20 hover:shadow-lg dark:hover:shadow-gray-900/30 transition-shadow duration-300 intersect-once intersect-quarter intersect-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-            data-filterable-item
-            data-item-type={item.platform}
-            data-item-title={item.title}
-          >
-            <h2 class="text-2xl font-bold mb-2 text-gray-800 dark:text-gray-100">{item.title}</h2>
-            <p class="text-gray-600 dark:text-gray-400 mb-4">{item.date}</p>
-            <div class="relative w-full aspect-video">
-              {item.platform === 'youtube' ? (
-                <YouTube id={item.videoId} title={item.title} poster="" />
-              ) : item.platform === 'vimeo' ? (
-                <div class="relative w-full h-0 pb-[56.25%]">
-                  <iframe
-                    src={`https://player.vimeo.com/video/${item.videoId.split('/')[0]}?h=${item.videoId.split('/')[1]}&badge=0&autopause=0&player_id=0&app_id=58479`}
-                    class="absolute top-0 left-0 w-full h-full border-0"
-                    title={`Vimeo video player: ${item.title}`}
-                    loading="lazy"
-                    allowfullscreen
-                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-                    referrerpolicy="no-referrer-when-downgrade"
-                  />
-                </div>
-              ) : item.platform === 'doccheck' ? (
-                <div class="relative w-full aspect-video">
-                  <a
-                    href={`https://www.doccheck.com/en/detail/videos/${item.videoId}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="block w-full h-full"
-                  >
-                    <Image
-                      class="mx-auto rounded-md w-full"
-                      widths={[400, 768, 1024, 2040]}
-                      sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                      loading="lazy"
-                      decoding="async"
-                      objectPosition="center top"
-                      width={1024}
-                      height={576}
-                      src={doccheckImage}
-                      alt={item.title}
-                    />
-                  </a>
-                </div>
-              ) : item.platform === 'soundcloud' ? (
-                <div class="soundcloud-container">
-                  <iframe
-                    width="100%"
-                    height="300"
-                    style="border: 0;"
-                    title={`SoundCloud audio player: ${item.title}`}
-                    allow="autoplay"
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${item.videoId}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true`}
-                  />
-                  <div class="soundcloud-info">
-                    <a href={`https://soundcloud.com/uniuef`} title={item.author} target="_blank">
-                      {item.author}
-                    </a>{' '}
-                    ·
-                    <a href={`https://soundcloud.com/uniuef/${item.trackUrl}`} title={item.title} target="_blank">
-                      {item.title}
-                    </a>
-                  </div>
-                </div>
-              ) : null}
-            </div>
-          </div>
-        ))
-      }
-    </div>
-  </section>
+  <VideosAndPodcastsList />
 </Layout>
-
-<style>
-  lite-youtube {
-    @apply relative block w-full aspect-video bg-black;
-  }
-
-  lite-youtube > iframe {
-    @apply absolute top-0 left-0 w-full h-full border-0;
-  }
-</style>
