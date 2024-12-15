@@ -32,72 +32,118 @@ const labels = Array.isArray(allLabels) ? allLabels : [allLabels];
 <WidgetWrapper id={id} isDark={isDark} containerClass={classes?.container ?? `max-w-7xl mx-auto`} bg={bg}>
   <div class="w-full">
     <div class="flex flex-col gap-4">
-      <div class="flex flex-wrap-reverse items-center justify-between gap-4">
-        <div class="w-full md:w-auto">
-          <FilterButtons options={buttonGroups[0] as string[]} allLabel={labels[0]} variant="default" />
+      <div class="flex flex-wrap-reverse items-center gap-4">
+        <div class="flex-1 min-w-0">
+          <FilterButtons options={buttonGroups[0] as string[]} allLabel={labels[0]} variant="type" />
         </div>
         {
           showSearch && (
-            <div class="w-full md:w-auto">
+            <div class="w-full md:w-auto md:min-w-[300px]">
               <SearchInput gridId={gridId} />
             </div>
           )
         }
       </div>
       {
-        buttonGroups.length > 1 &&
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore - Type inference for map parameters in Astro
-          buttonGroups.slice(1).map((group: string[], i: number) => (
-            <div class="w-full">
-              <FilterButtons options={group} allLabel={labels[i + 1] || 'All'} variant="topic" />
-            </div>
-          ))
+        buttonGroups[1] && (
+          <div class="w-full">
+            <FilterButtons options={buttonGroups[1] as string[]} allLabel={labels[1]} variant="category" />
+          </div>
+        )
       }
     </div>
   </div>
 </WidgetWrapper>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
-    const filterGroups = document.querySelectorAll('[data-filter-buttons]') as NodeListOf<HTMLElement>;
-    const searchInput = document.querySelector('[data-search-input]') as HTMLInputElement | null;
-    const items = document.querySelectorAll('[data-filterable-item]') as NodeListOf<HTMLElement>;
+  // Keep track of current filter states
+  const currentFilters = {
+    type: 'all',
+    category: 'all',
+    search: '',
+  };
 
-    function getActiveFilters() {
-      const filters: string[] = [];
-      filterGroups.forEach((group) => {
-        const activeButton = group.querySelector('[data-selected="true"]') as HTMLElement | null;
-        filters.push(activeButton?.getAttribute('data-filter') || 'all');
-      });
-      return filters;
-    }
+  function applyFilters() {
+    const pressReleaseCards = document.querySelectorAll('.item-card');
+    const searchTerm = currentFilters.search.toLowerCase();
 
-    function updateVisibility() {
-      const searchTerm = (searchInput?.value || '').toLowerCase();
-      const activeFilters = getActiveFilters();
+    pressReleaseCards.forEach((card) => {
+      const cardType = card.getAttribute('data-type');
+      const cardCategory = card.getAttribute('data-category');
 
-      items.forEach((item) => {
-        const title = (item.getAttribute('data-item-title') || '').toLowerCase();
-        const type = item.getAttribute('data-item-type');
-        const topic = item.getAttribute('data-item-topic');
+      // Check type and category filters
+      const typeMatch = currentFilters.type === 'all' || cardType === currentFilters.type;
+      const categoryMatch = currentFilters.category === 'all' || cardCategory === currentFilters.category;
 
-        const matchesSearch = !searchTerm || title.includes(searchTerm);
-        const matchesType = !activeFilters[0] || activeFilters[0] === 'all' || type === activeFilters[0];
-        const matchesTopic = !activeFilters[1] || activeFilters[1] === 'all' || topic === activeFilters[1];
+      // Check search term against card content
+      const cardContent = card.textContent?.toLowerCase() || '';
+      const searchMatch = !searchTerm || cardContent.includes(searchTerm);
 
-        item.classList.toggle('hidden', !matchesSearch || !matchesType || !matchesTopic);
-      });
-    }
-
-    // Listen for custom event from FilterButtons
-    document.addEventListener('filterChanged', () => {
-      updateVisibility();
+      card.classList.toggle('hidden', !searchMatch || !typeMatch || !categoryMatch);
     });
 
-    searchInput?.addEventListener('input', updateVisibility);
+    // Hide empty year sections
+    document.querySelectorAll('.item-year-card').forEach((yearSection) => {
+      const hasVisibleCards = yearSection.querySelectorAll('.item-card:not(.hidden)').length > 0;
+      yearSection.classList.toggle('hidden', !hasVisibleCards);
+    });
+  }
 
-    // Initial visibility update
-    updateVisibility();
+  function handleFilterChange(event) {
+    const target = event.target;
+    if (!target.hasAttribute('data-filter')) return;
+
+    const filterType = target.getAttribute('data-filter-type');
+    const filterValue = target.getAttribute('data-filter');
+    if (filterType === 'type') {
+      currentFilters.type = filterValue;
+    } else if (filterType === 'category') {
+      currentFilters.category = filterValue;
+    }
+
+    applyFilters();
+  }
+
+  function handleSearch(event) {
+    const target = event.target;
+    if (!target.hasAttribute('data-search-input')) return;
+
+    currentFilters.search = target.value;
+    applyFilters();
+  }
+
+  // Initialize intersection observer for animations
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('intersected');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      root: null,
+      threshold: 0.1,
+      rootMargin: '0px',
+    }
+  );
+
+  // Observe all elements with animation classes
+  document.addEventListener('DOMContentLoaded', () => {
+    const elements = document.querySelectorAll('.intersect-once');
+    elements.forEach((el) => observer.observe(el));
   });
+
+  // Setup filter event listeners
+  document.addEventListener('click', handleFilterChange);
+
+  // Setup search input listener
+  const searchInput = document.querySelector('[data-search-input]');
+  if (searchInput) {
+    searchInput.addEventListener('input', handleSearch);
+  }
+
+  // Initialize filters
+  applyFilters();
 </script>

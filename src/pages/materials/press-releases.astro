@@ -1,26 +1,34 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import AGGridWidget from '~/components/widgets/AGGridWidget.astro';
-import { pressReleases, categories, topics, pressReleaseColumnDefs } from '~/data/pressReleases';
+import { pressReleaseTypes, pressReleaseCategories } from '~/data/pressReleases';
 import Spacer from '~/components/widgets/Spacer.astro';
+import FilterContainer from '~/components/filters/FilterContainer.astro';
+import PressReleasesList from '~/components/widgets/list/PressReleasesList.astro';
 
 const metadata = {
   title: 'Press Releases',
-  description: 'Discover the latest research insights and media coverage of urFIT-child',
+  description: 'Browse through our press releases and media coverage',
 };
+
+// Sort types and categories alphabetically
+const sortedTypes = [...pressReleaseTypes].sort();
+const sortedCategories = [...pressReleaseCategories].filter((category) => category !== '').sort();
 ---
 
 <Layout metadata={metadata}>
   <Hero title="Press Releases" subtitle="Discover the latest research insights and media coverage of urFIT-child" />
 
-  <AGGridWidget
-    gridId="pressReleasesGrid"
-    categories={categories}
-    topics={topics}
-    data={pressReleases}
-    columnDefs={pressReleaseColumnDefs}
+  <FilterContainer
+    options={[sortedTypes, sortedCategories]}
+    allLabels={['All Types', 'All Categories']}
+    showSearch={true}
+    classes={{
+      container: 'py-0 lg:py-0 md:py-0 mb-8',
+    }}
   />
+
+  <PressReleasesList />
 
   <Spacer />
 </Layout>
