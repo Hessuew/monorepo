@@ -1,22 +1,7 @@
 ---
 import { twMerge } from 'tailwind-merge';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import { pressReleases } from '~/data/pressReleases';
-
-// Group press releases by year
-const pressReleasesByYear = pressReleases.reduce(
-  (acc, release) => {
-    const year = new Date(release.date).getFullYear();
-    acc[year] = [...(acc[year] || []), release];
-    return acc;
-  },
-  {} as Record<number, typeof pressReleases>
-);
-
-// Sort years in descending order
-const sortedYears = Object.keys(pressReleasesByYear)
-  .map(Number)
-  .sort((a, b) => b - a);
+import { pressReleasesByYear, sortedYears } from '~/data/pressReleases';
 
 interface Props {
   columns?: 1 | 2 | 3 | 4;
@@ -34,7 +19,7 @@ const { columns = 2, classes = {} } = Astro.props;
 ---
 
 <WidgetWrapper animated={false} containerClass="py-0 lg:py-0 md:py-0">
-  <div class="max-w-7xl mx-auto">
+  <div class="press-releases-container max-w-7xl mx-auto">
     {
       sortedYears.map((year) => (
         <div
@@ -58,6 +43,7 @@ const { columns = 2, classes = {} } = Astro.props;
               }`,
               classes.container
             )}
+            role="list"
           >
             {pressReleasesByYear[year].map((release, index) => {
               const col = index % columns;
@@ -189,19 +175,24 @@ const { columns = 2, classes = {} } = Astro.props;
   // Initialize on page load
   initIntersectionObserver();
 
-  // Re-initialize on view transitions
-  document.addEventListener('astro:page-load', initIntersectionObserver);
+  // Get container element
+  const containerElement = document.querySelector('.press-releases-container');
 
-  // Add keyboard navigation
-  document.addEventListener('astro:page-load', () => {
-    const links = document.querySelectorAll<HTMLAnchorElement>('[role="listitem"]');
-    links.forEach((link) => {
-      link.addEventListener('keydown', (e: KeyboardEvent) => {
-        if (e.key === ' ') {
-          e.preventDefault();
-          link.click();
-        }
+  if (containerElement) {
+    // Re-initialize on view transitions
+    containerElement.addEventListener('astro:page-load', initIntersectionObserver);
+
+    // Add keyboard navigation
+    containerElement.addEventListener('astro:page-load', () => {
+      const links = containerElement.querySelectorAll<HTMLAnchorElement>('[role="listitem"]');
+      links.forEach((link) => {
+        link.addEventListener('keydown', (e: KeyboardEvent) => {
+          if (e.key === ' ') {
+            e.preventDefault();
+            link.click();
+          }
+        });
       });
     });
-  });
+  }
 </script>

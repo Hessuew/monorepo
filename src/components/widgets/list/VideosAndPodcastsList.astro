@@ -3,22 +3,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import { YouTube } from 'astro-embed';
 import doccheckImage from '~/assets/images/physical_activity_slow_and_steady_wins_the_race.webp';
 import Image from '~/components/common/Image.astro';
-import { videosAndPodcasts } from '~/data/videosAndPodcasts';
-
-// Group media items by year
-const mediaItemsByYear = videosAndPodcasts.reduce(
-  (acc, item) => {
-    const year = new Date(item.date.split('.').reverse().join('-')).getFullYear();
-    acc[year] = [...(acc[year] || []), item];
-    return acc;
-  },
-  {} as Record<number, typeof videosAndPodcasts>
-);
-
-// Sort years in descending order
-const sortedYears = Object.keys(mediaItemsByYear)
-  .map(Number)
-  .sort((a, b) => b - a);
+import { mediaItemsByYear, sortedYears } from '~/data/videosAndPodcasts';
 ---
 
 <WidgetWrapper animated={false} containerClass="py-0 lg:py-0 md:py-0">
@@ -40,7 +25,13 @@ const sortedYears = Object.keys(mediaItemsByYear)
                 data-type={item.platform}
               >
                 <h2 class="text-2xl font-bold mb-2 text-gray-800 dark:text-gray-100">{item.title}</h2>
-                <p class="text-gray-600 dark:text-gray-400 mb-4">{item.date}</p>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">
+                  {new Date(item.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </p>
                 <div class="relative w-full aspect-video">
                   {item.platform === 'youtube' ? (
                     <YouTube id={item.videoId} title={item.title} poster="" />
@@ -91,11 +82,7 @@ const sortedYears = Object.keys(mediaItemsByYear)
                         src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${item.videoId}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true`}
                       />
                       <div class="soundcloud-info">
-                        <a href={`https://soundcloud.com/uniuef`} title={item.author} target="_blank">
-                          {item.author}
-                        </a>{' '}
-                        ·
-                        <a href={`https://soundcloud.com/uniuef/${item.trackUrl}`} title={item.title} target="_blank">
+                        <a href={`https://soundcloud.com/${item.trackUrl}`} title={item.title} target="_blank">
                           {item.title}
                         </a>
                       </div>

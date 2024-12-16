@@ -1,3 +1,5 @@
+import { parseISO, getYear } from 'date-fns';
+
 interface PressRelease {
   title: string;
   date: string; // Consider using Date type
@@ -364,3 +366,19 @@ export const pressReleases: PressRelease[] = [
 
 export const pressReleaseTypes = [...new Set(pressReleases.map((item) => item.type))];
 export const pressReleaseCategories = [...new Set(pressReleases.map((item) => item.category))];
+
+// Group press releases by year
+export const pressReleasesByYear = pressReleases.reduce(
+  (acc, release) => {
+    const date = parseISO(release.date);
+    const year = getYear(date);
+    acc[year] = [...(acc[year] || []), release];
+    return acc;
+  },
+  {} as Record<number, typeof pressReleases>
+);
+
+// Sort years in descending order
+export const sortedYears = Object.keys(pressReleasesByYear)
+  .map(Number)
+  .sort((a, b) => b - a);

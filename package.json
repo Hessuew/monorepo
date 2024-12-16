@@ -31,6 +31,7 @@
     "astro-embed": "^0.7.4",
     "astro-icon": "^1.1.1",
     "astro-particles": "^2.10.0",
+    "date-fns": "^4.1.0",
     "limax": "4.1.0",
     "lodash.merge": "^4.6.2",
     "tsparticles": "^3.5.0",

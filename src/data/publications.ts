@@ -891,3 +891,17 @@ export const publications = [
 
 export const publicationTypes = [...new Set(publications.map((item) => item.type))].filter(Boolean);
 export const publicationCategories = [...new Set(publications.map((item) => item.category))].filter(Boolean);
+
+// Group publications by year
+export const publicationsByYear = publications.reduce(
+  (acc, pub) => {
+    acc[pub.year] = [...(acc[pub.year] || []), pub];
+    return acc;
+  },
+  {} as Record<number, typeof publications>
+);
+
+// Sort years in descending order
+export const sortedYears = Object.keys(publicationsByYear)
+  .map(Number)
+  .sort((a, b) => b - a);
