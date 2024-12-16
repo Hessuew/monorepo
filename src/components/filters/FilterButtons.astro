@@ -1,0 +1,232 @@
+---
+interface Props {
+  options: string[];
+  allLabel?: string;
+  variant?: 'type' | 'category';
+}
+
+const { options = [], allLabel, variant = 'type' } = Astro.props;
+
+const buttonClass = 'rounded-full px-4 py-2 text-sm font-medium transition-all whitespace-nowrap';
+const hoverClass =
+  variant === 'type' ? 'hover:bg-blue-100 dark:hover:bg-blue-900' : 'hover:bg-gray-100 dark:hover:bg-gray-800';
+const filterType = variant === 'type' ? 'type' : 'category';
+---
+
+<div class="relative">
+  <div class="overflow-x-auto hide-scrollbar" data-scroll-container>
+    <div class="flex gap-2 min-w-max px-2" data-filter-buttons data-variant={variant}>
+      <button
+        type="button"
+        class:list={[buttonClass, hoverClass]}
+        data-filter-type={filterType}
+        data-filter="all"
+        data-selected="true"
+      >
+        {`${allLabel || `All ${filterType === 'type' ? 'Types' : 'Categories'}`}`}
+      </button>
+      {
+        options.map((option) => (
+          <button
+            type="button"
+            class:list={[buttonClass, hoverClass]}
+            data-filter-type={filterType}
+            data-filter={option}
+            data-selected="false"
+            aria-pressed="false"
+            role="tab"
+          >
+            {option}
+          </button>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Left scroll button with gradient -->
+  <div class="absolute left-0 top-0 bottom-0 items-center hidden" data-scroll-indicator="left">
+    <button
+      type="button"
+      class="h-full px-3 flex items-center bg-page text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 z-10"
+      data-scroll-left
+      aria-label="Scroll left"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path
+          fill-rule="evenodd"
+          d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </button>
+    <div class="absolute left-full top-0 bottom-0 w-12 bg-gradient-to-r from-page to-transparent pointer-events-none">
+    </div>
+  </div>
+
+  <!-- Right scroll button with gradient -->
+  <div class="absolute right-0 top-0 bottom-0 items-center hidden" data-scroll-indicator="right">
+    <button
+      type="button"
+      class="h-full px-3 flex items-center bg-page text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 z-10"
+      data-scroll-right
+      aria-label="Scroll right"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path
+          fill-rule="evenodd"
+          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </button>
+    <div class="absolute right-full top-0 bottom-0 w-12 bg-gradient-to-l from-page to-transparent pointer-events-none">
+    </div>
+  </div>
+</div>
+
+<style>
+  [data-filter-buttons][data-variant='type'] [data-selected='true'] {
+    @apply bg-blue-100 dark:bg-blue-900;
+  }
+
+  [data-filter-buttons][data-variant='category'] [data-selected='true'] {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  [data-scroll-indicator].show {
+    @apply flex;
+  }
+
+  .buttonClass {
+    @apply rounded-full px-4 py-2 text-sm font-medium transition-all whitespace-nowrap;
+  }
+</style>
+
+<script>
+  interface ScrollHandlers {
+    leftClick: () => void;
+    rightClick: () => void;
+    scroll: () => void;
+    resize: () => void;
+  }
+
+  interface FilterButtonsContainer extends HTMLElement {
+    buttonClickHandler?: (event: Event) => void;
+  }
+
+  interface ScrollContainer extends HTMLElement {
+    scrollHandlers?: ScrollHandlers;
+  }
+
+  function initializeFilterButtons(container: HTMLElement) {
+    const buttons = container.querySelectorAll('button');
+
+    // Store handler reference for cleanup
+    const buttonClickHandler = (event: Event) => {
+      const button = event.currentTarget as HTMLButtonElement;
+      buttons.forEach((b) => b.classList.remove('active'));
+      button.classList.add('active');
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', buttonClickHandler);
+    });
+
+    // Store container reference and handlers for cleanup
+    container.setAttribute('data-initialized', 'true');
+    (container as FilterButtonsContainer).buttonClickHandler = buttonClickHandler;
+  }
+
+  function initializeScroll(container: HTMLElement) {
+    const scrollContainer = container.querySelector('[data-scroll-container]') as HTMLElement;
+    const leftButton = container.querySelector('[data-scroll-left]') as HTMLButtonElement;
+    const rightButton = container.querySelector('[data-scroll-right]') as HTMLButtonElement;
+    const leftIndicator = container.querySelector('[data-scroll-indicator="left"]') as HTMLElement;
+    const rightIndicator = container.querySelector('[data-scroll-indicator="right"]') as HTMLElement;
+
+    if (!scrollContainer || !leftButton || !rightButton || !leftIndicator || !rightIndicator) return;
+
+    const updateScrollIndicators = () => {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
+      leftIndicator.classList.toggle('show', scrollLeft > 0);
+      rightIndicator.classList.toggle('show', scrollLeft < scrollWidth - clientWidth - 1);
+    };
+
+    const scroll = (direction: 'left' | 'right') => {
+      const scrollAmount = scrollContainer.clientWidth * 0.8;
+      scrollContainer.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth',
+      });
+    };
+
+    // Store handlers for cleanup
+    const leftClickHandler = () => scroll('left');
+    const rightClickHandler = () => scroll('right');
+
+    leftButton.addEventListener('click', leftClickHandler);
+    rightButton.addEventListener('click', rightClickHandler);
+    scrollContainer.addEventListener('scroll', updateScrollIndicators);
+    window.addEventListener('resize', updateScrollIndicators);
+
+    // Store handlers in container for cleanup
+    (container as ScrollContainer).scrollHandlers = {
+      leftClick: leftClickHandler,
+      rightClick: rightClickHandler,
+      scroll: updateScrollIndicators,
+      resize: updateScrollIndicators,
+    };
+
+    // Initial check
+    updateScrollIndicators();
+  }
+
+  function cleanup() {
+    document.querySelectorAll('[data-filter-buttons]').forEach((container) => {
+      if (container.getAttribute('data-initialized') === 'true') {
+        const buttons = container.querySelectorAll('button');
+        const typedContainer = container as FilterButtonsContainer;
+        const handler = typedContainer.buttonClickHandler;
+
+        if (handler) {
+          buttons.forEach((button) => {
+            button.removeEventListener('click', handler);
+          });
+        }
+      }
+    });
+
+    document.querySelectorAll('.relative').forEach((container) => {
+      const typedContainer = container as ScrollContainer;
+      const handlers = typedContainer.scrollHandlers;
+
+      if (handlers) {
+        const scrollContainer = container.querySelector('[data-scroll-container]');
+        const leftButton = container.querySelector('[data-scroll-left]');
+        const rightButton = container.querySelector('[data-scroll-right]');
+
+        if (leftButton) leftButton.removeEventListener('click', handlers.leftClick);
+        if (rightButton) rightButton.removeEventListener('click', handlers.rightClick);
+        if (scrollContainer) scrollContainer.removeEventListener('scroll', handlers.scroll);
+        window.removeEventListener('resize', handlers.resize);
+      }
+    });
+  }
+
+  // Initialize on page load
+  document.addEventListener('astro:page-load', () => {
+    document
+      .querySelectorAll('[data-filter-buttons]')
+      .forEach((container) => initializeFilterButtons(container as HTMLElement));
+    document.querySelectorAll('.relative').forEach((container) => initializeScroll(container as HTMLElement));
+  });
+
+  document.addEventListener('astro:page-unload', cleanup);
+</script>
