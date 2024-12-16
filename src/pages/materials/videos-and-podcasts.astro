@@ -18,10 +18,13 @@ const metadata = {
     options={[platforms]}
     allLabels={['All Platforms']}
     showSearch={true}
+    targetId="videos-and-podcasts-list"
     classes={{
       container: 'py-0 lg:py-0 md:py-0 mb-8',
     }}
   />
 
-  <VideosAndPodcastsList />
+  <div id="videos-and-podcasts-list">
+    <VideosAndPodcastsList />
+  </div>
 </Layout>

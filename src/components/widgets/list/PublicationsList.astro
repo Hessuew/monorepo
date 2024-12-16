@@ -1,21 +1,7 @@
 ---
 import { twMerge } from 'tailwind-merge';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import { publications } from '~/data/publications';
-
-// Group publications by year
-const publicationsByYear = publications.reduce(
-  (acc, pub) => {
-    acc[pub.year] = [...(acc[pub.year] || []), pub];
-    return acc;
-  },
-  {} as Record<number, typeof publications>
-);
-
-// Sort years in descending order
-const sortedYears = Object.keys(publicationsByYear)
-  .map(Number)
-  .sort((a, b) => b - a);
+import { publicationsByYear, sortedYears } from '~/data/publications';
 
 interface Props {
   columns?: 1 | 2 | 3 | 4;
@@ -56,6 +42,7 @@ const { columns = 2, classes = {} } = Astro.props;
             }`,
             classes.container
           )}
+          role="list"
         >
           {publicationsByYear[year].map((publication, index) => {
             const col = index % columns;
@@ -67,7 +54,7 @@ const { columns = 2, classes = {} } = Astro.props;
                 target="_blank"
                 rel="noopener noreferrer"
                 class={twMerge(
-                  'publication-card block no-underline hover:no-underline group opacity-0 translate-y-6 md:translate-y-12 duration-[1500ms] ease-out',
+                  'item-card block no-underline hover:no-underline group opacity-0 translate-y-6 md:translate-y-12 duration-[1500ms] ease-out',
                   'focus:outline-none focus:ring-2 focus:ring-primary rounded-lg',
                   !publication.doi && 'cursor-default pointer-events-none'
                 )}
@@ -175,37 +162,49 @@ const { columns = 2, classes = {} } = Astro.props;
 
 <script>
   // Initialize intersection observer for animations
-  const initIntersectionObserver = () => {
+  function initIntersectionObserver() {
+    const elements = document.querySelectorAll('[data-intersect]');
+
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+      (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry: IntersectionObserverEntry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('intersected');
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.05 }
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.05,
+      }
     );
 
-    document.querySelectorAll('[data-intersect]').forEach((el) => observer.observe(el));
-  };
+    elements.forEach((element: Element) => observer.observe(element));
+  }
 
   // Initialize on page load
   initIntersectionObserver();
 
-  // Re-initialize on view transitions
-  document.addEventListener('astro:page-load', initIntersectionObserver);
+  // Get container element
+  const containerElement = document.querySelector('.press-releases-container');
 
-  // Add keyboard navigation
-  document.addEventListener('astro:page-load', () => {
-    const links = document.querySelectorAll<HTMLAnchorElement>('[role="listitem"]');
-    links.forEach((link) => {
-      link.addEventListener('keydown', (e: KeyboardEvent) => {
-        if (e.key === ' ') {
-          e.preventDefault();
-          link.click();
-        }
+  if (containerElement) {
+    // Re-initialize on view transitions
+    containerElement.addEventListener('astro:page-load', initIntersectionObserver);
+
+    // Add keyboard navigation
+    containerElement.addEventListener('astro:page-load', () => {
+      const links = containerElement.querySelectorAll<HTMLAnchorElement>('[role="listitem"]');
+      links.forEach((link) => {
+        link.addEventListener('keydown', (e: KeyboardEvent) => {
+          if (e.key === ' ') {
+            e.preventDefault();
+            link.click();
+          }
+        });
       });
     });
-  });
+  }
 </script>
