@@ -4,9 +4,12 @@ import Layout from '~/layouts/PageLayout.astro';
 import Spacer from '~/components/widgets/Spacer.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
+import imgAndrew from '~/assets/images/thesis/Andrew Agbaje RT.webp';
+import imgKate from '~/assets/images/thesis/Kate Sansum Exeter.webp';
 
 const metadata = {
   title: 'Theses',
+  description: 'Explore the doctoral and master’s theses that have been published.',
 };
 ---
 
@@ -24,7 +27,7 @@ const metadata = {
     id="thesis-1"
     isReversed={false}
     image={{
-      src: 'https://lh3.googleusercontent.com/d/1qjL9RdO6hOn_VgpwZ_oTFYvXYwI4y7kL',
+      src: imgAndrew,
       alt: 'Andrew Agbaje',
     }}
     items={[
@@ -75,7 +78,7 @@ const metadata = {
     id="thesis-2"
     isReversed={true}
     image={{
-      src: 'https://lh3.googleusercontent.com/d/1ZaeaMw-nT3WMksFo-Qm0LYhLczGBZyAp',
+      src: imgKate,
       alt: 'Sansum M. Kate',
     }}
     items={[

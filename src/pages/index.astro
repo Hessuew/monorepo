@@ -8,6 +8,8 @@ import Hero from '~/components/widgets/Hero.astro';
 import Image from '~/components/common/Image.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Stars from '~/components/widgets/Stars.astro';
+import imgLogo from '~/assets/images/index/urFIT Child Research Group Logo.webp';
+import imgResearchVisualization from '~/assets/images/index/Urfit Child Website Frontpage.webp';
 
 const metadata = {
   title: 'urFIT-child — A treasure box of 21st-century novel discoveries',
@@ -26,8 +28,8 @@ const metadata = {
           loading="eager"
           width={640}
           height={640}
-          src="https://lh3.googleusercontent.com/d/1vPnP_SYQ1cqtQ9a95dFuGWQM1Zn5o6f0"
-          alt="urFIT-child Hero Image"
+          src={imgLogo}
+          alt="urFIT-child Research Group Logo"
         />
       </Fragment>
       <Fragment slot="title">
@@ -163,7 +165,7 @@ const metadata = {
 
   <Hero
     image={{
-      src: 'https://lh3.googleusercontent.com/d/1C7rG2AXVao5pioXhclyrhGvihGfCfZUN',
+      src: imgResearchVisualization,
       alt: 'urFIT-child research visualization',
     }}
   />
@@ -193,97 +195,4 @@ const metadata = {
   <!-- Spacer ******************* -->
 
   <Spacer />
-
-  <!-- Can be used later, should not be removed -->
-  <!-- Steps Widget ****************** -->
-
-  <!-- <Steps
-    title="PREVENTION"
-    tagline="The critical keyword"
-    isReversed={true}
-    bigImage={true}
-    classes={{
-      container: 'max-w-7xl',
-    }}
-    items={[
-      {
-        title: 'Primordial Prevention',
-        icon: 'tabler:number-1',
-        classes: {
-          icon: 'text-teal-800 border-teal-800 bg-teal-50 dark:text-teal-300 dark:border-teal-300 dark:bg-teal-900/50',
-          line: 'bg-teal-800 dark:bg-teal-300',
-        },
-      },
-      {
-        title: 'Early Primary Prevention',
-        icon: 'tabler:number-2',
-        classes: {
-          icon: 'text-green-800 border-green-800 bg-green-50 dark:text-green-300 dark:border-green-300 dark:bg-green-900/50',
-          line: 'bg-green-800 dark:bg-green-300',
-        },
-      },
-      {
-        title: 'Mid-Primary Prevention',
-        icon: 'tabler:number-3',
-        description: [{ subtitle: true, text: 'Critical time 🔔' }],
-        classes: {
-          icon: 'text-yellow-800 border-yellow-800 bg-yellow-50 dark:text-yellow-300 dark:border-yellow-300 dark:bg-yellow-900/50',
-          description: 'text-yellow-800 dark:text-yellow-300',
-          line: 'bg-yellow-800 dark:bg-yellow-300',
-        },
-      },
-      {
-        title: 'Late-Primary Prevention',
-        icon: 'tabler:number-4',
-        description: [
-          { subtitle: true, text: 'Mid-Twenties' },
-          { subtitle: true, text: '20-Year Opportunity' },
-        ],
-        classes: {
-          icon: 'text-rose-800 border-rose-800 bg-rose-50 dark:text-rose-300 dark:border-rose-300 dark:bg-rose-900/50',
-          line: 'bg-rose-800 dark:bg-rose-300',
-        },
-      },
-      {
-        title: 'Secondary to Tertiary Prevention',
-        icon: 'tabler:number-5',
-        description: [
-          { subtitle: true, text: 'Mid-Forties' },
-          { subtitle: true, text: 'Too Late ❌', classes: { subtitle: 'text-red-600 dark:text-red-6 00' } },
-        ],
-        classes: {
-          icon: 'text-rose-800 border-rose-800 bg-rose-50 dark:text-rose-300 dark:border-rose-300 dark:bg-rose-900/50',
-          line: 'bg-rose-800 dark:bg-rose-300',
-        },
-      },
-    ]}
-    image={{
-      src: 'https://lh3.googleusercontent.com/d/1C7rG2AXVao5pioXhclyrhGvihGfCfZUN',
-      alt: 'Prevention Steps Image',
-    }}
-  /> -->
-
-  <!-- <Hero>
-    <Fragment slot="subtitle" >
-      <span class="text-3xl md:text-4xl font-bold leading-tighter tracking-tighter mb-4 font-heading text-muted">
-      “Let's keep fighting for kids' health, because today's kids are tomorrow's adults.”
-      </span>
-      <br />
-      <span class="text-right text-3xl md:text-4xl font-bold leading-tighter tracking-tighter mb-4 font-heading text-muted">
-        Andrew Agbaje
-      </span>
-    </Fragment>
-  <Fragment slot="image">
-    <Image
-      class="mx-auto rounded-md w-full"
-      widths={[200, 384, 512, 1020]}
-      sizes="(max-width: 767px) 200px, (max-width: 1023px) 384px, (max-width: 2039px) 512px, 1020px"
-      loading="eager"
-      width={768}
-      height={512}
-      src="https://lh3.googleusercontent.com/d/15bFl-CNZdDys3A5dYQMFjF0nXsZbsXGJ"
-      alt="Andrew headshot"
-    />
-    </Fragment>
-  </Hero> -->
 </Layout>

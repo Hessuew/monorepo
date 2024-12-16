@@ -2,104 +2,13 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Features4 from '~/components/widgets/Features4.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import type { ImageMetadata } from 'astro';
+import { items } from '~/data/team';
 
 const metadata = {
   title: 'Team',
   description:
     "Meet the dedicated researchers and scientists behind the urFIT-child Research Project, working to advance children's health and fitness.",
 };
-
-interface TeamMember {
-  name: string;
-  title: string;
-  description: string;
-  image?: {
-    src: string | ImageMetadata;
-    alt: string;
-  };
-}
-
-const teamMembers: TeamMember[] = [
-  {
-    name: 'Andrew Agbaje',
-    title: 'Principal investigator',
-    description: 'MD, MPH, PhD, Professor (associate) of Clinical Epidemiology and Child Health',
-    image: {
-      src: 'https://lh3.googleusercontent.com/d/1evXugzkrWDuN4GuFYBNOQW5gTsFplBzV',
-      alt: 'Andrew Agbaje',
-    },
-  },
-  {
-    name: 'Tomi -Pekka Tuomainen',
-    title: 'Senior Researcher',
-    description: 'MD, PhD, Professor of Epidemiology',
-    image: {
-      src: 'https://lh3.googleusercontent.com/d/1atVeh2i6uYDMxeTuoxjgteb8Aa1Lfr4h',
-      alt: 'Tomi -Pekka Tuomainen',
-    },
-  },
-  {
-    name: 'Mounir Ould Setti',
-    title: 'Post-doctoral Researcher',
-    description: 'MD, MPH, PhD',
-    image: {
-      src: 'https://media.licdn.com/dms/image/v2/C5603AQEw4fAAypSsXw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1517403791816?e=2147483647&v=beta&t=DzjBbpbxHhScgBUHte5n6kdRBzWOmKN5STrPX7Ey7Yc',
-      alt: 'Mounir Ould Setti',
-    },
-  },
-  {
-    name: 'Idowu Senbanjo',
-    title: 'Doctoral (PhD) Candidate',
-    description:
-      'MBChB, MSc, PGD (Boston), FWACP, Cert Paediatric Gastroenterology (South Africa), Consultant/Specialist in Paediatric Gastroenterologist/Nutritionist',
-    image: {
-      src: 'https://lh3.googleusercontent.com/d/17qT00MXCqGWof1-czffF3xvKgE1z6MHK',
-      alt: 'Idowu Senbanjo',
-    },
-  },
-  {
-    name: 'Tolu Shogade',
-    title: 'Doctoral (PhD) Candidate',
-    description: 'MBChB, MWACP, FMCP, Consultant/Specialist in Internal Medicine',
-  },
-  {
-    name: 'Samuel Barmi',
-    title: 'Doctoral (PhD) Candidate',
-    description: 'RN, MPH',
-  },
-  {
-    name: 'Benedict Michelle',
-    title: 'Doctoral (PhD) Candidate',
-    description: 'MD, MPH',
-    image: {
-      src: 'https://media.licdn.com/dms/image/C5603AQG7QSMBZs2jCQ/profile-displayphoto-shrink_200_200/0/1615938984911?e=2147483647&v=beta&t=zU3vo3MCH-j461YLp0hcw2GooljwY_HL7le-QIDPWoU',
-      alt: 'Benedict Michelle',
-    },
-  },
-  {
-    name: 'Basil Apaokwueze',
-    title: "Master's degree and MD candidate",
-    description: 'MBBS, MPH candidate',
-  },
-  {
-    name: 'Ada Korhonen',
-    title: "Master's degree and MD candidate",
-    description: 'MD candidate',
-  },
-  {
-    name: 'Viivi Heijari',
-    title: 'Alumni',
-    description: 'Bachelors thesis in Biomedicine (Completed May 2024)',
-  },
-];
-
-const items = teamMembers.map((member) => ({
-  title: member.name,
-  subtitle: member.title,
-  description: member.description,
-  image: member.image,
-}));
 ---
 
 <Layout metadata={metadata}>

@@ -29,7 +29,7 @@ const {
 
 const buttonGroups = Array.isArray(options[0]) ? options : [options];
 const labels = Array.isArray(allLabels) ? allLabels : [allLabels];
-const containerId = id || `filter-container-${Math.random().toString(36).substr(2, 9)}`;
+const containerId = id || `filter-container-${Math.random().toString(36).slice(2, 11)}`;
 ---
 
 <WidgetWrapper id={containerId} isDark={isDark} containerClass={classes?.container ?? `max-w-7xl mx-auto`} bg={bg}>
@@ -58,7 +58,7 @@ const containerId = id || `filter-container-${Math.random().toString(36).substr(
   </div>
 </WidgetWrapper>
 
-<script define:vars={{ containerId, targetId }}>
+<script is:inline define:vars={{ containerId, targetId }}>
   class FilterManager {
     constructor(containerId, targetId) {
       this.containerId = containerId;

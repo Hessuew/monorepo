@@ -1,14 +1,17 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
+import { YouTube } from 'astro-embed';
 import Spacer from '~/components/widgets/Spacer.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import GradientText from '~/components/ui/GradientText.astro';
+import imgFlame from '~/assets/images/non-academic/Flame the Freeze website.webp';
+import flameEbook from '~/assets/pdfs/Flame the Freeze ebook.pdf';
 
 const metadata = {
-  title: 'Affiliations',
+  title: 'Non-academic',
+  description: 'Life is spiritual',
   // ignoreTitleTemplate: true,
 };
 ---
@@ -18,7 +21,7 @@ const metadata = {
     classes={{ labelContainer: 'pb-0 md:pb-0 lg:pb-0' }}
     tagline="Non-academic"
     image={{
-      src: 'https://lh3.googleusercontent.com/d/1hmsXqLKkfWQb-WRxW0sCHgrGF-ndPI4y',
+      src: imgFlame,
       alt: 'Flame the Freeze website',
     }}
   >
@@ -75,15 +78,7 @@ const metadata = {
 
     <Fragment slot="image">
       <div class="relative pb-[56.25%]">
-        <iframe
-          loading="lazy"
-          width="560"
-          height="315"
-          src="https://www.youtube-nocookie.com/embed/Z1J0yjSdiVY?si=mezqUTnaLAHh_r_G"
-          title="YouTube video player"
-          class="absolute top-0 left-0 w-full h-full"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
+        <YouTube id="Z1J0yjSdiVY" title="Dr. Osaze's testimony" poster="" />
       </div>
     </Fragment>
   </Content>
@@ -100,16 +95,7 @@ const metadata = {
 
     <Fragment slot="image">
       <div class="relative pb-[56.25%]">
-        <iframe
-          loading="lazy"
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/g_y65xR5OYE?si=JwRc2jad8g1Swu3h"
-          title="YouTube video player"
-          class="absolute top-0 left-0 w-full h-full"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
+        <YouTube id="g_y65xR5OYE" title="Excerpt from JESUS FEST" poster="" />
       </div>
     </Fragment>
   </Content>
@@ -128,15 +114,11 @@ const metadata = {
   <div class="w-full flex justify-center pb-10 h-[520px] lg:h-[640px]">
     <iframe
       aria-label="Flame the Freeze pdf"
-      src={'https://drive.google.com/file/d/1D5npgHt176KLtaEir-OE61LcndzssEjp/preview'}
+      src={flameEbook}
       width="100%"
       height="100%"
       allow="autoplay"
       class="max-w-2xl"></iframe>
-    <!-- <p> {t("devotions.ebook.text1")} <a class="hover:underline" href={lang === "en" ?
-      "https://drive.google.com/file/d/1D5npgHt176KLtaEir-OE61LcndzssEjp/preview" :
-      "https://drive.google.com/file/d/1JY5xC1_A24QFWG75GzI0ul1JAv1iBjIk/preview"}
-      target="_blank">{t("devotions.ebook.a")}</a > {t("devotions.ebook.text2")}</p> -->
   </div>
 
   <!-- Spacer ******************* -->

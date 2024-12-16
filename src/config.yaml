@@ -4,23 +4,23 @@ site:
   base: '/'
   trailingSlash: false
 
-  googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
+  googleSiteVerificationId:
 
 # Default SEO metadata
 metadata:
   title:
     default: urFIT-child
     template: '%s — urFIT-child'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+  description: 'urFIT-child is a multi-disciplinary and multi-collaborative research group with clear objectives.'
   robots:
     index: true
     follow: true
   openGraph:
     site_name: urFIT-child
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/index/urFIT Child Research Group Logo.png'
         width: 1200
-        height: 628
+        height: 1200
     type: website
   twitter:
     handle: '@urfit-child'
@@ -33,7 +33,7 @@ i18n:
 
 apps:
   blog:
-    isEnabled: true
+    isEnabled: false
     postsPerPage: 6
 
     post:

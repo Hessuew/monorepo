@@ -1,13 +1,13 @@
 ---
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import { YouTube } from 'astro-embed';
-import doccheckImage from '~/assets/images/physical_activity_slow_and_steady_wins_the_race.webp';
+import doccheckImage from '~/assets/images/videosAndPodcasts/physical_activity_slow_and_steady_wins_the_race.webp';
 import Image from '~/components/common/Image.astro';
 import { mediaItemsByYear, sortedYears } from '~/data/videosAndPodcasts';
 ---
 
 <WidgetWrapper animated={false} containerClass="py-0 lg:py-0 md:py-0">
-  <div class="max-w-7xl mx-auto">
+  <div class="videos-and-podcasts-container max-w-7xl mx-auto">
     {
       sortedYears.map((year) => (
         <div
@@ -123,14 +123,11 @@ import { mediaItemsByYear, sortedYears } from '~/data/videosAndPodcasts';
 
 <script>
   function initIntersectionObserver() {
-    const elements = document.querySelectorAll('[data-intersect]');
-
     const observer = new IntersectionObserver(
-      (entries: IntersectionObserverEntry[]) => {
-        entries.forEach((entry: IntersectionObserverEntry) => {
+      (entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('intersected');
-            observer.unobserve(entry.target);
           }
         });
       },
@@ -141,25 +138,28 @@ import { mediaItemsByYear, sortedYears } from '~/data/videosAndPodcasts';
       }
     );
 
-    elements.forEach((element: Element) => observer.observe(element));
+    document.querySelectorAll('[data-intersect]').forEach((el) => {
+      observer.observe(el);
+    });
+
+    return observer;
   }
 
   // Initialize on page load
-  initIntersectionObserver();
+  let observer = initIntersectionObserver();
 
-  // Re-initialize on view transitions
-  document.addEventListener('astro:page-load', initIntersectionObserver);
+  // Get container element
+  const containerElement = document.querySelector('.videos-and-podcasts-container');
 
-  // Add keyboard navigation
-  document.addEventListener('astro:page-load', () => {
-    const links = document.querySelectorAll<HTMLAnchorElement>('[role="listitem"]');
-    links.forEach((link) => {
-      link.addEventListener('keydown', (e: KeyboardEvent) => {
-        if (e.key === ' ') {
-          e.preventDefault();
-          link.click();
-        }
-      });
+  if (containerElement) {
+    const cleanup = () => {
+      observer.disconnect();
+    };
+
+    // Re-initialize on view transitions
+    containerElement.addEventListener('astro:page-load', () => {
+      cleanup();
+      observer = initIntersectionObserver();
     });
-  });
+  }
 </script>
