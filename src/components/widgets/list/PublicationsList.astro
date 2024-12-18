@@ -19,126 +19,127 @@ const { columns = 2, classes = {} } = Astro.props;
 ---
 
 <WidgetWrapper animated={false} containerClass="py-0 lg:py-0 md:py-0">
-  {
-    sortedYears.map((year) => (
-      <div
-        class="mb-16 sm:mb-24 item-year-card opacity-0 translate-y-12 duration-[1500ms] ease-out transition-[opacity,transform] delay-300"
-        data-intersect
-      >
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 sm:mb-12 text-center intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:translate-y-8 motion-safe:md:intersect:animate-fade motion-safe:md:intersect:animate-slide-up">
-          {year}
-        </h2>
-
+  <div class="publications-container max-w-7xl mx-auto">
+    {
+      sortedYears.map((year) => (
         <div
-          class={twMerge(
-            `grid gap-8 gap-x-12 sm:gap-y-8 grid-auto-flow-row ${
-              columns === 4
-                ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
-                : columns === 3
-                  ? 'lg:grid-cols-3 sm:grid-cols-2'
-                  : columns === 2
-                    ? 'sm:grid-cols-2'
-                    : ''
-            }`,
-            classes.container
-          )}
-          role="list"
+          class="mb-16 sm:mb-24 item-year-card opacity-0 translate-y-12 duration-[1500ms] ease-out transition-[opacity,transform] delay-300"
+          data-intersect
         >
-          {publicationsByYear[year].map((publication, index) => {
-            const col = index % columns;
-            const delay = 200 + col * 150;
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 sm:mb-12 text-center intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:translate-y-8 motion-safe:md:intersect:animate-fade motion-safe:md:intersect:animate-slide-up">
+            {year}
+          </h2>
 
-            return (
-              <a
-                href={publication.doi ? `https://doi.org/${publication.doi}` : '#'}
-                target="_blank"
-                rel="noopener noreferrer"
-                class={twMerge(
-                  'item-card block no-underline hover:no-underline group opacity-0 translate-y-6 md:translate-y-12 duration-[1500ms] ease-out',
-                  'focus:outline-none focus:ring-2 focus:ring-primary rounded-lg',
-                  !publication.doi && 'cursor-default pointer-events-none'
-                )}
-                data-intersect
-                data-type={publication.type}
-                data-category={publication.category || ''}
-                aria-label={`View publication: ${publication.title}`}
-                role="listitem"
-                style={`--animation-delay: ${delay}ms`}
-              >
-                <div class="bg-white dark:bg-transparent rounded-lg shadow-lg dark:shadow-none p-6 h-full transition-all duration-300 hover:bg-gray-100/0 dark:hover:bg-white/0 group-hover:shadow-xl dark:group-hover:shadow-none">
-                  <div class="flex flex-col h-full">
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">{publication.title}</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">{publication.authors}</p>
-                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">
-                      {publication.journal && <span class="italic">{publication.journal}</span>}
-                      {publication.volume && <span>, {publication.volume}</span>}
-                      {publication.pages && <span>, {publication.pages}</span>}
-                      {publication.year && <span> ({publication.year})</span>}
-                    </p>
+          <div
+            class={twMerge(
+              `grid gap-8 gap-x-12 sm:gap-y-8 grid-auto-flow-row ${
+                columns === 4
+                  ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
+                  : columns === 3
+                    ? 'lg:grid-cols-3 sm:grid-cols-2'
+                    : columns === 2
+                      ? 'sm:grid-cols-2'
+                      : ''
+              }`,
+              classes.container
+            )}
+            role="list"
+          >
+            {publicationsByYear[year].map((publication, index) => {
+              const col = index % columns;
+              const delay = 200 + col * 150;
 
-                    <div class="flex flex-wrap gap-2">
-                      {publication.type && (
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300 ring-1 ring-inset ring-blue-700/10 dark:ring-blue-700/30">
-                          {publication.type}
-                        </span>
-                      )}
-                      {publication.category && (
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-50 text-green-700 dark:bg-green-900/50 dark:text-green-300 ring-1 ring-inset ring-green-700/10 dark:ring-green-700/30">
-                          {publication.category}
-                        </span>
+              return (
+                <a
+                  href={publication.doi ? `https://doi.org/${publication.doi}` : '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class={twMerge(
+                    'item-card block no-underline hover:no-underline group opacity-0 translate-y-6 md:translate-y-12 duration-[1500ms] ease-out',
+                    'focus:outline-none focus:ring-2 focus:ring-primary rounded-lg',
+                    !publication.doi && 'cursor-default pointer-events-none'
+                  )}
+                  data-intersect
+                  data-type={publication.type}
+                  data-category={publication.category || ''}
+                  aria-label={`View publication: ${publication.title}`}
+                  role="listitem"
+                  style={`--animation-delay: ${delay}ms`}
+                >
+                  <div class="bg-white dark:bg-transparent rounded-lg shadow-lg dark:shadow-none p-6 h-full transition-all duration-300 hover:bg-gray-100/0 dark:hover:bg-white/0 group-hover:shadow-xl dark:group-hover:shadow-none">
+                    <div class="flex flex-col h-full">
+                      <div class="text-sm font-medium text-primary-600 dark:text-primary-400 mb-3">
+                        {new Date(publication.date).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric',
+                        })}
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">{publication.title}</h3>
+                      <p class="text-gray-600 dark:text-gray-300 mb-4">{publication.authors}</p>
+                      <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">
+                        {publication.journal && <span class="italic">{publication.journal}</span>}
+                        {publication.volume && <span>, {publication.volume}</span>}
+                        {publication.pages && <span>, {publication.pages}</span>}
+                      </p>
+
+                      <div class="flex flex-wrap gap-2">
+                        {publication.type && (
+                          <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300 ring-1 ring-inset ring-blue-700/10 dark:ring-blue-700/30">
+                            {publication.type}
+                          </span>
+                        )}
+                        {publication.category && (
+                          <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-50 text-green-700 dark:bg-green-900/50 dark:text-green-300 ring-1 ring-inset ring-green-700/10 dark:ring-green-700/30">
+                            {publication.category}
+                          </span>
+                        )}
+                      </div>
+
+                      {publication.doi && (
+                        <div class="mt-auto pt-4">
+                          <span
+                            class="text-sm text-primary mt-2 inline-flex items-center gap-1 transition-all duration-300 group-hover:gap-2"
+                            aria-hidden="true"
+                          >
+                            View publication
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="h-4 w-4 transition-transform duration-300 transform group-hover:translate-x-1"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              aria-hidden="true"
+                              role="presentation"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                        </div>
                       )}
                     </div>
-
-                    {publication.doi && (
-                      <div class="mt-auto pt-4">
-                        <span
-                          class="text-sm text-primary mt-2 inline-flex items-center gap-1 transition-all duration-300 group-hover:gap-2"
-                          aria-hidden="true"
-                        >
-                          View publication
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-4 w-4 transition-transform duration-300 transform group-hover:translate-x-1"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            aria-hidden="true"
-                            role="presentation"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                              clip-rule="evenodd"
-                            />
-                          </svg>
-                        </span>
-                      </div>
-                    )}
                   </div>
-                </div>
-              </a>
-            );
-          })}
+                </a>
+              );
+            })}
+          </div>
         </div>
-      </div>
-    ))
-  }
+      ))
+    }
+  </div>
 </WidgetWrapper>
 
 <style>
   /* Base animation classes */
   [data-intersect] {
     opacity: 0;
-    transform: translateY(1.5rem);
+    transform: translateY(3rem);
     transition:
-      opacity 1s ease-out,
-      transform 1s ease-out;
-    transition-delay: var(--animation-delay, 0ms);
-  }
-
-  @media (min-width: 768px) {
-    [data-intersect] {
-      transform: translateY(3rem);
-    }
+      opacity 1.5s ease-out,
+      transform 1.5s ease-out;
   }
 
   [data-intersect].intersected {
@@ -146,31 +147,19 @@ const { columns = 2, classes = {} } = Astro.props;
     transform: translateY(0);
   }
 
-  .publication-year {
-    opacity: 0;
-    transform: translateY(1.5rem);
-    transition:
-      opacity 1s ease-out,
-      transform 1s ease-out;
-  }
-
-  .publication-year.intersected {
-    opacity: 1;
-    transform: translateY(0);
+  /* Animation delay based on column position */
+  .item-card.intersected {
+    animation-delay: var(--animation-delay);
   }
 </style>
 
 <script>
-  // Initialize intersection observer for animations
   function initIntersectionObserver() {
-    const elements = document.querySelectorAll('[data-intersect]');
-
     const observer = new IntersectionObserver(
-      (entries: IntersectionObserverEntry[]) => {
-        entries.forEach((entry: IntersectionObserverEntry) => {
+      (entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('intersected');
-            observer.unobserve(entry.target);
           }
         });
       },
@@ -181,29 +170,48 @@ const { columns = 2, classes = {} } = Astro.props;
       }
     );
 
-    elements.forEach((element: Element) => observer.observe(element));
+    document.querySelectorAll('[data-intersect]').forEach((el) => {
+      observer.observe(el);
+    });
+
+    return observer;
   }
 
   // Initialize on page load
-  initIntersectionObserver();
+  let observer = initIntersectionObserver();
 
   // Get container element
-  const containerElement = document.querySelector('.press-releases-container');
+  const containerElement = document.querySelector('.publications-container');
 
   if (containerElement) {
-    // Re-initialize on view transitions
-    containerElement.addEventListener('astro:page-load', initIntersectionObserver);
-
-    // Add keyboard navigation
-    containerElement.addEventListener('astro:page-load', () => {
+    const cleanup = () => {
+      observer.disconnect();
       const links = containerElement.querySelectorAll<HTMLAnchorElement>('[role="listitem"]');
       links.forEach((link) => {
-        link.addEventListener('keydown', (e: KeyboardEvent) => {
+        link.removeEventListener('keydown', handleKeydown);
+      });
+    };
+
+    // Re-initialize on view transitions
+    containerElement.addEventListener('astro:page-load', () => {
+      cleanup();
+      observer = initIntersectionObserver();
+    });
+
+    // Add keyboard navigation
+    let handleKeydown;
+    containerElement.addEventListener('astro:page-load', () => {
+      cleanup();
+
+      const links = containerElement.querySelectorAll<HTMLAnchorElement>('[role="listitem"]');
+      links.forEach((link) => {
+        handleKeydown = (e: KeyboardEvent) => {
           if (e.key === ' ') {
             e.preventDefault();
             link.click();
           }
-        });
+        };
+        link.addEventListener('keydown', handleKeydown);
       });
     });
   }

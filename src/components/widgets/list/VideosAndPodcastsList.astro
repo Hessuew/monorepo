@@ -24,14 +24,14 @@ import { mediaItemsByYear, sortedYears } from '~/data/videosAndPodcasts';
                 class="item-card bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-md dark:shadow-gray-900/20 hover:shadow-lg dark:hover:shadow-gray-900/30 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:translate-y-8 motion-safe:md:intersect:animate-fade motion-safe:md:intersect:animate-slide-up"
                 data-type={item.platform}
               >
-                <h2 class="text-2xl font-bold mb-2 text-gray-800 dark:text-gray-100">{item.title}</h2>
-                <p class="text-gray-600 dark:text-gray-400 mb-4">
+                <div class="text-sm font-medium text-primary-600 dark:text-primary-400 mb-3">
                   {new Date(item.date).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric',
                   })}
-                </p>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">{item.title}</h3>
                 <div class="relative w-full aspect-video">
                   {item.platform === 'youtube' ? (
                     <YouTube id={item.videoId} title={item.title} poster="" />
