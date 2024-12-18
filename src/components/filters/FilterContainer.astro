@@ -29,7 +29,7 @@ const {
 
 const buttonGroups = Array.isArray(options[0]) ? options : [options];
 const labels = Array.isArray(allLabels) ? allLabels : [allLabels];
-const containerId = id || `filter-container-${Math.random().toString(36).slice(2, 11)}`;
+const containerId = id || `filter-container-${Math.random().toString(36).substr(2, 9)}`;
 ---
 
 <WidgetWrapper id={containerId} isDark={isDark} containerClass={classes?.container ?? `max-w-7xl mx-auto`} bg={bg}>

@@ -90,6 +90,8 @@ Website for a research group containing all the content of the group in a single
 
 ## Git Usage
 
+We use Graphite The AI-powered pull request toolchain.
+
 Commit Message Prefixes:
 
 - "fix:" for bug fixes

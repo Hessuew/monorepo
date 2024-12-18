@@ -53,10 +53,7 @@ const {
 >
   {
     (title || subtitle || tagline) && (
-      <div
-        class="mb-12 md:mx-auto md:mb-16 text-center max-w-3xl opacity-0 translate-y-12 duration-[1500ms] ease-out transition-[opacity,transform] delay-300"
-        data-intersect
-      >
+      <div class="mb-12 md:mx-auto md:mb-16 text-center max-w-3xl">
         <Headline
           title={title}
           subtitle={subtitle}
@@ -74,21 +71,6 @@ const {
     )
   }
   <div class={`${classes?.container ?? ''}`}>
-    <!-- <div class="flex justify-end mb-4">
-      <div class="inline-flex rounded-lg border border-gray-200 dark:border-gray-700">
-        <button id="gridViewBtn" class="px-4 py-2 rounded-l-lg bg-primary text-white text-sm" data-view="grid">
-          Grid
-        </button>
-        <button
-          id="listViewBtn"
-          class="px-4 py-2 rounded-r-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-sm"
-          data-view="list"
-        >
-          List
-        </button>
-      </div>
-    </div> -->
-
     <div id="itemsContainer">
       <ItemGridLink
         items={items}
@@ -106,27 +88,3 @@ const {
     </div>
   </div>
 </WidgetWrapper>
-
-<script>
-  // Setup intersection observer for animations
-  const intersectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('intersected');
-        intersectionObserver.unobserve(entry.target);
-      }
-    });
-  });
-
-  // Initialize
-  document.querySelectorAll('[data-intersect]').forEach((element) => {
-    intersectionObserver.observe(element);
-  });
-</script>
-
-<style>
-  [data-intersect].intersected {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-  }
-</style>

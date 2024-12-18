@@ -7,7 +7,7 @@ import orionLogo from '~/assets/images/funders/Orion Oyj Logo.svg';
 import aarneLogo from '~/assets/images/funders/Aarne Koskelon Foundation.webp';
 import pauloLogo from '~/assets/images/funders/Paulon Saatio Logo.webp';
 import uefLogo from '~/assets/images/funders/UEF Logo.png';
-import paavoNurmiLogo from '~/assets/images/funders/paavo-nurmi-foundation-logo.webp';
+import paavoNurmiLogo from '~/assets/images/funders/Paavo Nurmi Foundation Logo.webp';
 import yjsLogo from '~/assets/images/funders/YJS Anniversary Logo.webp';
 import leroyLogo from '~/assets/images/funders/Leroy Logo Navigation.webp';
 import pediatricLogo from '~/assets/images/funders/Lastentautien Tunnus.gif';
