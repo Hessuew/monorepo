@@ -1,7 +1,10 @@
 ---
-import Content from '../Content.astro';
-import Spacer from '../Spacer.astro';
+import Content from '~/components/widgets/Content.astro';
+import Spacer from '~/components/widgets/Spacer.astro';
 import AffiliationContent from './AffiliationContent.astro';
+import imgUef from '~/assets/images/principalInvestigator/Kuopio Campus Aerial.webp';
+import imgBristol from '~/assets/images/principalInvestigator/University of Bristol.webp';
+import imgExeter from '~/assets/images/principalInvestigator/University of Exeter.webp';
 ---
 
 <Content
@@ -10,7 +13,7 @@ import AffiliationContent from './AffiliationContent.astro';
   title="International Research Networks"
   subtitle="Transforming global health through research partnerships"
   image={{
-    src: 'https://lh3.googleusercontent.com/d/1SAZqqZ9uuAvagEb-88PeBVLosdDus8F0',
+    src: imgUef,
     alt: 'University of Eastern Finland Campus',
   }}
   classes={{ container: '' }}
@@ -47,7 +50,7 @@ import AffiliationContent from './AffiliationContent.astro';
 
 <Content
   image={{
-    src: 'https://lh3.googleusercontent.com/d/1GcK1fZERJf5eKyoRzJAOwXhedRSKBgKN',
+    src: imgBristol,
     alt: 'University of Bristol Campus',
   }}
   items={[
@@ -84,7 +87,7 @@ import AffiliationContent from './AffiliationContent.astro';
 
 <Content
   image={{
-    src: 'https://images.e-flux-systems.com/Uni_Exeter_hero.jpg,1600',
+    src: imgExeter,
     alt: 'University of Exeter Campus',
   }}
   items={[

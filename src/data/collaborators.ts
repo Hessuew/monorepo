@@ -1,16 +1,16 @@
 // Import collaborator images
 import imgBarker from '~/assets/images/collaborators/Prof. Alan R. Barker.jpeg';
-import imgBaynard from '~/assets/images/collaborators/Prof. Tracy Baynard.jpg';
-import imgOdili from '~/assets/images/collaborators/Prof. Augustine Odili.png';
-import imgLlyodJones from '~/assets/images/collaborators/Prof. Donald M. Llyod-Jones.jpg';
-import imgMagnussen from '~/assets/images/collaborators/Prof. Costan Magnussen.jpg';
-import imgLewandowski from '~/assets/images/collaborators/Prof. Adam Lewandowski.jpg';
-import imgPerng from '~/assets/images/collaborators/Prof. Wei Perng.jpeg';
+import imgBaynard from '~/assets/images/collaborators/Prof. Tracy Baynard.webp';
+import imgOdili from '~/assets/images/collaborators/Prof. Augustine Odili.webp';
+import imgLlyodJones from '~/assets/images/collaborators/Prof. Donald M. Llyod-Jones.webp';
+import imgMagnussen from '~/assets/images/collaborators/Prof. Costan Magnussen.webp';
+import imgLewandowski from '~/assets/images/collaborators/Prof. Adam Lewandowski.webp';
+import imgPerng from '~/assets/images/collaborators/Prof. Wei Perng.webp';
 import imgHenderson from '~/assets/images/collaborators/Prof. Mélanie Henderson.jpeg';
-import imgOberhoffer from '~/assets/images/collaborators/Prof. Dr. Renate Oberhoffer-Fritz.jpeg';
-import imgWilliams from '~/assets/images/collaborators/Prof. Craig Williams.jpeg';
+import imgOberhoffer from '~/assets/images/collaborators/Renate Oberhoffer-Fritz.webp';
+import imgWilliams from '~/assets/images/collaborators/Prof. Craig Williams.webp';
 import imgSaner from '~/assets/images/collaborators/Dr. med. Christoph Saner.webp';
-import imgVlachopoulos from '~/assets/images/collaborators/Dr. Dimitris Vlachopoulos.jpeg';
+import imgVlachopoulos from '~/assets/images/collaborators/Dr. Dimitris Vlachopoulos.webp';
 import imgZachariah from '~/assets/images/collaborators/Justin Zachariah MD.webp';
 import imgLeeson from '~/assets/images/collaborators/Prof. Paul Leeson.webp';
 import type { ImageMetadata } from 'astro';
