@@ -266,6 +266,7 @@ export interface Brands extends Omit<Headline, 'classes'>, Widget {
 }
 
 export interface Features extends Omit<Headline, 'classes'>, Widget {
+  animated?: boolean;
   image?: string | unknown;
   video?: Video;
   items?: Array<Item>;

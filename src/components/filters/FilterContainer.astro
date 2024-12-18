@@ -1,6 +1,5 @@
 ---
-import FilterButtons from './FilterButtons.astro';
-import SearchInput from './SearchInput.astro';
+import ReactFilterContainer from './ReactFilterContainer';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 
 interface Props {
@@ -12,7 +11,7 @@ interface Props {
   isDark?: boolean;
   bg?: string;
   gridId?: string;
-  targetId?: string; // ID of the element containing the items to filter
+  targetId?: string;
 }
 
 const {
@@ -27,117 +26,16 @@ const {
   targetId,
 } = Astro.props;
 
-const buttonGroups = Array.isArray(options[0]) ? options : [options];
-const labels = Array.isArray(allLabels) ? allLabels : [allLabels];
 const containerId = id || `filter-container-${Math.random().toString(36).substr(2, 9)}`;
 ---
 
 <WidgetWrapper id={containerId} isDark={isDark} containerClass={classes?.container ?? `max-w-7xl mx-auto`} bg={bg}>
-  <div class="w-full" data-filter-root>
-    <div class="flex flex-col gap-4">
-      <div class="flex flex-wrap-reverse items-center gap-4">
-        <div class="flex-1 min-w-0">
-          <FilterButtons options={buttonGroups[0] as string[]} allLabel={labels[0]} variant="type" />
-        </div>
-        {
-          showSearch && (
-            <div class="w-full md:w-auto md:min-w-[300px]">
-              <SearchInput gridId={gridId} />
-            </div>
-          )
-        }
-      </div>
-      {
-        buttonGroups[1] && (
-          <div class="w-full">
-            <FilterButtons options={buttonGroups[1] as string[]} allLabel={labels[1]} variant="category" />
-          </div>
-        )
-      }
-    </div>
-  </div>
+  <ReactFilterContainer
+    client:load
+    options={options}
+    allLabels={allLabels}
+    showSearch={showSearch}
+    gridId={gridId}
+    targetId={targetId}
+  />
 </WidgetWrapper>
-
-<script is:inline define:vars={{ containerId, targetId }}>
-  class FilterManager {
-    constructor(containerId, targetId) {
-      this.containerId = containerId;
-      this.container = document.getElementById(containerId);
-      this.targetContainer = targetId ? document.getElementById(targetId) : document;
-      this.filters = {
-        type: 'all',
-        category: 'all',
-        search: '',
-      };
-
-      this.setupEventListeners();
-    }
-
-    setupEventListeners() {
-      if (!this.container) return;
-
-      // Handle filter button clicks
-      this.container.addEventListener('click', (event) => {
-        const target = event.target;
-        if (!target.hasAttribute('data-filter')) return;
-
-        const filterType = target.getAttribute('data-filter-type');
-        const filterValue = target.getAttribute('data-filter');
-
-        if (filterType === 'type' || filterType === 'category') {
-          this.filters[filterType] = filterValue;
-
-          // Update button states
-          const buttonGroup = target.closest('[data-filter-buttons]');
-          if (buttonGroup) {
-            buttonGroup.querySelectorAll('[data-filter]').forEach((button) => {
-              button.setAttribute('data-selected', button === target ? 'true' : 'false');
-              button.setAttribute('aria-pressed', button === target ? 'true' : 'false');
-            });
-          }
-
-          this.applyFilters();
-        }
-      });
-
-      // Handle search input
-      const searchInput = this.container.querySelector('[data-search-input]');
-      if (searchInput) {
-        searchInput.addEventListener('input', (event) => {
-          this.filters.search = event.target.value;
-          this.applyFilters();
-        });
-      }
-    }
-
-    applyFilters() {
-      if (!this.targetContainer) return;
-
-      const pressReleaseCards = this.targetContainer.querySelectorAll('.item-card');
-      const searchTerm = this.filters.search.toLowerCase();
-
-      pressReleaseCards.forEach((card) => {
-        const cardType = card.getAttribute('data-type');
-        const cardCategory = card.getAttribute('data-category');
-
-        const typeMatch = this.filters.type === 'all' || cardType === this.filters.type;
-        const categoryMatch = this.filters.category === 'all' || cardCategory === this.filters.category;
-        const cardContent = card.textContent?.toLowerCase() || '';
-        const searchMatch = !searchTerm || cardContent.includes(searchTerm);
-
-        card.classList.toggle('hidden', !searchMatch || !typeMatch || !categoryMatch);
-      });
-
-      // Hide empty year sections
-      this.targetContainer.querySelectorAll('.item-year-card').forEach((yearSection) => {
-        const hasVisibleCards = yearSection.querySelectorAll('.item-card:not(.hidden)').length > 0;
-        yearSection.classList.toggle('hidden', !hasVisibleCards);
-      });
-    }
-  }
-
-  // Initialize the filter manager for this instance
-  document.addEventListener('astro:page-load', () => {
-    new FilterManager(containerId, targetId);
-  });
-</script>
