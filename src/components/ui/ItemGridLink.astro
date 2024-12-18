@@ -36,22 +36,16 @@ const { items, columns = 3, classes = {}, isProfile = false } = Astro.props;
 >
   {
     items.map((item, index) => {
-      const row = Math.floor(index / columns);
-      const col = index % columns;
-      const delay = row < 1 ? index * 150 + 300 : 100 + col * 200;
-
       return (
         <a
           href={item.url}
           target="_blank"
           rel="noopener noreferrer"
           class={twMerge(
-            'block no-underline hover:no-underline group opacity-0 translate-y-6 md:translate-y-12 duration-[1500ms] ease-out',
+            'block no-underline hover:no-underline group opacity-0 translate-y-6 md:translate-y-12 duration-[1500ms] ease-out intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
             'focus:outline-none focus:ring-2 focus:ring-primary rounded-lg',
             classes.item
           )}
-          data-intersect
-          style={`--animation-delay: ${delay}ms`}
           aria-label={`Visit ${item.title} website`}
           role="listitem"
         >

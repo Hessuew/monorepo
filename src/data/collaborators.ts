@@ -4,7 +4,7 @@ import imgBaynard from '~/assets/images/collaborators/Prof. Tracy Baynard.webp';
 import imgOdili from '~/assets/images/collaborators/Prof. Augustine Odili.webp';
 import imgLlyodJones from '~/assets/images/collaborators/Prof. Donald M. Llyod-Jones.webp';
 import imgMagnussen from '~/assets/images/collaborators/Prof. Costan Magnussen.webp';
-import imgLewandowski from '~/assets/images/collaborators/Prof. Adam Lewandowski.webp';
+import imgLewandowski from '~/assets/images/collaborators/Prof Adam Lewandowski.webp';
 import imgPerng from '~/assets/images/collaborators/Prof. Wei Perng.webp';
 import imgHenderson from '~/assets/images/collaborators/Prof. Mélanie Henderson.jpeg';
 import imgOberhoffer from '~/assets/images/collaborators/Renate Oberhoffer-Fritz.webp';

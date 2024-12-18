@@ -19,14 +19,11 @@ const { columns = 2, classes = {} } = Astro.props;
 ---
 
 <WidgetWrapper animated={false} containerClass="py-0 lg:py-0 md:py-0">
-  <div class="press-releases-container max-w-7xl mx-auto">
+  <div class="max-w-7xl mx-auto">
     {
       sortedYears.map((year) => (
-        <div
-          class="mb-16 sm:mb-24 item-year-card opacity-0 translate-y-12 duration-[1500ms] ease-out transition-[opacity,transform] delay-300"
-          data-intersect
-        >
-          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 sm:mb-12 text-center intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:translate-y-8 motion-safe:md:intersect:animate-fade motion-safe:md:intersect:animate-slide-up">
+        <div class="mb-16 sm:mb-24 item-year-card">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 sm:mb-12 text-center intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
             {year}
           </h2>
 
@@ -45,22 +42,17 @@ const { columns = 2, classes = {} } = Astro.props;
             )}
             role="list"
           >
-            {pressReleasesByYear[year].map((release, index) => {
-              const col = index % columns;
-              const delay = 200 + col * 150;
-
+            {pressReleasesByYear[year].map((release) => {
               return (
                 <a
                   href={release.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="item-card block no-underline hover:no-underline group opacity-0 translate-y-6 md:translate-y-12 duration-[1500ms] ease-out focus:outline-none focus:ring-2 focus:ring-primary rounded-lg"
-                  data-intersect
+                  class="item-card block no-underline hover:no-underline group translate-y-6 md:translate-y-12 duration-[1500ms] ease-out focus:outline-none focus:ring-2 focus:ring-primary rounded-lg intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
                   data-type={release.type}
                   data-category={release.category || ''}
                   aria-label={`Visit ${release.title} website`}
                   role="listitem"
-                  style={`--animation-delay: ${delay}ms`}
                 >
                   <div class="bg-white dark:bg-transparent rounded-lg shadow-lg dark:shadow-none p-6 h-full transition-all duration-300 hover:bg-gray-100/0 dark:hover:bg-white/0 group-hover:shadow-xl dark:group-hover:shadow-none">
                     <div class="flex flex-col h-full">
@@ -120,27 +112,6 @@ const { columns = 2, classes = {} } = Astro.props;
 </WidgetWrapper>
 
 <style>
-  /* Base animation classes */
-  [data-intersect] {
-    opacity: 0;
-    transform: translateY(1.5rem);
-    transition:
-      opacity 1s ease-out,
-      transform 1s ease-out;
-    transition-delay: var(--animation-delay, 0ms);
-  }
-
-  @media (min-width: 768px) {
-    [data-intersect] {
-      transform: translateY(3rem);
-    }
-  }
-
-  [data-intersect].intersected {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
   .line-clamp-3 {
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -148,46 +119,3 @@ const { columns = 2, classes = {} } = Astro.props;
     overflow: hidden;
   }
 </style>
-
-<script>
-  function initIntersectionObserver() {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('intersected');
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.05,
-      }
-    );
-
-    document.querySelectorAll('[data-intersect]').forEach((el) => {
-      observer.observe(el);
-    });
-
-    return observer;
-  }
-
-  // Initialize on page load
-  let observer = initIntersectionObserver();
-
-  // Get container element
-  const containerElement = document.querySelector('.press-releases-container');
-
-  if (containerElement) {
-    const cleanup = () => {
-      observer.disconnect();
-    };
-
-    // Re-initialize on view transitions
-    containerElement.addEventListener('astro:page-load', () => {
-      cleanup();
-      observer = initIntersectionObserver();
-    });
-  }
-</script>

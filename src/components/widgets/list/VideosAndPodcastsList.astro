@@ -7,13 +7,10 @@ import { mediaItemsByYear, sortedYears } from '~/data/videosAndPodcasts';
 ---
 
 <WidgetWrapper animated={false} containerClass="py-0 lg:py-0 md:py-0">
-  <div class="videos-and-podcasts-container max-w-7xl mx-auto">
+  <div class="max-w-7xl mx-auto">
     {
       sortedYears.map((year) => (
-        <div
-          class="mb-16 sm:mb-24 item-year-card opacity-0 translate-y-12 duration-[1500ms] ease-out transition-[opacity,transform] delay-300"
-          data-intersect
-        >
+        <div class="mb-16 sm:mb-24 item-year-card">
           <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 sm:mb-12 text-center intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:translate-y-8 motion-safe:md:intersect:animate-fade motion-safe:md:intersect:animate-slide-up">
             {year}
           </h2>
@@ -97,69 +94,3 @@ import { mediaItemsByYear, sortedYears } from '~/data/videosAndPodcasts';
     }
   </div>
 </WidgetWrapper>
-
-<style>
-  lite-youtube {
-    @apply relative block w-full aspect-video bg-black;
-  }
-
-  lite-youtube > iframe {
-    @apply absolute top-0 left-0 w-full h-full border-0;
-  }
-
-  [data-intersect] {
-    opacity: 0;
-    transform: translateY(1rem);
-    transition:
-      opacity 1s ease-out,
-      transform 1s ease-out;
-  }
-
-  [data-intersect].intersected {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
-
-<script>
-  function initIntersectionObserver() {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('intersected');
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.05,
-      }
-    );
-
-    document.querySelectorAll('[data-intersect]').forEach((el) => {
-      observer.observe(el);
-    });
-
-    return observer;
-  }
-
-  // Initialize on page load
-  let observer = initIntersectionObserver();
-
-  // Get container element
-  const containerElement = document.querySelector('.videos-and-podcasts-container');
-
-  if (containerElement) {
-    const cleanup = () => {
-      observer.disconnect();
-    };
-
-    // Re-initialize on view transitions
-    containerElement.addEventListener('astro:page-load', () => {
-      cleanup();
-      observer = initIntersectionObserver();
-    });
-  }
-</script>
