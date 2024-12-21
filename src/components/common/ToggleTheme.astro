@@ -12,7 +12,7 @@ export interface Props {
 }
 
 const {
-  label = 'Toggle between Dark and Light mode',
+  label = 'Toggle theme',
   class:
     className = 'text-muted dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center',
   iconClass = 'w-6 h-6',
@@ -21,7 +21,7 @@ const {
 
 {
   !(UI.theme && UI.theme.endsWith(':only')) && (
-    <>
+    <div class="group relative">
       <button
         type="button"
         class={twMerge(className, 'dark:invisible dark:hidden')}
@@ -40,6 +40,9 @@ const {
       >
         <Icon name={'tabler:moon'} class={iconClass} />
       </button>
-    </>
+      <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-gray-800 px-2 py-1 text-sm text-white opacity-0 transition-opacity delay-500 group-hover:opacity-100 dark:bg-gray-200 dark:text-gray-800">
+        {label}
+      </span>
+    </div>
   )
 }
