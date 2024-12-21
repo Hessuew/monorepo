@@ -1,10 +1,25 @@
 ---
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import { YouTube } from 'astro-embed';
-import doccheckImage from '~/assets/images/videosAndPodcasts/physical_activity_slow_and_steady_wins_the_race.webp';
+
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Image from '~/components/common/Image.astro';
-import { mediaItemsByYear, sortedYears } from '~/data/videosAndPodcasts';
 import CustomVimeo from '~/components/common/CustomVimeo.astro';
+import doccheckImage from '~/assets/images/videosAndPodcasts/physical_activity_slow_and_steady_wins_the_race.webp';
+import { mediaItemsByYear, sortedYears } from '~/data/videosAndPodcasts';
+import { twMerge } from 'tailwind-merge';
+
+interface Props {
+  columns?: 1 | 2 | 3 | 4;
+  classes?: {
+    container?: string;
+    item?: string;
+    title?: string;
+    subtitle?: string;
+    description?: string;
+  };
+}
+
+const { columns = 2, classes = {} } = Astro.props;
 ---
 
 <WidgetWrapper animated={false} containerClass="py-0 lg:py-0 md:py-0">
@@ -12,63 +27,84 @@ import CustomVimeo from '~/components/common/CustomVimeo.astro';
     {
       sortedYears.map((year) => (
         <div class="mb-16 sm:mb-24 item-year-card">
-          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 sm:mb-12 text-center intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:translate-y-8 motion-safe:md:intersect:animate-fade motion-safe:md:intersect:animate-slide-up">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 sm:mb-12 text-center intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade">
             {year}
           </h2>
-          {/* <div class="grid gap-8 sm:gap-12 md:grid-cols-2 lg:grid-cols-3"> */}
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <div
+            class={twMerge(
+              `grid gap-8 gap-x-12 sm:gap-y-8 grid-auto-flow-row ${
+                columns === 4
+                  ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
+                  : columns === 3
+                    ? 'lg:grid-cols-3 sm:grid-cols-2'
+                    : columns === 2
+                      ? 'sm:grid-cols-2'
+                      : ''
+              }`,
+              classes.container
+            )}
+            role="list"
+          >
             {mediaItemsByYear[year].map((item) => (
               <div
-                class="item-card bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-md dark:shadow-gray-900/20 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:translate-y-8 motion-safe:md:intersect:animate-fade motion-safe:md:intersect:animate-slide-up "
+                class={twMerge(
+                  'item-card block no-underline hover:no-underline group translate-y-6 md:translate-y-12 duration-[1500ms] ease-out focus:outline-none focus:ring-2 focus:ring-primary rounded-lg intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade',
+                  classes.item
+                )}
                 data-type={item.platform}
+                aria-label={`View ${item.title} video`}
+                role="listitem"
               >
-                <div class="text-sm font-medium text-primary-600 dark:text-primary-400 mb-3">
-                  {new Date(item.date).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">{item.title}</h3>
-                <div class="relative w-full aspect-video">
-                  {item.platform === 'youtube' ? (
-                    <YouTube id={item.videoId} title={item.title} poster="" />
-                  ) : item.platform === 'vimeo' ? (
-                    <CustomVimeo id={item.videoId} title={item.title} poster={item.poster} />
-                  ) : item.platform === 'doccheck' ? (
-                    <div class="relative w-full aspect-video">
-                      <a
-                        href={`https://www.doccheck.com/en/detail/videos/${item.videoId}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="block w-full h-full"
-                      >
-                        <Image
-                          class="mx-auto rounded-md w-full"
-                          widths={[400, 768, 1024, 2040]}
-                          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                          loading="lazy"
-                          decoding="async"
-                          objectPosition="center top"
-                          width={1024}
-                          height={576}
-                          src={doccheckImage}
-                          alt={item.title}
+                <div class="bg-white dark:bg-slate-900 rounded-lg shadow-lg dark:shadow-none p-8 h-full">
+                  <div class="text-sm font-medium text-primary-600 dark:text-primary-400 mb-3">
+                    {new Date(item.date).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">{item.title}</h3>
+                  <div class="relative w-full aspect-video">
+                    {item.platform === 'youtube' ? (
+                      <YouTube id={item.videoId} title={item.title} poster="" />
+                    ) : item.platform === 'vimeo' ? (
+                      <CustomVimeo id={item.videoId} title={item.title} poster={item.poster} />
+                    ) : item.platform === 'doccheck' ? (
+                      <div class="relative w-full aspect-video">
+                        <a
+                          href={`https://www.doccheck.com/en/detail/videos/${item.videoId}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="block w-full h-full"
+                        >
+                          <Image
+                            class="mx-auto rounded-md w-full"
+                            widths={[400, 768, 1024, 2040]}
+                            sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                            loading="lazy"
+                            decoding="async"
+                            objectPosition="center top"
+                            width={1024}
+                            height={576}
+                            src={doccheckImage}
+                            alt={item.title}
+                          />
+                        </a>
+                      </div>
+                    ) : item.platform === 'soundcloud' ? (
+                      <div class="relative w-full aspect-video">
+                        <iframe
+                          width="100%"
+                          height="100%"
+                          allow="autoplay"
+                          referrerpolicy="no-referrer-when-downgrade"
+                          src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${item.videoId}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true`}
+                          class="absolute inset-0"
                         />
-                      </a>
-                    </div>
-                  ) : item.platform === 'soundcloud' ? (
-                    <div class="relative w-full aspect-video">
-                      <iframe
-                        width="100%"
-                        height="100%"
-                        allow="autoplay"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${item.videoId}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true`}
-                        class="absolute inset-0"
-                      />
-                    </div>
-                  ) : null}
+                      </div>
+                    ) : null}
+                  </div>
                 </div>
               </div>
             ))}

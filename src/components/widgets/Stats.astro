@@ -29,7 +29,7 @@ const { item: itemClass = '' } = classes;
         stats.map(({ amount, classes, title, icon, lowerCase, curve }) => (
           <div
             class={twMerge(
-              'p-4 md:w-1/4 sm:w-1/2 w-full min-w-[220px] text-center md:border-r md:last:border-none dark:md:border-slate-500 intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade intersect-quarter',
+              'p-4 md:w-1/4 sm:w-1/2 w-full min-w-[220px] text-center md:border-r md:last:border-none dark:md:border-slate-500 intersect-once motion-safe:opacity-0 motion-safe:intersect:animate-fade intersect-tenth sm:intersect-quarter',
               itemClass as string
             )}
           >

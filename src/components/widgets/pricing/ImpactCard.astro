@@ -21,7 +21,7 @@ const podiumPositions = {
 ---
 
 <div
-  class={`col-span-3 mx-auto flex w-full sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1 ${position && podiumPositions[position]}`}
+  class={`col-span-3 mx-auto flex w-full sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1 ${position && podiumPositions[position]}  intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade`}
 >
   <div
     class="rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow-lg hover:shadow-xl transition-shadow duration-300 px-6 py-8 flex w-full max-w-sm flex-col justify-between text-center"
