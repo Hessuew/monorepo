@@ -15,7 +15,7 @@ import { recentAwards2024, fellowshipsAndPositions, pastAwards, academicAchievem
     <div class="max-w-4xl mx-auto space-y-12">
       <!-- Biblical Quote Section -->
       <div
-        class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+        class="bg-gray-50 dark:bg-slate-900 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
       >
         <p class="text-gray-700 dark:text-gray-300 italic">
           <GradientText class="font-bold">O how love I thy law!</GradientText> it is my meditation all the day. Thou through
@@ -44,7 +44,7 @@ import { recentAwards2024, fellowshipsAndPositions, pastAwards, academicAchievem
         <div class="grid gap-6 md:grid-cols-2">
           {
             recentAwards2024.map((award) => (
-              <div class="award-item bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
+              <div class="award-item bg-white dark:bg-slate-900 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
                 <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{award.title}</h3>
                 <p class="text-gray-600 dark:text-gray-400">{award.subtitle}</p>
                 {award.details && <p class="text-primary mt-2">{award.details}</p>}
@@ -66,7 +66,7 @@ import { recentAwards2024, fellowshipsAndPositions, pastAwards, academicAchievem
               <div class="bg-gradient-to-r from-primary-100 to-secondary-100 dark:from-primary-900 dark:to-secondary-900 p-8 rounded-lg shadow-lg">
                 <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">{fellowship.title}</h3>
                 {fellowship.subtitle && (
-                  <p class="text-lg text-gray-800 dark:text-gray-200 mb-2">{fellowship.subtitle}</p>
+                  <p class="text-lg text-slate-900 dark:text-gray-200 mb-2">{fellowship.subtitle}</p>
                 )}
                 {fellowship.date && <p class="text-gray-700 dark:text-gray-300">{fellowship.date}</p>}
                 {fellowship.details && <p class="text-primary mt-2">{fellowship.details}</p>}
@@ -87,7 +87,7 @@ import { recentAwards2024, fellowshipsAndPositions, pastAwards, academicAchievem
         <div class="grid gap-6 md:grid-cols-2">
           {
             pastAwards.map((award) => (
-              <div class="award-item bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
+              <div class="award-item bg-white dark:bg-slate-900 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
                 <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{award.title}</h3>
                 <p class="text-gray-600 dark:text-gray-400">{award.subtitle}</p>
               </div>
@@ -104,7 +104,7 @@ import { recentAwards2024, fellowshipsAndPositions, pastAwards, academicAchievem
         <div class="grid gap-6 md:grid-cols-2">
           {
             academicAchievements.map((achievement) => (
-              <div class="award-item bg-white dark:bg-gray-800 p-6 px-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
+              <div class="award-item bg-white dark:bg-slate-900 p-6 px-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
                 <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{achievement.title}</h3>
                 <p class="text-gray-600 dark:text-gray-400">{achievement.subtitle}</p>
                 <p class="text-gray-500 dark:text-gray-400 mt-1">{achievement.year}</p>

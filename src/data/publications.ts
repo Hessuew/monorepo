@@ -18,7 +18,7 @@ export const publications: Publication[] = [
   {
     title:
       'Accelerometer-based sedentary time and physical activity from childhood through young adulthood with progressive cardiac changes: a 13-year longitudinal study',
-    authors: 'Agbaje, Andrew O.',
+    authors: 'Agbaje, Andrew O',
     date: '2024-05-07',
     journal: 'European journal of preventive cardiology',
     volume: '31',
@@ -30,7 +30,7 @@ export const publications: Publication[] = [
   {
     title:
       'Accelerometer-based sedentary time and physical activity with MASLD and liver cirrhosis in 2684 British adolescents',
-    authors: 'Agbaje, Andrew O.',
+    authors: 'Agbaje, Andrew O',
     date: '2024-05-29',
     journal: 'npj gut and liver',
     volume: '1',
@@ -54,7 +54,7 @@ export const publications: Publication[] = [
   {
     title:
       'Author reply to correspondence from Hudda et al. on waist-circumference-to-height-ratio had better longitudinal agreement with DEXA-measured fat mass than BMI in 7237 children',
-    authors: 'Agbaje, Andrew O.',
+    authors: 'Agbaje, Andrew O',
     date: '2024-06-12',
     journal: 'Pediatric research',
     volume: '',
@@ -104,7 +104,7 @@ export const publications: Publication[] = [
   {
     title:
       'Increased low-density lipoprotein cholesterol predict the risk of progressive structural but not functional cardiac damage in youth: a 7-year follow-up study',
-    authors: 'Agbaje, A O',
+    authors: 'Agbaje, Andrew O',
     date: '2024-06-13',
     journal: 'European journal of preventive cardiology',
     volume: '',
@@ -127,7 +127,7 @@ export const publications: Publication[] = [
   },
   {
     title: 'Inflammation: reviewing current evidence',
-    authors: 'Agbaje, Andrew',
+    authors: 'Agbaje, Andrew O',
     date: '2024',
     journal: 'TYÖTERVEYSLÄÄKÄRI',
     volume: '42',
@@ -175,7 +175,7 @@ export const publications: Publication[] = [
   {
     title:
       'No association between increased high-density lipoprotein cholesterol and progressive cardiac damage in 1595 adolescents: a 7-year longitudinal study',
-    authors: 'Agbaje, A O',
+    authors: 'Agbaje, Andrew O',
     date: '2024-06-13',
     journal: 'European journal of preventive cardiology',
     volume: '',
@@ -236,7 +236,7 @@ export const publications: Publication[] = [
   {
     title:
       'An average of 60mins/day of moderate to vigorous physical activity from childhood through young adulthood was associated with worsening cardiac structural damage in youth: A 13-year longitudinal study',
-    authors: 'Agbaje, Andrew O.',
+    authors: 'Agbaje, Andrew O',
     date: '2023-11-09',
     journal: 'European heart journal abstract',
     volume: '',
@@ -248,7 +248,7 @@ export const publications: Publication[] = [
   {
     title:
       'Arterial Stiffness Preceding Metabolic Syndrome in 3862 Adolescents: A Mediation and Temporal Causal Longitudinal Birth Cohort Study',
-    authors: 'Agbaje, Andrew O.',
+    authors: 'Agbaje, Andrew O',
     date: '2023-05-17',
     journal: 'American journal of physiology : heart and circulatory physiology',
     volume: '324',
@@ -272,7 +272,7 @@ export const publications: Publication[] = [
   {
     title:
       'Associations of Sedentary Time and Physical Activity From Childhood With Lipids: A 13-Year Mediation and Temporal Study',
-    authors: 'Agbaje, Andrew O.',
+    authors: 'Agbaje, Andrew O',
     date: '2023-12-14',
     journal: 'Journal of clinical endocrinology and metabolism',
     volume: '109',
@@ -284,7 +284,7 @@ export const publications: Publication[] = [
   {
     title:
       'Associations of accelerometer‐based sedentary time, light physical activity, and moderate‐to‐vigorous physical activity with resting cardiac structure and function in adolescents according to sex, fat mass, lean mass, BMI, and hypertensive status',
-    authors: 'Agbaje, Andrew O.',
+    authors: 'Agbaje, Andrew O',
     date: '2023-04-10',
     journal: 'Scandinavian journal of medicine and science in sports',
     volume: '33',
@@ -295,7 +295,7 @@ export const publications: Publication[] = [
   },
   {
     title: 'Cardiorespiratory Fitness in Adolescence: A Telescope into Future Cardiovascular Health',
-    authors: 'Agbaje, Andrew O.',
+    authors: 'Agbaje, Andrew O',
     date: '2022-12-13',
     journal: 'European journal of preventive cardiology',
     volume: '30',
@@ -307,7 +307,7 @@ export const publications: Publication[] = [
   {
     title:
       'Cumulative accelerometer-based light physical activity from childhood through young adulthood progressively decreases left ventricular mass in British youth: a 13-year longitudinal study',
-    authors: 'Agbaje, Andrew O.',
+    authors: 'Agbaje, Andrew O',
     date: '2023-11-09',
     journal: 'European heart journal',
     volume: '',
@@ -343,7 +343,7 @@ export const publications: Publication[] = [
   {
     title:
       'Cumulative accelerometer-based sedentary time from childhood through young adulthood with progressive left ventricular remodelling in British youth: a 13-year longitudinal study',
-    authors: 'Agbaje, Andrew O.',
+    authors: 'Agbaje, Andrew O',
     date: '2023-11-09',
     journal: 'European heart journal',
     volume: '',
@@ -367,7 +367,7 @@ export const publications: Publication[] = [
   {
     title:
       'Cumulative effect of accelerometer-based moderate-to-vigorous physical activity from childhood through young adulthood on carotid intima-media thickness progression: The ALSPAC birth cohort study',
-    authors: 'Agbaje, A.',
+    authors: 'Agbaje, Andrew O',
     date: '2023-08-01',
     journal: 'Atherosclerosis',
     volume: '',
@@ -391,7 +391,7 @@ export const publications: Publication[] = [
   {
     title:
       'Does arterial stiffness mediate or suppress the associations of blood pressure with cardiac structure and function in adolescents?',
-    authors: 'Agbaje, Andrew O.',
+    authors: 'Agbaje, Andrew O',
     date: '2023-04-25',
     journal: 'American journal of physiology : heart and circulatory physiology',
     volume: '324',
@@ -414,7 +414,7 @@ export const publications: Publication[] = [
   },
   {
     title: 'Elevated Blood Pressure and Worsening Cardiac Damage During Adolescence',
-    authors: 'Agbaje, Andrew O.',
+    authors: 'Agbaje, Andrew O',
     date: '2023-03-02',
     journal: 'Journal of pediatrics',
     volume: '257',
@@ -426,7 +426,7 @@ export const publications: Publication[] = [
   {
     title:
       'Increased triglyceride independently associates with premature structural and functional cardiac damage progression in asymptomatic adolescents: a 7-year longitudinal study',
-    authors: 'Agbaje, Andrew O.',
+    authors: 'Agbaje, Andrew O',
     date: '2023-11-09',
     journal: 'European heart journal',
     volume: '',
@@ -438,7 +438,7 @@ export const publications: Publication[] = [
   {
     title:
       'Longitudinal Associations of Accelerometer-Based Sedentary Time and Physical Activity With Blood Pressure Progression From Childhood Through Young Adulthood: A 13-year Mediation and Isotemporal Substitution Study of 2513 Children',
-    authors: 'Agbaje, Andrew O.',
+    authors: 'Agbaje, Andrew O',
     date: '2023-11-06',
     journal: 'Circulation',
     volume: '',
@@ -450,7 +450,7 @@ export const publications: Publication[] = [
   {
     title:
       'Longitudinal Left Ventricular Mass Indexing for DEXA-Measured Lean Mass and Fat Mass: Normative Reference Centiles in Post-Pubertal Adolescents and Young Adults',
-    authors: 'Agbaje, Andrew O.',
+    authors: 'Agbaje, Andrew O',
     date: '2023-03-23',
     journal: 'American journal of physiology : heart and circulatory physiology',
     volume: '324',
@@ -462,7 +462,7 @@ export const publications: Publication[] = [
   {
     title:
       'Longitudinal Mediating Effect of Fat Mass and Lipids on Sedentary Time, Light PA, and MVPA with Inflammation in Youth',
-    authors: 'Agbaje, Andrew O.',
+    authors: 'Agbaje, Andrew O',
     date: '2023-12-12',
     journal: 'Journal of clinical endocrinology and metabolism',
     volume: '108',
@@ -474,7 +474,7 @@ export const publications: Publication[] = [
   {
     title:
       'Prospective associations of non-HDL cholesterol with premature structural and functional cardiac damage progression in British youth: the ALSPAC study',
-    authors: 'Agbaje, Andrew O.',
+    authors: 'Agbaje, Andrew O',
     date: '2023-11-09',
     journal: 'European heart journal',
     volume: '',
@@ -486,7 +486,7 @@ export const publications: Publication[] = [
   {
     title:
       'Suppressing effect of HDL-cholesterol on the associations of accelerometer-based sedentary time with low-grade inflammation: A 13-year longitudinal study from childhood through young adulthood',
-    authors: 'Agbaje, A.',
+    authors: 'Agbaje, Andrew O',
     date: '2023-08-11',
     journal: 'Atherosclerosis',
     volume: '',
@@ -521,7 +521,7 @@ export const publications: Publication[] = [
   },
   {
     title: 'Arterial stiffness precedes hypertension and metabolic risks in youth: a review',
-    authors: 'Agbaje, Andrew O.',
+    authors: 'Agbaje, Andrew O',
     date: '2022-10-01',
     journal: 'Journal of hypertension',
     volume: '40',
@@ -545,7 +545,7 @@ export const publications: Publication[] = [
   {
     title:
       'Cumulative dyslipidaemia from mid-adolescence through young adulthood with carotid intima-media thickness progression: a 9-year longitudinal study',
-    authors: 'Agbaje, A O; Lloyd-Jones, D M; Magnussen, C G; Tuomainen, T P',
+    authors: 'Agbaje, Andrew O; Lloyd-Jones, D M; Magnussen, C G; Tuomainen, T P',
     date: '2022-10-03',
     journal: 'European heart journal',
     volume: '',
@@ -557,7 +557,7 @@ export const publications: Publication[] = [
   {
     title:
       'Cumulative hyperinsulinemia, hyperglycaemia, and insulin resistance from mid-adolescence through young adulthood with carotid intima-media thickness progression: a 9-year longitudinal study',
-    authors: 'Agbaje, A O; Zachariah, J P; Bamsa, O; Odili, A N; Tuomainen, T P',
+    authors: 'Agbaje, Andrew O; Zachariah, J P; Bamsa, O; Odili, A N; Tuomainen, T P',
     date: '2022-10-03',
     journal: 'European heart journal',
     volume: '',
@@ -581,7 +581,7 @@ export const publications: Publication[] = [
   {
     title:
       'Does arterial stiffness progression temporally precede higher low-grade inflammation in adolescents? Causal longitudinal evidence using auto-regressive cross-lagged structural equation models',
-    authors: 'Agbaje, A O; Barmi, S; Sansum, K M; Baynard, T; Barker, A R; Tuomainen, T P',
+    authors: 'Agbaje, Andrew O; Barmi, S; Sansum, K M; Baynard, T; Barker, A R; Tuomainen, T P',
     date: '2022-10-03',
     journal: 'European heart journal',
     volume: '',
@@ -629,7 +629,7 @@ export const publications: Publication[] = [
   {
     title:
       'Longitudinal associations of cumulative dyslipidaemia from mid-adolescence through young adulthood with arterial stiffness progression: the ALSPAC study',
-    authors: 'Agbaje, A O; Lloyd-Jones, D M; Magnussen, C G; Tuomainen, T P',
+    authors: 'Agbaje, Andrew O; Lloyd-Jones, D M; Magnussen, C G; Tuomainen, T P',
     date: '2022-10-03',
     journal: 'European heart journal',
     volume: '',
@@ -653,7 +653,7 @@ export const publications: Publication[] = [
   {
     title:
       'Simulated intervention and optimal timing for attenuating dyslipidaemia-related atherosclerotic progression in the young: a temporal inverse allocation analysis of the ALSPAC cohort',
-    authors: 'Agbaje, A O; Lloyd-Jones, D M; Magnussen, C G; Tuomainen, T P',
+    authors: 'Agbaje, Andrew O; Lloyd-Jones, D M; Magnussen, C G; Tuomainen, T P',
     date: '2022-10-03',
     journal: 'European heart journal',
     volume: '',
@@ -665,7 +665,7 @@ export const publications: Publication[] = [
   {
     title:
       'Temporal causal longitudinal associations of high-sensitivity C-reactive protein with carotid intima-media thickness progression in adolescents: the ALSPAC birth cohort study',
-    authors: 'Agbaje, A O; Barmi, S; Sansum, K M; Baynard, T; Barker, A R; Tuomainen, T P',
+    authors: 'Agbaje, Andrew O; Barmi, S; Sansum, K M; Baynard, T; Barker, A R; Tuomainen, T P',
     date: '2022-10-03',
     journal: 'European heart journal',
     volume: '',
@@ -712,7 +712,7 @@ export const publications: Publication[] = [
   // {
   //   title:
   //     'Adiponectin and lean mass in relation to endothelial function, arterial elasticity and arterial stiffness in 9-11-year-old-the ALSPAC study',
-  //   authors: 'Agbaje, A O; Barker, A R; Tuomainen, T-P',
+  //   authors: 'Agbaje, Andrew O; Barker, A R; Tuomainen, T-P',
   //   date: '2021-10-14',
   //   journal: 'Pediatric diabetes',
   //   volume: '',
@@ -723,7 +723,7 @@ export const publications: Publication[] = [
   // },
   {
     title: 'Arterial stiffness in adolescence predicts elevated blood pressure in young adulthood: the ALSPAC study',
-    authors: 'Agbaje, A O; Barker, A R; Tuomainen, T-P',
+    authors: 'Agbaje, Andrew O; Barker, A R; Tuomainen, T-P',
     date: '2021-10-14',
     journal: 'European heart journal',
     volume: '42',
@@ -747,7 +747,7 @@ export const publications: Publication[] = [
   {
     title:
       'Arterial stiffness and carotid intima-media thickness in relation to cardiometabolic health in adolescence: The ALSPAC study',
-    authors: 'Agbaje, A O; Barker, A R; Tuomainen, T-P',
+    authors: 'Agbaje, Andrew O; Barker, A R; Tuomainen, T-P',
     date: '2021-08-01',
     journal: 'Atherosclerosis',
     volume: '331',
@@ -759,7 +759,7 @@ export const publications: Publication[] = [
   {
     title:
       'Association of carotid-femoral pulse wave velocity and carotid intima-media thickness with cardiometabolic risks among young adults: The Alspac study',
-    authors: 'Agbaje, A O; Barker, A R; Tuomainen, T-P',
+    authors: 'Agbaje, Andrew O; Barker, A R; Tuomainen, T-P',
     date: '2021-03-01',
     journal: 'Atherosclerosis',
     volume: '331',
@@ -855,7 +855,7 @@ export const publications: Publication[] = [
   {
     title:
       'Mediating role of cardiorespiratory fitness on the association of cardiometabolic health with endothelial function, arterial elasticity and arterial stiffness in 9-11-year olds: The ALSPAC study',
-    authors: 'Agbaje, A O; Barker, A R; Tuomainen, T-P',
+    authors: 'Agbaje, Andrew O; Barker, A R; Tuomainen, T-P',
     date: '2020-12-01',
     journal: 'Atherosclerosis',
     volume: '315',
