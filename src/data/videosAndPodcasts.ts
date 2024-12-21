@@ -1,4 +1,6 @@
+import type { ImageMetadata } from 'astro';
 import { parseISO, getYear } from 'date-fns';
+import imgNNFoundationAward from '~/assets/images/videosAndPodcasts/NN Foundation Award.webp';
 
 interface MediaItem {
   title: string;
@@ -7,6 +9,7 @@ interface MediaItem {
   platform: 'youtube' | 'vimeo' | 'doccheck' | 'soundcloud';
   author?: string;
   trackUrl?: string;
+  poster?: ImageMetadata;
 }
 
 export const videosAndPodcasts: MediaItem[] = [
@@ -21,6 +24,7 @@ export const videosAndPodcasts: MediaItem[] = [
     date: '2024-05-11',
     videoId: '944938770/8269ce30e4',
     platform: 'vimeo',
+    poster: imgNNFoundationAward,
   },
   {
     title: 'CTV News: Sedentariness and Heart Damage',

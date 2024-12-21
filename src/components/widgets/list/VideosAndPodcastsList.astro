@@ -19,7 +19,7 @@ import CustomVimeo from '~/components/common/CustomVimeo.astro';
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             {mediaItemsByYear[year].map((item) => (
               <div
-                class="item-card bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-md dark:shadow-gray-900/20 hover:shadow-lg dark:hover:shadow-gray-900/30 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:translate-y-8 motion-safe:md:intersect:animate-fade motion-safe:md:intersect:animate-slide-up"
+                class="item-card bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-md dark:shadow-gray-900/20 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:translate-y-8 motion-safe:md:intersect:animate-fade motion-safe:md:intersect:animate-slide-up "
                 data-type={item.platform}
               >
                 <div class="text-sm font-medium text-primary-600 dark:text-primary-400 mb-3">
@@ -34,7 +34,7 @@ import CustomVimeo from '~/components/common/CustomVimeo.astro';
                   {item.platform === 'youtube' ? (
                     <YouTube id={item.videoId} title={item.title} poster="" />
                   ) : item.platform === 'vimeo' ? (
-                    <CustomVimeo id={item.videoId} title={item.title} poster="" />
+                    <CustomVimeo id={item.videoId} title={item.title} poster={item.poster} />
                   ) : item.platform === 'doccheck' ? (
                     <div class="relative w-full aspect-video">
                       <a
@@ -58,22 +58,15 @@ import CustomVimeo from '~/components/common/CustomVimeo.astro';
                       </a>
                     </div>
                   ) : item.platform === 'soundcloud' ? (
-                    <div class="soundcloud-container">
+                    <div class="relative w-full aspect-video">
                       <iframe
                         width="100%"
-                        height="300"
-                        style="border: 0;"
-                        title={`SoundCloud audio player: ${item.title}`}
+                        height="100%"
                         allow="autoplay"
-                        loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
                         src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${item.videoId}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true`}
+                        class="absolute inset-0"
                       />
-                      <div class="soundcloud-info">
-                        <a href={`https://soundcloud.com/${item.trackUrl}`} title={item.title} target="_blank">
-                          {item.title}
-                        </a>
-                      </div>
                     </div>
                   ) : null}
                 </div>

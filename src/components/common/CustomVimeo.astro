@@ -2,6 +2,7 @@
 import type { HTMLAttributes } from 'astro/types';
 import { safeGet } from '@astro-community/astro-embed-utils';
 import './Vimeo.css';
+import type { ImageMetadata } from 'astro';
 
 // Thanks to eleventy-plugin-vimeo-embed
 // https://github.com/gfscott/eleventy-plugin-vimeo-embed/blob/main/lib/extractMatches.js
@@ -21,8 +22,9 @@ function urlMatcher(url: string): string | undefined {
 export interface Props extends HTMLAttributes<'div'> {
   /** Vimeo video ID or URL. */
   id: string;
+  poster?: ImageMetadata;
   /** URL to an image to use as the poster instead of the default thumbnail. */
-  poster?: string;
+  posterUrl?: string;
   /** Resolution to use for the Vimeo poster image. */
   posterQuality?: 'max' | 'high' | 'default' | 'low';
   /** See https://vimeo.zendesk.com/hc/en-us/articles/360001494447-Player-parameters-overview */
@@ -34,6 +36,7 @@ export interface Props extends HTMLAttributes<'div'> {
 const {
   id,
   poster,
+  posterUrl,
   posterQuality = 'default',
   params = '',
   playlabel = 'Play',
@@ -64,7 +67,7 @@ if (!videoid) {
   throw new Error(`[astro-embed] "${id}" is an invalid Vimeo URL or ID.`);
 }
 
-let posterURL = poster;
+let posterURL = posterUrl || poster?.src;
 if (!posterURL) {
   // Include the hash parameter in the API call
   const hash = searchParams.get('h');
@@ -100,6 +103,7 @@ const styles: string[] = [];
 if (style) styles.push(style as string);
 if (color) styles.push(`--ltv-color: #${color}`);
 if (posterURL) styles.push(`background-image: url('${posterURL}')`);
+if (poster) styles.push(`background-image: ('${poster}')`);
 ---
 
 <lite-vimeo data-id={videoid} data-t={t} data-params={searchParams.toString()} style={styles.join(';')} {...attrs}>
