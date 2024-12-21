@@ -45,13 +45,15 @@ const { columns = 2, classes = {} } = Astro.props;
             {publicationsByYear[year].map((publication) => {
               return (
                 <a
-                  href={publication.doi ? `https://doi.org/${publication.doi}` : '#'}
+                  href={
+                    publication.url ? publication.url : publication.doi ? `https://doi.org/${publication.doi}` : '#'
+                  }
                   target="_blank"
                   rel="noopener noreferrer"
                   class={twMerge(
                     'item-card block no-underline hover:no-underline group translate-y-6 md:translate-y-12 duration-[1500ms] ease-out intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
                     'focus:outline-none focus:ring-2 focus:ring-primary rounded-lg',
-                    !publication.doi && 'cursor-default pointer-events-none'
+                    !publication.url && !publication.doi && 'cursor-default pointer-events-none'
                   )}
                   data-intersect
                   data-type={publication.type}
@@ -89,7 +91,7 @@ const { columns = 2, classes = {} } = Astro.props;
                         )}
                       </div>
 
-                      {publication.doi && (
+                      {(publication.url || publication.doi) && (
                         <div class="mt-auto pt-4">
                           <span
                             class="text-sm text-primary mt-2 inline-flex items-center gap-1 transition-all duration-300 group-hover:gap-2"

@@ -4,6 +4,7 @@ import { YouTube } from 'astro-embed';
 import doccheckImage from '~/assets/images/videosAndPodcasts/physical_activity_slow_and_steady_wins_the_race.webp';
 import Image from '~/components/common/Image.astro';
 import { mediaItemsByYear, sortedYears } from '~/data/videosAndPodcasts';
+import CustomVimeo from '~/components/common/CustomVimeo.astro';
 ---
 
 <WidgetWrapper animated={false} containerClass="py-0 lg:py-0 md:py-0">
@@ -33,17 +34,7 @@ import { mediaItemsByYear, sortedYears } from '~/data/videosAndPodcasts';
                   {item.platform === 'youtube' ? (
                     <YouTube id={item.videoId} title={item.title} poster="" />
                   ) : item.platform === 'vimeo' ? (
-                    <div class="relative w-full h-0 pb-[56.25%]">
-                      <iframe
-                        src={`https://player.vimeo.com/video/${item.videoId.split('/')[0]}?h=${item.videoId.split('/')[1]}&badge=0&autopause=0&player_id=0&app_id=58479`}
-                        class="absolute top-0 left-0 w-full h-full border-0"
-                        title={`Vimeo video player: ${item.title}`}
-                        loading="lazy"
-                        allowfullscreen
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-                        referrerpolicy="no-referrer-when-downgrade"
-                      />
-                    </div>
+                    <CustomVimeo id={item.videoId} title={item.title} poster="" />
                   ) : item.platform === 'doccheck' ? (
                     <div class="relative w-full aspect-video">
                       <a
