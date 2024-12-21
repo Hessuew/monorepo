@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import SignatureText from './SignatureText.astro';
+// import SignatureText from './SignatureText.astro';
 
 export interface Props {
   theme?: string;
@@ -105,9 +105,9 @@ const { theme = 'light' } = Astro.props;
     </div>
     <div class="md:flex md:items-center md:justify-between py-6 md:py-8">
       <div class="text-sm mr-4 dark:text-muted">
-        {new Date().getFullYear()} urFIT-child Research Project · Created by
+        {new Date().getFullYear()} urFIT-child Research Project · All rights reserved
         <div class="inline-flex items-center hover:text-blue-600 transition-colors mt-0.5">
-          <SignatureText classes="w-24" />
+          <!-- <SignatureText classes="w-24" /> -->
         </div>
       </div>
       {
