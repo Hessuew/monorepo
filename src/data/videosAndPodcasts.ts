@@ -1,6 +1,7 @@
 import type { ImageMetadata } from 'astro';
 import { parseISO, getYear } from 'date-fns';
 import imgNNFoundationAward from '~/assets/images/videosAndPodcasts/NN Foundation Award.webp';
+import imgPhysicalActivity from '~/assets/images/videosAndPodcasts/physical_activity_slow_and_steady_wins_the_race.webp';
 
 interface MediaItem {
   title: string;
@@ -81,6 +82,7 @@ export const videosAndPodcasts: MediaItem[] = [
     date: '2023-09-12',
     videoId: '6066-physical-activity-slow-and-steady-wins-the-race',
     platform: 'doccheck',
+    poster: imgPhysicalActivity,
   },
 ];
 
