@@ -15,7 +15,7 @@ import { recentAwards2024, fellowshipsAndPositions, pastAwards, academicAchievem
     <div class="max-w-4xl mx-auto space-y-12">
       <!-- Biblical Quote Section -->
       <div
-        class="bg-gray-50 dark:bg-slate-900 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+        class="bg-gray-50 dark:bg-slate-900 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
       >
         <p class="text-gray-700 dark:text-gray-300 italic">
           <GradientText class="font-bold">O how love I thy law!</GradientText> it is my meditation all the day. Thou through
@@ -30,21 +30,23 @@ import { recentAwards2024, fellowshipsAndPositions, pastAwards, academicAchievem
 
       <!-- Introduction Text -->
       <p
-        class="text-lg text-gray-700 dark:text-gray-300 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+        class="text-lg text-gray-700 dark:text-gray-300 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
       >
         The research group urFIT-child and its principal investigator, Andrew Agbaje, have received recognition from
         numerous professional boards, academic institutions, and global media outlets.
       </p>
 
       <!-- Recent Awards 2024 -->
-      <div
-        class="space-y-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-      >
-        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Recent Awards (2024)</h2>
+      <div class="space-y-4">
+        <h2
+          class="text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        >
+          Recent Awards (2024)
+        </h2>
         <div class="grid gap-6 md:grid-cols-2">
           {
             recentAwards2024.map((award) => (
-              <div class="award-item bg-white dark:bg-slate-900 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
+              <div class="award-item bg-white dark:bg-slate-900 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700  intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade">
                 <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{award.title}</h3>
                 <p class="text-gray-600 dark:text-gray-400">{award.subtitle}</p>
                 {award.details && <p class="text-primary mt-2">{award.details}</p>}
@@ -56,14 +58,16 @@ import { recentAwards2024, fellowshipsAndPositions, pastAwards, academicAchievem
       </div>
 
       <!-- Fellowships and Positions -->
-      <div
-        class="space-y-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-      >
-        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Fellowships & Academic Positions</h2>
+      <div class="space-y-4">
+        <h2
+          class="text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        >
+          Fellowships & Academic Positions
+        </h2>
         <div class="space-y-6">
           {
             fellowshipsAndPositions.map((fellowship) => (
-              <div class="bg-gradient-to-r from-primary-100 to-secondary-100 dark:from-primary-900 dark:to-secondary-900 p-8 rounded-lg shadow-lg">
+              <div class="bg-gradient-to-r from-primary-100 to-secondary-100 dark:from-primary-900 dark:to-secondary-900 p-8 rounded-lg shadow-lg  intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade">
                 <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">{fellowship.title}</h3>
                 {fellowship.subtitle && (
                   <p class="text-lg text-slate-900 dark:text-gray-200 mb-2">{fellowship.subtitle}</p>
@@ -80,14 +84,16 @@ import { recentAwards2024, fellowshipsAndPositions, pastAwards, academicAchievem
       </div>
 
       <!-- Past Awards -->
-      <div
-        class="space-y-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-      >
-        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Past Awards & Recognition</h2>
+      <div class="space-y-4">
+        <h2
+          class="text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        >
+          Past Awards & Recognition
+        </h2>
         <div class="grid gap-6 md:grid-cols-2">
           {
             pastAwards.map((award) => (
-              <div class="award-item bg-white dark:bg-slate-900 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
+              <div class="award-item bg-white dark:bg-slate-900 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700  intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade">
                 <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{award.title}</h3>
                 <p class="text-gray-600 dark:text-gray-400">{award.subtitle}</p>
               </div>
@@ -97,14 +103,16 @@ import { recentAwards2024, fellowshipsAndPositions, pastAwards, academicAchievem
       </div>
 
       <!-- Academic Achievements -->
-      <div
-        class="space-y-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-      >
-        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Academic Excellence</h2>
+      <div class="space-y-4">
+        <h2
+          class="text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        >
+          Academic Excellence
+        </h2>
         <div class="grid gap-6 md:grid-cols-2">
           {
             academicAchievements.map((achievement) => (
-              <div class="award-item bg-white dark:bg-slate-900 p-6 px-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
+              <div class="award-item bg-white dark:bg-slate-900 p-6 px-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700  intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade">
                 <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{achievement.title}</h3>
                 <p class="text-gray-600 dark:text-gray-400">{achievement.subtitle}</p>
                 <p class="text-gray-500 dark:text-gray-400 mt-1">{achievement.year}</p>
@@ -117,7 +125,7 @@ import { recentAwards2024, fellowshipsAndPositions, pastAwards, academicAchievem
 
       <!-- Biblical Quote Footer -->
       <div
-        class="text-center mt-8 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+        class="text-center mt-8 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
       >
         <p class="text-gray-700 dark:text-gray-300 italic">
           "And in all matters of wisdom and understanding, that the king enquired of them, he found them

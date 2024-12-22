@@ -207,6 +207,7 @@ import { UI } from 'astrowind:config';
         if (element.classList.contains('intersect-full')) return 0.99;
         if (element.classList.contains('intersect-half')) return 0.5;
         if (element.classList.contains('intersect-quarter')) return 0.25;
+        if (element.classList.contains('intersect-tenth')) return 0.1;
         return 0;
       };
 
@@ -261,7 +262,7 @@ import { UI } from 'astrowind:config';
         });
       };
 
-      this.observer = new IntersectionObserver(callback.bind(this), { threshold: [0, 0.25, 0.5, 0.99] });
+      this.observer = new IntersectionObserver(callback.bind(this), { threshold: [0, 0.1, 0.25, 0.5, 0.99] });
 
       elements.forEach((el) => {
         this.observer.observe(el);

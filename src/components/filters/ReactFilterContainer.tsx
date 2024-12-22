@@ -19,7 +19,13 @@ interface FilterContainerProps {
   targetId?: string;
 }
 
-export default function ReactFilterContainer({ options, allLabels, showSearch = true, gridId, targetId }: FilterContainerProps) {
+export default function ReactFilterContainer({
+  options,
+  allLabels,
+  showSearch = true,
+  gridId,
+  targetId,
+}: FilterContainerProps) {
   const [filters, setFilters] = useState({
     type: 'all',
     category: 'all',
@@ -33,9 +39,7 @@ export default function ReactFilterContainer({ options, allLabels, showSearch = 
   const [showRightScroll, setShowRightScroll] = useState({ type: false, category: false });
 
   // Handle the complex options type
-  const buttonGroups = Array.isArray(options[0]) 
-    ? (options as (string[] | string[][])[])
-    : [options as string[]];
+  const buttonGroups = Array.isArray(options[0]) ? (options as (string[] | string[][])[]) : [options as string[]];
 
   const labels = Array.isArray(allLabels) ? allLabels : [allLabels];
 
@@ -76,11 +80,11 @@ export default function ReactFilterContainer({ options, allLabels, showSearch = 
 
     const { scrollLeft, scrollWidth, clientWidth } = container;
     if (variant === 'type') {
-      setShowLeftScroll(prev => ({ ...prev, type: scrollLeft > 0 }));
-      setShowRightScroll(prev => ({ ...prev, type: scrollLeft < scrollWidth - clientWidth - 1 }));
+      setShowLeftScroll((prev) => ({ ...prev, type: scrollLeft > 0 }));
+      setShowRightScroll((prev) => ({ ...prev, type: scrollLeft < scrollWidth - clientWidth - 1 }));
     } else {
-      setShowLeftScroll(prev => ({ ...prev, category: scrollLeft > 0 }));
-      setShowRightScroll(prev => ({ ...prev, category: scrollLeft < scrollWidth - clientWidth - 1 }));
+      setShowLeftScroll((prev) => ({ ...prev, category: scrollLeft > 0 }));
+      setShowRightScroll((prev) => ({ ...prev, category: scrollLeft < scrollWidth - clientWidth - 1 }));
     }
   };
 
@@ -134,16 +138,22 @@ export default function ReactFilterContainer({ options, allLabels, showSearch = 
   const getHoverClass = (variant: 'type' | 'category') =>
     variant === 'type' ? 'hover:bg-blue-100 dark:hover:bg-blue-900' : 'hover:bg-gray-100 dark:hover:bg-gray-800';
 
-  const typeOptions = Array.isArray(buttonGroups[0]) 
-    ? (buttonGroups[0] as string[])
-    : buttonGroups[0];
-  
-  const categoryOptions = buttonGroups[1] && Array.isArray(buttonGroups[1]) 
-    ? (buttonGroups[1] as string[])
-    : undefined;
+  const typeOptions = Array.isArray(buttonGroups[0]) ? (buttonGroups[0] as string[]) : buttonGroups[0];
 
-  const ScrollButton = ({ direction, variant, show }: { direction: 'left' | 'right', variant: 'type' | 'category', show: boolean }) => (
-    <div className={`absolute ${direction === 'left' ? 'left-0' : 'right-0'} top-0 bottom-0 items-center ${show ? 'flex' : 'hidden'}`}>
+  const categoryOptions = buttonGroups[1] && Array.isArray(buttonGroups[1]) ? (buttonGroups[1] as string[]) : undefined;
+
+  const ScrollButton = ({
+    direction,
+    variant,
+    show,
+  }: {
+    direction: 'left' | 'right';
+    variant: 'type' | 'category';
+    show: boolean;
+  }) => (
+    <div
+      className={`absolute ${direction === 'left' ? 'left-0' : 'right-0'} top-0 bottom-0 items-center ${show ? 'flex' : 'hidden'}`}
+    >
       <button
         type="button"
         className="h-full px-3 flex items-center bg-page text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 z-10"
@@ -153,15 +163,16 @@ export default function ReactFilterContainer({ options, allLabels, showSearch = 
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
           <path
             fillRule="evenodd"
-            d={direction === 'left' 
-              ? "M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-              : "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+            d={
+              direction === 'left'
+                ? 'M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z'
+                : 'M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z'
             }
             clipRule="evenodd"
           />
         </svg>
       </button>
-      <div 
+      <div
         className={`absolute ${direction === 'left' ? 'left-full' : 'right-full'} top-0 bottom-0 w-12 
           ${direction === 'left' ? 'bg-gradient-to-r' : 'bg-gradient-to-l'} 
           from-page to-transparent pointer-events-none`}
@@ -199,8 +210,8 @@ export default function ReactFilterContainer({ options, allLabels, showSearch = 
                       type="button"
                       className={`${buttonClass} ${getHoverClass('type')} ${
                         filters.type === option
-                        ? 'dark:text-white bg-blue-100 dark:bg-blue-900'
-                        : 'bg-white dark:bg-transparent'
+                          ? 'dark:text-white bg-blue-100 dark:bg-blue-900'
+                          : 'bg-white dark:bg-transparent'
                       }`}
                       onClick={() => handleFilterClick('type', option)}
                       data-filter={option}
@@ -260,8 +271,8 @@ export default function ReactFilterContainer({ options, allLabels, showSearch = 
                       type="button"
                       className={`${buttonClass} ${getHoverClass('category')} ${
                         filters.category === option
-                        ? 'dark:text-white bg-gray-100 dark:bg-gray-800'
-                        : 'bg-white dark:bg-transparent'
+                          ? 'dark:text-white bg-gray-100 dark:bg-gray-800'
+                          : 'bg-white dark:bg-transparent'
                       }`}
                       onClick={() => handleFilterClick('category', option)}
                       data-filter={option}
@@ -283,4 +294,4 @@ export default function ReactFilterContainer({ options, allLabels, showSearch = 
       </div>
     </div>
   );
-};
+}

@@ -64,7 +64,7 @@ const metadata = {
   <Content tagline2="A foretaste" isReversed>
     <Fragment slot="title">
       A foretaste of what<br />
-      <GradientText class="italic pr-3" style2 text="Jesus has been doing" /><br />
+      <GradientText class="italic pr-3 pb-1" style2 text="Jesus has been doing" /><br />
       since the start of 2024?
       <!-- <GradientText text={t("index.content3.title.span2")} /> -->
     </Fragment>
@@ -107,20 +107,22 @@ const metadata = {
     tagline2="eBook"
     title="10 stories of life transforming miracles for people who are hungry to know more"
   />
-  <!-- A free e-book for the exhortation and edification of the body of Christ -->
 
   <!-- Ebook Widget *************** -->
 
   <div
-    class="w-full flex justify-center pb-10 h-[520px] lg:h-[640px] intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+    class="w-full flex justify-center pb-10 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
   >
-    <iframe
-      aria-label="Flame the Freeze pdf"
-      src={flameEbook}
-      width="100%"
-      height="100%"
-      allow="autoplay"
-      class="max-w-2xl"></iframe>
+    <div class="w-full max-w-2xl aspect-[3/4] relative">
+      <iframe
+        aria-label="Flame the Freeze pdf"
+        src={flameEbook}
+        width="100%"
+        height="100%"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+        allow="autoplay"
+        loading="lazy"></iframe>
+    </div>
   </div>
 
   <!-- Spacer ******************* -->
