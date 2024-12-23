@@ -71,7 +71,9 @@ lite-vimeo > .ltv-playbtn::before {
   background: rgba(23, 35, 34, 0.75);
   opacity: 0.8;
   border-radius: 0.25rem;
-  transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+  @media (prefers-reduced-motion: no-preference) {
+    transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+  }
 }
 lite-vimeo > .ltv-playbtn:focus::before {
   outline: auto;

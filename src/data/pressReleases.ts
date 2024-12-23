@@ -369,15 +369,6 @@ export const pressReleaseCategories = [...new Set(pressReleases.map((item) => it
 
 // Group press releases by year
 export const pressReleasesByYear = groupByYear(pressReleases);
-// export const pressReleasesByYear = pressReleases.reduce(
-//   (acc, release) => {
-//     const date = parseISO(release.date);
-//     const year = getYear(date);
-//     acc[year] = [...(acc[year] || []), release];
-//     return acc;
-//   },
-//   {} as Record<number, typeof pressReleases>
-// );
 
 // Sort years in descending order
 export const sortedYears = Object.keys(pressReleasesByYear)
