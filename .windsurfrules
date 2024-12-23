@@ -6,6 +6,14 @@ Every time you choose to apply a rule(s), explicitly state the rule(s) in the ou
 
 Website for a research group containing all the content of the group in a single place.
 
+- Objectives: Provide a single source of truth for all the content of the group
+- Target audience: Researchers and practitioners interested in the research group
+- Key features:
+  - Easy navigation
+  - Easy to search
+  - Easy to read
+  - Great UI/UX
+
 ## Code Style and Structure
 
 - Write concise, technical TypeScript code with accurate examples
@@ -29,6 +37,7 @@ Website for a research group containing all the content of the group in a single
 ## Tech Stack
 
 - Astro
+- React
 - TypeScript
 - Tailwind CSS
 
@@ -49,11 +58,6 @@ Website for a research group containing all the content of the group in a single
 - Avoid try/catch blocks unless there's good reason to translate or handle error in that abstraction
 - Use explicit return types for all functions
 
-## State Management
-
-- Not used at the moment
-<!-- - Implement proper cleanup in useEffect hooks -->
-
 ## Syntax and Formatting
 
 - Use "function" keyword for pure functions
@@ -66,31 +70,27 @@ Website for a research group containing all the content of the group in a single
 - Use existing components when possible
 - Create new components when necessary
 - Implement Tailwind CSS for styling
+- Follow responsive design principles
+- Maintain consistent spacing using Tailwind's spacing scale
+- Use semantic color variables for theming
+- Ensure smooth transitions and animations
 
-## Error Handling
+## Accessibility Guidelines
 
-- Implement proper error boundaries
-- Log errors appropriately for debugging
-- Provide user-friendly error messages
-- Handle network failures gracefully
-
-## Testing
-
-- Write unit tests for utilities and components
-- Implement E2E tests for critical flows
-- Test across different Chrome versions
-- Test memory usage and performance
-
-## Security
-
-- Implement Content Security Policy
-- Sanitize user inputs
-- Handle sensitive data properly
-- Implement proper CORS handling
+- Follow WCAG 2.1 guidelines
+- Implement proper ARIA labels
+- Ensure keyboard navigation support
+- Maintain sufficient color contrast
+- Provide alt text for images
 
 ## Git Usage
 
 We use Graphite The AI-powered pull request toolchain.
+
+The use will create the branch with the commit message. You should..
+
+1. Give a good commit message
+2. Use the existing pull request template to output the filled version in the chat to be copied.
 
 Commit Message Prefixes:
 
@@ -119,12 +119,10 @@ Rules:
 ## Development Workflow
 
 - Use proper version control
-- Implement proper code review process
-- Test in multiple environments
 - Follow semantic versioning for releases
 - Maintain changelog
 
 ## Notes
 
 - If you are asked to fix something, start with analyzing what files you need in context and ask the user for them, do not make assumptions.
-- Make self-improving updates to the rules.md file.
+- Make self-improving updates to the .windsurfrules file.

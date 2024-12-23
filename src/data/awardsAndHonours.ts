@@ -1,4 +1,11 @@
-export const recentAwards2024 = [
+type Award = {
+  title: string;
+  subtitle: string;
+  details?: string;
+  location?: string | null;
+};
+
+export const recentAwards2024: Award[] = [
   {
     title: 'EASO-Novo Nordisk Foundation New Investigator Award 2024',
     subtitle: 'New Investigator Award in Childhood Obesity',
@@ -37,7 +44,15 @@ export const recentAwards2024 = [
   },
 ];
 
-export const fellowshipsAndPositions = [
+type Position = {
+  title: string;
+  subtitle?: string;
+  date?: string;
+  details?: string;
+  description?: string;
+};
+
+export const fellowshipsAndPositions: Position[] = [
   {
     title: 'Docent in Clinical Epidemiology and Child Health',
     subtitle: 'Faculty of Health Sciences, University of Eastern Finland',
@@ -65,7 +80,7 @@ export const fellowshipsAndPositions = [
   },
 ];
 
-export const pastAwards = [
+export const pastAwards: Award[] = [
   {
     title: 'Elizabeth Barrett-Connor Research Award 2023',
     subtitle: "Early Career Investigators of the American Heart Association's Council on Epidemiology and Prevention",
@@ -109,7 +124,14 @@ export const pastAwards = [
   },
 ];
 
-export const academicAchievements = [
+type Achievement = {
+  title: string;
+  subtitle: string;
+  year: string;
+  details: string;
+};
+
+export const academicAchievements: Achievement[] = [
   {
     title: 'Clinical Research',
     subtitle: 'Harvard University, Boston, US',

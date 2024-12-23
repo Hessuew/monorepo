@@ -87,6 +87,21 @@
   @apply rotate-45 translate-y-[-8px] translate-x-[14px];
 }
 
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .btn {
+    transition: none !important;
+  }
+
+  [data-aw-toggle-menu] path {
+    transition: none !important;
+  }
+}
+
 /* To deprecated */
 
 .dd *:first-child {
