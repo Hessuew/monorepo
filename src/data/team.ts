@@ -1,9 +1,10 @@
 import type { ImageMetadata } from 'astro';
-import imgAndrew from '~/assets/images/principalInvestigator/Andrew Agbaje RT 2022.webp';
+import imgAndrew from '~/assets/images/team/Andrew Headshot.webp';
 import imgTomi from '~/assets/images/team/Tomi Pekka Tuomainen.webp';
 import imgSenbanjo from '~/assets/images/team/Senbanjo Odunayo Image.webp';
 import imgMounir from '~/assets/images/team/Mounir Ould Setti.webp';
 import imgBenedict from '~/assets/images/team/Benedict Michelle.webp';
+import imgShogade from '~/assets/images/team/Dr Tolu Shogade.webp';
 
 interface TeamMember {
   name: string;
@@ -57,6 +58,10 @@ const teamMembers: TeamMember[] = [
     name: 'Tolu Shogade',
     title: 'Doctoral (PhD) Candidate',
     description: 'MBChB, MWACP, FMCP, Consultant/Specialist in Internal Medicine',
+    image: {
+      src: imgShogade,
+      alt: 'Tolu Shogade',
+    },
   },
   {
     name: 'Samuel Barmi',

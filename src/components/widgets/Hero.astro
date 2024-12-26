@@ -93,21 +93,39 @@ const { labelContainer: labelContainerClass = '' } = classes;
               {typeof image === 'string' ? (
                 <Fragment set:html={image} />
               ) : (
-                <Image
-                  class="mx-auto rounded-md w-full"
-                  widths={[400, 768, 1024, 2040]}
-                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                  loading="eager"
-                  decoding="async"
-                  objectPosition="center top"
-                  width={1024}
-                  height={576}
-                  {...image}
-                />
+                image && (
+                  <div class="relative m-auto max-w-5xl">
+                    {image.link ? (
+                      <a href={image.link.href} target={image.link.target} rel={image.link.rel}>
+                        <Image
+                          class={twMerge('mx-auto rounded-md w-full', image?.class ?? '')}
+                          widths={[400, 768, 1024, 2040]}
+                          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                          loading="eager"
+                          width={1024}
+                          height={576}
+                          {...image}
+                        />
+                      </a>
+                    ) : (
+                      <Image
+                        class={twMerge('mx-auto rounded-md w-full', image?.class ?? '')}
+                        widths={[400, 768, 1024, 2040]}
+                        sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                        loading="eager"
+                        decoding="async"
+                        objectPosition="center top"
+                        width={1024}
+                        height={576}
+                        {...image}
+                      />
+                    )}
+                  </div>
+                )
               )}
               {imageText && (
                 <div class="text-center">
-                  <p>{imageText}</p>
+                  <p class="text-sm text-muted dark:text-slate-400">{imageText}</p>
                 </div>
               )}
             </div>

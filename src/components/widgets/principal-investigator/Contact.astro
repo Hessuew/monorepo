@@ -1,6 +1,7 @@
 ---
-import Features2 from '~/components/widgets/Features2.astro';
+import Features5 from '~/components/widgets/Features5.astro';
 import Spacer from '~/components/widgets/Spacer.astro';
+import imageEndocrine from '~/assets/images/principalInvestigator/Andrew Endocrine News.webp';
 
 export const contactInfo = {
   emails: [
@@ -10,7 +11,7 @@ export const contactInfo = {
     },
     {
       type: 'Secondary',
-      address: 'aa.agbaje@exeter.ac.uk',
+      address: 'a.agbaje@exeter.ac.uk',
     },
   ],
   phone: '+358 46 896 5633',
@@ -30,7 +31,16 @@ const items = [
 ];
 ---
 
-<Features2 id="contact" title="Contact Information" items={items} />
+<Features5
+  id="contact"
+  columns={1}
+  title="Contact Information"
+  items={items}
+  image={{
+    src: imageEndocrine,
+    alt: 'Professor Andrew Agbaje, Principal Investigator of urFIT Research Group',
+  }}
+/>
 
 <!-- Spacer ******************* -->
 

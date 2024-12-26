@@ -15,6 +15,12 @@ interface MediaItem {
 
 export const videosAndPodcasts: MediaItem[] = [
   {
+    title: 'Smoking during childhood and early adulthood could damage your heart in real-time, study says',
+    date: '2024-12-12',
+    videoId: '6npbHcqbWrU',
+    platform: 'youtube',
+  },
+  {
     title: 'ENDO 2024 Press Conference: Sedentary Time and Liver Damage in Children',
     date: '2024-06-01',
     videoId: '1n85Kj7kjfU',
