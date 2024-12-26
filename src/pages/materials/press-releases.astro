@@ -17,7 +17,11 @@ const sortedCategories = [...pressReleaseCategories].filter((category) => catego
 ---
 
 <Layout metadata={metadata}>
-  <Hero title="Press Releases" subtitle="Discover the latest research insights and media coverage of urFIT-child" />
+  <Hero
+    tagline="Press Releases"
+    title="Research Impact"
+    subtitle="Stay informed about our groundbreaking findings in child health research, media coverage, and the real-world impact of our longitudinal studies on physical activity, cardiovascular health, and metabolic health in children"
+  />
 
   <FilterContainer
     options={[sortedTypes, sortedCategories]}

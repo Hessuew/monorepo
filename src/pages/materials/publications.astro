@@ -17,7 +17,11 @@ const sortedCategories = [...publicationCategories].filter((category) => categor
 ---
 
 <Layout metadata={metadata}>
-  <Hero title="Publications" subtitle="Browse through our research publications and academic contributions" />
+  <Hero
+    tagline="Publications"
+    title="Scientific Output"
+    subtitle="Explore our peer-reviewed publications, research papers, and academic contributions advancing the understanding of child health through comprehensive longitudinal studies and evidence-based research"
+  />
 
   <FilterContainer
     options={[sortedTypes, sortedCategories]}

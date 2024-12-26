@@ -1,0 +1,35 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import FilterContainer from '~/components/filters/FilterContainer.astro';
+import { infographicTypes } from '~/data/infografics';
+import InfoGraficsList from '~/components/widgets/list/InfoGraficsList.astro';
+
+const metadata = {
+  title: 'Infografics',
+  description:
+    'Explore our collection of research infographics covering physical activity, cardiovascular health, body composition, and metabolic health in children. Each infographic presents key findings from our longitudinal studies in an accessible visual format.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Infografics"
+    title="Visual insights of child health research"
+    subtitle="Explore our collection of research infographics covering physical activity, cardiovascular health, body composition, and metabolic health in children. Each infographic presents key findings from our longitudinal studies in an accessible visual format."
+  />
+
+  <FilterContainer
+    options={[infographicTypes]}
+    allLabels={['All Types']}
+    showSearch={true}
+    targetId="infografics-list"
+    classes={{
+      container: 'py-0 lg:py-0 md:py-0 mb-8',
+    }}
+  />
+
+  <div id="infografics-list">
+    <InfoGraficsList />
+  </div>
+</Layout>

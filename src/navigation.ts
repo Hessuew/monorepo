@@ -39,6 +39,10 @@ export const headerData = {
           href: getPermalink('/materials/videos-and-podcasts'),
         },
         {
+          text: 'Infografics',
+          href: getPermalink('/materials/infografics'),
+        },
+        {
           text: 'Press Releases',
           href: getPermalink('/materials/press-releases'),
         },
