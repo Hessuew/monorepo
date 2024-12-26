@@ -11,6 +11,38 @@ interface PressRelease {
 
 export const pressReleases: PressRelease[] = [
   {
+    title: 'Smoking tobacco from early childhood can cause premature heart damage, new study shows',
+    date: '2024-12-12',
+    url: 'https://usrtk.org/healthwire/smoking-tobacco-from-early-childhood-can-cause-premature-heart-damage/',
+    source: 'U.S. Right to Know',
+    type: 'news',
+    category: 'cardiac-health',
+  },
+  {
+    title: 'Preteen, Teen Smoking Can Injure The Young Heart',
+    date: '2024-12-12',
+    url: 'https://www.usnews.com/news/health-news/articles/2024-12-12/preteen-teen-smoking-can-injure-the-young-heart',
+    source: 'US News',
+    type: 'news',
+    category: 'cardiac-health',
+  },
+  {
+    title: 'Teens Who Smoke Face Risk of Cardiac Damage by Their Mid-20s',
+    date: '2024-12-12',
+    url: 'https://www.tctmd.com/news/teens-who-smoke-face-risk-cardiac-damage-their-mid-20s',
+    source: 'TCTMD',
+    type: 'news',
+    category: 'cardiac-health',
+  },
+  {
+    title: 'Dealing with a time bomb: Persistent tobacco smoking tied to cardiac injury at young age',
+    date: '2024-12-11',
+    url: 'https://www.healio.com/news/cardiology/20241211/dealing-with-a-time-bomb-persistent-smoking-linked-to-cardiac-injury-at-a-young-age',
+    source: 'Healio',
+    type: 'news',
+    category: 'cardiac-health',
+  },
+  {
     title: 'Childhood Inactivity Linked to Increased Risk of Liver Disease',
     date: '2024-06-04',
     url: 'https://www.msn.com/en-gb/health/other/childhood-inactivity-linked-to-increased-risk-of-liver-disease-by-young-adulthood/ar-BB1nxl5S',

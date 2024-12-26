@@ -13,7 +13,7 @@ const metadata = {
 
 // Sort types and categories alphabetically
 const sortedTypes = [...publicationTypes].sort();
-const sortedCategories = [...publicationCategories].filter((category) => category !== '').sort();
+const sortedCategories = [...publicationCategories].filter((category) => category !== '');
 ---
 
 <Layout metadata={metadata}>

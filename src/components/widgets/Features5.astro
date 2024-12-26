@@ -1,61 +1,37 @@
 ---
-import type { Content as Props } from '~/types';
-import Headline from '../ui/Headline.astro';
-import WidgetWrapper from '../ui/WidgetWrapper.astro';
+import type { Features as Props } from '~/types';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import ItemGrid2 from '~/components/ui/ItemGrid2.astro';
 import Image from '~/components/common/Image.astro';
 import Button from '~/components/ui/Button.astro';
-import ItemGrid from '~/components/ui/ItemGrid.astro';
 
 const {
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
-  tagline,
-  tagline2,
-  content = await Astro.slots.render('content'),
+  tagline = await Astro.slots.render('tagline'),
   callToAction,
-  defaultIcon = 'tabler:check',
   items = [],
-  columns,
+  columns = 3,
+  defaultIcon,
   image = await Astro.slots.render('image'),
   imageText = await Astro.slots.render('imageText'),
   isReversed = false,
-  isAfterContent = false,
 
   id,
-  animated = true,
   isDark = false,
   classes = {},
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
-
-const {
-  icon: defaultIconClass = 'flex h-7 w-7 items-center justify-center rounded-full bg-green-600 dark:bg-green-700 text-gray-50 p-1',
-} = classes;
 ---
 
-<WidgetWrapper
-  animated={animated}
-  id={id}
-  isDark={isDark}
-  containerClass={`max-w-7xl mx-auto ${isAfterContent ? 'pt-0 md:pt-0 lg:pt-0' : ''} ${classes?.container ?? ''}`}
-  bg={bg}
->
-  <Headline
-    title={title}
-    subtitle={subtitle}
-    tagline={tagline}
-    tagline2={tagline2}
-    classes={{
-      container: 'max-w-xl sm:mx-auto lg:max-w-xl',
-      title: 'text-4xl md:text-5xl font-bold tracking-tighter mb-4 font-heading',
-      subtitle: 'max-w-3xl mx-auto sm:text-center text-xl text-muted dark:text-slate-400',
-    }}
-  />
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
+
   <div class="mx-auto max-w-7xl p-4 md:px-8">
     <div class={`md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-16`}>
       <section class="md:basis-1/2" aria-labelledby="content-heading">
         <h2 id="content-heading" class="sr-only">Main Content</h2>
-        {content && <div class="mb-12 text-lg dark:text-slate-400 " set:html={content} />}
 
         {
           callToAction && (
@@ -64,18 +40,18 @@ const {
             </div>
           )
         }
-
-        <ItemGrid
+        <ItemGrid2
           items={items}
           columns={columns}
           defaultIcon={defaultIcon}
           classes={{
-            container: `gap-y-4 md:gap-y-8`,
-            panel: 'max-w-none',
-            title: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
-            description: 'text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2',
-            icon: defaultIconClass as string,
-            action: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+            container: 'gap-4 md:gap-6',
+            panel:
+              'rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white dark:bg-slate-900 p-6',
+            // panel:
+            //   "text-center bg-page items-center md:text-left rtl:md:text-right md:items-start p-6 p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-800",
+            icon: 'w-12 h-12 mb-6 text-primary',
+            ...((classes?.items as Record<string, never>) ?? {}),
           }}
         />
       </section>
@@ -94,7 +70,7 @@ const {
                 <Image
                   class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
                   width={500}
-                  height={500}
+                  height={580}
                   widths={[400, 768, 1024]}
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 768px, 1024px"
                   layout="responsive"

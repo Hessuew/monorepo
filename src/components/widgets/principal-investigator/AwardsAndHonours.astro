@@ -1,147 +1,167 @@
 ---
 import Hero from '~/components/widgets/Hero.astro';
 import GradientText from '~/components/ui/GradientText.astro';
-import Headline from '~/components/ui/Headline.astro';
+import Features2 from '../Features2.astro';
 import Spacer from '~/components/widgets/Spacer.astro';
 import { recentAwards2024, fellowshipsAndPositions, pastAwards, academicAchievements } from '~/data/awardsAndHonours';
+import imgEJPC from '~/assets/images/principalInvestigator/Top Reviewer Award EJPC 2024.webp';
+import imgFESC from '~/assets/images/principalInvestigator/FESC ESC 2024 Agbaje.webp';
+import imgPosmourth from '~/assets/images/principalInvestigator/Andrew University of Posmourth.webp';
 ---
 
-<Hero id="awards-and-honours" classes={{ labelContainer: 'pb-0 md:pb-0 lg:pb-0' }}>
-  <Fragment slot="title">
-    <Headline title={'A Legacy of Excellence'} tagline={'Awards and Honours'} />
-  </Fragment>
-
+<Features2
+  id="awards-and-honours"
+  tagline="Awards and Honours"
+  title="A Legacy of Excellence"
+  classes={{ container: 'max-w-7xl mx-auto pb-0 md:pb-0 lg:pb-0' }}
+>
   <Fragment slot="subtitle">
-    <div class="max-w-4xl mx-auto space-y-12">
-      <!-- Biblical Quote Section -->
-      <div
-        class="bg-gray-50 dark:bg-slate-900 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
-      >
-        <p class="text-gray-700 dark:text-gray-300 italic">
-          <GradientText class="font-bold">O how love I thy law!</GradientText> it is my meditation all the day. Thou through
-          thy commandments hast made me wiser than mine enemies: for they are ever with me.
-          <GradientText class="font-bold">I have more understanding than all my teachers:</GradientText>
-          for thy testimonies are my meditation.
-          <GradientText class="font-bold">I understand more than the ancients</GradientText>, because I keep thy
-          precepts.
-        </p>
-        <p class="text-right mt-2 text-sm text-gray-600 dark:text-gray-400">— Psalm 119:97–100</p>
-      </div>
-
-      <!-- Introduction Text -->
-      <p
-        class="text-lg text-gray-700 dark:text-gray-300 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
-      >
-        The research group urFIT-child and its principal investigator, Andrew Agbaje, have received recognition from
-        numerous professional boards, academic institutions, and global media outlets.
+    <!-- Biblical Quote Section -->
+    <div
+      class="max-w-4xl mx-auto bg-gray-50 dark:bg-slate-900 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+    >
+      <p class="text-gray-700 dark:text-gray-300 italic">
+        <GradientText class="font-bold">O how love I thy law!</GradientText> it is my meditation all the day. Thou through
+        thy commandments hast made me wiser than mine enemies: for they are ever with me.
+        <GradientText class="font-bold">I have more understanding than all my teachers:</GradientText>
+        for thy testimonies are my meditation.
+        <GradientText class="font-bold">I understand more than the ancients</GradientText>, because I keep thy precepts.
       </p>
-
-      <!-- Recent Awards 2024 -->
-      <div class="space-y-4">
-        <h2
-          class="text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
-        >
-          Recent Awards (2024)
-        </h2>
-        <div class="grid gap-6 md:grid-cols-2">
-          {
-            recentAwards2024.map((award) => (
-              <div class="award-item bg-white dark:bg-slate-900 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700  intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{award.title}</h3>
-                <p class="text-gray-600 dark:text-gray-400">{award.subtitle}</p>
-                {award.details && <p class="text-primary mt-2">{award.details}</p>}
-                {award.location && <p class="text-gray-500 dark:text-gray-400 mt-2">{award.location}</p>}
-              </div>
-            ))
-          }
-        </div>
-      </div>
-
-      <!-- Fellowships and Positions -->
-      <div class="space-y-4">
-        <h2
-          class="text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
-        >
-          Fellowships & Academic Positions
-        </h2>
-        <div class="space-y-6">
-          {
-            fellowshipsAndPositions.map((fellowship) => (
-              <div class="bg-gradient-to-r from-primary-100 to-secondary-100 dark:from-primary-900 dark:to-secondary-900 p-8 rounded-lg shadow-lg  intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade">
-                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">{fellowship.title}</h3>
-                {fellowship.subtitle && (
-                  <p class="text-lg text-slate-900 dark:text-gray-200 mb-2">{fellowship.subtitle}</p>
-                )}
-                {fellowship.date && <p class="text-gray-700 dark:text-gray-300">{fellowship.date}</p>}
-                {fellowship.details && <p class="text-primary mt-2">{fellowship.details}</p>}
-                {fellowship.description && (
-                  <p class="text-gray-700 dark:text-gray-300 mt-3">{fellowship.description}</p>
-                )}
-              </div>
-            ))
-          }
-        </div>
-      </div>
-
-      <!-- Past Awards -->
-      <div class="space-y-4">
-        <h2
-          class="text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
-        >
-          Past Awards & Recognition
-        </h2>
-        <div class="grid gap-6 md:grid-cols-2">
-          {
-            pastAwards.map((award) => (
-              <div class="award-item bg-white dark:bg-slate-900 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700  intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{award.title}</h3>
-                <p class="text-gray-600 dark:text-gray-400">{award.subtitle}</p>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-
-      <!-- Academic Achievements -->
-      <div class="space-y-4">
-        <h2
-          class="text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
-        >
-          Academic Excellence
-        </h2>
-        <div class="grid gap-6 md:grid-cols-2">
-          {
-            academicAchievements.map((achievement) => (
-              <div class="award-item bg-white dark:bg-slate-900 p-6 px-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700  intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{achievement.title}</h3>
-                <p class="text-gray-600 dark:text-gray-400">{achievement.subtitle}</p>
-                <p class="text-gray-500 dark:text-gray-400 mt-1">{achievement.year}</p>
-                <p class="text-primary mt-2">{achievement.details}</p>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-
-      <!-- Biblical Quote Footer -->
-      <div
-        class="text-center mt-8 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
-      >
-        <p class="text-gray-700 dark:text-gray-300 italic">
-          "And in all matters of wisdom and understanding, that the king enquired of them, he found them
-          <GradientText class="font-bold">ten times better</GradientText>
-          than all the magicians and astrologers that were in all his realm."
-        </p>
-        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">— Daniel 1:20 KJV</p>
-      </div>
+      <p class="text-right mt-2 text-sm text-gray-600 dark:text-gray-400">— Psalm 119:97–100</p>
     </div>
+
+    <br />
+
+    <!-- Introduction Text -->
+    <p
+      class="max-w-4xl mx-auto text-lg text-gray-700 dark:text-gray-300 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+    >
+      The research group urFIT-child and its principal investigator, Andrew Agbaje, have received recognition from
+      numerous professional boards, academic institutions, and global media outlets.
+    </p>
+
+    <br />
+    <br />
+    <!-- Recent Awards 2024 -->
+    <h2
+      class="text-center text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+    >
+      Recent Awards & Recognition (2024)
+    </h2>
   </Fragment>
-</Hero>
+</Features2>
+
+<!-- Recent Awards 2024 -->
+<Features2
+  classes={{ container: 'max-w-7xl mx-auto pt-0 md:pt-0 lg:pt-0' }}
+  columns={3}
+  items={recentAwards2024.map((item) => ({
+    title: item.title,
+    icon: item.icon,
+    description: `${item.subtitle}
+                 ${item.details ? `<div class="text-primary mt-2">${item.details}</div>` : ''}
+                 ${item.location ? `<br /><br />${item.location}` : ''}`,
+  }))}
+/>
+
+<Hero
+  classes={{ labelContainer: 'pt-0 md:pt-0 lg:pt-0' }}
+  image={{
+    src: imgEJPC,
+    alt: 'Agbaje at EJPC 2024',
+  }}
+  imageText="Agbaje at EJPC 2024"
+/>
+
+<h2
+  class="text-center text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+>
+  Fellowships and Academic Positions
+</h2>
+
+<!-- Fellowships and Positions -->
+<Features2
+  classes={{ container: 'max-w-4xl mx-auto pt-0 md:pt-0 lg:pt-0' }}
+  columns={1}
+  items={fellowshipsAndPositions.map((item) => ({
+    title: item.title,
+    icon: item.icon,
+    description: `${item.subtitle}
+                 ${item.details ? `<div class="text-primary text-center mt-2">${item.details}</div>` : ''}
+                 ${item.date ? `<br /><br />${item.date}` : ''}`,
+    classes: {
+      title: 'text-center',
+      description: 'text-center',
+    },
+  }))}
+/>
+
+<Hero
+  classes={{ labelContainer: 'pt-0 md:pt-0 lg:pt-0' }}
+  image={{
+    src: imgFESC,
+    alt: 'Agbaje at FESC ESC 2024',
+  }}
+  imageText="Agbaje at FESC ESC 2024"
+/>
+
+<h2
+  class="text-center text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+>
+  Past Awards and Recognition
+</h2>
+
+<!-- Past Awards -->
+<Features2
+  classes={{ container: 'max-w-7xl mx-auto pt-0 md:pt-0 lg:pt-0' }}
+  columns={3}
+  items={pastAwards.map((item) => ({
+    icon: item.icon,
+    title: item.title,
+    description: `${item.subtitle}
+                 ${item.details ? `<div class="text-primary mt-2">${item.details}</div>` : ''}
+                 ${item.location ? `<br /><br />${item.location}` : ''}`,
+  }))}
+/>
+
+<h2
+  class="text-center text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+>
+  Academic Achievements
+</h2>
+
+<!-- Academic Achievements -->
+<Features2
+  classes={{ container: 'max-w-7xl mx-auto pt-0 md:pt-0 lg:pt-0' }}
+  columns={2}
+  items={academicAchievements.map((item) => ({
+    icon: item.icon,
+    title: item.title,
+    description: `${item.subtitle}
+                 ${item.details ? `<div class="text-primary mt-2">${item.details}</div>` : ''}
+                 ${item.year ? `<br />${item.year}` : ''}`,
+  }))}
+/>
+
+<Hero
+  classes={{ labelContainer: 'pt-0 md:pt-0 lg:pt-0' }}
+  image={{
+    src: imgPosmourth,
+    alt: 'Agbaje at the University of Posmourth',
+  }}
+  imageText='"To God be the glory" shouts Agbaje as he walks to the stage at the University of Posmourth'
+/>
+
+<!-- Biblical Quote Footer -->
+<div
+  class="max-w-4xl mx-auto text-center mt-8 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+>
+  <p class="text-gray-700 dark:text-gray-300 italic">
+    "And in all matters of wisdom and understanding, that the king enquired of them, he found them
+    <GradientText class="font-bold">ten times better</GradientText>
+    than all the magicians and astrologers that were in all his realm."
+  </p>
+  <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">— Daniel 1:20 KJV</p>
+</div>
 
 <Spacer size="sm" />
-
-<style>
-  .award-item {
-    transition: transform 0.2s ease-in-out;
-  }
-</style>

@@ -1,5 +1,6 @@
 // Import collaborator images
 import imgBarker from '~/assets/images/collaborators/Prof. Alan R. Barker.jpeg';
+import imgMitchell from '~/assets/images/collaborators/Prof Gary F Mitchell.webp';
 import imgBaynard from '~/assets/images/collaborators/Prof. Tracy Baynard.webp';
 import imgOdili from '~/assets/images/collaborators/Prof. Augustine Odili.webp';
 import imgLlyodJones from '~/assets/images/collaborators/Prof. Donald M. Llyod-Jones.webp';
@@ -13,6 +14,7 @@ import imgSaner from '~/assets/images/collaborators/Dr. med. Christoph Saner.web
 import imgVlachopoulos from '~/assets/images/collaborators/Dr. Dimitris Vlachopoulos.webp';
 import imgZachariah from '~/assets/images/collaborators/Justin Zachariah MD.webp';
 import imgLeeson from '~/assets/images/collaborators/Prof. Paul Leeson.webp';
+import imgOjji from '~/assets/images/collaborators/Prof Dike Bevis Ojji.webp';
 import type { ImageMetadata } from 'astro';
 
 interface Collaborator {
@@ -41,6 +43,11 @@ export const collaborators: Collaborator[] = [
     name: 'Prof. Gary F. Mitchell',
     title: 'MD',
     affiliation: 'Cardiovascular Engineering Inc. Norwood, MA 02062, United States',
+    profileUrl: 'https://scholar.google.com/citations?user=GrKW5wwAAAAJ&hl=en',
+    image: {
+      src: imgMitchell,
+      alt: 'Professor Gary Mitchell',
+    },
   },
   {
     name: 'Prof. Justin Zacharias',
@@ -110,10 +117,9 @@ export const collaborators: Collaborator[] = [
   },
   {
     name: 'Prof. Adam Lewandowski',
-    title: 'DPhil, FESC, Associate Professor of Cardiovascular Science',
-    affiliation:
-      'British Heart Foundation Intermediate Research Fellow, Deputy Director of the Oxford Cardiovascular Clinical Research Facility, Oxford University, UK',
-    // profileUrl: 'https://www.rdm.ox.ac.uk/people/adam-lewandowski',
+    title: 'Deputy Chief Scientist for UK Biobank and an Associate Professor of Cardiovascular Science',
+    affiliation: 'The Clinical Trial Service Unit and Epidemiological Studies Unit (CTSU)',
+    profileUrl: 'https://www.ctsu.ox.ac.uk/team/adam-lewandowski',
     image: {
       src: imgLewandowski,
       alt: 'Professor Adam Lewandowski',
@@ -124,6 +130,7 @@ export const collaborators: Collaborator[] = [
     title: 'PhD MPH, Associate Professor of Epidemiology',
     affiliation:
       'Colorado School of Public Health Associate Director of Research Training & Education, Lifecourse Epidemiology of Adiposity & Diabetes (LEAD) Center, Denver, Colorado, US',
+    profileUrl: 'https://coloradosph.cuanschutz.edu/resources/directory/directory-profile/Perng-Wei-UCD6001647278',
     image: {
       src: imgPerng,
       alt: 'Professor Wei Perng',
@@ -134,6 +141,7 @@ export const collaborators: Collaborator[] = [
     title: 'MD, FRCPC, PhD',
     affiliation:
       'Head, Research Axis ‐ Metabolic and Cardiovascular Health, CHU Sainte‐Justine Pediatric Endocrinologist, Faculty of Medicine, Université de Montréal',
+    profileUrl: 'https://www.chusj.org/Biography?id=bafe6470-e632-4e2f-bb6e-9a9937d7cc97&lang=en',
     image: {
       src: imgHenderson,
       alt: 'Professor Mélanie Henderson',
@@ -144,6 +152,7 @@ export const collaborators: Collaborator[] = [
     title: 'Professor of Pediatric Cardiology',
     affiliation:
       'Chair of Pediatric Prevention, Dean Faculty of Sport and Health Sciences, Technical University Munich, Germany',
+    profileUrl: 'https://www.professoren.tum.de/oberhoffer-renate',
     image: {
       src: imgOberhoffer,
       alt: 'Professor Dr. Renate Oberhoffer-Fritz',
@@ -180,6 +189,17 @@ export const collaborators: Collaborator[] = [
     image: {
       src: imgVlachopoulos,
       alt: 'Dr. Dimitris Vlachopoulos',
+    },
+  },
+  {
+    name: 'Prof. Dike Bevis Ojji',
+    title: 'MD. PhD. Professor of Preventive Cardiology, Principal Investigator of Cardiovascular Research unit',
+    affiliation:
+      'College of Health Sciences, University of Abuja and University of Abuja Teaching Hospital, Gwagwalada, Abuja, Nigeria',
+    profileUrl: 'https://health.uct.ac.za/cape-heart-institute/contacts/dike-ojjie',
+    image: {
+      src: imgOjji,
+      alt: 'Prof. Dike Bevis Ojji',
     },
   },
 ];
