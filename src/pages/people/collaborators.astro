@@ -2,8 +2,10 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Features4 from '~/components/widgets/Features4.astro';
 import Hero from '~/components/widgets/Hero.astro';
-
+import Content from '~/components/widgets/Content.astro';
 import { items } from '~/data/collaborators';
+import imgNovo from '~/assets/images/collaborators/Novo Nordisk Conference Award.webp';
+import imgNnf from '~/assets/images/collaborators/Nnf Cbc26 053 Scaled.webp';
 
 const metadata = {
   title: 'Collaborators',
@@ -20,7 +22,7 @@ const metadata = {
     }}
     tagline="Our Network"
     title="Meet Our Distinguished Collaborators"
-    subtitle="We are proud to work with leading experts from around the world who contribute their expertise to advance children's health and fitness research."
+    subtitle="Join us in our mission to transform children's health through collaborative research. Our network of world-class experts brings diverse perspectives and innovative approaches to tackle complex challenges."
   />
 
   <Features4
@@ -37,4 +39,79 @@ const metadata = {
       },
     }}
   />
+
+  <Content
+    id="collaborators-2"
+    tagline="Collaborative Excellence"
+    title="Impactful Partnerships in Action"
+    subtitle="Our collaborative achievements showcase the power of working together to advance children's health research"
+    classes={{
+      container: 'pb-0 lg:pt-0 lg:pb-0 md:pt-0 md:pb-0',
+    }}
+    image={{
+      src: imgNovo,
+      alt: 'Prof Agbaje with Dr Christoph Saner at an award ceremony.',
+    }}
+    imageText="Recognition of excellence: Our collaborative research was honored at the Novo Nordisk Foundation Conference"
+    items={[
+      {
+        title: 'Global Network',
+        description: `Building bridges across continents, we collaborate with leading institutions to share knowledge, resources, and expertise in children's health research.`,
+        icon: 'tabler:world',
+      },
+      {
+        title: 'Innovative Research',
+        description: `Together with our partners, we pioneer groundbreaking studies that combine diverse methodologies and perspectives to unlock new insights in pediatric health.`,
+        icon: 'tabler:microscope',
+      },
+      {
+        title: 'Lasting Impact',
+        description: `Our collaborative efforts translate into real-world solutions, influencing health policies and improving children's lives across communities.`,
+        icon: 'tabler:chart-arrows',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Celebrating Joint Achievements</h3>
+      Our collaborative spirit has been recognized through prestigious awards and breakthrough discoveries. Together, we're
+      creating a future where every child has the opportunity to thrive.
+    </Fragment>
+  </Content>
+
+  <Content
+    id="collaborators-3"
+    isReversed
+    image={{
+      src: imgNnf,
+      alt: 'A chat with a Prof in the US we interact occasionally.',
+    }}
+    imageText="Knowledge exchange in action: Engaging discussions with international experts strengthen our research network"
+    classes={{
+      container: 'pt-0 md:py-16 lg:py-20',
+    }}
+    items={[
+      {
+        title: 'Knowledge Exchange',
+        description: `Regular symposiums and workshops foster dynamic exchange of ideas and methodologies, enriching our research approaches and outcomes.`,
+        icon: 'tabler:arrows-exchange',
+      },
+      {
+        title: 'Shared Vision',
+        description: `United by our commitment to children's health, we collaborate across disciplines to develop comprehensive solutions to complex health challenges.`,
+        icon: 'tabler:target-arrow',
+      },
+      {
+        title: 'Future Innovation',
+        description: `Our partnerships drive continuous innovation, pushing boundaries to discover new ways of understanding and improving children's fitness and health.`,
+        icon: 'tabler:bulb',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Fostering Global Connections</h3>
+      Through regular interactions with leading experts worldwide, we create an environment where innovative ideas flourish
+      and transformative research takes shape. These partnerships enrich our understanding and accelerate progress in children's
+      health research.
+    </Fragment>
+  </Content>
 </Layout>
