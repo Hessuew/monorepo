@@ -24,3 +24,5 @@ pnpm-lock.yaml
 
 # Cloudflare Workers
 .wrangler
+wrangler.toml
+.dev.vars
