@@ -5,6 +5,7 @@ import { publicationTypes, publicationCategories } from '~/data/publications';
 import Spacer from '~/components/widgets/Spacer.astro';
 import FilterContainer from '~/components/filters/FilterContainer.astro';
 import PublicationsList from '~/components/widgets/list/PublicationsList.astro';
+import SubscribeForm from '~/components/SubscribeForm.astro';
 
 const metadata = {
   title: 'Publications',
@@ -23,13 +24,15 @@ const sortedCategories = [...publicationCategories].filter((category) => categor
     subtitle="Explore our peer-reviewed publications, research papers, and academic contributions advancing the understanding of child health through comprehensive longitudinal studies and evidence-based research"
   />
 
+  <SubscribeForm />
+
   <FilterContainer
     options={[sortedTypes, sortedCategories]}
     allLabels={['All Types', 'All Categories']}
     showSearch={true}
     targetId="publications-list"
     classes={{
-      container: 'py-0 lg:py-0 md:py-0 mb-8',
+      container: 'py-0 lg:py-0 md:py-0',
     }}
   />
 

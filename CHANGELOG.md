@@ -14,17 +14,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Research group content pages
 - Video and podcast integration
 - Interactive components for better user experience
+- Enhanced collaborators page with new content sections and images
 
 ### Changed
 
 - Removed unused blog components
 - Updated widget components for better performance
 - Modified configuration files for research group needs
+- Improved InfoGraphicsList component with consistent card layouts
+- Enhanced responsive padding and spacing in collaborators page
 
 ### Fixed
 
 - Animation thresholds for mobile and desktop
 - Video modal transitions
+- "Read more" link positioning in InfoGraphicsList cards
 
 ### Security
 

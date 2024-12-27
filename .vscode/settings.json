@@ -13,5 +13,5 @@
   },
   "vim.useSystemClipboard": true,
   "eslint.useFlatConfig": true,
-  "cSpell.words": ["Funders"]
+  "cSpell.words": ["Funders", "urfit"]
 }
