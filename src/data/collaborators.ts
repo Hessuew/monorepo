@@ -1,4 +1,5 @@
 // Import collaborator images
+import type { ImageMetadata } from 'astro';
 import imgBarker from '~/assets/images/collaborators/Prof. Alan R. Barker.jpeg';
 import imgMitchell from '~/assets/images/collaborators/Prof Gary F Mitchell.webp';
 import imgBaynard from '~/assets/images/collaborators/Prof. Tracy Baynard.webp';
@@ -15,7 +16,6 @@ import imgVlachopoulos from '~/assets/images/collaborators/Dr. Dimitris Vlachopo
 import imgZachariah from '~/assets/images/collaborators/Justin Zachariah MD.webp';
 import imgLeeson from '~/assets/images/collaborators/Prof. Paul Leeson.webp';
 import imgOjji from '~/assets/images/collaborators/Prof Dike Bevis Ojji.webp';
-import type { ImageMetadata } from 'astro';
 
 interface Collaborator {
   name: string;

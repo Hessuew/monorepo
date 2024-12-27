@@ -91,7 +91,11 @@ We use Graphite The AI-powered pull request toolchain.
 The use will create the branch with the commit message. You should..
 
 1. Give a good commit message
-2. Use the existing pull request template to output the filled version in the chat to be copied.
+2. Use and fill the existing pull request template .github/PULL_REQUEST_TEMPLATE.md
+3. Always check all related files when creating a PR, not just the active file
+4. Include both technical and visual changes in PR descriptions
+5. Group changes by component/page for better organization
+6. Reference specific UI/UX improvements made
 
 Commit Message Prefixes:
 
@@ -104,12 +108,7 @@ Commit Message Prefixes:
 - "test:" for adding missing tests
 - "chore:" for maintenance tasks
 
-Rules:
-
-- Use lowercase for commit messages
-- Use and fill the existing pull request template .github/PULL_REQUEST_TEMPLATE.md
-- Include description for non-obvious changes
-- Reference issue numbers when applicable
+## Pull Request Best Practices
 
 ## Documentation
 

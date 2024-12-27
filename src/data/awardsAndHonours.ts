@@ -42,7 +42,7 @@ export const recentAwards2024: Award[] = [
     title: 'Outstanding Abstract',
     subtitle: 'Endocrine Society Outstanding Abstract Award, ENDO 2024',
     location: 'Boston, US',
-    icon: 'tabler:dna',
+    icon: 'tabler:certificate',
   },
   {
     title: 'Career Development Lecture',
