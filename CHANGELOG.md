@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.2-alpha.1] - 2024-12-28
+
+### Added
+
+- Cloudflare Workers package for email subscription handling
+- Enhanced email template with improved animations and compatibility
+- CSS-based hover animations for better email client support
+
+### Changed
+
+- Updated email template layout for better readability
+- Improved arrow icon animation in email links
+- Optimized email template styling for Gmail compatibility
+
 ## [0.0.1-alpha.1] - 2024-12-23
 
 ### Added
