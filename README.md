@@ -62,6 +62,9 @@ src/
 ├── config/        # Configuration files
 ├── navigation/    # Navigation structure
 └── types.d.ts     # TypeScript definitions
+
+workers/
+└── subscribe/     # Cloudflare Worker for email subscriptions
 ```
 
 ## 🧪 Development
@@ -72,6 +75,17 @@ src/
 - TypeScript for type safety
 - Tailwind CSS for styling
 - Component-based architecture
+
+### Backend Services
+
+#### Email Subscription Worker
+
+The project includes a Cloudflare Worker that handles email subscriptions:
+
+- Located in `workers/subscribe/`
+- Processes newsletter sign-ups
+- Sends confirmation emails with custom templates
+- Manages subscription status
 
 ### Commands
 
