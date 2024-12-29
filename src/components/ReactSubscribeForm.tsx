@@ -1,13 +1,43 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+
+interface FormState {
+  email: string;
+  status: 'idle' | 'loading' | 'success' | 'error';
+  message: string;
+  isVisible: boolean;
+}
 
 export default function ReactSubscribeForm() {
-  const [email, setEmail] = useState('')
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const [message, setMessage] = useState('')
+  const [formState, setFormState] = useState<FormState>({
+    email: '',
+    status: 'idle',
+    message: '',
+    isVisible: false
+  });
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (formState.status === 'success' || formState.status === 'error') {
+      // Show message with fade in
+      setFormState(prev => ({ ...prev, isVisible: true }));
+      
+      // Start fade out after 3 seconds
+      timer = setTimeout(() => {
+        setFormState(prev => ({ ...prev, isVisible: false }));
+        
+        // Reset status after fade out animation completes
+        setTimeout(() => {
+          setFormState(prev => ({ ...prev, status: 'idle', message: '' }));
+        }, 300); // Match this with CSS transition duration
+      }, 3000);
+    }
+    return () => clearTimeout(timer);
+  }, [formState.status]);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setStatus('loading')
+    e.preventDefault();
+    
+    setFormState(prev => ({ ...prev, status: 'loading' }));
 
     try {
       const workerUrl = import.meta.env.DEV 
@@ -19,64 +49,68 @@ export default function ReactSubscribeForm() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email: formState.email }),
       })
 
       const data = await response.json()
 
       if (response.ok) {
-        setStatus('success')
-        setMessage('Successfully subscribed to updates!')
-        setEmail('')
+        setFormState(prev => ({
+          ...prev,
+          status: 'success',
+          message: 'Successfully subscribed to updates!',
+          email: ''
+        }));
       } else {
-        setStatus('error')
-        setMessage(data.message || 'Failed to subscribe')
+        throw new Error(data.message || 'Failed to subscribe');
       }
     } catch (error: unknown) {
       console.log(error)
-      setStatus('error')
-      setMessage('Failed to subscribe. Please try again.')
+      setFormState(prev => ({
+        ...prev,
+        status: 'error',
+        message: error instanceof Error ? error.message : 'An error occurred'
+      }));
     }
-
-    setTimeout(() => {
-      setStatus('idle')
-      setMessage('')
-    }, 3000)
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit} className="relative flex-1 md:max-w-[300px]">
       <div className="relative">
-        {message && (
+        {formState.message && (
           <div
-            className={`absolute -top-12 left-0 right-0 px-3 py-2 rounded-md text-sm transition-all duration-200 opacity-100 ${
-              status === 'success'
+            className={`transition-all duration-300 absolute -top-12 left-0 right-0 px-3 py-2 rounded-md text-sm ${
+              formState.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
+            } ${
+              formState.status === 'success'
                 ? 'bg-green-50 text-green-700 dark:bg-green-900/50 dark:text-green-200'
-                : 'bg-red-50 text-red-700 dark:bg-red-900/50 dark:text-red-200'
+                : formState.status === 'error'
+                ? 'bg-red-50 text-red-700 dark:bg-red-900/50 dark:text-red-200'
+                : ''
             }`}
             role="alert"
             aria-live="polite"
           >
-            {message}
+            {formState.message}
           </div>
         )}
         <div className="flex">
           <input
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={formState.email}
+            onChange={(e) => setFormState(prev => ({ ...prev, email: e.target.value }))}
             placeholder="Subscribe to updates"
-            className="w-full md:min-w-[300px] px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 dark:focus:ring-gray-300"
+            className="w-full md:min-w-[300px] px-4 pr-24 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 dark:focus:ring-gray-300"
             required
             aria-label="Email subscription"
+            disabled={formState.status === 'loading'}
           />
           <button
             type="submit"
-            disabled={status === 'loading'}
-            className="absolute right-2 top-1/2 -translate-y-1/2 px-3 py-1 text-sm text-gray-600 bg-white rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 disabled:opacity-50 transition-colors dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
-            aria-label="Subscribe"
+            disabled={formState.status === 'loading'}
+            className="absolute right-2 top-1/2 -translate-y-1/2 min-w-[80px] px-3 py-1 text-sm text-gray-600 bg-white/95 backdrop-blur-sm rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 disabled:opacity-50 transition-colors dark:bg-gray-800/95 dark:text-gray-300 dark:hover:bg-gray-700"
           >
-            {status === 'loading' ? '...' : 'Subscribe'}
+            {formState.status === 'loading' ? '...' : 'Subscribe'}
           </button>
         </div>
       </div>
