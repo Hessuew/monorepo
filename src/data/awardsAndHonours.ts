@@ -8,6 +8,25 @@ type Award = {
 
 export const recentAwards2024: Award[] = [
   {
+    title: "World's Most Significant Research",
+    subtitle: "American Heart Association's 2024 World's Most Significant Advances in Cardiovascular Research",
+    location: null,
+    icon: 'tabler:world',
+  },
+  {
+    title: 'Early Career Investigator Award',
+    subtitle:
+      'American Heart Association Early Career Investigator Award for Preventive Cardiovascular Medicine Research 2024',
+    location: null,
+    icon: 'tabler:heart-handshake',
+  },
+  {
+    title: 'Paul Dudley White Scholar - Check1',
+    subtitle: 'Paul Dudley White International Scholar 2024 Award of the American Heart Association',
+    location: null,
+    icon: 'tabler:award',
+  },
+  {
     title: 'EASO New Investigator Award',
     subtitle: 'EASO-Novo Nordisk Foundation New Investigator Award in Childhood Obesity',
     details: 'Prize: 300,000 Danish Kroner (€40,000 / $44,000)',
@@ -27,7 +46,7 @@ export const recentAwards2024: Award[] = [
     icon: 'tabler:arrow-big-up-lines',
   },
   {
-    title: 'Paul Dudley White Scholar',
+    title: 'Paul Dudley White Scholar - Check2',
     subtitle: 'American Heart Association International Scholar Award 2024',
     location: null,
     icon: 'tabler:award',
@@ -42,13 +61,13 @@ export const recentAwards2024: Award[] = [
     title: 'Outstanding Abstract',
     subtitle: 'Endocrine Society Outstanding Abstract Award, ENDO 2024',
     location: 'Boston, US',
-    icon: 'tabler:certificate',
+    icon: 'tabler:award-filled',
   },
   {
     title: 'Career Development Lecture',
     subtitle: 'British Society for Endocrinology Career Development Award',
     location: 'Cardiff, UK',
-    icon: 'tabler:stairs-up',
+    icon: 'tabler:presentation',
   },
 ];
 
@@ -103,7 +122,7 @@ export const pastAwards: Award[] = [
   {
     title: 'Best Poster Award',
     subtitle: 'Novo Nordisk Foundation Scientific Conference on Prevention of Childhood Obesity 2023',
-    icon: 'tabler:presentation',
+    icon: 'tabler:certificate',
   },
   {
     title: 'EJPC Top Reviewer',

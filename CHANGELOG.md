@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Cloudflare Workers package for email subscription handling
 - Enhanced email template with improved animations and compatibility
 - CSS-based hover animations for better email client support
+- Added new American Heart Association 2024 awards and honors
 
 ### Changed
 

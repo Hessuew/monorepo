@@ -3,6 +3,7 @@ import { cors } from 'hono/cors';
 import { z } from 'zod';
 import { zValidator } from '@hono/zod-validator';
 import { Resend } from 'resend';
+import { WelcomeEmail } from './emails/WelcomeEmail';
 
 interface Env {
   RESEND_API_KEY: string;
@@ -15,7 +16,8 @@ const app = new Hono<{ Bindings: Env }>();
 app.use(
   '/*',
   cors({
-    origin: ['http://localhost:4321', 'https://urfit-child.com'],
+    // origin: ['http://localhost:4321', 'https://urfit-child.com'],
+    origin: ['https://urfit-child.com'],
     allowMethods: ['POST', 'OPTIONS'],
   })
 );
@@ -28,6 +30,7 @@ const subscribeSchema = z.object({
 app.post('/subscribe', zValidator('json', subscribeSchema), async (c) => {
   const { email } = c.req.valid('json');
   const env = c.env;
+  console.log('Received subscription request:', { email });
 
   try {
     // Send welcome email
@@ -53,12 +56,7 @@ app.post('/subscribe', zValidator('json', subscribeSchema), async (c) => {
       from: 'urFIT-child <no-reply@urfit-child.com>',
       to: email,
       subject: 'Welcome to urFIT-child Research Updates',
-      html: `
-        <h1>Welcome to urFIT-child Research Updates</h1>
-        <p>Dear ${email},</p>
-        <p>Thank you for subscribing to our research updates. We'll keep you informed about our latest publications and findings.</p>
-        <p>Best regards,<br>urFIT-child Research Team</p>
-      `,
+      react: <WelcomeEmail />,
     });
 
     return c.json({
