@@ -1,15 +1,4 @@
-import * as React from 'react';
-import {
-  Body,
-  Container,
-  Head,
-  Heading,
-  Html,
-  Link,
-  Preview,
-  Section,
-  Text,
-} from '@react-email/components';
+import { Body, Container, Head, Heading, Html, Link, Preview, Section, Text } from '@react-email/components';
 
 export const WelcomeEmail = () => {
   const baseUrl = 'https://urfit-child.com';
@@ -22,36 +11,39 @@ export const WelcomeEmail = () => {
         <Container style={container}>
           <Section style={section}>
             <Heading style={h1}>Welcome to urFIT-child Research</Heading>
-            
+
             <Text style={text}>Dear Colleague,</Text>
-            
+
             <Text style={text}>
-              Thank you for subscribing to our research publications. You will now receive updates on our latest 
+              Thank you for subscribing to our research publications. You will now receive updates on our latest
               peer-reviewed findings in pediatric cardiometabolic health, physical activity, and obesity research.
             </Text>
 
             <Text style={highlight}>
-              Our research has been recognized by the American Heart Association as one of the World's Most 
-              Significant Advances in Cardiovascular Research for 2024.
+              Our research has been recognized by the American Heart Association as one of the World's Most Significant
+              Advances in Cardiovascular Research for 2024.
             </Text>
 
             <Text style={text}>
-              Each notification will provide direct access to our latest publications, ensuring you stay 
-              at the forefront of pediatric health research.
+              Each notification will provide direct access to our latest publications, ensuring you stay at the
+              forefront of pediatric health research.
             </Text>
 
             <div style={websiteBox}>
               <Text style={websiteText}>
-                Visit our <Link style={websiteLink} href={baseUrl}>website</Link> to explore more of our research 
-                and stay updated with our latest findings.
+                Visit our{' '}
+                <Link style={websiteLink} href={baseUrl}>
+                  website
+                </Link>{' '}
+                to explore more of our research and stay updated with our latest findings.
               </Text>
             </div>
 
             <div style={footer}>
-            <Text style={regards}>Best regards,</Text>
-            <Text style={teamName}>urFIT-child Research Team</Text>
-            
-            <div style={socialLinks}>
+              <Text style={regards}>Best regards,</Text>
+              <Text style={teamName}>urFIT-child Research Team</Text>
+
+              <div style={socialLinks}>
                 <Link href="https://www.researchgate.net/profile/Andrew-Agbaje" style={socialLink}>
                   ResearchGate
                 </Link>
@@ -68,7 +60,10 @@ export const WelcomeEmail = () => {
                   PubMed
                 </Link>
                 <Text style={bullet}>•</Text>
-                <Link href="https://uefconnect.uef.fi/en/group/understanding-fitness-and-cardiometabolic-health-in-little-darlings-urfit-child" style={socialLink}>
+                <Link
+                  href="https://uefconnect.uef.fi/en/group/understanding-fitness-and-cardiometabolic-health-in-little-darlings-urfit-child"
+                  style={socialLink}
+                >
                   UEF
                 </Link>
               </div>

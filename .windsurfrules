@@ -95,6 +95,7 @@ Users will themselves create branches with descriptive names that reflect the ch
 
 1. Give a good commit message
 2. Use and fill the existing pull request template .github/PULL_REQUEST_TEMPLATE.md
+   2.1 Don't remove unchecked checkboxes
 3. Always check all related files when creating a PR, not just the active file
 4. Include both technical and visual changes in PR descriptions
 5. Group changes by component/page for better organization

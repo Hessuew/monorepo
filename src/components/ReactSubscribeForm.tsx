@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 
 interface FormState {
   email: string;
@@ -12,7 +12,7 @@ export default function ReactSubscribeForm() {
     email: '',
     status: 'idle',
     message: '',
-    isVisible: false
+    isVisible: false,
   });
 
   useEffect(() => {
@@ -21,15 +21,15 @@ export default function ReactSubscribeForm() {
 
     if (formState.status === 'success' || formState.status === 'error') {
       // Show message with fade in
-      setFormState(prev => ({ ...prev, isVisible: true }));
-      
+      setFormState((prev) => ({ ...prev, isVisible: true }));
+
       // Start fade out after 3 seconds
       timer = setTimeout(() => {
-        setFormState(prev => ({ ...prev, isVisible: false }));
-        
+        setFormState((prev) => ({ ...prev, isVisible: false }));
+
         // Reset status after fade out animation completes
         resetTimer = setTimeout(() => {
-          setFormState(prev => ({ ...prev, status: 'idle', message: '' }));
+          setFormState((prev) => ({ ...prev, status: 'idle', message: '' }));
         }, 300); // Match this with CSS transition duration
       }, 3000);
     }
@@ -41,43 +41,43 @@ export default function ReactSubscribeForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    setFormState(prev => ({ ...prev, status: 'loading' }));
+
+    setFormState((prev) => ({ ...prev, status: 'loading' }));
 
     try {
-      const workerUrl = import.meta.env.DEV 
+      const workerUrl = import.meta.env.DEV
         ? 'http://localhost:8787/subscribe'
         : 'https://subscribe.urfit-child.dev/subscribe';
-        
+
       const response = await fetch(workerUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email: formState.email }),
-      })
+      });
 
-      const data = await response.json() as {
+      const data = (await response.json()) as {
         success: boolean;
         message: string;
       };
 
       if (response.ok) {
-        setFormState(prev => ({
+        setFormState((prev) => ({
           ...prev,
           status: 'success',
           message: 'Successfully subscribed to updates!',
-          email: ''
+          email: '',
         }));
       } else {
         throw new Error(data.message || 'Failed to subscribe');
       }
     } catch (error: unknown) {
-      console.log(error)
-      setFormState(prev => ({
+      console.log(error);
+      setFormState((prev) => ({
         ...prev,
         status: 'error',
-        message: error instanceof Error ? error.message : 'An error occurred'
+        message: error instanceof Error ? error.message : 'An error occurred',
       }));
     }
   };
@@ -93,8 +93,8 @@ export default function ReactSubscribeForm() {
               formState.status === 'success'
                 ? 'bg-green-50 text-green-700 dark:bg-green-900/50 dark:text-green-200'
                 : formState.status === 'error'
-                ? 'bg-red-50 text-red-700 dark:bg-red-900/50 dark:text-red-200'
-                : ''
+                  ? 'bg-red-50 text-red-700 dark:bg-red-900/50 dark:text-red-200'
+                  : ''
             }`}
             role="alert"
             aria-live="polite"
@@ -106,7 +106,7 @@ export default function ReactSubscribeForm() {
           <input
             type="email"
             value={formState.email}
-            onChange={(e) => setFormState(prev => ({ ...prev, email: e.target.value }))}
+            onChange={(e) => setFormState((prev) => ({ ...prev, email: e.target.value }))}
             placeholder="Subscribe to updates"
             className="w-full md:min-w-[300px] px-4 pr-24 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 dark:focus:ring-gray-300"
             required
@@ -123,5 +123,5 @@ export default function ReactSubscribeForm() {
         </div>
       </div>
     </form>
-  )
+  );
 }
