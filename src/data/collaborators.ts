@@ -152,7 +152,7 @@ export const collaborators: Collaborator[] = [
     title: 'Professor of Pediatric Cardiology',
     affiliation:
       'Chair of Pediatric Prevention, Dean Faculty of Sport and Health Sciences, Technical University Munich, Germany',
-    profileUrl: 'https://www.professoren.tum.de/oberhoffer-renate',
+    profileUrl: 'https://www.professoren.tum.de/en/oberhoffer-renate',
     image: {
       src: imgOberhoffer,
       alt: 'Professor Dr. Renate Oberhoffer-Fritz',

@@ -39,18 +39,6 @@ export const publications: Publication[] = [
     doi: '10.1016/j.jacc.2024.09.1229',
   },
   {
-    title:
-      'Lean Mass Longitudinally Confounds Sedentary Time and Physical Activity With Blood Pressure Progression in 2513 Children',
-    authors: 'Agbaje, Andrew O',
-    date: '2024-11-13',
-    journal: 'Journal of Cachexia, Sarcopenia and Muscle',
-    volume: '',
-    pages: '',
-    type: 'Original article',
-    category: 'Original article',
-    doi: '10.1002/jcsm.13639',
-  },
-  {
     title: 'JHH Young Investigator Award 2023: interview with the winner Andrew O. Agbaje',
     authors: 'Agbaje, Andrew O',
     date: '2024-11-01',
@@ -222,7 +210,7 @@ export const publications: Publication[] = [
     title:
       'Lean Mass Longitudinally Confounds Sedentary Time and Physical Activity With Blood Pressure Progression in 2513 Children',
     authors: 'Agbaje, Andrew O',
-    date: '2024-10-13',
+    date: '2024-11-13',
     journal: 'Journal of cachexia, sarcopenia and muscle',
     volume: '',
     pages: '1-16',
