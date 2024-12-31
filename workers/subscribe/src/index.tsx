@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { zValidator } from '@hono/zod-validator';
 import { Resend } from 'resend';
 import { WelcomeEmail } from './emails/WelcomeEmail';
+import type { Context, Next } from 'hono';
 
 interface Env {
   RESEND_API_KEY: string;
@@ -16,7 +17,6 @@ const app = new Hono<{ Bindings: Env }>();
 app.use(
   '/*',
   cors({
-    // origin: ['http://localhost:4321', 'https://urfit-child.com'],
     origin: ['https://urfit-child.com'],
     allowMethods: ['POST', 'OPTIONS'],
   })
@@ -27,7 +27,24 @@ const subscribeSchema = z.object({
   email: z.string().email().nonempty(),
 });
 
-app.post('/subscribe', zValidator('json', subscribeSchema), async (c) => {
+// CSRF protection middleware
+const csrfProtection = async (c: Context<{ Bindings: Env }>, next: Next) => {
+  const requestedWith = c.req.header('X-Requested-With');
+  
+  if (!requestedWith || requestedWith !== 'XMLHttpRequest') {
+    return c.json(
+      {
+        success: false,
+        message: 'Invalid request origin',
+      },
+      403
+    );
+  }
+
+  await next();
+};
+
+app.post('/subscribe', csrfProtection, zValidator('json', subscribeSchema), async (c) => {
   const { email } = c.req.valid('json');
   const env = c.env;
   console.log('Received subscription request:', { email });

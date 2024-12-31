@@ -32,6 +32,11 @@ const THRESHOLDS: Record<Gender, ThresholdValues> = {
   },
 };
 
+const MEASUREMENT_LIMITS = {
+  MIN: 0,
+  MAX: 300
+};
+
 export function ReactCalculator(): React.JSX.Element {
   const [inputs, setInputs] = useState<CalculatorInputs>({
     waist: '',
@@ -47,18 +52,24 @@ export function ReactCalculator(): React.JSX.Element {
   const [result, setResult] = useState<string>('0');
   const [showLine, setShowLine] = useState(false);
   const [lineWidth, setLineWidth] = useState(0);
-  const timerRef = useRef<NodeJS.Timeout>(null);
+  const timerRef = useRef<NodeJS.Timeout | undefined>(undefined);
+
 
   function validateInput(name: keyof CalculatorInputs, value: string): string {
     if (name === 'gender') return '';
 
     const numValue = parseFloat(value);
-    if (name === 'waist') {
-      if (numValue < 0 || numValue > 300) return 'Enter a valid waist (0-300)';
-    }
-    if (name === 'height') {
-      if (numValue < 0 || numValue > 300) return 'Enter a valid height (0-300)';
-    }
+
+   if (name === 'waist') {
+     if (numValue < MEASUREMENT_LIMITS.MIN || numValue > MEASUREMENT_LIMITS.MAX) {
+       return `Enter a valid waist (${MEASUREMENT_LIMITS.MIN}-${MEASUREMENT_LIMITS.MAX})`;
+     }
+   }
+   if (name === 'height') {
+     if (numValue < MEASUREMENT_LIMITS.MIN || numValue > MEASUREMENT_LIMITS.MAX) {
+       return `Enter a valid height (${MEASUREMENT_LIMITS.MIN}-${MEASUREMENT_LIMITS.MAX})`;
+     }
+   }
     return '';
   }
 
@@ -175,7 +186,7 @@ export function ReactCalculator(): React.JSX.Element {
               type="number"
               name="waist"
               id="waist"
-              defaultValue={inputs.waist}
+              value={inputs.waist}
               onChange={handleInputChange}
               placeholder="0 cm"
               min="0"
@@ -200,7 +211,7 @@ export function ReactCalculator(): React.JSX.Element {
               type="number"
               name="height"
               id="height"
-              defaultValue={inputs.height}
+              value={inputs.height}
               onChange={handleInputChange}
               placeholder="0 cm"
               min="0"
