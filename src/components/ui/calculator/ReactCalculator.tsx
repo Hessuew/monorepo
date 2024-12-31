@@ -1,4 +1,5 @@
 import React, { useState, type ChangeEvent, useEffect, useRef } from 'react';
+import { THRESHOLDS } from '~/data/thresholds';
 
 type Gender = 'male' | 'female';
 
@@ -12,25 +13,6 @@ interface ValidationErrors {
   waist: string;
   height: string;
 }
-
-interface ThresholdValues {
-  normal: number;
-  high: number;
-  excess: number;
-}
-
-const THRESHOLDS: Record<Gender, ThresholdValues> = {
-  male: {
-    normal: 0.5,
-    high: 0.53,
-    excess: 0.53,
-  },
-  female: {
-    normal: 0.51,
-    high: 0.54,
-    excess: 0.54,
-  },
-};
 
 const MEASUREMENT_LIMITS = {
   MIN: 0,
@@ -92,8 +74,8 @@ export function ReactCalculator(): React.JSX.Element {
   function getResultColor(ratio: number): string {
     const thresholds = THRESHOLDS[inputs.gender];
 
-    if (ratio <= thresholds.normal) return 'bg-green-500';
-    if (ratio <= thresholds.high) return 'bg-yellow-500';
+    if (ratio <= thresholds.high) return 'bg-green-500';
+    if (ratio <= thresholds.excess) return 'bg-yellow-500';
     return 'bg-red-500';
   }
 

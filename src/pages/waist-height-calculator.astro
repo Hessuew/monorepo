@@ -8,6 +8,7 @@ import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import GraphGrid from '~/components/widgets/GraphGrid.astro';
 import Calculator from '~/components/ui/calculator/Calculator.astro';
+import { THRESHOLDS } from '~/data/thresholds';
 
 import imgCalculator from '~/assets/images/waist-to-height-calculator/Waist to Height Ratio vs BMI Press Release.webp';
 import imgAgbaje from '~/assets/images/waist-to-height-calculator/Agbaje Waist to Height.webp';
@@ -83,9 +84,9 @@ const metadata = {
         color: 'green-500',
         subtitle: { text1: 'Male', text2: 'Female' },
         rows: [
-          { text1: '<0.50', text2: '<0.51' },
-          { text1: '<0.50', text2: '<0.51' },
-          { text1: '<0.50', text2: '<0.51' },
+          { text1: `<${THRESHOLDS.male.normal}`, text2: `<${THRESHOLDS.female.normal}` },
+          { text1: `<${THRESHOLDS.male.normal}`, text2: `<${THRESHOLDS.female.normal}` },
+          { text1: `<${THRESHOLDS.male.normal}`, text2: `<${THRESHOLDS.female.normal}` },
         ],
       },
       {
@@ -93,9 +94,9 @@ const metadata = {
         color: 'yellow-500',
         subtitle: { text1: 'Male', text2: 'Female' },
         rows: [
-          { text1: '>0.50', text2: '>0.51' },
-          { text1: '>0.50', text2: '>0.51' },
-          { text1: '>0.50', text2: '>0.51' },
+          { text1: `>${THRESHOLDS.male.high}`, text2: `>${THRESHOLDS.female.high}` },
+          { text1: `>${THRESHOLDS.male.high}`, text2: `>${THRESHOLDS.female.high}` },
+          { text1: `>${THRESHOLDS.male.high}`, text2: `>${THRESHOLDS.female.high}` },
         ],
       },
       {
@@ -103,9 +104,9 @@ const metadata = {
         color: 'red-500',
         subtitle: { text1: 'Male', text2: 'Female' },
         rows: [
-          { text1: '>0.53', text2: '>0.54' },
-          { text1: '>0.53', text2: '>0.54' },
-          { text1: '>0.53', text2: '>0.54' },
+          { text1: `>${THRESHOLDS.male.excess}`, text2: `>${THRESHOLDS.female.excess}` },
+          { text1: `>${THRESHOLDS.male.excess}`, text2: `>${THRESHOLDS.female.excess}` },
+          { text1: `>${THRESHOLDS.male.excess}`, text2: `>${THRESHOLDS.female.excess}` },
         ],
       },
     ]}
