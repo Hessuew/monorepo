@@ -7,7 +7,7 @@ import GradientText from '~/components/ui/GradientText.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import GraphGrid from '~/components/widgets/GraphGrid.astro';
-import Calculator from '~/components/ui/Calculator.astro';
+import Calculator from '~/components/ui/calculator/Calculator.astro';
 
 import imgCalculator from '~/assets/images/waist-to-height-calculator/Waist to Height Ratio vs BMI Press Release.webp';
 import imgAgbaje from '~/assets/images/waist-to-height-calculator/Agbaje Waist to Height.webp';
@@ -35,20 +35,24 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Waist circumference</h3>
-      Acquire a flexible measuring tape or tape rule. Feel for your hip bone and your bottom rib, and place the tape measure
-      evenly around your waist which is halfway between the last rib and hip bone. The waistline may lie directly above your
-      umbilicus. (If needed, use a mirror to guide the tape straight around your waist and parallel to the ground.) Record
-      the values in centimeters.
-      <br />
-      <br />
+      <div
+        class="intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Waist circumference</h3>
+        Acquire a flexible measuring tape or tape rule. Feel for your hip bone and your bottom rib, and place the tape measure
+        evenly around your waist which is halfway between the last rib and hip bone. The waistline may lie directly above
+        your umbilicus. (If needed, use a mirror to guide the tape straight around your waist and parallel to the ground.)
+        Record the values in centimeters.
+        <br />
+        <br />
 
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Height measurement</h3>
-      A tape measure, a flat surface, and a pencil are needed. Stand with your feet without shoes flat on the floor with
-      your heels against the corner where the wall and floor meet. Ensure your head, shoulders, and buttocks touch the wall.
-      Look straight ahead parallel to the floor. Have someone place a book or a ruler over your head and lightly mark the
-      wall with a pencil. Then measure the distance between the marked point and the floor. Now calculate waist circumference
-      (cm)/height (cm) and check the results against the categories provided above.
+        <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Height measurement</h3>
+        A tape measure, a flat surface, and a pencil are needed. Stand with your feet without shoes flat on the floor with
+        your heels against the corner where the wall and floor meet. Ensure your head, shoulders, and buttocks touch the
+        wall. Look straight ahead parallel to the floor. Have someone place a book or a ruler over your head and lightly
+        mark the wall with a pencil. Then measure the distance between the marked point and the floor. Now calculate waist
+        circumference (cm)/height (cm) and check the results against the categories provided above.
+      </div>
     </Fragment>
   </Content>
 
@@ -76,6 +80,7 @@ const metadata = {
       },
       {
         title: 'Normal fat',
+        color: 'green-500',
         subtitle: { text1: 'Male', text2: 'Female' },
         rows: [
           { text1: '<0.50', text2: '<0.51' },
@@ -85,6 +90,7 @@ const metadata = {
       },
       {
         title: 'High fat',
+        color: 'yellow-500',
         subtitle: { text1: 'Male', text2: 'Female' },
         rows: [
           { text1: '>0.50', text2: '>0.51' },
@@ -94,6 +100,7 @@ const metadata = {
       },
       {
         title: 'Excess fat',
+        color: 'red-500',
         subtitle: { text1: 'Male', text2: 'Female' },
         rows: [
           { text1: '>0.53', text2: '>0.54' },
@@ -148,28 +155,3 @@ const metadata = {
 
   <Spacer />
 </Layout>
-
-<script>
-  function calculate() {
-    // Get the input values
-    const waist = (document.getElementById('waist') as HTMLInputElement)?.value;
-    const height = (document.getElementById('height') as HTMLInputElement)?.value;
-
-    // Parse the inputs as integers, default to 0 if empty
-    const waistValue = parseInt(waist) || 0;
-    const heightValue = parseInt(height) || 0;
-
-    // Calculate the result (waist / height) or 0 if any input is empty
-    const result = heightValue === 0 ? 0 : waistValue / heightValue;
-
-    // Set the result to the <p> element
-    const resultElement = document.getElementById('result');
-    if (resultElement) {
-      resultElement.textContent = result === 0 ? '0' : result.toFixed(2).toString();
-    }
-  }
-
-  // Attach the calculate function to the input event for both fields
-  document.getElementById('waist')?.addEventListener('input', calculate);
-  document.getElementById('height')?.addEventListener('input', calculate);
-</script>

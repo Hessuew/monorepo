@@ -30,7 +30,7 @@ const { columns = 2, classes = {} } = Astro.props;
         <iframe 
           width="100%" 
           height="100%" 
-          src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
+          src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1" 
           title="${title}"
           frameborder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -307,7 +307,7 @@ const { columns = 2, classes = {} } = Astro.props;
           >
             {mediaItemsByYear[year].map((item) => (
               <div
-                class="group item-card block focus:outline-none focus:ring-2 focus:ring-primary rounded-lg duration-1000 ease-out intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade video-container"
+                class="group item-card block hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary rounded-lg duration-1000 ease-out intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade video-container"
                 data-type={item.platform}
                 data-video-id={item.videoId}
                 data-title={item.title}

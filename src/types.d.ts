@@ -295,6 +295,7 @@ export interface Features extends Omit<Headline, 'classes'>, Widget {
 
 export interface GraphItem {
   title?: string;
+  color?: string;
   description?: string | { text: string; link?: boolean; subtitle?: boolean; classes?: Record<string, string> }[];
   subtitle?: { text1: string; text2: string };
   rows: Array<{ text1: string; text2?: string }>;
