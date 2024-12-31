@@ -34,7 +34,7 @@ const THRESHOLDS: Record<Gender, ThresholdValues> = {
 
 const MEASUREMENT_LIMITS = {
   MIN: 0,
-  MAX: 300
+  MAX: 300,
 };
 
 export function ReactCalculator(): React.JSX.Element {
@@ -54,22 +54,21 @@ export function ReactCalculator(): React.JSX.Element {
   const [lineWidth, setLineWidth] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
-
   function validateInput(name: keyof CalculatorInputs, value: string): string {
     if (name === 'gender') return '';
 
     const numValue = parseFloat(value);
 
-   if (name === 'waist') {
-     if (numValue < MEASUREMENT_LIMITS.MIN || numValue > MEASUREMENT_LIMITS.MAX) {
-       return `Enter a valid waist (${MEASUREMENT_LIMITS.MIN}-${MEASUREMENT_LIMITS.MAX})`;
-     }
-   }
-   if (name === 'height') {
-     if (numValue < MEASUREMENT_LIMITS.MIN || numValue > MEASUREMENT_LIMITS.MAX) {
-       return `Enter a valid height (${MEASUREMENT_LIMITS.MIN}-${MEASUREMENT_LIMITS.MAX})`;
-     }
-   }
+    if (name === 'waist') {
+      if (numValue < MEASUREMENT_LIMITS.MIN || numValue > MEASUREMENT_LIMITS.MAX) {
+        return `Enter a valid waist (${MEASUREMENT_LIMITS.MIN}-${MEASUREMENT_LIMITS.MAX})`;
+      }
+    }
+    if (name === 'height') {
+      if (numValue < MEASUREMENT_LIMITS.MIN || numValue > MEASUREMENT_LIMITS.MAX) {
+        return `Enter a valid height (${MEASUREMENT_LIMITS.MIN}-${MEASUREMENT_LIMITS.MAX})`;
+      }
+    }
     return '';
   }
 
@@ -118,7 +117,6 @@ export function ReactCalculator(): React.JSX.Element {
     }
 
     timerRef.current = setTimeout(() => {
-      console.log('start animation');
       setShowLine(true);
       // Start line width animation after showing the line
       requestAnimationFrame(() => {

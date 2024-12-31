@@ -52,7 +52,7 @@ export default function ReactSubscribeForm() {
     try {
       // Validate form data
       const result = subscribeSchema.safeParse({ email: formState.email });
-      
+
       if (!result.success) {
         setFormState((prev) => ({
           ...prev,
@@ -63,12 +63,12 @@ export default function ReactSubscribeForm() {
       }
 
       const workerUrl = import.meta.env.PUBLIC_SUBSCRIBE_API_URL;
-      
+
       const response = await fetch(workerUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-Requested-With': 'XMLHttpRequest'
+          'X-Requested-With': 'XMLHttpRequest',
         },
         body: JSON.stringify(result.data),
       });
