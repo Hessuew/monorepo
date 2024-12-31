@@ -50,13 +50,13 @@ export const collaborators: Collaborator[] = [
     },
   },
   {
-    name: 'Prof. Justin Zacharias',
+    name: 'Prof. Justin Zachariah',
     title: 'MD, MPH, Associate Professor in Pediatric Cardiology',
     affiliation: "Department of Pediatrics, Texas Children's Hospital, Baylor College of Medicine, Houston, Texas, US",
     profileUrl: 'https://www.texaschildrens.org/find-a-doctor/justin-p-v-zachariah-md-mph',
     image: {
       src: imgZachariah,
-      alt: 'Professor Justin Zacharias',
+      alt: 'Professor Justin Zachariah',
     },
   },
   {

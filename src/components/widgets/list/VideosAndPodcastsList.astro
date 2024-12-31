@@ -30,7 +30,7 @@ const { columns = 2, classes = {} } = Astro.props;
         <iframe 
           width="100%" 
           height="100%" 
-          src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1" 
+          src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1" 
           title="${title}"
           frameborder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -56,7 +56,7 @@ const { columns = 2, classes = {} } = Astro.props;
           <iframe 
             width="100%" 
             height="100%" 
-            src="https://player.vimeo.com/video/${id}?${searchParams.toString()}" 
+            src="https://player.vimeo.com/video/${encodeURIComponent(id)}?${searchParams.toString()}" 
             frameborder="0" 
             allow="autoplay; fullscreen; picture-in-picture" 
             allowfullscreen 
@@ -66,7 +66,7 @@ const { columns = 2, classes = {} } = Astro.props;
       }
     } else if (platform === 'doccheck') {
       container.innerHTML = `
-        <a href="https://www.doccheck.com/en/detail/videos/${videoId}" 
+        <a href="https://www.doccheck.com/en/detail/videos/${encodeURIComponent(videoId)}" 
            target="_blank" 
            rel="noopener noreferrer" 
            class="block w-full h-full">
@@ -81,7 +81,7 @@ const { columns = 2, classes = {} } = Astro.props;
           height="100%" 
           allow="autoplay" 
           referrerpolicy="no-referrer-when-downgrade" 
-          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${videoId}&color=%23ff5500&auto_play=1&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" 
+          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${encodeURIComponent(videoId)}&color=%23ff5500&auto_play=1&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" 
           class="absolute inset-0"
           tabindex="0">
         </iframe>`;
@@ -93,6 +93,7 @@ const { columns = 2, classes = {} } = Astro.props;
   function closeModal() {
     const modal = document.getElementById('video-modal');
     const modalContent = document.getElementById('modal-content');
+    const activePlayer = modalContent?.querySelector('iframe');
 
     if (modal) {
       modal.classList.remove('visible');
@@ -101,6 +102,10 @@ const { columns = 2, classes = {} } = Astro.props;
         selectedItem = null;
         if (modalContent) {
           modalContent.innerHTML = '';
+        }
+        // Clean up active player to stop video/audio
+        if (activePlayer) {
+          activePlayer.src = '';
         }
       }, 0);
     }
@@ -393,9 +398,16 @@ const { columns = 2, classes = {} } = Astro.props;
 </WidgetWrapper>
 
 <!-- Modal -->
-<div id="video-modal" class="fixed inset-0 z-[9999] bg-black/90">
+<div
+  id="video-modal"
+  class="fixed inset-0 z-[9999] bg-black/90"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modal-title"
+>
   <div
     id="modal-content"
+    role="document"
     class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl bg-white dark:bg-slate-900 rounded-lg shadow-lg dark:shadow-none p-8"
   >
   </div>

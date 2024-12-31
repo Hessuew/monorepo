@@ -21,7 +21,7 @@ export const recentAwards2024: Award[] = [
     icon: 'tabler:heart-handshake',
   },
   {
-    title: 'Paul Dudley White Scholar - Check1',
+    title: 'Paul Dudley White Scholar',
     subtitle: 'Paul Dudley White International Scholar 2024 Award of the American Heart Association',
     location: null,
     icon: 'tabler:award',
@@ -44,12 +44,6 @@ export const recentAwards2024: Award[] = [
     subtitle: 'European Society of Cardiology Early Career Investigator Award 2024',
     location: null,
     icon: 'tabler:arrow-big-up-lines',
-  },
-  {
-    title: 'Paul Dudley White Scholar - Check2',
-    subtitle: 'American Heart Association International Scholar Award 2024',
-    location: null,
-    icon: 'tabler:award',
   },
   {
     title: 'ESC Top Reviewer',
