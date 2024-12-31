@@ -25,7 +25,7 @@ export const publications: Publication[] = [
     pages: '',
     type: 'Conference abstract',
     category: 'Conference abstract',
-    doi: '0.1210/clinem/dgae135',
+    doi: '10.1210/clinem/dgae135',
   },
   {
     title: 'Incidental and Progressive Tobacco Smoking in Childhood and Subsequent Risk of Premature Cardiac Damage',

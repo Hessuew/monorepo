@@ -11,6 +11,7 @@ interface MediaItem {
   author?: string;
   trackUrl?: string;
   poster?: ImageMetadata;
+  videoQuality?: 'max' | 'hq';
 }
 
 export const videosAndPodcasts: MediaItem[] = [
@@ -62,6 +63,7 @@ export const videosAndPodcasts: MediaItem[] = [
     date: '2024-03-19',
     videoId: 'AuFbnDornog',
     platform: 'youtube',
+    videoQuality: 'hq',
   },
   {
     title: 'University of Eastern Finland Video Interview on Sedentariness',
@@ -82,6 +84,7 @@ export const videosAndPodcasts: MediaItem[] = [
     date: '2024-01-19',
     videoId: 'Xm1B-ZkP6Bo',
     platform: 'youtube',
+    videoQuality: 'hq',
   },
   {
     title: 'DocCheck Interview on Slow and Steady Wins the Race- Light Physical Activity',

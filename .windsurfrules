@@ -101,8 +101,6 @@ Users will themselves create branches with descriptive names that reflect the ch
 5. Group changes by component/page for better organization
 6. Reference specific UI/UX improvements made
 
-## Pull Request Best Practices
-
 ## Documentation
 
 - Maintain clear README with setup instructions

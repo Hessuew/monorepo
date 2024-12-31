@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { z } from 'zod';
 
 interface FormState {
   email: string;
@@ -6,6 +7,11 @@ interface FormState {
   message: string;
   isVisible: boolean;
 }
+
+// Validation schema
+const subscribeSchema = z.object({
+  email: z.string().email(),
+});
 
 export default function ReactSubscribeForm() {
   const [formState, setFormState] = useState<FormState>({
@@ -41,26 +47,33 @@ export default function ReactSubscribeForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     setFormState((prev) => ({ ...prev, status: 'loading' }));
 
     try {
-      const workerUrl = import.meta.env.DEV
-        ? 'http://localhost:8787/subscribe'
-        : 'https://subscribe.urfit-child.dev/subscribe';
+      // Validate form data
+      const result = subscribeSchema.safeParse({ email: formState.email });
+      
+      if (!result.success) {
+        setFormState((prev) => ({
+          ...prev,
+          status: 'error',
+          message: result.error.errors[0]?.message || 'Invalid email format',
+        }));
+        return;
+      }
 
+      const workerUrl = import.meta.env.PUBLIC_SUBSCRIBE_API_URL;
+      
       const response = await fetch(workerUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest'
         },
-        body: JSON.stringify({ email: formState.email }),
+        body: JSON.stringify(result.data),
       });
 
-      const data = (await response.json()) as {
-        success: boolean;
-        message: string;
-      };
+      const data = await response.json();
 
       if (response.ok) {
         setFormState((prev) => ({
@@ -72,14 +85,24 @@ export default function ReactSubscribeForm() {
       } else {
         throw new Error(data.message || 'Failed to subscribe');
       }
-    } catch (error: unknown) {
-      console.log(error);
+    } catch (error) {
+      console.error('Subscription error:', error);
       setFormState((prev) => ({
         ...prev,
         status: 'error',
         message: error instanceof Error ? error.message : 'An error occurred',
       }));
     }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setFormState((prev) => ({
+      ...prev,
+      email: value,
+      status: 'idle',
+      message: '',
+    }));
   };
 
   return (
@@ -104,9 +127,8 @@ export default function ReactSubscribeForm() {
         )}
         <div className="flex">
           <input
-            type="email"
             value={formState.email}
-            onChange={(e) => setFormState((prev) => ({ ...prev, email: e.target.value }))}
+            onChange={handleInputChange}
             placeholder="Subscribe to updates"
             className="w-full md:min-w-[300px] px-4 pr-24 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 dark:focus:ring-gray-300"
             required
