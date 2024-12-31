@@ -30,7 +30,7 @@ const subscribeSchema = z.object({
 // CSRF protection middleware
 const csrfProtection = async (c: Context<{ Bindings: Env }>, next: Next) => {
   const requestedWith = c.req.header('X-Requested-With');
-  
+
   if (!requestedWith || requestedWith !== 'XMLHttpRequest') {
     return c.json(
       {
