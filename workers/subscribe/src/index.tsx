@@ -9,6 +9,9 @@ import type { Context, Next } from 'hono';
 interface Env {
   RESEND_API_KEY: string;
   RESEND_AUDIENCE_ID: string;
+  SUBSCRIPTION_RATELIMIT: {
+    limit: (options: { key: string }) => Promise<{ success: boolean }>;
+  };
 }
 
 const app = new Hono<{ Bindings: Env }>();
@@ -30,12 +33,16 @@ const subscribeSchema = z.object({
 // CSRF protection middleware
 const csrfProtection = async (c: Context<{ Bindings: Env }>, next: Next) => {
   const requestedWith = c.req.header('X-Requested-With');
+  const origin = c.req.header('Origin');
+  const referer = c.req.header('Referer');
 
-  if (!requestedWith || requestedWith !== 'XMLHttpRequest') {
+  if (!requestedWith || requestedWith !== 'XMLHttpRequest' ||
+      !origin || !origin.endsWith('urfit-child.com') ||
+      !referer || !referer.startsWith('https://urfit-child.com')) {
     return c.json(
       {
         success: false,
-        message: 'Invalid request origin',
+        message: 'Invalid request',
       },
       403
     );
@@ -47,9 +54,20 @@ const csrfProtection = async (c: Context<{ Bindings: Env }>, next: Next) => {
 app.post('/subscribe', csrfProtection, zValidator('json', subscribeSchema), async (c) => {
   const { email } = c.req.valid('json');
   const env = c.env;
-  console.log('Received subscription request:', { email });
 
   try {
+    const { success } = await env.SUBSCRIPTION_RATELIMIT.limit({ key: email });
+
+    if (!success) {
+      return c.json(
+        {
+          success: false,
+          message: 'This email has reached the subscription attempt limit. Please try again later.',
+        },
+        429
+      );
+    }
+
     // Send welcome email
     const resend = new Resend(env.RESEND_API_KEY);
 
@@ -69,12 +87,16 @@ app.post('/subscribe', csrfProtection, zValidator('json', subscribeSchema), asyn
       );
     }
 
-    await resend.emails.send({
+    const { error: emailError } = await resend.emails.send({
       from: 'urFIT-child <no-reply@urfit-child.com>',
       to: email,
       subject: 'Welcome to urFIT-child Research Updates',
       react: <WelcomeEmail />,
     });
+
+    if (emailError) {
+      console.error('Failed to send welcome email', emailError);
+    }
 
     return c.json({
       success: true,

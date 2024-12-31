@@ -130,7 +130,7 @@ export default function ReactSubscribeForm() {
             value={formState.email}
             onChange={handleInputChange}
             placeholder="Subscribe to updates"
-            className="w-full md:min-w-[300px] px-4 pr-24 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 dark:focus:ring-gray-300"
+            className="w-full md:min-w-[300px] px-4 pr-24 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 dark:focus:ring-gray-300"
             required
             aria-label="Email subscription"
             disabled={formState.status === 'loading'}
@@ -138,7 +138,7 @@ export default function ReactSubscribeForm() {
           <button
             type="submit"
             disabled={formState.status === 'loading'}
-            className="absolute right-2 top-1/2 -translate-y-1/2 min-w-[80px] px-3 py-1 text-sm text-gray-600 bg-white/95 backdrop-blur-sm rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 disabled:opacity-50 transition-colors dark:bg-gray-800/95 dark:text-gray-300 dark:hover:bg-gray-700"
+            className="absolute right-2 top-1/2 -translate-y-1/2 min-w-[80px] px-3 py-1 text-sm text-gray-600 bg-gray-100 backdrop-blur-sm rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200 disabled:opacity-50 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
           >
             {formState.status === 'loading' ? '...' : 'Subscribe'}
           </button>
