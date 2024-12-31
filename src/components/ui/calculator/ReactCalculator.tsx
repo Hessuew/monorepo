@@ -21,27 +21,27 @@ interface ThresholdValues {
 
 const THRESHOLDS: Record<Gender, ThresholdValues> = {
   male: {
-    normal: 0.50,
+    normal: 0.5,
     high: 0.53,
-    excess: 0.53
+    excess: 0.53,
   },
   female: {
     normal: 0.51,
     high: 0.54,
-    excess: 0.54
-  }
+    excess: 0.54,
+  },
 };
 
 export function ReactCalculator(): React.JSX.Element {
   const [inputs, setInputs] = useState<CalculatorInputs>({
     waist: '',
     height: '',
-    gender: 'male'
+    gender: 'male',
   });
-  
+
   const [errors, setErrors] = useState<ValidationErrors>({
     waist: '',
-    height: ''
+    height: '',
   });
 
   const [result, setResult] = useState<string>('0');
@@ -51,7 +51,7 @@ export function ReactCalculator(): React.JSX.Element {
 
   function validateInput(name: keyof CalculatorInputs, value: string): string {
     if (name === 'gender') return '';
-    
+
     const numValue = parseFloat(value);
     if (name === 'waist') {
       if (numValue < 0 || numValue > 300) return 'Enter a valid waist (0-300)';
@@ -64,15 +64,15 @@ export function ReactCalculator(): React.JSX.Element {
 
   function handleInputChange(e: ChangeEvent<HTMLInputElement>): void {
     const { name, value } = e.target;
-    setInputs(prev => ({ ...prev, [name]: value }));
-    
+    setInputs((prev) => ({ ...prev, [name]: value }));
+
     const error = validateInput(name as keyof CalculatorInputs, value);
-    setErrors(prev => ({ ...prev, [name]: error }));
+    setErrors((prev) => ({ ...prev, [name]: error }));
 
     // Reset line animation state
     setShowLine(false);
     setLineWidth(0);
-    
+
     // Clear existing timer
     if (timerRef.current) {
       clearTimeout(timerRef.current);
@@ -81,7 +81,7 @@ export function ReactCalculator(): React.JSX.Element {
 
   function getResultColor(ratio: number): string {
     const thresholds = THRESHOLDS[inputs.gender];
-    
+
     if (ratio <= thresholds.normal) return 'bg-green-500';
     if (ratio <= thresholds.high) return 'bg-yellow-500';
     return 'bg-red-500';
@@ -124,7 +124,11 @@ export function ReactCalculator(): React.JSX.Element {
 
   return (
     <div>
-      <fieldset className="flex justify-center gap-4 items-center pb-2 sm:pb-4" role="radiogroup" aria-label="Select gender">
+      <fieldset
+        className="flex justify-center gap-4 items-center pb-2 sm:pb-4"
+        role="radiogroup"
+        aria-label="Select gender"
+      >
         <legend className="sr-only">Select gender</legend>
         <div className="flex items-center">
           <input
@@ -133,7 +137,7 @@ export function ReactCalculator(): React.JSX.Element {
             name="gender"
             value="male"
             checked={inputs.gender === 'male'}
-            onChange={(e) => setInputs(prev => ({ ...prev, gender: e.target.value as Gender }))}
+            onChange={(e) => setInputs((prev) => ({ ...prev, gender: e.target.value as Gender }))}
             className="h-4 w-4 text-blue-500 border-gray-300 focus:ring-blue-500 dark:border-gray-600 dark:focus:ring-blue-600"
           />
           <label htmlFor="male" className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">
@@ -147,7 +151,7 @@ export function ReactCalculator(): React.JSX.Element {
             name="gender"
             value="female"
             checked={inputs.gender === 'female'}
-            onChange={(e) => setInputs(prev => ({ ...prev, gender: e.target.value as Gender }))}
+            onChange={(e) => setInputs((prev) => ({ ...prev, gender: e.target.value as Gender }))}
             className="h-4 w-4 text-blue-500 border-gray-300 focus:ring-blue-500 dark:border-gray-600 dark:focus:ring-blue-600"
           />
           <label htmlFor="female" className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">
@@ -212,7 +216,7 @@ export function ReactCalculator(): React.JSX.Element {
             <p className="block font-medium text-lg truncate">{result}</p>
             {showLine && (
               <div className="absolute -bottom-2 left-0 right-0 h-2 w-10 overflow-hidden">
-                <div 
+                <div
                   className={`h-full transition-[width] duration-500 ease-out ${getResultColor(parseFloat(result))}`}
                   style={{ width: `${lineWidth}%` }}
                   aria-hidden="true"
