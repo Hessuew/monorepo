@@ -21,7 +21,13 @@ jobs:
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: ${{ matrix.bun-version }}
-      - run: bun install
+      - name: Install root dependencies
+        run: bun install
+      - name: Install worker dependencies
+        run: |
+          cd workers/subscribe
+          bun install
+          cd ../..
       - run: bun run build
       # - run: bun test
 
@@ -33,5 +39,12 @@ jobs:
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-      - run: bun install
-      - run: bun run check
+      - name: Install root dependencies
+        run: bun install
+      - name: Install worker dependencies
+        run: |
+          cd workers/subscribe
+          bun install
+          cd ../..
+      - name: Run check
+        run: bun run check

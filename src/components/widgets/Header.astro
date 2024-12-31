@@ -1,14 +1,13 @@
 ---
-import { Icon } from 'astro-icon/components';
-import Logo from '~/components/Logo.astro';
-import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
+import ToggleTheme from '~/components/common/ToggleTheme.astro';
+import Logo from '~/components/Logo.astro';
 import Button from '~/components/ui/Button.astro';
 import AnimatedChildSvg from '~/components/widgets/AnimatedChildSvg.astro';
-
-import { getHomePermalink, getPermalink } from '~/utils/permalinks';
-import { trimSlash } from '~/utils/permalinks';
 import type { CallToAction } from '~/types';
+import { getHomePermalink, getPermalink, trimSlash } from '~/utils/permalinks';
+import { Icon } from 'astro-icon/components';
+
 // import LanguagePicker from '../common/LanguagePicker.astro';
 // import { getLangFromUrl, useTranslations } from '~/i18n/utils';
 

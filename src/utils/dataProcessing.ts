@@ -1,4 +1,4 @@
-import { parseISO, getYear } from 'date-fns';
+import { getYear, parseISO } from 'date-fns';
 
 export interface GroupableByYear {
   date: string;

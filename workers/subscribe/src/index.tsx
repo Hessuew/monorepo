@@ -1,10 +1,10 @@
-import { Hono } from 'hono';
-import { cors } from 'hono/cors';
-import { z } from 'zod';
 import { zValidator } from '@hono/zod-validator';
-import { Resend } from 'resend';
-import { WelcomeEmail } from './emails/WelcomeEmail';
+import { Hono } from 'hono';
 import type { Context, Next } from 'hono';
+import { cors } from 'hono/cors';
+import { Resend } from 'resend';
+import { z } from 'zod';
+import { WelcomeEmail } from './emails/WelcomeEmail';
 
 interface Env {
   RESEND_API_KEY: string;
@@ -36,9 +36,14 @@ const csrfProtection = async (c: Context<{ Bindings: Env }>, next: Next) => {
   const origin = c.req.header('Origin');
   const referer = c.req.header('Referer');
 
-  if (!requestedWith || requestedWith !== 'XMLHttpRequest' ||
-      !origin || !origin.endsWith('urfit-child.com') ||
-      !referer || !referer.startsWith('https://urfit-child.com')) {
+  if (
+    !requestedWith ||
+    requestedWith !== 'XMLHttpRequest' ||
+    !origin ||
+    !origin.endsWith('urfit-child.com') ||
+    !referer ||
+    !referer.startsWith('https://urfit-child.com')
+  ) {
     return c.json(
       {
         success: false,

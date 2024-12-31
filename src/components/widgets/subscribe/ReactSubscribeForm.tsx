@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { z } from 'zod';
 
 interface FormState {
@@ -106,8 +106,8 @@ export default function ReactSubscribeForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="relative flex-1 md:max-w-[300px]">
-      <div className="relative">
+    <form onSubmit={handleSubmit} className='relative flex-1 md:max-w-[300px]'>
+      <div className='relative'>
         {formState.message && (
           <div
             className={`transition-all duration-300 absolute -top-12 left-0 right-0 px-3 py-2 rounded-md text-sm ${
@@ -119,26 +119,26 @@ export default function ReactSubscribeForm() {
                   ? 'bg-red-50 text-red-700 dark:bg-red-900/50 dark:text-red-200'
                   : ''
             }`}
-            role="alert"
-            aria-live="polite"
+            role='alert'
+            aria-live='polite'
           >
             {formState.message}
           </div>
         )}
-        <div className="flex">
+        <div className='flex'>
           <input
             value={formState.email}
             onChange={handleInputChange}
-            placeholder="Subscribe to updates"
-            className="w-full md:min-w-[300px] px-4 pr-24 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 dark:focus:ring-gray-300"
+            placeholder='Subscribe to updates'
+            className='w-full md:min-w-[300px] px-4 pr-24 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 dark:focus:ring-gray-300'
             required
-            aria-label="Email subscription"
+            aria-label='Email subscription'
             disabled={formState.status === 'loading'}
           />
           <button
-            type="submit"
+            type='submit'
             disabled={formState.status === 'loading'}
-            className="absolute right-2 top-1/2 -translate-y-1/2 min-w-[80px] px-3 py-1 text-sm text-gray-600 bg-gray-100 backdrop-blur-sm rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200 disabled:opacity-50 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+            className='absolute right-2 top-1/2 -translate-y-1/2 min-w-[80px] px-3 py-1 text-sm text-gray-600 bg-gray-100 backdrop-blur-sm rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200 disabled:opacity-50 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
           >
             {formState.status === 'loading' ? '...' : 'Subscribe'}
           </button>
