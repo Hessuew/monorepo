@@ -1,7 +1,7 @@
-import type { ImageMetadata } from 'astro';
-import { parseISO, getYear } from 'date-fns';
 import imgNNFoundationAward from '~/assets/images/videosAndPodcasts/NN Foundation Award.webp';
 import imgPhysicalActivity from '~/assets/images/videosAndPodcasts/physical_activity_slow_and_steady_wins_the_race.webp';
+import type { ImageMetadata } from 'astro';
+import { getYear, parseISO } from 'date-fns';
 
 interface MediaItem {
   title: string;

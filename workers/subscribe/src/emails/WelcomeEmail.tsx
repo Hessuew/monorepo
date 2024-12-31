@@ -44,24 +44,24 @@ export const WelcomeEmail = () => {
               <Text style={teamName}>urFIT-child Research Team</Text>
 
               <div style={socialLinks}>
-                <Link href="https://www.researchgate.net/profile/Andrew-Agbaje" style={socialLink}>
+                <Link href='https://www.researchgate.net/profile/Andrew-Agbaje' style={socialLink}>
                   ResearchGate
                 </Link>
                 <Text style={bullet}>•</Text>
-                <Link href="https://www.linkedin.com/in/andrew-agbaje-5783b253" style={socialLink}>
+                <Link href='https://www.linkedin.com/in/andrew-agbaje-5783b253' style={socialLink}>
                   LinkedIn
                 </Link>
                 <Text style={bullet}>•</Text>
-                <Link href="https://orcid.org/0000-0001-5138-3441" style={socialLink}>
+                <Link href='https://orcid.org/0000-0001-5138-3441' style={socialLink}>
                   ORCID
                 </Link>
                 <Text style={bullet}>•</Text>
-                <Link href="https://pubmed.ncbi.nlm.nih.gov/?term=Agbaje+AO&cauthor_id=36214333" style={socialLink}>
+                <Link href='https://pubmed.ncbi.nlm.nih.gov/?term=Agbaje+AO&cauthor_id=36214333' style={socialLink}>
                   PubMed
                 </Link>
                 <Text style={bullet}>•</Text>
                 <Link
-                  href="https://uefconnect.uef.fi/en/group/understanding-fitness-and-cardiometabolic-health-in-little-darlings-urfit-child"
+                  href='https://uefconnect.uef.fi/en/group/understanding-fitness-and-cardiometabolic-health-in-little-darlings-urfit-child'
                   style={socialLink}
                 >
                   UEF

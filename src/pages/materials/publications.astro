@@ -1,11 +1,11 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import { publicationTypes, publicationCategories } from '~/data/publications';
-import Spacer from '~/components/widgets/Spacer.astro';
 import FilterContainer from '~/components/filters/FilterContainer.astro';
+import Hero from '~/components/widgets/Hero.astro';
 import PublicationsList from '~/components/widgets/list/PublicationsList.astro';
+import Spacer from '~/components/widgets/Spacer.astro';
 import SubscribeForm from '~/components/widgets/subscribe/SubscribeForm.astro';
+import { publicationCategories, publicationTypes } from '~/data/publications';
+import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
   title: 'Publications',

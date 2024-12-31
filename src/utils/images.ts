@@ -1,6 +1,6 @@
-import { isUnpicCompatible, unpicOptimizer, astroAsseetsOptimizer } from './images-optimization';
-import type { ImageMetadata } from 'astro';
 import type { OpenGraph } from '@astrolib/seo';
+import type { ImageMetadata } from 'astro';
+import { astroAsseetsOptimizer, isUnpicCompatible, unpicOptimizer } from './images-optimization';
 
 const load = async function () {
   let images: Record<string, () => Promise<unknown>> | undefined = undefined;

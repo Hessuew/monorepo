@@ -1,5 +1,5 @@
-import React, { useState, type ChangeEvent, useEffect, useRef } from 'react';
 import { THRESHOLDS } from '~/data/thresholds';
+import React, { useEffect, useRef, useState, type ChangeEvent } from 'react';
 
 type Gender = 'male' | 'female';
 
@@ -116,101 +116,101 @@ export function ReactCalculator(): React.JSX.Element {
   return (
     <div>
       <fieldset
-        className="flex justify-center gap-4 items-center pb-2 sm:pb-4"
-        role="radiogroup"
-        aria-label="Select gender"
+        className='flex justify-center gap-4 items-center pb-2 sm:pb-4'
+        role='radiogroup'
+        aria-label='Select gender'
       >
-        <legend className="sr-only">Select gender</legend>
-        <div className="flex items-center">
+        <legend className='sr-only'>Select gender</legend>
+        <div className='flex items-center'>
           <input
-            type="radio"
-            id="male"
-            name="gender"
-            value="male"
+            type='radio'
+            id='male'
+            name='gender'
+            value='male'
             checked={inputs.gender === 'male'}
             onChange={(e) => setInputs((prev) => ({ ...prev, gender: e.target.value as Gender }))}
-            className="h-4 w-4 text-blue-500 border-gray-300 focus:ring-blue-500 dark:border-gray-600 dark:focus:ring-blue-600"
+            className='h-4 w-4 text-blue-500 border-gray-300 focus:ring-blue-500 dark:border-gray-600 dark:focus:ring-blue-600'
           />
-          <label htmlFor="male" className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label htmlFor='male' className='ml-2 text-sm font-medium text-gray-700 dark:text-gray-300'>
             Male
           </label>
         </div>
-        <div className="flex items-center">
+        <div className='flex items-center'>
           <input
-            type="radio"
-            id="female"
-            name="gender"
-            value="female"
+            type='radio'
+            id='female'
+            name='gender'
+            value='female'
             checked={inputs.gender === 'female'}
             onChange={(e) => setInputs((prev) => ({ ...prev, gender: e.target.value as Gender }))}
-            className="h-4 w-4 text-blue-500 border-gray-300 focus:ring-blue-500 dark:border-gray-600 dark:focus:ring-blue-600"
+            className='h-4 w-4 text-blue-500 border-gray-300 focus:ring-blue-500 dark:border-gray-600 dark:focus:ring-blue-600'
           />
-          <label htmlFor="female" className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label htmlFor='female' className='ml-2 text-sm font-medium text-gray-700 dark:text-gray-300'>
             Female
           </label>
         </div>
       </fieldset>
 
-      <div className="flex flex-col gap-6 p-4 bg-white dark:bg-slate-900 rounded-lg border border-gray-200 dark:border-gray-700 shadow sm:p-6 lg:p-8 w-full">
-        <div className="flex-row flex gap-2 sm:gap-4 md:gap-6 items-start">
-          <div className="w-24 sm:w-full relative">
-            <label htmlFor="waist" className="block text-sm font-medium">
+      <div className='flex flex-col gap-6 p-4 bg-white dark:bg-slate-900 rounded-lg border border-gray-200 dark:border-gray-700 shadow sm:p-6 lg:p-8 w-full'>
+        <div className='flex-row flex gap-2 sm:gap-4 md:gap-6 items-start'>
+          <div className='w-24 sm:w-full relative'>
+            <label htmlFor='waist' className='block text-sm font-medium'>
               Waist
             </label>
             {errors.waist && (
-              <div className="absolute -top-6 left-0 right-0 px-2 py-1 rounded text-xs bg-red-50 text-red-700 dark:bg-red-900/50 dark:text-red-200">
+              <div className='absolute -top-6 left-0 right-0 px-2 py-1 rounded text-xs bg-red-50 text-red-700 dark:bg-red-900/50 dark:text-red-200'>
                 {errors.waist}
               </div>
             )}
             <input
-              type="number"
-              name="waist"
-              id="waist"
+              type='number'
+              name='waist'
+              id='waist'
               value={inputs.waist}
               onChange={handleInputChange}
-              placeholder="0 cm"
-              min="0"
-              max="300"
-              className="w-full py-3 pl-4 pr-2 block text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600"
-              aria-describedby="waist-error"
+              placeholder='0 cm'
+              min='0'
+              max='300'
+              className='w-full py-3 pl-4 pr-2 block text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600'
+              aria-describedby='waist-error'
             />
           </div>
 
-          <p className="block font-medium text-2xl pt-7">/</p>
+          <p className='block font-medium text-2xl pt-7'>/</p>
 
-          <div className="w-24 sm:w-full relative">
-            <label htmlFor="height" className="block text-sm font-medium">
+          <div className='w-24 sm:w-full relative'>
+            <label htmlFor='height' className='block text-sm font-medium'>
               Height
             </label>
             {errors.height && (
-              <div className="absolute -top-6 left-0 right-0 px-2 py-1 rounded text-xs bg-red-50 text-red-700 dark:bg-red-900/50 dark:text-red-200">
+              <div className='absolute -top-6 left-0 right-0 px-2 py-1 rounded text-xs bg-red-50 text-red-700 dark:bg-red-900/50 dark:text-red-200'>
                 {errors.height}
               </div>
             )}
             <input
-              type="number"
-              name="height"
-              id="height"
+              type='number'
+              name='height'
+              id='height'
               value={inputs.height}
               onChange={handleInputChange}
-              placeholder="0 cm"
-              min="0"
-              max="300"
-              className="w-full py-3 pl-4 pr-2 block text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600"
-              aria-describedby="height-error"
+              placeholder='0 cm'
+              min='0'
+              max='300'
+              className='w-full py-3 pl-4 pr-2 block text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600'
+              aria-describedby='height-error'
             />
           </div>
 
-          <p className="block font-medium text-2xl pt-7">=</p>
+          <p className='block font-medium text-2xl pt-7'>=</p>
 
-          <div className="w-24 sm:w-44 pt-8 relative">
-            <p className="block font-medium text-lg truncate">{result}</p>
+          <div className='w-24 sm:w-44 pt-8 relative'>
+            <p className='block font-medium text-lg truncate'>{result}</p>
             {showLine && (
-              <div className="absolute -bottom-2 left-0 right-0 h-2 w-10 overflow-hidden">
+              <div className='absolute -bottom-2 left-0 right-0 h-2 w-10 overflow-hidden'>
                 <div
                   className={`h-full transition-[width] duration-500 ease-out ${getResultColor(parseFloat(result))}`}
                   style={{ width: `${lineWidth}%` }}
-                  aria-hidden="true"
+                  aria-hidden='true'
                 />
               </div>
             )}

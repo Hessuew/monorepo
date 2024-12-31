@@ -1,5 +1,5 @@
-import { parseISO } from 'date-fns';
 import { groupByYear } from '~/utils/dataProcessing';
+import { parseISO } from 'date-fns';
 
 interface Publication {
   title: string;

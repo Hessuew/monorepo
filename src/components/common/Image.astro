@@ -1,13 +1,13 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
 import { findImage } from '~/utils/images';
 import {
-  getImagesOptimized,
   astroAsseetsOptimizer,
-  unpicOptimizer,
+  getImagesOptimized,
   isUnpicCompatible,
+  unpicOptimizer,
   type ImageProps,
 } from '~/utils/images-optimization';
+import type { HTMLAttributes } from 'astro/types';
 
 type Props = ImageProps;
 type ImageType = {

@@ -1,9 +1,8 @@
 ---
-import { twMerge } from 'tailwind-merge';
 import Image from '~/components/common/Image.astro';
 import Button from '~/components/ui/Button.astro';
-
 import type { Hero as Props } from '~/types';
+import { twMerge } from 'tailwind-merge';
 
 const {
   title = await Astro.slots.render('title'),

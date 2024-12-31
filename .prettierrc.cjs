@@ -7,7 +7,19 @@ module.exports = {
   trailingComma: 'es5',
   useTabs: false,
 
-  plugins: [require.resolve('prettier-plugin-astro')],
+  plugins: [require.resolve('prettier-plugin-astro'), require.resolve('@ianvs/prettier-plugin-sort-imports')],
 
-  overrides: [{ files: '*.astro', options: { parser: 'astro' } }],
+  overrides: [
+    {
+      files: '*.astro',
+      options: { parser: 'astro' },
+    },
+    {
+      files: ['*.ts', '*.tsx'],
+      options: {
+        parser: 'typescript',
+        jsxSingleQuote: true,
+      },
+    },
+  ],
 };

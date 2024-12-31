@@ -1,7 +1,6 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import type { AstroConfig, AstroIntegration } from 'astro';
-
 import configBuilder, { type Config } from './utils/configBuilder';
 import loadConfig from './utils/loadConfig';
 
