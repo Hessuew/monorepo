@@ -195,17 +195,17 @@ export const publications: Publication[] = [
     doi: '',
     url: 'https://www.terveysportti.fi/apps/dtk/tyt/article/ttl02280?toc=1132784',
   },
-  // {
-  //   title: 'JHH Young Investigator Award 2023: interview with the winner Andrew O. Agbaje',
-  //   authors: 'Agbaje, Andrew O',
-  //   date: '2024-10-29',
-  //   journal: 'Journal of human hypertension',
-  //   volume: '',
-  //   pages: '1-3',
-  //   type: 'B1 Non-refereed journal articles',
-  //   category: '',
-  //   doi: '10.1038/s41371-024-00974-7',
-  // },
+  {
+    title: 'JHH Young Investigator Award 2023: interview with the winner Andrew O. Agbaje',
+    authors: 'Agbaje, Andrew O',
+    date: '2024-10-29',
+    journal: 'Journal of human hypertension',
+    volume: '38',
+    pages: '733-735',
+    type: 'B1 Non-refereed journal articles',
+    category: '',
+    doi: '10.1038/s41371-024-00974-7',
+  },
   {
     title:
       'Lean Mass Longitudinally Confounds Sedentary Time and Physical Activity With Blood Pressure Progression in 2513 Children',
@@ -826,17 +826,6 @@ export const publications: Publication[] = [
     category: 'Conference abstract',
     doi: '10.1016/j.atherosclerosis.2021.06.066',
   },
-  // {
-  //   title:
-  //     'Associations Of Endothelial Function, Arterial Elasticity, And Arterial Stiffness With Cardiorespiratory Fitness And Fat Mass',
-  //   authors: 'Agbaje, Andrew O; Barker, Alan R; Tuomainen, Tomi-Pekka',
-  //   journal: 'Medicine and science in sports and exercise',
-  //   volume: '',
-  //   pages: '',
-  //   type: 'Conference abstract',
-  //   category: 'Conference abstract',
-  //   doi: '',
-  // },
   {
     title:
       'Associations of endothelial function, arterial elasticity, and arterial stiffness with adiponectin and skeletal muscle mass',
@@ -897,19 +886,6 @@ export const publications: Publication[] = [
     category: 'Conference abstract',
     doi: '10.1016/S0735-1097%2821%2902848-5',
   },
-  // {
-  //   title:
-  //     'Effects of a 2-Year Lifestyle Intervention on Cardiorespiratory Fitness in 6-8- Year-Old Children: The PANIC Study',
-  //   authors:
-  //     'Agbaje, AO; Barker, AR; Eloranta, A-M; Haapala, EA; Lintu, N; Savonen, K; Kilpeläinen, TO; Brage, S; Lakka, TA',
-  //   date: '2019-09-01',
-  //   journal: 'Pediatric exercise science',
-  //   volume: '32',
-  //   pages: '1-12',
-  //   type: 'A1 Journal article (refereed)',
-  //   category: 'Study protocol',
-  //   doi: '10.1123/pes.2020-0002',
-  // },
   {
     title:
       'Mediating role of cardiorespiratory fitness on the association of cardiometabolic health with endothelial function, arterial elasticity and arterial stiffness in 9-11-year olds: The ALSPAC study',
@@ -922,44 +898,6 @@ export const publications: Publication[] = [
     category: 'Conference abstract',
     doi: '10.1016/j.atherosclerosis.2020.10.565',
   },
-  // {
-  //   title:
-  //     'Associations of Cardiorespiratory Fitness and Adiposity With Arterial Stiffness and Arterial Dilatation Capacity in Response to a Bout of Exercise in Children',
-  //   authors:
-  //     'Agbaje, Andrew O; Haapala, Eero A; Lintu, Niina; Viitasalo, Anna; Vaisto, Juuso; Khan, Sohaib; Veijalainen, Aapo; Tompuri, Tuomo; Laitinen, Tomi; Lakka, Timo A',
-  //   date: '2019-12-01',
-  //   journal: 'Pediatric exercise science',
-  //   volume: '31',
-  //   pages: '238-247',
-  //   type: 'A1 Journal article (refereed)',
-  //   category: 'Study protocol',
-  //   doi: '10.1123/pes.2018-0145',
-  // },
-  // {
-  //   title:
-  //     'Associations of cardiorespiratory fitness and adiposity with arterial stiffness and arterial dilation capacity in response to exercise in children',
-  //   authors:
-  //     'Agbaje, AO; Haapala, EA; Lin tu, N; Viitasalo, A; Väistö, J; Khan, S; Veijalainen, A; Tompuri, T; Laitinen, T; Lakka, TA',
-  //   date: '2018-08-22',
-  //   journal: 'Pediatric exercise science',
-  //   volume: '30',
-  //   pages: 'S1-S34',
-  //   type: 'Conference abstract',
-  //   category: 'Conference abstract',
-  //   doi: '10.1123/pes.2018-S1',
-  // },
-  // {
-  //   title: 'Peak oxygen uptake cut-points to identify children at increased cardiometabolic risk - The PANIC Study',
-  //   authors:
-  //     'Agbaje, Andrew O; Haapala, Eero A; Lintu, Nina; Viitasalo, Anna; Barker, Alan R; Takken, Tim; Tompuri, Tuomo; Lindi, Virpi; Lakka, Timo A',
-  //   date: '2018-09-19',
-  //   journal: 'Scandinavian journal of medicine and science in sports',
-  //   volume: '29',
-  //   pages: '16-24',
-  //   type: 'A1 Journal article (refereed)',
-  //   category: 'Study protocol',
-  //   doi: '10.1111/sms.13307',
-  // },
 ];
 
 export const publicationTypes = [...new Set(publications.map((item) => item.type))].filter(Boolean);

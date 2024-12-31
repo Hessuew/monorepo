@@ -17,6 +17,8 @@ export default function ReactSubscribeForm() {
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
+    let resetTimer: NodeJS.Timeout;
+
     if (formState.status === 'success' || formState.status === 'error') {
       // Show message with fade in
       setFormState(prev => ({ ...prev, isVisible: true }));
@@ -26,12 +28,15 @@ export default function ReactSubscribeForm() {
         setFormState(prev => ({ ...prev, isVisible: false }));
         
         // Reset status after fade out animation completes
-        setTimeout(() => {
+        resetTimer = setTimeout(() => {
           setFormState(prev => ({ ...prev, status: 'idle', message: '' }));
         }, 300); // Match this with CSS transition duration
       }, 3000);
     }
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(resetTimer);
+    };
   }, [formState.status]);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -52,7 +57,10 @@ export default function ReactSubscribeForm() {
         body: JSON.stringify({ email: formState.email }),
       })
 
-      const data = await response.json()
+      const data = await response.json() as {
+        success: boolean;
+        message: string;
+      };
 
       if (response.ok) {
         setFormState(prev => ({

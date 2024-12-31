@@ -26,6 +26,8 @@ This website serves as the central hub for our research group, providing:
 
 - Node.js (v18 or higher)
 - npm or bun package manager
+- Cloudflare account (for email subscriptions)
+- Cloudflare Workers CLI (wrangler) (for email subscriptions)
 
 ### Installation
 
