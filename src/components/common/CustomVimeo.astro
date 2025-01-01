@@ -98,7 +98,8 @@ if (searchString) {
     searchParams.set(key, value);
   });
 }
-if (!t && t) t = searchParams.get('t') as string;
+// if (!t && t) t = searchParams.get('t') as string;
+if (!t) t = searchParams.get('t') as string;
 searchParams.append('autoplay', '1');
 if (!searchParams.has('dnt')) searchParams.append('dnt', '1');
 
