@@ -24,7 +24,7 @@ export const publications: Publication[] = [
     volume: '',
     pages: '',
     type: 'Conference abstract',
-    category: 'Conference abstract',
+    category: 'metabolic-health',
     doi: '10.1210/clinem/dgae135',
   },
   {
@@ -35,7 +35,7 @@ export const publications: Publication[] = [
     volume: '',
     pages: '',
     type: 'Original article',
-    category: 'Original article',
+    category: 'cardiac-health',
     doi: '10.1016/j.jacc.2024.09.1229',
   },
   {
@@ -46,7 +46,7 @@ export const publications: Publication[] = [
     volume: '38',
     pages: '733-735',
     type: 'Original article',
-    category: 'Original article',
+    category: 'research-recognition',
     doi: '10.1038/s41371-024-00974-7',
   },
   {
@@ -58,7 +58,7 @@ export const publications: Publication[] = [
     volume: '150',
     pages: 'Supplement_1',
     type: 'Conference abstract',
-    category: 'Conference abstract',
+    category: 'cardiac-health',
     doi: '10.1161/circ.150.suppl_1.4147083',
   },
   {
@@ -70,7 +70,7 @@ export const publications: Publication[] = [
     volume: '',
     pages: '',
     type: 'Conference abstract',
-    category: 'Conference abstract',
+    category: 'metabolic-health',
     doi: '10.1093/eurheartj/ehae666.2898',
   },
   {
@@ -81,8 +81,8 @@ export const publications: Publication[] = [
     journal: 'European journal of preventive cardiology',
     volume: '31',
     pages: '1480-1492',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'cardiac-health',
     doi: '10.1093/eurjpc/zwae129',
   },
   {
@@ -93,8 +93,8 @@ export const publications: Publication[] = [
     journal: 'npj gut and liver',
     volume: '1',
     pages: '1-13',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'liver-health',
     doi: '10.1038/s44355-024-00002-y',
   },
   {
@@ -105,8 +105,8 @@ export const publications: Publication[] = [
     journal: 'Acta physiologica',
     volume: '240',
     pages: '',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'cardiovascular-health',
     doi: '10.1111/apha.14132',
   },
   {
@@ -117,8 +117,8 @@ export const publications: Publication[] = [
     journal: 'Pediatric research',
     volume: '',
     pages: '1-2',
-    type: 'B1 Non-refereed journal articles',
-    category: 'Correspondence',
+    type: 'Correspondence',
+    category: 'research-response',
     doi: '10.1038/s41390-024-03316-y',
   },
   {
@@ -129,8 +129,8 @@ export const publications: Publication[] = [
     journal: 'Journal of clinical endocrinology and metabolism',
     volume: '109',
     pages: 'e1708-e1719',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'metabolic-health',
     doi: '10.1210/clinem/dgae004',
   },
   {
@@ -142,8 +142,8 @@ export const publications: Publication[] = [
     journal: 'Frontiers in pediatrics',
     volume: '12',
     pages: '. 1458610',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'physical-activity',
     url: 'https://www.frontiersin.org/journals/pediatrics/articles/10.3389/fped.2024.1458610/full',
   },
   {
@@ -155,8 +155,8 @@ export const publications: Publication[] = [
     journal: 'Circulation',
     volume: '149',
     pages: 'e1165-e1175',
-    type: 'A2 Review article',
-    category: 'Review',
+    type: 'Review',
+    category: 'cardiovascular-health',
     doi: '10.1161/CIR.0000000000001234',
   },
   {
@@ -168,7 +168,7 @@ export const publications: Publication[] = [
     volume: '',
     pages: '',
     type: 'Conference abstract',
-    category: 'Conference abstract',
+    category: 'cardiac-health',
     doi: '10.1093/eurjpc/zwae175.366',
   },
   {
@@ -179,8 +179,8 @@ export const publications: Publication[] = [
     journal: 'Atherosclerosis',
     volume: '389',
     pages: '',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'cardiovascular-health',
     doi: '10.1016/j.atherosclerosis.2023.117440',
   },
   {
@@ -190,8 +190,8 @@ export const publications: Publication[] = [
     journal: 'TYÖTERVEYSLÄÄKÄRI',
     volume: '42',
     pages: '44-47',
-    type: 'D1 Article in a trade journal',
-    category: '',
+    type: '',
+    category: 'inflammation',
     doi: '',
     url: 'https://www.terveysportti.fi/apps/dtk/tyt/article/ttl02280?toc=1132784',
   },
@@ -202,8 +202,8 @@ export const publications: Publication[] = [
     journal: 'Journal of human hypertension',
     volume: '38',
     pages: '733-735',
-    type: 'B1 Non-refereed journal articles',
-    category: '',
+    type: '',
+    category: 'research-recognition',
     doi: '10.1038/s41371-024-00974-7',
   },
   {
@@ -214,8 +214,8 @@ export const publications: Publication[] = [
     journal: 'Journal of cachexia, sarcopenia and muscle',
     volume: '',
     pages: '1-16',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'physical-activity',
     doi: '10.1002/jcsm.13639',
   },
   {
@@ -226,8 +226,8 @@ export const publications: Publication[] = [
     journal: 'Journal of human hypertension',
     volume: '38',
     pages: '393-403',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'cardiovascular-health',
     doi: '10.1038/s41371-024-00905-6',
   },
   {
@@ -239,7 +239,7 @@ export const publications: Publication[] = [
     volume: '',
     pages: '',
     type: 'Conference abstract',
-    category: 'Conference abstract',
+    category: 'cardiac-health',
     doi: '10.1093/eurjpc/zwae175.365',
   },
   {
@@ -250,8 +250,8 @@ export const publications: Publication[] = [
     journal: 'Pediatric research',
     volume: '',
     pages: '1-12',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'physical-measurements',
     doi: '10.1038/s41390-024-03112-8',
   },
   {
@@ -263,7 +263,7 @@ export const publications: Publication[] = [
     volume: '',
     pages: '',
     type: 'Conference abstract',
-    category: 'Conference abstract',
+    category: 'cardiovascular-health',
     doi: '10.1093/eurheartj/ehad655.1138',
   },
   {
@@ -274,8 +274,8 @@ export const publications: Publication[] = [
     journal: 'Frontiers in pediatrics',
     volume: '11',
     pages: '',
-    type: 'B1 Non-refereed journal articles',
-    category: '',
+    type: '',
+    category: 'cardiovascular-health',
     doi: '10.3389/fped.2023.1228483',
   },
 
@@ -287,8 +287,8 @@ export const publications: Publication[] = [
     journal: 'Frontiers in pediatrics',
     volume: '11',
     pages: '. 1228483',
-    type: 'B1 Non-refereed journal articles',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'cardiovascular-health',
     doi: '10.3389/fped.2023.1228483',
   },
   {
@@ -299,8 +299,8 @@ export const publications: Publication[] = [
     journal: 'European heart journal abstract',
     volume: '',
     pages: '',
-    type: 'Conference abstract',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'physical-activity',
     doi: '10.1093/eurheartj/ehad655.2602',
   },
   {
@@ -311,8 +311,8 @@ export const publications: Publication[] = [
     journal: 'American journal of physiology : heart and circulatory physiology',
     volume: '324',
     pages: 'H905-H911',
-    type: 'Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'cardiovascular-health',
     doi: '10.1152/ajpheart.00126.2023',
   },
   {
@@ -323,8 +323,8 @@ export const publications: Publication[] = [
     journal: 'Atherosclerosis',
     volume: '380',
     pages: '',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'cardiovascular-health',
     doi: '10.1016/j.atherosclerosis.2023.117197',
   },
   {
@@ -335,8 +335,8 @@ export const publications: Publication[] = [
     journal: 'Journal of clinical endocrinology and metabolism',
     volume: '109',
     pages: 'e1494-e1505',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'physical-activity',
     doi: '10.1210/clinem/dgad688',
   },
   {
@@ -347,8 +347,8 @@ export const publications: Publication[] = [
     journal: 'Scandinavian journal of medicine and science in sports',
     volume: '33',
     pages: '1399-1411',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'physical-activity',
     doi: '10.1111/sms.14365',
   },
   {
@@ -358,8 +358,8 @@ export const publications: Publication[] = [
     journal: 'European journal of preventive cardiology',
     volume: '30',
     pages: '404-406',
-    type: 'B1 Non-refereed journal articles',
-    category: '',
+    type: '',
+    category: 'physical-activity',
     doi: '10.1093/eurjpc/zwac298',
   },
   {
@@ -370,8 +370,8 @@ export const publications: Publication[] = [
     journal: 'European heart journal',
     volume: '',
     pages: '',
-    type: 'Conference abstract',
-    category: '',
+    type: '',
+    category: 'physical-activity',
     doi: '10.1093/eurheartj/ehad655.1139',
   },
   {
@@ -382,8 +382,8 @@ export const publications: Publication[] = [
     journal: 'European heart journal',
     volume: '',
     pages: '',
-    type: 'Conference abstract',
-    category: '',
+    type: '',
+    category: 'physical-activity',
     doi: '10.1093/eurheartj/ehad655.2338',
   },
   {
@@ -394,8 +394,8 @@ export const publications: Publication[] = [
     journal: 'European heart journal',
     volume: '',
     pages: '',
-    type: 'Conference abstract',
-    category: '',
+    type: '',
+    category: 'physical-activity',
     doi: '10.1093/eurheartj/ehad655.2077',
   },
   {
@@ -406,8 +406,8 @@ export const publications: Publication[] = [
     journal: 'European heart journal',
     volume: '',
     pages: '',
-    type: 'Conference abstract',
-    category: '',
+    type: '',
+    category: 'physical-activity',
     doi: '10.1093/eurheartj/ehad655.2393',
   },
   {
@@ -418,8 +418,8 @@ export const publications: Publication[] = [
     journal: 'Atherosclerosis',
     volume: '364',
     pages: '39-48',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'cardiovascular-health',
     doi: '10.1016/j.atherosclerosis.2022.11.011',
   },
   {
@@ -430,8 +430,8 @@ export const publications: Publication[] = [
     journal: 'Atherosclerosis',
     volume: '',
     pages: '',
-    type: 'Conference abstract',
-    category: '',
+    type: '',
+    category: 'physical-activity',
     doi: '10.1016/j.atherosclerosis.2023.06.816',
   },
   {
@@ -442,8 +442,8 @@ export const publications: Publication[] = [
     journal: 'American journal of physiology : endocrinology and metabolism',
     volume: '324',
     pages: 'E268-E278',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'metabolic-health',
     doi: '10.1152/ajpendo.00008.2023',
   },
   {
@@ -454,8 +454,8 @@ export const publications: Publication[] = [
     journal: 'American journal of physiology : heart and circulatory physiology',
     volume: '324',
     pages: 'H776-H781',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'cardiovascular-health',
     doi: '10.1152/ajpheart.00094.2023',
   },
   {
@@ -466,8 +466,8 @@ export const publications: Publication[] = [
     journal: 'Nature communications',
     volume: '14',
     pages: '',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'physical-activity',
     doi: '10.1038/s41467-023-43316-w',
   },
   {
@@ -477,8 +477,8 @@ export const publications: Publication[] = [
     journal: 'Journal of pediatrics',
     volume: '257',
     pages: '',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'cardiac-health',
     doi: '10.1016/j.jpeds.2023.02.018',
   },
   {
@@ -489,8 +489,8 @@ export const publications: Publication[] = [
     journal: 'European heart journal',
     volume: '',
     pages: '',
-    type: 'Conference abstract',
-    category: '',
+    type: '',
+    category: 'cardiovascular-health',
     doi: '10.1093/eurheartj/ehad655.2502',
   },
   {
@@ -501,8 +501,8 @@ export const publications: Publication[] = [
     journal: 'Circulation',
     volume: '',
     pages: '',
-    type: 'Conference abstract',
-    category: '',
+    type: '',
+    category: 'physical-activity',
     doi: '10.1161/circ.148.suppl_1.16549',
   },
   {
@@ -513,8 +513,8 @@ export const publications: Publication[] = [
     journal: 'American journal of physiology : heart and circulatory physiology',
     volume: '324',
     pages: 'H571-H577',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'cardiovascular-health',
     doi: '10.1152/ajpheart.00045.2023',
   },
   {
@@ -525,8 +525,8 @@ export const publications: Publication[] = [
     journal: 'Journal of clinical endocrinology and metabolism',
     volume: '108',
     pages: '3250-3259',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'metabolic-health',
     doi: '10.1210/clinem/dgad354',
   },
   {
@@ -537,8 +537,8 @@ export const publications: Publication[] = [
     journal: 'European heart journal',
     volume: '',
     pages: '',
-    type: 'Conference abstract',
-    category: '',
+    type: '',
+    category: 'cardiovascular-health',
     doi: '10.1093/eurheartj/ehad655.3017',
   },
   {
@@ -549,8 +549,8 @@ export const publications: Publication[] = [
     journal: 'Atherosclerosis',
     volume: '',
     pages: '',
-    type: 'Conference abstract',
-    category: '',
+    type: '',
+    category: 'cardiovascular-health',
     doi: '10.1016/j.atherosclerosis.2023.06.349',
   },
   {
@@ -561,8 +561,8 @@ export const publications: Publication[] = [
     journal: 'Journal of applied physiology',
     volume: '134',
     pages: '657-666',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'cardiovascular-health',
     doi: '10.1152/japplphysiol.00701.2022',
   },
   {
@@ -573,8 +573,8 @@ export const publications: Publication[] = [
     journal: 'Metabolism: clinical and experimental',
     volume: '',
     pages: '',
-    type: 'Conference abstract',
-    category: '',
+    type: '',
+    category: 'cardiovascular-health',
     doi: '10.1016/j.metabol.2021.154993',
   },
   {
@@ -584,8 +584,8 @@ export const publications: Publication[] = [
     journal: 'Journal of hypertension',
     volume: '40',
     pages: '1887-1896',
-    type: 'A2 Review article, Literature review, Systematic review',
-    category: 'Review',
+    type: 'Review',
+    category: 'cardiovascular-health',
     doi: '10.1097/HJH.0000000000003239',
   },
   {
@@ -596,8 +596,8 @@ export const publications: Publication[] = [
     journal: 'Atherosclerosis',
     volume: '',
     pages: '',
-    type: 'Conference abstract',
-    category: '',
+    type: '',
+    category: 'metabolic-health',
     doi: '10.1016/j.atherosclerosis.2022.06.570',
   },
   {
@@ -608,8 +608,8 @@ export const publications: Publication[] = [
     journal: 'European heart journal',
     volume: '',
     pages: '',
-    type: 'Conference abstract',
-    category: '',
+    type: '',
+    category: 'cardiovascular-health',
     doi: '10.1093/eurheartj/ehac544.2350',
   },
   {
@@ -620,8 +620,8 @@ export const publications: Publication[] = [
     journal: 'European heart journal',
     volume: '',
     pages: '',
-    type: 'Conference abstract',
-    category: '',
+    type: '',
+    category: 'metabolic-health',
     doi: '10.1093/eurheartj/ehac544.2414',
   },
   {
@@ -632,8 +632,8 @@ export const publications: Publication[] = [
     journal: 'Hypertension research',
     volume: '46',
     pages: '984-999',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'cardiovascular-health',
     doi: '10.1038/s41440-022-01065-1',
   },
   {
@@ -644,8 +644,8 @@ export const publications: Publication[] = [
     journal: 'European heart journal',
     volume: '',
     pages: '',
-    type: 'Conference abstract',
-    category: '',
+    type: '',
+    category: 'inflammation',
     doi: '10.1093/eurheartj/ehac544.2247',
   },
   {
@@ -656,8 +656,8 @@ export const publications: Publication[] = [
     journal: 'Hypertension',
     volume: '79',
     pages: '667-678',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'cardiovascular-health',
     doi: '10.1161/hypertensionaha.121.18754',
   },
   {
@@ -668,8 +668,8 @@ export const publications: Publication[] = [
     journal: 'Metabolism: clinical and experimental',
     volume: '',
     pages: '',
-    type: 'Conference abstract',
-    category: '',
+    type: '',
+    category: 'metabolic-health',
     doi: '10.1016/j.metabol.2021.154992',
   },
   {
@@ -680,8 +680,8 @@ export const publications: Publication[] = [
     journal: 'Metabolism: clinical and experimental',
     volume: '',
     pages: '',
-    type: 'Conference abstract',
-    category: '',
+    type: '',
+    category: 'cardiovascular-health',
     doi: '10.1016/j.metabol.2021.154994',
   },
   {
@@ -693,7 +693,7 @@ export const publications: Publication[] = [
     volume: '',
     pages: '',
     type: 'Conference abstract',
-    category: 'Conference abstract',
+    category: 'cardiovascular-health',
     doi: '10.1093/eurheartj/ehac544.2351',
   },
   {
@@ -704,8 +704,8 @@ export const publications: Publication[] = [
     journal: 'Frontiers in cardiovascular medicine',
     volume: '9',
     pages: '939125',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'cardiovascular-health',
     doi: '10.3389/fcvm.2022.939125',
   },
   {
@@ -717,7 +717,7 @@ export const publications: Publication[] = [
     volume: '',
     pages: '',
     type: 'Conference abstract',
-    category: 'Conference abstract',
+    category: 'cardiovascular-health',
     doi: '10.1093/eurheartj/ehac544.2352',
   },
   {
@@ -729,7 +729,7 @@ export const publications: Publication[] = [
     volume: '',
     pages: '',
     type: 'Conference abstract',
-    category: 'Conference abstract',
+    category: 'inflammation',
     doi: '10.1093/eurheartj/ehac544.2246',
   },
   {
@@ -739,8 +739,8 @@ export const publications: Publication[] = [
     journal: 'European journal of preventive cardiology',
     volume: '29',
     pages: '2333–2335',
-    type: 'B1 Non-refereed journal articles',
-    category: 'Correspondence',
+    type: 'Correspondence',
+    category: 'cardiovascular-health',
     doi: '10.1093/eurjpc/zwac233',
   },
   {
@@ -752,7 +752,7 @@ export const publications: Publication[] = [
     volume: '143',
     pages: '',
     type: 'Conference abstract',
-    category: 'Conference abstract',
+    category: 'cardiovascular-health',
     doi: '10.1161/circ.143.suppl_1.080',
   },
   {
@@ -764,7 +764,7 @@ export const publications: Publication[] = [
     volume: '144',
     pages: '',
     type: 'Conference abstract',
-    category: 'Conference abstract',
+    category: 'cardiovascular-health',
     doi: '10.1161/circ.144.suppl_1.11483',
   },
   {
@@ -776,7 +776,7 @@ export const publications: Publication[] = [
     volume: '',
     pages: '',
     type: 'Conference abstract',
-    category: 'Conference abstract',
+    category: 'metabolic-health',
     doi: '10.1111/pedi.13198',
   },
   {
@@ -787,7 +787,7 @@ export const publications: Publication[] = [
     volume: '42',
     pages: '',
     type: 'Conference abstract',
-    category: 'Conference abstract',
+    category: 'cardiovascular-health',
     doi: '10.1093/eurheartj/ehab724.2317',
   },
   {
@@ -799,7 +799,7 @@ export const publications: Publication[] = [
     volume: '116',
     pages: '',
     type: 'Conference abstract',
-    category: 'Conference abstract',
+    category: 'cardiovascular-health',
     doi: '10.1016/j.metabol.2020.154486',
   },
   {
@@ -811,7 +811,7 @@ export const publications: Publication[] = [
     volume: '331',
     pages: '',
     type: 'Conference abstract',
-    category: 'Conference abstract',
+    category: 'cardiovascular-health',
     doi: '10.1016/j.atherosclerosis.2021.06.493',
   },
   {
@@ -823,7 +823,7 @@ export const publications: Publication[] = [
     volume: '331',
     pages: '',
     type: 'Conference abstract',
-    category: 'Conference abstract',
+    category: 'cardiovascular-health',
     doi: '10.1016/j.atherosclerosis.2021.06.066',
   },
   {
@@ -835,7 +835,7 @@ export const publications: Publication[] = [
     volume: '50',
     pages: '',
     type: 'Conference abstract',
-    category: 'Conference abstract',
+    category: 'cardiovascular-health',
     doi: '10.1093/ije/dyab168.011',
   },
   {
@@ -846,8 +846,8 @@ export const publications: Publication[] = [
     journal: 'Medicine and science in sports and exercise',
     volume: '54',
     pages: '141-152',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'physical-activity',
     doi: '10.1249/mss.0000000000002757',
   },
   {
@@ -859,7 +859,7 @@ export const publications: Publication[] = [
     volume: '144',
     pages: '',
     type: 'Conference abstract',
-    category: 'Conference abstract',
+    category: 'cardiovascular-health',
     doi: '10.1161/circ.144.suppl_1.13236',
   },
   {
@@ -870,8 +870,8 @@ export const publications: Publication[] = [
     journal: 'Hypertension',
     volume: '79',
     pages: '159-169',
-    type: 'A1 Journal article (refereed)',
-    category: 'Study protocol',
+    type: 'Study protocol',
+    category: 'cardiovascular-health',
     doi: '10.1161/HYPERTENSIONAHA.121.18449',
   },
   {
@@ -883,7 +883,7 @@ export const publications: Publication[] = [
     volume: '77',
     pages: '',
     type: 'Conference abstract',
-    category: 'Conference abstract',
+    category: 'cardiovascular-health',
     doi: '10.1016/S0735-1097%2821%2902848-5',
   },
   {
@@ -895,14 +895,12 @@ export const publications: Publication[] = [
     volume: '315',
     pages: 'E181-E182',
     type: 'Conference abstract',
-    category: 'Conference abstract',
+    category: 'physical-activity',
     doi: '10.1016/j.atherosclerosis.2020.10.565',
   },
 ];
 
-export const publicationTypes = [...new Set(publications.map((item) => item.type))].filter(Boolean);
-// export const publicationCategories = [...new Set(publications.map((item) => item.category))].filter(Boolean);
-export const publicationCategories = [
+export const publicationTypes = [
   'Original article',
   'Review',
   // 'Editorial',
@@ -910,6 +908,7 @@ export const publicationCategories = [
   'Study protocol',
   'Conference abstract',
 ];
+export const publicationCategories = [...new Set(publications.map((item) => item.category))].filter(Boolean);
 
 // Group publications by year and sort within each year by date
 export const publicationsByYear = groupByYear(publications);
