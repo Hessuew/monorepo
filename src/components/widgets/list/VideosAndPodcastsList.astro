@@ -21,6 +21,9 @@ const { columns = 2, classes = {} } = Astro.props;
 <script>
   let selectedItem: { platform: string; videoId: string; title: string; poster?: string } | null = null;
 
+  const IFRAME_FOCUS_DELAY = 500;
+  const PLAYER_CREATION_DELAY = 360;
+
   function createPlayer(platform: string, videoId: string, title: string, poster?: string) {
     const container = document.createElement('div');
     container.className = `${platform}-player player-container relative w-full aspect-video`;
@@ -68,7 +71,6 @@ const { columns = 2, classes = {} } = Astro.props;
           `https://player.vimeo.com/video/${encodeURIComponent(id)}?${searchParams.toString()}`
         );
         iframe.allow = 'autoplay; fullscreen; picture-in-picture';
-        iframe.allowFullscreen = true;
         container.appendChild(iframe);
       }
     } else if (platform === 'doccheck') {
@@ -115,49 +117,55 @@ const { columns = 2, classes = {} } = Astro.props;
   }
 
   function openModal(videoContainer: HTMLElement, modal: HTMLDivElement, modalContent: HTMLDivElement) {
-    // Fallback for non-supporting browsers
-    if (!document.startViewTransition) {
-      modal.style.display = 'block';
-      return;
-    }
+    try {
+      // Fallback for non-supporting browsers
+      if (!document.startViewTransition) {
+        modal.style.display = 'block';
+        return;
+      }
 
-    const thumbnail = videoContainer.querySelector('.thumbnail-wrapper') as HTMLElement;
-    if (!thumbnail) return;
+      const thumbnail = videoContainer.querySelector('.thumbnail-wrapper') as HTMLElement;
+      if (!thumbnail) {
+        console.error('Thumbnail element not found');
+        modal.style.display = 'block';
+        return;
+      }
 
-    // Set initial view transition name
-    thumbnail.style.viewTransitionName = 'modal';
+      // Set initial view transition name
+      thumbnail.style.viewTransitionName = 'modal';
 
-    const transition = document.startViewTransition(() => {
-      // Remove view transition name from thumbnail
-      thumbnail.style.viewTransitionName = '';
-      // Set view transition name on modal content
-      modalContent.style.viewTransitionName = 'modal';
-      // Show modal with thumbnail first
-      modal.style.display = 'block';
-      modal.classList.add('visible');
-    });
+      const transition = document.startViewTransition(async () => {
+        // Remove view transition name from thumbnail
+        thumbnail.style.viewTransitionName = '';
+        // Set view transition name on modal content
+        modalContent.style.viewTransitionName = 'modal';
+        // Show modal with thumbnail first
+        modal.style.display = 'block';
+        modal.classList.add('visible');
+      });
 
-    // After transition, add the video player
-    transition.finished.then(() => {
-      modalContent.style.viewTransitionName = '';
-      setTimeout(() => {
-        // Add player
-        const player = createPlayer(
-          selectedItem!.platform,
-          selectedItem!.videoId,
-          selectedItem!.title,
-          selectedItem!.poster
-        );
-        // Replace the thumbnail with the player
-        const playerContainer = modalContent.querySelector('.player-container') as HTMLElement;
-        if (playerContainer) {
-          playerContainer.replaceWith(player);
-        } else {
-          modalContent.appendChild(player);
-        }
+      // After transition, add the video player
+      transition.finished
+        .then(async () => {
+          modalContent.style.viewTransitionName = '';
+          await new Promise((resolve) => setTimeout(resolve, PLAYER_CREATION_DELAY));
+          // Add player
+          const player = createPlayer(
+            selectedItem!.platform,
+            selectedItem!.videoId,
+            selectedItem!.title,
+            selectedItem!.poster
+          );
+          // Replace the thumbnail with the player
+          const playerContainer = modalContent.querySelector('.player-container') as HTMLElement;
+          if (playerContainer) {
+            playerContainer.replaceWith(player);
+          } else {
+            modalContent.appendChild(player);
+          }
 
-        // Focus the iframe for keyboard navigation
-        setTimeout(() => {
+          // Focus the iframe for keyboard navigation
+          await new Promise((resolve) => setTimeout(resolve, IFRAME_FOCUS_DELAY));
           const iframe = player.querySelector('iframe');
           if (iframe) {
             if (selectedItem!.platform === 'youtube') {
@@ -174,19 +182,25 @@ const { columns = 2, classes = {} } = Astro.props;
               iframe.focus({ preventScroll: true });
             }
           }
-        }, 500); // Increased delay to ensure iframe is ready
-      }, 360); // Delay video creation by 360ms
-    });
+        })
+        .catch((error) => {
+          console.error('Error during modal transition:', error);
+          modal.style.display = 'block';
+        });
+    } catch (error) {
+      console.error('Error opening modal:', error);
+      modal.style.display = 'block';
+    }
   }
 
   // Close modal on Escape key
-  document.addEventListener('keydown', (e) => {
+  const handleKeydown = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       closeModal();
     }
-  });
+  };
 
-  document.addEventListener('click', async (e) => {
+  const handleClick = async (e: MouseEvent) => {
     const target = e.target as HTMLElement;
     const videoContainer = target.closest('.video-container') as HTMLElement;
     const modal = document.getElementById('video-modal') as HTMLDivElement;
@@ -242,6 +256,15 @@ const { columns = 2, classes = {} } = Astro.props;
         closeModal();
       }
     }
+  };
+
+  document.addEventListener('keydown', handleKeydown);
+  document.addEventListener('click', handleClick);
+
+  // Cleanup on component unmount
+  document.addEventListener('astro:unmount', () => {
+    document.removeEventListener('keydown', handleKeydown);
+    document.removeEventListener('click', handleClick);
   });
 </script>
 

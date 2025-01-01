@@ -1,3 +1,6 @@
+import { AlertOctagon } from '~/components/ui/icons/AlertOctagon';
+import { AlertTriangle } from '~/components/ui/icons/AlertTriangle';
+import { CircleCheck } from '~/components/ui/icons/CircleCheck';
 import { THRESHOLDS } from '~/data/thresholds';
 import React, { useEffect, useRef, useState, type ChangeEvent } from 'react';
 
@@ -77,6 +80,14 @@ export function ReactCalculator(): React.JSX.Element {
     if (ratio <= thresholds.high) return 'bg-green-500';
     if (ratio <= thresholds.excess) return 'bg-yellow-500';
     return 'bg-red-500';
+  }
+
+  function getResultIcon(ratio: number): React.ReactNode {
+    const thresholds = THRESHOLDS[inputs.gender];
+
+    if (ratio <= thresholds.high) return <CircleCheck color='#22c55e' />;
+    if (ratio <= thresholds.excess) return <AlertTriangle color='#eab308' />;
+    return <AlertOctagon color='#ef4444' />;
   }
 
   useEffect(() => {
@@ -212,6 +223,14 @@ export function ReactCalculator(): React.JSX.Element {
                   style={{ width: `${lineWidth}%` }}
                   aria-hidden='true'
                 />
+              </div>
+            )}
+            {showLine && result !== '0' && (
+              <div
+                className={`absolute -right-2 bottom-0.5 opacity-0 transition-opacity duration-500 ${lineWidth === 100 ? 'opacity-100' : ''}`}
+                aria-hidden='true'
+              >
+                {getResultIcon(parseFloat(result))}
               </div>
             )}
           </div>

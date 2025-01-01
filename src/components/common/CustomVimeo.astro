@@ -72,16 +72,21 @@ if (!posterURL) {
   // Include the hash parameter in the API call
   const hash = searchParams.get('h');
   const apiUrl = `https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoid}${hash ? '/' + hash : ''}`;
-  const data = await safeGet(apiUrl);
-  if (data) {
-    posterURL = data.thumbnail_url;
-    // Adjust quality if specified
-    if (posterQuality && posterQuality !== 'default') {
-      const resolution = { max: 1280, high: 640, low: 120 }[posterQuality] || 640;
-      if (posterURL?.includes('_')) {
-        posterURL = posterURL.replace(/_\d+\./, `_${resolution}.`);
+  try {
+    const data = await safeGet(apiUrl);
+    if (data) {
+      posterURL = data.thumbnail_url;
+      if (posterQuality && posterQuality !== 'default') {
+        const resolution = { max: 1280, high: 640, low: 120 }[posterQuality] || 640;
+        if (posterURL?.includes('_')) {
+          posterURL = posterURL.replace(/_\d+\./, `_${resolution}.`);
+        }
       }
+    } else {
+      console.warn(`Failed to fetch poster URL for video ${videoid}`);
     }
+  } catch (error) {
+    console.error(`Error fetching Vimeo thumbnail: ${error}`);
   }
 }
 
@@ -181,6 +186,8 @@ if (poster) styles.push(`background-image: ('${poster}')`);
       iframeEl.width = '640';
       iframeEl.height = '360';
       iframeEl.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+      iframeEl.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-presentation');
+      iframeEl.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
       iframeEl.allowFullscreen = true;
       iframeEl.src = `https://player.vimeo.com/video/${this.videoId}?${params.toString()}#t=${t}`;
       this.append(iframeEl);

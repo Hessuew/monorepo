@@ -294,12 +294,12 @@ export interface Features extends Omit<Headline, 'classes'>, Widget {
 }
 
 export interface GraphItem {
+  icon?: { text: string; class?: string };
   title?: string;
-  color?: string;
+  colorClass?: string;
   description?: string | { text: string; link?: boolean; subtitle?: boolean; classes?: Record<string, string> }[];
   subtitle?: { text1: string; text2: string };
   rows: Array<{ text1: string; text2?: string }>;
-  icon?: string;
   classes?: Record<string, string>;
 }
 
