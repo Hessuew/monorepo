@@ -1,15 +1,15 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Spacer from '~/components/widgets/Spacer.astro';
 import Note from '~/components/widgets/Note.astro';
+import Academic from '~/components/widgets/principal-investigator/Academic.astro';
+import Affiliations from '~/components/widgets/principal-investigator/Affiliations.astro';
+import AwardsAndHonours from '~/components/widgets/principal-investigator/AwardsAndHonours.astro';
+import Contact from '~/components/widgets/principal-investigator/Contact.astro';
+import Editorial from '~/components/widgets/principal-investigator/Editorial.astro';
+import Memberships from '~/components/widgets/principal-investigator/Memberships.astro';
 import PIHeader from '~/components/widgets/principal-investigator/PIHeader.astro';
 import PIHero from '~/components/widgets/principal-investigator/PIHero.astro';
-import Academic from '~/components/widgets/principal-investigator/Academic.astro';
-import Editorial from '~/components/widgets/principal-investigator/Editorial.astro';
-import Affiliations from '~/components/widgets/principal-investigator/Affiliations.astro';
-import Contact from '~/components/widgets/principal-investigator/Contact.astro';
-import Memberships from '~/components/widgets/principal-investigator/Memberships.astro';
-import AwardsAndHonours from '~/components/widgets/principal-investigator/AwardsAndHonours.astro';
+import Spacer from '~/components/widgets/Spacer.astro';
+import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
   title: 'Principal Investigator',
@@ -29,7 +29,7 @@ const metadata = {
     author="Prof. Andrew Agbaje"
   />
 
-  <Spacer size="md" />
+  <Spacer />
 
   <Academic />
 

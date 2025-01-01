@@ -39,6 +39,10 @@ export const headerData = {
           href: getPermalink('/materials/videos-and-podcasts'),
         },
         {
+          text: 'Infografics',
+          href: getPermalink('/materials/infografics'),
+        },
+        {
           text: 'Press Releases',
           href: getPermalink('/materials/press-releases'),
         },
@@ -52,40 +56,5 @@ export const headerData = {
       text: 'Non-academic',
       href: getPermalink('/non-academic'),
     },
-    // {
-    //   text: 'Other',
-    //   links: [
-    //     {
-    //       text: 'Editor/Reviewer',
-    //       href: getPermalink('/editor-reviewer'),
-    //     },
-    //   ],
-    // },
-    // {
-    //   text: 'Blog',
-    //   links: [
-    //     {
-    //       text: 'Blog List',
-    //       href: getBlogPermalink(),
-    //     },
-    //     {
-    //       text: 'Article',
-    //       href: getPermalink('get-started-website-with-astro-tailwind-css', 'post'),
-    //     },
-    //     {
-    //       text: 'Article (with MDX)',
-    //       href: getPermalink('markdown-elements-demo-post', 'post'),
-    //     },
-    //     {
-    //       text: 'Category Page',
-    //       href: getPermalink('tutorials', 'category'),
-    //     },
-    //     {
-    //       text: 'Tag Page',
-    //       href: getPermalink('astro', 'tag'),
-    //     },
-    //   ],
-    // },
   ],
-  // actions: [{ text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
 };

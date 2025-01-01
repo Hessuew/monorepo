@@ -1,6 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-import SignatureText from './SignatureText.astro';
 
 export interface Props {
   theme?: string;
@@ -16,6 +15,7 @@ const links = [
       { text: 'Thesis', href: '/materials/thesis' },
       { text: 'Publications', href: '/materials/publications' },
       { text: 'Videos and Podcasts', href: '/materials/videos-and-podcasts' },
+      { text: 'Infografics', href: '/materials/infografics' },
       { text: 'Press Releases', href: '/materials/press-releases' },
     ],
   },
@@ -25,7 +25,7 @@ const links = [
       { text: 'About', href: '/people/principal-investigator' },
       { text: 'Academic', href: '/people/principal-investigator#academic' },
       { text: 'Awards and Honours', href: '/people/principal-investigator#awards-and-honours' },
-      { text: 'Editorial', href: '/people/principal-investigator#editorial' },
+      { text: 'Editorial Board', href: '/people/principal-investigator#editorial' },
       { text: 'Affiliations', href: '/people/principal-investigator#affiliations' },
       { text: 'Memberships', href: '/people/principal-investigator#memberships' },
       { text: 'Contact', href: '/people/principal-investigator#contact' },
@@ -49,22 +49,22 @@ const socialLinks = [
   {
     ariaLabel: 'ResearchGate',
     icon: 'tabler:letter-r',
-    href: 'https://www.researchgate.net/project/UndeRstanding-FITness-and-cardiometabolic-health-in-little-darlings-urFIT-child',
+    href: 'https://www.researchgate.net/profile/Andrew-Agbaje',
   },
   {
-    ariaLabel: 'Google Scholar',
-    icon: 'tabler:brand-google',
-    href: 'https://scholar.google.com/citations?user=YOUR_ID',
+    ariaLabel: 'LinkedIn',
+    icon: 'tabler:letter-l',
+    href: 'https://www.linkedin.com/in/andrew-agbaje-5783b253',
   },
   {
     ariaLabel: 'ORCID',
     icon: 'tabler:id',
-    href: 'https://orcid.org/YOUR_ORCID_ID',
+    href: 'https://orcid.org/0000-0001-5138-3441',
   },
   {
     ariaLabel: 'PubMed',
     icon: 'tabler:books',
-    href: 'https://pubmed.ncbi.nlm.nih.gov/?term=urfit-child',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/?term=Agbaje+AO&cauthor_id=36214333',
   },
 ];
 
@@ -79,7 +79,9 @@ const { theme = 'light' } = Astro.props;
         <div class="mb-2">
           <a class="inline-block font-bold text-xl" href="/">urFIT-child</a>
         </div>
-        <div class="text-sm text-muted">UndeRstanding FITness and Cardiometabolic Health In Little Darlings</div>
+        <div class="text-sm text-muted lg:max-w-[320px]">
+          UndeRstanding FITness and Cardiometabolic Health In Little Darlings
+        </div>
       </div>
       {
         links.map(({ title, links }) => (
@@ -105,10 +107,7 @@ const { theme = 'light' } = Astro.props;
     </div>
     <div class="md:flex md:items-center md:justify-between py-6 md:py-8">
       <div class="text-sm mr-4 dark:text-muted">
-        {new Date().getFullYear()} urFIT-child Research Project · Created by
-        <div class="inline-flex items-center hover:text-blue-600 transition-colors mt-0.5">
-          <SignatureText classes="w-24" />
-        </div>
+        {new Date().getFullYear()} urFIT-child Research Group · All rights reserved
       </div>
       {
         socialLinks?.length ? (
@@ -117,15 +116,20 @@ const { theme = 'light' } = Astro.props;
             class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4"
           >
             {socialLinks.map(({ ariaLabel, href, icon }) => (
-              <a
-                class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                aria-label={ariaLabel}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {icon && <Icon name={icon} class="w-5 h-5" />}
-              </a>
+              <div class="group relative">
+                <a
+                  class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                  aria-label={ariaLabel}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {icon && <Icon name={icon} class="w-5 h-5" />}
+                </a>
+                <span class="absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-gray-800 px-2 py-1 text-sm text-white opacity-0 transition-opacity delay-500 group-hover:opacity-100 dark:bg-gray-200 dark:text-gray-800">
+                  {ariaLabel}
+                </span>
+              </div>
             ))}
           </nav>
         ) : (

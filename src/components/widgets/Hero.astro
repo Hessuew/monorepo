@@ -1,9 +1,8 @@
 ---
-import { twMerge } from 'tailwind-merge';
 import Image from '~/components/common/Image.astro';
 import Button from '~/components/ui/Button.astro';
-
 import type { Hero as Props } from '~/types';
+import { twMerge } from 'tailwind-merge';
 
 const {
   title = await Astro.slots.render('title'),
@@ -36,7 +35,7 @@ const { labelContainer: labelContainerClass = '' } = classes;
         {
           tagline && (
             <p
-              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
               set:html={tagline}
             />
           )
@@ -44,7 +43,7 @@ const { labelContainer: labelContainerClass = '' } = classes;
         {
           tagline2 && (
             <p
-              class="bg-gradient-to-r from-orange-600 to-yellow-500 text-transparent bg-clip-text italic text-base font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              class="bg-gradient-to-r from-orange-600 to-yellow-500 text-transparent bg-clip-text italic text-base font-bold tracking-wide uppercase intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
               set:html={tagline2}
             />
           )
@@ -52,7 +51,7 @@ const { labelContainer: labelContainerClass = '' } = classes;
         {
           title && (
             <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
               set:html={title}
             />
           )
@@ -61,14 +60,14 @@ const { labelContainer: labelContainerClass = '' } = classes;
           {
             subtitle && (
               <p
-                class="text-xl text-muted mb-6 dark:text-slate-300 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+                class="text-xl text-muted mb-6 dark:text-slate-300 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
                 set:html={subtitle}
               />
             )
           }
           {
             actions && (
-              <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+              <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade">
                 {Array.isArray(actions) ? (
                   actions.map((action) => (
                     <div class="flex w-full sm:w-auto">
@@ -85,7 +84,7 @@ const { labelContainer: labelContainerClass = '' } = classes;
         {content && <Fragment set:html={content} />}
       </div>
       <div
-        class="intersect-once intercept-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+        class="intersect-once intercept-no-queue intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
       >
         {
           image && (
@@ -93,21 +92,39 @@ const { labelContainer: labelContainerClass = '' } = classes;
               {typeof image === 'string' ? (
                 <Fragment set:html={image} />
               ) : (
-                <Image
-                  class="mx-auto rounded-md w-full"
-                  widths={[400, 768, 1024, 2040]}
-                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                  loading="eager"
-                  decoding="async"
-                  objectPosition="center top"
-                  width={1024}
-                  height={576}
-                  {...image}
-                />
+                image && (
+                  <div class="relative m-auto max-w-5xl">
+                    {image.link ? (
+                      <a href={image.link.href} target={image.link.target} rel={image.link.rel}>
+                        <Image
+                          class={twMerge('mx-auto rounded-md w-full', image?.class ?? '')}
+                          widths={[400, 768, 1024, 2040]}
+                          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                          loading="eager"
+                          width={1024}
+                          height={576}
+                          {...image}
+                        />
+                      </a>
+                    ) : (
+                      <Image
+                        class={twMerge('mx-auto rounded-md w-full', image?.class ?? '')}
+                        widths={[400, 768, 1024, 2040]}
+                        sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                        loading="eager"
+                        decoding="async"
+                        objectPosition="center top"
+                        width={1024}
+                        height={576}
+                        {...image}
+                      />
+                    )}
+                  </div>
+                )
               )}
               {imageText && (
                 <div class="text-center">
-                  <p>{imageText}</p>
+                  <p class="text-sm text-muted dark:text-slate-400">{imageText}</p>
                 </div>
               )}
             </div>

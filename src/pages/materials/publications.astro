@@ -1,10 +1,11 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import { publicationTypes, publicationCategories } from '~/data/publications';
-import Spacer from '~/components/widgets/Spacer.astro';
 import FilterContainer from '~/components/filters/FilterContainer.astro';
+import Hero from '~/components/widgets/Hero.astro';
 import PublicationsList from '~/components/widgets/list/PublicationsList.astro';
+import Spacer from '~/components/widgets/Spacer.astro';
+import SubscribeForm from '~/components/widgets/subscribe/SubscribeForm.astro';
+import { publicationCategories, publicationTypes } from '~/data/publications';
+import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
   title: 'Publications',
@@ -13,11 +14,17 @@ const metadata = {
 
 // Sort types and categories alphabetically
 const sortedTypes = [...publicationTypes].sort();
-const sortedCategories = [...publicationCategories].filter((category) => category !== '').sort();
+const sortedCategories = [...publicationCategories].filter((category) => category !== '');
 ---
 
 <Layout metadata={metadata}>
-  <Hero title="Publications" subtitle="Browse through our research publications and academic contributions" />
+  <Hero
+    tagline="Publications"
+    title="Scientific Output"
+    subtitle="Explore our peer-reviewed publications, research papers, and academic contributions advancing the understanding of child health through comprehensive longitudinal studies and evidence-based research."
+  />
+
+  <SubscribeForm />
 
   <FilterContainer
     options={[sortedTypes, sortedCategories]}
@@ -25,7 +32,7 @@ const sortedCategories = [...publicationCategories].filter((category) => categor
     showSearch={true}
     targetId="publications-list"
     classes={{
-      container: 'py-0 lg:py-0 md:py-0 mb-8',
+      container: 'py-0 lg:py-0 md:py-0',
     }}
   />
 

@@ -1,10 +1,10 @@
 ---
 import Headline from '~/components/ui/Headline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import ImpactCard from './pricing/ImpactCard.astro';
-import RibbonBadge from './pricing/RibbonBadge.astro';
-import ImpactMetrics from './pricing/ImpactMetrics.astro';
 import type { Pricing as Props } from '~/types';
+import ImpactCard from './pricing/ImpactCard.astro';
+import ImpactMetrics from './pricing/ImpactMetrics.astro';
+import RibbonBadge from './pricing/RibbonBadge.astro';
 
 const {
   title = '',
@@ -12,13 +12,20 @@ const {
   tagline = '',
   impactFactors = [],
   id,
+  animated = true,
   isDark = false,
   classes = {},
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+<WidgetWrapper
+  id={id}
+  animated={animated}
+  isDark={isDark}
+  containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`}
+  bg={bg}
+>
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
   <div class="flex items-stretch justify-center">
     <div class="grid grid-cols-3 gap-4 dark:text-white sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">

@@ -1,4 +1,7 @@
-import { parseISO, getYear } from 'date-fns';
+import imgNNFoundationAward from '~/assets/images/videosAndPodcasts/NN Foundation Award.webp';
+import imgPhysicalActivity from '~/assets/images/videosAndPodcasts/physical_activity_slow_and_steady_wins_the_race.webp';
+import type { ImageMetadata } from 'astro';
+import { getYear, parseISO } from 'date-fns';
 
 interface MediaItem {
   title: string;
@@ -7,9 +10,17 @@ interface MediaItem {
   platform: 'youtube' | 'vimeo' | 'doccheck' | 'soundcloud';
   author?: string;
   trackUrl?: string;
+  poster?: ImageMetadata;
+  videoQuality?: 'max' | 'hq';
 }
 
 export const videosAndPodcasts: MediaItem[] = [
+  {
+    title: 'Smoking during childhood and early adulthood could damage your heart in real-time, study says',
+    date: '2024-12-12',
+    videoId: '6npbHcqbWrU',
+    platform: 'youtube',
+  },
   {
     title: 'ENDO 2024 Press Conference: Sedentary Time and Liver Damage in Children',
     date: '2024-06-01',
@@ -21,6 +32,7 @@ export const videosAndPodcasts: MediaItem[] = [
     date: '2024-05-11',
     videoId: '944938770/8269ce30e4',
     platform: 'vimeo',
+    poster: imgNNFoundationAward,
   },
   {
     title: 'CTV News: Sedentariness and Heart Damage',
@@ -51,6 +63,7 @@ export const videosAndPodcasts: MediaItem[] = [
     date: '2024-03-19',
     videoId: 'AuFbnDornog',
     platform: 'youtube',
+    videoQuality: 'hq',
   },
   {
     title: 'University of Eastern Finland Video Interview on Sedentariness',
@@ -71,12 +84,14 @@ export const videosAndPodcasts: MediaItem[] = [
     date: '2024-01-19',
     videoId: 'Xm1B-ZkP6Bo',
     platform: 'youtube',
+    videoQuality: 'hq',
   },
   {
     title: 'DocCheck Interview on Slow and Steady Wins the Race- Light Physical Activity',
     date: '2023-09-12',
     videoId: '6066-physical-activity-slow-and-steady-wins-the-race',
     platform: 'doccheck',
+    poster: imgPhysicalActivity,
   },
 ];
 

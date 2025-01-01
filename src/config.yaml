@@ -1,44 +1,47 @@
+# Main site configuration
 site:
-  name: urFIT-child
-  site: 'https://urfit-child.com'
-  base: '/'
-  trailingSlash: false
+  name: urFIT-child # Website name used across the site
+  site: 'https://urfit-child.com' # Production URL
+  base: '/' # Base URL path
+  trailingSlash: false # URL format configuration
 
-  googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
+  googleSiteVerificationId: # Google site verification ID (if needed)
 
 # Default SEO metadata
 metadata:
   title:
-    default: urFIT-child
-    template: '%s — urFIT-child'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: urFIT-child # Default page title
+    template: '%s — urFIT-child' # Template for dynamic page titles
+  description: 'urFIT-child is a multi-disciplinary and multi-collaborative research group with clear objectives.'
   robots:
-    index: true
-    follow: true
+    index: true # Allow search engines to index
+    follow: true # Allow search engines to follow links
   openGraph:
-    site_name: urFIT-child
+    site_name: urFIT-child # Site name for social sharing
     images:
-      - url: '~/assets/images/default.png'
-        width: 1200
-        height: 628
+      - url: '~/assets/images/index/urFIT Child Research Group Logo.webp'
+        width: 1600
+        height: 1600
     type: website
   twitter:
-    handle: '@urfit-child'
-    site: '@urfit-child'
-    cardType: summary_large_image
+    handle: '@urfit-child' # Twitter handle
+    site: '@urfit-child' # Twitter site account
+    cardType: summary_large_image # Twitter card type
 
+# Internationalization settings
 i18n:
-  language: en
-  textDirection: ltr
+  language: en # Default language
+  textDirection: ltr # Text direction (left-to-right)
 
+# Application features configuration
 apps:
   blog:
-    isEnabled: true
-    postsPerPage: 6
+    isEnabled: false # Blog feature toggle
+    postsPerPage: 6 # Pagination setting
 
     post:
       isEnabled: true
-      permalink: '/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+      permalink: '/%slug%' # URL structure for posts
       robots:
         index: true
 
@@ -63,10 +66,12 @@ apps:
     isRelatedPostsEnabled: true
     relatedPostsCount: 4
 
+# Analytics configuration
 analytics:
   vendors:
     googleAnalytics:
       id: null # or "G-XXXXXXXXXX"
 
+# UI settings
 ui:
   theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"

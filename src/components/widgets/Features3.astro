@@ -1,8 +1,8 @@
 ---
+import Image from '~/components/common/Image.astro';
 import Headline from '~/components/ui/Headline.astro';
 import ItemGrid from '~/components/ui/ItemGrid.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import Image from '~/components/common/Image.astro';
 import type { Features as Props } from '~/types';
 
 const {
@@ -17,6 +17,7 @@ const {
   isAfterContent,
 
   id,
+  animated = true,
   isDark = false,
   classes = {},
   bg = await Astro.slots.render('bg'),
@@ -25,6 +26,7 @@ const {
 
 <WidgetWrapper
   id={id}
+  animated={animated}
   isDark={isDark}
   containerClass={`${isBeforeContent ? 'md:pb-8 lg:pb-12' : ''} ${isAfterContent ? 'pt-0 md:pt-0 lg:pt-0' : ''} ${
     classes?.container ?? ''

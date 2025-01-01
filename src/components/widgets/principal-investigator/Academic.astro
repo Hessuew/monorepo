@@ -1,16 +1,33 @@
 ---
+import imgAndrew from '~/assets/images//principalInvestigator/Agbaje ESC Congress London.webp';
+import imgAndrewCraig from '~/assets/images//principalInvestigator/Andrew Craig Dimitri Alan.webp';
 import Content from '~/components/widgets/Content.astro';
 import Features from '~/components/widgets/Features.astro';
 ---
 
 <section role="region" aria-labelledby="academic-heading">
   <h2 id="academic-heading" class="sr-only">Academic Achievements and Recognition</h2>
+
   <Features
     id="academic"
     columns={1}
     tagline="Academic"
     title="Academic excellence in a global context"
     items={[
+      {
+        title:
+          'CBS Boston <br /> <span class="font-normal">Childhood Tobacco Smoking Research</span> <br /> <span class="text-sm font-normal">12-12-2024</span>',
+        description: `
+        Prof Agbaje discovered childhood tobacco smoking as a cause of premature cardiac damage and identified that smoking prevalence increased 15 times between the age of 13 to 17 years.
+        This groundbreaking research revealed the devastating impact of early tobacco use on cardiovascular health in children. The findings highlight a critical public health concern with smoking rates dramatically increasing during adolescence. Watch the detailed presentation on 
+          <a
+            href="https://www.youtube.com/watch?v=6npbHcqbWrU"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            class="text-blue-700 hover:underline"
+            >YouTube</a>.`,
+        icon: 'tabler:heart-broken',
+      },
       {
         title:
           'BBC World News TV <br /> <span class="font-normal">Waist-to-height ratio to replace BMI for children</span> <br /> <span class="text-sm font-normal">03-14-2024</span>',
@@ -24,6 +41,12 @@ import Features from '~/components/widgets/Features.astro';
       >
         to discuss the novel findings.`,
         icon: 'tabler:news',
+      },
+      {
+        title:
+          'American Heart Association Recognition  <br /> <span class="font-normal">World’s Most Significant Advances in Cardiovascular Research</span> <br /> <span class="text-sm font-normal">December 2024</span>',
+        description: `Prof. Agbaje’s <a href="https://academic.oup.com/eurjpc/article/31/12/1480/7655444?login=false" target="_blank" rel="noopener noreferrer nofollow" class="text-blue-700 hover:underline">study</a> was selected as one of the <a href="https://www.heart.org/en/around-the-aha/aha-names-biggest-advances-in-cardiovascular-research-for-2024" target="_blank" rel="noopener noreferrer nofollow" class="text-blue-700 hover:underline font-bold">world's most significant advances in cardiovascular research in 2024</a> by the American Heart Association.`,
+        icon: 'tabler:medal',
       },
       {
         title:
@@ -50,13 +73,20 @@ import Features from '~/components/widgets/Features.astro';
         description: `
           He has a first authored paper in 
             <a
+              href="https://www.jacc.org/doi/10.1016/j.jacc.2024.09.1229"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              class="text-blue-700 hover:underline font-bold italic"
+              >JACC</a
+        > and 
+            <a
               href="https://www.nature.com/articles/s41467-023-43316-w"
               target="_blank"
               rel="noopener noreferrer nofollow"
               class="text-blue-700 hover:underline font-bold italic"
               >Nature Communications</a
         >
-            and was interviewed LIVE on BBC World Service Radio Newsday programme on 15th Dec 2023, 
+            . He was interviewed LIVE on BBC World Service Radio Newsday programme on 15th Dec 2023, 
             <a
               href="https://www.youtube.com/watch?v=Xm1B-ZkP6Bo"
               target="_blank"
@@ -245,7 +275,7 @@ import Features from '~/components/widgets/Features.astro';
       },
     ]}
     image={{
-      src: 'https://lh3.googleusercontent.com/d/13X_VyXh3oY8qiHtFRZxOfeH1trztfmLc',
+      src: imgAndrew,
       alt: 'Agbaje at the ESC congress, London',
     }}
     imageText="Agbaje at the ESC congress, London"
@@ -319,7 +349,7 @@ import Features from '~/components/widgets/Features.astro';
       },
     ]}
     image={{
-      src: 'https://lh3.googleusercontent.com/d/1GlW-w5zAoi8Vedys74nzMpaD-GHbkf72',
+      src: imgAndrewCraig,
       alt: 'Andrew, Craig, Dimitri and Alan',
     }}
     imageText="Andrew, Craig, Dimitri and Alan"

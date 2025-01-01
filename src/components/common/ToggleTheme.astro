@@ -1,8 +1,7 @@
 ---
-import { twMerge } from 'tailwind-merge';
-import { Icon } from 'astro-icon/components';
-
 import { UI } from '~/utils/config';
+import { Icon } from 'astro-icon/components';
+import { twMerge } from 'tailwind-merge';
 
 export interface Props {
   label?: string;
@@ -12,17 +11,16 @@ export interface Props {
 }
 
 const {
-  label = 'Toggle between Dark and Light mode',
+  label = 'Toggle theme',
   class:
     className = 'text-muted dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center',
   iconClass = 'w-6 h-6',
-  // iconName = 'tabler:sun'
 } = Astro.props;
 ---
 
 {
   !(UI.theme && UI.theme.endsWith(':only')) && (
-    <>
+    <div class="group relative">
       <button
         type="button"
         class={twMerge(className, 'dark:invisible dark:hidden')}
@@ -41,35 +39,9 @@ const {
       >
         <Icon name={'tabler:moon'} class={iconClass} />
       </button>
-    </>
+      <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-gray-800 px-2 py-1 text-sm text-white opacity-0 transition-opacity delay-500 group-hover:opacity-100 dark:bg-gray-200 dark:text-gray-800">
+        {label}
+      </span>
+    </div>
   )
 }
-
-<!-- ---
-import { Icon } from 'astro-icon/components';
-
-import { UI } from 'astrowind:config';
-
-export interface Props {
-  label?: string;
-  class?: string;
-  iconClass?: string;
-  iconName?: string;
-}
-
-const {
-  label = 'Toggle between Dark and Light mode',
-  class:
-    className = 'text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center',
-  iconClass = 'w-6 h-6',
-  iconName = 'tabler:sun',
-} = Astro.props;
----
-
-{
-  !(UI.theme && UI.theme.endsWith(':only')) && (
-    <button type="button" class={className} aria-label={label} data-aw-toggle-color-scheme>
-      <Icon name={iconName} class={iconClass} />
-    </button>
-  )
-} -->

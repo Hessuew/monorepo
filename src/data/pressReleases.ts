@@ -1,4 +1,4 @@
-import { parseISO, getYear } from 'date-fns';
+import { groupByYear } from '~/utils/dataProcessing';
 
 interface PressRelease {
   title: string;
@@ -10,6 +10,38 @@ interface PressRelease {
 }
 
 export const pressReleases: PressRelease[] = [
+  {
+    title: 'Smoking tobacco from early childhood can cause premature heart damage, new study shows',
+    date: '2024-12-12',
+    url: 'https://usrtk.org/healthwire/smoking-tobacco-from-early-childhood-can-cause-premature-heart-damage/',
+    source: 'U.S. Right to Know',
+    type: 'news',
+    category: 'cardiac-health',
+  },
+  {
+    title: 'Preteen, Teen Smoking Can Injure The Young Heart',
+    date: '2024-12-12',
+    url: 'https://www.usnews.com/news/health-news/articles/2024-12-12/preteen-teen-smoking-can-injure-the-young-heart',
+    source: 'US News',
+    type: 'news',
+    category: 'cardiac-health',
+  },
+  {
+    title: 'Teens Who Smoke Face Risk of Cardiac Damage by Their Mid-20s',
+    date: '2024-12-12',
+    url: 'https://www.tctmd.com/news/teens-who-smoke-face-risk-cardiac-damage-their-mid-20s',
+    source: 'TCTMD',
+    type: 'news',
+    category: 'cardiac-health',
+  },
+  {
+    title: 'Dealing with a time bomb: Persistent tobacco smoking tied to cardiac injury at young age',
+    date: '2024-12-11',
+    url: 'https://www.healio.com/news/cardiology/20241211/dealing-with-a-time-bomb-persistent-smoking-linked-to-cardiac-injury-at-a-young-age',
+    source: 'Healio',
+    type: 'news',
+    category: 'cardiac-health',
+  },
   {
     title: 'Childhood Inactivity Linked to Increased Risk of Liver Disease',
     date: '2024-06-04',
@@ -368,15 +400,7 @@ export const pressReleaseTypes = [...new Set(pressReleases.map((item) => item.ty
 export const pressReleaseCategories = [...new Set(pressReleases.map((item) => item.category))];
 
 // Group press releases by year
-export const pressReleasesByYear = pressReleases.reduce(
-  (acc, release) => {
-    const date = parseISO(release.date);
-    const year = getYear(date);
-    acc[year] = [...(acc[year] || []), release];
-    return acc;
-  },
-  {} as Record<number, typeof pressReleases>
-);
+export const pressReleasesByYear = groupByYear(pressReleases);
 
 // Sort years in descending order
 export const sortedYears = Object.keys(pressReleasesByYear)

@@ -1,10 +1,10 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import { pressReleaseTypes, pressReleaseCategories } from '~/data/pressReleases';
-import Spacer from '~/components/widgets/Spacer.astro';
 import FilterContainer from '~/components/filters/FilterContainer.astro';
+import Hero from '~/components/widgets/Hero.astro';
 import PressReleasesList from '~/components/widgets/list/PressReleasesList.astro';
+import Spacer from '~/components/widgets/Spacer.astro';
+import { pressReleaseCategories, pressReleaseTypes } from '~/data/pressReleases';
+import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
   title: 'Press Releases',
@@ -17,7 +17,11 @@ const sortedCategories = [...pressReleaseCategories].filter((category) => catego
 ---
 
 <Layout metadata={metadata}>
-  <Hero title="Press Releases" subtitle="Discover the latest research insights and media coverage of urFIT-child" />
+  <Hero
+    tagline="Press Releases"
+    title="Research Impact"
+    subtitle="Stay informed about our groundbreaking findings in child health research, media coverage, and the real-world impact of our longitudinal studies on physical activity, cardiovascular health, and metabolic health in children."
+  />
 
   <FilterContainer
     options={[sortedTypes, sortedCategories]}

@@ -1,9 +1,9 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
 import FilterContainer from '~/components/filters/FilterContainer.astro';
-import { platforms } from '~/data/videosAndPodcasts';
+import Hero from '~/components/widgets/Hero.astro';
 import VideosAndPodcastsList from '~/components/widgets/list/VideosAndPodcastsList.astro';
+import { platforms } from '~/data/videosAndPodcasts';
+import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
   title: 'Videos and Podcasts',
@@ -12,7 +12,11 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Hero tagline="Media Coverage" title="Videos and Podcasts" />
+  <Hero
+    tagline="Media Coverage"
+    title="Research in Action"
+    subtitle="Watch and listen to our researchers discuss key findings, methodologies, and implications of our longitudinal studies through engaging video presentations and in-depth podcast interviews."
+  />
 
   <FilterContainer
     options={[platforms]}

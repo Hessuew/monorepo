@@ -1,0 +1,26 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import ReactSubscribeForm from '~/components/widgets/subscribe/ReactSubscribeForm';
+
+interface Props {
+  id?: string;
+  classes?: Record<string, string>;
+  isDark?: boolean;
+  bg?: string;
+}
+
+const { id, classes = {}, isDark = false, bg = await Astro.slots.render('bg') } = Astro.props;
+
+const containerId = id || `filter-container-${Math.random().toString(36).substring(2, 11)}`;
+---
+
+<WidgetWrapper
+  id={containerId}
+  isDark={isDark}
+  containerClass={classes?.container ?? `py-4 lg:py-4 md:py-4 max-w-7xl mx-auto`}
+  bg={bg}
+>
+  <div class="flex justify-end">
+    <ReactSubscribeForm client:load />
+  </div>
+</WidgetWrapper>

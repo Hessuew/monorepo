@@ -1,7 +1,8 @@
 ---
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import type { GraphGrid as Props } from '~/types';
+import { Icon } from 'astro-icon/components';
 import { twMerge } from 'tailwind-merge';
 
 const {
@@ -26,14 +27,22 @@ const {
   <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
 
   <div
-    class={'gap-1 xs:gap-3 sm:gap-6 relative flex flex-row py-6 px-1 xs:px-4 sm:px-6 min-w-[300px] rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white dark:bg-slate-900 intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade'}
+    class={'gap-1 xs:gap-3 sm:gap-6 relative flex flex-row py-6 px-1 xs:px-4 sm:px-6 min-w-[300px] rounded-lg sm:backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900'}
   >
     {
       items &&
-        items.map(({ title, subtitle, rows, classes: itemClasses }) => (
+        items.map(({ title, icon, colorClass, subtitle, rows, classes: itemClasses }) => (
           <div class="w-full flex">
             <div class="flex flex-col gap-2 md:gap-5">
-              <div class={twMerge('text-sm xs:text-base sm:text-xl font-bold')}>{title}</div>
+              <div class="w-fit relative inline-block">
+                <div class={twMerge(`flex items-center gap-2 text-sm xs:text-base sm:text-xl font-bold pb-2`)}>
+                  {title}
+                  {icon && <Icon name={icon.text} class={twMerge('w-6 h-6', icon.class)} aria-hidden="true" />}
+                  {colorClass && (
+                    <div class={twMerge(colorClass, 'absolute bottom-1 sm:bottom-0 left-0 h-1 sm:h-2 w-[75%]')} />
+                  )}
+                </div>
+              </div>
               <div class="flex-row flex -mt-2 h-6">
                 <p
                   class={twMerge(

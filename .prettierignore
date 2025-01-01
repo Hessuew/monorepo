@@ -2,4 +2,5 @@ dist
 node_modules
 .github
 .changeset
+.wrangler
 src/components/widgets/AnimatedChildSvg.astro

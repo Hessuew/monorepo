@@ -236,10 +236,21 @@ export interface Form {
 }
 
 // WIDGETS
-export interface Hero extends Omit<Headline, 'classes'>, Widget {
+export interface Hero extends Headline, Widget {
   content?: string;
   actions?: string | CallToAction[];
-  image?: string | unknown;
+  image?:
+    | string
+    | {
+        src: string | ImageMetadata;
+        alt?: string;
+        class?: string;
+        link?: {
+          href: string;
+          target?: string;
+          rel?: string;
+        };
+      };
   imageText?: string;
 }
 
@@ -252,6 +263,7 @@ export interface Stats extends Omit<Headline, 'classes'>, Widget {
 }
 
 export interface Pricing extends Omit<Headline, 'classes'>, Widget {
+  animated?: boolean;
   impactFactors?: Array<Price>;
 }
 
@@ -266,7 +278,9 @@ export interface Brands extends Omit<Headline, 'classes'>, Widget {
 }
 
 export interface Features extends Omit<Headline, 'classes'>, Widget {
+  animated?: boolean;
   image?: string | unknown;
+  imageText?: string;
   video?: Video;
   items?: Array<Item>;
   columns?: number;
@@ -276,14 +290,16 @@ export interface Features extends Omit<Headline, 'classes'>, Widget {
   isReversed?: boolean;
   isBeforeContent?: boolean;
   isAfterContent?: boolean;
+  callToAction?: CallToAction;
 }
 
 export interface GraphItem {
+  icon?: { text: string; class?: string };
   title?: string;
+  colorClass?: string;
   description?: string | { text: string; link?: boolean; subtitle?: boolean; classes?: Record<string, string> }[];
   subtitle?: { text1: string; text2: string };
   rows: Array<{ text1: string; text2?: string }>;
-  icon?: string;
   classes?: Record<string, string>;
 }
 
@@ -314,6 +330,7 @@ export interface Steps extends Omit<Headline, 'classes'>, Widget {
 }
 
 export interface Content extends Omit<Headline, 'classes'>, Widget {
+  animated?: boolean;
   content?: string;
   image?: string | unknown;
   imageText?: string;

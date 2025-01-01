@@ -1,67 +1,204 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-
-import Spacer from '~/components/widgets/Spacer.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Features from '~/components/widgets/Features.astro';
-import Content from '~/components/widgets/Content.astro';
+import imgFlame from '~/assets/images/non-academic/Flame the Freeze website.webp';
+import flameEbook from '~/assets/pdfs/Flame the Freeze ebook.pdf';
 import GradientText from '~/components/ui/GradientText.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features from '~/components/widgets/Features.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Spacer from '~/components/widgets/Spacer.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { YouTube } from 'astro-embed';
 
 const metadata = {
-  title: 'Affiliations',
+  title: 'Non-academic',
+  description: 'Life is spiritual',
   // ignoreTitleTemplate: true,
 };
 ---
 
 <Layout metadata={metadata}>
-  <Hero
-    classes={{ labelContainer: 'pb-0 md:pb-0 lg:pb-0' }}
-    tagline="Non-academic"
-    image={{
-      src: 'https://lh3.googleusercontent.com/d/1hmsXqLKkfWQb-WRxW0sCHgrGF-ndPI4y',
-      alt: 'Flame the Freeze website',
-    }}
-  >
-    <Fragment slot="title"> Life is spiritual </Fragment>
+  <Hero tagline="mental or spiritual" title="Which is the realm you operate in?">
     <Fragment slot="subtitle">
-      The magnificence and excellence of all these studies and findings are credited to the Lord Jesus Christ. How can a
-      small research group from a small country like Finland make such discoveries and reach global attention and
-      influence the world just in a couple of years?
+      <div class="space-y-6 text-gray-700 dark:text-gray-300">
+        <p
+          class="leading-relaxed intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        >
+          If you operate only in the physical and mental realm, you are at a
+          <span class="font-semibold text-primary-600 dark:text-primary-400">grave disadvantage</span>.
 
-      <br />
-      <br />
-      We know that thou art a teacher come from God:
-      <span class="font-semibold">for no man can do these</span> miracles that thou doest,
-      <span class="font-semibold"> except God be with him. </span>
-      John 3:2 KJV
-      <br />
-      <br />
-      This is the Lord's doing; it is marvellous in our eyes. Psalm 118:23 KJV
+          <br />
+          When any results are beyond ordinary, they are outsourced either from the spiritual realm. The source can be twofold;
+          either it is the
+          <span class="text-primary-600 dark:text-primary-400 font-semibold underline">demonic</span> or <span
+            class="text-primary font-semibold underline">divine.</span
+          >
+        </p>
 
-      <br />
-      <br />
-      <br />
+        <p
+          class="leading-relaxed intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        >
+          The magnificence and excellence of all
+          <span class="font-semibold text-primary-600 dark:text-primary-400">these</span> studies and findings are directly
+          from the realm of the spirit. Normal people see the results but cannot comprehend the source.
 
-      For this reason we created a website, from which you can enter into the same spiritual realm as we do.
-
-      <br />
-      <br />
-      <a class="text-orange-600 hover:underline font-bold" href="https://flamethefreeze.com" target="_blank">
-        <GradientText class="font-bold pr-3 text-xl" isHeading style2>Flame the Freeze</GradientText>
-      </a>
+          <blockquote
+            class="border-l-4 border-primary-500 pl-4 my-6 italic intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+          >
+            <p class="mb-2">
+              But the natural man receiveth not the things of the Spirit of God: for they are foolishness unto him:
+              neither can he know them, because they are spiritually discerned.
+            </p>
+            <cite class="text-sm text-gray-600 dark:text-gray-400">— 1 Corinthians 2:14</cite>
+          </blockquote>
+          <br />
+        </p>
+      </div>
     </Fragment>
   </Hero>
 
-  <!-- Spacer ******************* -->
+  <Spacer size="sm" />
+
+  <Note text="He that seeketh his glory that sent him, the same is true" author="John 7:18 KJV" />
 
   <Spacer />
 
+  <Hero>
+    <Fragment slot="subtitle">
+      The results of these scientific studies are credited to one person and to one person alone.
+      <br />
+      <span class="text-primary italic text-7xl font-bold underline">Jesus Christ</span>
+      <br />
+      <span class="text-black dark:text-white italic text-5xl font-bold">the Son of the living God</span>
+
+      <p
+        class="leading-relaxed intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        <br />
+        If you don't believe in
+
+        <span class="font-bold">Jesus</span>, still you cannot doubt the results. The results show that He is alive. A
+        small research group from a small country like Finland cannot make such discoveries, reach global attention, and
+        influence the world just in a couple of years.
+      </p>
+
+      <blockquote
+        class="border-l-4 border-primary-500 pl-4 my-6 italic intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        <p class="mb-2">
+          We know that thou art a teacher come from God:
+          <span class="font-semibold text-primary-600 dark:text-primary-400">for no man can do these</span> miracles that
+          thou doest,
+          <span class="font-semibold text-primary-600 dark:text-primary-400">except God be with him.</span>
+        </p>
+        <cite class="text-sm text-gray-600 dark:text-gray-400">— John 3:2 KJV</cite>
+
+        <br />
+        <br />
+        <p>This is the Lord's doing; it is marvellous in our eyes.</p>
+        <cite class="text-sm text-gray-600 dark:text-gray-400">— Psalm 118:23 KJV</cite>
+      </blockquote>
+    </Fragment>
+  </Hero>
+
+  <Features
+    id="question"
+    columns={2}
+    tagline="The question"
+    title="Why are you here?"
+    classes={{
+      container: 'md:pt-0 md:pb-8 lg:pt-0 lg:pb-12 ',
+    }}
+    items={[
+      {
+        title: 'What is your origin?',
+        description:
+          'Where are you from? Are you an offspring of a monkey, just a kind of animal? Or are you created after the image of God? See, even this simple question will determine if you are a meaningless entity or a being with a purpose.',
+        icon: 'tabler:dna',
+      },
+      {
+        title: 'What is the meaning of life?',
+        description:
+          'Are you just an accident, and is everything meaningless? You need to create and define an importance to things because without that, it does not exist. Or are all things created for a purpose?',
+        icon: 'tabler:compass',
+      },
+      {
+        title: 'What is your purpose?',
+        description:
+          'No item is created without a meaning or a goal. So why do you live? Have you yourself created a purpose and fulfillment for your life? Or do you know and fulfill at the moment the original purpose for why you were created?',
+        icon: 'tabler:target',
+      },
+      {
+        title: 'Do you have peace within you?',
+        description:
+          'Are you tossed by the circumstances and situations of life, and is your peace based on your current conditions? Or do you have eternal peace that no circumstance or situation can shake?',
+        icon: 'tabler:peace',
+      },
+      {
+        title: 'Do you have joy within you?',
+        description:
+          'Do you gather experiences because they bring you happiness? You need to see friends, go to movies, eat good food, work profoundly to be happy? Or do you have a well of joy within you that just pours and pours eternal joy no matter the time, the date, and the place?',
+        icon: 'tabler:mood-smile',
+      },
+      {
+        title: 'Are you righteous?',
+        description:
+          "'I'm not killing or hurting anyone. I'm not doing anything that bad.' No, that is a wrong answer. That is righteousness based on your standards. The right way to interpret the question is, 'Are you perfect based on God's standard?'",
+        icon: 'tabler:checks',
+      },
+    ]}
+  >
+    <Fragment slot="subtitle">
+      If you are here only for academic materials, publications, or videos, that is okay.
+      <br />
+      But if you think life is more than just papers and research, you could answer the following spiritual questions:
+    </Fragment>
+  </Features>
+
+  <Features
+    classes={{
+      container: 'lg:pt-0 lg:pb-0 md:pt-0 md:pb-0',
+    }}
+  >
+    <Fragment slot="subtitle">
+      If you cannot answer these simple questions painstakingly and with ease, you haven't yet understood the
+      fundamentals of life. You might be doing extraordinary research, be a big professor, and define the targets of
+      huge funds. But if you cannot answer these fundamental questions, you have not yet reached the kindergarden of
+      spirit.
+      <br />
+      <br />
+      Physical things are temporary. Spiritual things are eternal. Focus on the spiritual things.
+
+      <br />
+      If you feel the fire of these words sinking into your heart, we have a way to connect you to this divine fire:
+      <a
+        class="text-orange-600 hover:underline font-bold"
+        href="https://flamethefreeze.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <GradientText class="font-bold pr-3 text-xl block" style2>Flame the Freeze</GradientText>
+      </a>
+    </Fragment>
+  </Features>
+
+  <Hero
+    image={{
+      src: imgFlame,
+      alt: 'Flame the Freeze website',
+      link: {
+        href: 'https://flamethefreeze.com',
+        target: '_blank',
+        rel: 'noopener noreferrer',
+      },
+    }}
+  />
   <!-- Content Widget **************** -->
 
   <Content tagline2="A foretaste" isReversed>
     <Fragment slot="title">
       A foretaste of what<br />
-      <GradientText class="italic pr-3" style2 text="Jesus has been doing" /><br />
+      <GradientText class="italic pr-3 pb-1" style2 text="Jesus has been doing" /><br />
       since the start of 2024?
       <!-- <GradientText text={t("index.content3.title.span2")} /> -->
     </Fragment>
@@ -75,15 +212,7 @@ const metadata = {
 
     <Fragment slot="image">
       <div class="relative pb-[56.25%]">
-        <iframe
-          loading="lazy"
-          width="560"
-          height="315"
-          src="https://www.youtube-nocookie.com/embed/Z1J0yjSdiVY?si=mezqUTnaLAHh_r_G"
-          title="YouTube video player"
-          class="absolute top-0 left-0 w-full h-full"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
+        <YouTube id="Z1J0yjSdiVY" title="Dr. Osaze's testimony" poster="" />
       </div>
     </Fragment>
   </Content>
@@ -91,7 +220,7 @@ const metadata = {
   <Content>
     <Fragment slot="content">
       <h3 class="text-2xl tracking-tight sm:text-xl mb-2">
-        Excerpt from JESUS FEST Kuopio Gospel Outreach, Finland June 7-9, 2024...
+        Excerpt from JESUS FEST WINTER REVIVAL Gospel Outreach, Finland December 18-22, 2024...
       </h3>
       <h3 class="text-2xl tracking-tight sm:text-xl mb-2">
         ...And he said unto them, Go ye into all the world, and preach the gospel to every creature. Mark 16:15 KJV
@@ -100,43 +229,30 @@ const metadata = {
 
     <Fragment slot="image">
       <div class="relative pb-[56.25%]">
-        <iframe
-          loading="lazy"
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/g_y65xR5OYE?si=JwRc2jad8g1Swu3h"
-          title="YouTube video player"
-          class="absolute top-0 left-0 w-full h-full"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
+        <YouTube id="BF3abMvyBLQ" title="Ari raised from the dead after setting himself on fire" poster="" />
       </div>
     </Fragment>
   </Content>
 
   <!-- Features Widget *************** -->
 
-  <Features
-    id="features"
-    tagline2="eBook"
-    title="10 stories of life transforming miracles for people who are hungry to know more"
-  />
-  <!-- A free e-book for the exhortation and edification of the body of Christ -->
+  <Features id="features" tagline2="eBook" title="10 stories of life transforming miracles" />
 
   <!-- Ebook Widget *************** -->
 
-  <div class="w-full flex justify-center pb-10 h-[520px] lg:h-[640px]">
-    <iframe
-      aria-label="Flame the Freeze pdf"
-      src={'https://drive.google.com/file/d/1D5npgHt176KLtaEir-OE61LcndzssEjp/preview'}
-      width="100%"
-      height="100%"
-      allow="autoplay"
-      class="max-w-2xl"></iframe>
-    <!-- <p> {t("devotions.ebook.text1")} <a class="hover:underline" href={lang === "en" ?
-      "https://drive.google.com/file/d/1D5npgHt176KLtaEir-OE61LcndzssEjp/preview" :
-      "https://drive.google.com/file/d/1JY5xC1_A24QFWG75GzI0ul1JAv1iBjIk/preview"}
-      target="_blank">{t("devotions.ebook.a")}</a > {t("devotions.ebook.text2")}</p> -->
+  <div
+    class="w-full flex justify-center pb-10 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+  >
+    <div class="w-full max-w-2xl aspect-[3/4] relative">
+      <iframe
+        title="Flame the Freeze pdf"
+        src={flameEbook}
+        width="100%"
+        height="100%"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+        allow="autoplay"
+        loading="lazy"></iframe>
+    </div>
   </div>
 
   <!-- Spacer ******************* -->

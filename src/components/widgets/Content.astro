@@ -1,10 +1,10 @@
 ---
+import Image from '~/components/common/Image.astro';
+import Button from '~/components/ui/Button.astro';
+import ItemGrid from '~/components/ui/ItemGrid.astro';
 import type { Content as Props } from '~/types';
 import Headline from '../ui/Headline.astro';
 import WidgetWrapper from '../ui/WidgetWrapper.astro';
-import Image from '~/components/common/Image.astro';
-import Button from '~/components/ui/Button.astro';
-import ItemGrid from '../ui/ItemGrid.astro';
 
 const {
   title = await Astro.slots.render('title'),
@@ -22,6 +22,7 @@ const {
   isAfterContent = false,
 
   id,
+  animated = true,
   isDark = false,
   classes = {},
   bg = await Astro.slots.render('bg'),
@@ -33,6 +34,7 @@ const {
 ---
 
 <WidgetWrapper
+  animated={animated}
   id={id}
   isDark={isDark}
   containerClass={`max-w-7xl mx-auto ${isAfterContent ? 'pt-0 md:pt-0 lg:pt-0' : ''} ${classes?.container ?? ''}`}
@@ -44,7 +46,7 @@ const {
     tagline={tagline}
     tagline2={tagline2}
     classes={{
-      container: 'max-w-xl sm:mx-auto lg:max-w-2xl',
+      container: 'max-w-xl sm:mx-auto lg:max-w-xl',
       title: 'text-4xl md:text-5xl font-bold tracking-tighter mb-4 font-heading',
       subtitle: 'max-w-3xl mx-auto sm:text-center text-xl text-muted dark:text-slate-400',
     }}
@@ -53,7 +55,7 @@ const {
     <div class={`md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-16`}>
       <section class="md:basis-1/2" aria-labelledby="content-heading">
         <h2 id="content-heading" class="sr-only">Main Content</h2>
-        {content && <div class="mb-12 text-lg dark:text-slate-400" set:html={content} />}
+        {content && <div class="mb-12 text-lg dark:text-slate-400 " set:html={content} />}
 
         {
           callToAction && (
@@ -77,7 +79,10 @@ const {
           }}
         />
       </section>
-      <div aria-hidden="true" class="mt-10 md:mt-0 md:basis-1/2">
+      <div
+        aria-hidden="true"
+        class="mt-10 md:mt-0 md:basis-1/2 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
         {
           image && (
             <figure class="relative mx-auto max-w-4xl">
