@@ -79,7 +79,8 @@ const metadata = {
       },
       {
         title: 'Normal fat',
-        color: 'green-500',
+        icon: { text: 'tabler:circle-check', class: 'text-green-500' },
+        colorClass: 'bg-green-500',
         subtitle: { text1: 'Male', text2: 'Female' },
         rows: [
           { text1: `<${THRESHOLDS.male.normal}`, text2: `<${THRESHOLDS.female.normal}` },
@@ -89,7 +90,8 @@ const metadata = {
       },
       {
         title: 'High fat',
-        color: 'yellow-500',
+        icon: { text: 'tabler:alert-triangle', class: 'text-yellow-500' },
+        colorClass: 'bg-yellow-500',
         subtitle: { text1: 'Male', text2: 'Female' },
         rows: [
           { text1: `>${THRESHOLDS.male.high}`, text2: `>${THRESHOLDS.female.high}` },
@@ -99,7 +101,8 @@ const metadata = {
       },
       {
         title: 'Excess fat',
-        color: 'red-500',
+        icon: { text: 'tabler:alert-octagon', class: 'text-red-500' },
+        colorClass: 'bg-red-500',
         subtitle: { text1: 'Male', text2: 'Female' },
         rows: [
           { text1: `>${THRESHOLDS.male.excess}`, text2: `>${THRESHOLDS.female.excess}` },

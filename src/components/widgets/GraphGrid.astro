@@ -2,6 +2,7 @@
 import Headline from '~/components/ui/Headline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import type { GraphGrid as Props } from '~/types';
+import { Icon } from 'astro-icon/components';
 import { twMerge } from 'tailwind-merge';
 
 const {
@@ -30,13 +31,16 @@ const {
   >
     {
       items &&
-        items.map(({ title, color, subtitle, rows, classes: itemClasses }) => (
+        items.map(({ title, icon, colorClass, subtitle, rows, classes: itemClasses }) => (
           <div class="w-full flex">
             <div class="flex flex-col gap-2 md:gap-5">
               <div class="w-fit relative inline-block">
-                <div class={twMerge(`text-sm xs:text-base sm:text-xl font-bold pb-2 inline-block`)}>
+                <div class={twMerge(`flex items-center gap-2 text-sm xs:text-base sm:text-xl font-bold pb-2`)}>
                   {title}
-                  {color && <div class={`absolute bottom-1 sm:bottom-0 left-0 h-1 sm:h-2 bg-${color} w-[110%]`} />}
+                  {icon && <Icon name={icon.text} class={twMerge('w-6 h-6', icon.class)} aria-hidden="true" />}
+                  {colorClass && (
+                    <div class={twMerge(colorClass, 'absolute bottom-1 sm:bottom-0 left-0 h-1 sm:h-2 w-[75%]')} />
+                  )}
                 </div>
               </div>
               <div class="flex-row flex -mt-2 h-6">
