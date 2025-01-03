@@ -50,14 +50,20 @@ const metadata = {
         your heels against the corner where the wall and floor meet. Ensure your head, shoulders, and buttocks touch the
         wall. Look straight ahead parallel to the floor. Have someone place a book or a ruler over your head and lightly
         mark the wall with a pencil. Then measure the distance between the marked point and the floor. Now calculate waist
-        circumference (cm)/height (cm) and check the results against the categories provided above.
+        circumference (cm)/height (cm) and check the results against the categories provided below.
       </div>
     </Fragment>
   </Content>
 
   <!-- Hero Widget ******************* -->
 
-  <Hero tagline="Agbaje Calc" title="Calculate your waist/height ratio">
+  <Hero
+    tagline="Agbaje Calc"
+    title="Calculate your waist/height ratio"
+    classes={{
+      labelContainerClass: 'lg:pt-0 lg:pb-0 md:pt-0 md:pb-0',
+    }}
+  >
     <Fragment slot="image">
       <Calculator />
     </Fragment>
@@ -68,6 +74,9 @@ const metadata = {
   <GraphGrid
     title="Result interpretation"
     columns={1}
+    classes={{
+      container: 'lg:pt-0 lg:pb-0 md:pt-0 md:pb-0',
+    }}
     items={[
       {
         title: 'Age Group',
@@ -75,6 +84,17 @@ const metadata = {
           { text1: 'Childhood', text2: '' },
           { text1: 'Adolescence', text2: '' },
           { text1: 'Young Adulthood', text2: '' },
+        ],
+      },
+      {
+        title: 'Low fat',
+        icon: { text: 'tabler:arrow-down-circle', class: 'text-purple-500' },
+        colorClass: 'bg-purple-500',
+        subtitle: { text1: 'Male', text2: 'Female' },
+        rows: [
+          { text1: `<${THRESHOLDS.male.low}`, text2: `<${THRESHOLDS.female.low}` },
+          { text1: `<${THRESHOLDS.male.low}`, text2: `<${THRESHOLDS.female.low}` },
+          { text1: `<${THRESHOLDS.male.low}`, text2: `<${THRESHOLDS.female.low}` },
         ],
       },
       {

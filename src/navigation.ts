@@ -1,3 +1,6 @@
+import cholesterolPassport from '~/assets/images/infographic/Cholesterol passport for adolescents to halt the world’s deadliest disease – atherosclerosis.webp';
+import imgAndrew from '~/assets/images/navigation/Andrew Agbaje RT 2022.webp';
+import imgVideosAndPodcasts from '~/assets/images/navigation/Smoking During Childhood.webp';
 import { getPermalink } from './utils/permalinks';
 
 export const headerData = {
@@ -6,6 +9,10 @@ export const headerData = {
       text: 'Core People',
       links: [
         {
+          image: {
+            src: imgAndrew,
+            alt: 'Principal Investigator, Andrew Agbaje',
+          },
           text: 'Principal Investigator',
           href: getPermalink('/people/principal-investigator'),
         },
@@ -35,11 +42,19 @@ export const headerData = {
           href: getPermalink('/materials/publications'),
         },
         {
+          image: {
+            src: imgVideosAndPodcasts,
+            alt: 'Videos and Podcasts',
+          },
           text: 'Videos and Podcasts',
           href: getPermalink('/materials/videos-and-podcasts'),
         },
         {
-          text: 'Infografics',
+          image: {
+            src: cholesterolPassport,
+            alt: 'Infographic',
+          },
+          text: 'Infographics',
           href: getPermalink('/materials/infografics'),
         },
         {
