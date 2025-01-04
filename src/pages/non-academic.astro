@@ -156,6 +156,16 @@ const metadata = {
     }}
   >
     <Fragment slot="subtitle">
+      <blockquote
+        class="border-l-4 border-primary-500 pl-4 my-6 italic intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        <p class="mb-2">
+          Vapor of vapors and futility of futilities, says the Preacher. Vapor of vapors and futility of futilities! All
+          is vanity (emptiness, falsity, and vainglory). What profit does man have left from all his toil at which he
+          toils under the sun? [Is life worth living?]
+        </p>
+        <cite class="text-sm text-gray-600 dark:text-gray-400">— Ecclesiastes 1:2,3</cite>
+      </blockquote>
       If these questions make us feel unease, then we've got scores to settle with our Creator.
       <br />
       <br />
@@ -182,7 +192,11 @@ const metadata = {
         rel: 'noopener noreferrer',
       },
     }}
-  />
+  >
+    <Fragment slot="imageText">
+      <a href="https://flamethefreeze.com" target="_blank" rel="noopener noreferrer">Flame the Freeze Website</a>
+    </Fragment>
+  </Hero>
 
   <!-- Content Widget **************** -->
 
@@ -276,7 +290,7 @@ const metadata = {
   <div
     class="w-full flex justify-center pb-10 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
   >
-    <div class="w-full max-w-2xl aspect-[3/4] relative">
+    <div class="w-full max-w-2xl aspect-[3/4] relative max-h-[600px]">
       <iframe
         title="Flame the Freeze pdf"
         src={flameEbook}

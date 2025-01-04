@@ -113,7 +113,7 @@ const { labelContainer: labelContainerClass = '' } = classes;
                         sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
                         loading="eager"
                         decoding="async"
-                        objectPosition="center top"
+                        objectPosition="top top"
                         width={1024}
                         height={576}
                         {...image}
@@ -123,9 +123,10 @@ const { labelContainer: labelContainerClass = '' } = classes;
                 )
               )}
               {imageText && (
-                <div class="text-center">
-                  <p class="text-sm text-muted dark:text-slate-400">{imageText}</p>
-                </div>
+                <p
+                  class="text-center text-sm text-muted dark:text-slate-400 hover:underline hover:text-blue-700 dark:hover:text-blue-700"
+                  set:html={imageText}
+                />
               )}
             </div>
           )
