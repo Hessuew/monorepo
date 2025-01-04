@@ -38,11 +38,11 @@ const { title, description, hrefLabel, link, image } = Astro.props;
     </div>
     {
       image && (
-        <div class="absolute top-0 right-0 -translate-y-1/4">
+        <div class="absolute top-24 right-0 xs:top-0 md:top-24 xl:top-0 -translate-y-1/4">
           <img
             src={image.src}
             alt={`${title} logo`}
-            class="h-40 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+            class="h-24 xs:h-40 md:h-24 xl:h-40 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
           />
         </div>
       )

@@ -50,8 +50,11 @@ const { columns = 2, classes = {} } = Astro.props;
     }
 
     if (platform === 'youtube') {
-      const iframe = createIframe(`https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1`);
-      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      const iframe = createIframe(
+        `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1&enablejsapi=1&rel=0&modestbranding=1`
+      );
+      iframe.allow =
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
       iframe.allowFullscreen = true;
       container.appendChild(iframe);
     } else if (platform === 'vimeo') {
@@ -438,7 +441,7 @@ const { columns = 2, classes = {} } = Astro.props;
   <div
     id="modal-content"
     role="document"
-    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl bg-white dark:bg-slate-900 rounded-lg shadow-lg dark:shadow-none p-8"
+    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] sm:w-[calc(100%-4rem)] md:w-[calc(100%-8rem)] max-w-4xl mx-auto bg-white dark:bg-slate-900 rounded-lg shadow-lg dark:shadow-none p-4 sm:p-6 md:p-8"
   >
   </div>
 </div>
