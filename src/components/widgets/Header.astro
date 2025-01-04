@@ -6,8 +6,10 @@ import Button from '~/components/ui/Button.astro';
 import AnimatedChildSvg from '~/components/widgets/AnimatedChildSvg.astro';
 import type { CallToAction } from '~/types';
 import { getHomePermalink, getPermalink, trimSlash } from '~/utils/permalinks';
+import type { ImageMetadata } from 'astro';
 import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
+import { twMerge } from 'tailwind-merge';
 
 // import LanguagePicker from '../common/LanguagePicker.astro';
 // import { getLangFromUrl, useTranslations } from '~/i18n/utils';
@@ -18,7 +20,7 @@ interface Link {
   ariaLabel?: string;
   icon?: string;
   image?: {
-    src: string;
+    src: ImageMetadata;
     alt: string;
   };
 }
@@ -30,6 +32,7 @@ interface MenuLink extends Link {
 export interface Props {
   id?: string;
   links?: Array<MenuLink>;
+  classes?: Record<string, string>;
   actions?: Array<CallToAction>;
   isSticky?: boolean;
   isDark?: boolean;
@@ -51,11 +54,14 @@ const {
   // showLangPicker = true,
   // showRssFeed = false,
   position = 'center',
+  classes = {},
 } = Astro.props;
 
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 // const lang = getLangFromUrl(Astro.url);
 // const t = useTranslations(lang);
+
+const { nav: navClass = '' } = classes;
 ---
 
 <header
@@ -93,7 +99,10 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
       </div>
     </div>
     <nav
-      class="items-center w-full lg:w-auto hidden lg:flex lg:mx-5 text-default overflow-y-auto overflow-x-hidden lg:overflow-y-visible lg:overflow-x-auto lg:justify-self-center"
+      class={twMerge(
+        navClass,
+        'items-center w-full lg:w-auto hidden lg:flex lg:mx-5 text-default overflow-y-auto overflow-x-hidden lg:overflow-y-visible lg:overflow-x-auto lg:justify-self-center'
+      )}
       aria-label="Main navigation"
     >
       <ul

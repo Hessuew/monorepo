@@ -102,7 +102,7 @@ const { labelContainer: labelContainerClass = '' } = classes;
                           sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
                           loading="eager"
                           width={1024}
-                          height={576}
+                          height={image.isInfographics ? 737 : 576}
                           {...image}
                         />
                       </a>
@@ -114,8 +114,8 @@ const { labelContainer: labelContainerClass = '' } = classes;
                         loading="eager"
                         decoding="async"
                         objectPosition="top top"
-                        width={1024}
-                        height={576}
+                        width={image.isInfographics ? 1080 : 1024}
+                        height={image.isInfographics ? 737 : 576}
                         {...image}
                       />
                     )}
