@@ -1,10 +1,27 @@
 ---
+import androidChrome192 from '~/assets/favicons/android-chrome-192x192.png';
+import androidChrome512 from '~/assets/favicons/android-chrome-512x512.png';
 import appleTouchIcon from '~/assets/favicons/apple-touch-icon.png';
+import favicon16 from '~/assets/favicons/favicon-16x16.png';
+import favicon32 from '~/assets/favicons/favicon-32x32.png';
 import favIcon from '~/assets/favicons/favicon.ico';
-import favIconSvg from '~/assets/favicons/favicon.svg';
 ---
 
+<!-- Standard favicons -->
 <link rel="shortcut icon" href={favIcon} />
-<link rel="icon" type="image/svg+xml" href={favIconSvg.src} />
-<link rel="mask-icon" href={favIconSvg.src} color="#8D46E7" />
+<link rel="icon" type="image/png" sizes="32x32" href={favicon32.src} />
+<link rel="icon" type="image/png" sizes="16x16" href={favicon16.src} />
+
+<!-- Apple Touch Icon -->
 <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon.src} />
+
+<!-- Android Chrome Icons -->
+<link rel="icon" type="image/png" sizes="192x192" href={androidChrome192.src} />
+<link rel="icon" type="image/png" sizes="512x512" href={androidChrome512.src} />
+
+<!-- Web Manifest -->
+<link rel="manifest" href="/assets/favicons/site.webmanifest" />
+
+<!-- Theme Colors -->
+<meta name="theme-color" content="#ffffff" />
+<meta name="msapplication-TileColor" content="#ffffff" />
