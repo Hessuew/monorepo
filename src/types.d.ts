@@ -239,12 +239,14 @@ export interface Form {
 export interface Hero extends Headline, Widget {
   content?: string;
   actions?: string | CallToAction[];
+  isInfographics?: boolean;
   image?:
     | string
     | {
         src: string | ImageMetadata;
         alt?: string;
         class?: string;
+        isInfographics?: boolean;
         link?: {
           href: string;
           target?: string;

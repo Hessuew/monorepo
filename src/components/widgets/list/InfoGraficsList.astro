@@ -71,8 +71,11 @@ const { columns = 2, classes = {} } = Astro.props;
                         src={item.image.src}
                         alt={item.image.alt}
                         class="w-full h-full object-cover rounded-lg"
-                        width={1024}
-                        height={576}
+                        loading="lazy"
+                        layout="contained"
+                        decoding="async"
+                        width={1080}
+                        height={737}
                       />
                     </div>
                   </div>
