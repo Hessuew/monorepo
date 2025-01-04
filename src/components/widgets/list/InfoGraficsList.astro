@@ -20,10 +20,10 @@ const { columns = 2, classes = {} } = Astro.props;
 ---
 
 <WidgetWrapper animated={false} containerClass="py-0 lg:py-0 md:py-0">
-  <div class="max-w-7xl mx-auto" role="region" aria-label="Infografics">
+  <div class="max-w-7xl mx-auto" role="region" aria-label="Infographics">
     {
       sortedYears.map((year) => (
-        <div class="mb-16 sm:mb-24 item-year-card" role="region" aria-label={`Infografics from ${year}`}>
+        <div class="mb-16 sm:mb-24 item-year-card" role="region" aria-label={`Infographics from ${year}`}>
           <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 sm:mb-12 text-center intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade">
             {year}
           </h2>

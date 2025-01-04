@@ -65,7 +65,31 @@
 .dropdown:focus .dropdown-menu,
 .dropdown:focus-within .dropdown-menu,
 .dropdown:hover .dropdown-menu {
-  display: block;
+  @apply lg:block xl:block;
+}
+
+@media (min-width: 1024px) {
+  .dropdown:focus .dropdown-menu,
+  .dropdown:focus-within .dropdown-menu,
+  .dropdown:hover .dropdown-menu {
+    animation: dropdownAppear 200ms ease-in-out forwards;
+  }
+
+  .dropdown-menu img {
+    transform-origin: center;
+    backface-visibility: hidden;
+  }
+}
+
+@keyframes dropdownAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 [astro-icon].icon-light > * {

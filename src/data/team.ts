@@ -1,7 +1,9 @@
 import imgAndrew from '~/assets/images/team/Andrew Headshot.webp';
+import imgBasil from '~/assets/images/team/Basil Apaokwueze.webp';
 import imgBenedict from '~/assets/images/team/Benedict Michelle.webp';
 import imgShogade from '~/assets/images/team/Dr Tolu Shogade.webp';
 import imgMounir from '~/assets/images/team/Mounir Ould Setti.webp';
+import imgSamuel from '~/assets/images/team/Samuel Barmi.webp';
 import imgSenbanjo from '~/assets/images/team/Senbanjo Odunayo Image.webp';
 import imgTomi from '~/assets/images/team/Tomi Pekka Tuomainen.webp';
 import type { ImageMetadata } from 'astro';
@@ -19,8 +21,8 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     name: 'Andrew Agbaje',
-    title: 'Principal investigator',
-    description: 'MD, MPH, PhD, Professor (associate) of Clinical Epidemiology and Child Health',
+    title: 'Principal Investigator',
+    description: 'MD, MPH, PhD, FESC, FAHA, FNYAM, Professor (associate) of Clinical Epidemiology and Child Health',
     image: {
       src: imgAndrew,
       alt: 'Andrew Agbaje',
@@ -46,7 +48,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: 'Idowu Senbanjo',
-    title: 'Doctoral (PhD) Candidate',
+    title: 'Doctoral (PhD) Researcher',
     description:
       'MBChB, MSc, PGD (Boston), FWACP, Cert Paediatric Gastroenterology (South Africa), Consultant/Specialist in Paediatric Gastroenterologist/Nutritionist',
     image: {
@@ -56,7 +58,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: 'Tolu Shogade',
-    title: 'Doctoral (PhD) Candidate',
+    title: 'Doctoral (PhD) Researcher',
     description: 'MBChB, MWACP, FMCP, Consultant/Specialist in Internal Medicine',
     image: {
       src: imgShogade,
@@ -64,13 +66,8 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
-    name: 'Samuel Barmi',
-    title: 'Doctoral (PhD) Candidate',
-    description: 'RN, MPH',
-  },
-  {
     name: 'Benedict Michelle',
-    title: 'Doctoral (PhD) Candidate',
+    title: 'Doctoral (PhD) Researcher',
     description: 'MD, MPH',
     image: {
       src: imgBenedict,
@@ -78,13 +75,26 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
+    name: 'Samuel Barmi',
+    title: 'Doctoral (PhD) Researcher',
+    description: 'RN, MPH',
+    image: {
+      src: imgSamuel,
+      alt: 'Samuel Barmi',
+    },
+  },
+  {
     name: 'Basil Apaokwueze',
-    title: "Master's degree and MD candidate",
+    title: "Master's degree candidate",
     description: 'MBBS, MPH candidate',
+    image: {
+      src: imgBasil,
+      alt: 'Basil Apaokwueze',
+    },
   },
   {
     name: 'Ada Korhonen',
-    title: "Master's degree and MD candidate",
+    title: 'MD candidate',
     description: 'MD candidate',
   },
   {
