@@ -62,16 +62,12 @@
   padding: 0 5px;
 }
 
-.dropdown:focus .dropdown-menu,
-.dropdown:focus-within .dropdown-menu,
-.dropdown:hover .dropdown-menu {
-  @apply lg:block xl:block;
+.dropdown-menu {
+  @apply transition-[opacity,transform] duration-300 ease-in-out;
 }
 
 @media (min-width: 1024px) {
-  .dropdown:focus .dropdown-menu,
-  .dropdown:focus-within .dropdown-menu,
-  .dropdown:hover .dropdown-menu {
+  .dropdown-menu.lg\:block {
     animation: dropdownAppear 200ms ease-in-out forwards;
   }
 

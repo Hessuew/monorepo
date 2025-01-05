@@ -4,11 +4,11 @@ import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import Logo from '~/components/Logo.astro';
 import Button from '~/components/ui/Button.astro';
 import AnimatedChildSvg from '~/components/widgets/AnimatedChildSvg.astro';
+import HeaderNavigation from '~/components/widgets/HeaderNavigation.astro';
 import type { CallToAction } from '~/types';
 import { getHomePermalink, getPermalink, trimSlash } from '~/utils/permalinks';
 import type { ImageMetadata } from 'astro';
 import { Icon } from 'astro-icon/components';
-import { Image } from 'astro:assets';
 import { twMerge } from 'tailwind-merge';
 
 // import LanguagePicker from '../common/LanguagePicker.astro';
@@ -25,7 +25,7 @@ interface Link {
   };
 }
 
-interface MenuLink extends Link {
+export interface MenuLink extends Link {
   links?: Array<MenuLink>;
 }
 
@@ -109,18 +109,20 @@ const { nav: navClass = '' } = classes;
         class="flex flex-col lg:flex-row lg:self-center w-full lg:w-auto text-xl lg:text-[0.9375rem] tracking-[0.01rem] font-medium lg:justify-center"
       >
         {
-          links.map(({ text, href, links }) => (
+          links.map(({ text, href, links }, index) => (
             <li class={links?.length ? 'dropdown' : ''}>
               {links?.length ? (
                 <>
                   <button
                     type="button"
                     class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap"
+                    data-nav-button
+                    id={`nav-button-${index}`}
                   >
-                    {text}{' '}
+                    {text}
                     <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden lg:inline" />
                   </button>
-                  <div class="dropdown-menu lg:backdrop-blur-md dark:lg:bg-dark rounded lg:absolute pl-4 lg:pl-0 lg:hidden font-medium lg:bg-white/90 lg:min-w-[480px] drop-shadow-xl lg:border border-gray-200 dark:border-gray-800">
+                  <div class="flex lg:hidden lg:backdrop-blur-md dark:lg:bg-dark rounded lg:absolute pl-4 lg:pl-0 font-medium lg:bg-white/90 lg:min-w-[480px] drop-shadow-xl lg:border border-gray-200 dark:border-gray-800">
                     <div class="lg:flex lg:flex-row lg:items-start lg:gap-4 lg:p-4">
                       <ul class="py-2 lg:flex-1">
                         {[
@@ -139,47 +141,6 @@ const { nav: navClass = '' } = classes;
                             </a>
                           </li>
                         ))}
-                        {links
-                          .filter((link) => !link.image)
-                          .map(({ text: text2, href: href2 }) => (
-                            <li class="hidden lg:block">
-                              <a
-                                class:list={[
-                                  'first:rounded-t last:rounded-b lg:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap',
-                                  { 'aw-link-active': href2 === currentPath },
-                                ]}
-                                href={getPermalink(`${href2}`)}
-                              >
-                                {text2}
-                              </a>
-                            </li>
-                          ))}
-                      </ul>
-                      <ul class="lg:w-64 lg:space-y-2 hidden lg:block">
-                        {links
-                          .filter((link) => link.image)
-                          .map(({ text: text2, href: href2, image }) => (
-                            <li class="group">
-                              <a
-                                class="relative block h-24 overflow-hidden rounded-lg ring-0 ring-white dark:ring-gray-700 group-hover:ring-1 transition duration-200"
-                                href={getPermalink(`${href2}`)}
-                              >
-                                {image && (
-                                  <Image
-                                    src={image.src}
-                                    alt={image?.alt}
-                                    width={400}
-                                    height={300}
-                                    class="absolute inset-0 w-full h-full object-cover object-center opacity-60 group-hover:opacity-75 group-hover:scale-105 transition duration-500"
-                                  />
-                                )}
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
-                                <div class="absolute bottom-0 left-0 p-4">
-                                  <span class="text-white font-medium">{text2}</span>
-                                </div>
-                              </a>
-                            </li>
-                          ))}
                       </ul>
                     </div>
                   </div>
@@ -193,7 +154,6 @@ const { nav: navClass = '' } = classes;
                   href={getPermalink(`${href}`)}
                 >
                   {text}
-                  {/* {text ? t(text as any) : text} */}
                 </a>
               )}
             </li>
@@ -201,10 +161,11 @@ const { nav: navClass = '' } = classes;
         }
       </ul>
     </nav>
+    <HeaderNavigation links={links.filter((link) => link.links?.length)} currentPath={currentPath} />
     <div
       class:list={[
         { 'ml-auto rtl:ml-0 rtl:mr-auto': position === 'left' },
-        'hidden lg:self-center lg:flex items-center lg:mb-0 fixed w-full lg:w-auto lg:static justify-end left-0 rtl:left-auto rtl:right-0 bottom-0 p-3 lg:p-0 lg:justify-self-end',
+        'hidden lg:self-center lg:flex items-center lg:mb-0 fixed w-full lg:w-auto lg:static justify-end left-0 rtl:left-auto rtl:right-0 bottom-0 p-3 lg:p-0 lg:justify-self-end z-50',
       ]}
     >
       <div class="items-center flex justify-between w-full lg:w-auto">
