@@ -4,6 +4,7 @@ import flameEbook from '~/assets/pdfs/Flame the Freeze ebook.pdf';
 import video from '~/assets/videos/Abstract Orange Sparks Bonfire Video.mp4';
 import GradientText from '~/components/ui/GradientText.astro';
 import AnimatedStats from '~/components/widgets/AnimatedStats.astro';
+import AnimatedStats2 from '~/components/widgets/AnimatedStats2.astro';
 import Content from '~/components/widgets/Content.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features3 from '~/components/widgets/Features3.astro';
@@ -182,11 +183,18 @@ const metadata = {
           <br />
           Lets us perfect our physical accomplishments with spiritual achievements.
           <br />
-          Here is an invitation into the spiritual dimension of living.
+          Here is an
+          <GradientText class="font-bold">invitation</GradientText> into the spiritual dimension of living.
         </Fragment>
       </Features>
 
       <PressMe />
+
+      <!-- Spacer ******************* -->
+
+      <Spacer size="sm" />
+
+      <AnimatedStats />
 
       <Hero
         image={{
@@ -318,13 +326,13 @@ const metadata = {
 
       <!-- Spacer ******************* -->
 
-      <Spacer size="sm" />
+      <Spacer size="md" />
 
-      <AnimatedStats />
+      <AnimatedStats2 />
 
       <!-- Spacer ******************* -->
 
-      <Spacer />
+      <Spacer size="sm" />
     </div>
 
     <!-- Video background container at the bottom -->
