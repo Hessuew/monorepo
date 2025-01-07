@@ -1,11 +1,15 @@
 ---
 import imgFlame from '~/assets/images/non-academic/Flame the Freeze website.webp';
 import flameEbook from '~/assets/pdfs/Flame the Freeze ebook.pdf';
+import video from '~/assets/videos/Abstract Orange Sparks Bonfire Video.mp4';
 import GradientText from '~/components/ui/GradientText.astro';
+import AnimatedStats from '~/components/widgets/AnimatedStats.astro';
 import Content from '~/components/widgets/Content.astro';
 import Features from '~/components/widgets/Features.astro';
+import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
+import PressMe from '~/components/widgets/PressMe.astro';
 import Spacer from '~/components/widgets/Spacer.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import { YouTube } from 'astro-embed';
@@ -18,291 +22,326 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Hero tagline="mental or spiritual" title="What realm do you operate in?">
-    <Fragment slot="subtitle">
-      <div class="space-y-6 text-gray-700 dark:text-gray-300">
-        <p
-          class="leading-relaxed intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
-        >
-          If you operate only in the physical and mental realm, you are at a
-          <span class="font-semibold text-primary-600 dark:text-primary-400">grave disadvantage</span>.
+  <div class="relative min-h-screen">
+    <!-- Main content -->
+    <div class="relative z-10">
+      <Hero tagline="mental or spiritual" title="What realm do you operate in?">
+        <Fragment slot="subtitle">
+          <div class="space-y-6 text-gray-700 dark:text-gray-300">
+            <p
+              class="leading-relaxed intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+            >
+              If you operate only in the physical and mental realm, you are at a
+              <span class="font-semibold text-primary-600 dark:text-primary-400">grave disadvantage</span>.
+
+              <br />
+              When any results are beyond ordinary, they are likely downloaded from the spiritual realm, which can be either
+              <span class="text-primary-600 dark:text-primary-400 font-semibold underline">demonic</span> or <span
+                class="text-primary font-semibold underline">divine.</span
+              >
+            </p>
+
+            <p
+              class="leading-relaxed intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+            >
+              The magnificence and excellence of all
+              <span class="font-semibold text-primary-600 dark:text-primary-400">these</span> studies and findings are divinely
+              inspired. Comprehending the source of the inspiration is beyond natural cogitation.
+
+              <blockquote
+                class="border-l-4 border-primary-500 pl-4 my-6 italic intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+              >
+                <p class="mb-2">
+                  But the natural man receiveth not the things of the Spirit of God: for they are foolishness unto him:
+                  neither can he know them, because they are spiritually discerned.
+                </p>
+                <cite class="text-sm text-gray-600 dark:text-gray-400">— 1 Corinthians 2:14</cite>
+              </blockquote>
+              <br />
+            </p>
+          </div>
+        </Fragment>
+      </Hero>
+
+      <Note text="He that seeketh his glory that sent him, the same is true" author="John 7:18 KJV" />
+
+      <Hero>
+        <Fragment slot="subtitle">
+          <span class="text-primary text-7xl font-bold underline">Jesus Christ</span>
+          <br />
+          <span class="text-black dark:text-white text-5xl font-bold">the Son of the living God</span>
 
           <br />
-          When any results are beyond ordinary, they are likely downloaded from the spiritual realm, which can be either
-          <span class="text-primary-600 dark:text-primary-400 font-semibold underline">demonic</span> or <span
-            class="text-primary font-semibold underline">divine.</span
-          >
-        </p>
+          Gets all the credit and glory from these scientific studies. He and He alone.
 
-        <p
-          class="leading-relaxed intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
-        >
-          The magnificence and excellence of all
-          <span class="font-semibold text-primary-600 dark:text-primary-400">these</span> studies and findings are divinely
-          inspired. Comprehending the source of the inspiration is beyond natural cogitation.
+          <p
+            class="leading-relaxed intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+          >
+            <br />
+            If you don't believe in
+            <span class="font-bold">Jesus</span>, still the scientific findings are undebatable. The results prove that
+            Jesus, who is the Wisdom of God, is alive. The remarkable global impact and extraordinary discoveries from a
+            small research group in a little country can only be attributed to an influence beyond the natural realm.
+          </p>
 
           <blockquote
             class="border-l-4 border-primary-500 pl-4 my-6 italic intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
           >
             <p class="mb-2">
-              But the natural man receiveth not the things of the Spirit of God: for they are foolishness unto him:
-              neither can he know them, because they are spiritually discerned.
+              We know that thou art a teacher come from God:
+              <span class="font-semibold text-primary-600 dark:text-primary-400">for no man can do these</span> miracles
+              that thou doest,
+              <span class="font-semibold text-primary-600 dark:text-primary-400">except God be with him.</span>
             </p>
-            <cite class="text-sm text-gray-600 dark:text-gray-400">— 1 Corinthians 2:14</cite>
+            <cite class="text-sm text-gray-600 dark:text-gray-400">— John 3:2 KJV</cite>
+
+            <br />
+            <br />
+            <p>This is the Lord's doing; it is marvellous in our eyes.</p>
+            <cite class="text-sm text-gray-600 dark:text-gray-400">— Psalm 118:23 KJV</cite>
           </blockquote>
+        </Fragment>
+      </Hero>
+
+      <Features3
+        id="question"
+        columns={2}
+        tagline="The question"
+        title="Why are you here?"
+        classes={{
+          container: 'md:pt-0 md:pb-8 lg:pt-0 lg:pb-12 ',
+        }}
+        items={[
+          {
+            title: 'What is my origin?',
+            description:
+              'Where am I from? Am I an offspring of a monkey or a gorilla? Or am I created after the image of God?',
+            icon: 'tabler:dna',
+          },
+          {
+            title: 'Have I discovered the essence of living?',
+            description:
+              'Is it enough to work, pay bills, grow old and die? Is there something else apart from the daily routines?',
+            icon: 'tabler:compass',
+          },
+          {
+            title: 'What is my purpose?',
+            description:
+              'Every device is created for a purpose, and the function build within the device fulfills that purpose. If we are created by God there must be a purpose. What then is it? And what are the functions build within me to accomplish that?',
+            icon: 'tabler:target',
+          },
+          {
+            title: 'Do I have peace within me?',
+            description:
+              'Am I tossed by the circumstances and situations of life, and is my peace based on my current conditions? Or do I have eternal and internal peace that no circumstance or situation can shake?',
+            icon: 'tabler:peace',
+          },
+          {
+            title: 'Do I have joy in my heart?',
+            description:
+              'Do I gather experiences because they bring me happiness: friends, movies, good food, travels, work? Or do I have a well of joy in my heart me that flows joy unreservedly?',
+            icon: 'tabler:mood-smile',
+          },
+          {
+            title: 'Am I righteous?',
+            description:
+              'Morals, ethics, and country laws are great but do they equate the righteous standard of God? If not, am I moral or righteous? And what is the eternal consequence?',
+            icon: 'tabler:check',
+          },
+        ]}
+      >
+        <Fragment slot="subtitle">
+          If you are here only for academic materials, publications, or videos, that is fantastic.
           <br />
-        </p>
-      </div>
-    </Fragment>
-  </Hero>
+          But if you think life is more than just papers and research, perhaps it is worth reflecting on the questions below:
+        </Fragment>
+      </Features3>
 
-  <Note text="He that seeketh his glory that sent him, the same is true" author="John 7:18 KJV" />
-
-  <Hero>
-    <Fragment slot="subtitle">
-      <span class="text-primary text-7xl font-bold underline">Jesus Christ</span>
-      <br />
-      <span class="text-black dark:text-white text-5xl font-bold">the Son of the living God</span>
-
-      <br />
-      Gets all the credit and glory from these scientific studies. He and He alone.
-
-      <p
-        class="leading-relaxed intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      <Features
+        classes={{
+          container: 'lg:pt-0 md:pt-0',
+        }}
       >
-        <br />
-        If you don't believe in
-        <span class="font-bold">Jesus</span>, still the scientific findings are undebatable. The results prove that
-        Jesus, who is the Wisdom of God, is alive. The remarkable global impact and extraordinary discoveries from a
-        small research group in a little country can only be attributed to an influence beyond the natural realm.
-      </p>
+        <Fragment slot="subtitle">
+          <blockquote
+            class="border-l-4 border-primary-500 pl-4 my-6 italic intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+          >
+            <p class="mb-2">
+              Vapor of vapors and futility of futilities, says the Preacher. Vapor of vapors and futility of futilities!
+              All is vanity (emptiness, falsity, and vainglory). What profit does man have left from all his toil at
+              which he toils under the sun? [Is life worth living?]
+            </p>
+            <cite class="text-sm text-gray-600 dark:text-gray-400">— Ecclesiastes 1:2,3</cite>
+          </blockquote>
+          If these questions make us feel unease, then we've got scores to settle with our Creator.
+          <br />
+          <br />
+          Physical accomplishments are temporal while spiritual achievements are eternal. Focus on the spiritual.
 
-      <blockquote
-        class="border-l-4 border-primary-500 pl-4 my-6 italic intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+          <br />
+          <br />
+          Lets us perfect our physical accomplishments with spiritual achievements.
+          <br />
+          Here is an invitation into the spiritual dimension of living.
+        </Fragment>
+      </Features>
+
+      <PressMe />
+
+      <Hero
+        image={{
+          src: imgFlame,
+          alt: 'Flame the Freeze website',
+          link: {
+            href: 'https://flamethefreeze.com',
+            target: '_blank',
+            rel: 'noopener noreferrer',
+          },
+        }}
       >
-        <p class="mb-2">
-          We know that thou art a teacher come from God:
-          <span class="font-semibold text-primary-600 dark:text-primary-400">for no man can do these</span> miracles that
-          thou doest,
-          <span class="font-semibold text-primary-600 dark:text-primary-400">except God be with him.</span>
-        </p>
-        <cite class="text-sm text-gray-600 dark:text-gray-400">— John 3:2 KJV</cite>
+        <Fragment slot="imageText">
+          <a href="https://flamethefreeze.com" target="_blank" rel="noopener noreferrer">Flame the Freeze Website</a>
+        </Fragment>
+      </Hero>
 
-        <br />
-        <br />
-        <p>This is the Lord's doing; it is marvellous in our eyes.</p>
-        <cite class="text-sm text-gray-600 dark:text-gray-400">— Psalm 118:23 KJV</cite>
-      </blockquote>
-    </Fragment>
-  </Hero>
+      <!-- Content Widget **************** -->
 
-  <Features
-    id="question"
-    columns={2}
-    tagline="The question"
-    title="Why are you here?"
-    classes={{
-      container: 'md:pt-0 md:pb-8 lg:pt-0 lg:pb-12 ',
-    }}
-    items={[
-      {
-        title: 'What is my origin?',
-        description:
-          'Where am I from? Am I an offspring of a monkey or a gorilla? Or am I created after the image of God?',
-        icon: 'tabler:dna',
-      },
-      {
-        title: 'Have I discovered the essence of living?',
-        description:
-          'Is it enough to work, pay bills, grow old and die? Is there something else apart from the daily routines?',
-        icon: 'tabler:compass',
-      },
-      {
-        title: 'What is my purpose?',
-        description:
-          'Every device is created for a purpose, and the function build within the device fulfills that purpose. If we are created by God there must be a purpose. What then is it? And what are the functions build within me to accomplish that?',
-        icon: 'tabler:target',
-      },
-      {
-        title: 'Do I have peace within me?',
-        description:
-          'Am I tossed by the circumstances and situations of life, and is my peace based on my current conditions? Or do I have eternal and internal peace that no circumstance or situation can shake?',
-        icon: 'tabler:peace',
-      },
-      {
-        title: 'Do I have joy in my heart?',
-        description:
-          'Do I gather experiences because they bring me happiness: friends, movies, good food, travels, work? Or do I have a well of joy in my heart me that flows joy unreservedly?',
-        icon: 'tabler:mood-smile',
-      },
-      {
-        title: 'Am I righteous?',
-        description:
-          'Morals, ethics, and country laws are great but do they equate the righteous standard of God? If not, am I moral or righteous? And what is the eternal consequence?',
-        icon: 'tabler:check',
-      },
-    ]}
-  >
-    <Fragment slot="subtitle">
-      If you are here only for academic materials, publications, or videos, that is fantastic.
-      <br />
-      But if you think life is more than just papers and research, perhaps it is worth reflecting on the questions below:
-    </Fragment>
-  </Features>
+      <Content tagline2="A foretaste of the content" isReversed>
+        <Fragment slot="title">
+          A snapshot of what<br />
+          <GradientText class="italic pr-3 pb-1" style2 text="Jesus has done" />recently?
+        </Fragment>
 
-  <Features
-    classes={{
-      container: 'lg:pt-0 lg:pb-0 md:pt-0 md:pb-0',
-    }}
-  >
-    <Fragment slot="subtitle">
-      <blockquote
-        class="border-l-4 border-primary-500 pl-4 my-6 italic intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        <Fragment slot="content">
+          <h3 class="text-2xl tracking-tight sm:text-xl mb-2">
+            <span class="font-semibold text-black dark:text-white">The story of Dr. Osaze - March 2024 </span>
+            <GradientText class="font-semibold" style2
+              >"You will sleep and wake up, and you will not find stammering again."</GradientText
+            >
+            <br />
+            <br />
+            <span class="text-black dark:text-white">
+              God spoke these words to Dr. Osaze through His servant. Though he initially laughed in disbelief, a month
+              later, he woke up speaking fluently after nearly 40 years of severe stammering. Three medical professional
+              colleagues confirmed this miracle, and his mother wept with joy, hearing her son speak clearly for the
+              first time.
+            </span>
+          </h3>
+        </Fragment>
+
+        <Fragment slot="image">
+          <div class="relative">
+            <YouTube id="Z1J0yjSdiVY" title="Dr. Osaze's testimony" poster="" />
+          </div>
+        </Fragment>
+      </Content>
+
+      <Content>
+        <Fragment slot="content">
+          <h3 class="text-2xl tracking-tight sm:text-xl mb-2">
+            <span class="font-semibold text-black dark:text-white">The tesminony of Ari - December 2024 </span>
+            <GradientText class="font-semibold" style2>"God sent two angles, and rescued me from hell."</GradientText>
+            <br />
+            <br />
+            <span class="text-black dark:text-white">
+              Satan pursued Ari for years. Desperate to escape, he ran through a glass door and set himself on fire. In
+              the hospital, he died exited his burnt body, and found himself in hell, tormented by demons and fire.
+              Crying out to God for mercy, two angels came to rescue him. "Now I believe in Jesus," he said, "because I
+              know I will die again, but this time, I want to go to heaven."
+            </span>
+          </h3>
+        </Fragment>
+
+        <Fragment slot="image">
+          <div class="relative">
+            <YouTube id="BF3abMvyBLQ" title="Ari raised from the dead after setting himself on fire" poster="" />
+          </div>
+        </Fragment>
+      </Content>
+
+      <!-- Content Widget **************** -->
+
+      <Content isReversed>
+        <Fragment slot="content">
+          <h3 class="text-2xl tracking-tight sm:text-xl mb-2">
+            <span class="font-semibold text-black dark:text-white"
+              >Ida's deliverance from depression - December 2024
+            </span>
+            <GradientText class="font-semibold" style2>God, "Ida, this medicine doesn't belong to you."</GradientText>
+            <br />
+            <br />
+
+            <span class="text-black dark:text-white">
+              After ten excruciating years of depression, anxiety and panic disorder not amenable to medications and
+              psychotherapy Ida was desperate for a solution. One day she heard God spoke to her, "This medicine does
+              not belong to you". She acted on those words, and stopped all her medication, and to her surprise all her
+              symptoms disappeared and she has been completely healthy since the last two years.
+            </span>
+            <br />
+          </h3>
+        </Fragment>
+
+        <Fragment slot="image">
+          <div class="relative">
+            <YouTube id="bfTtw04hKI0" title="Ida's testimony" poster="" />
+          </div>
+        </Fragment>
+      </Content>
+
+      <!-- Features Widget *************** -->
+
+      <Features
+        id="features"
+        tagline2="But wait, there is even more"
+        title="10 stories of life transforming miracles"
+        classes={{
+          container: 'md:pb-0 md:pb-0 lg:pb-0 lg:pb-0 ',
+        }}
+      />
+
+      <!-- Ebook Widget *************** -->
+
+      <div
+        class="w-full flex justify-center pb-10 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
       >
-        <p class="mb-2">
-          Vapor of vapors and futility of futilities, says the Preacher. Vapor of vapors and futility of futilities! All
-          is vanity (emptiness, falsity, and vainglory). What profit does man have left from all his toil at which he
-          toils under the sun? [Is life worth living?]
-        </p>
-        <cite class="text-sm text-gray-600 dark:text-gray-400">— Ecclesiastes 1:2,3</cite>
-      </blockquote>
-      If these questions make us feel unease, then we've got scores to settle with our Creator.
-      <br />
-      <br />
-      Physical accomplishments are temporal while spiritual achievements are eternal. Focus on the spiritual.
-
-      <br />
-      <br />
-      Lets us perfect our physical accomplishments with spiritual achievements.
-      <br />
-      Here is an invitation into the spiritual dimension of living.
-      <br />
-      <br />
-      <GradientText class="font-bold pr-3 text-xl block" style2>Flame the Freeze</GradientText>
-    </Fragment>
-  </Features>
-
-  <Hero
-    image={{
-      src: imgFlame,
-      alt: 'Flame the Freeze website',
-      link: {
-        href: 'https://flamethefreeze.com',
-        target: '_blank',
-        rel: 'noopener noreferrer',
-      },
-    }}
-  >
-    <Fragment slot="imageText">
-      <a href="https://flamethefreeze.com" target="_blank" rel="noopener noreferrer">Flame the Freeze Website</a>
-    </Fragment>
-  </Hero>
-
-  <!-- Content Widget **************** -->
-
-  <Content tagline2="A foretaste of the content" isReversed>
-    <Fragment slot="title">
-      A snapshot of what<br />
-      <GradientText class="italic pr-3 pb-1" style2 text="Jesus has done" />recently?
-    </Fragment>
-
-    <Fragment slot="content">
-      <h3 class="text-2xl tracking-tight sm:text-xl mb-2">
-        <span class="font-semibold text-primary-600 dark:text-primary-400">The story of Dr. Osaze - March 2024 </span>
-        <GradientText class="font-semibold" style2
-          >"You will sleep and wake up, and you will not find stammering again."</GradientText
-        >
-        <br />
-        <br />
-        God spoke these words to Dr. Osaze through His servant. Though he initially laughed in disbelief, a month later,
-        he woke up speaking fluently after nearly 40 years of severe stammering. Three medical professional colleagues confirmed
-        this miracle, and his mother wept with joy, hearing her son speak clearly for the first time.
-      </h3>
-    </Fragment>
-
-    <Fragment slot="image">
-      <div class="relative">
-        <YouTube id="Z1J0yjSdiVY" title="Dr. Osaze's testimony" poster="" />
+        <div class="w-full max-w-2xl aspect-[3/4] relative max-h-[600px]">
+          <iframe
+            title="Flame the Freeze pdf"
+            src={flameEbook}
+            width="100%"
+            height="100%"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+            allow="autoplay"
+            loading="lazy"></iframe>
+        </div>
       </div>
-    </Fragment>
-  </Content>
 
-  <Content>
-    <Fragment slot="content">
-      <h3 class="text-2xl tracking-tight sm:text-xl mb-2">
-        <span class="font-semibold text-primary-600 dark:text-primary-400">The tesminony of Ari - December 2024 </span>
-        <GradientText class="font-semibold" style2>"God sent two angles, and rescued me from hell."</GradientText>
-        <br />
-        <br />
-        Satan pursued Ari for years. Desperate to escape, he ran through a glass door and set himself on fire. In the hospital,
-        he died exited his burnt body, and found himself in hell, tormented by demons and fire. Crying out to God for mercy,
-        two angels came to rescue him. "Now I believe in Jesus," he said, "because I know I will die again, but this time,
-        I want to go to heaven."
-      </h3>
-    </Fragment>
+      <!-- Spacer ******************* -->
 
-    <Fragment slot="image">
-      <div class="relative">
-        <YouTube id="BF3abMvyBLQ" title="Ari raised from the dead after setting himself on fire" poster="" />
-      </div>
-    </Fragment>
-  </Content>
+      <Spacer size="sm" />
 
-  <!-- Content Widget **************** -->
+      <AnimatedStats />
 
-  <Content isReversed>
-    <Fragment slot="content">
-      <h3 class="text-2xl tracking-tight sm:text-xl mb-2">
-        <span class="font-semibold text-primary-600 dark:text-primary-400"
-          >Ida's deliverance from depression - December 2024
-        </span>
-        <GradientText class="font-semibold" style2>God, "Ida, this medicine doesn't belong to you."</GradientText>
-        <br />
-        <br />
-        After ten excruciating years of depression, anxiety and panic disorder not amenable to medications and psychotherapy
-        Ida was desperate for a solution. One day she heard God spoke to her, "This medicine does not belong to you". She
-        acted on those words, and stopped all her medication, and to her surprise all her symptoms disappeared and she has
-        been completely healthy since the last two years.
-        <br />
-      </h3>
-    </Fragment>
+      <!-- Spacer ******************* -->
 
-    <Fragment slot="image">
-      <div class="relative">
-        <YouTube id="bfTtw04hKI0" title="Ida's testimony" poster="" />
-      </div>
-    </Fragment>
-  </Content>
+      <Spacer />
+    </div>
 
-  <!-- Features Widget *************** -->
-
-  <Features
-    id="features"
-    tagline2="But wait, there is even more"
-    title="10 stories of life transforming miracles"
-    classes={{
-      container: 'md:pb-0 md:pb-0 lg:pb-0 lg:pb-0 ',
-    }}
-  />
-
-  <!-- Ebook Widget *************** -->
-
-  <div
-    class="w-full flex justify-center pb-10 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
-  >
-    <div class="w-full max-w-2xl aspect-[3/4] relative max-h-[600px]">
-      <iframe
-        title="Flame the Freeze pdf"
-        src={flameEbook}
-        width="100%"
-        height="100%"
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
-        allow="autoplay"
-        loading="lazy"></iframe>
+    <!-- Video background container at the bottom -->
+    <div
+      id="videoBackground"
+      class="fixed bottom-0 left-0 right-0 h-screen pointer-events-none opacity-0 transition-opacity duration-1000"
+    >
+      <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+        <source src={video} type="video/mp4" />
+      </video>
     </div>
   </div>
-
-  <!-- Spacer ******************* -->
-
-  <Spacer />
 </Layout>
+
+<style>
+  /* Ensure proper stacking and scrolling behavior */
+  :global(body) {
+    overflow-x: hidden;
+  }
+</style>

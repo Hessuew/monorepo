@@ -15,6 +15,7 @@ export default {
         accent: 'var(--aw-color-accent)',
         theme: 'var(--aw-color-theme)',
         page: 'var(--aw-color-page)',
+        dark: 'var(--aw-color-dark)',
         default: 'var(--aw-color-text-default)',
         muted: 'var(--aw-color-text-muted)',
       },
