@@ -58,6 +58,7 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
+    id="calculator"
     tagline="Agbaje Calc"
     title="Calculate your waist/height ratio"
     classes={{
@@ -92,9 +93,9 @@ const metadata = {
         colorClass: 'bg-purple-500',
         subtitle: { text1: 'Male', text2: 'Female' },
         rows: [
-          { text1: `<${THRESHOLDS.male.low}`, text2: `<${THRESHOLDS.female.low}` },
-          { text1: `<${THRESHOLDS.male.low}`, text2: `<${THRESHOLDS.female.low}` },
-          { text1: `<${THRESHOLDS.male.low}`, text2: `<${THRESHOLDS.female.low}` },
+          { text1: `<${THRESHOLDS.male.low.toFixed(2)}`, text2: `<${THRESHOLDS.female.low.toFixed(2)}` },
+          { text1: `<${THRESHOLDS.male.low.toFixed(2)}`, text2: `<${THRESHOLDS.female.low.toFixed(2)}` },
+          { text1: `<${THRESHOLDS.male.low.toFixed(2)}`, text2: `<${THRESHOLDS.female.low.toFixed(2)}` },
         ],
       },
       {
@@ -103,9 +104,9 @@ const metadata = {
         colorClass: 'bg-green-500',
         subtitle: { text1: 'Male', text2: 'Female' },
         rows: [
-          { text1: `<${THRESHOLDS.male.normal}`, text2: `<${THRESHOLDS.female.normal}` },
-          { text1: `<${THRESHOLDS.male.normal}`, text2: `<${THRESHOLDS.female.normal}` },
-          { text1: `<${THRESHOLDS.male.normal}`, text2: `<${THRESHOLDS.female.normal}` },
+          { text1: `<${THRESHOLDS.male.normal.toFixed(2)}`, text2: `<${THRESHOLDS.female.normal.toFixed(2)}` },
+          { text1: `<${THRESHOLDS.male.normal.toFixed(2)}`, text2: `<${THRESHOLDS.female.normal.toFixed(2)}` },
+          { text1: `<${THRESHOLDS.male.normal.toFixed(2)}`, text2: `<${THRESHOLDS.female.normal.toFixed(2)}` },
         ],
       },
       {
@@ -114,9 +115,9 @@ const metadata = {
         colorClass: 'bg-yellow-500',
         subtitle: { text1: 'Male', text2: 'Female' },
         rows: [
-          { text1: `>${THRESHOLDS.male.high}`, text2: `>${THRESHOLDS.female.high}` },
-          { text1: `>${THRESHOLDS.male.high}`, text2: `>${THRESHOLDS.female.high}` },
-          { text1: `>${THRESHOLDS.male.high}`, text2: `>${THRESHOLDS.female.high}` },
+          { text1: `>${THRESHOLDS.male.high.toFixed(2)}`, text2: `>${THRESHOLDS.female.high.toFixed(2)}` },
+          { text1: `>${THRESHOLDS.male.high.toFixed(2)}`, text2: `>${THRESHOLDS.female.high.toFixed(2)}` },
+          { text1: `>${THRESHOLDS.male.high.toFixed(2)}`, text2: `>${THRESHOLDS.female.high.toFixed(2)}` },
         ],
       },
       {
@@ -125,9 +126,9 @@ const metadata = {
         colorClass: 'bg-red-500',
         subtitle: { text1: 'Male', text2: 'Female' },
         rows: [
-          { text1: `>${THRESHOLDS.male.excess}`, text2: `>${THRESHOLDS.female.excess}` },
-          { text1: `>${THRESHOLDS.male.excess}`, text2: `>${THRESHOLDS.female.excess}` },
-          { text1: `>${THRESHOLDS.male.excess}`, text2: `>${THRESHOLDS.female.excess}` },
+          { text1: `>${THRESHOLDS.male.excess.toFixed(2)}`, text2: `>${THRESHOLDS.female.excess.toFixed(2)}` },
+          { text1: `>${THRESHOLDS.male.excess.toFixed(2)}`, text2: `>${THRESHOLDS.female.excess.toFixed(2)}` },
+          { text1: `>${THRESHOLDS.male.excess.toFixed(2)}`, text2: `>${THRESHOLDS.female.excess.toFixed(2)}` },
         ],
       },
     ]}
