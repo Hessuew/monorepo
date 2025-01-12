@@ -1,5 +1,4 @@
 import aarneLogo from '~/assets/images/funders/Aarne Koskelon Foundation.webp';
-import easoLogo from '~/assets/images/funders/EASO.webp';
 import idaMontinLogo from '~/assets/images/funders/Idamontin Insaatio Logo Dark.webp';
 import kordelinLogo from '~/assets/images/funders/Kordelin.webp';
 import pediatricLogo from '~/assets/images/funders/Lastentautien Tunnus.gif';
@@ -9,7 +8,6 @@ import orionLogo from '~/assets/images/funders/Orion Oyj Logo.svg';
 import paavoNurmiLogo from '~/assets/images/funders/Paavo Nurmi Foundation Logo.webp';
 import pauloLogo from '~/assets/images/funders/Paulon Saatio Logo.webp';
 import pskLogo from '~/assets/images/funders/Pohjois Savon Kulttuurirahasto.webp';
-// Import images
 import skrLogo from '~/assets/images/funders/Skr Logo.svg';
 import uefLogo from '~/assets/images/funders/UEF Logo.png';
 import wihuriLogo from '~/assets/images/funders/Wihuri Foundation Logo.svg';

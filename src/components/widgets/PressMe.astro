@@ -164,7 +164,7 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
 </WidgetWrapper>
 
 <script>
-  function applyTheme(theme) {
+  function applyTheme(theme: string) {
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
