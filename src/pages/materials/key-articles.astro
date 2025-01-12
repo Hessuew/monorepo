@@ -1,0 +1,20 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import KeyArticlesList from '~/components/widgets/list/KeyArticlesList.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Key Articles',
+  description: 'Explore our key articles that highlight the latest research on child health and well-being.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Key Articles"
+    title="Significantly Impactful Studies"
+    subtitle="A few seminal results with potential to change medical and public health practice."
+  />
+
+  <KeyArticlesList />
+</Layout>
