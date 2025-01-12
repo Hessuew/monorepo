@@ -15,7 +15,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-12-12',
     url: 'https://usrtk.org/healthwire/smoking-tobacco-from-early-childhood-can-cause-premature-heart-damage/',
     source: 'U.S. Right to Know',
-    type: 'news',
+    type: 'News',
     category: 'cardiac-health',
   },
   {
@@ -23,7 +23,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-12-12',
     url: 'https://www.usnews.com/news/health-news/articles/2024-12-12/preteen-teen-smoking-can-injure-the-young-heart',
     source: 'US News',
-    type: 'news',
+    type: 'News',
     category: 'cardiac-health',
   },
   {
@@ -31,7 +31,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-12-12',
     url: 'https://www.tctmd.com/news/teens-who-smoke-face-risk-cardiac-damage-their-mid-20s',
     source: 'TCTMD',
-    type: 'news',
+    type: 'News',
     category: 'cardiac-health',
   },
   {
@@ -39,7 +39,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-12-11',
     url: 'https://www.healio.com/news/cardiology/20241211/dealing-with-a-time-bomb-persistent-smoking-linked-to-cardiac-injury-at-a-young-age',
     source: 'Healio',
-    type: 'news',
+    type: 'News',
     category: 'cardiac-health',
   },
   {
@@ -47,7 +47,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-06-04',
     url: 'https://www.msn.com/en-gb/health/other/childhood-inactivity-linked-to-increased-risk-of-liver-disease-by-young-adulthood/ar-BB1nxl5S',
     source: 'MSN',
-    type: 'news',
+    type: 'News',
     category: 'liver-health',
   },
   {
@@ -55,7 +55,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-06-04',
     url: 'https://www.usnews.com/news/health-news/articles/2024-06-04/too-much-sitting-could-be-harming-kids-livers',
     source: 'US News & World Report',
-    type: 'news',
+    type: 'News',
     category: 'liver-health',
   },
   {
@@ -63,7 +63,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-06-04',
     url: 'https://www.healthday.com/health-news/child-health/too-much-sitting-could-be-harming-kids-livers',
     source: 'HealthDay',
-    type: 'news',
+    type: 'News',
     category: 'liver-health',
   },
   {
@@ -71,7 +71,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-06-01',
     url: 'https://www.healio.com/news/endocrinology/20240601/sedentary-children-risk-liver-disease-in-young-adulthood',
     source: 'Healio',
-    type: 'scientific',
+    type: 'Scientific',
     category: 'liver-health',
   },
   {
@@ -79,7 +79,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-06-01',
     url: 'https://www.youtube.com/watch?v=1n85Kj7kjfU&t=2s',
     source: 'ENDO 2024',
-    type: 'press-release',
+    type: 'Press release',
     category: 'physical-activity',
   },
   {
@@ -87,7 +87,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-06-01',
     url: 'https://www.endocrine.org/news-and-advocacy/news-room/2024/endo-2024-press-agbaje',
     source: 'Endocrine Society',
-    type: 'press-release',
+    type: 'Press release',
     category: 'physical-activity',
   },
   {
@@ -95,7 +95,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-05-11',
     url: 'https://vimeo.com/944938770/8269ce30e4',
     source: 'EASO',
-    type: 'interview',
+    type: 'Interview',
     category: 'obesity',
   },
   {
@@ -103,7 +103,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-05-07',
     url: 'https://www.telegraph.co.uk/news/2024/05/07/couch-potato-children-premature-heart-damage-risk/',
     source: 'The Telegraph',
-    type: 'news',
+    type: 'News',
     category: 'heart-health',
   },
   {
@@ -111,7 +111,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-03-14',
     url: 'https://www.youtube.com/watch?v=OiA9HlVHsuw',
     source: 'BBC World News',
-    type: 'interview',
+    type: 'Interview',
     category: 'physical-activity',
   },
   {
@@ -119,7 +119,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-03-14',
     url: 'https://www.bbc.com/news/uk-england-bristol-68490682',
     source: 'BBC News',
-    type: 'news',
+    type: 'News',
     category: 'obesity',
   },
   {
@@ -127,7 +127,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-03-14',
     url: 'https://www.telegraph.co.uk/news/2024/03/14/childs-waist-to-height-ratio-is-better-way-to-measure-fat/',
     source: 'The Telegraph',
-    type: 'news',
+    type: 'News',
     category: 'obesity',
   },
   {
@@ -135,7 +135,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-03-09',
     url: 'https://easo.org/changing-the-way-we-measure-childhood-obesity-in-conversation-with-andrew-agbaje/',
     source: 'EASO',
-    type: 'interview',
+    type: 'Interview',
     category: 'obesity',
   },
   {
@@ -143,7 +143,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-03-06',
     url: 'https://ca.style.yahoo.com/waist-circumference-to-height-ratio-how-to-130121272.html',
     source: 'Yahoo Canada',
-    type: 'news',
+    type: 'News',
     category: 'obesity',
   },
   {
@@ -151,7 +151,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-03-06',
     url: 'https://www.thesun.co.uk/health/26412740/string-waist-height-ratio-better-bmi-obesity/',
     source: 'The Sun UK',
-    type: 'news',
+    type: 'News',
     category: 'obesity',
   },
   {
@@ -159,7 +159,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-01-24',
     url: 'https://www.endocrine.org/podcast/enp83-sedentary-time-and-physical-activity-effects-on-childhood-lipid-levels',
     source: 'Endocrine Society',
-    type: 'scientific',
+    type: 'Scientific',
     category: 'physical-activity',
   },
   {
@@ -167,7 +167,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-01-24',
     url: 'https://www.youtube.com/watch?v=oNIDOECJkLw',
     source: 'University of Eastern Finland',
-    type: 'interview',
+    type: 'Interview',
     category: 'physical-activity',
   },
   {
@@ -175,7 +175,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-01-24',
     url: 'https://www.uef.fi/en/article/andrew-agbaje-receives-international-awards-for-scientific-excellence',
     source: 'University of Eastern Finland',
-    type: 'press-release',
+    type: 'Press release',
     category: 'research-awards',
   },
   {
@@ -183,7 +183,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-01-24',
     url: 'https://soundcloud.com/uniuef/childhood-sedentariness-is-a-real-health-threat-light-exercise-is-the-overlooked-antidote',
     source: 'University of Eastern Finland',
-    type: 'interview',
+    type: 'Interview',
     category: 'physical-activity',
   },
   {
@@ -191,7 +191,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-01-19',
     url: 'https://www.youtube.com/watch?v=Xm1B-ZkP6Bo',
     source: 'BBC Radio',
-    type: 'interview',
+    type: 'Interview',
     category: 'physical-activity',
   },
   {
@@ -199,7 +199,7 @@ export const pressReleases: PressRelease[] = [
     date: '2023-08-24',
     url: 'https://edition.cnn.com/2023/08/24/health/kids-sedentary-heart-disease-wellness/index.html',
     source: 'CNN',
-    type: 'news',
+    type: 'News',
     category: 'heart-health',
   },
   {
@@ -207,7 +207,7 @@ export const pressReleases: PressRelease[] = [
     date: '2023-08-24',
     url: 'https://www.mirror.co.uk/news/health/screen-time-childhood-adds-up-31200846',
     source: 'Mirror UK',
-    type: 'news',
+    type: 'News',
     category: 'physical-activity',
   },
   {
@@ -215,7 +215,7 @@ export const pressReleases: PressRelease[] = [
     date: '2023-08-24',
     url: 'https://theconversation.com/heart-damage-another-reason-to-cut-down-on-childrens-screen-time-213580',
     source: 'The Conversation',
-    type: 'scientific',
+    type: 'Scientific',
     category: 'heart-health',
   },
   {
@@ -223,7 +223,7 @@ export const pressReleases: PressRelease[] = [
     date: '2023-08-15',
     url: 'https://www.doccheck.com/en/detail/videos/6066-physical-activity-slow-and-steady-wins-the-race',
     source: 'DocCheck',
-    type: 'interview',
+    type: 'Interview',
     category: 'physical-activity',
   },
   {
@@ -231,7 +231,7 @@ export const pressReleases: PressRelease[] = [
     date: '2023-08-10',
     url: 'https://biznes.newseria.pl/news/siedzacy-tryb-zycia,p1221013204',
     source: 'Newseria',
-    type: 'interview',
+    type: 'Interview',
     category: 'physical-activity',
   },
   {
@@ -239,7 +239,7 @@ export const pressReleases: PressRelease[] = [
     date: '2023-07-20',
     url: 'https://www.escardio.org/The-ESC/Press-Office/Press-releases/Sedentary-time-in-children-linked-with-heart-damage-in-young-adulthood',
     source: 'European Society of Cardiology',
-    type: 'scientific',
+    type: 'Scientific',
     category: 'heart-health',
   },
   {
@@ -247,7 +247,7 @@ export const pressReleases: PressRelease[] = [
     date: '2023-07-15',
     url: 'https://www.endocrine.org/news-and-advocacy/news-room/2023/children-who-are-sedentary-may-have-a-higher-risk-of-heart-attack-or-stroke-later-in-life',
     source: 'Endocrine Society',
-    type: 'scientific',
+    type: 'Scientific',
     category: 'heart-health',
   },
   {
@@ -255,7 +255,7 @@ export const pressReleases: PressRelease[] = [
     date: '2023-07-14',
     url: 'https://www.webmd.com/fitness-exercise/news/20230714/get-benefits-exercise-without-breaking-sweat',
     source: 'WebMD',
-    type: 'news',
+    type: 'News',
     category: 'physical-activity',
   },
   {
@@ -263,7 +263,7 @@ export const pressReleases: PressRelease[] = [
     date: '2023-07-11',
     url: 'https://www.physiology.org/detail/news/2023/07/11/metabolic-syndrome-risk-doubled-from-adolescence-to-young-adulthood',
     source: 'American Physiological Society',
-    type: 'scientific',
+    type: 'Scientific',
     category: 'metabolic-health',
   },
   {
@@ -271,7 +271,7 @@ export const pressReleases: PressRelease[] = [
     date: '2023-07-10',
     url: 'https://www.bristol.ac.uk/alspac/news/2023/light-physical-activity.html',
     source: 'University of Bristol',
-    type: 'scientific',
+    type: 'Scientific',
     category: 'physical-activity',
   },
   {
@@ -279,7 +279,7 @@ export const pressReleases: PressRelease[] = [
     date: '2023-07-05',
     url: 'https://news.exeter.ac.uk/faculty-of-health-and-life-sciences/university-of-exeter-medical-school/public-health-and-sports-sciences/sedentary-time-may-significantly-enlarge-adolescents-heart/',
     source: 'University of Exeter',
-    type: 'scientific',
+    type: 'Scientific',
     category: 'heart-health',
   },
   {
@@ -287,7 +287,7 @@ export const pressReleases: PressRelease[] = [
     date: '2023-07-01',
     url: 'https://www.jpost.com/health-and-wellness/exercise/article-778113',
     source: 'Jerusalem Post',
-    type: 'news',
+    type: 'News',
     category: 'heart-health',
   },
   {
@@ -295,7 +295,7 @@ export const pressReleases: PressRelease[] = [
     date: '2022-11-30',
     url: 'https://www.drugs.com/news/teen-sedentary-time-tied-changes-heart-structure-111978.html',
     source: 'Drugs.com',
-    type: 'news',
+    type: 'News',
     category: 'heart-health',
   },
   {
@@ -303,7 +303,7 @@ export const pressReleases: PressRelease[] = [
     date: '2022-09-01',
     url: 'https://www.diabetes.co.uk/news/2022/sep/insulin-resistance-plays-a-role-in-how-arterial-stiffness-raises-blood-pressure-in-adolescents-new-study-shows.html',
     source: 'Diabetes UK',
-    type: 'news',
+    type: 'News',
     category: 'metabolic-health',
   },
   {
@@ -311,7 +311,7 @@ export const pressReleases: PressRelease[] = [
     date: '2023-04-24',
     url: 'https://www.sciencedaily.com/releases/2023/04/230424102055.htm',
     source: 'Science Daily',
-    type: 'scientific',
+    type: 'Scientific',
     category: 'metabolic-health',
   },
   {
@@ -319,7 +319,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-06-09',
     url: 'https://www.talouselama.fi/uutiset/te/196de66a-abd8-4775-80a2-aa32699dc6dc',
     source: 'Talouselämä',
-    type: 'news',
+    type: 'News',
     category: 'physical-activity',
   },
   {
@@ -327,7 +327,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-06-03',
     url: 'https://www.savonsanomat.fi/paikalliset/6814172',
     source: 'Savon Sanomat',
-    type: 'news',
+    type: 'News',
     category: 'physical-activity',
   },
   {
@@ -335,7 +335,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-05-07',
     url: 'https://www.savonsanomat.fi/paikalliset/6750034',
     source: 'Savon Sanomat',
-    type: 'news',
+    type: 'News',
     category: 'physical-activity',
   },
   {
@@ -343,7 +343,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-04-10',
     url: 'https://www.hs.fi/tiede/art-2000010347404.html',
     source: 'Helsingin Sanomat',
-    type: 'news',
+    type: 'News',
     category: 'physical-activity',
   },
   {
@@ -351,7 +351,7 @@ export const pressReleases: PressRelease[] = [
     date: '2024-03-14',
     url: 'https://www.hs.fi/perhe/art-2000010276145.html',
     source: 'Helsingin Sanomat',
-    type: 'news',
+    type: 'News',
     category: 'physical-activity',
   },
   {
@@ -359,7 +359,7 @@ export const pressReleases: PressRelease[] = [
     date: '2023-12-01',
     url: 'https://www.hs.fi/hyvinvointi/art-2000009378112.html',
     source: 'Helsingin Sanomat',
-    type: 'news',
+    type: 'News',
     category: 'physical-activity',
   },
   {
@@ -367,7 +367,7 @@ export const pressReleases: PressRelease[] = [
     date: '2023-11-01',
     url: 'https://yle.fi/a/74-20001852',
     source: 'YLE',
-    type: 'news',
+    type: 'News',
     category: 'physical-activity',
   },
   {
@@ -375,7 +375,7 @@ export const pressReleases: PressRelease[] = [
     date: '2023-09-01',
     url: 'https://www.savonsanomat.fi/paikalliset/5776348',
     source: 'Savon Sanomat',
-    type: 'news',
+    type: 'News',
     category: 'physical-activity',
   },
   {
@@ -383,7 +383,7 @@ export const pressReleases: PressRelease[] = [
     date: '2023-08-01',
     url: 'https://www.iltalehti.fi/terveysuutiset/a/f734b6cc-f50b-48a6-a7b1-395e401ae302',
     source: 'Iltalehti',
-    type: 'news',
+    type: 'News',
     category: 'physical-activity',
   },
   {
@@ -391,7 +391,7 @@ export const pressReleases: PressRelease[] = [
     date: '2023-04-09',
     url: 'https://www.iltalehti.fi/laihdutus/a/cb179463-9bd9-4f25-93cd-9131d66653f0',
     source: 'Iltalehti',
-    type: 'news',
+    type: 'News',
     category: 'physical-activity',
   },
 ];

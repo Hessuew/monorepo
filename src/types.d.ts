@@ -139,6 +139,7 @@ export interface Stat {
 
 export interface Item {
   title?: string;
+  flag?: string;
   description?: string | { text: string; link?: boolean; subtitle?: boolean; classes?: Record<string, string> }[];
   description2?: { text: string; link?: string };
   icon?: string;

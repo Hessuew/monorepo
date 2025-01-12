@@ -5,17 +5,8 @@ import Spacer from '../Spacer.astro';
 // src/config/editorial-items.ts
 export const editorialItems = [
   {
-    title: 'European Memberships',
-    description: [
-      'European Society of Cardiology (ESC), France',
-      'European Atherosclerosis Society (EAS), Sweden',
-      'Association for Research into Arterial Structure and Physiology (Artery Society), UK',
-      'European Association of Preventive Cardiology (EAPC), France',
-      'European Association for the Study of Obesity (EASO), UK',
-    ],
-  },
-  {
     title: 'American & International',
+    flag: '🇺🇸',
     description: [
       'American Heart Association (AHA), Dallas, US',
       'American Physiological Society (APS), US',
@@ -27,7 +18,19 @@ export const editorialItems = [
     ],
   },
   {
+    title: 'European Memberships',
+    flag: '🇪🇺',
+    description: [
+      'European Society of Cardiology (ESC), France',
+      'European Atherosclerosis Society (EAS), Sweden',
+      'Association for Research into Arterial Structure and Physiology (Artery Society), UK',
+      'European Association of Preventive Cardiology (EAPC), France',
+      'European Association for the Study of Obesity (EASO), UK',
+    ],
+  },
+  {
     title: 'Finnish Memberships',
+    flag: '🇫🇮',
     description: [
       'Finnish Epidemiology Society (FES), Finland',
       'Finnish Association for the Study of Obesity (FASO), Finland',
@@ -39,9 +42,8 @@ export const editorialItems = [
 
 <Features3
   id="memberships"
-  title="Memberships in International Associations"
+  title="Memberships in Scientific Societies"
   columns={3}
-  defaultIcon="tabler:building-community"
   items={editorialItems.map((item) => ({
     ...item,
     description: item.description.map((j) => `• ${j}`).join('<br/>'),

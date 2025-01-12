@@ -35,7 +35,7 @@ export const headerData = {
       links: [
         {
           text: 'Key Articles',
-          href: getPermalink('/materials/thesis'),
+          href: getPermalink('/materials/key-articles'),
         },
         {
           text: 'Thesis',
