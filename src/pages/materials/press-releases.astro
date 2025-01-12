@@ -2,7 +2,6 @@
 import FilterContainer from '~/components/filters/FilterContainer.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import PressReleasesList from '~/components/widgets/list/PressReleasesList.astro';
-import Spacer from '~/components/widgets/Spacer.astro';
 import { pressReleaseCategories, pressReleaseTypes } from '~/data/pressReleases';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -36,6 +35,4 @@ const sortedCategories = [...pressReleaseCategories].filter((category) => catego
   <div id="press-releases-list">
     <PressReleasesList />
   </div>
-
-  <Spacer />
 </Layout>

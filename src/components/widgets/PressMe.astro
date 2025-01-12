@@ -158,7 +158,7 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
       </span>
     </button>
     <div class="down-arrow absolute -bottom-10">
-      <Icon name="tabler:chevron-down" color="orange" class="w-10 h-10 smooth-hover" />
+      <Icon name="tabler:chevron-down" color="white" class="w-24 h-24 smooth-hover" />
     </div>
   </div>
 </WidgetWrapper>
@@ -176,13 +176,14 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
     const button = document.querySelector('#pressMeButton');
     const videoBackground = document.querySelector('#videoBackground');
     const downArrow = document.querySelector('.down-arrow');
+    const pressMeContent = document.querySelector('.pressMeContent');
 
-    if (button && videoBackground) {
+    if (button && videoBackground && downArrow && pressMeContent) {
       button.addEventListener('click', () => {
-        console.log('Button clicked!');
         videoBackground.classList.remove('opacity-0');
         videoBackground.classList.add('opacity-100');
         button.classList.add('opacity-0', 'pointer-events-none');
+        pressMeContent.classList.remove('hidden');
 
         // Show down arrow after 500ms
         if (downArrow) {
