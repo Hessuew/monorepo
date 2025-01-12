@@ -20,7 +20,7 @@ const app = new Hono<{ Bindings: Env }>();
 app.use(
   '/*',
   cors({
-    origin: ['https://urfit-child.com'],
+    origin: ['http://localhost:4321', 'https://urfit-child.com'],
     allowMethods: ['POST', 'OPTIONS'],
   })
 );

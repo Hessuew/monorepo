@@ -1,0 +1,96 @@
+---
+import Stats from '~/components/widgets/Stats.astro';
+---
+
+<style>
+  @keyframes letterFade {
+    0% {
+      color: var(--aw-color-page);
+    }
+    100% {
+      color: transparent;
+    }
+  }
+
+  .animate-letter {
+    opacity: 0;
+    display: inline-block;
+    animation-delay: inherit;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: var(--aw-color-page);
+  }
+
+  .wave-wrapper.visible .animate-letter {
+    opacity: 1;
+    animation: letterFade 2s ease-in-out forwards;
+  }
+</style>
+
+<Stats classes={{ container: 'max-w-6xl mx-auto', item: 'md:w-full' }}>
+  <Fragment slot="title">
+    <div class="text-center">
+      Engulfing the globe into a
+      <span class="highlight bg-gradient-to-r from-orange-600 to-yellow-400 text-transparent bg-clip-text">divine</span>
+      fire
+    </div>
+  </Fragment>
+  <Fragment slot="subtitle">
+    <div class="text-center w-full wave-wrapper">
+      <div
+        class="inline-flex flex-row bg-gradient-to-r from-orange-600 to-yellow-400 text-transparent bg-clip-text italic text-4xl xs:text-5xl md:text-6xl font-bold leading-tighter tracking-tighter pr-3"
+      >
+        <span class="animate-letter" style="animation-delay: 800ms;">F</span>
+        <span class="animate-letter" style="animation-delay: 850ms;">l</span>
+        <span class="animate-letter" style="animation-delay: 900ms;">a</span>
+        <span class="animate-letter" style="animation-delay: 950ms;">m</span>
+        <span class="animate-letter" style="animation-delay: 1000ms;">e</span>
+        <span class="animate-letter" style="animation-delay: 1050ms;">&nbsp;</span>
+        <span class="animate-letter" style="animation-delay: 1100ms;">t</span>
+        <span class="animate-letter" style="animation-delay: 1150ms;">h</span>
+        <span class="animate-letter" style="animation-delay: 1200ms;">e</span>
+        <span class="animate-letter" style="animation-delay: 1250ms;">&nbsp;</span>
+        <span class="animate-letter" style="animation-delay: 1300ms;">F</span>
+        <span class="animate-letter" style="animation-delay: 1350ms;">r</span>
+        <span class="animate-letter" style="animation-delay: 1400ms;">e</span>
+        <span class="animate-letter" style="animation-delay: 1450ms;">e</span>
+        <span class="animate-letter" style="animation-delay: 1500ms;">z</span>
+        <span class="animate-letter" style="animation-delay: 1550ms;">e</span>
+      </div>
+    </div>
+  </Fragment>
+</Stats>
+
+<script>
+  function setupWaveObserver() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px',
+      }
+    );
+
+    document.querySelectorAll('.wave-wrapper').forEach((wrapper) => {
+      if (wrapper && !wrapper.classList.contains('visible')) {
+        observer.observe(wrapper);
+      }
+    });
+  }
+
+  // Run immediately
+  setupWaveObserver();
+
+  // Run again after page load to catch any dynamically loaded elements
+  window.addEventListener('load', setupWaveObserver);
+
+  // Run when Astro view transitions complete
+  document.addEventListener('astro:page-load', setupWaveObserver);
+</script>

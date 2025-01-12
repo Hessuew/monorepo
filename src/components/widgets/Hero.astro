@@ -51,7 +51,7 @@ const { labelContainer: labelContainerClass = '' } = classes;
         {
           title && (
             <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+              class="text-4xl xs:text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
               set:html={title}
             />
           )
@@ -102,7 +102,7 @@ const { labelContainer: labelContainerClass = '' } = classes;
                           sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
                           loading="eager"
                           width={1024}
-                          height={576}
+                          height={image.isInfographics ? 737 : 576}
                           {...image}
                         />
                       </a>
@@ -113,20 +113,16 @@ const { labelContainer: labelContainerClass = '' } = classes;
                         sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
                         loading="eager"
                         decoding="async"
-                        objectPosition="center top"
-                        width={1024}
-                        height={576}
+                        objectPosition="top top"
+                        width={image.isInfographics ? 1080 : 1024}
+                        height={image.isInfographics ? 737 : 576}
                         {...image}
                       />
                     )}
                   </div>
                 )
               )}
-              {imageText && (
-                <div class="text-center">
-                  <p class="text-sm text-muted dark:text-slate-400">{imageText}</p>
-                </div>
-              )}
+              {imageText && <p class="text-center text-sm text-muted dark:text-slate-400" set:html={imageText} />}
             </div>
           )
         }

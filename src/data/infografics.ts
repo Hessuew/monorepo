@@ -20,6 +20,7 @@ import img5 from '~/assets/images/infographic/Insulin Resistance Mid Adolescence
 import img4 from '~/assets/images/infographic/Low-Grade Inflammation Atherosclerosis.webp';
 import img24 from '~/assets/images/infographic/Persistent Tobacco Smoking.webp';
 import img9 from '~/assets/images/infographic/Sedentary Time Adolescents Heart.webp';
+import img26 from '~/assets/images/infographic/Sedentary Time Tobacco Study 2503 Children.webp';
 import img17 from '~/assets/images/infographic/Teenagers Insulin Resistance Risk.webp';
 import img2 from '~/assets/images/infographic/Weight Gain Childhood Vascular Health.webp';
 import img18 from '~/assets/images/waist-to-height-calculator/Waist to Height Ratio vs BMI Press Release.webp';
@@ -42,18 +43,15 @@ interface InfoGrafic {
 export const infografics: InfoGrafic[] = [
   {
     title:
-      'Accelerometer-based sedentary time and physical activity from childhood through young adulthood with progressive cardiac changes: a 13-year longitudinal study.',
-    date: '2024-07-05',
-    type: 'physical-activity',
-    description: `A follow-up of 1682 children from ages 11 through 24 years showed that increased sedentariness from childhood through young adulthood may cause worsening premature heart damage. Image: Andrew Agbaje.
-About Children of the 90s 
-
-Based at the University of Bristol, Children of the 90s, also known as the Avon Longitudinal Study of Parents and Children (ALSPAC), is a long-term health research project that enrolled more than 14,000 pregnant women in 1991 and 1992.  It has been following the health and development of the parents, their children and now their grandchildren in detail ever since. It receives core funding from the Medical Research Council, the Wellcome Trust and the University of Bristol.`,
-    url: 'https://www.uef.fi/en/article/aha-names-andrew-agbajes-study-among-biggest-advances-in-cardiovascular-research-for-2024',
-    doi: '10.1093/eurjpc/zwae129',
+      'Accelerometer-based sedentary time and physical activity with incident and progressive tobacco smoking in 2503 children: A 13-year mediation and temporal longitudinal study',
+    date: '2025-02-01',
+    type: 'cardiovascular-health',
+    description: `In 1931 children followed up from age 10 to 24 years, persistent tobacco smoking from childhood through young adulthood caused structural and functional heart damage. Tobacco smoking excessively increases heart mass during growth from adolescence to young adulthood. Image: Andrew Agbaje.`,
+    url: 'https://www.uef.fi/en/article/persistent-tobacco-smoking-from-childhood-may-cause-heart-damage-by-the-mid-twenties',
+    doi: '10.1016/j.brat.2024.104674',
     image: {
-      src: img25,
-      alt: 'Accelerometer-based sedentary time',
+      src: img26,
+      alt: 'Sedentary Time Tobacco Study 2503 Children',
     },
   },
   {
@@ -82,7 +80,22 @@ Based at the University of Bristol, Children of the 90s, also known as the Avon 
       alt: 'Breaking every hour of sedentary time',
     },
   },
+  {
+    title:
+      'Accelerometer-based sedentary time and physical activity from childhood through young adulthood with progressive cardiac changes: a 13-year longitudinal study.',
+    date: '2024-07-05',
+    type: 'physical-activity',
+    description: `A follow-up of 1682 children from ages 11 through 24 years showed that increased sedentariness from childhood through young adulthood may cause worsening premature heart damage. Image: Andrew Agbaje.
+About Children of the 90s 
 
+Based at the University of Bristol, Children of the 90s, also known as the Avon Longitudinal Study of Parents and Children (ALSPAC), is a long-term health research project that enrolled more than 14,000 pregnant women in 1991 and 1992.  It has been following the health and development of the parents, their children and now their grandchildren in detail ever since. It receives core funding from the Medical Research Council, the Wellcome Trust and the University of Bristol.`,
+    url: 'https://www.uef.fi/en/article/aha-names-andrew-agbajes-study-among-biggest-advances-in-cardiovascular-research-for-2024',
+    doi: '10.1093/eurjpc/zwae129',
+    image: {
+      src: img25,
+      alt: 'Accelerometer-based sedentary time',
+    },
+  },
   {
     title:
       'Accelerometer-based sedentary time and physical activity with MASLD and liver cirrhosis in 2684 British adolescents',
@@ -98,7 +111,7 @@ Based at the University of Bristol, Children of the 90s, also known as the Avon 
   },
   {
     title:
-      'ccelerometer-based Sedentary Time and Physical Activity from Childhood through Young Adulthood with Progressive Cardiac Changes: A 13-Year Longitudinal Study',
+      'Accelerometer-based Sedentary Time and Physical Activity from Childhood through Young Adulthood with Progressive Cardiac Changes: A 13-Year Longitudinal Study',
     date: '2024-05-07',
     type: 'physical-activity',
     description: ``,
@@ -382,6 +395,15 @@ export const itemsByYear = infografics.reduce(
   },
   {} as Record<number, typeof infografics>
 );
+
+// Sort infografics within each year by date
+Object.keys(itemsByYear).forEach((year) => {
+  itemsByYear[Number(year)].sort((a, b) => {
+    const dateA = parseISO(a.date);
+    const dateB = parseISO(b.date);
+    return dateB.getTime() - dateA.getTime();
+  });
+});
 
 // Sort years in descending order
 export const sortedYears = Object.keys(itemsByYear)

@@ -1,12 +1,14 @@
 ---
-import imgPosmourth from '~/assets/images/principalInvestigator/Andrew University of Posmourth.webp';
+import imgPortmourth from '~/assets/images/principalInvestigator/Andrew Portsmouth PhD 2.webp';
 import imgFESC from '~/assets/images/principalInvestigator/FESC ESC 2024 Agbaje.webp';
 import imgEJPC from '~/assets/images/principalInvestigator/Top Reviewer Award EJPC 2024.webp';
+import v from '~/assets/videos/Graduation Clip Andrew Agbaje Portsmouth.mp4';
 import GradientText from '~/components/ui/GradientText.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Spacer from '~/components/widgets/Spacer.astro';
 import { academicAchievements, fellowshipsAndPositions, pastAwards, recentAwards2024 } from '~/data/awardsAndHonours';
 import Features2 from '../Features2.astro';
+import Features5 from '../Features5.astro';
 ---
 
 <Features2
@@ -76,38 +78,6 @@ import Features2 from '../Features2.astro';
 <h2
   class="text-center text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
 >
-  Fellowships and Academic Positions
-</h2>
-
-<!-- Fellowships and Positions -->
-<Features2
-  classes={{ container: 'max-w-4xl mx-auto pt-0 md:pt-0 lg:pt-0' }}
-  columns={1}
-  items={fellowshipsAndPositions.map((item) => ({
-    title: item.title,
-    icon: item.icon,
-    description: `${item.subtitle}
-                 ${item.details ? `<div class="text-primary text-center mt-2">${item.details}</div>` : ''}
-                 ${item.date ? `<br /><br />${item.date}` : ''}`,
-    classes: {
-      title: 'text-center',
-      description: 'text-center',
-    },
-  }))}
-/>
-
-<Hero
-  classes={{ labelContainer: 'pt-0 md:pt-0 lg:pt-0' }}
-  image={{
-    src: imgFESC,
-    alt: 'Agbaje at FESC ESC 2024',
-  }}
-  imageText="Agbaje at FESC ESC 2024"
-/>
-
-<h2
-  class="text-center text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
->
   Past Awards and Recognition
 </h2>
 
@@ -127,29 +97,55 @@ import Features2 from '../Features2.astro';
 <h2
   class="text-center text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
 >
+  Fellowships and Academic Positions
+</h2>
+
+<!-- Fellowships and Positions -->
+<Features5
+  classes={{ container: 'max-w-4xl mx-auto pt-0 md:pt-0 lg:pt-0' }}
+  columns={1}
+  classes={{ labelContainer: 'pt-0 md:pt-0 lg:pt-0' }}
+  image={{
+    src: imgFESC,
+    alt: 'Agbaje at FESC ESC 2024',
+  }}
+  imageText="Agbaje at FESC ESC 2024"
+  isReversed
+  items={fellowshipsAndPositions.map((item) => ({
+    title: item.title,
+    icon: item.icon,
+    description: `${item.subtitle}
+                 ${item.details ? `<div class="text-primary text-center mt-2">${item.details}</div>` : ''}
+                 ${item.date ? `<br /><br />${item.date}` : ''}`,
+    classes: {
+      title: 'text-center',
+      description: 'text-center',
+    },
+  }))}
+/>
+
+<h2
+  class="text-center text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+>
   Academic Achievements
 </h2>
 
 <!-- Academic Achievements -->
-<Features2
+<Features5
   classes={{ container: 'max-w-7xl mx-auto pt-0 md:pt-0 lg:pt-0' }}
   columns={2}
+  image={{
+    src: imgPortmourth,
+    alt: 'Agbaje at the University of Portsmouth',
+  }}
   items={academicAchievements.map((item) => ({
     icon: item.icon,
     title: item.title,
-    description: `${item.subtitle}
+    description: `<div class="flex-1">${item.subtitle}
                  ${item.details ? `<div class="text-primary mt-2">${item.details}</div>` : ''}
-                 ${item.year ? `<br />${item.year}` : ''}`,
+                 </div>
+                 ${item.year ? `${item.year}` : ''}`,
   }))}
-/>
-
-<Hero
-  classes={{ labelContainer: 'pt-0 md:pt-0 lg:pt-0' }}
-  image={{
-    src: imgPosmourth,
-    alt: 'Agbaje at the University of Posmourth',
-  }}
-  imageText='"To God be the glory" shouts Agbaje as he walks to the stage at the University of Posmourth'
 />
 
 <!-- Biblical Quote Footer -->
@@ -162,6 +158,108 @@ import Features2 from '../Features2.astro';
     than all the magicians and astrologers that were in all his realm."
   </p>
   <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">— Daniel 1:20 KJV</p>
+  <br />
+  <p class="text-gray-700 dark:text-gray-300 italic">
+    "Forasmuch as <GradientText class="font-bold">an excellent spirit</GradientText>, and knowledge, and understanding,
+    interpreting of dreams, and shewing of hard sentences, and dissolving of doubts, were found in the same Daniel, whom
+    the king named Belteshazzar: now let Daniel be called, and he will shew the interpretation."
+  </p>
+  <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">— Daniel 5:12 KJV</p>
+  <br />
+  <p class="text-gray-700 dark:text-gray-300 italic">
+    "Agbaje is an active science communicator who is
+    <GradientText class="font-bold">not afraid to challenge conventional views</GradientText> when doing so is backed up
+    by his research. Agbaje remembers to always highlight the practical relevance of his research to both health care and
+    the wider society. From the viewpoint of communications professionals, Agbaje is an ideal collaborator: he always reserves
+    enough time for honing the text, and he is
+    <GradientText class="font-bold">skilled at visualising even complex entities.</GradientText>"
+  </p>
+  <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">— University of Eastern Finland</p>
+</div>
+
+<!-- Graduation Video -->
+<div
+  class="max-w-4xl mx-auto mt-12 mb-8 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade px-4 sm:px-6 lg:px-8"
+>
+  <div
+    class="relative bg-gray-100 dark:bg-slate-800 rounded-lg shadow-sm overflow-hidden cursor-pointer hover:scale-[1.02] hover:shadow-xl transform transition-all duration-300 ease-in-out group w-full max-w-3xl mx-auto"
+    id="videoContainer"
+    tabindex="0"
+  >
+    <p class="absolute z-10 top-4 left-4 text-white font-medium px-3 py-1.5 text-lg">Graduation Clip</p>
+    <div
+      class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-20 transition-all duration-300"
+      id="videoOverlay"
+    >
+      <svg
+        class="w-16 h-16 text-white opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width={2}
+          d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        ></path>
+      </svg>
+    </div>
+    <video
+      class="w-full aspect-video"
+      preload="metadata"
+      aria-label="Dr. Andrew Agbaje's graduation ceremony at Portsmouth"
+      id="graduationVideo"
+    >
+      <source src={v} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <p class="pt-4 text-center text-sm text-muted dark:text-slate-400">
+    "To God be the glory", shouts Agbaje as he accepts the degree
+  </p>
 </div>
 
 <Spacer size="sm" />
+
+<script>
+  const videoContainer = document.getElementById('videoContainer');
+  const videoOverlay = document.getElementById('videoOverlay');
+  const video = document.getElementById('graduationVideo') as HTMLVideoElement;
+
+  function toggleVideo(event?: KeyboardEvent) {
+    // Prevent space bar from scrolling the page
+    if (event?.key === ' ') {
+      event.preventDefault();
+    }
+
+    if (video?.paused) {
+      video.play();
+      if (videoOverlay) videoOverlay.style.display = 'none';
+    } else if (video) {
+      video.pause();
+      if (videoOverlay) videoOverlay.style.display = 'flex';
+    }
+  }
+
+  if (videoContainer && videoOverlay && video) {
+    videoContainer.addEventListener('click', () => toggleVideo());
+
+    video.addEventListener('pause', () => {
+      videoOverlay.style.display = 'flex';
+    });
+
+    video.addEventListener('ended', () => {
+      videoOverlay.style.display = 'flex';
+    });
+
+    // Handle keyboard interaction for the video container
+    videoContainer.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.code === 'Space' || e.key === ' ') {
+        e.preventDefault();
+        toggleVideo(e);
+      }
+    });
+  }
+</script>

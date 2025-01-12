@@ -6,12 +6,42 @@ A comprehensive website for the urFIT research group, built with modern web tech
 
 This website serves as the central hub for our research group, providing:
 
-- 📚 Research publications and findings
-- 🎓 Academic resources
-- 📰 Press releases and news
+- 👥 Team and collaborator profiles
+- 💰 Funding of the research group
+- 🧮 Interactive calculators and tools
+- 📚 Research publications and materials
+- 📊 Infographics and visual content
 - 🎥 Videos and podcasts
-- 🏆 Awards and honours
-- 👥 Team member profiles
+- 📰 Press releases and news
+- 📜 Academic theses
+
+## 📑 Pages
+
+### Main Pages
+
+- Home (`/`) - Overview and latest updates
+- Non-Academic (`/non-academic`) - Content for non-academic audiences
+- Waist-Height Calculator (`/waist-height-calculator`) - Interactive health assessment tool
+
+### Materials
+
+- Publications (`/materials/publications`) - Research papers and articles
+- Videos & Podcasts (`/materials/videos-and-podcasts`) - Multimedia content
+- Press Releases (`/materials/press-releases`) - News and announcements
+- Infographics (`/materials/infografics`) - Visual data representations
+- Theses (`/materials/thesis`) - Academic theses and dissertations
+
+### People
+
+- Principal Investigator (`/people/principal-investigator`) - Research group leader
+- Team (`/people/team`) - Research group members
+- Collaborators (`/people/collaborators`) - External collaborators
+- Funders (`/people/funders`) - Funding organizations
+
+### Legal
+
+- Privacy Policy (`/privacy`)
+- Terms of Service (`/terms`)
 
 ## 🛠 Tech Stack
 
@@ -19,13 +49,14 @@ This website serves as the central hub for our research group, providing:
 - [React](https://reactjs.org/) - UI Components
 - [TypeScript](https://www.typescriptlang.org/) - Type Safety
 - [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [Bun](https://bun.sh/) - JavaScript Runtime & Package Manager
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
+- Bun (latest version)
 - Node.js (v18 or higher)
-- npm or bun package manager
 - Cloudflare account (for email subscriptions)
 - Cloudflare Workers CLI (wrangler) (for email subscriptions)
 
@@ -57,12 +88,14 @@ bun run preview
 ```
 src/
 ├── assets/         # Static assets (images, styles)
-├── components/     # Reusable Astro components
-├── content/        # Content files
+├── components/     # Shared Astro components
+├── content/        # Blog related content
 ├── data/          # Data for different pages
+├── layouts/       # Shared layout components
+├── pages/         # Route pages
 ├── utils/         # Helper functions
-├── config/        # Configuration files
-├── navigation/    # Navigation structure
+├── config/        # Shared configuration
+├── navigation/    # Navigation of the website
 └── types.d.ts     # TypeScript definitions
 
 workers/
@@ -99,8 +132,18 @@ The project includes a Cloudflare Worker that handles email subscriptions:
 
 ## 📝 Contributing
 
-Please read our [Contributing Guidelines](CONTRIBUTING.md) before submitting any changes.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+## 🤝 Acknowledgments
+
+- Research group members and collaborators
+- Funding organizations
+- Open source community

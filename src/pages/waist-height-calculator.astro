@@ -4,10 +4,10 @@ import imgCalculator from '~/assets/images/waist-to-height-calculator/Waist to H
 import Calculator from '~/components/ui/calculator/Calculator.astro';
 import GradientText from '~/components/ui/GradientText.astro';
 import Content from '~/components/widgets/Content.astro';
+import ContentSection from '~/components/widgets/ContentSection.astro';
+import Features4 from '~/components/widgets/Features4.astro';
 import GraphGrid from '~/components/widgets/GraphGrid.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import Spacer from '~/components/widgets/Spacer.astro';
 import { THRESHOLDS } from '~/data/thresholds';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -50,16 +50,24 @@ const metadata = {
         your heels against the corner where the wall and floor meet. Ensure your head, shoulders, and buttocks touch the
         wall. Look straight ahead parallel to the floor. Have someone place a book or a ruler over your head and lightly
         mark the wall with a pencil. Then measure the distance between the marked point and the floor. Now calculate waist
-        circumference (cm)/height (cm) and check the results against the categories provided above.
+        circumference (cm)/height (cm) and check the results against the categories provided below.
       </div>
     </Fragment>
   </Content>
 
   <!-- Hero Widget ******************* -->
 
-  <Hero tagline="Agbaje Calc" title="Calculate your waist/height ratio">
+  <Hero
+    id="calculator"
+    tagline="Agbaje Obesity Calc"
+    title="Calculate your waist/height ratio"
+    classes={{
+      labelContainerClass: 'lg:pt-0 lg:pb-0 md:pt-0 md:pb-0',
+    }}
+  >
     <Fragment slot="image">
       <Calculator />
+      <span class="block mt-8 text-center dark:text-slate-400">1 inch = 2.54 cm</span>
     </Fragment>
   </Hero>
 
@@ -68,6 +76,9 @@ const metadata = {
   <GraphGrid
     title="Result interpretation"
     columns={1}
+    classes={{
+      container: 'lg:pt-0 lg:pb-0 md:pt-0 md:pb-0',
+    }}
     items={[
       {
         title: 'Age Group',
@@ -78,14 +89,25 @@ const metadata = {
         ],
       },
       {
+        title: 'Low fat',
+        icon: { text: 'tabler:arrow-down-circle', class: 'text-purple-500' },
+        colorClass: 'bg-purple-500',
+        subtitle: { text1: 'Male', text2: 'Female' },
+        rows: [
+          { text1: `<${THRESHOLDS.male.low.toFixed(2)}`, text2: `<${THRESHOLDS.female.low.toFixed(2)}` },
+          { text1: `<${THRESHOLDS.male.low.toFixed(2)}`, text2: `<${THRESHOLDS.female.low.toFixed(2)}` },
+          { text1: `<${THRESHOLDS.male.low.toFixed(2)}`, text2: `<${THRESHOLDS.female.low.toFixed(2)}` },
+        ],
+      },
+      {
         title: 'Normal fat',
         icon: { text: 'tabler:circle-check', class: 'text-green-500' },
         colorClass: 'bg-green-500',
         subtitle: { text1: 'Male', text2: 'Female' },
         rows: [
-          { text1: `<${THRESHOLDS.male.normal}`, text2: `<${THRESHOLDS.female.normal}` },
-          { text1: `<${THRESHOLDS.male.normal}`, text2: `<${THRESHOLDS.female.normal}` },
-          { text1: `<${THRESHOLDS.male.normal}`, text2: `<${THRESHOLDS.female.normal}` },
+          { text1: `<${THRESHOLDS.male.normal.toFixed(2)}`, text2: `<${THRESHOLDS.female.normal.toFixed(2)}` },
+          { text1: `<${THRESHOLDS.male.normal.toFixed(2)}`, text2: `<${THRESHOLDS.female.normal.toFixed(2)}` },
+          { text1: `<${THRESHOLDS.male.normal.toFixed(2)}`, text2: `<${THRESHOLDS.female.normal.toFixed(2)}` },
         ],
       },
       {
@@ -94,9 +116,9 @@ const metadata = {
         colorClass: 'bg-yellow-500',
         subtitle: { text1: 'Male', text2: 'Female' },
         rows: [
-          { text1: `>${THRESHOLDS.male.high}`, text2: `>${THRESHOLDS.female.high}` },
-          { text1: `>${THRESHOLDS.male.high}`, text2: `>${THRESHOLDS.female.high}` },
-          { text1: `>${THRESHOLDS.male.high}`, text2: `>${THRESHOLDS.female.high}` },
+          { text1: `>${THRESHOLDS.male.high.toFixed(2)}`, text2: `>${THRESHOLDS.female.high.toFixed(2)}` },
+          { text1: `>${THRESHOLDS.male.high.toFixed(2)}`, text2: `>${THRESHOLDS.female.high.toFixed(2)}` },
+          { text1: `>${THRESHOLDS.male.high.toFixed(2)}`, text2: `>${THRESHOLDS.female.high.toFixed(2)}` },
         ],
       },
       {
@@ -105,47 +127,120 @@ const metadata = {
         colorClass: 'bg-red-500',
         subtitle: { text1: 'Male', text2: 'Female' },
         rows: [
-          { text1: `>${THRESHOLDS.male.excess}`, text2: `>${THRESHOLDS.female.excess}` },
-          { text1: `>${THRESHOLDS.male.excess}`, text2: `>${THRESHOLDS.female.excess}` },
-          { text1: `>${THRESHOLDS.male.excess}`, text2: `>${THRESHOLDS.female.excess}` },
+          { text1: `>${THRESHOLDS.male.excess.toFixed(2)}`, text2: `>${THRESHOLDS.female.excess.toFixed(2)}` },
+          { text1: `>${THRESHOLDS.male.excess.toFixed(2)}`, text2: `>${THRESHOLDS.female.excess.toFixed(2)}` },
+          { text1: `>${THRESHOLDS.male.excess.toFixed(2)}`, text2: `>${THRESHOLDS.female.excess.toFixed(2)}` },
         ],
       },
     ]}
   />
 
+  <ContentSection>
+    <Fragment slot="subtitle">
+      <p
+        class="intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        Obesity is a chronic relapsing disease of <GradientText class="font-bold">excess fat</GradientText> accumulation
+        (adiposopathy) but not <GradientText class="font-bold">excess weight</GradientText>. To limit the stigma
+        associated with obesity, we propose a new nomenclature of overweight as <GradientText class="font-bold"
+          >adiposopathy grade 1</GradientText
+        >
+        (high fat) and obesity as <GradientText class="font-bold">adiposopathy grade 2</GradientText> (excess fat).
+      </p>
+    </Fragment>
+  </ContentSection>
+
   <!-- HeroText Widget ******************* -->
 
-  <HeroText>
+  <ContentSection>
     <Fragment slot="subtitle">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Description</h3>
+      <h3
+        class="text-center text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        Description
+      </h3>
       <br />
-      Waist circumference-to-height ratio had a very high agreement of 81 – 89% with DEXA-measured total body fat mass and
-      trunk fat mass, but a low agreement with muscle mass (24 – 39%). BMI had a moderate agreement with total fat mass and
-      trunk fat mass (65 – 72%) and muscle mass (52 – 58%). Since BMI had a moderate agreement with DEXA-measured muscle
-      mass, it is difficult to specify whether BMI measures excess fat or muscle mass.
-      <GradientText class="font-bold inline">
-        The optimal waist circumference-to-height ratio cut points that predicted the 95th percentile of total fat mass
-        in males was 0.53 and 0.54 in females.
-      </GradientText>
-      This cut point detected 8 out of 10 males and 7 out of 10 females who truly had excess DEXA-measured fat. The cut point
-      also identified 93 out of 100 males and 95 out of 100 females who truly do not have excess fat.
+      <p
+        class="intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        Waist circumference-to-height ratio had a very high agreement of 81 – 89% with DEXA-measured total body fat mass
+        and trunk fat mass, but a low agreement with muscle mass (24 – 39%). BMI had a moderate agreement with total fat
+        mass and trunk fat mass (65 – 72%) and muscle mass (52 – 58%). Since BMI had a moderate agreement with
+        DEXA-measured muscle mass, it is difficult to specify whether BMI measures excess fat or muscle mass.
+        <GradientText class="font-bold inline">
+          The optimal waist circumference-to-height ratio cut points that predicted the 95th percentile of total fat
+          mass in males was 0.53 and 0.54 in females.
+        </GradientText>
+        This cut point detected 8 out of 10 males and 7 out of 10 females who truly had excess DEXA-measured fat. The cut
+        point also identified 93 out of 100 males and 95 out of 100 females who truly do not have excess fat.
+      </p>
       <br />
-      “This study provides novel information that would be useful in updating future childhood obesity guidelines and policy
-      statements. The average waist circumference-to-height ratio in childhood, adolescence, and young adulthood is 0.45,
-      it does not vary with age and among individuals like BMI. Waist circumference-to-height ratio might be preferable to
-      BMI assessment in children and adolescent clinics as an inexpensive tool for detecting excess fat. Parents should not
-      be discouraged by the BMI or weight of their children but can inexpensively confirm whether the weight is due to increase
-      in excess fat by examining their kid’s waist circumference-to-height ratio.”
-
-      <GradientText class="font-bold"> says Andrew Agbaje </GradientText>
+      <br />
+      <p
+        class="intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        “This study provides novel information that would be useful in updating future childhood obesity guidelines and
+        policy statements. The average waist circumference-to-height ratio in childhood, adolescence, and young
+        adulthood is 0.45, it does not vary with age and among individuals like BMI. Waist circumference-to-height ratio
+        might be preferable to BMI assessment in children and adolescent clinics as an inexpensive tool for detecting
+        excess fat. Parents should not be discouraged by the BMI or weight of their children but can inexpensively
+        confirm whether the weight is due to increase in excess fat by examining their kid’s waist
+        circumference-to-height ratio.”
+        <GradientText class="font-bold"> says Andrew Agbaje </GradientText>
+      </p>
     </Fragment>
-  </HeroText>
+  </ContentSection>
 
   <!-- Hero Widget ******************* -->
 
-  <Hero image={{ src: imgCalculator, alt: 'Waist to Height Ratio vs BMI Press Release' }} />
+  <Hero image={{ src: imgCalculator, alt: 'Waist to Height Ratio vs BMI Press Release', isInfographics: true }} />
 
-  <!-- Spacer ******************* -->
-
-  <Spacer />
+  <Features4
+    title="References"
+    columns={1}
+    classes={{
+      container: 'max-w-5xl mx-auto px-4 sm:px-6 py-8',
+      items: {
+        container: 'gap-6',
+        itemContainer: 'items-start',
+        text: 'text-start',
+        title: 'text-xl',
+        subtitle: 'text-primary',
+      },
+    }}
+    items={[
+      {
+        title: 'Research Article in Pediatric Research',
+        subtitle:
+          'Waist-circumference-to-height-ratio had better longitudinal agreement with DEXA-measured fat mass than BMI in 7237 children',
+        description: 'Agbaje AO. Pediatr Res. 2024 Oct;96(5)5:1369-1380.',
+        url: 'https://doi.org/10.1038/s41390-024-03112-8',
+      },
+      {
+        title: 'Nature Medicine Commentary',
+        subtitle: 'Time for a new framework that treats obesity in children as an adiposity-based chronic disease',
+        description: "Manco M, Helgason T, Körner A, Nowicka P, O'Malley G, Baker JL. Nat Med. 2024 Dec;30(12):3396.",
+        url: 'https://doi.org/10.1038/s41591-024-03292-0',
+      },
+      {
+        title: 'Journal of the American College of Cardiology',
+        subtitle: 'Adiposopathy is "sick fat" a cardiovascular disease?',
+        description: 'Bays HE. J Am Coll Cardiol. 2011 Jun 21;57(25):2461-73.',
+        url: 'https://doi.org/10.1016/j.jacc.2011.02.038',
+      },
+      {
+        title: 'European Association for the Study of Obesity Interview',
+        subtitle: 'Changing the way we measure childhood obesity',
+        description:
+          'Interview with Andrew Agbaje discussing the implications of the research findings for childhood obesity measurement.',
+        url: 'https://easo.org/changing-the-way-we-measure-childhood-obesity-in-conversation-with-andrew-agbaje/',
+      },
+      {
+        title: 'BBC World News Interview',
+        subtitle: 'Live TV Interview',
+        description: 'Discussion on the importance of waist-to-height ratio in measuring childhood obesity.',
+        url: 'https://www.youtube.com/watch?v=OiA9HlVHsuw',
+      },
+    ]}
+  />
 </Layout>

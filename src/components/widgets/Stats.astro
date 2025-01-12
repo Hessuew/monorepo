@@ -42,7 +42,7 @@ const { item: itemClass = '' } = classes;
               {amount && (
                 <div
                   class={twMerge(
-                    'font-heading text-primary text-[2.6rem] font-bold lg:text-5xl xl:text-6xl',
+                    'font-heading text-primary text-3xl sm:text-[2.6rem] font-bold lg:text-5xl xl:text-6xl',
                     classes?.amount
                   )}
                   aria-label={`${title}: ${amount}`}
@@ -59,7 +59,7 @@ const { item: itemClass = '' } = classes;
             {title && (
               <div
                 class={twMerge(
-                  `text-sm font-medium tracking-widest text-gray-800 dark:text-slate-400 lg:text-base`,
+                  `text-sm lg:text-base font-medium tracking-widest text-gray-800 dark:text-slate-400`,
                   !lowerCase ? 'uppercase' : ''
                 )}
               >

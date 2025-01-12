@@ -9,9 +9,10 @@ import type { MetaData } from '~/types';
 
 export interface Props {
   metadata?: MetaData;
+  classes?: Record<string, string | Record<string, string>>;
 }
 
-const { metadata } = Astro.props;
+const { metadata, classes } = Astro.props;
 ---
 
 <Layout metadata={metadata}>
@@ -19,7 +20,7 @@ const { metadata } = Astro.props;
     <Announcement />
   </slot> -->
   <slot name="header">
-    <Header {...headerData} isSticky showRssFeed showToggleTheme />
+    <Header {...headerData} classes={classes?.header as Record<string, string>} isSticky showRssFeed showToggleTheme />
   </slot>
   <main>
     <slot />

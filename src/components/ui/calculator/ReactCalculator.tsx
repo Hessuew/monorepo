@@ -1,6 +1,7 @@
 import { AlertOctagon } from '~/components/ui/icons/AlertOctagon';
 import { AlertTriangle } from '~/components/ui/icons/AlertTriangle';
 import { CircleCheck } from '~/components/ui/icons/CircleCheck';
+import { LowFat } from '~/components/ui/icons/LowFat';
 import { THRESHOLDS } from '~/data/thresholds';
 import React, { useEffect, useRef, useState, type ChangeEvent } from 'react';
 
@@ -17,9 +18,14 @@ interface ValidationErrors {
   height: string;
 }
 
-const MEASUREMENT_LIMITS = {
-  MIN: 0,
+const WAIST_LIMITS = {
+  MIN: 30,
   MAX: 300,
+};
+
+const HEIGHT_LIMITS = {
+  MIN: 50,
+  MAX: 250,
 };
 
 export function ReactCalculator(): React.JSX.Element {
@@ -45,13 +51,13 @@ export function ReactCalculator(): React.JSX.Element {
     const numValue = parseFloat(value);
 
     if (name === 'waist') {
-      if (numValue < MEASUREMENT_LIMITS.MIN || numValue > MEASUREMENT_LIMITS.MAX) {
-        return `Enter a valid waist (${MEASUREMENT_LIMITS.MIN}-${MEASUREMENT_LIMITS.MAX})`;
+      if (numValue < WAIST_LIMITS.MIN || numValue > WAIST_LIMITS.MAX) {
+        return `Enter a valid waist (${WAIST_LIMITS.MIN}-${WAIST_LIMITS.MAX})`;
       }
     }
     if (name === 'height') {
-      if (numValue < MEASUREMENT_LIMITS.MIN || numValue > MEASUREMENT_LIMITS.MAX) {
-        return `Enter a valid height (${MEASUREMENT_LIMITS.MIN}-${MEASUREMENT_LIMITS.MAX})`;
+      if (numValue < HEIGHT_LIMITS.MIN || numValue > HEIGHT_LIMITS.MAX) {
+        return `Enter a valid height (${HEIGHT_LIMITS.MIN}-${HEIGHT_LIMITS.MAX})`;
       }
     }
     return '';
@@ -77,6 +83,7 @@ export function ReactCalculator(): React.JSX.Element {
   function getResultColor(ratio: number): string {
     const thresholds = THRESHOLDS[inputs.gender];
 
+    if (ratio < thresholds.low) return 'bg-purple-500';
     if (ratio <= thresholds.high) return 'bg-green-500';
     if (ratio <= thresholds.excess) return 'bg-yellow-500';
     return 'bg-red-500';
@@ -85,6 +92,7 @@ export function ReactCalculator(): React.JSX.Element {
   function getResultIcon(ratio: number): React.ReactNode {
     const thresholds = THRESHOLDS[inputs.gender];
 
+    if (ratio < thresholds.low) return <LowFat color='#a855f7' />;
     if (ratio <= thresholds.high) return <CircleCheck color='#22c55e' />;
     if (ratio <= thresholds.excess) return <AlertTriangle color='#eab308' />;
     return <AlertOctagon color='#ef4444' />;
@@ -166,7 +174,7 @@ export function ReactCalculator(): React.JSX.Element {
         <div className='flex-row flex gap-2 sm:gap-4 md:gap-6 items-start'>
           <div className='w-24 sm:w-full relative'>
             <label htmlFor='waist' className='block text-sm font-medium'>
-              Waist
+              Waist (cm)
             </label>
             {errors.waist && (
               <div className='absolute -top-6 left-0 right-0 px-2 py-1 rounded text-xs bg-red-50 text-red-700 dark:bg-red-900/50 dark:text-red-200'>
@@ -191,7 +199,7 @@ export function ReactCalculator(): React.JSX.Element {
 
           <div className='w-24 sm:w-full relative'>
             <label htmlFor='height' className='block text-sm font-medium'>
-              Height
+              Height (cm)
             </label>
             {errors.height && (
               <div className='absolute -top-6 left-0 right-0 px-2 py-1 rounded text-xs bg-red-50 text-red-700 dark:bg-red-900/50 dark:text-red-200'>

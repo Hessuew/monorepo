@@ -1,14 +1,13 @@
 import aarneLogo from '~/assets/images/funders/Aarne Koskelon Foundation.webp';
-import easoLogo from '~/assets/images/funders/EASO.webp';
 import idaMontinLogo from '~/assets/images/funders/Idamontin Insaatio Logo Dark.webp';
 import kordelinLogo from '~/assets/images/funders/Kordelin.webp';
 import pediatricLogo from '~/assets/images/funders/Lastentautien Tunnus.gif';
 import leroyLogo from '~/assets/images/funders/Leroy Logo Navigation.webp';
+import novoLogo from '~/assets/images/funders/Novo Nordisk.webp';
 import orionLogo from '~/assets/images/funders/Orion Oyj Logo.svg';
 import paavoNurmiLogo from '~/assets/images/funders/Paavo Nurmi Foundation Logo.webp';
 import pauloLogo from '~/assets/images/funders/Paulon Saatio Logo.webp';
 import pskLogo from '~/assets/images/funders/Pohjois Savon Kulttuurirahasto.webp';
-// Import images
 import skrLogo from '~/assets/images/funders/Skr Logo.svg';
 import uefLogo from '~/assets/images/funders/UEF Logo.png';
 import wihuriLogo from '~/assets/images/funders/Wihuri Foundation Logo.svg';
@@ -28,6 +27,11 @@ interface Funder {
 }
 
 const funders: Funder[] = [
+  {
+    name: 'Novo Nordisk Foundation',
+    logo: novoLogo,
+    url: 'https://novonordiskfonden.dk/en/',
+  },
   {
     name: 'Central Finnish Cultural Foundation',
     logo: skrLogo,
@@ -95,11 +99,6 @@ const funders: Funder[] = [
     name: 'Alfred Kordelin Foundation',
     logo: kordelinLogo,
     url: 'https://kordelin.fi/en/frontpage',
-  },
-  {
-    name: 'European Association for the Study of Obesity',
-    logo: easoLogo,
-    url: 'https://www.uef.fi/en/article/andrew-agbaje-wins-prestigious-easo-novo-nordisk-foundation-new-investigator-award-in-childhood',
   },
 ];
 
