@@ -78,13 +78,13 @@
 }
 
 .dark .edge {
-    background: linear-gradient(
-      to left,
-      hsl(216deg 99.2% 16%) 0%,
-      hsl(216deg 99.2% 32%) 8%,
-      hsl(216deg 99.2% 32%) 92%,
-      hsl(216deg 99.2% 16%) 100%
-    );
+  background: linear-gradient(
+    to left,
+    hsl(216deg 99.2% 16%) 0%,
+    hsl(216deg 99.2% 32%) 8%,
+    hsl(216deg 99.2% 32%) 92%,
+    hsl(216deg 99.2% 16%) 100%
+  );
 }
 
 .front {
