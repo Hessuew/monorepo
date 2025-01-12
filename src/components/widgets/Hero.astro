@@ -51,7 +51,7 @@ const { labelContainer: labelContainerClass = '' } = classes;
         {
           title && (
             <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+              class="text-4xl xs:text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
               set:html={title}
             />
           )
@@ -122,12 +122,7 @@ const { labelContainer: labelContainerClass = '' } = classes;
                   </div>
                 )
               )}
-              {imageText && (
-                <p
-                  class="text-center text-sm text-muted dark:text-slate-400 hover:underline hover:text-blue-700 dark:hover:text-blue-700 decoration-blue-700"
-                  set:html={imageText}
-                />
-              )}
+              {imageText && <p class="text-center text-sm text-muted dark:text-slate-400" set:html={imageText} />}
             </div>
           )
         }

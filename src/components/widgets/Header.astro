@@ -64,10 +64,28 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 const { nav: navClass = '' } = classes;
 ---
 
+<!-- 
+<style>
+  @keyframes slideDown {
+    from {
+      transform: translateY(-32%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-down {
+    animation: slideDown 1.2s ease-out forwards;
+  }
+</style> -->
 <header
   class:list={[
     { sticky: isSticky, relative: !isSticky, dark: isDark },
     'top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out',
+    // { 'animate-slide-down': currentPath === '/' },
   ]}
   {...isSticky ? { 'data-aw-sticky-header': true } : {}}
   {...id ? { id } : {}}

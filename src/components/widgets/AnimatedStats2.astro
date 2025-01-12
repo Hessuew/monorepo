@@ -21,7 +21,7 @@ import Stats from '~/components/widgets/Stats.astro';
   .dot {
     display: inline-block;
     color: #fbbf24; /* orange-600 to match the gradient */
-    font-size: 3.75rem;
+    font-size: 1em; /* Scale with parent text size */
     line-height: 1;
   }
   .wave-wrapper:not(.visible) .dot {
@@ -42,11 +42,13 @@ import Stats from '~/components/widgets/Stats.astro';
   <Fragment slot="subtitle">
     <div class="text-center w-full wave-wrapper">
       <div
-        class="inline-flex flex-row bg-gradient-to-r from-orange-600 to-yellow-400 text-transparent bg-clip-text italic text-5xl md:text-6xl font-bold leading-tighter tracking-tighter pr-3 pb-1"
+        class="flex flex-wrap items-center justify-center bg-gradient-to-r from-orange-600 to-yellow-400 text-transparent bg-clip-text italic text-4xl xs:text-5xl md:text-6xl font-bold leading-tighter tracking-tighter pb-1"
       >
-        <span>Do you accept the invitation</span>
-        <span class="dots-container">
-          <span class="dot dot-1">.</span><span class="dot dot-2">.</span><span class="dot dot-3">.</span>
+        <span>Do you accept the&nbsp;</span>
+        <span class="inline-flex items-baseline whitespace-nowrap">
+          invitation<span class="dots-container">
+            <span class="dot dot-1">.</span><span class="dot dot-2">.</span><span class="dot dot-3">.</span>
+          </span>
         </span>
       </div>
     </div>

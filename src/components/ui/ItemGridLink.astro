@@ -9,6 +9,8 @@ interface Props {
   classes?: {
     container?: string;
     item?: string;
+    itemContainer?: string;
+    text?: string;
     title?: string;
     subtitle?: string;
     description?: string;
@@ -50,7 +52,7 @@ const { items, columns = 3, classes = {}, isProfile = false } = Astro.props;
           role="listitem"
         >
           <div class="bg-white dark:bg-transparent rounded-lg shadow-lg dark:shadow-none p-6 h-full transition-all duration-300 hover:bg-gray-100/0 dark:hover:bg-white/0 group-hover:shadow-xl dark:group-hover:shadow-none">
-            <div class="flex flex-col items-center h-full">
+            <div class={twMerge('flex flex-col items-center h-full', classes.itemContainer)}>
               {isProfile ? (
                 <div
                   class={twMerge(
@@ -96,7 +98,7 @@ const { items, columns = 3, classes = {}, isProfile = false } = Astro.props;
                   </div>
                 )
               )}
-              <div class="text-center mt-auto">
+              <div class={twMerge('text-center mt-auto', classes.text)}>
                 <h3 class={twMerge('text-xl font-semibold text-gray-800 dark:text-gray-100', classes.title)}>
                   {item.title}
                 </h3>
@@ -106,9 +108,10 @@ const { items, columns = 3, classes = {}, isProfile = false } = Astro.props;
                   </p>
                 )}
                 {item.description && (
-                  <p class={twMerge('mt-2 text-sm text-gray-500 dark:text-gray-400', classes.description)}>
-                    {item.description}
-                  </p>
+                  <p
+                    class={twMerge('mt-2 text-sm text-gray-500 dark:text-gray-400', classes.description)}
+                    set:html={item.description}
+                  />
                 )}
                 {item.url && (
                   <span

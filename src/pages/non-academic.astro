@@ -190,149 +190,163 @@ const metadata = {
 
       <PressMe />
 
-      <!-- Spacer ******************* -->
+      <Spacer size="lg" />
 
-      <Spacer size="sm" />
+      <div class="pressMeContent hidden">
+        <AnimatedStats />
 
-      <AnimatedStats />
-
-      <Hero
-        image={{
-          src: imgFlame,
-          alt: 'Flame the Freeze website',
-          link: {
-            href: 'https://flamethefreeze.com',
-            target: '_blank',
-            rel: 'noopener noreferrer',
-          },
-        }}
-      >
-        <Fragment slot="imageText">
-          <a href="https://flamethefreeze.com" target="_blank" rel="noopener noreferrer">Flame the Freeze Website</a>
-        </Fragment>
-      </Hero>
-
-      <!-- Content Widget **************** -->
-
-      <Content tagline2="A foretaste of the content" isReversed>
-        <Fragment slot="title">
-          A snapshot of what<br />
-          <GradientText class="italic pr-3 pb-1" style2 text="Jesus has done" />recently?
-        </Fragment>
-
-        <Fragment slot="content">
-          <h3 class="text-2xl tracking-tight sm:text-xl mb-2">
-            <span class="font-semibold text-black dark:text-white">The story of Dr. Osaze - March 2024 </span>
-            <GradientText class="font-semibold" style2
-              >"You will sleep and wake up, and you will not find stammering again."</GradientText
+        <Hero
+          image={{
+            src: imgFlame,
+            alt: 'Flame the Freeze website',
+            link: {
+              href: 'https://flamethefreeze.com',
+              target: '_blank',
+              rel: 'noopener noreferrer',
+            },
+          }}
+        >
+          <Fragment slot="imageText">
+            <a
+              class="hover:underline hover:text-blue-700 dark:hover:text-blue-700 decoration-blue-700"
+              href="https://flamethefreeze.com"
+              target="_blank"
+              rel="noopener noreferrer">Flame the Freeze Website</a
             >
-            <br />
-            <br />
-            <span class="text-black dark:text-white">
-              God spoke these words to Dr. Osaze through His servant. Though he initially laughed in disbelief, a month
-              later, he woke up speaking fluently after nearly 40 years of severe stammering. Three medical professional
-              colleagues confirmed this miracle, and his mother wept with joy, hearing her son speak clearly for the
-              first time.
-            </span>
-          </h3>
-        </Fragment>
+          </Fragment>
+        </Hero>
 
-        <Fragment slot="image">
-          <div class="relative">
-            <YouTube id="Z1J0yjSdiVY" title="Dr. Osaze's testimony" poster="" />
+        <!-- Content Widget **************** -->
+
+        <Content tagline2="A foretaste of the content" isReversed>
+          <Fragment slot="title">
+            A snapshot of what<br />
+            <GradientText class="italic pr-3 pb-1" style2 text="Jesus has done" />recently?
+          </Fragment>
+
+          <Fragment slot="content">
+            <h3 class="text-xl tracking-tight sm:text-2xl mb-2">
+              <span class="font-semibold text-black dark:text-white">The story of Dr. Osaze - March 2024 </span>
+              <p class="text-lg sm:text-xl">
+                <GradientText class="font-semibold" style2
+                  >"You will sleep and wake up, and you will not find stammering again."</GradientText
+                >
+                <br />
+                <br />
+                <span class="text-black dark:text-white">
+                  God spoke these words to Dr. Osaze through His servant. Though he initially laughed in disbelief, a
+                  month later, he woke up speaking fluently after nearly 40 years of severe stammering. Three medical
+                  professional colleagues confirmed this miracle, and his mother wept with joy, hearing her son speak
+                  clearly for the first time.
+                </span>
+              </p>
+            </h3>
+          </Fragment>
+
+          <Fragment slot="image">
+            <div class="relative">
+              <YouTube id="Z1J0yjSdiVY" title="Dr. Osaze's testimony" poster="" />
+            </div>
+          </Fragment>
+        </Content>
+
+        <Content>
+          <Fragment slot="content">
+            <h3 class="text-xl tracking-tight sm:text-2xl mb-2">
+              <span class="font-semibold text-black dark:text-white">The tesminony of Ari - December 2024 </span>
+              <p class="text-lg sm:text-xl">
+                <GradientText class="font-semibold" style2
+                  >"God sent two angles, and rescued me from hell."</GradientText
+                >
+                <br />
+                <br />
+                <span class="text-black dark:text-white">
+                  Satan pursued Ari for years. Desperate to escape, he ran through a glass door and set himself on fire.
+                  In the hospital, he died exited his burnt body, and found himself in hell, tormented by demons and
+                  fire. Crying out to God for mercy, two angels came to rescue him. "Now I believe in Jesus," he said,
+                  "because I know I will die again, but this time, I want to go to heaven."
+                </span>
+              </p>
+            </h3>
+          </Fragment>
+
+          <Fragment slot="image">
+            <div class="relative">
+              <YouTube id="BF3abMvyBLQ" title="Ari raised from the dead after setting himself on fire" poster="" />
+            </div>
+          </Fragment>
+        </Content>
+
+        <!-- Content Widget **************** -->
+
+        <Content isReversed>
+          <Fragment slot="content">
+            <h3 class="text-xl tracking-tight sm:text-2xl mb-2">
+              <span class="font-semibold text-black dark:text-white"
+                >Ida's deliverance from depression - December 2024
+              </span>
+              <p class="text-lg sm:text-xl">
+                <GradientText class="font-semibold" style2
+                  >God, "Ida, this medicine doesn't belong to you."</GradientText
+                >
+                <br />
+                <br />
+
+                <span class="text-black dark:text-white">
+                  After ten excruciating years of depression, anxiety and panic disorder not amenable to medications and
+                  psychotherapy Ida was desperate for a solution. One day she heard God spoke to her, "This medicine
+                  does not belong to you". She acted on those words, and stopped all her medication, and to her surprise
+                  all her symptoms disappeared and she has been completely healthy since the last two years.
+                </span>
+              </p>
+            </h3>
+          </Fragment>
+
+          <Fragment slot="image">
+            <div class="relative">
+              <YouTube id="bfTtw04hKI0" title="Ida's testimony" poster="" />
+            </div>
+          </Fragment>
+        </Content>
+
+        <!-- Features Widget *************** -->
+
+        <Features
+          id="features"
+          tagline2="But wait, there is even more"
+          title="10 stories of life transforming miracles"
+          classes={{
+            container: 'md:pb-0 md:pb-0 lg:pb-0 lg:pb-0 ',
+          }}
+        />
+
+        <!-- Ebook Widget *************** -->
+
+        <div
+          class="w-full flex justify-center pb-10 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        >
+          <div class="w-full max-w-2xl aspect-[3/4] relative max-h-[600px]">
+            <iframe
+              title="Flame the Freeze pdf"
+              src={flameEbook}
+              width="100%"
+              height="100%"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+              allow="autoplay"
+              loading="lazy"></iframe>
           </div>
-        </Fragment>
-      </Content>
-
-      <Content>
-        <Fragment slot="content">
-          <h3 class="text-2xl tracking-tight sm:text-xl mb-2">
-            <span class="font-semibold text-black dark:text-white">The tesminony of Ari - December 2024 </span>
-            <GradientText class="font-semibold" style2>"God sent two angles, and rescued me from hell."</GradientText>
-            <br />
-            <br />
-            <span class="text-black dark:text-white">
-              Satan pursued Ari for years. Desperate to escape, he ran through a glass door and set himself on fire. In
-              the hospital, he died exited his burnt body, and found himself in hell, tormented by demons and fire.
-              Crying out to God for mercy, two angels came to rescue him. "Now I believe in Jesus," he said, "because I
-              know I will die again, but this time, I want to go to heaven."
-            </span>
-          </h3>
-        </Fragment>
-
-        <Fragment slot="image">
-          <div class="relative">
-            <YouTube id="BF3abMvyBLQ" title="Ari raised from the dead after setting himself on fire" poster="" />
-          </div>
-        </Fragment>
-      </Content>
-
-      <!-- Content Widget **************** -->
-
-      <Content isReversed>
-        <Fragment slot="content">
-          <h3 class="text-2xl tracking-tight sm:text-xl mb-2">
-            <span class="font-semibold text-black dark:text-white"
-              >Ida's deliverance from depression - December 2024
-            </span>
-            <GradientText class="font-semibold" style2>God, "Ida, this medicine doesn't belong to you."</GradientText>
-            <br />
-            <br />
-
-            <span class="text-black dark:text-white">
-              After ten excruciating years of depression, anxiety and panic disorder not amenable to medications and
-              psychotherapy Ida was desperate for a solution. One day she heard God spoke to her, "This medicine does
-              not belong to you". She acted on those words, and stopped all her medication, and to her surprise all her
-              symptoms disappeared and she has been completely healthy since the last two years.
-            </span>
-            <br />
-          </h3>
-        </Fragment>
-
-        <Fragment slot="image">
-          <div class="relative">
-            <YouTube id="bfTtw04hKI0" title="Ida's testimony" poster="" />
-          </div>
-        </Fragment>
-      </Content>
-
-      <!-- Features Widget *************** -->
-
-      <Features
-        id="features"
-        tagline2="But wait, there is even more"
-        title="10 stories of life transforming miracles"
-        classes={{
-          container: 'md:pb-0 md:pb-0 lg:pb-0 lg:pb-0 ',
-        }}
-      />
-
-      <!-- Ebook Widget *************** -->
-
-      <div
-        class="w-full flex justify-center pb-10 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
-      >
-        <div class="w-full max-w-2xl aspect-[3/4] relative max-h-[600px]">
-          <iframe
-            title="Flame the Freeze pdf"
-            src={flameEbook}
-            width="100%"
-            height="100%"
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
-            allow="autoplay"
-            loading="lazy"></iframe>
         </div>
+
+        <!-- Spacer ******************* -->
+
+        <Spacer size="md" />
+
+        <AnimatedStats2 />
+
+        <!-- Spacer ******************* -->
+
+        <Spacer size="sm" />
       </div>
-
-      <!-- Spacer ******************* -->
-
-      <Spacer size="md" />
-
-      <AnimatedStats2 />
-
-      <!-- Spacer ******************* -->
-
-      <Spacer size="sm" />
     </div>
 
     <!-- Video background container at the bottom -->
