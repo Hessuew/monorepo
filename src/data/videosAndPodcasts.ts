@@ -1,3 +1,4 @@
+import imgEp205 from '~/assets/images/videosAndPodcasts/EP 205 Kids Fitness with Prof Agbaje.webp';
 import imgNNFoundationAward from '~/assets/images/videosAndPodcasts/NN Foundation Award.webp';
 import imgPhysicalActivity from '~/assets/images/videosAndPodcasts/physical_activity_slow_and_steady_wins_the_race.webp';
 import { groupByYear } from '~/utils/dataProcessing';
@@ -28,6 +29,7 @@ export const videosAndPodcasts: MediaItem[] = [
     videoId: '1ceO3mrEzqFmGgofOnbM3s',
     platform: 'Spotify',
     author: 'The Parent Equation',
+    poster: imgEp205,
   },
   {
     title: 'Breaking Boundaries in Finland:Nigerian Immigrant Prof. Andrew Agbaje on Combating Childhood Obesity',

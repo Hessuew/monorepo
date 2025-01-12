@@ -75,19 +75,6 @@ const { columns = 2, classes = {} } = Astro.props;
                   {publication.pages && <span>, {publication.pages}</span>}
                 </p>
 
-                <div class="flex flex-wrap gap-2">
-                  {publication.type && (
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300 ring-1 ring-inset ring-blue-700/10 dark:ring-blue-700/30">
-                      {publication.type}
-                    </span>
-                  )}
-                  {publication.category && (
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-50 text-green-700 dark:bg-green-900/50 dark:text-green-300 ring-1 ring-inset ring-green-700/10 dark:ring-green-700/30">
-                      {publication.category}
-                    </span>
-                  )}
-                </div>
-
                 {(publication.url || publication.doi) && (
                   <div class="mt-auto pt-4">
                     <span
