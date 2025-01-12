@@ -62,7 +62,8 @@ export default function ReactSubscribeForm() {
         return;
       }
 
-      const workerUrl = import.meta.env.PUBLIC_SUBSCRIBE_API_URL;
+      const workerUrl = 'https://subscribe.juhani-juusola.workers.dev/subscribe';
+      // const workerUrl = import.meta.env.PUBLIC_SUBSCRIBE_API_URL;
 
       const response = await fetch(workerUrl, {
         method: 'POST',

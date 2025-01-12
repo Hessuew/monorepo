@@ -4,7 +4,8 @@ import type { Context, Next } from 'hono';
 import { cors } from 'hono/cors';
 import { Resend } from 'resend';
 import { z } from 'zod';
-import { WelcomeEmail } from './emails/WelcomeEmail';
+
+// import { WelcomeEmail } from './emails/WelcomeEmail';
 
 interface Env {
   RESEND_API_KEY: string;
@@ -20,7 +21,7 @@ const app = new Hono<{ Bindings: Env }>();
 app.use(
   '/*',
   cors({
-    origin: ['http://localhost:4321', 'https://urfit-child.com'],
+    origin: ['https://urfit-child.pages.dev', 'https://urfit-child.com'],
     allowMethods: ['POST', 'OPTIONS'],
   })
 );
@@ -41,8 +42,9 @@ const csrfProtection = async (c: Context<{ Bindings: Env }>, next: Next) => {
     requestedWith !== 'XMLHttpRequest' ||
     !origin ||
     !origin.endsWith('urfit-child.com') ||
+    !origin.endsWith('urfit-child.pages.dev') ||
     !referer ||
-    !referer.startsWith('https://urfit-child.com')
+    (!referer.startsWith('https://urfit-child.com') && !referer.startsWith('https://urfit-child.pages.dev'))
   ) {
     return c.json(
       {
@@ -56,6 +58,7 @@ const csrfProtection = async (c: Context<{ Bindings: Env }>, next: Next) => {
   await next();
 };
 
+// app.post('/subscribe', zValidator('json', subscribeSchema), async (c) => {
 app.post('/subscribe', csrfProtection, zValidator('json', subscribeSchema), async (c) => {
   const { email } = c.req.valid('json');
   const env = c.env;
@@ -92,16 +95,16 @@ app.post('/subscribe', csrfProtection, zValidator('json', subscribeSchema), asyn
       );
     }
 
-    const { error: emailError } = await resend.emails.send({
-      from: 'urFIT-child <no-reply@urfit-child.com>',
-      to: email,
-      subject: 'Welcome to urFIT-child Research Updates',
-      react: <WelcomeEmail />,
-    });
+    // const { error: emailError } = await resend.emails.send({
+    //   from: 'urFIT-child <no-reply@urfit-child.com>',
+    //   to: email,
+    //   subject: 'Welcome to urFIT-child Research Updates',
+    //   react: <WelcomeEmail />,
+    // });
 
-    if (emailError) {
-      console.error('Failed to send welcome email', emailError);
-    }
+    // if (emailError) {
+    //   console.error('Failed to send welcome email', emailError);
+    // }
 
     return c.json({
       success: true,
