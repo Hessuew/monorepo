@@ -174,33 +174,38 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
 
   function initButton() {
     const button = document.querySelector('#pressMeButton');
-    const videoBackground = document.querySelector('#videoBackground');
-    const downArrow = document.querySelector('.down-arrow');
-    const pressMeContent = document.querySelector('.pressMeContent');
+    if (!button) return;
 
-    if (button && videoBackground && downArrow && pressMeContent) {
-      button.addEventListener('click', () => {
+    // Remove any existing event listeners
+    const newButton = button.cloneNode(true);
+    button.parentNode?.replaceChild(newButton, button);
+
+    // Add new event listener
+    newButton.addEventListener('click', () => {
+      const videoBackground = document.querySelector('#videoBackground');
+      const downArrow = document.querySelector('.down-arrow');
+      const pressMeContent = document.querySelector('.pressMeContent');
+
+      if (videoBackground && downArrow && pressMeContent) {
         videoBackground.classList.remove('opacity-0');
         videoBackground.classList.add('opacity-100');
-        button.classList.add('opacity-0', 'pointer-events-none');
+        (newButton as HTMLElement).classList.add('opacity-0', 'pointer-events-none');
         pressMeContent.classList.remove('hidden');
 
         // Show down arrow after 500ms
-        if (downArrow) {
-          setTimeout(() => {
-            downArrow.classList.add('visible');
-          }, 1400);
-        }
+        setTimeout(() => {
+          downArrow.classList.add('visible');
+        }, 1400);
 
         // Toggle dark mode
         localStorage.theme = 'dark';
         applyTheme('dark');
-      });
-    }
+      }
+    });
   }
 
-  // Initialize navigation when the DOM is ready and after each page navigation
-  function initializeNavigation() {
+  // Initialize when the DOM is ready and after each page navigation
+  function initialize() {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', initButton);
     } else {
@@ -208,6 +213,18 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
     }
   }
 
-  initializeNavigation();
-  document.addEventListener('astro:page-load', initializeNavigation);
+  // Run initialization
+  initialize();
+
+  // Re-initialize after Astro page transitions
+  document.addEventListener('astro:page-load', initialize);
+
+  // Clean up before page transitions
+  document.addEventListener('astro:before-swap', () => {
+    const button = document.querySelector('#pressMeButton');
+    if (button) {
+      const newButton = button.cloneNode(true);
+      button.parentNode?.replaceChild(newButton, button);
+    }
+  });
 </script>
