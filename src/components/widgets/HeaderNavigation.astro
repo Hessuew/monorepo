@@ -98,6 +98,8 @@ const { links, currentPath } = Astro.props;
       const direction = index > activePanel ? 1 : -1;
       const height = index === 0 ? 180 : 232;
 
+      menu?.classList.remove('hidden');
+      
       // Animate container height
       if (container) {
         container.style.height = `${height}px`;
@@ -130,9 +132,6 @@ const { links, currentPath } = Astro.props;
 
     headerButtons.forEach((button, index) => {
       button.addEventListener('mouseenter', () => {
-        if (!menu?.classList.contains('lg:block')) {
-          menu?.classList.add('lg:block');
-        }
         showPanel(index);
       });
     });
@@ -143,7 +142,7 @@ const { links, currentPath } = Astro.props;
 
     menu?.addEventListener('mouseleave', () => {
       isMouseOverMenu = false;
-      menu?.classList.remove('lg:block');
+      menu?.classList.add('hidden');
     });
 
     document.addEventListener('mouseover', (e) => {
@@ -153,15 +152,20 @@ const { links, currentPath } = Astro.props;
         !Array.from(headerButtons).some((button) => button.contains(target)) &&
         !isMouseOverMenu
       ) {
-        menu?.classList.remove('lg:block');
+        menu?.classList.add('hidden');
       }
     });
   }
 
+  // Initialize navigation when the DOM is ready and after each page navigation
   function initializeNavigation() {
-    setupNavigation();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupNavigation);
+    } else {
+      setupNavigation();
+    }
   }
 
-  document.addEventListener('DOMContentLoaded', initializeNavigation);
+  initializeNavigation();
   document.addEventListener('astro:page-load', initializeNavigation);
 </script>
