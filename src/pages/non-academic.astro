@@ -331,9 +331,8 @@ const metadata = {
               src={flameEbook}
               width="100%"
               height="100%"
-              class="max-w-2xl"
               allow="autoplay"
-              loading="lazy"></iframe>
+              class="max-w-2xl"></iframe>
           </div>
         </div>
 
@@ -354,14 +353,7 @@ const metadata = {
       id="videoBackground"
       class="fixed bottom-0 left-0 right-0 h-screen pointer-events-none opacity-0 transition-opacity duration-1000 overflow-hidden"
     >
-      <video 
-        class="w-full h-full object-cover min-h-screen" 
-        autoplay 
-        loop 
-        muted 
-        playsinline
-        preload="auto"
-      >
+      <video class="w-full h-full object-cover min-h-screen" autoplay loop muted playsinline preload="auto">
         <source src={video} type="video/mp4" />
       </video>
     </div>
