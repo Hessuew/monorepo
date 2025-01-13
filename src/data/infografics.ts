@@ -11,7 +11,7 @@ import img11 from '~/assets/images/infographic/Childhood Light Activity Reduces 
 import img14 from '~/assets/images/infographic/Childhood Obesity Light Activity.webp';
 import img15 from '~/assets/images/infographic/Childhood Sedentariness and Cholesterol.webp';
 import img20 from '~/assets/images/infographic/Childhood Sedentariness and Diabetes.webp';
-import img21 from '~/assets/images/infographic/Childhood Sedentariness Heart Damage.webp';
+// import img21 from '~/assets/images/infographic/Childhood Sedentariness Heart Damage.webp';
 import img19 from '~/assets/images/infographic/Childhood Sedentariness Vascular Damage.webp';
 import img22 from '~/assets/images/infographic/Childhood Sedentariness.webp';
 import img16 from '~/assets/images/infographic/Cholesterol Heart Damage Study.webp';
@@ -109,19 +109,19 @@ Based at the University of Bristol, Children of the 90s, also known as the Avon 
       alt: 'Childhood sedentariness can cause severe fatty liver disease and liver cirrhosis',
     },
   },
-  {
-    title:
-      'Accelerometer-based Sedentary Time and Physical Activity from Childhood through Young Adulthood with Progressive Cardiac Changes: A 13-Year Longitudinal Study',
-    date: '2024-05-07',
-    type: 'physical-activity',
-    description: ``,
-    url: 'https://www.uef.fi/en/article/childhood-sedentariness-linked-to-premature-heart-damage-light-physical-activity-reversed-the-risk',
-    doi: '10.1093/eurjpc/zwae129',
-    image: {
-      src: img21,
-      alt: 'Childhood sedentariness linked to premature heart damage',
-    },
-  },
+  // {
+  //   title:
+  //     'Accelerometer-based Sedentary Time and Physical Activity from Childhood through Young Adulthood with Progressive Cardiac Changes: A 13-Year Longitudinal Study',
+  //   date: '2024-05-07',
+  //   type: 'physical-activity',
+  //   description: ``,
+  //   url: 'https://www.uef.fi/en/article/childhood-sedentariness-linked-to-premature-heart-damage-light-physical-activity-reversed-the-risk',
+  //   doi: '10.1093/eurjpc/zwae129',
+  //   image: {
+  //     src: img21,
+  //     alt: 'Childhood sedentariness linked to premature heart damage',
+  //   },
+  // },
   {
     title:
       'The Interactive Effects of Sedentary Time, Physical Activity, and Fat Mass on Insulin Resistance in the Young Population',

@@ -64,8 +64,11 @@ export default function ReactSubscribeForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    e.stopPropagation(); // Prevent event bubbling
-    
+    e.stopPropagation();
+
+    // Prevent double submission
+    if (formState.status === 'loading') return;
+
     setFormState((prev) => ({ ...prev, status: 'loading' }));
 
     try {
