@@ -187,15 +187,15 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
     button.parentNode?.replaceChild(newButton, button);
 
     console.log('click listener added');
-    
+
     // Add new event listener
     newButton.addEventListener('click', () => {
       console.log('click event started');
-      
+
       // Try to find elements multiple times with increasing delay
       let attempts = 0;
       const maxAttempts = 5;
-      
+
       function tryFindElements() {
         const videoBackground = document.getElementById('videoBackground');
         const downArrow = document.querySelector('[data-down-arrow]');
@@ -204,12 +204,12 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
         console.log(`Attempt ${attempts + 1}:`, {
           videoBackground: !!videoBackground,
           downArrow: !!downArrow,
-          pressMeContent: !!pressMeContent
+          pressMeContent: !!pressMeContent,
         });
 
         if (videoBackground && downArrow && pressMeContent) {
           console.log('All elements found, proceeding with animation');
-          
+
           // Execute the animation sequence
           videoBackground.classList.remove('opacity-0');
           videoBackground.classList.add('opacity-100');
@@ -222,7 +222,7 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
 
           localStorage.theme = 'dark';
           applyTheme('dark');
-          
+
           console.log('Animation sequence completed');
         } else if (attempts < maxAttempts) {
           attempts++;
@@ -233,7 +233,7 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
           console.log('Missing elements:', {
             videoBackground: !videoBackground ? 'missing' : 'found',
             downArrow: !downArrow ? 'missing' : 'found',
-            pressMeContent: !pressMeContent ? 'missing' : 'found'
+            pressMeContent: !pressMeContent ? 'missing' : 'found',
           });
         }
       }
@@ -259,21 +259,9 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
 
   // Initialize immediately for the first page load
   initializeOnLoad();
-
-  // Handle Astro view transitions
-  document.addEventListener('astro:load', () => {
-    console.log('astro:load event triggered');
-    initButton();
-  });
-
   document.addEventListener('astro:page-load', () => {
     console.log('astro:page-load event triggered');
-    initButton();
-  });
-
-  document.addEventListener('astro:after-swap', () => {
-    console.log('astro:after-swap event triggered');
-    initButton();
+    initializeOnLoad();
   });
 
   // Clean up before page transitions
