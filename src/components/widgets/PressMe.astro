@@ -208,6 +208,8 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
   // Run when Astro view transitions complete
   document.addEventListener('astro:page-load', initButton);
 
+  document.addEventListener('DOMContentLoaded', initButton);
+
   // // Run initialization when the DOM is ready
   // if (document.readyState === 'loading') {
   //   document.addEventListener('DOMContentLoaded', initButton);
