@@ -19,10 +19,11 @@ const {
 
 // Get current path
 const currentPath = Astro.url.pathname;
+console.log(UI.theme);
 ---
 
 {
-  !(UI.theme && UI.theme.endsWith(':only')) && currentPath !== '/non-academic' && (
+  currentPath !== '/non-academic' && (
     <div class="group relative">
       <button
         type="button"

@@ -48,9 +48,9 @@ import { UI } from 'astrowind:config';
       elem.parentNode.replaceChild(newElem, elem);
 
       newElem.addEventListener('click', function () {
-        if (defaultTheme.endsWith(':only')) {
-          return;
-        }
+        // if (defaultTheme.endsWith(':only')) {
+        //   return;
+        // }
         const isDark = document.documentElement.classList.contains('dark');
         const newTheme = isDark ? 'light' : 'dark';
         localStorage.theme = newTheme;
