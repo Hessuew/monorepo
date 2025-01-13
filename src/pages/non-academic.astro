@@ -1,7 +1,8 @@
 ---
 import imgFlame from '~/assets/images/non-academic/Flame the Freeze website.webp';
-import flameEbook from '~/assets/pdfs/Flame the Freeze ebook.pdf';
+import imgOrangeSparks from '~/assets/images/non-academic/Orange Sparks.webp';
 import video from '~/assets/videos/Abstract Orange Sparks Bonfire Video.mp4';
+import Image from '~/components/common/Image.astro';
 import GradientText from '~/components/ui/GradientText.astro';
 import AnimatedStats from '~/components/widgets/AnimatedStats.astro';
 import AnimatedStats2 from '~/components/widgets/AnimatedStats2.astro';
@@ -322,19 +323,15 @@ const metadata = {
 
         <!-- Ebook Widget *************** -->
 
-        <div
-          class="w-full flex justify-center pb-10 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
-        >
-          <div class="w-full max-w-2xl aspect-[3/4] relative max-h-[600px]">
-            <iframe
-              title="Flame the Freeze pdf"
-              src={flameEbook}
-              width="100%"
-              height="100%"
-              class="max-w-2xl"
-              allow="autoplay"
-              loading="lazy"></iframe>
-          </div>
+        <div class="w-full flex justify-center pb-10 h-[520px] lg:h-[640px]">
+          <iframe
+            aria-label="Flame the Freeze pdf"
+            title="Flame the Freeze pdf"
+            src="https://drive.google.com/file/d/1zneuhOi34EhsjQzCKHE3szRxmHhJCOuB/preview"
+            width="100%"
+            height="100%"
+            allow="autoplay"
+            class="max-w-2xl"></iframe>
         </div>
 
         <!-- Spacer ******************* -->
@@ -354,13 +351,21 @@ const metadata = {
       id="videoBackground"
       class="fixed bottom-0 left-0 right-0 h-screen pointer-events-none opacity-0 transition-opacity duration-1000 overflow-hidden"
     >
-      <video 
-        class="w-full h-full object-cover min-h-screen" 
-        autoplay 
-        loop 
-        muted 
+      <!-- Static image for mobile -->
+      <Image
+        src={imgOrangeSparks}
+        alt="Orange Sparks Background"
+        class="w-screen h-full object-cover min-h-screen md:hidden absolute inset-0"
+      />
+
+      <!-- Video for larger screens -->
+      <video
+        class="w-full h-full object-cover min-h-screen hidden md:block"
+        autoplay
+        loop
+        muted
         playsinline
-        preload="auto"
+        preload="none"
       >
         <source src={video} type="video/mp4" />
       </video>
