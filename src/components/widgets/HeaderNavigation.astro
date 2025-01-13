@@ -158,7 +158,10 @@ const { links, currentPath } = Astro.props;
     });
   }
 
-  document.addEventListener('astro:page-load', () => {
+  function initializeNavigation() {
     setupNavigation();
-  });
+  }
+
+  document.addEventListener('DOMContentLoaded', initializeNavigation);
+  document.addEventListener('astro:page-load', initializeNavigation);
 </script>

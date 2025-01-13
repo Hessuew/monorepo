@@ -41,8 +41,7 @@ const csrfProtection = async (c: Context<{ Bindings: Env }>, next: Next) => {
     !requestedWith ||
     requestedWith !== 'XMLHttpRequest' ||
     !origin ||
-    !origin.endsWith('urfit-child.com') ||
-    !origin.endsWith('urfit-child.pages.dev') ||
+    (!origin.endsWith('urfit-child.com') && !origin.endsWith('urfit-child.pages.dev')) ||
     !referer ||
     (!referer.startsWith('https://urfit-child.com') && !referer.startsWith('https://urfit-child.pages.dev'))
   ) {
