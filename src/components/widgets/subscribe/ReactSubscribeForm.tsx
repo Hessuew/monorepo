@@ -45,8 +45,27 @@ export default function ReactSubscribeForm() {
     };
   }, [formState.status]);
 
+  // Reset form state on page transitions
+  useEffect(() => {
+    const handlePageLoad = () => {
+      setFormState({
+        email: '',
+        status: 'idle',
+        message: '',
+        isVisible: false,
+      });
+    };
+
+    document.addEventListener('astro:page-load', handlePageLoad);
+    return () => {
+      document.removeEventListener('astro:page-load', handlePageLoad);
+    };
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    e.stopPropagation(); // Prevent event bubbling
+    
     setFormState((prev) => ({ ...prev, status: 'loading' }));
 
     try {
@@ -63,7 +82,6 @@ export default function ReactSubscribeForm() {
       }
 
       const workerUrl = 'https://subscribe.juhani-juusola.workers.dev/subscribe';
-      // const workerUrl = import.meta.env.PUBLIC_SUBSCRIBE_API_URL;
 
       const response = await fetch(workerUrl, {
         method: 'POST',
