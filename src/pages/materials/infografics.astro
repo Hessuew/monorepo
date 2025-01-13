@@ -2,6 +2,7 @@
 import FilterContainer from '~/components/filters/FilterContainer.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import InfoGraficsList from '~/components/widgets/list/InfoGraficsList.astro';
+import Spacer from '~/components/widgets/Spacer.astro';
 import { infographicTypes } from '~/data/infografics';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -32,4 +33,6 @@ const metadata = {
   <div id="infografics-list">
     <InfoGraficsList />
   </div>
+
+  <Spacer size="sm" />
 </Layout>

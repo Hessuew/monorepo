@@ -2,6 +2,7 @@
 import FilterContainer from '~/components/filters/FilterContainer.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import VideosAndPodcastsList from '~/components/widgets/list/VideosAndPodcastsList.astro';
+import Spacer from '~/components/widgets/Spacer.astro';
 import { platforms } from '~/data/videosAndPodcasts';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -31,4 +32,6 @@ const metadata = {
   <div id="videos-and-podcasts-list">
     <VideosAndPodcastsList />
   </div>
+
+  <Spacer size="sm" />
 </Layout>
