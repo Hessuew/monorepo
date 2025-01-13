@@ -199,21 +199,15 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
     }
   }
 
-  // Run immediately
-  initButton();
+  // Initialize navigation when the DOM is ready and after each page navigation
+  function initializeNavigation() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initButton);
+    } else {
+      initButton();
+    }
+  }
 
-  // Run again after page load to catch any dynamically loaded elements
-  window.addEventListener('load', initButton);
-
-  // Run when Astro view transitions complete
-  document.addEventListener('astro:page-load', initButton);
-
-  document.addEventListener('DOMContentLoaded', initButton);
-
-  // // Run initialization when the DOM is ready
-  // if (document.readyState === 'loading') {
-  //   document.addEventListener('DOMContentLoaded', initButton);
-  // } else {
-  //   initButton();
-  // }
+  initializeNavigation();
+  document.addEventListener('astro:page-load', initializeNavigation);
 </script>
