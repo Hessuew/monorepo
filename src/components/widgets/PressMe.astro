@@ -173,7 +173,7 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
   }
 
   function initButton() {
-    console.log('initButton');
+    console.log('initButton called');
     const button = document.querySelector('#pressMeButton');
     if (!button) {
       console.log('button not found');
@@ -243,22 +243,37 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
     });
   }
 
-  // Initialize when the DOM is ready and after each page navigation
-  function initialize() {
+  function initializeOnLoad() {
+    console.log('Initialize on load called');
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initButton);
+      console.log('Document still loading, adding DOMContentLoaded listener');
+      document.addEventListener('DOMContentLoaded', () => {
+        console.log('DOMContentLoaded fired');
+        initButton();
+      });
     } else {
+      console.log('Document already loaded, initializing immediately');
       initButton();
     }
   }
 
-  // Run initialization
-  initialize();
+  // Initialize immediately for the first page load
+  initializeOnLoad();
 
-  // Re-initialize after Astro page transitions
+  // Handle Astro view transitions
+  document.addEventListener('astro:load', () => {
+    console.log('astro:load event triggered');
+    initButton();
+  });
+
   document.addEventListener('astro:page-load', () => {
-    console.log('Page load event triggered');
-    initialize();
+    console.log('astro:page-load event triggered');
+    initButton();
+  });
+
+  document.addEventListener('astro:after-swap', () => {
+    console.log('astro:after-swap event triggered');
+    initButton();
   });
 
   // Clean up before page transitions
