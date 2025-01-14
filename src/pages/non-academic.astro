@@ -367,13 +367,44 @@ const metadata = {
         loop
         muted
         playsinline
-        preload="none"
+        preload="auto"
       >
         <source src={video} type="video/mp4" />
       </video>
     </div>
   </div>
 </Layout>
+
+<script>
+  // Function to ensure video plays on Safari
+  function initVideo() {
+    const video = document.querySelector('video');
+    if (video) {
+      // Force video load and play
+      video.load();
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Auto-play was prevented, try playing on user interaction
+          document.addEventListener(
+            'click',
+            () => {
+              video.play();
+            },
+            { once: true }
+          );
+        });
+      }
+    }
+  }
+
+  // Initialize on page load and after Astro page transitions
+  document.addEventListener('astro:page-load', initVideo);
+  // Also initialize immediately in case we're already loaded
+  if (document.readyState !== 'loading') {
+    initVideo();
+  }
+</script>
 
 <style>
   /* Ensure proper stacking and scrolling behavior */
