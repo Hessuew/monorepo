@@ -192,8 +192,10 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
         const videoBackground = document.getElementById('videoBackground');
         const downArrow = document.querySelector('[data-down-arrow]');
         const pressMeContent = document.getElementById('pressMeContent');
+        console.log({ videoBackground, downArrow, pressMeContent });
 
         if (videoBackground && downArrow && pressMeContent) {
+          console.log('Elements found!');
           // Execute the animation sequence
           videoBackground.classList.remove('opacity-0');
           videoBackground.classList.add('opacity-100');
@@ -207,6 +209,7 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
           localStorage.theme = 'dark';
           applyTheme('dark');
         } else if (attempts < maxAttempts) {
+          console.log('Trying to find elements...');
           attempts++;
           setTimeout(tryFindElements, attempts * 100);
         } else {

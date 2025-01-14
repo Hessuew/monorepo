@@ -130,11 +130,51 @@ const { columns = 2, classes = {} } = Astro.props;
     }
   }
 
-  function openModal(videoContainer: HTMLElement, modal: HTMLDivElement, modalContent: HTMLDivElement) {
+  async function openModal(videoContainer: HTMLElement, modal: HTMLDivElement, modalContent: HTMLDivElement) {
     try {
+      async function test() {
+        await new Promise((resolve) => setTimeout(resolve, PLAYER_CREATION_DELAY));
+        // Add player
+        const player = createPlayer(
+          selectedItem!.platform,
+          selectedItem!.videoId,
+          selectedItem!.title,
+          selectedItem!.poster
+        );
+        // Replace the thumbnail with the player
+        const playerContainer = modalContent.querySelector('.player-container') as HTMLElement;
+        if (playerContainer) {
+          playerContainer.replaceWith(player);
+        } else {
+          modalContent.appendChild(player);
+        }
+
+        // Focus the iframe for keyboard navigation
+        await new Promise((resolve) => setTimeout(resolve, IFRAME_FOCUS_DELAY));
+        const iframe = player.querySelector('iframe');
+        if (iframe) {
+          if (selectedItem!.platform === 'Youtube') {
+            // For YouTube, try to focus the video element inside iframe
+            const video = iframe.contentDocument?.querySelector('video');
+            if (video) {
+              video.focus({ preventScroll: true });
+            } else {
+              // Fallback to iframe focus if video element not found
+              iframe.focus({ preventScroll: true });
+            }
+          } else {
+            // For other platforms, focus the iframe directly
+            iframe.focus({ preventScroll: true });
+          }
+        }
+      }
+
       // Fallback for non-supporting browsers
       if (!document.startViewTransition) {
         modal.style.display = 'block';
+        modal.classList.add('visible');
+
+        await test();
         return;
       }
 
@@ -162,40 +202,7 @@ const { columns = 2, classes = {} } = Astro.props;
       transition.finished
         .then(async () => {
           modalContent.style.viewTransitionName = '';
-          await new Promise((resolve) => setTimeout(resolve, PLAYER_CREATION_DELAY));
-          // Add player
-          const player = createPlayer(
-            selectedItem!.platform,
-            selectedItem!.videoId,
-            selectedItem!.title,
-            selectedItem!.poster
-          );
-          // Replace the thumbnail with the player
-          const playerContainer = modalContent.querySelector('.player-container') as HTMLElement;
-          if (playerContainer) {
-            playerContainer.replaceWith(player);
-          } else {
-            modalContent.appendChild(player);
-          }
-
-          // Focus the iframe for keyboard navigation
-          await new Promise((resolve) => setTimeout(resolve, IFRAME_FOCUS_DELAY));
-          const iframe = player.querySelector('iframe');
-          if (iframe) {
-            if (selectedItem!.platform === 'Youtube') {
-              // For YouTube, try to focus the video element inside iframe
-              const video = iframe.contentDocument?.querySelector('video');
-              if (video) {
-                video.focus({ preventScroll: true });
-              } else {
-                // Fallback to iframe focus if video element not found
-                iframe.focus({ preventScroll: true });
-              }
-            } else {
-              // For other platforms, focus the iframe directly
-              iframe.focus({ preventScroll: true });
-            }
-          }
+          await test();
         })
         .catch((error) => {
           console.error('Error during modal transition:', error);

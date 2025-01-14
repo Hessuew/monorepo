@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0] - 2025-01-14
+
+### Added
+
+- Interactive video background with Safari compatibility
+- Enhanced animation system for statistics and UI elements
+
+### Changed
+
+- Updated project version to 1.0.0 for first stable release
+- Improved component organization and modularity
+- Enhanced accessibility with proper ARIA labels and roles
+- Optimized video playback handling across browsers
+
+### Fixed
+
+- Safari video playback issues
+- Theme switching consistency
+- Component rendering and animation timing
+
 ## [0.0.2-alpha.1] - 2024-12-28
 
 ### Added
