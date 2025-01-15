@@ -9,9 +9,6 @@ export default {
       screens: {
         xs: '480px', // Add this line for the xs breakpoint
       },
-      height: {
-        '18': '4.5rem',
-      },
       colors: {
         primary: 'var(--aw-color-primary)',
         secondary: 'var(--aw-color-secondary)',
