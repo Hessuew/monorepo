@@ -1,0 +1,24 @@
+---
+import { SITE } from 'astrowind:config';
+import { getImage } from 'astro:assets';
+import logoUrl from '~/assets/images/index/urFIT Child Research Group Logo.webp';
+
+const optimizedLogo = await getImage({src: logoUrl});
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ResearchOrganization',
+  '@id': SITE.site,
+  name: 'urFIT-child Research Group',
+  url: SITE.site,
+  logo: {
+    '@type': 'ImageObject',
+    url: new URL(optimizedLogo.src, SITE.site).toString(),
+    width: '640',
+    height: '640'
+  },
+  description: 'Understanding FITness and cardiometabolic health in children research group'
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
