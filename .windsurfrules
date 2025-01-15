@@ -113,7 +113,7 @@ Users will themselves create branches with descriptive names that reflect the ch
 
 - Use proper version control
 - Follow semantic versioning for releases
-- Maintain changelog
+- Maintain changelog, when version is updated in changelog update version in package.json
 
 ## Notes
 
