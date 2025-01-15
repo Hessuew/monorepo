@@ -1,10 +1,64 @@
 ---
+import Steps from '~/components/widgets/Steps.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
   title: 'Call to Action',
-  description: '',
+  description: 'Research-Based Health Guidelines for Children | urFIT',
 };
 ---
 
-<Layout metadata={metadata} />
+<Layout metadata={metadata}>
+  <Steps
+    title="We aim to translate research findings into clinical and public health practice. Below are a few recommendations based on our research."
+    items={[
+      {
+        title: 'Beyond BMI: <span class="font-medium">Use Waist-to-Height Ratio for Accurate Diagnosis</span>',
+        description:
+          'Please do not diagnose overweight and obesity in children and adolescents with body mass index (BMI) alone. BMI was NEVER designed to detect obesity in an individual. Kindly use the waist circumference-to-height ratio calculator to confirm if the body size is due to fat mass or if the children are simply heavy due to muscle mass.',
+        icon: 'tabler:ruler-measure',
+      },
+      {
+        title: 'Rethinking Labels: <span class="font-medium">Focus on Fat, Not Weight</span>',
+        description:
+          'It is stigmatizing to describe a child as overweight or obese. Children are not bags of salt to be tossed on a weighing scale. Obesity is a problem of excess fat or sick fat (adiposopathy) and not weight, therefore the name of the disease should reflect such. Being overweight should now be termed adiposopathy grade 1 and obesity as adiposopathy grade 2.',
+        icon: 'tabler:scale-off',
+      },
+      {
+        title: 'Keep Moving: <span class="font-medium">Light Daily Exercise for a Healthier Future</span>',
+        description:
+          'Sedentary time above 6 hours/day from childhood prematurely damages the heart, arteries, and liver, and increases cholesterol, blood pressure, glucose, inflammation, and fat mass levels by mid-twenties.  The optimal solution is engaging in light exercises of at least 3 hours every day. Examples of light exercises are long walks, house chores, slow dancing, slow swimming, and slow bicycling.',
+        icon: 'tabler:bike',
+      },
+      {
+        title: 'Protect Young Hearts: <span class="font-medium">Say No to Tobacco</span>',
+        description:
+          'Smoking tobacco from childhood damages the heart structure and functions prematurely by young adulthood. Age 13 to 17 years is the most critical time for adopting smoking habits as the increase in smoking prevalence rises fifteen times within this 4-year gap. Unfortunately, 6 out of 10 children and teenagers who initiate the use of nicotine products will continue smoking for several decades. Parents must lead by example, no smoking at home, please.',
+        icon: 'tabler:smoking-no',
+      },
+      {
+        title:
+          'Get Active: <span class="font-medium">MVPA Keeps Kids Smoke-Free, Light Exercise Keeps Them Healthy</span>',
+        description:
+          'Engaging in moderate-to-vigorous physical activity (MVPA) in childhood may significantly prevent sixty percent of children from initiating a tobacco smoking habit. Importantly, MVPA effect is very strong in preventing and reducing smoking but its effect on decreasing elevated cholesterol, insulin resistance, fat, inflammation, and blood pressure is significantly weaker than light exercise.',
+        icon: 'tabler:run',
+      },
+      {
+        title: 'Early Checks Matter: <span class="font-medium">Monitor Cholesterol to Protect Young Hearts</span>',
+        description:
+          "Elevated cholesterol level in adolescence is a risk factor for premature heart damage. Parents and caregivers should kindly check children and adolescents' cholesterol levels at least once every ten years even if there is no family history of high cholesterol levels. Waiting until age 40 years to check one’s cholesterol level for the first time is too late given the risk of an already established heart disease.",
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Healthy Habits: <span class="font-medium">Regular Home Blood Pressure Checks for a Happy Future</span>',
+        description:
+          "Home blood pressure monitoring could be extended to adolescents and may be checked once in six months. Family participation in blood pressure checks at home is highly encouraged. We have shown that elevated blood pressure is risky for young adults' hearts. We wish kids globally a healthy, happy, and enjoyable life.",
+        icon: 'tabler:heartbeat',
+      },
+      {
+        title: 'Ready!',
+        icon: 'tabler:check',
+      },
+    ]}
+  />
+</Layout>

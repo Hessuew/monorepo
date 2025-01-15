@@ -4,7 +4,14 @@ A comprehensive website for the urFIT research group, built with modern web tech
 
 ## 🎯 Project Overview
 
-This website serves as the central hub for our research group, providing:
+This website serves as the central hub for our research group, showcasing Jesus. The work bridges the gap between academic research and real-world impact. Our mission combines scientific research with practical applications:
+
+- Transform academic findings into everyday health solutions
+- Make health research accessible and actionable for everyone
+- Provide resources for both academic and non-academic audiences
+- Inspire positive health changes through practical tools and success stories
+
+The website includes:
 
 - 👥 Team and collaborator profiles
 - 💰 Funding of the research group
@@ -14,34 +21,33 @@ This website serves as the central hub for our research group, providing:
 - 🎥 Videos and podcasts
 - 📰 Press releases and news
 - 📜 Academic theses
+- 📧 Newsletter subscription
+- 💡 Practical health tips and guides
 
 ## 📑 Pages
 
 ### Main Pages
 
 - Home (`/`) - Overview and latest updates
-- Non-Academic (`/non-academic`) - Content for non-academic audiences
+- Call to Action (`/call-to-action`) - Call to Action section
 - Waist-Height Calculator (`/waist-height-calculator`) - Interactive health assessment tool
+- Non-Academic (`/non-academic`) - Non-academic content
 
 ### Materials
 
-- Publications (`/materials/publications`) - Research papers and articles
-- Videos & Podcasts (`/materials/videos-and-podcasts`) - Multimedia content
-- Press Releases (`/materials/press-releases`) - News and announcements
-- Infographics (`/materials/infografics`) - Visual data representations
+- Key Articles (`/materials/key-articles`) - A few seminal results
 - Theses (`/materials/thesis`) - Academic theses and dissertations
+- Publications (`/materials/publications`) - Research papers and articles
+- Press Releases (`/materials/press-releases`) - News and announcements
+- Videos & Podcasts (`/materials/videos-and-podcasts`) - Multimedia content
+- Infographics (`/materials/infografics`) - Visual data representations
 
 ### People
 
-- Principal Investigator (`/people/principal-investigator`) - Research group leader
 - Team (`/people/team`) - Research group members
 - Collaborators (`/people/collaborators`) - External collaborators
 - Funders (`/people/funders`) - Funding organizations
-
-### Legal
-
-- Privacy Policy (`/privacy`)
-- Terms of Service (`/terms`)
+- Principal Investigator (`/people/principal-investigator`) - Research group leader
 
 ## 🛠 Tech Stack
 
