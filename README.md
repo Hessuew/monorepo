@@ -33,6 +33,13 @@ The website includes:
 - Waist-Height Calculator (`/waist-height-calculator`) - Interactive health assessment tool
 - Non-Academic (`/non-academic`) - Non-academic content
 
+### People
+
+- Team (`/people/team`) - Research group members
+- Collaborators (`/people/collaborators`) - External collaborators
+- Funders (`/people/funders`) - Funding organizations
+- Principal Investigator (`/people/principal-investigator`) - Research group leader
+
 ### Materials
 
 - Key Articles (`/materials/key-articles`) - A few seminal results
@@ -41,13 +48,6 @@ The website includes:
 - Press Releases (`/materials/press-releases`) - News and announcements
 - Videos & Podcasts (`/materials/videos-and-podcasts`) - Multimedia content
 - Infographics (`/materials/infografics`) - Visual data representations
-
-### People
-
-- Team (`/people/team`) - Research group members
-- Collaborators (`/people/collaborators`) - External collaborators
-- Funders (`/people/funders`) - Funding organizations
-- Principal Investigator (`/people/principal-investigator`) - Research group leader
 
 ## 🛠 Tech Stack
 

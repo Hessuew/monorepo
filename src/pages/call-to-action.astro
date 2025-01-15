@@ -1,4 +1,6 @@
 ---
+import imgResearchVisualization from '~/assets/images/index/Urfit Child Website Frontpage.webp';
+import Hero from '~/components/widgets/Hero.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -60,5 +62,14 @@ const metadata = {
         icon: 'tabler:check',
       },
     ]}
+  />
+
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    image={{
+      src: imgResearchVisualization,
+      alt: 'urFIT-child research visualization',
+    }}
   />
 </Layout>
