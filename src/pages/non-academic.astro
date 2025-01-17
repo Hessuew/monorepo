@@ -17,9 +17,35 @@ import Layout from '~/layouts/PageLayout.astro';
 import { YouTube } from 'astro-embed';
 
 const metadata = {
-  title: 'Non-academic',
-  description: 'Life is spiritual',
-  // ignoreTitleTemplate: true,
+  title: 'Beyond Academia | Mental and Spiritual Realms',
+  description:
+    'Mental or spiritual—which realm do you operate in? When results go beyond the ordinary, they are likely downloaded from the spiritual realm.',
+  ignoreTitleTemplate: true,
+  openGraph: {
+    title: 'Beyond Academia | Mental and Spiritual Realms',
+    description:
+      'Mental or spiritual—which realm do you operate in? When results go beyond the ordinary, they are likely downloaded from the spiritual realm.',
+    type: 'website',
+    image: imgFlame,
+    article: {
+      publishedTime: '2025-01-17T05:07:49+02:00',
+      modifiedTime: '2025-01-17T05:07:49+02:00',
+      authors: ['urFIT-child Research Group'],
+      tags: [
+        'spiritual wellness',
+        'mental health',
+        'personal development',
+        'holistic health',
+        'life purpose',
+        'self-discovery',
+      ],
+    },
+  },
+  twitter: {
+    handle: '@urFIT',
+    site: '@urFIT',
+    cardType: 'summary_large_image',
+  },
 };
 ---
 

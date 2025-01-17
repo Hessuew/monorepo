@@ -1,4 +1,5 @@
 ---
+import cholesterolPassport from '~/assets/images/infographic/Cholesterol passport for adolescents to halt the world’s deadliest disease – atherosclerosis.webp';
 import FilterContainer from '~/components/filters/FilterContainer.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import InfoGraficsList from '~/components/widgets/list/InfoGraficsList.astro';
@@ -7,9 +8,36 @@ import { infographicTypes } from '~/data/infografics';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Infographics',
+  title: 'Research Infographics | Visual Insights in Child Health Research',
   description:
     'Explore our collection of research infographics covering physical activity, cardiovascular health, body composition, and metabolic health in children. Each infographic presents key findings from our longitudinal studies in an accessible visual format.',
+  ignoreTitleTemplate: true,
+  openGraph: {
+    title: 'Research Infographics | Visual Insights in Child Health Research',
+    description:
+      'Explore our collection of research infographics covering physical activity, cardiovascular health, body composition, and metabolic health in children. Each infographic presents key findings from our longitudinal studies in an accessible visual format.',
+    type: 'website',
+    image: cholesterolPassport,
+    article: {
+      publishedTime: '2025-01-17T05:19:24+02:00',
+      modifiedTime: '2025-01-17T05:19:24+02:00',
+      authors: ['urFIT-child Research Group'],
+      tags: [
+        'research infographics',
+        'visual research',
+        'cardiovascular health',
+        'physical activity',
+        'body composition',
+        'metabolic health',
+        'child health research',
+      ],
+    },
+  },
+  twitter: {
+    handle: '@urFIT',
+    site: '@urFIT',
+    cardType: 'summary_large_image',
+  },
 };
 ---
 

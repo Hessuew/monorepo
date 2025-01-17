@@ -1,4 +1,5 @@
 ---
+import imgAndrew2 from '~/assets/images/principalInvestigator/Agbaje Andrew.webp';
 import Note from '~/components/widgets/Note.astro';
 import Academic from '~/components/widgets/principal-investigator/Academic.astro';
 import Affiliations from '~/components/widgets/principal-investigator/Affiliations.astro';
@@ -11,8 +12,36 @@ import PIHero from '~/components/widgets/principal-investigator/PIHero.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Principal Investigator',
-  // ignoreTitleTemplate: true,
+  title: 'Prof. Andrew Agbaje | Principal Investigator of urFIT-child Research Group',
+  description:
+    "Meet Prof. Andrew Agbaje MD, MPH, PhD, FESC, FAHA, FNYAM - an award-winning researcher leading groundbreaking studies in children's health and fitness. Discover his contributions to pediatric health research.",
+  ignoreTitleTemplate: true,
+  openGraph: {
+    title: 'Prof. Andrew Agbaje | Principal Investigator of urFIT-child Research Group',
+    description:
+      "Meet Prof. Andrew Agbaje MD, MPH, PhD, FESC, FAHA, FNYAM - an award-winning researcher leading groundbreaking studies in children's health and fitness. Discover his contributions to pediatric health research.",
+    type: 'profile',
+    image: imgAndrew2,
+    article: {
+      publishedTime: '2025-01-17T05:15:47+02:00',
+      modifiedTime: '2025-01-17T05:15:47+02:00',
+      authors: ['urFIT-child Research Group'],
+      tags: [
+        'Andrew Agbaje',
+        'principal investigator',
+        'pediatric research',
+        'health research',
+        'research leadership',
+        'academic excellence',
+        'childhood health',
+      ],
+    },
+  },
+  twitter: {
+    handle: '@urFIT',
+    site: '@urFIT',
+    cardType: 'summary_large_image',
+  },
 };
 ---
 
