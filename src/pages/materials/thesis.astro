@@ -6,9 +6,38 @@ import Hero from '~/components/widgets/Hero.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Theses',
-  description: 'Explore the doctoral and master’s theses that have been published.',
+  title: 'Doctoral & Master\'s Theses | Advanced Research in Child Health',
+  description:
+    'Explore groundbreaking doctoral and master\'s theses advancing scientific knowledge in pediatric health, cardiovascular research, and physical activity. In-depth academic research from our distinguished scholars.',
+  ignoreTitleTemplate: true,
+  openGraph: {
+    title: 'Doctoral & Master\'s Theses | Advanced Research in Child Health',
+    description:
+      'Explore groundbreaking doctoral and master\'s theses advancing scientific knowledge in pediatric health, cardiovascular research, and physical activity. In-depth academic research from our distinguished scholars.',
+    type: 'website',
+    image: imgAndrew,
+    article: {
+      publishedTime: '2025-01-17T05:26:32+02:00',
+      modifiedTime: '2025-01-17T05:26:32+02:00',
+      authors: ['urFIT-child Research Group'],
+      tags: [
+        'doctoral thesis',
+        'master\'s thesis',
+        'academic research',
+        'scholarly work',
+        'pediatric research',
+        'cardiovascular studies',
+        'physical activity research',
+      ],
+    },
+  },
+  twitter: {
+    handle: '@urFIT',
+    site: '@urFIT',
+    cardType: 'summary_large_image',
+  },
 };
+
 ---
 
 <Layout metadata={metadata}>

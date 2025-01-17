@@ -8,9 +8,35 @@ import { items } from '~/data/collaborators';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Collaborators',
+  title: 'Research Collaborators | International Network of Excellence',
   description:
     "Meet our distinguished international collaborators who contribute their expertise to advance children's health and fitness research.",
+  ignoreTitleTemplate: true,
+  openGraph: {
+    title: 'Research Collaborators | International Network of Excellence',
+    description:
+      "Meet our distinguished international collaborators who contribute their expertise to advance children's health and fitness research.",
+    type: 'website',
+    image: imgNnf,
+    article: {
+      publishedTime: '2025-01-17T05:12:41+02:00',
+      modifiedTime: '2025-01-17T05:12:41+02:00',
+      authors: ['urFIT-child Research Group'],
+      tags: [
+        'research collaboration',
+        'international research',
+        'pediatric health',
+        'academic network',
+        'scientific partnerships',
+        'health research',
+      ],
+    },
+  },
+  twitter: {
+    handle: '@urFIT',
+    site: '@urFIT',
+    cardType: 'summary_large_image',
+  },
 };
 ---
 

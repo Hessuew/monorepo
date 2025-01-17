@@ -11,8 +11,36 @@ import Stats from '~/components/widgets/Stats.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'urFIT-child — A treasure box of 21st-century novel discoveries',
-  // ignoreTitleTemplate: true,
+  title: "urFIT-child Research Group | Advancing Children's Health Assessment",
+  description:
+    "Leading research group dedicated to revolutionizing children's health assessment through evidence-based methods. Discover our groundbreaking findings on waist-to-height ratio and obesity diagnosis.",
+  ignoreTitleTemplate: true,
+  canonical: 'https://urfit-child.com',
+  openGraph: {
+    title: "urFIT-child Research Group | Advancing Children's Health Assessment",
+    description:
+      "Leading research group dedicated to revolutionizing children's health assessment through evidence-based methods. Discover our groundbreaking findings on waist-to-height ratio and obesity diagnosis.",
+    type: 'website',
+    image: imgResearchVisualization,
+    article: {
+      publishedTime: '2025-01-17T05:06:57+02:00',
+      modifiedTime: '2025-01-17T05:06:57+02:00',
+      authors: ['urFIT-child Research Group'],
+      tags: [
+        'children health research',
+        'obesity diagnosis',
+        'waist-to-height ratio',
+        'health assessment',
+        'pediatric research',
+        'evidence-based methods',
+      ],
+    },
+  },
+  twitter: {
+    handle: '@urFIT',
+    site: '@urFIT',
+    cardType: 'summary_large_image',
+  },
 };
 ---
 

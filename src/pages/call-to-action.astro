@@ -5,8 +5,28 @@ import Steps from '~/components/widgets/Steps.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Call to Action',
-  description: 'Research-Based Health Guidelines for Children | urFIT',
+  title: 'Research-Based Health Guidelines for Children | Call to Action',
+  description:
+    "Discover evidence-based recommendations for children's health assessment. Learn why traditional BMI measurements should be complemented with waist-to-height ratio for accurate diagnosis.",
+  ignoreTitleTemplate: true,
+  openGraph: {
+    title: 'Research-Based Health Guidelines for Children | Call to Action',
+    description:
+      "Discover evidence-based recommendations for children's health assessment. Learn why traditional BMI measurements should be complemented with waist-to-height ratio for accurate diagnosis.",
+    type: 'website',
+    image: imgResearchVisualization,
+    article: {
+      publishedTime: '2025-01-17T05:06:01+02:00',
+      modifiedTime: '2025-01-17T05:06:01+02:00',
+      authors: ['urFIT-child Research Group'],
+      tags: ['children health', 'health guidelines', 'obesity diagnosis', 'waist-to-height ratio', 'BMI limitations'],
+    },
+  },
+  twitter: {
+    handle: '@urFIT',
+    site: '@urFIT',
+    cardType: 'summary_large_image',
+  },
 };
 ---
 

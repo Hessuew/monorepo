@@ -1,4 +1,5 @@
 ---
+import imgAgbaje from '~/assets/images/waist-to-height-calculator/Agbaje Waist to Height.webp';
 import FilterContainer from '~/components/filters/FilterContainer.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import PressReleasesList from '~/components/widgets/list/PressReleasesList.astro';
@@ -7,8 +8,36 @@ import { pressReleaseCategories, pressReleaseTypes } from '~/data/pressReleases'
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Press Releases',
-  description: 'Browse through our press releases and media coverage',
+  title: 'Press Releases | Media Coverage of Child Health Research',
+  description:
+    "Discover our latest press releases and media coverage highlighting groundbreaking research in children's health, featuring studies on cardiovascular health, physical activity, and metabolic health.",
+  ignoreTitleTemplate: true,
+  openGraph: {
+    title: 'Press Releases | Media Coverage of Child Health Research',
+    description:
+      "Discover our latest press releases and media coverage highlighting groundbreaking research in children's health, featuring studies on cardiovascular health, physical activity, and metabolic health.",
+    type: 'website',
+    image: imgAgbaje,
+    article: {
+      publishedTime: '2025-01-17T05:22:44+02:00',
+      modifiedTime: '2025-01-17T05:22:44+02:00',
+      authors: ['urFIT-child Research Group'],
+      tags: [
+        'press releases',
+        'media coverage',
+        'research news',
+        'health research',
+        'scientific discoveries',
+        'medical breakthroughs',
+        'public health findings',
+      ],
+    },
+  },
+  twitter: {
+    handle: '@urFIT',
+    site: '@urFIT',
+    cardType: 'summary_large_image',
+  },
 };
 
 // Sort types and categories alphabetically
