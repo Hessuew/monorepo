@@ -1,14 +1,43 @@
 ---
+import imgAndrew from '~/assets/images/team/Andrew Headshot.webp';
 import Features4 from '~/components/widgets/Features4.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import { items } from '~/data/team';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Team',
+  title: 'Research Team | urFIT-child Research Group',
   description:
     "Meet the dedicated researchers and scientists behind the urFIT-child Research Group, working to advance children's health and fitness.",
+  ignoreTitleTemplate: true,
+  openGraph: {
+    title: 'Research Team | urFIT-child Research Group',
+    description:
+      "Meet the dedicated researchers and scientists behind the urFIT-child Research Group, working to advance children's health and fitness.",
+    type: 'website',
+    image: imgAndrew,
+    article: {
+      publishedTime: '2025-01-17T05:18:14+02:00',
+      modifiedTime: '2025-01-17T05:18:14+02:00',
+      authors: ['urFIT-child Research Group'],
+      tags: [
+        'research team',
+        'scientists',
+        'researchers',
+        'pediatric research',
+        'health research',
+        'academic team',
+        'research expertise',
+      ],
+    },
+  },
+  twitter: {
+    handle: '@urFIT',
+    site: '@urFIT',
+    cardType: 'summary_large_image',
+  },
 };
+
 ---
 
 <Layout metadata={metadata}>

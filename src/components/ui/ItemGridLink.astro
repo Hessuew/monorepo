@@ -98,24 +98,26 @@ const { items, columns = 3, classes = {}, isProfile = false } = Astro.props;
                   </div>
                 )
               )}
-              <div class={twMerge('text-center mt-auto', classes.text)}>
-                <h3 class={twMerge('text-xl font-semibold text-gray-800 dark:text-gray-100', classes.title)}>
-                  {item.title}
-                </h3>
-                {item.subtitle && (
-                  <p class={twMerge('mt-2 text-sm text-gray-600 dark:text-gray-400', classes.subtitle)}>
-                    {item.subtitle}
-                  </p>
-                )}
-                {item.description && (
-                  <p
-                    class={twMerge('mt-2 text-sm text-gray-500 dark:text-gray-400', classes.description)}
-                    set:html={item.description}
-                  />
-                )}
+              <div class={twMerge('text-center flex flex-col flex-1', classes.text)}>
+                <div>
+                  <h3 class={twMerge('text-xl font-semibold text-gray-800 dark:text-gray-100', classes.title)}>
+                    {item.title}
+                  </h3>
+                  {item.subtitle && (
+                    <p class={twMerge('mt-2 text-sm text-gray-600 dark:text-gray-400', classes.subtitle)}>
+                      {item.subtitle}
+                    </p>
+                  )}
+                  {item.description && (
+                    <p
+                      class={twMerge('mt-2 text-sm text-gray-500 dark:text-gray-400', classes.description)}
+                      set:html={item.description}
+                    />
+                  )}
+                </div>
                 {item.url && (
                   <span
-                    class="text-sm text-primary mt-2 inline-flex items-center gap-1 transition-all duration-300 group-hover:gap-2"
+                    class="text-sm text-primary mt-auto pt-4 inline-flex items-center gap-1 transition-all duration-300 group-hover:gap-2"
                     aria-hidden="true"
                   >
                     Visit website

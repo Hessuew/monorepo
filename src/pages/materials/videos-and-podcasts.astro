@@ -1,4 +1,5 @@
 ---
+import imgVideosAndPodcasts from '~/assets/images/navigation/Smoking During Childhood.webp';
 import FilterContainer from '~/components/filters/FilterContainer.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import VideosAndPodcastsList from '~/components/widgets/list/VideosAndPodcastsList.astro';
@@ -7,9 +8,38 @@ import { platforms } from '~/data/videosAndPodcasts';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Videos and Podcasts',
-  description: 'Media coverage and interviews featuring urFIT-child research and findings',
+  title: 'Videos & Podcasts | Research Insights in Child Health',
+  description:
+    'Watch and listen to our researchers discuss groundbreaking findings in pediatric health through engaging video presentations and in-depth podcast interviews. Featuring latest research on cardiovascular health and physical activity.',
+  ignoreTitleTemplate: true,
+  openGraph: {
+    title: 'Videos & Podcasts | Research Insights in Child Health',
+    description:
+      'Watch and listen to our researchers discuss groundbreaking findings in pediatric health through engaging video presentations and in-depth podcast interviews. Featuring latest research on cardiovascular health and physical activity.',
+    type: 'website',
+    image: imgVideosAndPodcasts,
+    article: {
+      publishedTime: '2025-01-17T05:27:40+02:00',
+      modifiedTime: '2025-01-17T05:27:40+02:00',
+      authors: ['urFIT-child Research Group'],
+      tags: [
+        'research videos',
+        'scientific podcasts',
+        'video presentations',
+        'research interviews',
+        'pediatric health',
+        'cardiovascular research',
+        'physical activity studies',
+      ],
+    },
+  },
+  twitter: {
+    handle: '@urFIT',
+    site: '@urFIT',
+    cardType: 'summary_large_image',
+  },
 };
+
 ---
 
 <Layout metadata={metadata}>

@@ -1,12 +1,41 @@
 ---
+import imgResearchVisualization from '~/assets/images/index/Urfit Child Website Frontpage.webp';
 import Hero from '~/components/widgets/Hero.astro';
 import KeyArticlesList from '~/components/widgets/list/KeyArticlesList.astro';
 import Spacer from '~/components/widgets/Spacer.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Key Articles',
-  description: 'Explore our key articles that highlight the latest research on child health and well-being.',
+  title: 'Key Research Articles | Groundbreaking Studies in Child Health',
+  description:
+    "Explore our seminal research articles that have the potential to transform medical and public health practices in children's health and well-being.",
+  ignoreTitleTemplate: true,
+  openGraph: {
+    title: 'Key Research Articles | Groundbreaking Studies in Child Health',
+    description:
+      "Explore our seminal research articles that have the potential to transform medical and public health practices in children's health and well-being.",
+    type: 'website',
+    image: imgResearchVisualization,
+    article: {
+      publishedTime: '2025-01-17T05:20:43+02:00',
+      modifiedTime: '2025-01-17T05:20:43+02:00',
+      authors: ['urFIT-child Research Group'],
+      tags: [
+        'research articles',
+        'scientific publications',
+        'medical research',
+        'public health',
+        'pediatric research',
+        'health studies',
+        'clinical findings',
+      ],
+    },
+  },
+  twitter: {
+    handle: '@urFIT',
+    site: '@urFIT',
+    cardType: 'summary_large_image',
+  },
 };
 ---
 

@@ -8,13 +8,33 @@ import ContentSection from '~/components/widgets/ContentSection.astro';
 import Features4 from '~/components/widgets/Features4.astro';
 import GraphGrid from '~/components/widgets/GraphGrid.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import { references } from '~/data/calculatorReferences';
 import { THRESHOLDS } from '~/data/thresholds';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Waist/Height Calculator',
-  description: 'Calculate your waist/height ratio',
-  // ignoreTitleTemplate: true,
+  title: 'Waist to Height Ratio Calculator | Health Assessment Tool',
+  description:
+    'Calculate your waist-to-height ratio (WHtR) - a simple and effective measure of central obesity and health risk. Learn how to measure correctly and understand your results.',
+  ignoreTitleTemplate: true,
+  openGraph: {
+    title: 'Waist to Height Ratio Calculator | Health Assessment Tool',
+    description:
+      'Calculate your waist-to-height ratio (WHtR) - a simple and effective measure of central obesity and health risk. Learn how to measure correctly and understand your results.',
+    type: 'website',
+    image: imgCalculator,
+    article: {
+      publishedTime: '2025-01-17T05:05:14+02:00',
+      modifiedTime: '2025-01-17T05:05:14+02:00',
+      authors: ['urFIT-child Research Group'],
+      tags: ['waist-to-height ratio', 'health calculator', 'obesity measurement', 'health assessment'],
+    },
+  },
+  twitter: {
+    handle: '@urFIT',
+    site: '@urFIT',
+    cardType: 'summary_large_image',
+  },
 };
 ---
 
@@ -195,7 +215,7 @@ const metadata = {
 
   <Features4
     title="References"
-    columns={1}
+    columns={3}
     classes={{
       container: 'max-w-5xl mx-auto px-4 sm:px-6 py-8',
       items: {
@@ -206,39 +226,6 @@ const metadata = {
         subtitle: 'text-primary',
       },
     }}
-    items={[
-      {
-        title: 'Research Article in Pediatric Research',
-        subtitle:
-          'Waist-circumference-to-height-ratio had better longitudinal agreement with DEXA-measured fat mass than BMI in 7237 children',
-        description: 'Agbaje AO. Pediatr Res. 2024 Oct;96(5)5:1369-1380.',
-        url: 'https://doi.org/10.1038/s41390-024-03112-8',
-      },
-      {
-        title: 'Nature Medicine Commentary',
-        subtitle: 'Time for a new framework that treats obesity in children as an adiposity-based chronic disease',
-        description: "Manco M, Helgason T, Körner A, Nowicka P, O'Malley G, Baker JL. Nat Med. 2024 Dec;30(12):3396.",
-        url: 'https://doi.org/10.1038/s41591-024-03292-0',
-      },
-      {
-        title: 'Journal of the American College of Cardiology',
-        subtitle: 'Adiposopathy is "sick fat" a cardiovascular disease?',
-        description: 'Bays HE. J Am Coll Cardiol. 2011 Jun 21;57(25):2461-73.',
-        url: 'https://doi.org/10.1016/j.jacc.2011.02.038',
-      },
-      {
-        title: 'European Association for the Study of Obesity Interview',
-        subtitle: 'Changing the way we measure childhood obesity',
-        description:
-          'Interview with Andrew Agbaje discussing the implications of the research findings for childhood obesity measurement.',
-        url: 'https://easo.org/changing-the-way-we-measure-childhood-obesity-in-conversation-with-andrew-agbaje/',
-      },
-      {
-        title: 'BBC World News Interview',
-        subtitle: 'Live TV Interview',
-        description: 'Discussion on the importance of waist-to-height ratio in measuring childhood obesity.',
-        url: 'https://www.youtube.com/watch?v=OiA9HlVHsuw',
-      },
-    ]}
+    items={references}
   />
 </Layout>
