@@ -115,7 +115,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Viivi Heijari',
     title: 'Alumni',
-    description: 'Bachelors thesis in Biomedicine (Completed May 2024)',
+    description: 'Bachelors thesis in Biomedicine <br /> (Completed May 2024)',
     image: {
       src: imgFemaleHeadshot,
       alt: 'Female headshot',
