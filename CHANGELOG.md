@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.2] - 2025-01-17
 
 ### Added
+
 - Comprehensive OpenGraph and Twitter card metadata for all material pages
 - Enhanced SEO titles and descriptions for better search visibility
 - Social media sharing images for each content type
