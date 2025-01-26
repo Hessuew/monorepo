@@ -19,12 +19,24 @@ const { columns = 2, classes = {} } = Astro.props;
 ---
 
 <script>
-  let selectedItem: { platform: string; videoId: string; title: string; poster?: string } | null = null;
+  let selectedItem: {
+    platform: string;
+    videoId: string;
+    title: string;
+    poster?: string;
+    video?: { src: string; alt: string };
+  } | null = null;
 
   const IFRAME_FOCUS_DELAY = 500;
   const PLAYER_CREATION_DELAY = 360;
 
-  function createPlayer(platform: string, videoId: string, title: string, poster?: string) {
+  function createPlayer(
+    platform: string,
+    videoId: string,
+    title: string,
+    poster?: string,
+    video?: { src: string; alt: string }
+  ) {
     const container = document.createElement('div');
     container.className = `${platform}-player player-container relative w-full aspect-video`;
 
@@ -104,6 +116,17 @@ const { columns = 2, classes = {} } = Astro.props;
       iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
       iframe.style.borderRadius = '12px';
       container.appendChild(iframe);
+    } else if (platform === 'Local') {
+      const videoElement = document.createElement('video');
+      const source = document.createElement('source');
+      source.src = video?.src || '';
+      source.type = 'video/mp4';
+
+      videoElement.appendChild(source);
+      videoElement.controls = true;
+      videoElement.autoplay = true;
+      videoElement.className = 'w-full h-full rounded-lg';
+      container.appendChild(videoElement);
     }
 
     return container;
@@ -132,14 +155,15 @@ const { columns = 2, classes = {} } = Astro.props;
 
   async function openModal(videoContainer: HTMLElement, modal: HTMLDivElement, modalContent: HTMLDivElement) {
     try {
-      async function test() {
+      async function displayModal() {
         await new Promise((resolve) => setTimeout(resolve, PLAYER_CREATION_DELAY));
         // Add player
         const player = createPlayer(
           selectedItem!.platform,
           selectedItem!.videoId,
           selectedItem!.title,
-          selectedItem!.poster
+          selectedItem!.poster,
+          selectedItem!.video
         );
         // Replace the thumbnail with the player
         const playerContainer = modalContent.querySelector('.player-container') as HTMLElement;
@@ -174,7 +198,7 @@ const { columns = 2, classes = {} } = Astro.props;
         modal.style.display = 'block';
         modal.classList.add('visible');
 
-        await test();
+        await displayModal();
         return;
       }
 
@@ -202,7 +226,7 @@ const { columns = 2, classes = {} } = Astro.props;
       transition.finished
         .then(async () => {
           modalContent.style.viewTransitionName = '';
-          await test();
+          await displayModal();
         })
         .catch((error) => {
           console.error('Error during modal transition:', error);
@@ -244,6 +268,12 @@ const { columns = 2, classes = {} } = Astro.props;
           videoId,
           title: videoContainer.dataset.title!,
           poster: videoContainer.dataset.poster,
+          video: videoContainer.dataset.video
+            ? {
+                src: videoContainer.dataset.video,
+                alt: videoContainer.dataset.title!,
+              }
+            : undefined,
         };
 
         // Clear modal content
@@ -364,6 +394,7 @@ const { columns = 2, classes = {} } = Astro.props;
                 data-video-id={item.videoId}
                 data-title={item.title}
                 data-poster={item.poster?.src}
+                data-video={item.video}
                 aria-label={`View ${item.title} video`}
                 role="listitem"
               >
@@ -389,7 +420,10 @@ const { columns = 2, classes = {} } = Astro.props;
                         alt={item.title}
                         class="w-full h-full object-cover rounded-lg"
                       />
-                    ) : item.platform === 'Vimeo' || item.platform === 'Spotify' || item.platform === 'Doccheck' ? (
+                    ) : item.platform === 'Vimeo' ||
+                      item.platform === 'Spotify' ||
+                      item.platform === 'Doccheck' ||
+                      item.platform === 'Local' ? (
                       <Image
                         src={item.poster}
                         alt={item.title}

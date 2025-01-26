@@ -1,4 +1,6 @@
+import videoAgbaje from '~/assets/images/videosAndPodcasts/Agbaje Video.mp4';
 import imgEp205 from '~/assets/images/videosAndPodcasts/EP 205 Kids Fitness with Prof Agbaje.webp';
+import imgNewseriaInterview from '~/assets/images/videosAndPodcasts/Newseria Interview.webp';
 import imgNNFoundationAward from '~/assets/images/videosAndPodcasts/NN Foundation Award.webp';
 import imgPhysicalActivity from '~/assets/images/videosAndPodcasts/physical_activity_slow_and_steady_wins_the_race.webp';
 import { groupByYear } from '~/utils/dataProcessing';
@@ -9,10 +11,11 @@ interface MediaItem {
   title: string;
   date: string;
   videoId: string;
-  platform: 'Youtube' | 'Vimeo' | 'Doccheck' | 'Soundcloud' | 'Spotify';
+  platform: 'Youtube' | 'Vimeo' | 'Doccheck' | 'Soundcloud' | 'Spotify' | 'Local';
   author?: string;
   trackUrl?: string;
   poster?: ImageMetadata;
+  video?: string;
   videoQuality?: 'max' | 'hq';
 }
 
@@ -101,6 +104,13 @@ export const videosAndPodcasts: MediaItem[] = [
     author: 'University of Eastern Finland',
     trackUrl: 'uniuef/childhood-sedentariness-is-a-real-health-threat-light-exercise-is-the-overlooked-antidote',
   },
+  // {
+  //   title: 'Professor Agbaje Video',
+  //   date: '2024-01-26',
+  //   videoId: videoAgbaje.src,
+  //   platform: 'Local',
+  //   poster: imgNNFoundationAward,
+  // },
   {
     title: 'BBC Radio Devon LIVE interview on Dyslipidemia and Cardiac Damage',
     date: '2024-01-19',
@@ -114,6 +124,14 @@ export const videosAndPodcasts: MediaItem[] = [
     videoId: '6066-physical-activity-slow-and-steady-wins-the-race',
     platform: 'Doccheck',
     poster: imgPhysicalActivity,
+  },
+  {
+    title: 'Newseria Interview on Sedentary time and Premature Cardiac Damage',
+    date: '2023-08-10',
+    videoId: '',
+    video: videoAgbaje,
+    platform: 'Local',
+    poster: imgNewseriaInterview,
   },
 ];
 

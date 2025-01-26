@@ -1,12 +1,19 @@
 ---
+import imgAndrew from '~/assets/images/principalInvestigator/Andrew Agbaje Edited.webp';
 import imgPortmourth from '~/assets/images/principalInvestigator/Andrew Portsmouth PhD 2.webp';
 import imgFESC from '~/assets/images/principalInvestigator/FESC ESC 2024 Agbaje.webp';
 import imgFescLondon from '~/assets/images/principalInvestigator/Top Reviewer Award EJPC 2024.webp';
-import v from '~/assets/videos/Graduation Clip Andrew Agbaje Portsmouth.mp4';
+import videoGraduationClip from '~/assets/videos/Graduation Clip Andrew Agbaje Portsmouth.mp4';
 import GradientText from '~/components/ui/GradientText.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Spacer from '~/components/widgets/Spacer.astro';
-import { academicAchievements, fellowshipsAndPositions, pastAwards, recentAwards2024 } from '~/data/awardsAndHonours';
+import {
+  academicAchievements,
+  academicAppointments,
+  fellowshipsAndPositions,
+  pastAwards,
+  recentAwards2024,
+} from '~/data/awardsAndHonours';
 import Features2 from '../Features2.astro';
 import Features5 from '../Features5.astro';
 ---
@@ -97,7 +104,7 @@ import Features5 from '../Features5.astro';
 <h2
   class="text-center text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
 >
-  Fellowships and Academic Positions
+  International Fellowships
 </h2>
 
 <!-- Fellowships and Positions -->
@@ -138,7 +145,27 @@ import Features5 from '../Features5.astro';
     src: imgPortmourth,
     alt: 'Agbaje at the University of Portsmouth',
   }}
+  imageText="University of Portsmouth, UK, PhD award ceremony"
   items={academicAchievements.map((item) => ({
+    icon: item.icon,
+    title: item.title,
+    description: `<div class="flex-1">${item.subtitle}
+                 ${item.details ? `<div class="text-primary mt-2">${item.details}</div>` : ''}
+                 </div>
+                 ${item.year ? `${item.year}` : ''}`,
+  }))}
+/>
+
+<!-- Academic Achievements -->
+<Features5
+  classes={{ container: 'max-w-7xl mx-auto pt-0 md:pt-0 lg:pt-0' }}
+  columns={1}
+  image={{
+    src: imgAndrew,
+    alt: 'Agbaje at the University of Portsmouth',
+  }}
+  isReversed
+  items={academicAppointments.map((item) => ({
     icon: item.icon,
     title: item.title,
     description: `<div class="flex-1">${item.subtitle}
@@ -212,7 +239,7 @@ import Features5 from '../Features5.astro';
       aria-label="Dr. Andrew Agbaje's graduation ceremony at Portsmouth"
       id="graduationVideo"
     >
-      <source src={v} type="video/mp4" />
+      <source src={videoGraduationClip} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
   </div>
