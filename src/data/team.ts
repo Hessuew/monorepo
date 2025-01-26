@@ -25,7 +25,8 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Andrew Agbaje',
     title: 'Principal Investigator',
-    description: 'MD, MPH, PhD, FESC, FAHA, FNYAM, Professor (associate) of Clinical Epidemiology and Child Health',
+    description:
+      'MD, MPH, PhD, FACC, FESC, FAHA, FNYAM, Professor (associate) of Clinical Epidemiology and Child Health',
     url: 'https://uefconnect.uef.fi/en/andrew.agbaje/#information',
     image: {
       src: imgAndrew,
@@ -56,7 +57,7 @@ const teamMembers: TeamMember[] = [
     name: 'Idowu Senbanjo',
     title: 'Doctoral (PhD) Researcher',
     description:
-      'MBChB, MSc, PGD (Boston), FWACP, Cert Paediatric Gastroenterology (South Africa), Professor of Paediatrics and Child Health',
+      'Professor of Paediatrics and Child Health, MBChB, MSc, PGD (Boston), FWACP, Cert Paediatric Gastroenterology (South Africa)',
     url: 'https://lasucom.edu.ng/professor-idowu-odunayo-senbanjo/',
     image: {
       src: imgSenbanjo,
@@ -66,7 +67,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Tolu Shogade',
     title: 'Doctoral (PhD) Researcher',
-    description: 'MBChB, MWACP, FMCP, Consultant/Specialist in Internal Medicine',
+    description: 'MBChB, MWACP, FMCP, FESC, Consultant/Specialist in Internal Medicine',
     url: 'https://esc365.escardio.org/person/432748',
     image: {
       src: imgShogade,
