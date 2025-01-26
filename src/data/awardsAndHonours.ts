@@ -76,14 +76,9 @@ type Position = {
 
 export const fellowshipsAndPositions: Position[] = [
   {
-    title: 'Docent in Clinical Epidemiology and Child Health',
-    subtitle: 'Faculty of Health Sciences, University of Eastern Finland',
-    date: 'March 2024',
-  },
-  {
-    title: 'Associate Editor',
-    subtitle: 'Journal of Cachexia, Sarcopenia and Muscle',
-    details: 'Impact Factor 9.4',
+    title: 'Fellow of the American College of Cardiology (FACC) 2025',
+    subtitle:
+      'The FACC designation is an incredible professional achievement that signals cardiovascular global ranking among the best in the field.',
   },
   {
     title: 'Fellow of the New York Academy of Medicine (FNYAM) 2024',
@@ -153,6 +148,12 @@ export const pastAwards: Award[] = [
     subtitle: 'Jeremiah and Rose Stamler Research Award 2021, American Heart Association',
     icon: 'tabler:medal',
   },
+  {
+    subtitle: 'ELF / Total Undergraduate Scholarship Award, 2009-2012',
+    title: 'Medical Studies',
+    details: '4000 US dollars',
+    icon: 'tabler:coin',
+  },
 ];
 
 type Achievement = {
@@ -165,11 +166,18 @@ type Achievement = {
 
 export const academicAchievements: Achievement[] = [
   {
+    title: 'PhD',
+    subtitle: 'University of Portsmouth, UK',
+    year: '2024',
+    details: 'Extraordinarily completed within 10 weeks (2.5 months)',
+    icon: 'tabler:certificate-2',
+  },
+  {
     title: 'Clinical Research',
     subtitle: 'Harvard University, Boston, US',
     year: '2020',
     details: 'Distinction, summa cum laude, (1000/1000 points)',
-    icon: 'tabler:certificate-2',
+    icon: 'tabler:vaccine-bottle',
   },
   {
     title: 'Masters in Public Health / Epidemiology',
@@ -185,11 +193,21 @@ export const academicAchievements: Achievement[] = [
     details: 'Distinction, summa cum laude, (5/5 points)',
     icon: 'tabler:brain',
   },
+];
+
+export const academicAppointments: Achievement[] = [
   {
-    title: 'ELF / Total Undergraduate Scholarship Award',
-    subtitle: 'Medical Studies',
-    year: '2009-2012',
-    details: '4000 US dollars',
-    icon: 'tabler:coin',
+    title: 'Docent in Clinical Epidemiology and Child Health',
+    subtitle: 'Faculty of Health Sciences, University of Eastern Finland',
+    details: '',
+    year: 'March 2024',
+    icon: 'tabler:chair-director',
+  },
+  {
+    title: 'Associate Editor',
+    subtitle: 'Journal of Cachexia, Sarcopenia and Muscle',
+    details: 'Impact Factor 9.4',
+    year: 'April 2024',
+    icon: 'tabler:pencil-minus',
   },
 ];
