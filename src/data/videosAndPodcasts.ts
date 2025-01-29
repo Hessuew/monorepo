@@ -104,13 +104,6 @@ export const videosAndPodcasts: MediaItem[] = [
     author: 'University of Eastern Finland',
     trackUrl: 'uniuef/childhood-sedentariness-is-a-real-health-threat-light-exercise-is-the-overlooked-antidote',
   },
-  // {
-  //   title: 'Professor Agbaje Video',
-  //   date: '2024-01-26',
-  //   videoId: videoAgbaje.src,
-  //   platform: 'Local',
-  //   poster: imgNNFoundationAward,
-  // },
   {
     title: 'BBC Radio Devon LIVE interview on Dyslipidemia and Cardiac Damage',
     date: '2024-01-19',
@@ -128,7 +121,7 @@ export const videosAndPodcasts: MediaItem[] = [
   {
     title: 'Newseria Interview on Sedentary time and Premature Cardiac Damage',
     date: '2023-08-10',
-    videoId: '',
+    videoId: 'newseria-interview-2023',
     video: videoAgbaje,
     platform: 'Local',
     poster: imgNewseriaInterview,

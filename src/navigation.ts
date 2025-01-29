@@ -1,9 +1,10 @@
 import cholesterolPassport from '~/assets/images/infographic/Cholesterol passport for adolescents to halt the world’s deadliest disease – atherosclerosis.webp';
 import imgAndrew from '~/assets/images/navigation/Andrew Agbaje RT 2022.webp';
 import imgVideosAndPodcasts from '~/assets/images/navigation/Smoking During Childhood.webp';
+import type { MenuLink } from './components/widgets/Header.astro';
 import { getPermalink } from './utils/permalinks';
 
-export const headerData = {
+export const headerData: { links: Array<MenuLink> } = {
   links: [
     {
       text: 'Core People',
@@ -15,18 +16,25 @@ export const headerData = {
           },
           text: 'Principal Investigator',
           href: getPermalink('/people/principal-investigator'),
+          description: 'Meet our research leader',
         },
         {
           text: 'Team',
           href: getPermalink('/people/team'),
+          icon: 'tabler:users-group',
+          description: 'Dedicated research team',
         },
         {
           text: 'Collaborators',
           href: getPermalink('/people/collaborators'),
+          icon: 'tabler:world',
+          description: 'Research partners worldwide',
         },
         {
           text: 'Funders',
           href: getPermalink('/people/funders'),
+          icon: 'tabler:cash',
+          description: 'Research funding partners',
         },
       ],
     },
@@ -36,14 +44,20 @@ export const headerData = {
         {
           text: 'Key Articles',
           href: getPermalink('/materials/key-articles'),
+          icon: 'tabler:key',
+          description: 'Few seminal results',
         },
         {
           text: 'Thesis',
           href: getPermalink('/materials/thesis'),
+          description: 'Doctoral dissertations',
+          icon: 'tabler:school',
         },
         {
           text: 'Publications',
           href: getPermalink('/materials/publications'),
+          icon: 'tabler:book',
+          description: 'Complete list of publications',
         },
         {
           image: {
@@ -52,6 +66,7 @@ export const headerData = {
           },
           text: 'Videos and Podcasts',
           href: getPermalink('/materials/videos-and-podcasts'),
+          description: 'Multimedia research content',
         },
         {
           image: {
@@ -60,10 +75,13 @@ export const headerData = {
           },
           text: 'Infographics',
           href: getPermalink('/materials/infografics'),
+          description: 'Visual research summaries',
         },
         {
           text: 'Press Releases',
           href: getPermalink('/materials/press-releases'),
+          icon: 'tabler:tag-starred',
+          description: 'Media coverage highlights',
         },
       ],
     },
