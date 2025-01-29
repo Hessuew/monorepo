@@ -1,10 +1,10 @@
 import imgAndrew from '~/assets/images/team/Andrew Headshot.webp';
 import imgBasil from '~/assets/images/team/Basil Apaokwueze.webp';
 import imgBenedict from '~/assets/images/team/Benedict Michelle.webp';
+import imgDouglas from '~/assets/images/team/Douglas Corsi.webp';
 import imgShogade from '~/assets/images/team/Dr Tolu Shogade.webp';
 import imgFemaleHeadshot from '~/assets/images/team/Female headshot.webp';
 import imgJuhani from '~/assets/images/team/Juhani Juusola.webp';
-import imgMounir from '~/assets/images/team/Mounir Ould Setti.webp';
 import imgSamuel from '~/assets/images/team/Samuel Barmi.webp';
 import imgSenbanjo from '~/assets/images/team/Senbanjo Odunayo Image.webp';
 import imgTomi from '~/assets/images/team/Tomi Pekka Tuomainen.webp';
@@ -44,13 +44,13 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
-    name: 'Mounir Ould Setti',
-    title: 'Post-doctoral Researcher',
-    description: 'MD, MPH, PhD',
-    url: 'https://www.linkedin.com/in/mounir-ould-setti/',
+    name: 'Douglas Corsi',
+    title: 'Doctoral (PhD) Researcher',
+    description: 'MD, Internal Medicine Resident, New Jersey, United States',
+    url: 'https://www.linkedin.com/in/douglas-corsi-9a330471/',
     image: {
-      src: imgMounir,
-      alt: 'Mounir Ould Setti',
+      src: imgDouglas,
+      alt: 'Douglas Corsi',
     },
   },
   {

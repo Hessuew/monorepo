@@ -388,6 +388,7 @@ const metadata = {
 
       <!-- Video for larger screens -->
       <video
+        id="flameVideo"
         class="w-full h-full object-cover min-h-screen hidden md:block"
         autoplay
         loop
@@ -404,7 +405,7 @@ const metadata = {
 <script>
   // Function to ensure video plays on Safari
   function initVideo() {
-    const video = document.querySelector('video');
+    const video = document.getElementById('flameVideo') as HTMLVideoElement;
     if (video) {
       // Force video load and play
       video.load();
