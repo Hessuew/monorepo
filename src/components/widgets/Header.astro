@@ -16,6 +16,7 @@ import { twMerge } from 'tailwind-merge';
 
 interface Link {
   text?: string;
+  description?: string;
   href?: string;
   ariaLabel?: string;
   icon?: string;
@@ -133,12 +134,17 @@ const { nav: navClass = '' } = classes;
                 <>
                   <button
                     type="button"
-                    class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap"
+                    class="px-4 py-3 flex items-center whitespace-nowrap"
                     data-nav-button
                     id={`nav-button-${index}`}
                   >
-                    {text}
-                    <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden lg:inline" />
+                    <span>
+                      {text}
+                      <Icon
+                        name="tabler:chevron-down"
+                        class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden lg:inline"
+                      />
+                    </span>
                   </button>
                   <div class="flex lg:hidden lg:backdrop-blur-md dark:lg:bg-dark rounded lg:absolute pl-4 lg:pl-0 font-medium lg:bg-white/90 lg:min-w-[480px] drop-shadow-xl lg:border border-gray-200 dark:border-gray-800">
                     <div class="lg:flex lg:flex-row lg:items-start lg:gap-4 lg:p-4">
@@ -166,7 +172,7 @@ const { nav: navClass = '' } = classes;
               ) : (
                 <a
                   class:list={[
-                    'hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap',
+                    'hover:text-primary px-4 py-3 flex items-center whitespace-nowrap',
                     { 'aw-link-active': href === currentPath },
                   ]}
                   href={getPermalink(`${href}`)}

@@ -39,6 +39,18 @@ export const references: Reference[] = [
     url: 'https://doi.org/10.1016/S2213-8587(24)00316-4',
   },
   {
+    title: 'European Heart Journal',
+    subtitle: 'Near-universal prevalence of central adiposity in heart failure with preserved ejection fraction',
+    description: 'Peikert A, Vaduganathan M, Claggett BL et al. Eur Heart J. 2025 Jan 28:ehaf057.',
+    url: 'https://doi.org/10.1093/eurheartj/ehaf057',
+  },
+  {
+    title: 'European Heart Journal',
+    subtitle: 'Anthropometric measures and adverse outcomes in heart failure with reduced ejection fraction',
+    description: 'Butt JH, Petrie MC, Jhund PS et al. Eur Heart J. 2023 Apr 1;44(13):1136-1153.',
+    url: 'https://doi.org/10.1093/eurheartj/ehad083',
+  },
+  {
     title: 'BMC Medicine',
     subtitle:
       'Establishing international optimal cut-offs of waist-to-height ratio for predicting cardiometabolic risk in children and adolescents aged 6-18 years',
