@@ -1,23 +1,17 @@
+import imgAndrew from '~/assets/images//principalInvestigator/Agbaje ESC Congress London.webp';
+import imgAndrewCraig from '~/assets/images//principalInvestigator/Andrew Craig Dimitri Alan.webp';
 import cholesterolPassport from '~/assets/images/infographic/Cholesterol passport for adolescents to halt the world’s deadliest disease – atherosclerosis.webp';
-import imgAndrew from '~/assets/images/navigation/Andrew Agbaje RT 2022.webp';
 import imgVideosAndPodcasts from '~/assets/images/navigation/Smoking During Childhood.webp';
+import imgOrangeSparks from '~/assets/images/non-academic/Orange Sparks.webp';
+import imgFESC from '~/assets/images/principalInvestigator/FESC ESC 2024 Agbaje.webp';
 import type { MenuLink } from './components/widgets/Header.astro';
 import { getPermalink } from './utils/permalinks';
 
 export const headerData: { links: Array<MenuLink> } = {
   links: [
     {
-      text: 'Core People',
+      text: 'People',
       links: [
-        {
-          image: {
-            src: imgAndrew,
-            alt: 'Principal Investigator, Andrew Agbaje',
-          },
-          text: 'Principal Investigator',
-          href: getPermalink('/people/principal-investigator'),
-          description: 'Meet our research leader',
-        },
         {
           text: 'Team',
           href: getPermalink('/people/team'),
@@ -25,6 +19,10 @@ export const headerData: { links: Array<MenuLink> } = {
           description: 'Dedicated research team',
         },
         {
+          image: {
+            src: imgAndrewCraig,
+            alt: 'Alan, Dimitris, Andrew and Craig',
+          },
           text: 'Collaborators',
           href: getPermalink('/people/collaborators'),
           icon: 'tabler:world',
@@ -36,6 +34,61 @@ export const headerData: { links: Array<MenuLink> } = {
           icon: 'tabler:cash',
           description: 'Research funding partners',
         },
+      ],
+    },
+    {
+      text: 'Leader',
+      links: [
+        {
+          text: 'About',
+          href: getPermalink('/people/principal-investigator'),
+          icon: 'tabler:user-circle',
+          description: 'The research leader',
+        },
+        {
+          image: {
+            src: imgAndrew,
+            alt: 'Agbaje at the ESC congress, London',
+          },
+          text: 'Academic',
+          href: '/people/principal-investigator#academic',
+          icon: 'tabler:certificate',
+          description: 'Academic qualifications and achievements',
+        },
+        {
+          image: {
+            src: imgFESC,
+            alt: 'FESC ESC 2024 Agbaje',
+          },
+          text: 'Awards and Honours',
+          href: '/people/principal-investigator#awards-and-honours',
+          icon: 'tabler:trophy',
+          description: 'Recognition and accolades',
+        },
+        {
+          text: 'Editorial Board',
+          href: '/people/principal-investigator#editorial',
+          icon: 'tabler:edit',
+          description: 'Journal editorial positions',
+        },
+        {
+          text: 'Affiliations',
+          href: '/people/principal-investigator#affiliations',
+          icon: 'tabler:building',
+          description: 'Institutional connections',
+        },
+        {
+          text: 'Memberships',
+          href: '/people/principal-investigator#memberships',
+          icon: 'tabler:id-badge',
+          description: 'Professional society memberships',
+        },
+        // {
+        //   text: 'Contact',
+        //   href: '/people/principal-investigator#contact',
+        //   icon: 'tabler:mail',
+        //   description: 'Get in touch',
+        // },
       ],
     },
     {
@@ -86,16 +139,31 @@ export const headerData: { links: Array<MenuLink> } = {
       ],
     },
     {
-      text: 'Waist/Height Calculator',
-      href: getPermalink('/waist-height-calculator'),
-    },
-    {
-      text: 'Call to Action',
-      href: getPermalink('/call-to-action'),
-    },
-    {
-      text: 'Non-academic',
-      href: getPermalink('/non-academic'),
+      text: 'Resources & Tools',
+      links: [
+        {
+          text: 'Waist/Height Calculator',
+          href: getPermalink('/waist-height-calculator'),
+          description: 'Waist-to-height ratio tool',
+          icon: 'tabler:calculator',
+        },
+        {
+          text: 'Call to Action',
+          href: getPermalink('/call-to-action'),
+          description: 'Practical applications',
+          icon: 'tabler:speakerphone',
+        },
+        {
+          image: {
+            src: imgOrangeSparks,
+            alt: 'Orange Sparks',
+          },
+          text: 'Non-academic',
+          href: getPermalink('/non-academic'),
+          description: 'Beyond scientific research',
+          icon: 'tabler:flame',
+        },
+      ],
     },
   ],
 };
