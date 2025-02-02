@@ -37,7 +37,7 @@ export const headerData: { links: Array<MenuLink> } = {
       ],
     },
     {
-      text: 'Leader',
+      text: 'Lead',
       links: [
         {
           text: 'About',
@@ -139,14 +139,14 @@ export const headerData: { links: Array<MenuLink> } = {
       ],
     },
     {
-      text: 'Resources & Tools',
+      text: 'Waist/Height Calculator',
+      href: getPermalink('/waist-height-calculator'),
+      description: 'Waist-to-height ratio tool',
+      icon: 'tabler:calculator',
+    },
+    {
+      text: 'Call to Action',
       links: [
-        {
-          text: 'Waist/Height Calculator',
-          href: getPermalink('/waist-height-calculator'),
-          description: 'Waist-to-height ratio tool',
-          icon: 'tabler:calculator',
-        },
         {
           text: 'Call to Action',
           href: getPermalink('/call-to-action'),

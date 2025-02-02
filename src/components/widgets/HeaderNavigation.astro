@@ -13,7 +13,7 @@ const { links, currentPath } = Astro.props;
 ---
 
 <div
-  class="dropdown-menu absolute top-[56px] left-[28%] xl:left-[31%] md:backdrop-blur-md md:bg-white/80 dark:md:bg-[#030621e6]/80 drop-shadow-xl md:border border-gray-200 dark:border-gray-800 transition-all duration-300 ease-in-out hidden rounded-md"
+  class="dropdown-menu absolute top-[56px] left-[28%] xl:left-[26%] lg:backdrop-blur-md lg:bg-white/80 dark:lg:bg-[#030621e6]/80 drop-shadow-xl lg:border border-gray-200 dark:border-gray-800 transition-all duration-300 ease-in-out hidden rounded-md"
   data-navigation-menu
 >
   <div class="w-[30rem]">
@@ -26,7 +26,7 @@ const { links, currentPath } = Astro.props;
         links.map((headerLinks, index) => (
           <div
             class:list={[
-              'w-full h-full flex-shrink-0 transition-all duration-300 ease-in-out transform absolute inset-0',
+              'w-full h-full flex-shrink-0 transition-all duration-500 ease-in-out transform absolute inset-0',
               { 'translate-x-0 opacity-100 z-10': index === 0 },
               { 'translate-x-[30%] opacity-0 z-0': index > 0 },
             ]}
@@ -34,7 +34,7 @@ const { links, currentPath } = Astro.props;
             id={`nav-panel-${index}`}
             data-nav-panel={index}
           >
-            <div class="md:flex md:flex-row md:items-start md:gap-4 md:p-4 h-full">
+            <div class="lg:flex lg:flex-row lg:items-start lg:gap-4 lg:p-4 h-full">
               <ul class="w-1/2">
                 {headerLinks.links
                   ?.filter((link) => !link.image)
@@ -58,7 +58,7 @@ const { links, currentPath } = Astro.props;
                     </li>
                   ))}
               </ul>
-              <ul class="md:w-1/2 md:space-y-2 md:block">
+              <ul class="lg:w-1/2 lg:space-y-2 lg:block">
                 {headerLinks.links
                   ?.filter((link) => link.image)
                   .map(({ text, href, image }) => (
@@ -94,7 +94,7 @@ const { links, currentPath } = Astro.props;
 
 <script>
   function setupNavigation() {
-    const menu = document.querySelector('[data-navigation-menu]');
+    const menu = document.querySelector('[data-navigation-menu]') as HTMLElement;
     const container = menu?.querySelector('[data-nav-container]') as HTMLElement;
     const panels = menu?.querySelectorAll('[data-nav-panel]');
     const headerButtons = document.querySelectorAll('[data-nav-button]');
@@ -133,9 +133,7 @@ const { links, currentPath } = Astro.props;
       if (!isMediumScreen()) return;
 
       const direction = index > activePanel ? 1 : -1;
-      console.log('direction', direction ? 'Right' : 'Left');
-      console.log('index', index, 'activePanel', activePanel);
-      const height = index === 0 || index === 3 ? 10 : 16.5;
+      const height = index === 0 ? 10 : index === 3 ? 9 : 16.5;
 
       menu?.classList.remove('hidden');
 
@@ -143,9 +141,14 @@ const { links, currentPath } = Astro.props;
       if (container) {
         container.style.height = `${height}rem`;
       }
+      if (menu) {
+        menu.style.left = index === 3 ? '37%' : '26%';
+      }
+
       if (index !== activePanel) {
         panels?.forEach((panel, i) => {
           if (i === index) {
+            console.log('showing panel', i, direction);
             // Panel sliding in
             (panel as HTMLElement).style.transform = `translateX(${direction * 30}%)`; // Start from right/left
             panel.classList.remove('opacity-0', 'z-0');
