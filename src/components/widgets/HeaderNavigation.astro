@@ -35,34 +35,6 @@ const { links, currentPath } = Astro.props;
             data-nav-panel={index}
           >
             <div class="md:flex md:flex-row md:items-start md:gap-4 md:p-4 h-full">
-              {headerLinks.isReversed && (
-                <ul class="md:w-1/2 md:space-y-2 md:block">
-                  {headerLinks.links
-                    ?.filter((link) => link.image)
-                    .map(({ text, href, image }) => (
-                      <li class="group">
-                        <a
-                          class="relative block h-24 rounded-lg transform-gpu overflow-hidden ring-0 ring-white dark:ring-gray-700 group-hover:ring-1 transition duration-200"
-                          href={getPermalink(`${href}`)}
-                        >
-                          {image && (
-                            <Image
-                              src={image.src}
-                              alt={image?.alt}
-                              width={400}
-                              height={300}
-                              class="absolute inset-0 w-full h-full object-cover object-center opacity-60 group-hover:opacity-75 group-hover:scale-105 transition duration-500 transform-gpu"
-                            />
-                          )}
-                          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
-                          <div class="absolute bottom-0 left-0 p-4">
-                            <span class="text-white font-medium">{text}</span>
-                          </div>
-                        </a>
-                      </li>
-                    ))}
-                </ul>
-              )}
               <ul class="w-1/2">
                 {headerLinks.links
                   ?.filter((link) => !link.image)
@@ -86,34 +58,32 @@ const { links, currentPath } = Astro.props;
                     </li>
                   ))}
               </ul>
-              {!headerLinks.isReversed && (
-                <ul class="md:w-1/2 md:space-y-2 md:block">
-                  {headerLinks.links
-                    ?.filter((link) => link.image)
-                    .map(({ text, href, image }) => (
-                      <li class="group">
-                        <a
-                          class="relative block h-24 rounded-lg transform-gpu overflow-hidden ring-0 ring-white dark:ring-gray-700 group-hover:ring-1 transition duration-200"
-                          href={getPermalink(`${href}`)}
-                        >
-                          {image && (
-                            <Image
-                              src={image.src}
-                              alt={image?.alt}
-                              width={400}
-                              height={300}
-                              class="absolute inset-0 w-full h-full object-cover object-center opacity-60 group-hover:opacity-75 group-hover:scale-105 transition duration-500 transform-gpu"
-                            />
-                          )}
-                          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
-                          <div class="absolute bottom-0 left-0 p-4 py-2">
-                            <span class="text-white font-medium">{text}</span>
-                          </div>
-                        </a>
-                      </li>
-                    ))}
-                </ul>
-              )}
+              <ul class="md:w-1/2 md:space-y-2 md:block">
+                {headerLinks.links
+                  ?.filter((link) => link.image)
+                  .map(({ text, href, image }) => (
+                    <li class="group">
+                      <a
+                        class="relative block h-24 rounded-lg transform-gpu overflow-hidden ring-0 ring-white dark:ring-gray-700 group-hover:ring-1 transition duration-200"
+                        href={getPermalink(`${href}`)}
+                      >
+                        {image && (
+                          <Image
+                            src={image.src}
+                            alt={image?.alt}
+                            width={400}
+                            height={300}
+                            class="absolute inset-0 w-full h-full object-cover object-center opacity-60 group-hover:opacity-75 group-hover:scale-105 transition duration-500 transform-gpu"
+                          />
+                        )}
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
+                        <div class="absolute bottom-0 left-0 p-4 py-2">
+                          <span class="text-white font-medium">{text}</span>
+                        </div>
+                      </a>
+                    </li>
+                  ))}
+              </ul>
             </div>
           </div>
         ))
