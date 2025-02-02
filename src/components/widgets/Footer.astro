@@ -1,5 +1,10 @@
 ---
-import { Icon } from 'astro-icon/components';
+import LinkedIn_logo from '~/assets/images/footer/LinkedIn logo.webp';
+import orcid_logo from '~/assets/images/footer/orcid_logo.webp';
+import PubMed_logo from '~/assets/images/footer/PubMed logo.webp';
+import ResearchGate_logo from '~/assets/images/footer/ResearchGate logo.webp';
+import uefLogo from '~/assets/images/funders/UEF Logo.png';
+import Image from 'astro/components/Image.astro';
 
 export interface Props {
   theme?: string;
@@ -45,28 +50,43 @@ const links = [
 const socialLinks = [
   {
     ariaLabel: 'UEF',
-    icon: 'tabler:school',
     href: 'https://uefconnect.uef.fi/en/group/understanding-fitness-and-cardiometabolic-health-in-little-darlings-urfit-child',
+    image: {
+      src: uefLogo,
+      alt: 'UEF',
+    },
   },
   {
     ariaLabel: 'ResearchGate',
-    icon: 'tabler:letter-r',
     href: 'https://www.researchgate.net/profile/Andrew-Agbaje',
+    image: {
+      src: ResearchGate_logo,
+      alt: 'ResearchGate',
+    },
   },
   {
     ariaLabel: 'LinkedIn',
-    icon: 'tabler:letter-l',
     href: 'https://www.linkedin.com/in/andrew-agbaje-5783b253',
+    image: {
+      src: LinkedIn_logo,
+      alt: 'LinkedIn',
+    },
   },
   {
     ariaLabel: 'ORCID',
-    icon: 'tabler:id',
     href: 'https://orcid.org/0000-0001-5138-3441',
+    image: {
+      src: orcid_logo,
+      alt: 'ORCID',
+    },
   },
   {
     ariaLabel: 'PubMed',
-    icon: 'tabler:books',
     href: 'https://pubmed.ncbi.nlm.nih.gov/?term=Agbaje+AO&cauthor_id=36214333',
+    image: {
+      src: PubMed_logo,
+      alt: 'PubMed',
+    },
   },
 ];
 
@@ -117,7 +137,7 @@ const { theme = 'light' } = Astro.props;
             aria-label="Social media links"
             class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4"
           >
-            {socialLinks.map(({ ariaLabel, href, icon }) => (
+            {socialLinks.map(({ ariaLabel, href, image }) => (
               <div class="group relative">
                 <a
                   class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
@@ -126,7 +146,17 @@ const { theme = 'light' } = Astro.props;
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {icon && <Icon name={icon} class="w-5 h-5" />}
+                  {image && (
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      class="w-5 h-5 object-contain"
+                      width={400}
+                      height={400}
+                      loading={'lazy'}
+                      decoding={'async'}
+                    />
+                  )}
                 </a>
                 <span class="absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-gray-800 px-2 py-1 text-sm text-white opacity-0 transition-opacity delay-500 group-hover:opacity-100 dark:bg-gray-200 dark:text-gray-800">
                   {ariaLabel}
