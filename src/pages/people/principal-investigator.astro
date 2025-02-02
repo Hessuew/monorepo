@@ -7,7 +7,6 @@ import AwardsAndHonours from '~/components/widgets/principal-investigator/Awards
 import Contact from '~/components/widgets/principal-investigator/Contact.astro';
 import Editorial from '~/components/widgets/principal-investigator/Editorial.astro';
 import Memberships from '~/components/widgets/principal-investigator/Memberships.astro';
-import PIHeader from '~/components/widgets/principal-investigator/PIHeader.astro';
 import PIHero from '~/components/widgets/principal-investigator/PIHero.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -46,10 +45,6 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Fragment slot="header">
-    <PIHeader />
-  </Fragment>
-
   <PIHero />
 
   <Note

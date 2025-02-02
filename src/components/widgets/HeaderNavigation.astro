@@ -13,7 +13,7 @@ const { links, currentPath } = Astro.props;
 ---
 
 <div
-  class="dropdown-menu absolute top-[56px] left-[17%] xl:left-[22%] lg:backdrop-blur-md lg:bg-white/80 dark:lg:bg-[#030621e6]/80 drop-shadow-xl lg:border border-gray-200 dark:border-gray-800 transition-all duration-300 ease-in-out hidden rounded-md"
+  class="dropdown-menu absolute top-[56px] left-[28%] xl:left-[31%] md:backdrop-blur-md md:bg-white/80 dark:md:bg-[#030621e6]/80 drop-shadow-xl md:border border-gray-200 dark:border-gray-800 transition-all duration-300 ease-in-out hidden rounded-md"
   data-navigation-menu
 >
   <div class="w-[30rem]">
@@ -34,7 +34,7 @@ const { links, currentPath } = Astro.props;
             id={`nav-panel-${index}`}
             data-nav-panel={index}
           >
-            <div class="lg:flex lg:flex-row lg:items-start lg:gap-4 lg:p-4 h-full">
+            <div class="md:flex md:flex-row md:items-start md:gap-4 md:p-4 h-full">
               <ul class="w-1/2">
                 {headerLinks.links
                   ?.filter((link) => !link.image)
@@ -58,7 +58,7 @@ const { links, currentPath } = Astro.props;
                     </li>
                   ))}
               </ul>
-              <ul class="lg:w-1/2 lg:space-y-2 lg:block">
+              <ul class="md:w-1/2 md:space-y-2 md:block">
                 {headerLinks.links
                   ?.filter((link) => link.image)
                   .map(({ text, href, image }) => (
@@ -77,7 +77,7 @@ const { links, currentPath } = Astro.props;
                           />
                         )}
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
-                        <div class="absolute bottom-0 left-0 p-4">
+                        <div class="absolute bottom-0 left-0 p-4 py-2">
                           <span class="text-white font-medium">{text}</span>
                         </div>
                       </a>
@@ -100,10 +100,10 @@ const { links, currentPath } = Astro.props;
     const headerButtons = document.querySelectorAll('[data-nav-button]');
     let activePanel = 0;
     let isMouseOverMenu = false;
-    const lgBreakpoint = 1024; // Tailwind's lg breakpoint
+    const mdBreakpoint = 768; // Tailwind's md breakpoint
 
-    function isLargeScreen() {
-      return window.innerWidth >= lgBreakpoint;
+    function isMediumScreen() {
+      return window.innerWidth >= mdBreakpoint;
     }
 
     function setActiveButton(index: number) {
@@ -130,10 +130,12 @@ const { links, currentPath } = Astro.props;
     }
 
     function showPanel(index: number) {
-      if (!isLargeScreen()) return;
+      if (!isMediumScreen()) return;
 
       const direction = index > activePanel ? 1 : -1;
-      const height = index === 0 ? 14 : 16.5;
+      console.log('direction', direction ? 'Right' : 'Left');
+      console.log('index', index, 'activePanel', activePanel);
+      const height = index === 0 || index === 3 ? 10 : 16.5;
 
       menu?.classList.remove('hidden');
 
@@ -141,29 +143,31 @@ const { links, currentPath } = Astro.props;
       if (container) {
         container.style.height = `${height}rem`;
       }
-
-      panels?.forEach((panel, i) => {
-        if (i === index) {
-          // Panel sliding in
-          (panel as HTMLElement).style.transform = `translateX(${direction * 30}%)`; // Start from right/left
-          panel.classList.remove('opacity-0', 'z-0');
-          panel.classList.add('z-10');
-          requestAnimationFrame(() => {
+      if (index !== activePanel) {
+        panels?.forEach((panel, i) => {
+          if (i === index) {
+            // Panel sliding in
+            (panel as HTMLElement).style.transform = `translateX(${direction * 30}%)`; // Start from right/left
+            panel.classList.remove('opacity-0', 'z-0');
+            panel.classList.add('z-10');
+            requestAnimationFrame(() => {
+              (panel as HTMLElement).style.transform = 'translateX(0)';
+              panel.classList.add('opacity-100');
+            });
+          } else {
+            // Panel sliding out
             (panel as HTMLElement).style.transform = 'translateX(0)';
-            panel.classList.add('opacity-100');
-          });
-        } else {
-          // Panel sliding out
-          (panel as HTMLElement).style.transform = 'translateX(0)';
-          panel.classList.remove('z-10');
-          panel.classList.add('z-0');
-          requestAnimationFrame(() => {
-            (panel as HTMLElement).style.transform = `translateX(${-direction * 30}%)`;
-            panel.classList.remove('opacity-100');
-            panel.classList.add('opacity-0');
-          });
-        }
-      });
+            panel.classList.remove('z-10');
+            panel.classList.add('z-0');
+            requestAnimationFrame(() => {
+              (panel as HTMLElement).style.transform = `translateX(${-direction * 30}%)`;
+              panel.classList.remove('opacity-100');
+              panel.classList.add('opacity-0');
+            });
+          }
+        });
+      }
+
       activePanel = index;
       setActiveButton(index);
     }

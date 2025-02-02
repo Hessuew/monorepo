@@ -157,6 +157,8 @@ export interface ItemLink {
   image?: {
     src: string | ImageMetadata;
     alt: string;
+    width?: number;
+    height?: number;
   };
   wider?: boolean;
   small?: boolean;

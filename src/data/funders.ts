@@ -3,7 +3,7 @@ import idaMontinLogo from '~/assets/images/funders/Idamontin Insaatio Logo Dark.
 import kordelinLogo from '~/assets/images/funders/Kordelin.webp';
 import pediatricLogo from '~/assets/images/funders/Lastentautien Tunnus.gif';
 import leroyLogo from '~/assets/images/funders/Leroy Logo Navigation.webp';
-import novoLogo from '~/assets/images/funders/Novo Nordisk.webp';
+import novoLogo2 from '~/assets/images/funders/Novo Nordisk Logo.webp';
 import orionLogo from '~/assets/images/funders/Orion Oyj Logo.svg';
 import paavoNurmiLogo from '~/assets/images/funders/Paavo Nurmi Foundation Logo.webp';
 import pauloLogo from '~/assets/images/funders/Paulon Saatio Logo.webp';
@@ -24,13 +24,17 @@ interface Funder {
   };
   wider?: boolean;
   small?: boolean;
+  width?: number;
+  height?: number;
 }
 
 const funders: Funder[] = [
   {
     name: 'Novo Nordisk Foundation',
-    logo: novoLogo,
+    logo: novoLogo2,
     url: 'https://novonordiskfonden.dk/en/',
+    width: 1200,
+    height: 374,
   },
   {
     name: 'Central Finnish Cultural Foundation',
@@ -110,6 +114,8 @@ export const items = funders.map((funder) => ({
     ? {
         src: funder.logo,
         alt: `${funder.name} logo`,
+        width: funder.width,
+        height: funder.height,
       }
     : undefined,
   url: funder.url,

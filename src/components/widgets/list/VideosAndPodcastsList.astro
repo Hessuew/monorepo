@@ -157,6 +157,7 @@ const { columns = 2, classes = {} } = Astro.props;
     try {
       async function displayModal() {
         await new Promise((resolve) => setTimeout(resolve, PLAYER_CREATION_DELAY));
+
         // Add player
         const player = createPlayer(
           selectedItem!.platform,
@@ -192,6 +193,26 @@ const { columns = 2, classes = {} } = Astro.props;
           }
         }
       }
+
+      // Add close button
+      const closeButton = document.createElement('button');
+      closeButton.type = 'button';
+      closeButton.setAttribute('aria-label', 'Close modal');
+      closeButton.className =
+        'absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary';
+      closeButton.onclick = closeModal;
+      closeButton.innerHTML = `
+          <svg
+            class="w-5 h-5 text-gray-500 dark:text-gray-400"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        `;
+      modalContent.appendChild(closeButton);
 
       // Fallback for non-supporting browsers
       if (!document.startViewTransition) {
@@ -481,7 +502,7 @@ const { columns = 2, classes = {} } = Astro.props;
   <div
     id="modal-content"
     role="document"
-    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] sm:w-[calc(100%-4rem)] md:w-[calc(100%-8rem)] max-w-4xl mx-auto bg-white dark:bg-slate-900 rounded-lg shadow-lg dark:shadow-none p-4 sm:p-6 md:p-8"
+    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] sm:w-[calc(100%-4rem)] md:w-[calc(100%-8rem)] max-w-4xl mx-auto bg-white dark:bg-slate-900 rounded-lg shadow-lg dark:shadow-none p-4 pt-8 sm:p-6 md:p-8"
   >
   </div>
 </div>
