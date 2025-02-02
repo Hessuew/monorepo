@@ -67,8 +67,8 @@ const { items, columns = 3, classes = {}, isProfile = false } = Astro.props;
                       src={item.image.src}
                       alt={item.image.alt}
                       class="w-full h-full object-cover object-center"
-                      width={256}
-                      height={256}
+                      width={item.image.width ?? 256}
+                      height={item.image.height ?? 256}
                       loading={index < 6 ? 'eager' : 'lazy'}
                       decoding={index < 6 ? 'sync' : 'async'}
                     />
@@ -88,12 +88,11 @@ const { items, columns = 3, classes = {}, isProfile = false } = Astro.props;
                   >
                     <Image
                       src={item.image.src}
-                      alt={item.image.alt}
-                      class="w-full h-full object-contain dark:brightness-110 dark:contrast-125"
-                      width={item.wider ? 300 : item.small ? 160 : 240}
-                      height={item.wider ? 150 : item.small ? 100 : 150}
-                      loading={index < 6 ? 'eager' : 'lazy'}
-                      decoding={index < 6 ? 'sync' : 'async'}
+                      alt={item.title}
+                      width={item.image.width}
+                      height={item.image.height}
+                      class="h-full w-full object-contain"
+                      loading="lazy"
                     />
                   </div>
                 )
