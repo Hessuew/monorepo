@@ -38,12 +38,13 @@ export const headerData: { links: Array<MenuLink> } = {
     },
     {
       text: 'Lead',
+      href: getPermalink('/people/principal-investigator'),
       links: [
         {
           text: 'About',
           href: getPermalink('/people/principal-investigator'),
           icon: 'tabler:user-circle',
-          description: 'The research leader',
+          description: 'The Principal Investigator',
         },
         {
           image: {
@@ -139,7 +140,7 @@ export const headerData: { links: Array<MenuLink> } = {
       ],
     },
     {
-      text: 'Waist/Height Calculator',
+      text: 'Waist/Height Calc',
       href: getPermalink('/waist-height-calculator'),
       description: 'Waist-to-height ratio tool',
       icon: 'tabler:calculator',

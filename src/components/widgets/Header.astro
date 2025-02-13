@@ -130,7 +130,59 @@ const { nav: navClass = '' } = classes;
         {
           links.map(({ text, href, links }, index) => (
             <li class={links?.length ? 'dropdown' : ''}>
-              {links?.length ? (
+              {text === 'Lead' ? (
+                <>
+                  {links?.length ? (
+                    <div class="hidden lg:flex">
+                      <button
+                        type="button"
+                        class="px-2.5 py-3 flex items-center whitespace-nowrap"
+                        data-nav-button
+                        id={`nav-button-${index}`}
+                      >
+                        <span>
+                          {text}
+                          <Icon
+                            name="tabler:chevron-down"
+                            class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden lg:inline"
+                          />
+                        </span>
+                      </button>
+                      <div class="flex lg:hidden lg:backdrop-blur-md dark:lg:bg-dark rounded lg:absolute pl-4 lg:pl-0 font-medium lg:bg-white/90 lg:min-w-[480px] drop-shadow-xl lg:border border-gray-200 dark:border-gray-800">
+                        <div class="lg:flex lg:flex-row lg:items-start lg:gap-4 lg:p-4">
+                          <ul class="py-2 lg:flex-1">
+                            {[
+                              ...links.filter((link) => !link.image),
+                              ...links.filter((link) => link.image).map((link) => ({ ...link, image: undefined })),
+                            ].map(({ text: text2, href: href2 }) => (
+                              <li class="block lg:hidden">
+                                <a
+                                  class:list={[
+                                    'first:rounded-t last:rounded-b lg:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap',
+                                    { 'aw-link-active': href2 === currentPath },
+                                  ]}
+                                  href={getPermalink(`${href2}`)}
+                                >
+                                  {text2}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  ) : null}
+                  <a
+                    class:list={[
+                      'flex lg:hidden hover:text-primary px-2.5 py-3 flex items-center whitespace-nowrap',
+                      { 'aw-link-active': href === currentPath },
+                    ]}
+                    href={getPermalink(`${href}`)}
+                  >
+                    {text}
+                  </a>
+                </>
+              ) : links?.length ? (
                 <>
                   <button
                     type="button"
@@ -172,7 +224,7 @@ const { nav: navClass = '' } = classes;
               ) : (
                 <a
                   class:list={[
-                    'hover:text-primary px-4 py-3 flex items-center whitespace-nowrap',
+                    'hover:text-primary px-2.5 py-3 flex items-center whitespace-nowrap',
                     { 'aw-link-active': href === currentPath },
                   ]}
                   href={getPermalink(`${href}`)}

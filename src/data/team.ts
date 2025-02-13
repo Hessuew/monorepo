@@ -124,7 +124,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: 'Juhani Juusola',
-    title: 'IT Specialist, Creator of the website',
+    title: 'IT Specialist, Website creator',
     description: 'Design, web, mobile, server <br /> React, React Native, Node.js, MySQL, Tailwind',
     image: {
       src: imgJuhani,
