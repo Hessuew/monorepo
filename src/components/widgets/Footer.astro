@@ -171,3 +171,29 @@ const { theme = 'light' } = Astro.props;
     </div>
   </div>
 </footer>
+
+<script>
+// Smooth scroll for anchor links
+const handleAnchorNavigation = (e) => {
+  const link = e.target.closest('a[href*="#"]');
+  if (link) {
+    const hash = new URL(link.href).hash;
+    const target = hash && document.querySelector(hash);
+    
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      });
+      history.replaceState(null, '', hash);
+    }
+  }
+};
+
+document.querySelectorAll('a[href*="#"]').forEach(anchor => {
+  anchor.addEventListener('click', handleAnchorNavigation);
+  anchor.addEventListener('touchstart', handleAnchorNavigation);
+});
+</script>
