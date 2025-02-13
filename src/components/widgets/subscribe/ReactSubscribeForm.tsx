@@ -152,7 +152,7 @@ export default function ReactSubscribeForm() {
             value={formState.email}
             onChange={handleInputChange}
             placeholder='Subscribe to updates'
-            className='w-full md:min-w-[300px] px-4 pr-24 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 dark:focus:ring-gray-300'
+            className='w-full md:min-w-[18.75rem] px-4 pr-24 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 dark:focus:ring-gray-300'
             required
             aria-label='Email subscription'
             disabled={formState.status === 'loading'}

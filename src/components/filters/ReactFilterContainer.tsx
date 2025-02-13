@@ -230,7 +230,7 @@ export default function ReactFilterContainer({
             </div>
           </div>
           {showSearch && (
-            <div className='w-full md:w-auto md:min-w-[300px]'>
+            <div className='w-full md:w-auto md:min-w-[18.75rem]'>
               <div className='relative'>
                 <input
                   id={gridId ? `${gridId}-quick-filter` : 'search-input'}

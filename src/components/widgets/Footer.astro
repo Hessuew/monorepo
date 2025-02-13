@@ -4,6 +4,7 @@ import orcid_logo from '~/assets/images/footer/orcid_logo.webp';
 import PubMed_logo from '~/assets/images/footer/PubMed_logo.webp';
 import ResearchGate_logo from '~/assets/images/footer/ResearchGate_logo.webp';
 import uefLogo from '~/assets/images/funders/UEF Logo.png';
+import { getPermalink } from '~/utils/permalinks';
 import Image from 'astro/components/Image.astro';
 
 export interface Props {
@@ -14,35 +15,35 @@ const links = [
   {
     title: 'About',
     links: [
-      { text: 'Team', href: '/people/team' },
-      { text: 'Collaborators', href: '/people/collaborators' },
-      { text: 'Funders', href: '/people/funders' },
-      { text: 'Thesis', href: '/materials/thesis' },
-      { text: 'Key Articles', href: '/materials/key-articles' },
+      { text: 'Team', href: getPermalink('/people/team') },
+      { text: 'Collaborators', href: getPermalink('/people/collaborators') },
+      { text: 'Funders', href: getPermalink('/people/funders') },
+      { text: 'Thesis', href: getPermalink('/materials/thesis') },
+      { text: 'Key Articles', href: getPermalink('/materials/key-articles') },
     ],
   },
   {
     title: 'Principal Investigator',
     links: [
-      { text: 'About', href: '/people/principal-investigator' },
-      { text: 'Academic', href: '/people/principal-investigator#academic' },
-      { text: 'Awards and Honours', href: '/people/principal-investigator#awards-and-honours' },
-      { text: 'Editorial Board', href: '/people/principal-investigator#editorial' },
-      { text: 'Affiliations', href: '/people/principal-investigator#affiliations' },
-      { text: 'Memberships', href: '/people/principal-investigator#memberships' },
-      { text: 'Contact', href: '/people/principal-investigator#contact' },
+      { text: 'About', href: getPermalink('/people/principal-investigator') },
+      { text: 'Academic', href: getPermalink('/people/principal-investigator#academic') },
+      { text: 'Awards and Honours', href: getPermalink('/people/principal-investigator#awards-and-honours') },
+      { text: 'Editorial Board', href: getPermalink('/people/principal-investigator#editorial') },
+      { text: 'Affiliations', href: getPermalink('/people/principal-investigator#affiliations') },
+      { text: 'Memberships', href: getPermalink('/people/principal-investigator#memberships') },
+      { text: 'Contact', href: getPermalink('/people/principal-investigator#contact') },
     ],
   },
   {
     title: 'Resources',
     links: [
-      { text: 'Publications', href: '/materials/publications' },
-      { text: 'Videos and Podcasts', href: '/materials/videos-and-podcasts' },
-      { text: 'Infographics', href: '/materials/infografics' },
-      { text: 'Press Releases', href: '/materials/press-releases' },
-      { text: 'Waist/Height Calculator', href: '/waist-height-calculator' },
-      { text: 'Call to Action', href: '/call-to-action' },
-      { text: 'Non-academic', href: '/non-academic' },
+      { text: 'Publications', href: getPermalink('/materials/publications') },
+      { text: 'Videos and Podcasts', href: getPermalink('/materials/videos-and-podcasts') },
+      { text: 'Infographics', href: getPermalink('/materials/infografics') },
+      { text: 'Press Releases', href: getPermalink('/materials/press-releases') },
+      { text: 'Waist/Height Calculator', href: getPermalink('/waist-height-calculator') },
+      { text: 'Call to Action', href: getPermalink('/call-to-action') },
+      { text: 'Non-academic', href: getPermalink('/non-academic') },
     ],
   },
 ];
@@ -171,29 +172,3 @@ const { theme = 'light' } = Astro.props;
     </div>
   </div>
 </footer>
-
-<script>
-// Smooth scroll for anchor links
-const handleAnchorNavigation = (e) => {
-  const link = e.target.closest('a[href*="#"]');
-  if (link) {
-    const hash = new URL(link.href).hash;
-    const target = hash && document.querySelector(hash);
-    
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest'
-      });
-      history.replaceState(null, '', hash);
-    }
-  }
-};
-
-document.querySelectorAll('a[href*="#"]').forEach(anchor => {
-  anchor.addEventListener('click', handleAnchorNavigation);
-  anchor.addEventListener('touchstart', handleAnchorNavigation);
-});
-</script>
