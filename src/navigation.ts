@@ -38,12 +38,13 @@ export const headerData: { links: Array<MenuLink> } = {
     },
     {
       text: 'Lead',
+      href: getPermalink('/people/principal-investigator'),
       links: [
         {
           text: 'About',
           href: getPermalink('/people/principal-investigator'),
           icon: 'tabler:user-circle',
-          description: 'The research leader',
+          description: 'The Principal Investigator',
         },
         {
           image: {
@@ -51,7 +52,7 @@ export const headerData: { links: Array<MenuLink> } = {
             alt: 'Agbaje at the ESC congress, London',
           },
           text: 'Academic',
-          href: '/people/principal-investigator#academic',
+          href: getPermalink('/people/principal-investigator#academic'),
           icon: 'tabler:certificate',
           description: 'Academic qualifications and achievements',
         },
@@ -61,25 +62,25 @@ export const headerData: { links: Array<MenuLink> } = {
             alt: 'FESC ESC 2024 Agbaje',
           },
           text: 'Awards and Honours',
-          href: '/people/principal-investigator#awards-and-honours',
+          href: getPermalink('/people/principal-investigator#awards-and-honours'),
           icon: 'tabler:trophy',
           description: 'Recognition and accolades',
         },
         {
           text: 'Editorial Board',
-          href: '/people/principal-investigator#editorial',
+          href: getPermalink('/people/principal-investigator#editorial'),
           icon: 'tabler:edit',
           description: 'Journal editorial positions',
         },
         {
           text: 'Affiliations',
-          href: '/people/principal-investigator#affiliations',
+          href: getPermalink('/people/principal-investigator#affiliations'),
           icon: 'tabler:building',
           description: 'Institutional connections',
         },
         {
           text: 'Memberships',
-          href: '/people/principal-investigator#memberships',
+          href: getPermalink('/people/principal-investigator#memberships'),
           icon: 'tabler:id-badge',
           description: 'Professional society memberships',
         },
@@ -139,7 +140,7 @@ export const headerData: { links: Array<MenuLink> } = {
       ],
     },
     {
-      text: 'Waist/Height Calculator',
+      text: 'Waist/Height Calc',
       href: getPermalink('/waist-height-calculator'),
       description: 'Waist-to-height ratio tool',
       icon: 'tabler:calculator',

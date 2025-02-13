@@ -109,9 +109,8 @@ import Features5 from '../Features5.astro';
 
 <!-- Fellowships and Positions -->
 <Features5
-  classes={{ container: 'max-w-4xl mx-auto pt-0 md:pt-0 lg:pt-0' }}
+  classes={{ container: 'max-w-7xl mx-auto pt-0 md:pt-0 lg:pt-0' }}
   columns={1}
-  classes={{ labelContainer: 'pt-0 md:pt-0 lg:pt-0' }}
   image={{
     src: imgFESC,
     alt: 'Agbaje at FESC induction ceremony, ExCel London 2024',
@@ -155,6 +154,12 @@ import Features5 from '../Features5.astro';
                  ${item.year ? `${item.year}` : ''}`,
   }))}
 />
+
+<h2
+  class="text-center text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+>
+  Academic Unpaid Position
+</h2>
 
 <!-- Academic Achievements -->
 <Features5

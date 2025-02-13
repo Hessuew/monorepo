@@ -59,7 +59,8 @@ export const recentAwards2024: Award[] = [
   },
   {
     title: 'Career Development Lecture',
-    subtitle: 'British Society for Endocrinology Career Development Award',
+    subtitle:
+      'Association for Research into Arterial Structure and Physiology (Artery Society) Career Development Award',
     location: 'Cardiff, UK',
     icon: 'tabler:presentation',
   },
@@ -187,10 +188,10 @@ export const academicAchievements: Achievement[] = [
     icon: 'tabler:school',
   },
   {
-    title: 'Psychiatry / Mental Health',
+    title: 'Doctor of Medicine (MD)',
     subtitle: 'University of Benin, Benin City, Edo State, Nigeria',
     year: '2014',
-    details: 'Distinction, summa cum laude, (5/5 points)',
+    details: 'Distinction in Psychiatry/Mental Health, summa cum laude, (5/5 points)',
     icon: 'tabler:brain',
   },
 ];
