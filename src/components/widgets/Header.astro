@@ -114,7 +114,12 @@ const { nav: navClass = '' } = classes;
                 <>
                   <button
                     type="button"
-                    class="px-2.5 py-3 flex items-center whitespace-nowrap"
+                    class={twMerge(
+                      'px-2.5 py-3 flex items-center whitespace-nowrap',
+                      index !== 0 && 'px-6',
+                      index === 0 && 'w-36 z-20 relative',
+                      index === 1 && '-ml-4 relative z-10 pl-0'
+                    )}
                     data-nav-button
                     id={`nav-button-${index}`}
                   >
