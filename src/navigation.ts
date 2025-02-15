@@ -1,9 +1,8 @@
-import imgAndrew from '~/assets/images//principalInvestigator/Agbaje ESC Congress London.webp';
+import imgAndrew from '~/assets/images//navigation/Andrew Agbaje RT 2022.webp';
 import imgAndrewCraig from '~/assets/images//principalInvestigator/Andrew Craig Dimitri Alan.webp';
 import cholesterolPassport from '~/assets/images/infographic/Cholesterol passport for adolescents to halt the world’s deadliest disease – atherosclerosis.webp';
 import imgVideosAndPodcasts from '~/assets/images/navigation/Smoking During Childhood.webp';
 import imgOrangeSparks from '~/assets/images/non-academic/Orange Sparks.webp';
-import imgFESC from '~/assets/images/principalInvestigator/FESC ESC 2024 Agbaje.webp';
 import type { MenuLink } from './components/widgets/Header.astro';
 import { getPermalink } from './utils/permalinks';
 
@@ -34,62 +33,15 @@ export const headerData: { links: Array<MenuLink> } = {
           icon: 'tabler:cash',
           description: 'Research funding partners',
         },
-      ],
-    },
-    {
-      text: 'Lead',
-      href: getPermalink('/people/principal-investigator'),
-      links: [
         {
-          text: 'About',
+          text: 'Principal Investigator',
           href: getPermalink('/people/principal-investigator'),
           icon: 'tabler:user-circle',
-          description: 'The Principal Investigator',
-        },
-        {
           image: {
             src: imgAndrew,
-            alt: 'Agbaje at the ESC congress, London',
+            alt: 'Agbaje headshot',
           },
-          text: 'Academic',
-          href: getPermalink('/people/principal-investigator#academic'),
-          icon: 'tabler:certificate',
-          description: 'Academic qualifications and achievements',
         },
-        {
-          image: {
-            src: imgFESC,
-            alt: 'FESC ESC 2024 Agbaje',
-          },
-          text: 'Awards and Honours',
-          href: getPermalink('/people/principal-investigator#awards-and-honours'),
-          icon: 'tabler:trophy',
-          description: 'Recognition and accolades',
-        },
-        {
-          text: 'Editorial Board',
-          href: getPermalink('/people/principal-investigator#editorial'),
-          icon: 'tabler:edit',
-          description: 'Journal editorial positions',
-        },
-        {
-          text: 'Affiliations',
-          href: getPermalink('/people/principal-investigator#affiliations'),
-          icon: 'tabler:building',
-          description: 'Institutional connections',
-        },
-        {
-          text: 'Memberships',
-          href: getPermalink('/people/principal-investigator#memberships'),
-          icon: 'tabler:id-badge',
-          description: 'Professional society memberships',
-        },
-        // {
-        //   text: 'Contact',
-        //   href: '/people/principal-investigator#contact',
-        //   icon: 'tabler:mail',
-        //   description: 'Get in touch',
-        // },
       ],
     },
     {
