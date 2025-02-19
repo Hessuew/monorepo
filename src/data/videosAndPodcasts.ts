@@ -11,7 +11,7 @@ interface MediaItem {
   title: string;
   date: string;
   videoId: string;
-  platform: 'Youtube' | 'Vimeo' | 'Doccheck' | 'Soundcloud' | 'Spotify' | 'Local';
+  platform: 'Youtube' | 'Vimeo' | 'Doccheck' | 'Soundcloud' | 'Spotify' | 'Other';
   author?: string;
   trackUrl?: string;
   poster?: ImageMetadata;
@@ -20,6 +20,12 @@ interface MediaItem {
 }
 
 export const videosAndPodcasts: MediaItem[] = [
+  {
+    title: 'How Childhood Exercise Can Curb Smoking',
+    date: '2025-02-14',
+    videoId: 'QcedqJZoM7U',
+    platform: 'Youtube',
+  },
   {
     title: 'Persistent tobacco smoking from childhood may cause heart damage by the mid-twenties',
     date: '2025-01-04',
@@ -123,7 +129,7 @@ export const videosAndPodcasts: MediaItem[] = [
     date: '2023-08-10',
     videoId: 'newseria-interview-2023',
     video: videoAgbaje,
-    platform: 'Local',
+    platform: 'Other',
     poster: imgNewseriaInterview,
   },
 ];
