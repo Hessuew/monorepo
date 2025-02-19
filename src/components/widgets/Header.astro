@@ -117,13 +117,13 @@ const { nav: navClass = '' } = classes;
                     class={twMerge(
                       'px-2.5 py-3 flex items-center whitespace-nowrap',
                       index !== 0 && 'px-6',
-                      index === 0 && 'w-36 z-20 relative',
-                      index === 1 && '-ml-4 relative z-10 pl-0'
+                      index === 0 && 'lg:w-36 z-20 relative px-6 lg:px-0',
+                      index === 1 && 'lg:-ml-4 relative z-10 lg:pl-0'
                     )}
                     data-nav-button
                     id={`nav-button-${index}`}
                   >
-                    <span>
+                    <span class="font-bold lg:font-normal">
                       {text}
                       <Icon
                         name="tabler:chevron-down"

@@ -148,7 +148,6 @@ const { links, currentPath } = Astro.props;
       if (index !== activePanel) {
         panels?.forEach((panel, i) => {
           if (i === index) {
-            console.log('showing panel', i, direction);
             // Panel sliding in
             (panel as HTMLElement).style.transform = `translateX(${direction * 30}%)`; // Start from right/left
             panel.classList.remove('opacity-0', 'z-0');

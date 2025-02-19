@@ -116,7 +116,7 @@ const { columns = 2, classes = {} } = Astro.props;
       iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
       iframe.style.borderRadius = '12px';
       container.appendChild(iframe);
-    } else if (platform === 'Local') {
+    } else if (platform === 'Other') {
       const videoElement = document.createElement('video');
       const source = document.createElement('source');
       source.src = video?.src || '';
@@ -444,7 +444,7 @@ const { columns = 2, classes = {} } = Astro.props;
                     ) : item.platform === 'Vimeo' ||
                       item.platform === 'Spotify' ||
                       item.platform === 'Doccheck' ||
-                      item.platform === 'Local' ? (
+                      item.platform === 'Other' ? (
                       <Image
                         src={item.poster}
                         alt={item.title}
