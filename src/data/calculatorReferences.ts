@@ -7,6 +7,13 @@ interface Reference {
 
 export const references: Reference[] = [
   {
+    title: 'Obesity and Endocrinology',
+    subtitle:
+      'BMI triples overweight prevalence in 7600 children compared with waist-to-height ratio: The ALSPAC Study',
+    description: 'Agbaje AO. Obesity and Endocrinology. 2025;wjaf002.',
+    url: 'https://doi.org/10.1093/obendo/wjaf002',
+  },
+  {
     title: 'Pediatric Research',
     subtitle:
       'Waist-circumference-to-height-ratio had better longitudinal agreement with DEXA-measured fat mass than BMI in 7237 children',

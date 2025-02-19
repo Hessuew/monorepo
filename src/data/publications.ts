@@ -16,6 +16,17 @@ interface Publication {
 
 export const publications: Publication[] = [
   {
+    title: 'BMI triples overweight prevalence in 7600 children compared with waist-to-height ratio: The ALSPAC Study',
+    authors: 'Agbaje AO',
+    date: '2025-02-14',
+    journal: 'Obesity and Endocrinology',
+    volume: '',
+    pages: '',
+    type: 'Original article',
+    category: 'metabolic-health',
+    doi: '10.1093/obendo/wjaf002',
+  },
+  {
     title:
       'Accelerometer-based sedentary time and physical activity with incident and progressive tobacco smoking in 2503 children: A 13-year mediation and temporal longitudinal study',
     authors: 'Agbaje, Andrew O',

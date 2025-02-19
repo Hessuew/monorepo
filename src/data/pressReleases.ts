@@ -11,6 +11,47 @@ interface PressRelease {
 
 export const pressReleases: PressRelease[] = [
   {
+    title:
+      'Moderate-to-vigorous physical activity in childhood may protect 60% of 13-year-olds from smoking their first tobacco cigarette',
+    date: '2025-02-11',
+    url: 'https://www.bristol.ac.uk/alspac/news/2025/moderate-to-vigorous-physical-activity-in-childhood-may-protect-60-of-13-year-o.html',
+    source: 'University of Bristol',
+    type: 'News',
+    category: 'physical-activity',
+  },
+  {
+    title: 'Moderate to intense exercise in childhood reduces smoking in adulthood',
+    date: '2025-02-14',
+    url: 'https://finance.yahoo.com/news/moderate-intense-exercise-childhood-reduces-112527830.html?',
+    source: 'Yahoo',
+    type: 'News',
+    category: 'physical-activity',
+  },
+  {
+    title: 'Childhood physical activity can prevent tobacco smoking in adolescence',
+    date: '2025-02-11',
+    url: 'https://www.msn.com/en-gb/health/other/childhood-physical-activity-can-prevent-tobacco-smoking-in-adolescence/ar-AA1yOiDc',
+    source: 'MSN',
+    type: 'News',
+    category: 'physical-activity',
+  },
+  {
+    title: 'Critical Mass: Recent Research Emphasizes More Dangers of Obesity in Adolescence',
+    date: '2024-03-01',
+    url: 'https://endocrinenews.endocrine.org/critical-mass-recent-research-emphasizes-more-dangers-of-obesity-in-adolescence/',
+    source: 'Endocrine News',
+    type: 'News',
+    category: 'obesity',
+  },
+  {
+    title: 'This Easy Alternative to Exercise Boosts Health and Extends Lives',
+    date: '2024-11-18',
+    url: 'https://medium.com/wise-well/this-easy-alternative-to-exercise-boosts-health-and-extends-lives-c5e272371beb',
+    source: 'Medium',
+    type: 'News',
+    category: 'physical-activity',
+  },
+  {
     title: 'Smoking tobacco from early childhood can cause premature heart damage, new study shows',
     date: '2024-12-12',
     url: 'https://usrtk.org/healthwire/smoking-tobacco-from-early-childhood-can-cause-premature-heart-damage/',
