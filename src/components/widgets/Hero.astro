@@ -114,8 +114,8 @@ const { labelContainer: labelContainerClass = '' } = classes;
                         loading="eager"
                         decoding="async"
                         objectPosition="top top"
-                        width={image.isInfographics ? 1080 : 1024}
-                        height={image.isInfographics ? 737 : 576}
+                        width={image?.width || (image.isInfographics ? 1080 : 1024)}
+                        height={image?.height || (image.isInfographics ? 737 : 576)}
                         {...image}
                       />
                     )}

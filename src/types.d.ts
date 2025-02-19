@@ -250,6 +250,8 @@ export interface Hero extends Headline, Widget {
         alt?: string;
         class?: string;
         isInfographics?: boolean;
+        height?: number;
+        width?: number;
         link?: {
           href: string;
           target?: string;
