@@ -249,6 +249,7 @@ export interface Hero extends Headline, Widget {
         src: string | ImageMetadata;
         alt?: string;
         class?: string;
+        objectPosition?: string;
         isInfographics?: boolean;
         height?: number;
         width?: number;
