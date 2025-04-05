@@ -13,15 +13,15 @@ export const recentAwards2025: Award[] = [
     location: null,
     icon: 'tabler:quote-filled',
   },
-];
-
-export const recentAwards2024: Award[] = [
   {
     title: "The 2024 World's Third-Best Highly Ranked Scholar",
     subtitle: 'Arterial Stiffness Specialty by ScholarGPS',
     location: null,
     icon: 'tabler:chart-bar',
   },
+];
+
+export const recentAwards2024: Award[] = [
   {
     title: "World's Most Significant Research",
     subtitle: "American Heart Association's 2024 World's Most Significant Advances in Cardiovascular Research",
