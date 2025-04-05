@@ -23,6 +23,7 @@ import img9 from '~/assets/images/infographic/Sedentary Time Adolescents Heart.w
 import img26 from '~/assets/images/infographic/Sedentary Time Tobacco Study 2503 Children.webp';
 import img17 from '~/assets/images/infographic/Teenagers Insulin Resistance Risk.webp';
 import img2 from '~/assets/images/infographic/Weight Gain Childhood Vascular Health.webp';
+import imgBMI from '~/assets/images/waist-to-height-calculator/Press release BMI versus WHtR_v2.webp';
 import img18 from '~/assets/images/waist-to-height-calculator/Waist to Height Ratio vs BMI Press Release.webp';
 import type { ImageMetadata } from 'astro';
 import { getYear, parseISO } from 'date-fns';
@@ -41,6 +42,18 @@ interface InfoGrafic {
 }
 
 export const infografics: InfoGrafic[] = [
+  {
+    title: 'Two-thirds of children classified BMI-​overweight had normal fat estimated with waist-​to-height ratio ',
+    date: '2025-03-12',
+    type: 'body-composition',
+    description: ``,
+    url: 'https://www.uef.fi/en/article/two-thirds-of-children-classified-bmi-overweight-had-normal-fat-estimated-with-waist-to-height-ratio',
+    // doi: '10.1016/j.brat.2024.104674',
+    image: {
+      src: imgBMI,
+      alt: 'Press release BMI versus WHtR',
+    },
+  },
   {
     title:
       'Accelerometer-based sedentary time and physical activity with incident and progressive tobacco smoking in 2503 children: A 13-year mediation and temporal longitudinal study',

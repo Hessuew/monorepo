@@ -1,7 +1,10 @@
 ---
 import imgAndrew from '~/assets/images/principalInvestigator/Andrew Agbaje Edited.webp';
 import imgPortmourth from '~/assets/images/principalInvestigator/Andrew Portsmouth PhD 2.webp';
+import imgEASO_NovoNordisk from '~/assets/images/principalInvestigator/EASO_Novo Nordisk Award 2024.webp';
 import imgFESC from '~/assets/images/principalInvestigator/FESC ESC 2024 Agbaje.webp';
+import imgScholarGPS from '~/assets/images/principalInvestigator/ScholarGPS ranking_2024-1.webp';
+import imgScholarGPSSpecialties from '~/assets/images/principalInvestigator/scholargps_specialties_last_5_years_page-0001.webp';
 import imgFescLondon from '~/assets/images/principalInvestigator/Top Reviewer Award EJPC 2024.webp';
 import videoGraduationClip from '~/assets/videos/Graduation Clip Andrew Agbaje Portsmouth.mp4';
 import GradientText from '~/components/ui/GradientText.astro';
@@ -13,6 +16,7 @@ import {
   fellowshipsAndPositions,
   pastAwards,
   recentAwards2024,
+  recentAwards2025,
 } from '~/data/awardsAndHonours';
 import Features2 from '../Features2.astro';
 import Features5 from '../Features5.astro';
@@ -51,16 +55,36 @@ import Features5 from '../Features5.astro';
 
     <br />
     <br />
-    <!-- Recent Awards 2024 -->
+    <!-- Recent Awards 2025 -->
     <h2
       class="text-center text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
     >
-      Recent Awards & Recognition (2024)
+      Recent Awards & Recognition (2025)
     </h2>
   </Fragment>
 </Features2>
 
-<!-- Recent Awards 2024 -->
+<!-- Recent Awards 2025 -->
+<Features2
+  classes={{ container: 'max-w-7xl mx-auto pt-0 md:pt-0 lg:pt-0' }}
+  columns={3}
+  items={recentAwards2025.map((item) => ({
+    title: item.title,
+    icon: item.icon,
+    description: `${item.subtitle}
+                 ${item.details ? `<div class="text-primary mt-2">${item.details}</div>` : ''}
+                 ${item.location ? `<br /><br />${item.location}` : ''}`,
+  }))}
+/>
+
+<!-- Awards 2024 -->
+<h2
+  class="text-center text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+>
+  Awards & Recognition (2024)
+</h2>
+
+<!-- Awards 2024 -->
 <Features2
   classes={{ container: 'max-w-7xl mx-auto pt-0 md:pt-0 lg:pt-0' }}
   columns={3}
@@ -71,6 +95,37 @@ import Features5 from '../Features5.astro';
                  ${item.details ? `<div class="text-primary mt-2">${item.details}</div>` : ''}
                  ${item.location ? `<br /><br />${item.location}` : ''}`,
   }))}
+/>
+
+<div class="flex flex-row relative max-w-7xl mx-auto px-4 sm:px-6">
+  <Hero
+    classes={{ labelContainer: 'pt-0 md:pt-0 lg:pt-0' }}
+    image={{
+      src: imgScholarGPS,
+      alt: 'ScholarGPS ranking 2024',
+      objectPosition: 'center',
+    }}
+    imageText="ScholarGPS ranking 2024"
+  />
+  <Hero
+    classes={{ labelContainer: 'pt-0 md:pt-0 lg:pt-0' }}
+    image={{
+      src: imgScholarGPSSpecialties,
+      alt: 'ScholarGPS specialties last 5 years',
+      objectPosition: 'top',
+    }}
+    imageText="ScholarGPS specialties last 5 years"
+  />
+</div>
+
+<Hero
+  classes={{ labelContainer: 'pt-0 md:pt-0 lg:pt-0' }}
+  image={{
+    src: imgEASO_NovoNordisk,
+    alt: 'EASO-Novo Nordisk Award 2024',
+    objectPosition: 'top',
+  }}
+  imageText="EASO-Novo Nordisk Award 2024"
 />
 
 <Hero

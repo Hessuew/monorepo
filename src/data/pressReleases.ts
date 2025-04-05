@@ -1,4 +1,5 @@
 import { groupByYear } from '~/utils/dataProcessing';
+import { parseISO } from 'date-fns';
 
 interface PressRelease {
   title: string;
@@ -10,6 +11,46 @@ interface PressRelease {
 }
 
 export const pressReleases: PressRelease[] = [
+  {
+    title: 'Use waist-to-height ratio along with BMI to assess obesity for children',
+    date: '2025-04-03',
+    url: 'https://www.healio.com/news/endocrinology/20250403/use-waisttoheight-ratio-along-with-bmi-to-assess-obesity-for-children',
+    source: 'Healio',
+    type: 'News',
+    category: 'obesity',
+  },
+  {
+    title: 'Does your child have obesity or are they just heavy? A new calculator can tell',
+    date: '2025-03-23',
+    url: 'https://www.sciencenews.dk/en/does-your-child-have-obesity-or-are-they-just-heavy-a-new-calculator-can-tell',
+    source: 'Science News',
+    type: 'News',
+    category: 'obesity',
+  },
+  {
+    title: 'Smoking cigarettes in childhood changes the heart',
+    date: '2025-03-06',
+    url: 'https://www.sciencenews.dk/en/smoking-cigarettes-in-childhood-changes-the-heart',
+    source: 'Science News',
+    type: 'News',
+    category: 'cardiac-health',
+  },
+  {
+    title: 'Waist-to-height ratio more accurate than BMI for detecting childhood obesity',
+    date: '2025-03-12',
+    url: 'https://www.msn.com/en-gb/health/familyhealth/waist-to-height-ratio-more-accurate-than-bmi-for-detecting-childhood-obesity/ar-AA1AM7Kz',
+    source: 'MSN',
+    type: 'News',
+    category: 'obesity',
+  },
+  {
+    title: 'BMI overestimates childhood obesity compared to waist-to-height ratio, study suggests',
+    date: '2025-03-12',
+    url: 'https://www.msn.com/en-us/health/other/bmi-overestimates-childhood-obesity-compared-to-waist-to-height-ratio-study-suggests/ar-AA1ANavh?apiversion=v2&noservercache=1&domshim=1&renderwebcomponents=1&wcseo=1&batchservertelemetry=1&noservertelemetry=1',
+    source: 'MSN',
+    type: 'News',
+    category: 'obesity',
+  },
   {
     title:
       'Moderate-to-vigorous physical activity in childhood may protect 60% of 13-year-olds from smoking their first tobacco cigarette',
@@ -442,6 +483,15 @@ export const pressReleaseCategories = [...new Set(pressReleases.map((item) => it
 
 // Group press releases by year
 export const pressReleasesByYear = groupByYear(pressReleases);
+
+// Sort press releases within each year by date
+Object.keys(pressReleasesByYear).forEach((year) => {
+  pressReleasesByYear[Number(year)].sort((a, b) => {
+    const dateA = parseISO(a.date);
+    const dateB = parseISO(b.date);
+    return dateB.getTime() - dateA.getTime();
+  });
+});
 
 // Sort years in descending order
 export const sortedYears = Object.keys(pressReleasesByYear)
