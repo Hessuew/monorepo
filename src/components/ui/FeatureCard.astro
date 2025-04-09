@@ -1,161 +1,155 @@
 ---
-import flameTheFreeze from '~/assets/images/flameTheFreeze.webp';
-import prayerChurch from '~/assets/images/prayerChurch.webp';
-import urfitChild from '~/assets/images/urfitChild.webp';
 
-// Define image URLs for use in CSS
-const flameUrl = flameTheFreeze.src;
-const prayerUrl = prayerChurch.src;
-const urfitUrl = urfitChild.src;
 ---
 
-<div class="flex flex-col gap-8 w-full">
-  <!-- First card (full width) -->
-  <div class="w-full flex justify-center">
-    <div class="three-d-wrapper w-full max-w-4xl">
-      <div class="card flame animated w-full" style={`background-image: url(${flameUrl});`}></div>
-    </div>
-  </div>
+<main id="app">
+  <p>
+    Please checkout the newer version of this; <a target="_top" href="https://codepen.io/simeydotme/pen/abYWJdX"
+      >https://codepen.io/simeydotme/pen/abYWJdX</a
+    >
+  </p>
 
-  <!-- Second and third cards (side by side) -->
-  <div class="w-full flex flex-col md:flex-row justify-center gap-4">
-    <div class="three-d-wrapper w-full md:w-1/2 max-w-2xl">
-      <div class="card prayer animated w-full" style={`background-image: url(${prayerUrl});`}></div>
-    </div>
-    <div class="three-d-wrapper w-full md:w-1/2 max-w-2xl">
-      <div class="card urfit animated w-full" style={`background-image: url(${urfitUrl});`}></div>
-    </div>
-  </div>
+  <h1>Pokemon Card, Holo Effect</h1>
 
-  <!-- Fourth card (full width) -->
-  <div class="w-full flex justify-center">
-    <div class="three-d-wrapper w-full max-w-4xl">
-      <div class="card flame2 animated w-full" style={`background-image: url(${flameUrl});`}></div>
+  <section class="cards">
+    <div class="three-d-wrapper">
+      <div class="card charizard animated"></div>
     </div>
-  </div>
+    <div class="three-d-wrapper">
+      <div class="card pika animated"></div>
+    </div>
+    <div class="three-d-wrapper">
+      <div class="card eevee animated"></div>
+    </div>
+    <div class="three-d-wrapper">
+      <div class="card mewtwo animated"></div>
+    </div>
+  </section>
 
   <style class="hover"></style>
-</div>
 
-<script>
-  /*
-  using 
-    - an animated gif of sparkles.
-    - an animated gradient as a holo effect.
-    - color-dodge mix blend mode
-  */
+  <section class="demo">
+    <div class="card"></div>
+    <span class="operator">+</span>
+    <div class="card"><span>color-dodge</span></div>
+    <span class="operator">+</span>
+    <div class="card"><span>color-dodge</span></div>
+  </section>
+</main>
 
-  document.addEventListener('astro:page-load', () => {
-    const cards = document.querySelectorAll('.card');
-    const styleElement = document.querySelector('.hover');
-    let timeout;
+<script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script is:inline>
+  // Initialize card effects when the DOM is ready and after each page navigation
+  function initializeCardEffects() {
+    /*
+      using 
+        - an animated gif of sparkles.
+        - an animated gradient as a holo effect.
+        - color-dodge mix blend mode
+    */
+    let x;
+    const $cards = $('.card');
 
-    // Handle mouse movement over cards
-    function handleMouseMove(e) {
-      // Normalize touch/mouse
-      let pos = [e.offsetX, e.offsetY];
-      e.preventDefault();
+    $cards
+      .on('mousemove touchmove', function (e) {
+        // normalise touch/mouse
+        let pos = [e.offsetX, e.offsetY];
+        e.preventDefault();
+        if (e.type === 'touchmove') {
+          pos = [e.touches[0].clientX, e.touches[0].clientY];
+        }
+        const $card = $(this);
+        // math for mouse position
+        const l = pos[0];
+        const t = pos[1];
+        const h = $card.height();
+        const w = $card.width();
+        const px = Math.abs(Math.floor((100 / w) * l) - 100);
+        const py = Math.abs(Math.floor((100 / h) * t) - 100);
+        const pa = 50 - px + (50 - py);
+        // math for gradient / background positions
+        const lp = 50 + (px - 50) / 1.5;
+        const tp = 50 + (py - 50) / 1.5;
+        const px_spark = 50 + (px - 50) / 7;
+        const py_spark = 50 + (py - 50) / 7;
+        const p_opc = 20 + Math.abs(pa) * 1.5;
+        const ty = ((tp - 50) / 2) * -1;
+        const tx = ((lp - 50) / 1.5) * 0.5;
 
-      if (e.type === 'touchmove') {
-        pos = [e.touches[0].clientX, e.touches[0].clientY];
-      }
+        // Set CSS variables directly on the card element
+        $card.each(function () {
+          this.style.setProperty('--grad-pos', `${lp}% ${tp}%`);
+          this.style.setProperty('--spark-pos', `${px_spark}% ${py_spark}%`);
+          this.style.setProperty('--spark-opacity', p_opc / 100);
+        });
+        $card.css({
+          transform: `rotateX(${ty}deg) rotateY(${tx}deg)`,
+        });
 
-      const card = e.currentTarget;
+        // set / apply css class and style
+        $cards.removeClass('active');
+        $card.removeClass('animated');
+        $card.addClass('active');
+        if (e.type === 'touchmove') {
+          return false;
+        }
+        clearTimeout(x);
+      })
+      .on('mouseout touchend touchcancel', function () {
+        // remove css, apply custom animation on end
+        const $card = $(this);
+        $card.each(function () {
+          this.style.setProperty('--grad-pos', '50% 50%');
+          this.style.setProperty('--spark-pos', '50% 50%');
+          this.style.setProperty('--spark-opacity', '0.75');
+        });
+        $card.css({
+          transform: '',
+        });
+        $card.removeClass('active');
+        x = setTimeout(function () {
+          $card.addClass('animated');
+        }, 2500);
+      });
+  }
 
-      // Math for mouse position
-      const l = pos[0];
-      const t = pos[1];
-      const h = card.offsetHeight;
-      const w = card.offsetWidth;
-      const px = Math.abs(Math.floor((100 / w) * l) - 100);
-      const py = Math.abs(Math.floor((100 / h) * t) - 100);
-      const pa = 50 - px + (50 - py);
+  // Initialize on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeCardEffects);
+  } else {
+    initializeCardEffects();
+  }
 
-      // Math for gradient / background positions
-      const lp = 50 + (px - 50) / 1.5;
-      const tp = 50 + (py - 50) / 1.5;
-      const px_spark = 50 + (px - 50) / 7;
-      const py_spark = 50 + (py - 50) / 7;
-      const p_opc = 20 + Math.abs(pa) * 1.5;
-      const ty = ((tp - 50) / 2) * -1;
-      const tx = ((lp - 50) / 1.5) * 0.5;
-
-      // CSS to apply for active card
-      const grad_pos = `background-position: ${lp}% ${tp}%;`;
-      const sprk_pos = `background-position: ${px_spark}% ${py_spark}%;`;
-      const opc = `opacity: ${p_opc / 100};`;
-      const tf = `transform: rotateX(${ty}deg) rotateY(${tx}deg)`;
-
-      // Need to use a <style> tag for pseudo elements
-      const style = `
-        .card:hover:before { ${grad_pos} }  /* gradient */
-        .card:hover:after { ${sprk_pos} ${opc} }   /* sparkles */ 
-      `;
-
-      // Set / apply CSS class and style
-      cards.forEach((c) => c.classList.remove('active'));
-      card.classList.remove('animated');
-      card.setAttribute('style', tf);
-
-      if (styleElement) {
-        styleElement.textContent = style;
-      }
-
-      if (e.type === 'touchmove') {
-        return false;
-      }
-
-      clearTimeout(timeout);
-    }
-
-    // Handle mouse out
-    function handleMouseOut(e) {
-      const card = e.currentTarget;
-
-      if (styleElement) {
-        styleElement.textContent = '';
-      }
-
-      card.removeAttribute('style');
-
-      timeout = setTimeout(() => {
-        card.classList.add('animated');
-      }, 2500);
-    }
-
-    // Add event listeners to all cards
-    cards.forEach((card) => {
-      card.addEventListener('mousemove', handleMouseMove);
-      card.addEventListener('touchmove', handleMouseMove);
-      card.addEventListener('mouseout', handleMouseOut);
-      card.addEventListener('touchend', handleMouseOut);
-      card.addEventListener('touchcancel', handleMouseOut);
-    });
-  });
+  // Re-initialize on Astro page transitions
+  document.addEventListener('astro:page-load', initializeCardEffects);
 </script>
-
-<style define:vars={{ flameUrl, prayerUrl, urfitUrl }}>
+<style>
   :root {
     --color1: rgb(0, 231, 255);
     --color2: rgb(255, 0, 231);
     --back: url(https://cdn2.bulbagarden.net/upload/1/17/Cardback.jpg);
-    --flame1: #fac;
-    --flame2: #ddccaa;
-    --flamefront: var(--flameUrl);
-    --prayer1: #54a29e;
-    --prayer2: #a79d66;
-    --prayerfront: var(--prayerUrl);
-    --urfit1: #efb2fb;
-    --urfit2: #acc6f8;
-    --urfitfront: var(--urfitUrl);
-    --flame2-1: #efb2fb;
-    --flame2-2: #acc6f8;
-    --flame2front: var(--flameUrl);
+    --charizard1: #fac;
+    --charizard2: #ddccaa;
+    --charizardfront: url(https://assets.codepen.io/13471/charizard-gx.webp);
+    --pika1: #54a29e;
+    --pika2: #a79d66;
+    --pikafront: url(https://assets.codepen.io/13471/pikachu-gx.webp);
+    --eevee1: #efb2fb;
+    --eevee2: #acc6f8;
+    --eeveefront: url(https://assets.codepen.io/13471/eevee-gx.webp);
+    --mewtwo1: #efb2fb;
+    --mewtwo2: #acc6f8;
+    --mewtwofront: url(https://assets.codepen.io/13471/mewtwo-gx.webp);
   }
 
   .card {
-    width: 50vw;
-    height: 16vw;
+    width: 71.5vw;
+    height: 100vw;
+    @media screen and (min-width: 600px) {
+      width: clamp(12.9vw, 61vh, 18vw);
+      height: clamp(18vw, 85vh, 25.2vw);
+    }
+
     position: relative;
     overflow: hidden;
     margin: 20px;
@@ -179,6 +173,7 @@ const urfitUrl = urfitChild.src;
     will-change: transform, filter;
 
     background-color: #040712;
+    background-image: var(--front);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -195,24 +190,28 @@ const urfitUrl = urfitChild.src;
       0 55px 35px -20px rgba(0, 0, 0, 0.5);
   }
 
-  .card.flame {
-    --color1: var(--flame1);
-    --color2: var(--flame2);
+  .card.charizard {
+    --color1: var(--charizard1);
+    --color2: var(--charizard2);
+    --front: var(--charizardfront);
   }
-  .card.prayer {
-    --color1: var(--prayer1);
-    --color2: var(--prayer2);
+  .card.pika {
+    --color1: var(--pika1);
+    --color2: var(--pika2);
+    --front: var(--pikafront);
   }
-  .card.flame2 {
-    --color1: var(--flame2-1);
-    --color2: var(--flame2-2);
+  .card.mewtwo {
+    --color1: var(--mewtwo1);
+    --color2: var(--mewtwo2);
+    --front: var(--mewtwofront);
   }
-  .card.urfit {
+  .card.eevee {
     --color1: #ec9bb6;
     --color2: #ccac6f;
     --color3: #69e4a5;
     --color4: #8ec5d6;
     --color5: #b98cce;
+    --front: var(--eeveefront);
   }
 
   .card:before,
@@ -227,10 +226,11 @@ const urfitUrl = urfitChild.src;
     opacity: 0.5;
     mix-blend-mode: color-dodge;
     transition: all 0.33s ease;
+    pointer-events: none;
   }
 
   .card:before {
-    background-position: 50% 50%;
+    background-position: var(--grad-pos, 50% 50%);
     background-size: 300% 300%;
     background-image: linear-gradient(
       115deg,
@@ -247,24 +247,25 @@ const urfitUrl = urfitChild.src;
   }
 
   .card:after {
-    opacity: 1;
+    opacity: var(--spark-opacity, 0.75);
     background-image: url('https://assets.codepen.io/13471/sparkles.gif'),
       url(https://assets.codepen.io/13471/holo.png),
       linear-gradient(125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
-    background-position: 50% 50%;
+    background-position: var(--spark-pos, 50% 50%);
     background-size: 160%;
     background-blend-mode: overlay;
     z-index: 2;
     filter: brightness(1) contrast(1);
     transition: all 0.33s ease;
     mix-blend-mode: color-dodge;
-    opacity: 0.75;
+    isolation: isolate;
   }
 
   .card.active:after,
   .card:hover:after {
     filter: brightness(1) contrast(1);
     opacity: 1;
+    mix-blend-mode: color-dodge !important;
   }
 
   .card.active,
@@ -277,19 +278,12 @@ const urfitUrl = urfitChild.src;
   .card:hover:before {
     animation: none;
     background-image: linear-gradient(110deg, transparent 25%, var(--color1) 48%, var(--color2) 52%, transparent 75%);
-    background-position: 50% 50%;
+    background-position: var(--grad-pos, 50% 50%);
     background-size: 250% 250%;
     opacity: 0.88;
     filter: brightness(0.66) contrast(1.33);
     transition: none;
-  }
-
-  .card.active:before,
-  .card:hover:before,
-  .card.active:after,
-  .card:hover:after {
-    animation: none;
-    transition: none;
+    mix-blend-mode: color-dodge !important;
   }
 
   .card.animated {
@@ -432,7 +426,7 @@ const urfitUrl = urfitChild.src;
     box-shadow:
       inset 0 0 0 1px rgba(white, 0.4),
       0 25px 15px -10px rgba(0, 0, 0, 0.5);
-    animation: none;
+    /* animation: none; */
   }
 
   .demo .card:nth-of-type(1),
