@@ -1,10 +1,5 @@
 ---
-import Footer from '~/components/widgets/Footer.astro';
-import Header from '~/components/widgets/Header.astro';
 import Layout from '~/layouts/Layout.astro';
-// import Announcement from '~/components/widgets/Announcement.astro';
-
-import { headerData } from '~/navigation';
 import type { MetaData } from '~/types';
 
 export interface Props {
@@ -12,20 +7,19 @@ export interface Props {
   classes?: Record<string, string | Record<string, string>>;
 }
 
-const { metadata, classes } = Astro.props;
+const { metadata } = Astro.props;
 ---
 
 <Layout metadata={metadata}>
   <!-- <slot name="announcement">
     <Announcement />
   </slot> -->
-  <slot name="header">
+  <!-- <slot name="header">
     <Header {...headerData} classes={classes?.header as Record<string, string>} isSticky showRssFeed showToggleTheme />
-  </slot>
+  </slot> -->
   <main>
     <slot />
   </main>
-  <slot name="footer">
-    <Footer />
-  </slot>
+  <!-- <slot name="footer">
+    <Footer /> -->
 </Layout>

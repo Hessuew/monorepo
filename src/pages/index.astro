@@ -1,731 +1,122 @@
 ---
-import akosua_zoomed_in from '~/assets/images/deacons/akosua_zoomed_in.webp';
-import akosua from '~/assets/images/deacons/akosua.webp';
-import ben from '~/assets/images/deacons/ben.webp';
-import ben2 from '~/assets/images/deacons/ben2.webp';
-import ida_zoomed_in from '~/assets/images/deacons/ida_zoomed_in.webp';
-import ida from '~/assets/images/deacons/ida.webp';
-import ahunsi_zoomed from '~/assets/images/elders/ahunsi_zoomed.webp';
-import ahunsi_zoomed2 from '~/assets/images/elders/ahunsi_zoomed3.webp';
-import cj_zoomed from '~/assets/images/elders/cj_zoomed.webp';
-import cj from '~/assets/images/elders/cj.webp';
-import greta from '~/assets/images/elders/greta.jpg';
-import juhani_helsinki from '~/assets/images/elders/juhani_helsinki.webp';
-import mahi from '~/assets/images/elders/mahi_enhanced.webp';
-import prayerConferenceFi from '~/assets/images/other/Kuopio Prayer conference_ April 2025_finnish.webp';
-import prayerConferenceEn from '~/assets/images/other/Kuopio Prayer conference_ April 2025.webp';
 import logo from '~/assets/images/other/logo.webp';
-import imgPrayerChurchKuopio from '~/assets/images/other/prayer_church_kuopio2.webp';
-import iina from '~/assets/images/testimonials/iina.webp';
-import maria from '~/assets/images/testimonials/maria.webp';
-import GradientText from '~/components/ui/GradientText.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import ImageTextSection from '~/components/widgets/ImageTextSection.astro';
-import Jesus from '~/components/widgets/Jesus.astro';
-import Spacer from '~/components/widgets/Spacer.astro';
-import SpeechBubbleIcon from '~/components/widgets/SpeechBubbleIcon.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
-import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+import Button from '~/components/ui/Button.astro';
+import FeatureCard from '~/components/ui/FeatureCard.astro';
 import Layout from '~/layouts/PageLayout.astro';
-import { Icon } from 'astro-icon/components';
-import { twMerge } from 'tailwind-merge';
 
 const metadata = {
-  title: 'Rukouksen seurakunta | Meidän tulemme ei ole asia, vaan henkilö.. Jeesus',
+  title: 'Cherubim IT | Empower the web community',
   description:
-    'Rukouksen seurakunta on Kuopiossa kokoontuva ryhmä, joka keskittyy Jeesukseen, intohimoiseen rukoukseen, Hengen ja Sanan täyttämään elämään, sekä herätyksen levittämiseen. Tule mukaan rukouskokouksiin ja kohtaa Jeesus. Savilahti, Kuopio.',
+    'Cherubim IT empowers the web community and invites more to build across platforms with powerful tools and frameworks.',
   ignoreTitleTemplate: true,
-  canonical: 'https://rukouksenseurakunta.fi',
+  canonical: 'https://cherubimit.com',
   openGraph: {
-    title: 'Rukouksen seurakunta | Meidän tulemme ei ole asia, vaan henkilö.. Jeesus',
+    title: 'Cherubim IT | Empower the web community',
     description:
-      'Rukouksen seurakunta on Kuopiossa kokoontuva ryhmä, joka keskittyy Jeesukseen, intohimoiseen rukoukseen, Hengen ja Sanan täyttämään elämään, sekä herätyksen levittämiseen. Tule mukaan rukouskokouksiin ja kohtaa Jeesus.',
+      'Cherubim IT empowers the web community and invites more to build across platforms with powerful tools and frameworks.',
     type: 'website',
     image: logo,
-    article: {
-      publishedTime: '2025-03-03T05:03:23+02:00',
-      modifiedTime: '2025-03-03T05:03:23+02:00',
-      authors: ['Rukouksen seurakunta'],
-      tags: [
-        'Rukouksen seurakunta',
-        'Rukouksen seurakunta Kuopio',
-        'Savilahti',
-        'Kuopio',
-        'Savilahden seurakunta',
-        'Kuopio seurakunta',
-      ],
-    },
   },
   twitter: {
-    handle: '@RukouksenSrk',
-    site: '@RukouksenSrk',
+    handle: '@CherubimIT',
+    site: '@CherubimIT',
     cardType: 'summary_large_image',
   },
 };
-
-const styleStyle = {
-  backgroundPosition: 'center',
-  backgroundAttachment: 'local',
-  backgroundRepeat: 'repeat',
-  backgroundSize: '100% 100%',
-};
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 ---
 
 <Layout metadata={metadata}>
-  <Hero
-    image={{
-      src: logo,
-      alt: t('prayerChurchImageAlt'),
-      width: 600,
-      height: 600,
-    }}
-  >
-    <Fragment slot="title">
-      <GradientText
-        animate={false}
-        imageNro={2}
-        class="w-full text-[14vw] xs:text-[14vw] sm:text-[14vw] md:text-[12vw] lg:text-[10vw] font-bold leading-none"
-        backgroundStyles={styleStyle}
-      >
-        <div class="flex flex-col">
-          <span>{t('prayer')}</span>
-          <span>{t('church')}</span>
-        </div>
-      </GradientText>
-    </Fragment>
+  <div class="min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+      <!-- Hero Section with Background Grid -->
+      <div class="relative overflow-hidden">
+        <!-- Content -->
+        <div class="relative z-10 flex flex-col items-center text-center mb-16">
+          <a href="#" class="mb-8">
+            <img src="/logo.svg" alt="Cherubim IT Logo" class="h-10" />
+          </a>
 
-    <Fragment slot="subtitle">
-      {t('prayerDefinesTheChurch')}
-      <span class="italic">
-        '{t('mark11:17')}'
-      </span>
-      {t('theWayThePeoplePray')}
-      <br />
-      <br />
-      {t('thisDoesNotMean')}
-      <br />
-      <br />
-      {t('theFireIsMissing')}
-      <br />
-      <br />
-      <GradientText
-        imageNro={2}
-        backgroundStyles={{ ...styleStyle, backgroundSize: '200% 100%', backgroundPosition: '10% 20%' }}
-        class="italic font-bold text-xl pr-1"
-      >
-        {t('whereIsYourFire')}
-      </GradientText>
-    </Fragment>
-  </Hero>
+          <h1 class="text-6xl md:text-8xl font-bold mb-6">
+            <span class="text-white">Cherubim IT</span>
+          </h1>
 
-  <Jesus classes={{ container: 'max-w-none w-full px-4 overflow-x-hidden' }}>
-    <Fragment slot="title">
-      <div class="py-4">
-        <GradientText imageNro={2} class="text-3xl xs:text-4xl md:text-5xl pb-1">
-          {t('ourFireIsNotA')}
-        </GradientText>
-      </div>
-      <div class="overflow-hidden mx-auto -my-4">
-        <GradientText imageNro={2} class="w-full text-[26vw] font-bold leading-none" backgroundStyles={styleStyle}>
-          {t('jesus')}
-        </GradientText>
-      </div>
-      <div class="py-4">
-        <GradientText
-          imageNro={2}
-          backgroundStyles={{ ...styleStyle, backgroundSize: '100% 200%', backgroundPosition: '10% 20%' }}
-          class="w-full text-[10vw] sm:text-[14vw] md:text-[10vw] lg:text-[6vw] font-bold leading-none"
-        >
-          <div class="flex flex-col">
-            <span>{t('christ')}</span>
-            <span>{t('theSonOfGod')}</span>
-          </div>
-        </GradientText>
-      </div>
-    </Fragment>
-  </Jesus>
+          <p class="text-xl text-gray-300 max-w-3xl mb-10">
+            Empower the web community and invite more to build across platforms
+          </p>
 
-  <Jesus classes={{ container: 'px-4 max-w-5xl' }}>
-    <Fragment slot="title">
-      <div class="py-4">
-        <GradientText imageNro={2} class="text-3xl xs:text-4xl md:text-5xl">
-          <div class="">
-            <GradientText
-              animate={false}
-              class="pr-1"
-              imageNro={2}
-              backgroundStyles={{ ...styleStyle, backgroundSize: '200% 400%', backgroundPosition: '10% 40%' }}
+          <div class="flex flex-col sm:flex-row gap-4">
+            <Button class="bg-[#ff5c35] hover:bg-[#ff7c55] text-white px-8 py-3 rounded-full text-lg font-medium">
+              Why Cherubim
+            </Button>
+            <Button
+              class="bg-transparent border-2 border-gray-600 hover:border-gray-400 text-white px-8 py-3 rounded-full text-lg font-medium"
             >
-              {t('thisSameJesus')}
-            </GradientText>
-            <span>{t('cameToSaveHisPeopleFromIts')}</span>
+              Quick Start
+            </Button>
           </div>
-        </GradientText>
-      </div>
+        </div>
 
-      <div class="py-4">
-        <GradientText
-          imageNro={2}
-          backgroundStyles={{ ...styleStyle, backgroundSize: '200% 400%', backgroundPosition: '40% 100%' }}
-          class="w-full text-[8vw] sm:text-[8vw] md:text-[8vw] lg:text-[6vw] font-bold leading-none pb-10"
-        >
-          <div class="flex flex-col">
-            <div class={twMerge('flex flex-row items-center justify-center', lang === 'en' && 'gap-2')}>
-              1. {t('notIn')}<div class="border-b-2 mt-0.5 border-white">{t('ssä')}</div>
+        <!-- Background Grid Pattern -->
+        <div class="absolute inset-0 -z-10">
+          <div class="absolute inset-0 bg-[#191d24] opacity-90"></div>
+
+          <!-- Perspective Grid Effect -->
+          <div class="absolute inset-0 overflow-hidden">
+            <!-- Horizontal Lines -->
+            <div class="absolute inset-0">
+              {
+                Array.from({ length: 20 }).map((_, i) => {
+                  if (i === 0) {
+                    return null;
+                  }
+                  return (
+                    <div
+                      class="absolute left-0 right-0 h-1 transform-gpu"
+                      style={`
+                      top: ${10 + i * 100}px; 
+                      background: linear-gradient(90deg, 
+                        rgba(255,255,255,0) 0%, 
+                        rgba(255,255,255,0.07) 20%, 
+                        rgba(255,255,255,0.13) 50%,
+                        rgba(255,255,255,0.07) 80%,
+                        rgba(255,255,255,0) 100%
+                      );
+                      transform: perspective(1000px) rotateX(60deg);
+                    `}
+                    />
+                  );
+                })
+              }
             </div>
-            <div class={twMerge('flex flex-row items-center justify-center', lang === 'en' && 'gap-2')}>
-              2. {t('butFrom')}<span class="border-b-2 border-white mt-[3px]">{t('stä')}</span>
-            </div>
-          </div>
-        </GradientText>
-      </div>
 
-      <div class="md:py-12">
-        <GradientText class="text-3xl sm:text-4xl md:text-5xl font-bold leading-none pb-2">
-          <div class="flex flex-col gap-2">
-            <span>{t('areYouFreeFromAllTheSins')}</span>
-            <span>{t('wouldYouLikeToBe')}</span>
-          </div>
-        </GradientText>
-      </div>
-
-      <div class="w-full flex justify-center items-center text-lg md:text-2xl">
-        <div class="flex flex-col xs:flex-row xs:gap-6 text-start text-muted font-normal pt-4">
-          <div class="xs:hidden flex flex-col gap-2">
-            <div class="flex flex-col">
-              <span class="font-medium">{t('address')} </span>
-              <span>{t('address2')}</span>
-            </div>
-            <div class="flex flex-col">
-              <span class="font-medium">{t('time')} </span>
-              <span>{t('time2')}</span>
-            </div>
-            <div class="flex flex-col">
-              <span class="font-medium">{t('phone')} </span>
-              <span>{t('phone2')}</span>
-            </div>
-            <span class="font-medium">{t('email')} </span>
-            <span>{t('email2')}</span>
-          </div>
-          <div class="hidden xs:flex xs:flex-col">
-            <span>{t('address')} </span>
-            <span>{t('time')} </span>
-            <span>{t('phone')} </span>
-            <span>{t('email')} </span>
-          </div>
-          <div class="hidden xs:flex xs:flex-col">
-            <span>{t('address2')}</span>
-            <span>{t('time2')}</span>
-            <span>{t('phone2')}</span>
-            <span>{t('email2')}</span>
-          </div>
-        </div>
-      </div>
-    </Fragment>
-  </Jesus>
-
-  <Steps
-    id="mihin-uskomme"
-    tagline={t('whatDoWeBelieveIn')}
-    title={t('theBeliefsOfTheChurch')}
-    isReversed={true}
-    classes={{ container: 'lg:pb-0 md:pb-0', items: { icon: 'border-0 text-primary w-16 h-16' } }}
-    items={[
-      {
-        title: t('allNeedSalvation'),
-        description: [
-          {
-            text: t('allNeedSalvationDescription1'),
-          },
-          {
-            text: t('allNeedSalvationDescription2'),
-          },
-          {
-            text: t('allNeedSalvationDescription3'),
-          },
-        ],
-        icon: 'tabler:number-1',
-      },
-      {
-        title: t('jesusIsTheSonOfGod'),
-        description: [
-          { text: t('jesusIsTheSonOfGodDescription1') },
-          { text: t('jesusIsTheSonOfGodDescription2') },
-          { text: t('jesusIsTheSonOfGodDescription3') },
-        ],
-        icon: 'tabler:number-2',
-      },
-      {
-        title: t('preachingTheGospel'),
-        description: [
-          { text: t('preachingTheGospelDescription1') },
-          { text: t('preachingTheGospelDescription2') },
-          { text: t('preachingTheGospelDescription3') },
-        ],
-        icon: 'tabler:number-3',
-      },
-      {
-        title: t('signsAndWonders'),
-        description: [{ text: t('signsAndWondersDescription1') }, { text: t('signsAndWondersDescription2') }],
-        icon: 'tabler:number-4',
-      },
-      {
-        title: t('prayer2'),
-        description: [
-          { text: t('prayer2Description1') },
-          { text: t('prayer2Description2') },
-          { text: t('prayer2Description3') },
-        ],
-        icon: 'tabler:number-5',
-      },
-    ]}
-  />
-
-  <ImageTextSection
-    id="meista"
-    tagline={t('aboutUs')}
-    title={t('workersOfTheGospel')}
-    subtitle={t('toYou')}
-    classes={{ headline: { subtitle: 'max-w-5xl text-base md:text-lg lg:text-xl' } }}
-    items={[
-      {
-        title: t('juhaniJuusola'),
-        name: 'Juhani Juusola',
-        content: `1) ${t('juhaniJuusolaContent1')} <br /> <br /> 2) ${t('juhaniJuusolaContent2')}`,
-        image: {
-          src: juhani_helsinki,
-          alt: t('juhaniJuusolaImageAlt'),
-        },
-        isReversed: false,
-      },
-      {
-        title: t('greta'),
-        name: 'Greta',
-        // content: `1) ${t('gretaContent1')} <br /> <br /> 2) ${t('gretaContent2')}`,
-        image: {
-          src: greta,
-          alt: t('gretaImageAlt'),
-        },
-        isReversed: true,
-      },
-      {
-        title: t('ahunsi'),
-        name: 'Ahunsimere',
-        image: {
-          src: ahunsi_zoomed2,
-          alt: t('ahunsiImageAlt'),
-        },
-        isReversed: true,
-      },
-      {
-        title: t('cj'),
-        name: 'CJ',
-        image: {
-          src: cj_zoomed,
-          alt: t('cjImageAlt'),
-        },
-        isReversed: true,
-      },
-      {
-        title: t('mahidere'),
-        name: 'Mahidere',
-        image: {
-          src: mahi,
-          alt: t('mahidereImageAlt'),
-        },
-        isReversed: true,
-      },
-      {
-        title: t('akosua'),
-        name: 'Akosua',
-        content: `1) ${t('akosuaContent1')} <br /> <br /> 2) ${t('akosuaContent2')} <br /> <br /> 3) ${t('akosuaContent3')}`,
-        image: {
-          src: akosua_zoomed_in,
-          alt: t('akosuaImageAlt'),
-        },
-        isReversed: true,
-      },
-      {
-        title: t('ida'),
-        name: 'Ida',
-        content: `1) ${t('idaContent1')}`,
-        image: {
-          src: ida_zoomed_in,
-          alt: t('idaImageAlt'),
-        },
-        isReversed: false,
-      },
-      {
-        title: t('ben'),
-        name: 'Benwillis',
-        image: {
-          src: ben2,
-          alt: t('benImageAlt'),
-        },
-        isReversed: true,
-      },
-    ]}
-  />
-
-  <Testimonials
-    id="todistuksia"
-    tagline={t('testimonials')}
-    title={t('whatDoPeopleSay')}
-    testimonials={[
-      {
-        testimonial: t('testimonialNonMentioned1.t'),
-        name: t('testimonialNonMentioned1.name'),
-        job: t('testimonialNonMentioned1.job'),
-        image: {
-          src: '',
-          alt: '',
-        },
-        isPositive: false,
-      },
-      {
-        testimonial: t('testimonialMaria.t'),
-        name: t('testimonialMaria.name'),
-        job: t('testimonialMaria.job'),
-        extraContent: t('testimonialMaria.t2'),
-        waveSm: true,
-        image: {
-          src: maria,
-          alt: '',
-        },
-        isPositive: true,
-      },
-      {
-        testimonial: t('testimonialGood2.t'),
-        name: t('testimonialGood2.name'),
-        job: t('testimonialGood2.job'),
-        extraContent: t('testimonialGood2.t2'),
-        image: {
-          src: '',
-          alt: '',
-        },
-        isPositive: true,
-      },
-      {
-        testimonial: t('testimonialAkosua.t'),
-        name: t('testimonialAkosua.name'),
-        job: t('testimonialAkosua.job'),
-        image: {
-          src: akosua,
-          alt: t('akosuaImageAlt'),
-        },
-        isPositive: true,
-      },
-      {
-        testimonial: t('testimonialNonMentioned2.t'),
-        name: t('testimonialNonMentioned1.name'),
-        job: t('testimonialNonMentioned2.job'),
-        image: {
-          src: '',
-          alt: '',
-        },
-        isPositive: false,
-      },
-      {
-        testimonial: t('testimonialCJ.t'),
-        name: t('testimonialCJ.name'),
-        job: t('testimonialCJ.job'),
-        extraContent: t('testimonialCJ.t2'),
-        image: {
-          src: cj,
-          alt: t('cjImageAlt'),
-        },
-        isPositive: true,
-      },
-      {
-        testimonial: t('testimonialMahi.t'),
-        name: t('testimonialMahi.name'),
-        job: t('testimonialMahi.job'),
-        extraContent: t('testimonialMahi.t2'),
-        waveLg: true,
-        image: {
-          src: mahi,
-          alt: t('mahidereImageAlt'),
-        },
-        isPositive: true,
-      },
-      {
-        testimonial: t('testimonialNonMentioned3.t'),
-        name: t('testimonialNonMentioned1.name'),
-        job: t('testimonialNonMentioned3.job'),
-        image: {
-          src: '',
-          alt: '',
-        },
-        isPositive: false,
-      },
-      {
-        testimonial: t('testimonialIda.t'),
-        name: t('testimonialIda.name'),
-        job: t('testimonialIda.job'),
-        extraContent: t('testimonialIda.t2'),
-        waveMd: true,
-        image: {
-          src: ida,
-          alt: t('idaImageAlt'),
-        },
-        isPositive: true,
-      },
-      {
-        testimonial: t('testimonialNonMentioned5.t'),
-        name: t('testimonialNonMentioned1.name'),
-        job: t('testimonialNonMentioned5.job'),
-        image: {
-          src: '',
-          alt: '',
-        },
-        isPositive: false,
-      },
-      {
-        testimonial: t('testimonialBenwillis.t'),
-        name: t('testimonialBenwillis.name'),
-        job: t('testimonialBenwillis.job'),
-        image: {
-          src: ben,
-          alt: t('benImageAlt'),
-        },
-        isPositive: true,
-      },
-      {
-        testimonial: t('testimonialGood1.t'),
-        name: t('testimonialGood1.name'),
-        job: t('testimonialGood1.job'),
-        extraContent: t('testimonialGood1.t2'),
-        image: {
-          src: '',
-          alt: '',
-        },
-        isPositive: true,
-      },
-      {
-        testimonial: t('testimonialNonMentioned4.t'),
-        name: t('testimonialNonMentioned1.name'),
-        job: t('testimonialNonMentioned4.job'),
-        image: {
-          src: '',
-          alt: '',
-        },
-        isPositive: false,
-      },
-      {
-        testimonial: t('testimonialIina.t'),
-        name: t('testimonialIina.name'),
-        job: t('testimonialIina.job'),
-        image: {
-          src: iina,
-          alt: t('testimonialIina.imageAlt'),
-        },
-        isPositive: true,
-      },
-      {
-        testimonial: t('testimonialAhunsi.t'),
-        name: t('testimonialAhunsi.name'),
-        job: t('testimonialAhunsi.job'),
-        image: {
-          src: ahunsi_zoomed,
-          alt: t('ahunsiImageAlt'),
-        },
-        isPositive: true,
-      },
-      {
-        testimonial: t('testimonialGood3.t'),
-        name: t('testimonialGood3.name'),
-        job: t('testimonialGood3.job'),
-        extraContent: t('testimonialGood3.t2'),
-        image: {
-          src: '',
-          alt: '',
-        },
-        isPositive: true,
-      },
-    ]}
-  >
-    <Fragment slot="subtitle">
-      {t('luke6:26')}
-      <br />
-      <br />
-      <div class="text-muted text-base md:text-lg lg:text-xl">
-        <div
-          class="flex flex-row gap-4 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
-        >
-          <Icon name={'tabler:thumb-up'} class="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
-          {t('john18:20-21')}
-        </div>
-        <br />
-        <br />
-        <div
-          class="flex flex-row gap-4 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
-        >
-          <div class="flex flex-col gap-1">
-            <Icon name={'tabler:thumb-up'} class="w-8 h-8 text-green-600 flex-shrink-0" />
-            <Icon name={'tabler:thumb-down'} class="w-8 h-8 text-red-600 flex-shrink-0" />
-          </div>
-          {t('john7:12')}
-        </div>
-        <br />
-        <br />
-        <div
-          class="flex flex-row gap-4 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
-        >
-          <Icon name={'tabler:thumb-down'} class="w-8 h-8 text-red-600 flex-shrink-0 mt-1" />
-          {t('acts17:6')}
-        </div>
-        <br />
-        <br />
-        <div
-          class="flex flex-row gap-4 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
-        >
-          <Icon name={'tabler:thumb-up'} class="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
-          {t('3john1:12')}
-        </div>
-      </div>
-    </Fragment>
-  </Testimonials>
-
-  <!-- Speech bubble icon that persists even if Testimonial component stops -->
-  <SpeechBubbleIcon
-    position="bottom-right"
-    size="lg"
-    classes={{
-      icon: 'text-yellow-500 hover:text-yellow-600',
-      container: 'mb-16 mr-4',
-    }}
-  />
-
-  <Stats
-    id="lukuja"
-    tagline={t('practicalNumbersFrom2025')}
-    title=""
-    stats={[
-      { title: t('stats1.title'), amount: '15' },
-      { title: t('stats2.title'), amount: '+197' },
-      { title: t('stats3.title'), amount: '18' },
-      { title: t('stats4.title'), amount: '4' },
-    ]}
-  />
-
-  <Features3
-    id="sinulle"
-    tagline={t('forYou')}
-    title={t('whatYouWillExperience')}
-    subtitle={t('1cor2:4-5')}
-    columns={3}
-    classes={{ headline: { subtitle: 'max-w-5xl' } }}
-    items={[
-      {
-        title: t('forYou.items1.title'),
-        description: t('forYou.items1.description'),
-        icon: 'tabler:square-number-1',
-      },
-
-      {
-        title: t('forYou.items2.title'),
-        description: t('forYou.items2.description'),
-        icon: 'tabler:square-number-2',
-      },
-      {
-        title: t('forYou.items3.title'),
-        description: t('forYou.items3.description'),
-        icon: 'tabler:square-number-3',
-      },
-      {
-        title: t('forYou.items4.title'),
-        description: t('forYou.items4.description'),
-        icon: 'tabler:square-number-4',
-      },
-      {
-        title: t('forYou.items5.title'),
-        description: t('forYou.items5.description'),
-        icon: 'tabler:square-number-5',
-      },
-      {
-        title: t('forYou.items6.title'),
-        description: t('forYou.items6.description'),
-        icon: 'tabler:square-number-6',
-      },
-      {
-        title: t('forYou.items7.title'),
-        description: `${t('forYou.items7.description')}`,
-        icon: 'tabler:square-number-7',
-      },
-    ]}
-    image={{
-      src: imgPrayerChurchKuopio,
-      alt: t('prayerChurchMeetingImageAlt'),
-    }}
-  />
-
-  <Hero
-    image={{
-      src: lang === 'en' ? prayerConferenceEn : prayerConferenceFi,
-      alt: t('prayerConferenceImageAlt'),
-    }}
-  />
-
-  <Spacer size="md" />
-
-  <div class="mx-auto -my-4 text-center relative z-0 h-[20rem] sm:h-[24rem] lg:h-[40rem] w-full overflow-hidden mb-20">
-    <div class="absolute -right-20 top-0 -translate-y-0 w-full h-full">
-      <div class="relative w-full h-full">
-        <!-- Oval-like highlight area with radial gradient -->
-        <div
-          class="absolute -right-20 top-0 w-full h-full rounded-full"
-          style="background: radial-gradient(ellipse at center, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 40%, rgba(255,255,255,0) 70%);"
-        >
-        </div>
-
-        <!-- Grid pattern container - clipped to the highlight area -->
-        <div class="absolute right-0 top-0 w-full h-full overflow-hidden">
-          <div class="absolute right-5 top-0 w-5/6 h-full overflow-hidden rounded-full">
-            <!-- Horizontal grid lines with fixed spacing for 40px height -->
-            {
-              Array.from({ length: 15 }).map((_, i) => {
-                if (i === 0) {
-                  return null;
-                }
-                return (
+            <!-- Vertical Lines -->
+            <div class="absolute inset-0">
+              {
+                Array.from({ length: 20 }).map((_, i) => (
                   <div
-                    class="absolute right-0 h-[0.5px] w-full opacity-10"
-                    style={`top: ${i * 72}px; background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 30%, rgba(255,255,255,0.3) 70%, rgba(255,255,255,0) 100%);`}
+                    class="absolute top-0 bottom-0 w-0.5 transform-gpu"
+                    style={`
+                      left: ${50 + i * 100}px; 
+                      background: linear-gradient(0deg, 
+                        rgba(255,255,255,0) 0%, 
+                        rgba(255,255,255,0.07) 20%, 
+                        rgba(255,255,255,0.13) 50%,
+                        rgba(255,255,255,0.07) 80%,
+                        rgba(255,255,255,0) 100%
+                      );
+                      transform: perspective(1000px) rotateY(-60deg);
+                    `}
                   />
-                );
-              })
-            }
-
-            <!-- Vertical grid lines with fixed spacing for 40px width -->
-            {
-              Array.from({ length: 15 }).map((_, i) => (
-                <div
-                  class="absolute top-0 w-[0.5px] h-full opacity-10"
-                  style={`right: ${i * 72}px; background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 30%, rgba(255,255,255,0.3) 70%, rgba(255,255,255,0) 100%);`}
-                />
-              ))
-            }
+                ))
+              }
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="w-full overflow-hidden absolute bottom-0 left-0">
-      <div class="w-[112vw] relative -left-[6vw] overflow-visible">
-        <GradientText
-          imageNro={2}
-          animate={false}
-          class={twMerge('inline-block font-bold leading-none', lang === 'en' ? 'text-[35vw]' : 'text-[29vw]')}
-          backgroundStyles={styleStyle}
-        >
-          {t('jesus')}
-        </GradientText>
-      </div>
+
+      <FeatureCard />
     </div>
   </div>
 </Layout>
+
+<script src="../scripts/cardTilt.ts"></script>

@@ -1,0 +1,595 @@
+---
+import flameTheFreeze from '~/assets/images/flameTheFreeze.webp';
+import prayerChurch from '~/assets/images/prayerChurch.webp';
+import urfitChild from '~/assets/images/urfitChild.webp';
+
+// Define image URLs for use in CSS
+const flameUrl = flameTheFreeze.src;
+const prayerUrl = prayerChurch.src;
+const urfitUrl = urfitChild.src;
+---
+
+<div class="flex flex-col gap-8 w-full">
+  <!-- First card (full width) -->
+  <div class="w-full flex justify-center">
+    <div class="three-d-wrapper w-full max-w-4xl">
+      <div class="card flame animated w-full" style={`background-image: url(${flameUrl});`}></div>
+    </div>
+  </div>
+
+  <!-- Second and third cards (side by side) -->
+  <div class="w-full flex flex-col md:flex-row justify-center gap-4">
+    <div class="three-d-wrapper w-full md:w-1/2 max-w-2xl">
+      <div class="card prayer animated w-full" style={`background-image: url(${prayerUrl});`}></div>
+    </div>
+    <div class="three-d-wrapper w-full md:w-1/2 max-w-2xl">
+      <div class="card urfit animated w-full" style={`background-image: url(${urfitUrl});`}></div>
+    </div>
+  </div>
+
+  <!-- Fourth card (full width) -->
+  <div class="w-full flex justify-center">
+    <div class="three-d-wrapper w-full max-w-4xl">
+      <div class="card flame2 animated w-full" style={`background-image: url(${flameUrl});`}></div>
+    </div>
+  </div>
+
+  <style class="hover"></style>
+</div>
+
+<script>
+  /*
+  using 
+    - an animated gif of sparkles.
+    - an animated gradient as a holo effect.
+    - color-dodge mix blend mode
+  */
+
+  document.addEventListener('astro:page-load', () => {
+    const cards = document.querySelectorAll('.card');
+    const styleElement = document.querySelector('.hover');
+    let timeout;
+
+    // Handle mouse movement over cards
+    function handleMouseMove(e) {
+      // Normalize touch/mouse
+      let pos = [e.offsetX, e.offsetY];
+      e.preventDefault();
+
+      if (e.type === 'touchmove') {
+        pos = [e.touches[0].clientX, e.touches[0].clientY];
+      }
+
+      const card = e.currentTarget;
+
+      // Math for mouse position
+      const l = pos[0];
+      const t = pos[1];
+      const h = card.offsetHeight;
+      const w = card.offsetWidth;
+      const px = Math.abs(Math.floor((100 / w) * l) - 100);
+      const py = Math.abs(Math.floor((100 / h) * t) - 100);
+      const pa = 50 - px + (50 - py);
+
+      // Math for gradient / background positions
+      const lp = 50 + (px - 50) / 1.5;
+      const tp = 50 + (py - 50) / 1.5;
+      const px_spark = 50 + (px - 50) / 7;
+      const py_spark = 50 + (py - 50) / 7;
+      const p_opc = 20 + Math.abs(pa) * 1.5;
+      const ty = ((tp - 50) / 2) * -1;
+      const tx = ((lp - 50) / 1.5) * 0.5;
+
+      // CSS to apply for active card
+      const grad_pos = `background-position: ${lp}% ${tp}%;`;
+      const sprk_pos = `background-position: ${px_spark}% ${py_spark}%;`;
+      const opc = `opacity: ${p_opc / 100};`;
+      const tf = `transform: rotateX(${ty}deg) rotateY(${tx}deg)`;
+
+      // Need to use a <style> tag for pseudo elements
+      const style = `
+        .card:hover:before { ${grad_pos} }  /* gradient */
+        .card:hover:after { ${sprk_pos} ${opc} }   /* sparkles */ 
+      `;
+
+      // Set / apply CSS class and style
+      cards.forEach((c) => c.classList.remove('active'));
+      card.classList.remove('animated');
+      card.setAttribute('style', tf);
+
+      if (styleElement) {
+        styleElement.textContent = style;
+      }
+
+      if (e.type === 'touchmove') {
+        return false;
+      }
+
+      clearTimeout(timeout);
+    }
+
+    // Handle mouse out
+    function handleMouseOut(e) {
+      const card = e.currentTarget;
+
+      if (styleElement) {
+        styleElement.textContent = '';
+      }
+
+      card.removeAttribute('style');
+
+      timeout = setTimeout(() => {
+        card.classList.add('animated');
+      }, 2500);
+    }
+
+    // Add event listeners to all cards
+    cards.forEach((card) => {
+      card.addEventListener('mousemove', handleMouseMove);
+      card.addEventListener('touchmove', handleMouseMove);
+      card.addEventListener('mouseout', handleMouseOut);
+      card.addEventListener('touchend', handleMouseOut);
+      card.addEventListener('touchcancel', handleMouseOut);
+    });
+  });
+</script>
+
+<style define:vars={{ flameUrl, prayerUrl, urfitUrl }}>
+  :root {
+    --color1: rgb(0, 231, 255);
+    --color2: rgb(255, 0, 231);
+    --back: url(https://cdn2.bulbagarden.net/upload/1/17/Cardback.jpg);
+    --flame1: #fac;
+    --flame2: #ddccaa;
+    --flamefront: var(--flameUrl);
+    --prayer1: #54a29e;
+    --prayer2: #a79d66;
+    --prayerfront: var(--prayerUrl);
+    --urfit1: #efb2fb;
+    --urfit2: #acc6f8;
+    --urfitfront: var(--urfitUrl);
+    --flame2-1: #efb2fb;
+    --flame2-2: #acc6f8;
+    --flame2front: var(--flameUrl);
+  }
+
+  .card {
+    width: 50vw;
+    height: 16vw;
+    position: relative;
+    overflow: hidden;
+    margin: 20px;
+    overflow: hidden;
+    z-index: 10;
+    touch-action: none;
+    isolation: isolate;
+
+    border-radius: 5% / 3.5%;
+    box-shadow:
+      -5px -5px 5px -5px var(--color1),
+      5px 5px 5px -5px var(--color2),
+      -7px -7px 10px -5px transparent,
+      7px 7px 10px -5px transparent,
+      0 0 5px 0px rgba(255, 255, 255, 0),
+      0 55px 35px -20px rgba(0, 0, 0, 0.5);
+
+    transition:
+      transform 0.5s ease,
+      box-shadow 0.2s ease;
+    will-change: transform, filter;
+
+    background-color: #040712;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    transform-origin: center;
+  }
+
+  .card:hover {
+    box-shadow:
+      -20px -20px 30px -25px var(--color1),
+      20px 20px 30px -25px var(--color2),
+      -7px -7px 10px -5px var(--color1),
+      7px 7px 10px -5px var(--color2),
+      0 0 13px 4px rgba(255, 255, 255, 0.3),
+      0 55px 35px -20px rgba(0, 0, 0, 0.5);
+  }
+
+  .card.flame {
+    --color1: var(--flame1);
+    --color2: var(--flame2);
+  }
+  .card.prayer {
+    --color1: var(--prayer1);
+    --color2: var(--prayer2);
+  }
+  .card.flame2 {
+    --color1: var(--flame2-1);
+    --color2: var(--flame2-2);
+  }
+  .card.urfit {
+    --color1: #ec9bb6;
+    --color2: #ccac6f;
+    --color3: #69e4a5;
+    --color4: #8ec5d6;
+    --color5: #b98cce;
+  }
+
+  .card:before,
+  .card:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    mix-blend-mode: color-dodge;
+    transition: all 0.33s ease;
+  }
+
+  .card:before {
+    background-position: 50% 50%;
+    background-size: 300% 300%;
+    background-image: linear-gradient(
+      115deg,
+      transparent 0%,
+      var(--color1) 25%,
+      transparent 47%,
+      transparent 53%,
+      var(--color2) 75%,
+      transparent 100%
+    );
+    opacity: 0.5;
+    filter: brightness(0.5) contrast(1);
+    z-index: 1;
+  }
+
+  .card:after {
+    opacity: 1;
+    background-image: url('https://assets.codepen.io/13471/sparkles.gif'),
+      url(https://assets.codepen.io/13471/holo.png),
+      linear-gradient(125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
+    background-position: 50% 50%;
+    background-size: 160%;
+    background-blend-mode: overlay;
+    z-index: 2;
+    filter: brightness(1) contrast(1);
+    transition: all 0.33s ease;
+    mix-blend-mode: color-dodge;
+    opacity: 0.75;
+  }
+
+  .card.active:after,
+  .card:hover:after {
+    filter: brightness(1) contrast(1);
+    opacity: 1;
+  }
+
+  .card.active,
+  .card:hover {
+    animation: none;
+    transition: box-shadow 0.1s ease-out;
+  }
+
+  .card.active:before,
+  .card:hover:before {
+    animation: none;
+    background-image: linear-gradient(110deg, transparent 25%, var(--color1) 48%, var(--color2) 52%, transparent 75%);
+    background-position: 50% 50%;
+    background-size: 250% 250%;
+    opacity: 0.88;
+    filter: brightness(0.66) contrast(1.33);
+    transition: none;
+  }
+
+  .card.active:before,
+  .card:hover:before,
+  .card.active:after,
+  .card:hover:after {
+    animation: none;
+    transition: none;
+  }
+
+  .card.animated {
+    transition: none;
+    animation: holoCard 12s ease 0s 1;
+    &:before {
+      transition: none;
+      animation: holoGradient 12s ease 0s 1;
+    }
+    &:after {
+      transition: none;
+      animation: holoSparkle 12s ease 0s 1;
+    }
+  }
+
+  @keyframes holoSparkle {
+    0%,
+    100% {
+      opacity: 0.75;
+      background-position: 50% 50%;
+      filter: brightness(1.2) contrast(1.25);
+    }
+    5%,
+    8% {
+      opacity: 1;
+      background-position: 40% 40%;
+      filter: brightness(0.8) contrast(1.2);
+    }
+    13%,
+    16% {
+      opacity: 0.5;
+      background-position: 50% 50%;
+      filter: brightness(1.2) contrast(0.8);
+    }
+    35%,
+    38% {
+      opacity: 1;
+      background-position: 60% 60%;
+      filter: brightness(1) contrast(1);
+    }
+    55% {
+      opacity: 0.33;
+      background-position: 45% 45%;
+      filter: brightness(1.2) contrast(1.25);
+    }
+  }
+
+  @keyframes holoGradient {
+    0%,
+    100% {
+      opacity: 0.5;
+      background-position: 50% 50%;
+      filter: brightness(0.5) contrast(1);
+    }
+    5%,
+    9% {
+      background-position: 100% 100%;
+      opacity: 1;
+      filter: brightness(0.75) contrast(1.25);
+    }
+    13%,
+    17% {
+      background-position: 0% 0%;
+      opacity: 0.88;
+    }
+    35%,
+    39% {
+      background-position: 100% 100%;
+      opacity: 1;
+      filter: brightness(0.5) contrast(1);
+    }
+    55% {
+      background-position: 0% 0%;
+      opacity: 1;
+      filter: brightness(0.75) contrast(1.25);
+    }
+  }
+
+  @keyframes holoCard {
+    0%,
+    100% {
+      transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+    }
+    5%,
+    8% {
+      transform: rotateZ(0deg) rotateX(6deg) rotateY(-20deg);
+    }
+    13%,
+    16% {
+      transform: rotateZ(0deg) rotateX(-9deg) rotateY(32deg);
+    }
+    35%,
+    38% {
+      transform: rotateZ(3deg) rotateX(12deg) rotateY(20deg);
+    }
+    55% {
+      transform: rotateZ(-3deg) rotateX(-12deg) rotateY(-27deg);
+    }
+  }
+
+  .card.eevee:hover {
+    box-shadow:
+      0 0 30px -5px white,
+      0 0 10px -2px white,
+      0 55px 35px -20px rgba(0, 0, 0, 0.5);
+  }
+  .card.eevee:hover:before,
+  .card.eevee.active:before {
+    background-image: linear-gradient(
+      115deg,
+      transparent 20%,
+      var(--color1) 36%,
+      var(--color2) 43%,
+      var(--color3) 50%,
+      var(--color4) 57%,
+      var(--color5) 64%,
+      transparent 80%
+    );
+  }
+
+  .cards .three-d-wrapper {
+    perspective: 750px;
+    isolation: isolate;
+    transform: translate3d(0.1px, 0.1px, 0.1px);
+  }
+  .demo .card {
+    background-image: var(--back);
+    font-size: 2vh;
+  }
+  .demo .card > span {
+    position: relative;
+    top: 45%;
+  }
+
+  .demo .card:nth-of-type(1),
+  .demo .card:nth-of-type(2),
+  .demo .card:nth-of-type(3) {
+    width: 20vh;
+    height: 27.5vh;
+    box-shadow:
+      inset 0 0 0 1px rgba(white, 0.4),
+      0 25px 15px -10px rgba(0, 0, 0, 0.5);
+    animation: none;
+  }
+
+  .demo .card:nth-of-type(1),
+  .demo .card:nth-of-type(2),
+  .demo .card:nth-of-type(3) {
+    &:before,
+    &:after {
+      animation: none;
+    }
+  }
+  .demo .card:nth-of-type(1) {
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+  .demo .card:nth-of-type(2) {
+    background: none;
+    &:before {
+      display: none;
+    }
+  }
+  .demo .card:nth-of-type(3) {
+    background: none;
+    &:after {
+      display: none;
+    }
+  }
+
+  .operator {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 6vh;
+  }
+
+  html,
+  body {
+    height: 100%;
+    background-color: #333844;
+    padding: 0;
+    z-index: 1;
+    transform: translate3d(0, 0, 0.1px);
+  }
+  body {
+    color: white;
+    background-color: #333844;
+    font-family: 'Heebo', sans-serif;
+    text-align: center;
+  }
+  h1 {
+    display: block;
+    margin: 30px 0;
+  }
+  p {
+    margin-top: 5px;
+    font-weight: 200;
+  }
+  #app {
+    position: relative;
+  }
+
+  .demo,
+  .cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    z-index: 1;
+  }
+  .demo {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 600px) {
+    .cards {
+      flex-direction: row;
+    }
+  }
+
+  .cards .card {
+    &:nth-child(2) {
+      &,
+      &:before,
+      &:after {
+        animation-delay: 0.25s;
+      }
+    }
+    &:nth-child(3) {
+      &,
+      &:before,
+      &:after {
+        animation-delay: 0.5s;
+      }
+    }
+    &:nth-child(4) {
+      &,
+      &:before,
+      &:after {
+        animation-delay: 0.75s;
+      }
+    }
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 18px;
+    padding: 1em;
+    background: rgba(0, 0, 0, 0.3);
+    margin-top: 0;
+    animation: rubberBand 1.5s linear 3s 1;
+  }
+  .promo {
+    margin-top: 50px;
+  }
+  .promo img {
+    margin-top: 10px;
+    max-width: 80%;
+  }
+  p a {
+    color: cyan;
+  }
+
+  html,
+  body,
+  main {
+    min-height: 100%;
+  }
+
+  @keyframes rubberBand {
+    from {
+      transform: scale3d(1, 1, 1);
+    }
+
+    30% {
+      transform: scale3d(1.25, 0.75, 1);
+    }
+
+    40% {
+      transform: scale3d(0.75, 1.25, 1);
+    }
+
+    50% {
+      transform: scale3d(1.15, 0.85, 1);
+    }
+
+    65% {
+      transform: scale3d(0.95, 1.05, 1);
+    }
+
+    75% {
+      transform: scale3d(1.05, 0.95, 1);
+    }
+
+    to {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+</style>
