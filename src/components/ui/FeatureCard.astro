@@ -2,7 +2,8 @@
 import flameTheFreeze from '~/assets/images/flameTheFreeze.webp';
 import prayerChurch from '~/assets/images/prayerChurch.webp';
 import urfitChild from '~/assets/images/urfitChild.webp';
-import FeatureCardNew from './FeatureCardNew.astro';
+import BlurFade from './BlurFade.astro';
+import Dock from './Dock.astro';
 
 // icons={[
 //   {
@@ -24,7 +25,7 @@ import FeatureCardNew from './FeatureCardNew.astro';
 ---
 
 <section class="cards gap-8">
-  <div class="flex flex-row gap-8">
+  <!-- <div class="flex flex-row gap-8">
     <div class="three-d-wrapper">
       <div
         class="card eevee animated"
@@ -32,23 +33,6 @@ import FeatureCardNew from './FeatureCardNew.astro';
       >
       </div>
     </div>
-
-    <div class="three-d-wrapper">
-      <FeatureCardNew title="urFIT-child">
-        <Fragment slot="description">
-          The main website of Prof. Andrew Agbaje — a world-renowned expert in arterial stiffness and ranked among the
-          top three globally — and his urFit-child research group. <br />
-          The site features 14 in-depth pages with over 160 scientific publications, press releases, additional resources,
-          and more than 15 research-focused videos, all highlighting impactful work in the field.
-          <br /><br />
-          <h3><span class="font-semibold">Size: </span>Large</h3>
-          <br />
-          <a href="https://www.urfit-child.com" class="text-blue-600 hover:underline">urfit-child.com</a>
-        </Fragment>
-      </FeatureCardNew>
-    </div>
-  </div>
-  <div class="flex flex-row gap-8">
     <div class="three-d-wrapper">
       <div
         class="card mewtwo animated"
@@ -63,30 +47,11 @@ import FeatureCardNew from './FeatureCardNew.astro';
       >
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <div class="flex flex-row gap-8">
-    <div class="three-d-wrapper">
-      <FeatureCardNew title="Flame the Freeze">
-        <Fragment slot="description">
-          <br /><br />
-          <h3><span class="font-semibold">Size: </span>Medium</h3>
-          <br />
-          <a href="https://www.flamethefreeze.com" class="text-blue-600 hover:underline">flamethefreeze.com</a>
-        </Fragment>
-      </FeatureCardNew>
-    </div>
-    <div class="three-d-wrapper">
-      <FeatureCardNew title="Prayer Church">
-        <Fragment slot="description">
-          <br /><br />
-          <h3><span class="font-semibold">Size: </span>Small</h3>
-          <br />
-          <a href="https://www.prayerchurch.fi" class="text-blue-600 hover:underline">prayerchurch.fi</a>
-        </Fragment>
-      </FeatureCardNew>
-    </div>
-  </div>
+  <Dock />
+
+  <!-- <BlurFade /> -->
 </section>
 
 <style class="hover"></style>
@@ -284,13 +249,19 @@ import FeatureCardNew from './FeatureCardNew.astro';
     --mewtwo2: #acc6f8;
   }
 
-  .card {
+  /* .card {
     width: 100vw;
     height: 100vw;
     @media screen and (min-width: 600px) {
-      /* width: clamp(12.9vw, 61vh, 18vw); */
       width: clamp(470px, 85vh, 25.2vw);
       height: clamp(400px, 85vh, 25.2vw);
+    } */
+  .card {
+    width: 71.5vw;
+    height: 100vw;
+    @media screen and (min-width: 600px) {
+      width: clamp(24vw, 61vh, 18vw);
+      height: clamp(32vw, 85vh, 25.2vw);
     }
 
     position: relative;
@@ -341,20 +312,20 @@ import FeatureCardNew from './FeatureCardNew.astro';
       0 55px 35px -20px rgba(0, 0, 0, 0.5);
   }
 
-  .card.pika {
-    --color1: var(--pika1);
-    --color2: var(--pika2);
-  }
-  .card.mewtwo {
-    --color1: var(--mewtwo1);
-    --color2: var(--mewtwo2);
-  }
   .card.eevee {
     --color1: #ec9bb6;
     --color2: #ccac6f;
     --color3: #69e4a5;
     --color4: #8ec5d6;
     --color5: #b98cce;
+  }
+  .card.mewtwo {
+    --color1: var(--mewtwo1);
+    --color2: var(--mewtwo2);
+  }
+  .card.pika {
+    --color1: var(--pika1);
+    --color2: var(--pika2);
   }
 
   .card:before,
@@ -579,7 +550,7 @@ import FeatureCardNew from './FeatureCardNew.astro';
     }
   } */
 
-  .cards .card {
+  /* .cards .card {
     &:nth-child(2) {
       &,
       &:before,
@@ -601,5 +572,38 @@ import FeatureCardNew from './FeatureCardNew.astro';
         animation-delay: 0.75s;
       }
     }
-  }
+  } */
 </style>
+
+<!-- <div class="flex flex-row gap-8"></div>
+
+  <div class="flex flex-row gap-8">
+    <FeatureCardNew title="urFIT-child">
+      <Fragment slot="description">
+        The main website of Prof. Andrew Agbaje — a world-renowned expert in arterial stiffness and ranked among the top
+        three globally — and his urFit-child research group. <br />
+        The site features 14 in-depth pages with over 160 scientific publications, press releases, additional resources,
+        and more than 15 research-focused videos, all highlighting impactful work in the field.
+        <br /><br />
+        <h3><span class="font-semibold">Size: </span>Large</h3>
+        <br />
+        <a href="https://www.urfit-child.com" class="text-blue-600 hover:underline">urfit-child.com</a>
+      </Fragment>
+    </FeatureCardNew>
+    <FeatureCardNew title="Flame the Freeze">
+      <Fragment slot="description">
+        <br /><br />
+        <h3><span class="font-semibold">Size: </span>Medium</h3>
+        <br />
+        <a href="https://www.flamethefreeze.com" class="text-blue-600 hover:underline">flamethefreeze.com</a>
+      </Fragment>
+    </FeatureCardNew>
+    <FeatureCardNew title="Prayer Church">
+      <Fragment slot="description">
+        <br /><br />
+        <h3><span class="font-semibold">Size: </span>Small</h3>
+        <br />
+        <a href="https://www.prayerchurch.fi" class="text-blue-600 hover:underline">prayerchurch.fi</a>
+      </Fragment>
+    </FeatureCardNew>
+  </div> -->
