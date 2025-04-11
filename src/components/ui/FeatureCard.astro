@@ -1,43 +1,96 @@
 ---
+import flameTheFreeze from '~/assets/images/flameTheFreeze.webp';
+import prayerChurch from '~/assets/images/prayerChurch.webp';
+import urfitChild from '~/assets/images/urfitChild.webp';
+import FeatureCardNew from './FeatureCardNew.astro';
 
+// icons={[
+//   {
+//     icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>',
+//     label: 'Android',
+//     color: 'green-500',
+//   },
+//   {
+//     icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.68 1.32-1.53 2.6-2.53 4.08zm-6.84-13C9.81 5.04 11.27 3.65 13 3.5c.22 2.06-1.77 3.63-2.79 3.78z"></path></svg>',
+//     label: 'iOS',
+//     color: 'white',
+//   },
+//   {
+//     icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"></path></svg>',
+//     label: 'Web',
+//     color: 'blue-400',
+//   },
+// ]}
 ---
 
-<main id="app">
-  <p>
-    Please checkout the newer version of this; <a target="_top" href="https://codepen.io/simeydotme/pen/abYWJdX"
-      >https://codepen.io/simeydotme/pen/abYWJdX</a
-    >
-  </p>
-
-  <h1>Pokemon Card, Holo Effect</h1>
-
-  <section class="cards">
+<section class="cards gap-8">
+  <div class="flex flex-row gap-8">
     <div class="three-d-wrapper">
-      <div class="card charizard animated"></div>
+      <div
+        class="card eevee animated"
+        style={`background-image: url(${urfitChild.src}); background-size: cover; background-position: center;`}
+      >
+      </div>
+    </div>
+
+    <div class="three-d-wrapper">
+      <FeatureCardNew title="urFIT-child">
+        <Fragment slot="description">
+          The main website of Prof. Andrew Agbaje — a world-renowned expert in arterial stiffness and ranked among the
+          top three globally — and his urFit-child research group. <br />
+          The site features 14 in-depth pages with over 160 scientific publications, press releases, additional resources,
+          and more than 15 research-focused videos, all highlighting impactful work in the field.
+          <br /><br />
+          <h3><span class="font-semibold">Size: </span>Large</h3>
+          <br />
+          <a href="https://www.urfit-child.com" class="text-blue-600 hover:underline">urfit-child.com</a>
+        </Fragment>
+      </FeatureCardNew>
+    </div>
+  </div>
+  <div class="flex flex-row gap-8">
+    <div class="three-d-wrapper">
+      <div
+        class="card mewtwo animated"
+        style={`background-image: url(${flameTheFreeze.src}); background-size: cover; background-position: center;`}
+      >
+      </div>
     </div>
     <div class="three-d-wrapper">
-      <div class="card pika animated"></div>
+      <div
+        class="card pika animated"
+        style={`background-image: url(${prayerChurch.src}); background-size: cover; background-position: center;`}
+      >
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-row gap-8">
+    <div class="three-d-wrapper">
+      <FeatureCardNew title="Flame the Freeze">
+        <Fragment slot="description">
+          <br /><br />
+          <h3><span class="font-semibold">Size: </span>Medium</h3>
+          <br />
+          <a href="https://www.flamethefreeze.com" class="text-blue-600 hover:underline">flamethefreeze.com</a>
+        </Fragment>
+      </FeatureCardNew>
     </div>
     <div class="three-d-wrapper">
-      <div class="card eevee animated"></div>
+      <FeatureCardNew title="Prayer Church">
+        <Fragment slot="description">
+          <br /><br />
+          <h3><span class="font-semibold">Size: </span>Small</h3>
+          <br />
+          <a href="https://www.prayerchurch.fi" class="text-blue-600 hover:underline">prayerchurch.fi</a>
+        </Fragment>
+      </FeatureCardNew>
     </div>
-    <div class="three-d-wrapper">
-      <div class="card mewtwo animated"></div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <style class="hover"></style>
+<style class="hover"></style>
 
-  <section class="demo">
-    <div class="card"></div>
-    <span class="operator">+</span>
-    <div class="card"><span>color-dodge</span></div>
-    <span class="operator">+</span>
-    <div class="card"><span>color-dodge</span></div>
-  </section>
-</main>
-
-<script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script is:inline>
   // Initialize card effects when the DOM is ready and after each page navigation
   function initializeCardEffects() {
@@ -47,112 +100,201 @@
         - an animated gradient as a holo effect.
         - color-dodge mix blend mode
     */
-    let x;
-    const $cards = $('.card');
+    let timeoutId;
+    let animationFrameId;
+    let lastFrameTime = 0;
+    const FRAME_THROTTLE = 16; // ~60fps
+    const cards = document.querySelectorAll('.card');
 
-    $cards
-      .on('mousemove touchmove', function (e) {
-        // normalise touch/mouse
-        let pos = [e.offsetX, e.offsetY];
-        e.preventDefault();
+    // Add event listeners to all cards
+    cards.forEach((card) => {
+      // Mouse/touch move event - use passive listeners where possible for better performance
+      card.addEventListener('mousemove', (e) => handleMoveWithThrottle(e, card), { passive: true });
+      card.addEventListener('touchmove', (e) => handleMoveWithThrottle(e, card), { passive: false });
+
+      // Mouse/touch end events
+      card.addEventListener('mouseout', () => handleEnd(card), { passive: true });
+      card.addEventListener('touchend', () => handleEnd(card), { passive: true });
+      card.addEventListener('touchcancel', () => handleEnd(card), { passive: true });
+    });
+
+    // Throttle animation frames for consistent performance
+    function handleMoveWithThrottle(e, card) {
+      const now = performance.now();
+
+      // Skip if we're updating too frequently
+      if (now - lastFrameTime < FRAME_THROTTLE) {
+        return;
+      }
+
+      lastFrameTime = now;
+      handleMove(e, card);
+    }
+
+    // Handle mouse/touch movement with requestAnimationFrame for better performance
+    function handleMove(e, card) {
+      // Cancel any pending animation frame
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+
+      // Use requestAnimationFrame to optimize visual updates
+      animationFrameId = requestAnimationFrame(() => {
+        // Normalize touch/mouse
+        let pos;
         if (e.type === 'touchmove') {
-          pos = [e.touches[0].clientX, e.touches[0].clientY];
+          e.preventDefault();
+          const touch = e.touches[0];
+          const rect = card.getBoundingClientRect();
+          pos = [touch.clientX - rect.left, touch.clientY - rect.top];
+        } else {
+          pos = [e.offsetX, e.offsetY];
         }
-        const $card = $(this);
-        // math for mouse position
+
+        // Math for mouse position - use more efficient calculations
+        const h = card.offsetHeight;
+        const w = card.offsetWidth;
         const l = pos[0];
         const t = pos[1];
-        const h = $card.height();
-        const w = $card.width();
         const px = Math.abs(Math.floor((100 / w) * l) - 100);
         const py = Math.abs(Math.floor((100 / h) * t) - 100);
-        const pa = 50 - px + (50 - py);
-        // math for gradient / background positions
+        // const pa = 50 - px + (50 - py);
+
+        // Math for gradient / background positions
         const lp = 50 + (px - 50) / 1.5;
         const tp = 50 + (py - 50) / 1.5;
-        const px_spark = 50 + (px - 50) / 7;
-        const py_spark = 50 + (py - 50) / 7;
-        const p_opc = 20 + Math.abs(pa) * 1.5;
+        // const px_spark = 50 + (px - 50) / 7;
+        // const py_spark = 50 + (py - 50) / 7;
+        // const p_opc = 20 + Math.abs(pa) * 1.5;
         const ty = ((tp - 50) / 2) * -1;
         const tx = ((lp - 50) / 1.5) * 0.5;
 
+        // Batch DOM updates for better performance
         // Set CSS variables directly on the card element
-        $card.each(function () {
-          this.style.setProperty('--grad-pos', `${lp}% ${tp}%`);
-          this.style.setProperty('--spark-pos', `${px_spark}% ${py_spark}%`);
-          this.style.setProperty('--spark-opacity', p_opc / 100);
-        });
-        $card.css({
-          transform: `rotateX(${ty}deg) rotateY(${tx}deg)`,
+        card.style.setProperty('--grad-pos', `${lp}% ${tp}%`);
+        // card.style.setProperty('--spark-pos', `${px_spark}% ${py_spark}%`);
+        // card.style.setProperty('--spark-opacity', p_opc / 100);
+
+        // Use transform with will-change property already set in CSS
+        card.style.transform = `rotateX(${ty}deg) rotateY(${tx}deg)`;
+
+        // Optimize class toggling to reduce reflows
+        cards.forEach((c) => {
+          if (c !== card && c.classList.contains('active')) {
+            c.classList.remove('active');
+          }
         });
 
-        // set / apply css class and style
-        $cards.removeClass('active');
-        $card.removeClass('animated');
-        $card.addClass('active');
+        if (!card.classList.contains('active')) {
+          card.classList.add('active');
+        }
+
+        if (card.classList.contains('animated')) {
+          card.classList.remove('animated');
+        }
+
         if (e.type === 'touchmove') {
           return false;
         }
-        clearTimeout(x);
-      })
-      .on('mouseout touchend touchcancel', function () {
-        // remove css, apply custom animation on end
-        const $card = $(this);
-        $card.each(function () {
-          this.style.setProperty('--grad-pos', '50% 50%');
-          this.style.setProperty('--spark-pos', '50% 50%');
-          this.style.setProperty('--spark-opacity', '0.75');
-        });
-        $card.css({
-          transform: '',
-        });
-        $card.removeClass('active');
-        x = setTimeout(function () {
-          $card.addClass('animated');
+
+        clearTimeout(timeoutId);
+      });
+    }
+
+    // Handle mouse/touch end
+    function handleEnd(card) {
+      // Cancel any pending animation frame
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+
+      // Use requestAnimationFrame for smoother transitions
+      requestAnimationFrame(() => {
+        // Reset CSS properties
+        card.style.setProperty('--grad-pos', '50% 50%');
+        // card.style.setProperty('--spark-pos', '50% 50%');
+        // card.style.setProperty('--spark-opacity', '0.75');
+        card.style.transform = '';
+        card.classList.remove('active');
+
+        // Clear any existing timeout
+        clearTimeout(timeoutId);
+
+        // Add animated class after delay
+        timeoutId = setTimeout(() => {
+          card.classList.add('animated');
         }, 2500);
       });
+    }
   }
 
-  // Initialize on page load
+  // Initialize on page load with passive event listeners where possible
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeCardEffects);
+    document.addEventListener('DOMContentLoaded', initializeCardEffects, { passive: true });
   } else {
     initializeCardEffects();
   }
 
-  // Re-initialize on Astro page transitions
-  document.addEventListener('astro:page-load', initializeCardEffects);
+  // Re-initialize on Astro page transitions with passive event listener
+  document.addEventListener('astro:page-load', initializeCardEffects, { passive: true });
+
+  function setupWaveObserver() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            entry.target.querySelector('.wave-path')?.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px',
+      }
+    );
+
+    document.querySelectorAll('.wrapper').forEach((wrapper) => {
+      if (wrapper && !wrapper.classList.contains('visible')) {
+        observer.observe(wrapper);
+      }
+    });
+  }
+
+  // Run immediately
+  setupWaveObserver();
+
+  // Run again after page load to catch any dynamically loaded elements
+  window.addEventListener('load', setupWaveObserver);
+
+  // Run when Astro view transitions complete
+  document.addEventListener('astro:page-load', setupWaveObserver);
 </script>
 <style>
   :root {
     --color1: rgb(0, 231, 255);
     --color2: rgb(255, 0, 231);
     --back: url(https://cdn2.bulbagarden.net/upload/1/17/Cardback.jpg);
-    --charizard1: #fac;
-    --charizard2: #ddccaa;
-    --charizardfront: url(https://assets.codepen.io/13471/charizard-gx.webp);
-    --pika1: #54a29e;
+    --pika1: #ffffff;
     --pika2: #a79d66;
-    --pikafront: url(https://assets.codepen.io/13471/pikachu-gx.webp);
     --eevee1: #efb2fb;
     --eevee2: #acc6f8;
-    --eeveefront: url(https://assets.codepen.io/13471/eevee-gx.webp);
     --mewtwo1: #efb2fb;
     --mewtwo2: #acc6f8;
-    --mewtwofront: url(https://assets.codepen.io/13471/mewtwo-gx.webp);
   }
 
   .card {
-    width: 71.5vw;
+    width: 100vw;
     height: 100vw;
     @media screen and (min-width: 600px) {
-      width: clamp(12.9vw, 61vh, 18vw);
-      height: clamp(18vw, 85vh, 25.2vw);
+      /* width: clamp(12.9vw, 61vh, 18vw); */
+      width: clamp(470px, 85vh, 25.2vw);
+      height: clamp(400px, 85vh, 25.2vw);
     }
 
     position: relative;
     overflow: hidden;
-    margin: 20px;
     overflow: hidden;
     z-index: 10;
     touch-action: none;
@@ -180,6 +322,15 @@
     transform-origin: center;
   }
 
+  .card-content {
+    position: relative;
+    z-index: 20;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   .card:hover {
     box-shadow:
       -20px -20px 30px -25px var(--color1),
@@ -190,20 +341,13 @@
       0 55px 35px -20px rgba(0, 0, 0, 0.5);
   }
 
-  .card.charizard {
-    --color1: var(--charizard1);
-    --color2: var(--charizard2);
-    --front: var(--charizardfront);
-  }
   .card.pika {
     --color1: var(--pika1);
     --color2: var(--pika2);
-    --front: var(--pikafront);
   }
   .card.mewtwo {
     --color1: var(--mewtwo1);
     --color2: var(--mewtwo2);
-    --front: var(--mewtwofront);
   }
   .card.eevee {
     --color1: #ec9bb6;
@@ -211,7 +355,6 @@
     --color3: #69e4a5;
     --color4: #8ec5d6;
     --color5: #b98cce;
-    --front: var(--eeveefront);
   }
 
   .card:before,
@@ -246,7 +389,7 @@
     z-index: 1;
   }
 
-  .card:after {
+  /* .card:after {
     opacity: var(--spark-opacity, 0.75);
     background-image: url('https://assets.codepen.io/13471/sparkles.gif'),
       url(https://assets.codepen.io/13471/holo.png),
@@ -259,7 +402,7 @@
     transition: all 0.33s ease;
     mix-blend-mode: color-dodge;
     isolation: isolate;
-  }
+  } */
 
   .card.active:after,
   .card:hover:after {
@@ -390,7 +533,7 @@
       0 0 10px -2px white,
       0 55px 35px -20px rgba(0, 0, 0, 0.5);
   }
-  .card.eevee:hover:before,
+  /* .card.eevee:hover:before,
   .card.eevee.active:before {
     background-image: linear-gradient(
       115deg,
@@ -402,90 +545,18 @@
       var(--color5) 64%,
       transparent 80%
     );
-  }
+  } */
 
   .cards .three-d-wrapper {
     perspective: 750px;
     isolation: isolate;
     transform: translate3d(0.1px, 0.1px, 0.1px);
   }
-  .demo .card {
-    background-image: var(--back);
-    font-size: 2vh;
-  }
-  .demo .card > span {
-    position: relative;
-    top: 45%;
-  }
-
-  .demo .card:nth-of-type(1),
-  .demo .card:nth-of-type(2),
-  .demo .card:nth-of-type(3) {
-    width: 20vh;
-    height: 27.5vh;
-    box-shadow:
-      inset 0 0 0 1px rgba(white, 0.4),
-      0 25px 15px -10px rgba(0, 0, 0, 0.5);
-    /* animation: none; */
-  }
-
-  .demo .card:nth-of-type(1),
-  .demo .card:nth-of-type(2),
-  .demo .card:nth-of-type(3) {
-    &:before,
-    &:after {
-      animation: none;
-    }
-  }
-  .demo .card:nth-of-type(1) {
-    &:before,
-    &:after {
-      display: none;
-    }
-  }
-  .demo .card:nth-of-type(2) {
-    background: none;
-    &:before {
-      display: none;
-    }
-  }
-  .demo .card:nth-of-type(3) {
-    background: none;
-    &:after {
-      display: none;
-    }
-  }
 
   .operator {
     display: inline-block;
     vertical-align: middle;
     font-size: 6vh;
-  }
-
-  html,
-  body {
-    height: 100%;
-    background-color: #333844;
-    padding: 0;
-    z-index: 1;
-    transform: translate3d(0, 0, 0.1px);
-  }
-  body {
-    color: white;
-    background-color: #333844;
-    font-family: 'Heebo', sans-serif;
-    text-align: center;
-  }
-  h1 {
-    display: block;
-    margin: 30px 0;
-  }
-  p {
-    margin-top: 5px;
-    font-weight: 200;
-  }
-  #app {
-    position: relative;
   }
 
   .demo,
@@ -502,11 +573,11 @@
     justify-content: center;
   }
 
-  @media screen and (min-width: 600px) {
+  /* @media screen and (min-width: 600px) {
     .cards {
       flex-direction: row;
     }
-  }
+  } */
 
   .cards .card {
     &:nth-child(2) {
@@ -529,61 +600,6 @@
       &:after {
         animation-delay: 0.75s;
       }
-    }
-  }
-
-  p {
-    font-weight: 400;
-    font-size: 18px;
-    padding: 1em;
-    background: rgba(0, 0, 0, 0.3);
-    margin-top: 0;
-    animation: rubberBand 1.5s linear 3s 1;
-  }
-  .promo {
-    margin-top: 50px;
-  }
-  .promo img {
-    margin-top: 10px;
-    max-width: 80%;
-  }
-  p a {
-    color: cyan;
-  }
-
-  html,
-  body,
-  main {
-    min-height: 100%;
-  }
-
-  @keyframes rubberBand {
-    from {
-      transform: scale3d(1, 1, 1);
-    }
-
-    30% {
-      transform: scale3d(1.25, 0.75, 1);
-    }
-
-    40% {
-      transform: scale3d(0.75, 1.25, 1);
-    }
-
-    50% {
-      transform: scale3d(1.15, 0.85, 1);
-    }
-
-    65% {
-      transform: scale3d(0.95, 1.05, 1);
-    }
-
-    75% {
-      transform: scale3d(1.05, 0.95, 1);
-    }
-
-    to {
-      transform: scale3d(1, 1, 1);
     }
   }
 </style>
