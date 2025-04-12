@@ -2,15 +2,15 @@
 
 ---
 
-<div class="container">
-  <section id="formHolder">
-    <div class="row">
+<div class="container mx-auto max-w-5xl px-4 overflow-visible">
+  <section id="formHolder" class="py-12">
+    <div class="flex flex-col md:flex-row">
       <!-- Brand Box -->
-      <div class="col-sm-6 brand">
+      <div class="col-sm-6 brand md:w-1/2">
         <a href="#" class="logo">MR <span>.</span></a>
 
-        <div class="heading">
-          <h2>Marina</h2>
+        <div class="heading w-full">
+          <h2>Cherubim IT</h2>
           <p>Your Right Choice</p>
         </div>
 
@@ -21,10 +21,30 @@
       </div>
 
       <!-- Form Box -->
-      <div class="col-sm-6 form">
-        <!-- Contact Form -->
-        <div class="contact form-peice switched">
-          <form class="contact-form" action="#" method="post">
+      <div class="col-sm-6 form md:w-1/2">
+        <!-- Login Form -->
+        <div class="login form-peice switched">
+          <form class="login-form" action="#" method="post">
+            <div class="form-group">
+              <label for="loginemail">Email Adderss</label>
+              <input type="email" name="loginemail" id="loginemail" required />
+            </div>
+
+            <div class="form-group">
+              <label for="loginPassword">Password</label>
+              <input type="password" name="loginPassword" id="loginPassword" required />
+            </div>
+
+            <div class="CTA">
+              <input type="submit" value="Login" />
+              <a href="#" class="switch">I'm New</a>
+            </div>
+          </form>
+        </div><!-- End Login Form -->
+
+        <!-- Signup Form -->
+        <div class="signup form-peice">
+          <form class="signup-form" action="#" method="post">
             <div class="form-group">
               <label for="name">Full Name</label>
               <input type="text" name="username" id="name" class="name" />
@@ -38,24 +58,35 @@
             </div>
 
             <div class="form-group">
-              <label for="message">Message</label>
-              <textarea name="message" id="message" class="message"></textarea>
+              <label for="phone">Phone Number - <small>Optional</small></label>
+              <input type="text" name="phone" id="phone" />
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" class="pass" />
+              <span class="error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="passwordCon">Confirm Password</label>
+              <input type="password" name="passwordCon" id="passwordCon" class="passConfirm" />
               <span class="error"></span>
             </div>
 
             <div class="CTA">
-              <input type="submit" value="Send Message" id="submit" />
+              <input type="submit" value="Signup Now" id="submit" />
               <a href="#" class="switch">I have an account</a>
             </div>
           </form>
-        </div><!-- End Contact Form -->
+        </div><!-- End Signup Form -->
       </div>
     </div>
   </section>
 
   <footer>
     <p>
-      Form made by: <a href="http://mohmdhasan.tk" target="_blank">Mohmdhasan.tk</a>
+      Made by: <a href="http://cherubim-it.com" target="_blank">Cherubim IT</a>
     </p>
   </footer>
 </div>
@@ -143,9 +174,8 @@
     transform: translate(0);
   }
   .brand .heading h2 {
-    font-size: 70px;
+    font-size: 60px;
     font-weight: 700;
-    text-transform: uppercase;
     margin-bottom: 0;
   }
   .brand .heading p {
@@ -402,6 +432,29 @@
     // DOM elements
     const contactForm = document.querySelector('form.contact-form') as HTMLFormElement;
     const inputs = document.querySelectorAll('input, textarea') as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+
+    // Switch form elements
+    const signupForm = document.querySelector('.signup') as HTMLElement;
+    const loginForm = document.querySelector('.login') as HTMLElement;
+    const signupSwitch = document.querySelector('.signup .switch') as HTMLElement;
+    const loginSwitch = document.querySelector('.login .switch') as HTMLElement;
+
+    // Add event listeners for form switching
+    if (signupSwitch) {
+      signupSwitch.addEventListener('click', (e) => {
+        e.preventDefault();
+        signupForm.classList.add('switched');
+        loginForm.classList.remove('switched');
+      });
+    }
+
+    if (loginSwitch) {
+      loginSwitch.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginForm.classList.add('switched');
+        signupForm.classList.remove('switched');
+      });
+    }
 
     // Helper functions
     function showError(element: HTMLElement, message: string): void {

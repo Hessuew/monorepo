@@ -174,24 +174,41 @@
 }
 
 .element {
-  width: 160vh;
-  height: 100vh;
   position: absolute;
   filter: blur(100px);
   opacity: 0.3;
   pointer-events: none;
-  top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
+  background-image: radial-gradient(circle at 50% 100%, 
+    /* rgba(255, 170, 64, 0.7),  */
+    rgba(156, 64, 255, 0.7),
+    rgba(156, 64, 255, 0.7), 
+    rgba(255, 170, 64, 0.7));
 }
 
 .element-1 {
-  background-image: radial-gradient(circle at center, 
+  height: 80vh;
+  width: 180vh;
+  top: 50%;
+  left: 50%;
+}
+
+.element-2 {
+  height: 40vh;
+  width: 180vh;
+  left: 50%;
+  /* animation: pulse-glow 8s ease-in-out infinite alternate; */
+}
+
+.element-3 {
+  height: 40vh;
+  width: 180vh;
+  left: 50%;
+  background-image: radial-gradient(circle at 50% -140%, 
     /* rgba(255, 170, 64, 0.7),  */
-    rgba(156, 64, 255, 0.7), 
+    rgba(156, 64, 255, 0.7),
     rgba(156, 64, 255, 0.7), 
     rgba(255, 170, 64, 0.7));
-  /* animation: pulse-glow 8s ease-in-out infinite alternate; */
 }
 
 @keyframes pulse-glow {

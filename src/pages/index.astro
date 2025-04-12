@@ -4,6 +4,8 @@ import { AnimatedGradientText } from '~/components/magicui/animated-gradient-tex
 import Button from '~/components/ui/Button.astro';
 import { ButtonGradient } from '~/components/ui/ButtonGradient';
 import FeatureCard from '~/components/ui/FeatureCard.astro';
+import GridPattern from '~/components/ui/GridPattern.astro';
+import ContactForm from '~/components/widgets/ContactForm.astro';
 import TestimonialsCustom from '~/components/widgets/TestimonialsCustom.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -31,6 +33,9 @@ const metadata = {
 <Layout metadata={metadata}>
   <div class="min-h-screen">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+      <div class="absolute -z-10 w-full h-[300%vh] inset-0 bottom-0 overflow-visible">
+        <div class="element element-3 top-0"></div>
+      </div>
       <!-- Hero Section with Background Grid -->
       <div class="relative h-[480px] flex items-center justify-center overflow-visible pb-20 pt-52">
         <!-- Content -->
@@ -57,66 +62,30 @@ const metadata = {
         </div>
       </div>
 
-      <!-- Background Grid Pattern -->
-      <div class="absolute inset-0 -z-20">
-        <!-- Perspective Grid Effect -->
-        <div class="absolute inset-0 overflow-hidden">
-          <!-- Horizontal Lines -->
-          <div class="absolute inset-0">
-            {
-              Array.from({ length: 20 }).map((_, i) => {
-                if (i === 0) {
-                  return null;
-                }
-                return (
-                  <div
-                    class="absolute left-0 right-0 h-1 transform-gpu"
-                    style={`
-                      top: ${10 + i * 120}px; 
-                      opacity: 0.3;
-                      background: linear-gradient(90deg, 
-                        rgba(255,255,255,0) 0%, 
-                        rgba(255,255,255,0.07) 20%, 
-                        rgba(255,255,255,0.13) 50%,
-                        rgba(255,255,255,0.07) 80%,
-                        rgba(255,255,255,0) 100%
-                      );
-                      transform: perspective(1000px) rotateX(60deg);
-                    `}
-                  />
-                );
-              })
-            }
-          </div>
-
-          <!-- Vertical Lines -->
-          <div class="absolute inset-0">
-            {
-              Array.from({ length: 20 }).map((_, i) => (
-                <div
-                  class="absolute top-0 bottom-0 w-1 transform-gpu"
-                  style={`
-                      left: ${50 + i * 120}px; 
-                      opacity: 0.3;
-                      background: linear-gradient(0deg, 
-                        rgba(255,255,255,0) 0%, 
-                        rgba(255,255,255,0.07) 20%, 
-                        rgba(255,255,255,0.13) 50%,
-                        rgba(255,255,255,0.07) 80%,
-                        rgba(255,255,255,0) 100%
-                      );
-                      transform: perspective(1000px) rotateY(-60deg);
-                    `}
-                />
-              ))
-            }
-          </div>
-        </div>
-      </div>
+      <GridPattern fadeDirection="both" />
     </div>
 
     <FeatureCard />
 
     <TestimonialsCustom />
+
+    <!-- Contact Form with decorative elements underneath -->
+    <div
+      class="relative pt-10 pb-10"
+      style="border-top: 1px solid; border-image: linear-gradient(90deg,#0000 30%,#c8c8c880 50%,#0000 70%) 1;"
+    >
+      <ContactForm />
+
+      <!-- Bottom decorative elements -->
+      <div class="absolute -z-10 w-full h-0 overflow-visible bottom-[50vh]">
+        <div class="relative" style="height: 50vh;">
+          <GridPattern class="h-full" fadeDirection="top" />
+
+          <div class="absolute -z-10 w-full h-[300%vh] inset-0 bottom-20 overflow-visible">
+            <div class="element element-2 -bottom-60"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </Layout>

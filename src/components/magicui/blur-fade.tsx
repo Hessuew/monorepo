@@ -3,7 +3,7 @@
 import {
   AnimatePresence,
   motion,
-  // useInView,
+  useInView,
   type MotionProps,
   type UseInViewOptions,
   type Variants,
@@ -37,13 +37,13 @@ export function BlurFade({
   offset = 6,
   direction = 'down',
   inView = false,
-  // inViewMargin = '-50px',
+  inViewMargin = '-200px',
   blur = '6px',
   ...props
 }: BlurFadeProps) {
   const ref = useRef(null);
-  // const inViewResult = useInView(ref, { once: true, margin: inViewMargin });
-  const isInView = !inView;
+  const inViewResult = useInView(ref, { once: true, margin: inViewMargin });
+  const isInView = !inView || inViewResult;
   const defaultVariants: Variants = {
     hidden: {
       [direction === 'left' || direction === 'right' ? 'x' : 'y']:

@@ -1,0 +1,94 @@
+---
+import { twMerge } from 'tailwind-merge';
+
+interface Props {
+  class?: string;
+  fadeDirection?: 'top' | 'bottom' | 'both' | 'none';
+}
+
+const { class: className, fadeDirection = 'bottom' } = Astro.props;
+
+// Helper function to get the gradient based on fade direction
+const getVerticalGradient = (direction: 'top' | 'bottom' | 'both' | 'none') => {
+  switch (direction) {
+    case 'top':
+      return `linear-gradient(0deg, 
+        rgba(255,255,255,0.13) 0%, 
+        rgba(255,255,255,0.07) 80%,
+        rgba(255,255,255,0) 100%
+      )`;
+    case 'bottom':
+      return `linear-gradient(0deg, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,0.07) 20%, 
+        rgba(255,255,255,0.13) 100%
+      )`;
+    case 'both':
+      return `linear-gradient(0deg, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,0.07) 20%, 
+        rgba(255,255,255,0.13) 50%,
+        rgba(255,255,255,0.07) 80%,
+        rgba(255,255,255,0) 100%
+      )`;
+    case 'none':
+      return `linear-gradient(0deg, 
+        rgba(255,255,255,0.13) 0%,
+        rgba(255,255,255,0.13) 100%
+      )`;
+  }
+};
+
+const verticalGradient = getVerticalGradient(fadeDirection);
+---
+
+<!-- Background Grid Pattern -->
+<div class={twMerge(['absolute inset-0 -z-20', className])}>
+  <!-- Perspective Grid Effect -->
+  <div class="absolute inset-0 overflow-hidden">
+    <!-- Horizontal Lines -->
+    <div class="absolute inset-0">
+      {
+        Array.from({ length: 20 }).map((_, i) => {
+          if (i === 0) {
+            return null;
+          }
+          return (
+            <div
+              class="absolute left-0 right-0 h-1 transform-gpu"
+              style={`
+                      top: ${10 + i * 120}px; 
+                      opacity: 0.3;
+                      background: linear-gradient(90deg, 
+                        rgba(255,255,255,0) 0%, 
+                        rgba(255,255,255,0.07) 20%, 
+                        rgba(255,255,255,0.13) 50%,
+                        rgba(255,255,255,0.07) 80%,
+                        rgba(255,255,255,0) 100%
+                      );
+                      transform: perspective(1000px) rotateX(60deg);
+                    `}
+            />
+          );
+        })
+      }
+    </div>
+
+    <!-- Vertical Lines -->
+    <div class="absolute inset-0">
+      {
+        Array.from({ length: 20 }).map((_, i) => (
+          <div
+            class="absolute top-0 bottom-0 w-1 transform-gpu"
+            style={`
+                      left: ${50 + i * 120}px; 
+                      opacity: 0.3;
+                      background: ${verticalGradient};
+                      transform: perspective(1000px) rotateY(-60deg);
+                    `}
+          />
+        ))
+      }
+    </div>
+  </div>
+</div>
