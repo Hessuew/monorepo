@@ -173,6 +173,42 @@
   }
 }
 
+.element {
+  width: 160vh;
+  height: 100vh;
+  position: absolute;
+  filter: blur(100px);
+  opacity: 0.3;
+  pointer-events: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.element-1 {
+  background-image: radial-gradient(circle at center, 
+    /* rgba(255, 170, 64, 0.7),  */
+    rgba(156, 64, 255, 0.7), 
+    rgba(156, 64, 255, 0.7), 
+    rgba(255, 170, 64, 0.7));
+  /* animation: pulse-glow 8s ease-in-out infinite alternate; */
+}
+
+@keyframes pulse-glow {
+  0% {
+    opacity: 0.3;
+    filter: blur(70px);
+  }
+  50% {
+    opacity: 0.5;
+    filter: blur(90px);
+  }
+  100% {
+    opacity: 0.3;
+    filter: blur(70px);
+  }
+}
+
 /* To deprecated */
 
 .dd *:first-child {
@@ -235,6 +271,7 @@
   }
   .theme {
     --animate-gradient: gradient 8s linear infinite;
+    --animate-shine: shine var(--duration) infinite linear;
   }
 }
 
@@ -247,10 +284,24 @@
   }
 }
 
-@theme inline {
+@layer theme {
   @keyframes gradient {
+    to {
+      backgroundPosition: var(--bg-size, 300%) 0;
+    }
+  }
+}
+
+@theme inline {
+  @keyframes shine {
+  0% {
+    background-position: 0% 0%;
+    }
+  50% {
+    background-position: 100% 100%;
+    }
   to {
-    backgroundPosition: var(--bg-size, 300%) 0;
+    background-position: 0% 0%;
     }
   }
 }

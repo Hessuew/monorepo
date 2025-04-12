@@ -1,6 +1,7 @@
 import typographyPlugin from '@tailwindcss/typography';
 import defaultTheme from 'tailwindcss/defaultTheme';
 import plugin from 'tailwindcss/plugin';
+import animate from 'tailwindcss-animate';
 
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,json,md,mdx,svelte,ts,tsx,vue}'],
@@ -78,7 +79,8 @@ export default {
       },
       animation: {
         fade: 'fadeInUp 1s both',
-        'bounce-gentle': 'bounceGentle 2s ease-in-out infinite'
+        'bounce-gentle': 'bounceGentle 2s ease-in-out infinite',
+        'gradient': 'gradient 8s linear infinite'
       },
       keyframes: {
         fadeInUp: {
@@ -98,6 +100,9 @@ export default {
           '50%': {
             transform: 'translateY(-10px)'
           }
+        },
+        gradient: {
+          to: { backgroundPosition: 'var(--bg-size, 300%) 0' }
         }
       },
       borderRadius: {
@@ -112,7 +117,7 @@ export default {
     plugin(({ addVariant }) => {
       addVariant('intersect', '&:not([no-intersect])');
     }),
-    require("tailwindcss-animate")
-],
+    animate
+  ],
   darkMode: ['class', 'class'],
 };

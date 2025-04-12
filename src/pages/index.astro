@@ -1,5 +1,6 @@
 ---
 import logo from '~/assets/images/other/logo.webp';
+import { AnimatedGradientText } from '~/components/magicui/animated-gradient-text';
 import Button from '~/components/ui/Button.astro';
 import { ButtonGradient } from '~/components/ui/ButtonGradient';
 import FeatureCard from '~/components/ui/FeatureCard.astro';
@@ -30,31 +31,32 @@ const metadata = {
   <div class="min-h-screen">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
       <!-- Hero Section with Background Grid -->
-      <div class="relative overflow-hidden h-[480px] flex items-center justify-center">
+      <div class="relative h-[480px] flex items-center justify-center overflow-visible pb-20 pt-52">
         <!-- Content -->
-        <div class="relative z-10 flex flex-col items-center text-center mb-16">
+        <div class="relative flex flex-col items-center text-center mb-16">
+          <!-- <div class="absolute -z-10 w-full h-[300%] top-[100%] left-0 overflow-visible">
+            <div class="element element-1"></div>
+          </div> -->
+          <span class="pb-7">Cherubim IT</span>
           <h1 class="text-5xl md:text-7xl font-bold text-white pb-7">
-            <span class="bg-gradient-to-r to-sky-400 from-purple-700 text-transparent bg-clip-text">Premium</span>
+            <AnimatedGradientText className="tracking-tight"> Premium </AnimatedGradientText>
             Websites
           </h1>
 
           <p class="text-2xl text-muted font-semibold max-w-3xl mb-10">For companies, groups, and individuals</p>
 
           <div class="flex flex-col sm:flex-row gap-3">
-            <ButtonGradient />
-            <Button class="gradient-btn border-0 text-white h-12 w-37 rounded-full text-base font-semibold">
-              <span class="text-white text-base font-semibold"> Why Cherubim </span>
-            </Button>
             <Button
-              class="bg-[#343A46] hover:bg-[#414647] border-[#484848] text-white h-12 w-37 rounded-full text-base font-semibold"
+              class="bg-transparent hover:bg-black/20 border-0 text-white h-12 w-37 rounded-full text-base font-semibold"
             >
-              Quick Start
+              Why Cherubim
             </Button>
+            <ButtonGradient />
           </div>
         </div>
 
         <!-- Background Grid Pattern -->
-        <div class="absolute inset-0 -z-10">
+        <div class="absolute inset-0 -z-20">
           <!-- Perspective Grid Effect -->
           <div class="absolute inset-0 overflow-hidden">
             <!-- Horizontal Lines -->
