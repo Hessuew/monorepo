@@ -34,6 +34,9 @@ const { language, textDirection } = I18N;
     <Analytics />
     <StructuredData />
 
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <!-- Comment the line below to disable View Transitions -->
     <ClientRouter fallback="swap" />
   </head>
@@ -42,5 +45,8 @@ const { language, textDirection } = I18N;
     <slot />
 
     <BasicScripts />
+    
+    <!-- Swiper JS -->
+    <script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </body>
 </html>
