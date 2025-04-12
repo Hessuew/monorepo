@@ -35,9 +35,9 @@ const metadata = {
       <div class="relative h-[480px] flex items-center justify-center overflow-visible pb-20 pt-52">
         <!-- Content -->
         <div class="relative flex flex-col items-center text-center mb-16">
-          <!-- <div class="absolute -z-10 w-full h-[300%] top-[100%] left-0 overflow-visible">
+          <div class="absolute -z-10 w-full h-[300%] top-[100%] left-0 overflow-visible">
             <div class="element element-1"></div>
-          </div> -->
+          </div>
           <span class="pb-7">Cherubim IT</span>
           <h1 class="text-5xl md:text-7xl font-bold text-white pb-7">
             <AnimatedGradientText className="tracking-tight"> Premium </AnimatedGradientText>
@@ -55,22 +55,23 @@ const metadata = {
             <ButtonGradient />
           </div>
         </div>
+      </div>
 
-        <!-- Background Grid Pattern -->
-        <div class="absolute inset-0 -z-20">
-          <!-- Perspective Grid Effect -->
-          <div class="absolute inset-0 overflow-hidden">
-            <!-- Horizontal Lines -->
-            <div class="absolute inset-0">
-              {
-                Array.from({ length: 20 }).map((_, i) => {
-                  if (i === 0) {
-                    return null;
-                  }
-                  return (
-                    <div
-                      class="absolute left-0 right-0 h-1 transform-gpu"
-                      style={`
+      <!-- Background Grid Pattern -->
+      <div class="absolute inset-0 -z-20">
+        <!-- Perspective Grid Effect -->
+        <div class="absolute inset-0 overflow-hidden">
+          <!-- Horizontal Lines -->
+          <div class="absolute inset-0">
+            {
+              Array.from({ length: 20 }).map((_, i) => {
+                if (i === 0) {
+                  return null;
+                }
+                return (
+                  <div
+                    class="absolute left-0 right-0 h-1 transform-gpu"
+                    style={`
                       top: ${10 + i * 120}px; 
                       opacity: 0.3;
                       background: linear-gradient(90deg, 
@@ -82,19 +83,19 @@ const metadata = {
                       );
                       transform: perspective(1000px) rotateX(60deg);
                     `}
-                    />
-                  );
-                })
-              }
-            </div>
+                  />
+                );
+              })
+            }
+          </div>
 
-            <!-- Vertical Lines -->
-            <div class="absolute inset-0">
-              {
-                Array.from({ length: 20 }).map((_, i) => (
-                  <div
-                    class="absolute top-0 bottom-0 w-1 transform-gpu"
-                    style={`
+          <!-- Vertical Lines -->
+          <div class="absolute inset-0">
+            {
+              Array.from({ length: 20 }).map((_, i) => (
+                <div
+                  class="absolute top-0 bottom-0 w-1 transform-gpu"
+                  style={`
                       left: ${50 + i * 120}px; 
                       opacity: 0.3;
                       background: linear-gradient(0deg, 
@@ -106,17 +107,16 @@ const metadata = {
                       );
                       transform: perspective(1000px) rotateY(-60deg);
                     `}
-                  />
-                ))
-              }
-            </div>
+                />
+              ))
+            }
           </div>
         </div>
       </div>
-
-      <FeatureCard />
-
-      <TestimonialsCustom />
     </div>
+
+    <FeatureCard />
+
+    <TestimonialsCustom />
   </div>
 </Layout>
