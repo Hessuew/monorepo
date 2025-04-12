@@ -12,7 +12,7 @@ export type IconProps = React.HTMLAttributes<SVGElement>;
 export function DockDemo(): React.JSX.Element {
   // For BlurFade, inView=true means the component is hidden (due to isInView = !inView in BlurFade)
   // So we want isAnimating to be false for the card to be visible
-  const [isAnimating, setIsAnimating] = useState<boolean>(false);
+  const [isAnimating, setIsAnimating] = useState<boolean>(true);
   const [activeProject, setActiveProject] = useState<string>('urFitChild');
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
 
@@ -22,7 +22,7 @@ export function DockDemo(): React.JSX.Element {
       setIsTransitioning(true);
 
       // Hide the current card
-      setIsAnimating(true);
+      // setIsAnimating(true);
 
       // After a short delay, update the project and show the new card
       setTimeout(() => {
@@ -34,8 +34,8 @@ export function DockDemo(): React.JSX.Element {
         setTimeout(() => {
           setIsAnimating(false);
           setIsTransitioning(false);
-        }, 100);
-      }, 400);
+        }, 1);
+      }, 100);
     }
   }
 

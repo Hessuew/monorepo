@@ -1,0 +1,15 @@
+---
+import { WarpBackgroundDemo } from './WarpBackgroundDemo';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<WarpBackgroundDemo client:load>
+  <div class={className}>
+    <slot />
+  </div>
+</WarpBackgroundDemo>
