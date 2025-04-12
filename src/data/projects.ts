@@ -11,7 +11,7 @@ export const projects: Record<string, Project> = {
     id: 'urFitChild',
     title: 'urFit-child',
     description:
-      'The main website of Prof. Andrew Agbaje — a world-renowned expert in arterial stiffness and ranked among the top three globally — and his urFit-child research group. \n\nThe site features 14 in-depth pages with over 160 scientific publications, press releases, additional resources, and more than 15 research-focused videos, all highlighting impactful work in the field.',
+      'The main website of Prof. Andrew Agbaje — a world-renowned expert in arterial stiffness and ranked among the top three globally — and his urFIT-child research group. \n\nThe site features 14 in-depth pages with over 160 scientific publications, press releases, additional resources, and more than 15 research-focused videos, all highlighting impactful work in the field.',
     size: 'Large',
     url: 'https://www.urfit-child.com',
   },

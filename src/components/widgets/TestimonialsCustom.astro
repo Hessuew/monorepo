@@ -1,0 +1,145 @@
+---
+import andrewAgbajeHeadshot from '~/assets/images/Andrew Headshot.webp';
+import urFitChildLogo from '~/assets/images/siteLogos/urFitChild_logo.webp';
+import worldMap from '~/assets/images/worldMap.webp';
+import { Icon } from 'astro-icon/components';
+---
+
+<section
+  class="creative-testimonial--slider my-20 rounded-xl bg-gradient-to-b from-[#f7f7ff] via-[#f4f4fb] to-[#ffffff] py-12 relative overflow-hidden"
+>
+  <div class="testimonial-inner max-w-[1240px] mx-auto relative z-10">
+    <div class="testimonial-row">
+      <h2
+        class="testimonial-heading text-black text-center mx-auto max-w-[60%] text-[2.813rem] leading-[3.125rem] tracking-tight mt-0 mb-[50px]"
+      >
+        Trusted by the world's fastest growing research groups
+      </h2>
+      <div class="testimonial-wrap relative overflow-hidden mb-[6%]">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div class="swiper-slide">
+              <div class="swiper-slide--inner px-[15%] flex items-center gap-[50px] relative overflow-x-hidden">
+                <div class="w-[240px] h-[240px] mb-[30px] flex-shrink-0 rounded-full relative">
+                  <img src={andrewAgbajeHeadshot.src} alt="" class="w-full h-full object-cover rounded-full" />
+                  <div
+                    class="absolute bottom-[30px] left-[-10px] w-[68px] h-[68px] bg-[#3c2fc0] rounded-full flex items-center justify-center shadow-md"
+                  >
+                    <Icon name="tabler:quote-filled" class="quote-icon w-[40px] h-[40px] text-white" />
+                  </div>
+                </div>
+                <div class="testimonial-detail">
+                  <p class="m-0 text-[#242e45] text-lg leading-[30px] font-medium mb-[5px]">
+                    Cherubim IT has been our client for several years, which is a testament to rigorous, painstaking,
+                    and excellent work performance. Cherubim IT delivers tasks very promptly, pre-empts challenges, and
+                    efficiently tackles them, creates user-friendly platforms, and optimizes the latest IT technology in
+                    their work. Cherubim IT customer service is highly considerate, friendly, and humane. I highly
+                    recommend Cherubim IT for its impeccable and high-quality IT services. The proof of the pudding is
+                    in the eating; a trial will convince you.
+                  </p>
+                  <span class="text-[#3c2fc0] font-extrabold uppercase text-[15px] leading-normal"
+                    >Prof. Andrew Agbaje, urFIT-child, Principal Investigator</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-next slide-btns"></div>
+          <div class="swiper-button-prev slide-btns"></div>
+        </div>
+      </div>
+      <!-- Company details -->
+      <div class="company-details--row flex flex-wrap w-full justify-center">
+        <div class="company-box flex-none w-1/3 px-[15px] sm:px-0 sm:mb-5">
+          <div
+            class="company-box-inner shadow-lg bg-white text-center rounded-xl overflow-hidden transition-all duration-350"
+          >
+            <div class="company-box-top py-[25px] px-[20px] border-b border-[#dee2e6]">
+              <div class="company-logo-wrapper flex flex-row items-center justify-center gap-3">
+                <img src={urFitChildLogo.src} alt="urFIT-child logo" class="h-[60px] object-contain rounded" />
+                <h3 class="company-name text-[#5a8cc9] m-0 text-2xl font-bold tracking-tight">urFIT-child</h3>
+              </div>
+            </div>
+            <div class="company-box-bottom p-5">
+              <span class="text-[15px] text-[#878898] leading-[30px]">
+                All content now in one place - <strong class="text-[#242e45]">Centralized platform</strong></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style define:vars={{ worldMapUrl: `url(${worldMap.src})` }}>
+  /* Custom styles that can't be easily converted to Tailwind */
+  .creative-testimonial--slider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--worldMapUrl);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.05;
+    z-index: 0;
+  }
+
+  /* Responsive styles */
+  @media only screen and (max-width: 981px) {
+    .swiper-button-next.slide-btns,
+    .swiper-button-prev.slide-btns {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 460px) {
+    .swiper-slide .swiper-slide--inner {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+
+<script is:inline>
+  // Function to initialize Swiper
+  function initializeSwiper() {
+    // Check if Swiper is available in the global scope
+    if (typeof Swiper !== 'undefined') {
+      // Initialize Swiper with configuration
+      new Swiper('.swiper-container', {
+        loop: true,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        keyboard: {
+          enabled: true,
+          onlyInViewport: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        effect: 'slide',
+      });
+    } else {
+      console.error('Swiper is not defined. Make sure to include the Swiper library.');
+    }
+  }
+
+  // Initialize on page load with passive event listeners where possible
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeSwiper, { passive: true });
+  } else {
+    initializeSwiper();
+  }
+
+  // Re-initialize on Astro page transitions with passive event listener
+  document.addEventListener('astro:page-load', initializeSwiper, { passive: true });
+</script>
