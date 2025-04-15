@@ -1,7 +1,39 @@
 ---
 import { MagicCard as MagicCardComponent } from '~/components/magicui/magic-card';
+
+interface Props {
+  className?: string;
+  gradientSize?: number;
+  gradientColor?: string;
+  gradientOpacity?: number;
+  gradientFrom?: string;
+  gradientTo?: string;
+  borderWidth?: number;
+  borderColors?: string[];
+}
+
+const { 
+  className = "bg-white mx-10 rounded-xl", 
+  gradientSize, 
+  gradientColor, 
+  gradientOpacity,
+  gradientFrom,
+  gradientTo,
+  borderWidth,
+  borderColors
+} = Astro.props;
 ---
 
-<MagicCardComponent client:load className="bg-white mx-10 rounded-xl">
+<MagicCardComponent 
+  client:load 
+  className={className}
+  gradientSize={gradientSize}
+  gradientColor={gradientColor}
+  gradientOpacity={gradientOpacity}
+  gradientFrom={gradientFrom}
+  gradientTo={gradientTo}
+  borderWidth={borderWidth}
+  borderColors={borderColors}
+>
   <slot />
 </MagicCardComponent>
