@@ -12,6 +12,8 @@ interface MagicCardProps {
   gradientOpacity?: number;
   gradientFrom?: string;
   gradientTo?: string;
+  borderWidth?: number;
+  borderColors?: string[];
 }
 
 export function MagicCard({
@@ -19,9 +21,11 @@ export function MagicCard({
   className,
   gradientSize = 200,
   gradientColor = '#262626',
-  gradientOpacity = 0.6,
+  gradientOpacity = 0.8,
   gradientFrom = '#9E7AFF',
   gradientTo = '#FE8BBB',
+  borderWidth = 1,
+  borderColors,
 }: MagicCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(-gradientSize);
@@ -79,19 +83,30 @@ export function MagicCard({
       <motion.div
         className='pointer-events-none absolute inset-0 rounded-[inherit] bg-border duration-300 group-hover:opacity-100'
         style={{
-          background: useMotionTemplate`
-          radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px,
-          ${gradientFrom}, 
-          ${gradientTo}, 
-          var(--border) 100%
-          )
-          `,
+          background: borderColors 
+            ? useMotionTemplate`
+                radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px,
+                ${borderColors.join(', ')}, transparent 100%)
+              `
+            : useMotionTemplate`
+                radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px,
+                ${gradientFrom}, 
+                ${gradientTo}, 
+                var(--border) 100%
+                )
+              `,
         }}
       />
-      <div className='absolute inset-px rounded-[inherit] bg-transparent' />
+      <div 
+        className='absolute rounded-[inherit] bg-background' 
+        style={{ 
+          inset: `${borderWidth}px` 
+        }}
+      />
       <motion.div
-        className='pointer-events-none absolute inset-px rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100'
+        className='pointer-events-none absolute rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100'
         style={{
+          inset: `${borderWidth}px`,
           background: useMotionTemplate`
             radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px, ${gradientColor}, transparent 100%)
           `,

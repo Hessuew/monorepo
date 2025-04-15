@@ -2,20 +2,50 @@
 import andrewAgbajeHeadshot from '~/assets/images/Andrew Headshot.webp';
 import urFitChildLogo from '~/assets/images/siteLogos/urFitChild_logo.webp';
 import worldMap from '~/assets/images/worldMap.webp';
-import MagicCard from '~/components/ui/MagicCard.astro';
 import { Icon } from 'astro-icon/components';
 ---
 
-<MagicCard gradientColor={'rgba(156, 64, 255, 0.7)'} className="p-0 h-full rounded-xl">
-  <section class="creative-testimonial--slider my-40 mx-10 rounded-xl py-12 relative overflow-hidden">
+<div class="relative">
+  <!--Waves Container-->
+  <!-- <div>
+    <svg
+      class="waves -top-[120px]"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28"
+      preserveAspectRatio="none"
+      shape-rendering="auto"
+    >
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(81, 35, 131, 0.1)"></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(81, 35, 131, 0.2)"></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(81, 35, 131, 0.3)"></use>
+      </g>
+    </svg>
+  </div> -->
+  <!--Waves end-->
+
+  <section
+    class="creative-testimonial--slider bg-white relative overflow-hidden py-60 px-safe lg:py-32 md:py-24 sm:pb-[68px] sm:pt-20"
+  >
+    <div class="absolute -z-10 w-full h-[300%] top-[100%] left-0 overflow-visible">
+      <div
+        class="absolute pointer-events-none opacity-100 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
+        style="filter: blur(100px); height: 80vh; width: 180vh; background-image: radial-gradient(circle at 50% 140%, rgba(81, 35, 131, 0.7), rgba(81, 35, 131, 0.7), rgba(255, 170, 64, 0.7));"
+      >
+      </div>
+    </div>
     <div class="testimonial-inner max-w-[1240px] mx-auto relative z-10">
       <div class="testimonial-row">
-        <h2
-          class="testimonial-heading text-black text-center mx-auto max-w-[60%] text-[2.813rem] leading-[3.125rem] tracking-tight mt-0 mb-[50px]"
-        >
-          Trusted by the world's fastest growing research groups
-        </h2>
-        <div class="testimonial-wrap relative overflow-hidden mb-[6%]">
+        <h1 class="text-center text-5xl md:text-7xl font-semibold tracking-tighter text-black pb-7">
+          Trusted by the world's fastest
+          <br />
+          growing research groups
+        </h1>
+        <div class="testimonial-wrap relative overflow-hidden my-[6%]">
           <div class="swiper-container">
             <div class="swiper-wrapper">
               <!-- Slide 1 -->
@@ -72,7 +102,7 @@ import { Icon } from 'astro-icon/components';
       </div>
     </div>
   </section>
-</MagicCard>
+</div>
 
 <style define:vars={{ worldMapUrl: `url(${worldMap.src})` }}>
   /* Custom styles that can't be easily converted to Tailwind */

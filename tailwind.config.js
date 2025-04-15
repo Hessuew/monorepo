@@ -80,7 +80,8 @@ export default {
       animation: {
         fade: 'fadeInUp 1s both',
         'bounce-gentle': 'bounceGentle 2s ease-in-out infinite',
-        'gradient': 'gradient 8s linear infinite'
+        'gradient': 'gradient 8s linear infinite',
+        'shine': 'shine 20s linear infinite'
       },
       keyframes: {
         fadeInUp: {
@@ -103,6 +104,11 @@ export default {
         },
         gradient: {
           to: { backgroundPosition: 'var(--bg-size, 300%) 0' }
+        },
+        shine: {
+          '0%': { backgroundPosition: '0% 0%' },
+          '50%': { backgroundPosition: '100% 100%' },
+          '100%': { backgroundPosition: '0% 0%' }
         }
       },
       borderRadius: {

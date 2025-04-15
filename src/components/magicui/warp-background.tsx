@@ -26,8 +26,8 @@ const Beam = ({
   delay: number;
   duration: number;
 }) => {
-  const hueValues = [280, 28];
-  const hue = hueValues[Math.floor(Math.random() * hueValues.length)];
+  // const hueValues = [280, 28];
+  // const hue = hueValues[Math.floor(Math.random() * hueValues.length)];
   const ar = Math.floor(Math.random() * 10) + 1;
 
   return (
@@ -37,7 +37,7 @@ const Beam = ({
           '--x': `${x}`,
           '--width': `${width}`,
           '--aspect-ratio': `${ar}`,
-          '--background': `linear-gradient(hsl(${hue} 80% 60%), transparent)`,
+          '--background': `linear-gradient(hsl(180 50% 50%), transparent)`,
         } as React.CSSProperties
       }
       className={`absolute left-[var(--x)] top-0 opacity-50 [aspect-ratio:1/var(--aspect-ratio)] [background:var(--background)] [width:var(--width)]`}
