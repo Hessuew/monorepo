@@ -57,6 +57,10 @@ export default {
         }
       },
       fontFamily: {
+        title: [
+          'var(--aw-font-esbuild, ui-sans-serif)',
+          ...defaultTheme.fontFamily.sans
+        ],
         sans: [
           'var(--aw-font-sans, ui-sans-serif)',
           ...defaultTheme.fontFamily.sans

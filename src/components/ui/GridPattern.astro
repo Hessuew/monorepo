@@ -4,11 +4,12 @@ import { twMerge } from 'tailwind-merge';
 interface Props {
   class?: string;
   fadeDirection?: 'top' | 'bottom' | 'both' | 'none';
+  fadeHorizontal?: 'left' | 'right' | 'both' | 'none';
 }
 
-const { class: className, fadeDirection = 'bottom' } = Astro.props;
+const { class: className, fadeDirection = 'bottom', fadeHorizontal = 'none' } = Astro.props;
 
-// Helper function to get the gradient based on fade direction
+// Helper function to get the gradient based on vertical fade direction
 const getVerticalGradient = (direction: 'top' | 'bottom' | 'both' | 'none') => {
   switch (direction) {
     case 'top':
@@ -39,7 +40,39 @@ const getVerticalGradient = (direction: 'top' | 'bottom' | 'both' | 'none') => {
   }
 };
 
+// Helper function to get the gradient based on horizontal fade direction
+const getHorizontalGradient = (direction: 'left' | 'right' | 'both' | 'none') => {
+  switch (direction) {
+    case 'left':
+      return `linear-gradient(90deg,
+        rgba(255,255,255,0.13) 0%,
+        rgba(255,255,255,0.07) 80%,
+        rgba(255,255,255,0) 100%
+      )`;
+    case 'right':
+      return `linear-gradient(90deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.07) 20%,
+        rgba(255,255,255,0.13) 100%
+      )`;
+    case 'both':
+      return `linear-gradient(90deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.07) 20%,
+        rgba(255,255,255,0.13) 50%,
+        rgba(255,255,255,0.07) 80%,
+        rgba(255,255,255,0) 100%
+      )`;
+    case 'none':
+      return `linear-gradient(90deg,
+        rgba(255,255,255,0.13) 0%,
+        rgba(255,255,255,0.13) 100%
+      )`;
+  }
+};
+
 const verticalGradient = getVerticalGradient(fadeDirection);
+const horizontalGradient = getHorizontalGradient(fadeHorizontal);
 ---
 
 <!-- Background Grid Pattern -->
@@ -59,13 +92,7 @@ const verticalGradient = getVerticalGradient(fadeDirection);
               style={`
                       top: ${10 + i * 120}px; 
                       opacity: 0.3;
-                      background: linear-gradient(90deg, 
-                        rgba(255,255,255,0) 0%, 
-                        rgba(255,255,255,0.07) 20%, 
-                        rgba(255,255,255,0.13) 50%,
-                        rgba(255,255,255,0.07) 80%,
-                        rgba(255,255,255,0) 100%
-                      );
+                      background: ${horizontalGradient};
                       transform: perspective(1000px) rotateX(60deg);
                     `}
             />
