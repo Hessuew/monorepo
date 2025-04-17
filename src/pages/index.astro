@@ -1,7 +1,6 @@
 ---
 import logo from '~/assets/images/other/logo.webp';
 import { AnimatedGradientText } from '~/components/magicui/animated-gradient-text';
-import { HyperText } from '~/components/magicui/hyper-text';
 import Button from '~/components/ui/Button.astro';
 import { ButtonGradient } from '~/components/ui/ButtonGradient';
 import FeatureCard from '~/components/ui/FeatureCard.astro';
@@ -33,74 +32,48 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- Top curved element -->
-  <!-- <div
-    class="absolute top-0 left-0 w-full z-0"
-    style="
-      height: 45vh; 
-      border-radius: 0 0 40% 40% / 0 0 15% 35%;
-      background: linear-gradient(to right, rgba(81, 35, 131, 0.7), rgba(63, 55, 201, 0.7), rgba(81, 35, 131, 0.7));
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    "
-  >
-  </div>
-  <svg viewBox="0 0 1440 320" class="w-full h-[45vh]" preserveAspectRatio="none">
-    <path fill="url(#curveGradient)" d="M0,0 L0,160 Q720,320 1440,160 L1440,0 Z"></path>
-    <defs>
-      <linearGradient id="curveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="rgba(81, 35, 131, 0.7)"></stop>
-        <stop offset="50%" stop-color="rgba(63, 55, 201, 0.7)"></stop>
-        <stop offset="100%" stop-color="rgba(81, 35, 131, 0.7)"></stop>
-      </linearGradient>
-    </defs>
-  </svg> -->
   <div
-    class="pointer-events-none rotate-180 shadow1 relative -z-[2] mx-auto h-[50rem] overflow-visible my-[-18.8rem]
-         [--color:rgba(81,35,131,0.7)] [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_60%)]"
+    class="rotate-180 [--color:var(--orange)] pointer-events-none relative -z-[2] mx-auto h-[50rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_70%)] my-[-18.8rem]
+      before:absolute before:inset-0 before:h-full before:w-full before:opacity-30 before:[background-image:radial-gradient(circle_at_top_center,var(--color),transparent_70%)]
+      after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-b after:border-[white] after:bg-page after:[transform:scaleY(-1)] after:[box-shadow:0_0_40px_10px_var(--orange),0_0_40px_10px_var(--orange)_inset]"
   >
-    <div
-      class="absolute inset-0 h-full w-full opacity-40
-           [background-image:radial-gradient(circle_at_bottom_center,var(--color),transparent_70%)]"
-    >
-    </div>
-    <div
-      class="absolute -left-1/2 top-1/2 aspect-[1/0.7] w-[200%]
-           rounded-[50%] border-t border-[hsl(var(--border))] bg-background"
-    >
-    </div>
   </div>
+
+  <!-- <div class="orb"></div> -->
 
   <div class="min-h-[88vh]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <!-- Hero Section with Background Grid -->
-      <div class="relative h-[480px] flex overflow-visible pb-20 pt-20">
+      <div class="relative flex overflow-visible pt-10">
         <!-- Content -->
-        <div class="relative flex flex-col mb-16">
-          <div class="absolute -z-10 w-full h-[300%] top-[100%] left-0 overflow-visible">
-            <div
-              class="absolute pointer-events-none opacity-40 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-[60vh]"
-              style="filter: blur(100px); height: 120vh; width: 180vh; background-image: radial-gradient(circle at 50% 140%, rgba(81, 35, 131, 0.7), rgba(81, 35, 131, 0.7), rgba(255, 170, 64, 0.0));"
+        <div class="relative flex flex-col">
+          <h1
+            class="relative z-30 max-w-[666px] font-title text-[84px] font-semibold leading-[0.9] tracking-tight lg:max-w-[608px] lg:text-[84px] md:max-w-[521px] md:text-[56px] sm:max-w-64 sm:text-[32px]"
+          >
+            <AnimatedGradientText className="tracking-tighter" colorFrom="#ffaa40" colorTo="#1a0024"
+              >Premium</AnimatedGradientText
             >
-            </div>
-          </div>
-          <h1 class="max-w-7xl w-full text-5xl md:text-7xl font-semibold tracking-tighter text-white pb-7">
-            <AnimatedGradientText className="tracking-tighter">Premium</AnimatedGradientText>
-            Websites for
-            <br />
-            <div class="flex flex-row justify-start gap-4">
-              companies, and
-              <HyperText
-                className="text-5xl md:text-7xl font-semibold tracking-tighter text-white my-0 py-0"
-                client:load
-                duration={1200}
-                text="individuals"
-              />
-            </div>
+            <span
+              class="bg-gradient-to-br from-white from-30% via-[#d5d8f6] via-80% to-[#fdf7fe] bg-clip-text text-transparent"
+            >
+              website
+              <br />
+              for you brand
+            </span>
           </h1>
 
-          <div class="flex flex-col sm:flex-row gap-3">
+          <!-- sm:max-w-[248px]  -->
+          <p
+            class="relative z-30 mt-5 max-w-md text-[18px] leading-snug tracking-tight text-grey-90 lg:mt-4 md:mt-3.5 md:text-[18px] sm:mt-3 sm:text-[15px]"
+          >
+            <br />
+            Cherubim IT, create yourself a brand and <br />
+            a presence you are confident to present
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-3 mt-11 lg:mt-9 md:mt-7 sm:mt-5">
             <Button
-              class="bg-transparent hover:bg-white/5 border-0 text-white h-12 w-37 rounded-full text-base font-semibold"
+              class="bg-white/5 backdrop-blur-lg hover:bg-white/10 border-0 text-white h-12 w-37 rounded-full text-base font-semibold"
             >
               Why Cherubim
             </Button>
@@ -109,7 +82,14 @@ const metadata = {
         </div>
       </div>
 
-      <GridPattern fadeDirection="both" />
+      <GridPattern fadeDirection="both" fadeHorizontal="none" />
+
+      <div
+        class="[--color:var(--violet2)] pointer-events-none relative -z-[2] mx-auto h-[50rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_70%)] my-[-18.8rem]
+      before:absolute before:inset-0 before:h-full before:w-full before:opacity-30 before:[background-image:radial-gradient(circle_at_top_center,var(--violet2),transparent_70%)]
+      after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-b after:border-[hsl(var(--border))] after:bg-transparent after:[transform:scaleY(-1)] after:[box-shadow:0_0_40px_10px_var(--violet2),0_0_40px_10px_var(--violet2)_inset]"
+      >
+      </div>
     </div>
   </div>
 

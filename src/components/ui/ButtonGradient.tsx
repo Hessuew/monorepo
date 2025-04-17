@@ -20,7 +20,7 @@ export function ButtonGradient() {
           WebkitClipPath: 'padding-box',
         }}
       />
-      <AnimatedGradientText className='text-base font-semibold'>Contact Us</AnimatedGradientText>
+      <AnimatedGradientText className='text-base font-semibold'>Quick Contact</AnimatedGradientText>
       <ChevronRight
         className='ml-1 size-4 stroke-neutral-500 transition-transform
  duration-300 ease-in-out group-hover:translate-x-0.5'
