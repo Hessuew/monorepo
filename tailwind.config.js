@@ -85,7 +85,9 @@ export default {
         fade: 'fadeInUp 1s both',
         'bounce-gentle': 'bounceGentle 2s ease-in-out infinite',
         'gradient': 'gradient 8s linear infinite',
-        'shine': 'shine 20s linear infinite'
+        'shine': 'shine 20s linear infinite',
+        'marquee': 'marquee var(--duration) linear infinite',
+        'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
       },
       keyframes: {
         fadeInUp: {
@@ -113,7 +115,15 @@ export default {
           '0%': { backgroundPosition: '0% 0%' },
           '50%': { backgroundPosition: '100% 100%' },
           '100%': { backgroundPosition: '0% 0%' }
-        }
+        },
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(calc(-100% - var(--gap)))' },
+        },
+        'marquee-vertical': {
+          from: { transform: 'translateY(0)' },
+          to: { transform: 'translateY(calc(-100% - var(--gap)))' },
+        },
       },
       borderRadius: {
         lg: 'var(--radius)',
