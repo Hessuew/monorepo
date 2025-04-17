@@ -1,11 +1,13 @@
 ---
 import logo from '~/assets/images/other/logo.webp';
+import Logo from '~/components/Logo.astro';
 import { AnimatedGradientText } from '~/components/magicui/animated-gradient-text';
 import Button from '~/components/ui/Button.astro';
 import { ButtonGradient } from '~/components/ui/ButtonGradient';
 import FeatureCard from '~/components/ui/FeatureCard.astro';
 import GridPattern from '~/components/ui/GridPattern.astro';
 import ContactForm from '~/components/widgets/ContactForm.astro';
+import Marquee from '~/components/widgets/Marquee.astro';
 import Test from '~/components/widgets/Test.astro';
 import TestimonialsCustom from '~/components/widgets/TestimonialsCustom.astro';
 import Layout from '~/layouts/PageLayout.astro';
@@ -39,6 +41,13 @@ const metadata = {
   >
   </div>
 
+  <div class="absolute top-0 left-0 w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-4">
+      <Logo />
+    </div>
+  </div>
+
+  <Marquee />
   <!-- <div class="orb"></div> -->
 
   <div class="min-h-[88vh]">

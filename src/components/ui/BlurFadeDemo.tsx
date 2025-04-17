@@ -1,6 +1,6 @@
 import { BlurFade } from '~/components/magicui/blur-fade';
 
-export function BlurFadeTextDemo() {
+export function BlurFadeDemo() {
   return (
     <section id='header'>
       <BlurFade delay={0.25} inView>

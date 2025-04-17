@@ -279,6 +279,8 @@ flameTheFreeze dark purple:
   .theme {
     --animate-gradient: gradient 8s linear infinite;
     --animate-shine: shine var(--duration) infinite linear;
+    --animate-marquee: marquee var(--duration) infinite linear;
+    --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   }
 }
 

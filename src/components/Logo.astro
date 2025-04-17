@@ -1,28 +1,19 @@
 ---
-import logo_transparent from '~/assets/images/other/logo_transparent.webp';
+import logo_transparent from '~/assets/images/logo2.webp';
 import Image from '~/components/common/Image.astro';
-import { getLangFromUrl, useTranslations } from '~/i18n/utils';
-import GradientText from './ui/GradientText.astro';
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 ---
 
-<span
-  class="flex items-center flex-row self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
->
+<span class="flex flex-row gap-1">
   <Image
-    class={'mx-auto rounded-md w-full'}
+    class={'w-8 h-8'}
     widths={[400, 768, 1024, 2040]}
     sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
     loading="eager"
     width={32}
     height={32}
     src={logo_transparent}
-    alt={t('prayerChurchImageAlt')}
+    alt="Logo"
   />
-  <GradientText animate={false}>
-    <span>{t('prayer')}</span>
-    <span>{t('church')}</span>
-  </GradientText>
+
+  <p class="text-2xl font-bold text-white pt-1">Cherubim IT</p>
 </span>
