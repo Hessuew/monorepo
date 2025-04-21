@@ -4,12 +4,11 @@ import Logo from '~/components/Logo.astro';
 import { AnimatedGradientText } from '~/components/magicui/animated-gradient-text';
 import Button from '~/components/ui/Button.astro';
 import { ButtonGradient } from '~/components/ui/ButtonGradient';
-import FeatureCard from '~/components/ui/FeatureCard.astro';
+import CustomerCards from '~/components/ui/CustomerCards.astro';
 import GridPattern from '~/components/ui/GridPattern.astro';
 import ContactForm from '~/components/widgets/ContactForm.astro';
-import Marquee from '~/components/widgets/Marquee.astro';
-import Test from '~/components/widgets/Test.astro';
 import TestimonialsCustom from '~/components/widgets/TestimonialsCustom.astro';
+import VideoSection from '~/components/widgets/VideoSection.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
@@ -46,14 +45,15 @@ const metadata = {
       <Logo />
     </div>
   </div>
-
-  <Marquee />
   <!-- <div class="orb"></div> -->
 
-  <div class="min-h-[88vh]">
+  <div class="min-h-[100vh]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <!-- Hero Section with Background Grid -->
       <div class="relative flex overflow-visible pt-10">
+        <div class="-z-10 absolute -top-40 -right-[440px]">
+          <!-- <Marquee /> -->
+        </div>
         <!-- Content -->
         <div class="relative flex flex-col">
           <h1
@@ -77,7 +77,7 @@ const metadata = {
           >
             <br />
             Cherubim IT, create yourself a brand and <br />
-            a presence you are confident to present
+            a presence you are confident to present.
           </p>
 
           <div class="flex flex-col sm:flex-row gap-3 mt-11 lg:mt-9 md:mt-7 sm:mt-5">
@@ -91,20 +91,30 @@ const metadata = {
         </div>
       </div>
 
+      <!-- <div class="absolute top-1/2 right-0 -translate-y-1/2 text-right pr-10">
+        <h1 class="text-5xl md:text-[11rem] font-title font-extrabold tracking-tighter text-[rgb(255,255,255,0.01)]">
+          JESUS
+          <br />
+          IS
+          <br />
+          LORD
+        </h1>
+      </div> -->
+
       <GridPattern fadeDirection="both" fadeHorizontal="none" />
 
       <div
         class="[--color:var(--violet2)] pointer-events-none relative -z-[2] mx-auto h-[50rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_70%)] my-[-18.8rem]
       before:absolute before:inset-0 before:h-full before:w-full before:opacity-30 before:[background-image:radial-gradient(circle_at_top_center,var(--violet2),transparent_70%)]
-      after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-b after:border-[hsl(var(--border))] after:bg-transparent after:[transform:scaleY(-1)] after:[box-shadow:0_0_40px_10px_var(--violet2),0_0_40px_10px_var(--violet2)_inset]"
+      after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-b after:border-[hsl(var(--border))] after:bg-page after:[transform:scaleY(-1)] after:[box-shadow:0_0_40px_10px_var(--violet2),0_0_40px_10px_var(--violet2)_inset]"
       >
       </div>
     </div>
   </div>
 
-  <FeatureCard />
+  <CustomerCards />
 
-  <Test />
+  <VideoSection />
 
   <TestimonialsCustom />
 

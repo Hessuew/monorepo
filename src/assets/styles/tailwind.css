@@ -11,6 +11,111 @@ flameTheFreeze dark purple:
   --violet2: #9c40ff;
   --blue: #0ff;
   --orange: rgba(255, 170, 64);
+  --white: rgba(160, 160, 160, 0.2)
+}
+
+/* Base gradient border styles */
+.gradient-border,
+.gradient-border2,
+.gradient-border3 {
+  position: relative;
+  border-radius: 24px;
+  z-index: 0;
+}
+
+.gradient-border::before,
+.gradient-border2::before,
+.gradient-border3::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px; /* Thickness of the border */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Color-specific gradient borders */
+.gradient-border::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.6),   /* Top-left */
+    rgba(255, 255, 255, 0.1),   /* Center-ish */
+    rgba(255, 255, 255, 0.6)    /* Bottom-right */
+  );
+}
+
+.gradient-border2::before {
+  background: linear-gradient(
+    135deg,
+    rgba(168, 85, 247, 0.6),   /* Top-left */
+    rgba(168, 85, 247, 0.1),   /* Center-ish */
+    rgba(168, 85, 247, 0.6)    /* Bottom-right */
+  );
+}
+
+.gradient-border3::before {
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.6),   /* Top-left */
+    rgba(59, 130, 246, 0.1),   /* Center-ish */
+    rgba(59, 130, 246, 0.6)    /* Bottom-right */
+  );
+}
+
+/* Glow element */
+.card-container::before,
+.card-container2::before,
+.card-container3::before {
+  content: "";
+  position: absolute;
+  inset: -30px;
+  border-radius: 1.5rem;
+  filter: blur(40px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.card-container::before {
+  background:
+    /* Base even glow */
+    /* radial-gradient(closest-side, rgba(255, 255, 255, 0), transparent 70%) center / 100% 100% no-repeat, */
+    
+    /* Boosted top center glow */
+    radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.5), transparent 60%),
+    
+    /* Boosted bottom right glow */
+    radial-gradient(circle at 90% 110%, rgba(255, 255, 255, 0.4), transparent 65%);
+
+}
+
+.card-container2::before {
+  background:
+    /* Base even glow */
+    radial-gradient(closest-side, rgba(168, 85, 247, 0.3), transparent 70%) center / 100% 100% no-repeat,
+    
+    /* Boosted top center glow */
+    radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.5), transparent 60%),
+    
+    /* Boosted bottom right glow */
+    radial-gradient(circle at 90% 100%, rgba(168, 85, 247, 0.4), transparent 65%);
+}
+
+.card-container3::before {
+  background:
+    /* Base even glow */
+    radial-gradient(closest-side, rgba(59, 130, 246, 0.3), transparent 70%) center / 100% 100% no-repeat,
+    
+    /* Boosted top center glow */
+    radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.5), transparent 60%),
+    
+    /* Boosted bottom right glow */
+    radial-gradient(circle at 90% 100%, rgba(59, 130, 246, 0.4), transparent 65%);
 }
 
 .orb {
