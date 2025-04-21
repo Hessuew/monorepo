@@ -5,32 +5,49 @@ import urfitChild from '~/assets/images/urfitChild.webp';
 import Dock from './Dock.astro';
 ---
 
-<section class="cards gap-8">
-  <!-- <div class="flex flex-row gap-8">
-    <div class="three-d-wrapper">
-      <div
-        class="card eevee animated"
-        style={`background-image: url(${urfitChild.src}); background-size: cover; background-position: center;`}
-      >
-      </div>
+<section class="pt-40 lg:pt-32 md:pt-24 sm:pt-16">
+  <div class="p-20">
+    <div class="flex w-full justify-center">
+      <h1 class="w-[480px] text-5xl md:text-7xl font-semibold tracking-tighter text-white pb-7">
+        What you get.
+        <br />
+        For what price.
+        <p class="text-[15px] font-normal leading-tight tracking-tight sm:text-[18px]">
+          Know what you get and for what price.
+          <br />
+          No gimmicks. No hidden fees.
+        </p>
+      </h1>
     </div>
-    <div class="three-d-wrapper">
-      <div
-        class="card mewtwo animated"
-        style={`background-image: url(${flameTheFreeze.src}); background-size: cover; background-position: center;`}
-      >
-      </div>
-    </div>
-    <div class="three-d-wrapper">
-      <div
-        class="card pika animated"
-        style={`background-image: url(${prayerChurch.src}); background-size: cover; background-position: center;`}
-      >
-      </div>
-    </div>
-  </div> -->
 
-  <Dock />
+    <div class="cards gap-8">
+      <div class="flex flex-row gap-8 mt-10">
+        <div class="three-d-wrapper">
+          <div
+            class="card eevee"
+            style={`background-image: url(${urfitChild.src}); background-size: cover; background-position: center;`}
+          >
+          </div>
+        </div>
+        <div class="three-d-wrapper">
+          <div
+            class="card mewtwo"
+            style={`background-image: url(${flameTheFreeze.src}); background-size: cover; background-position: center;`}
+          >
+          </div>
+        </div>
+        <div class="three-d-wrapper">
+          <div
+            class="card pika"
+            style={`background-image: url(${prayerChurch.src}); background-size: cover; background-position: center;`}
+          >
+          </div>
+        </div>
+      </div>
+
+      <Dock />
+    </div>
+  </div>
 </section>
 
 <style class="hover"></style>
@@ -182,6 +199,33 @@ import Dock from './Dock.astro';
   // Re-initialize on Astro page transitions with passive event listener
   document.addEventListener('astro:page-load', initializeCardEffects, { passive: true });
 
+  // Setup Intersection Observer for cards
+  function setupCardObserver() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Add the animated class when card comes into view
+            entry.target.classList.add('animated');
+            // Unobserve after animation is triggered
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px',
+      }
+    );
+
+    // Observe all cards
+    document.querySelectorAll('.card').forEach((card) => {
+      // Remove animated class that might have been added on load
+      card.classList.remove('animated');
+      observer.observe(card);
+    });
+  }
+
   function setupWaveObserver() {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -208,20 +252,27 @@ import Dock from './Dock.astro';
 
   // Run immediately
   setupWaveObserver();
+  setupCardObserver();
 
   // Run again after page load to catch any dynamically loaded elements
-  window.addEventListener('load', setupWaveObserver);
+  window.addEventListener('load', () => {
+    setupWaveObserver();
+    setupCardObserver();
+  });
 
   // Run when Astro view transitions complete
-  document.addEventListener('astro:page-load', setupWaveObserver);
+  document.addEventListener('astro:page-load', () => {
+    setupWaveObserver();
+    setupCardObserver();
+  });
 </script>
 <style>
   :root {
     --color1: rgb(0, 231, 255);
     --color2: rgb(255, 0, 231);
     --back: url(https://cdn2.bulbagarden.net/upload/1/17/Cardback.jpg);
-    --pika1: #ffffff;
-    --pika2: #a79d66;
+    --pika1: #245ced;
+    --pika2: #ffffff;
     --eevee1: #efb2fb;
     --eevee2: #acc6f8;
     --mewtwo1: #efb2fb;
@@ -238,10 +289,6 @@ import Dock from './Dock.astro';
   .card {
     width: 71.5vw;
     height: 100vw;
-    @media screen and (min-width: 600px) {
-      width: clamp(24vw, 61vh, 18vw);
-      height: clamp(32vw, 85vh, 25.2vw);
-    }
 
     position: relative;
     overflow: hidden;
@@ -270,6 +317,10 @@ import Dock from './Dock.astro';
     background-repeat: no-repeat;
     background-position: 50% 50%;
     transform-origin: center;
+    @media screen and (min-width: 600px) {
+      width: clamp(24vw, 61vh, 18vw);
+      height: clamp(32vw, 85vh, 25.2vw);
+    }
   }
 
   .card-content {
@@ -370,7 +421,16 @@ import Dock from './Dock.astro';
   .card.active:before,
   .card:hover:before {
     animation: none;
-    background-image: linear-gradient(110deg, transparent 25%, var(--color1) 48%, var(--color2) 52%, transparent 75%);
+    /* background-image: linear-gradient(110deg, transparent 25%, var(--color1) 48%, var(--color2) 52%, transparent 75%); */
+    background-image: linear-gradient(
+      115deg,
+      transparent 0%,
+      var(--color1) 25%,
+      transparent 47%,
+      transparent 53%,
+      var(--color2) 75%,
+      transparent 100%
+    );
     background-position: var(--grad-pos, 50% 50%);
     background-size: 250% 250%;
     opacity: 0.88;
@@ -507,6 +567,12 @@ import Dock from './Dock.astro';
     display: inline-block;
     vertical-align: middle;
     font-size: 6vh;
+  }
+
+  .cards .three-d-wrapper {
+    perspective: 750px;
+    isolation: isolate;
+    transform: translate3d(0.1px, 0.1px, 0.1px);
   }
 
   .demo,
