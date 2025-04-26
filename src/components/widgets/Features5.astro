@@ -15,7 +15,9 @@ const {
   columns = 3,
   defaultIcon,
   image = await Astro.slots.render('image'),
+  image2 = await Astro.slots.render('image2'),
   imageText = await Astro.slots.render('imageText'),
+  imageText2 = await Astro.slots.render('imageText2'),
   isReversed = false,
 
   id,
@@ -70,10 +72,11 @@ const {
                 <Image
                   class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
                   width={500}
-                  height={580}
+                  height={image2 ? 280 : 580}
                   widths={[400, 768, 1024]}
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 768px, 1024px"
                   layout="responsive"
+                  objectPosition="center 25%"
                   loading="lazy"
                   decoding="async"
                   alt={imageText || 'Content image'}
@@ -81,7 +84,34 @@ const {
                 />
               )}
               {imageText && (
-                <figcaption class="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">{imageText}</figcaption>
+                <figcaption class="my-2 text-center text-sm text-gray-600 dark:text-gray-400">{imageText}</figcaption>
+              )}
+            </figure>
+          )
+        }
+        {
+          image2 && (
+            <figure class="relative mx-auto max-w-4xl">
+              {typeof image2 === 'string' ? (
+                <div class="image-container" aria-label={imageText || 'Content image'}>
+                  <Fragment set:html={image2} />
+                </div>
+              ) : (
+                <Image
+                  class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
+                  width={500}
+                  height={280}
+                  widths={[400, 768, 1024]}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 768px, 1024px"
+                  layout="responsive"
+                  loading="lazy"
+                  decoding="async"
+                  alt={imageText2 || 'Content image'}
+                  {...image2}
+                />
+              )}
+              {imageText2 && (
+                <figcaption class="my-2 text-center text-sm text-gray-600 dark:text-gray-400">{imageText2}</figcaption>
               )}
             </figure>
           )

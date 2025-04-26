@@ -84,8 +84,8 @@ export function ReactCalculator(): React.JSX.Element {
     const thresholds = THRESHOLDS[inputs.gender];
 
     if (ratio < thresholds.low) return 'bg-purple-500';
-    if (ratio <= thresholds.high) return 'bg-green-500';
-    if (ratio <= thresholds.excess) return 'bg-yellow-500';
+    if (ratio <= thresholds.high - 0.01) return 'bg-green-500';
+    if (ratio <= thresholds.excess - 0.01) return 'bg-yellow-500';
     return 'bg-red-500';
   }
 
@@ -93,8 +93,8 @@ export function ReactCalculator(): React.JSX.Element {
     const thresholds = THRESHOLDS[inputs.gender];
 
     if (ratio < thresholds.low) return <LowFat color='#a855f7' />;
-    if (ratio <= thresholds.high) return <CircleCheck color='#22c55e' />;
-    if (ratio <= thresholds.excess) return <AlertTriangle color='#eab308' />;
+    if (ratio <= thresholds.high - 0.01) return <CircleCheck color='#22c55e' />;
+    if (ratio <= thresholds.excess - 0.01) return <AlertTriangle color='#eab308' />;
     return <AlertOctagon color='#ef4444' />;
   }
 
