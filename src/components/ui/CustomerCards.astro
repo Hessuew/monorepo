@@ -1,19 +1,14 @@
 ---
 import flameTheFreeze from '~/assets/images/flameTheFreeze.webp';
 import prayerChurch from '~/assets/images/prayerChurch.webp';
-import flameTheFreezeLogo from '~/assets/images/siteLogos/flameTheFreeze_logo.webp';
-import prayerChurchLogo from '~/assets/images/siteLogos/prayerChurch_logo.webp';
-import urFitChildLogo from '~/assets/images/siteLogos/urFitChild_logo.webp';
 import urFitChild from '~/assets/images/urfitChild.webp';
-import Image from '~/components/common/Image.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import type { ImageMetadata } from 'astro';
+import AnimatedChildSvg from '~/components/widgets/AnimatedChildSvg.astro';
+import SvgDove from './icons/SvgDove';
+import SvgFire from './icons/SvgFire';
 
 interface Project {
-  image: {
-    src: ImageMetadata;
-    alt: string;
-  };
+  icon: 'child' | 'fire' | 'dove';
   id: string;
   title: string;
   description: string;
@@ -23,7 +18,7 @@ interface Project {
 
 const projects: Array<Project> = [
   {
-    image: { src: urFitChildLogo, alt: 'urFit-child' },
+    icon: 'child',
     id: 'urFitChild',
     title: 'urFit-child',
     description:
@@ -32,7 +27,7 @@ const projects: Array<Project> = [
     url: 'https://www.urfit-child.com',
   },
   {
-    image: { src: flameTheFreezeLogo, alt: 'Flame the Freeze' },
+    icon: 'fire',
     id: 'flameTheFreeze',
     title: 'Flame the Freeze',
     description:
@@ -41,7 +36,7 @@ const projects: Array<Project> = [
     url: 'https://www.flamethefreeze.com',
   },
   {
-    image: { src: prayerChurchLogo, alt: 'Prayer Church' },
+    icon: 'dove',
     id: 'prayerChurch',
     title: 'Prayer Church',
     description:
@@ -95,25 +90,21 @@ const projects: Array<Project> = [
       <p
         class="relative z-10 mt-[60px] max-w-2xl text-[18px] font-medium leading-snug tracking-tighter lg:mt-[72px] lg:max-w-[544px] lg:text-[24px] md:mt-[66px] sm:mt-7 sm:text-[20px]"
       >
-        Our mission is to create something that secures your place in your field — extraordinary design that captures
-        attention and makes it clear: this is something special.
+        <!-- Our mission is to create something that secures your place in your field — extraordinary design that captures
+        attention and makes it clear: this is something special. -->
       </p>
     </div>
     <ul class="relative z-10 mt-8 grid grid-cols-1 gap-8 lg:mt-10 md:gap-16 sm:mt-9 sm:grid-cols-3 sm:gap-y-7">
       {
         projects.map((project) => (
           <li>
-            <Image
-              class={`min-h-12 min-w-12 2xl:min-h-16 2xl:min-w-16 rounded-full border border-slate-600`}
-              width={80}
-              height={80}
-              widths={[400, 768]}
-              layout="fixed"
-              loading="lazy"
-              decoding="async"
-              style={`object-fit: cover; object-position: center;`}
-              {...project.image}
-            />
+            <div class="w-16 h-16">
+              {project.icon === 'child' && (
+                <AnimatedChildSvg animate={false} strokeWidth={52} classes="w-full h-full" />
+              )}
+              {project.icon === 'fire' && <SvgFire size={56} />}
+              {project.icon === 'dove' && <SvgDove size={56} />}
+            </div>
             <h3 class="mt-5 font-title max-w-28 text-[20px] leading-none tracking-tighter lg:mt-4 lg:max-w-full lg:text-[28px] md:mt-3.5 sm:mt-2.5 sm:max-w-32 sm:text-[24px]">
               {project.title}
             </h3>

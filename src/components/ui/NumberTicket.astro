@@ -1,0 +1,15 @@
+---
+import { NumberTicker } from '~/components/magicui/number-ticker';
+
+const { value, startValue, direction, delay, decimalPlaces, ...props } = Astro.props;
+---
+
+<NumberTicker
+  client:load
+  value={value}
+  startValue={startValue}
+  direction={direction}
+  delay={delay}
+  decimalPlaces={decimalPlaces}
+  {...props}
+/>
