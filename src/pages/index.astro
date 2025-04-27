@@ -1,7 +1,11 @@
 ---
 import logo from '~/assets/images/other/logo.webp';
-import Button from '~/components/ui/Button.astro';
-import FeatureCard from '~/components/ui/FeatureCard.astro';
+import CustomerCards from '~/components/ui/CustomerCards.astro';
+import ContactForm from '~/components/widgets/ContactForm.astro';
+import LandingSection from '~/components/widgets/LandingSection.astro';
+import PriceSection from '~/components/widgets/PriceSection.astro';
+import TestimonialsCustom from '~/components/widgets/TestimonialsCustom.astro';
+import VideoSection from '~/components/widgets/VideoSection.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
@@ -26,97 +30,33 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <div class="min-h-screen">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
-      <!-- Hero Section with Background Grid -->
-      <div class="relative overflow-hidden">
-        <!-- Content -->
-        <div class="relative z-10 flex flex-col items-center text-center mb-16">
-          <a href="#" class="mb-8">
-            <img src="/logo.svg" alt="Cherubim IT Logo" class="h-10" />
-          </a>
+  <LandingSection />
 
-          <h1 class="text-6xl md:text-8xl font-bold mb-6">
-            <span class="text-white">Cherubim IT</span>
-          </h1>
+  <CustomerCards />
 
-          <p class="text-xl text-gray-300 max-w-3xl mb-10">
-            Empower the web community and invite more to build across platforms
-          </p>
+  <VideoSection />
 
-          <div class="flex flex-col sm:flex-row gap-4">
-            <Button class="bg-[#ff5c35] hover:bg-[#ff7c55] text-white px-8 py-3 rounded-full text-lg font-medium">
-              Why Cherubim
-            </Button>
-            <Button
-              class="bg-transparent border-2 border-gray-600 hover:border-gray-400 text-white px-8 py-3 rounded-full text-lg font-medium"
-            >
-              Quick Start
-            </Button>
-          </div>
-        </div>
+  <TestimonialsCustom />
 
-        <!-- Background Grid Pattern -->
-        <div class="absolute inset-0 -z-10">
-          <div class="absolute inset-0 bg-[#191d24] opacity-90"></div>
+  <PriceSection />
 
-          <!-- Perspective Grid Effect -->
-          <div class="absolute inset-0 overflow-hidden">
-            <!-- Horizontal Lines -->
-            <div class="absolute inset-0">
-              {
-                Array.from({ length: 20 }).map((_, i) => {
-                  if (i === 0) {
-                    return null;
-                  }
-                  return (
-                    <div
-                      class="absolute left-0 right-0 h-1 transform-gpu"
-                      style={`
-                      top: ${10 + i * 100}px; 
-                      background: linear-gradient(90deg, 
-                        rgba(255,255,255,0) 0%, 
-                        rgba(255,255,255,0.07) 20%, 
-                        rgba(255,255,255,0.13) 50%,
-                        rgba(255,255,255,0.07) 80%,
-                        rgba(255,255,255,0) 100%
-                      );
-                      transform: perspective(1000px) rotateX(60deg);
-                    `}
-                    />
-                  );
-                })
-              }
-            </div>
+  <div
+    class="relative pt-10 pb-10"
+    style="border-top: 1px solid; border-image: linear-gradient(90deg,#0000 30%,#c8c8c880 50%,#0000 70%) 1;"
+  >
+    <div
+      class="rotate-180 [--color:var(--violet2)] pointer-events-none relative -z-[2] mx-auto h-[50rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_70%)] my-[-18.8rem]
+      before:absolute before:inset-0 before:h-full before:w-full before:opacity-30 before:[background-image:radial-gradient(circle_at_top_center,var(--violet2),transparent_70%)]
+      after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-b after:border-[hsl(var(--border))] after:bg-page after:[transform:scaleY(-1)] after:[box-shadow:0_0_40px_10px_var(--violet2),0_0_40px_10px_var(--violet2)_inset]"
+    >
+    </div>
+    <ContactForm />
 
-            <!-- Vertical Lines -->
-            <div class="absolute inset-0">
-              {
-                Array.from({ length: 20 }).map((_, i) => (
-                  <div
-                    class="absolute top-0 bottom-0 w-0.5 transform-gpu"
-                    style={`
-                      left: ${50 + i * 100}px; 
-                      background: linear-gradient(0deg, 
-                        rgba(255,255,255,0) 0%, 
-                        rgba(255,255,255,0.07) 20%, 
-                        rgba(255,255,255,0.13) 50%,
-                        rgba(255,255,255,0.07) 80%,
-                        rgba(255,255,255,0) 100%
-                      );
-                      transform: perspective(1000px) rotateY(-60deg);
-                    `}
-                  />
-                ))
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <FeatureCard />
+    <div
+      class="[--color:var(--orange)] pointer-events-none relative -z-[2] mx-auto h-[50rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_70%)] my-[-18.8rem]
+      before:absolute before:inset-0 before:h-full before:w-full before:opacity-30 before:[background-image:radial-gradient(circle_at_top_center,var(--color),transparent_70%)]
+      after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-b after:border-[white] after:bg-page after:[transform:scaleY(-1)] after:[box-shadow:0_0_40px_10px_var(--orange),0_0_40px_10px_var(--orange)_inset]"
+    >
     </div>
   </div>
 </Layout>
-
-<script src="../scripts/cardTilt.ts"></script>

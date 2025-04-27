@@ -1,0 +1,723 @@
+---
+import flameTheFreeze from '~/assets/images/flameTheFreeze.webp';
+import prayerChurch from '~/assets/images/prayerChurch.webp';
+import urFitChild from '~/assets/images/urfitChild.webp';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import AnimatedChildSvg from '~/components/widgets/AnimatedChildSvg.astro';
+import SvgDove from './icons/SvgDove';
+import SvgFire from './icons/SvgFire';
+
+interface Project {
+  icon: 'child' | 'fire' | 'dove';
+  id: string;
+  title: string;
+  description: string;
+  size: string;
+  url: string;
+}
+
+const projects: Array<Project> = [
+  {
+    icon: 'child',
+    id: 'urFitChild',
+    title: 'urFit-child',
+    description:
+      'The main website of Prof. Andrew Agbaje — a world-renowned expert in arterial stiffness and ranked among the top three globally — and his urFIT-child research group.',
+    size: 'Large',
+    url: 'https://www.urfit-child.com',
+  },
+  {
+    icon: 'fire',
+    id: 'flameTheFreeze',
+    title: 'Flame the Freeze',
+    description:
+      'An in-depth online hub for the global ministry’s message and mission. Flame the Freeze is a bold site that challenging the current religious dogmas.',
+    size: 'Medium',
+    url: 'https://www.flamethefreeze.com',
+  },
+  {
+    icon: 'dove',
+    id: 'prayerChurch',
+    title: 'Prayer Church',
+    description:
+      'The official website of Prayer Church — a small, local gathering in Kuopio, Finland. The visitors encounter God the first time they visit.',
+    size: 'Small',
+    url: 'https://www.rukouksenseurakunta.fi',
+  },
+];
+---
+
+<WidgetWrapper id={'customer-cards'} animated={false} containerClass={`max-w-4xl mx-auto`}>
+  <section class="pt-40 lg:pt-32 md:pt-24 sm:pt-16">
+    <div class="">
+      <div class="flex w-full justify-center">
+        <h1 class="text-5xl md:text-7xl font-semibold tracking-tighter text-white pb-7">
+          Produce a reaction to
+          <br />
+          create a connection.
+          <p class="text-[15px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3">
+            People remember what stirs emotion—whether good or bad.
+            <br />
+            Let them love it, or let them hate it. But never let them remain neutral.
+          </p>
+        </h1>
+      </div>
+
+      <div class="cards gap-8 pt-10">
+        <div class="three-d-wrapper">
+          <div
+            class="card eevee"
+            style={`background-image: url(${urFitChild.src}); background-size: cover; background-position: center;`}
+          >
+          </div>
+        </div>
+        <div class="three-d-wrapper">
+          <div
+            class="card mewtwo"
+            style={`background-image: url(${flameTheFreeze.src}); background-size: cover; background-position: center;`}
+          >
+          </div>
+        </div>
+        <div class="three-d-wrapper">
+          <div
+            class="card pika"
+            style={`background-image: url(${prayerChurch.src}); background-size: cover; background-position: center;`}
+          >
+          </div>
+        </div>
+      </div>
+
+      <p
+        class="relative z-10 mt-[60px] max-w-2xl text-[18px] font-medium leading-snug tracking-tighter lg:mt-[72px] lg:max-w-[544px] lg:text-[24px] md:mt-[66px] sm:mt-7 sm:text-[20px]"
+      >
+        <!-- Our mission is to create something that secures your place in your field — extraordinary design that captures
+        attention and makes it clear: this is something special. -->
+      </p>
+    </div>
+    <ul class="relative z-10 mt-8 grid grid-cols-1 gap-8 lg:mt-10 md:gap-16 sm:mt-9 sm:grid-cols-3 sm:gap-y-7">
+      {
+        projects.map((project) => (
+          <li>
+            <div class="w-16 h-16">
+              {project.icon === 'child' && (
+                <AnimatedChildSvg animate={false} strokeWidth={52} classes="w-full h-full" />
+              )}
+              {project.icon === 'fire' && <SvgFire size={56} />}
+              {project.icon === 'dove' && <SvgDove size={56} />}
+            </div>
+            <h3 class="mt-5 font-title max-w-28 text-[20px] leading-none tracking-tighter lg:mt-4 lg:max-w-full lg:text-[28px] md:mt-3.5 sm:mt-2.5 sm:max-w-32 sm:text-[24px]">
+              {project.title}
+            </h3>
+            <p class="mt-3.5 text-muted text-[15px] font-medium leading-snug tracking-tighter lg:mt-2.5 md:mt-2 md:leading-tight sm:mt-1 max-w-none sm:max-w-[284px]">
+              {project.description}
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</WidgetWrapper>
+
+<style class="hover"></style>
+
+<script is:inline>
+  // Initialize card effects when the DOM is ready and after each page navigation
+  function initializeCardEffects() {
+    /*
+      using 
+        - an animated gif of sparkles.
+        - an animated gradient as a holo effect.
+        - color-dodge mix blend mode
+    */
+    let timeoutId;
+    let animationFrameId;
+    let lastFrameTime = 0;
+    const FRAME_THROTTLE = 16; // ~60fps
+    const cards = document.querySelectorAll('.card');
+
+    // Add event listeners to all cards
+    cards.forEach((card) => {
+      // Mouse/touch move event - use passive listeners where possible for better performance
+      card.addEventListener('mousemove', (e) => handleMoveWithThrottle(e, card), { passive: true });
+      card.addEventListener('touchmove', (e) => handleMoveWithThrottle(e, card), { passive: false });
+
+      // Mouse/touch end events
+      card.addEventListener('mouseout', () => handleEnd(card), { passive: true });
+      card.addEventListener('touchend', () => handleEnd(card), { passive: true });
+      card.addEventListener('touchcancel', () => handleEnd(card), { passive: true });
+    });
+
+    // Throttle animation frames for consistent performance
+    function handleMoveWithThrottle(e, card) {
+      const now = performance.now();
+
+      // Skip if we're updating too frequently
+      if (now - lastFrameTime < FRAME_THROTTLE) {
+        return;
+      }
+
+      lastFrameTime = now;
+      handleMove(e, card);
+    }
+
+    // Handle mouse/touch movement with requestAnimationFrame for better performance
+    function handleMove(e, card) {
+      // Cancel any pending animation frame
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+
+      // Use requestAnimationFrame to optimize visual updates
+      animationFrameId = requestAnimationFrame(() => {
+        // Normalize touch/mouse
+        let pos;
+        if (e.type === 'touchmove') {
+          e.preventDefault();
+          const touch = e.touches[0];
+          const rect = card.getBoundingClientRect();
+          pos = [touch.clientX - rect.left, touch.clientY - rect.top];
+        } else {
+          pos = [e.offsetX, e.offsetY];
+        }
+
+        // Math for mouse position - use more efficient calculations
+        const h = card.offsetHeight;
+        const w = card.offsetWidth;
+        const l = pos[0];
+        const t = pos[1];
+        const px = Math.abs(Math.floor((100 / w) * l) - 100);
+        const py = Math.abs(Math.floor((100 / h) * t) - 100);
+        // const pa = 50 - px + (50 - py);
+
+        // Math for gradient / background positions
+        const lp = 50 + (px - 50) / 1.5;
+        const tp = 50 + (py - 50) / 1.5;
+        // const px_spark = 50 + (px - 50) / 7;
+        // const py_spark = 50 + (py - 50) / 7;
+        // const p_opc = 20 + Math.abs(pa) * 1.5;
+        const ty = ((tp - 50) / 2) * -1;
+        const tx = ((lp - 50) / 1.5) * 0.5;
+
+        // Batch DOM updates for better performance
+        // Set CSS variables directly on the card element
+        card.style.setProperty('--grad-pos', `${lp}% ${tp}%`);
+        // card.style.setProperty('--spark-pos', `${px_spark}% ${py_spark}%`);
+        // card.style.setProperty('--spark-opacity', p_opc / 100);
+
+        // Use transform with will-change property already set in CSS
+        card.style.transform = `rotateX(${ty}deg) rotateY(${tx}deg)`;
+
+        // Optimize class toggling to reduce reflows
+        cards.forEach((c) => {
+          if (c !== card && c.classList.contains('active')) {
+            c.classList.remove('active');
+          }
+        });
+
+        if (!card.classList.contains('active')) {
+          card.classList.add('active');
+        }
+
+        if (card.classList.contains('animated')) {
+          card.classList.remove('animated');
+        }
+
+        if (e.type === 'touchmove') {
+          return false;
+        }
+
+        clearTimeout(timeoutId);
+      });
+    }
+
+    // Handle mouse/touch end
+    function handleEnd(card) {
+      // Cancel any pending animation frame
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+
+      // Use requestAnimationFrame for smoother transitions
+      requestAnimationFrame(() => {
+        // Reset CSS properties
+        card.style.setProperty('--grad-pos', '50% 50%');
+        // card.style.setProperty('--spark-pos', '50% 50%');
+        // card.style.setProperty('--spark-opacity', '0.75');
+        card.style.transform = '';
+        card.classList.remove('active');
+
+        // Clear any existing timeout
+        clearTimeout(timeoutId);
+
+        // Add animated class after delay
+        timeoutId = setTimeout(() => {
+          card.classList.add('animated');
+        }, 2500);
+      });
+    }
+  }
+
+  // Initialize on page load with passive event listeners where possible
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeCardEffects, { passive: true });
+  } else {
+    initializeCardEffects();
+  }
+
+  // Re-initialize on Astro page transitions with passive event listener
+  document.addEventListener('astro:page-load', initializeCardEffects, { passive: true });
+
+  // Setup Intersection Observer for cards
+  function setupCardObserver() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Add the animated class when card comes into view
+            entry.target.classList.add('animated');
+            // Unobserve after animation is triggered
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px',
+      }
+    );
+
+    // Observe all cards
+    document.querySelectorAll('.card').forEach((card) => {
+      // Remove animated class that might have been added on load
+      card.classList.remove('animated');
+      observer.observe(card);
+    });
+  }
+
+  function setupWaveObserver() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            entry.target.querySelector('.wave-path')?.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px',
+      }
+    );
+
+    document.querySelectorAll('.wrapper').forEach((wrapper) => {
+      if (wrapper && !wrapper.classList.contains('visible')) {
+        observer.observe(wrapper);
+      }
+    });
+  }
+
+  // Run immediately
+  setupWaveObserver();
+  setupCardObserver();
+
+  // Run again after page load to catch any dynamically loaded elements
+  window.addEventListener('load', () => {
+    setupWaveObserver();
+    setupCardObserver();
+  });
+
+  // Run when Astro view transitions complete
+  document.addEventListener('astro:page-load', () => {
+    setupWaveObserver();
+    setupCardObserver();
+  });
+</script>
+<style>
+  :root {
+    --color1: rgb(0, 231, 255);
+    --color2: rgb(255, 0, 231);
+    --back: url(https://cdn2.bulbagarden.net/upload/1/17/Cardback.jpg);
+    --pika1: #245ced;
+    --pika2: #ffffff;
+    --eevee1: #efb2fb;
+    --eevee2: #acc6f8;
+    --mewtwo1: #efb2fb;
+    --mewtwo2: #acc6f8;
+  }
+
+  /* .card {
+    width: 100vw;
+    height: 100vw;
+    @media screen and (min-width: 600px) {
+      width: clamp(470px, 85vh, 25.2vw);
+      height: clamp(400px, 85vh, 25.2vw);
+    } */
+  .card {
+    width: 71.5vw;
+    height: 100vw;
+    position: relative;
+    overflow: hidden;
+    overflow: hidden;
+    z-index: 10;
+    touch-action: none;
+    isolation: isolate;
+
+    border-radius: 5% / 3.5%;
+    box-shadow:
+      -5px -5px 5px -5px var(--color1),
+      5px 5px 5px -5px var(--color2),
+      -7px -7px 10px -5px transparent,
+      7px 7px 10px -5px transparent,
+      0 0 5px 0px rgba(255, 255, 255, 0),
+      0 55px 35px -20px rgba(0, 0, 0, 0.5);
+
+    transition:
+      transform 0.5s ease,
+      box-shadow 0.2s ease;
+    will-change: transform, filter;
+
+    background-color: #040712;
+    background-image: var(--front);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    transform-origin: center;
+    @media screen and (min-width: 600px) {
+      /* width: clamp(24vw, 61vh, 18vw);
+      height: clamp(32vw, 85vh, 25.2vw); */
+      width: clamp(12.9vw, 61vh, 18vw);
+      height: clamp(18vw, 85vh, 25.2vw);
+    }
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 20;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .card:hover {
+    box-shadow:
+      -20px -20px 30px -25px var(--color1),
+      20px 20px 30px -25px var(--color2),
+      -7px -7px 10px -5px var(--color1),
+      7px 7px 10px -5px var(--color2),
+      0 0 13px 4px rgba(255, 255, 255, 0.3),
+      0 55px 35px -20px rgba(0, 0, 0, 0.5);
+  }
+
+  .card.eevee {
+    --color1: #ec9bb6;
+    --color2: #ccac6f;
+    --color3: #69e4a5;
+    --color4: #8ec5d6;
+    --color5: #b98cce;
+  }
+  .card.mewtwo {
+    --color1: var(--mewtwo1);
+    --color2: var(--mewtwo2);
+  }
+  .card.pika {
+    --color1: var(--pika1);
+    --color2: var(--pika2);
+  }
+
+  .card:before,
+  .card:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    mix-blend-mode: color-dodge;
+    transition: all 0.33s ease;
+    pointer-events: none;
+  }
+
+  .card:before {
+    background-position: var(--grad-pos, 50% 50%);
+    background-size: 300% 300%;
+    background-image: linear-gradient(
+      115deg,
+      transparent 0%,
+      var(--color1) 25%,
+      transparent 47%,
+      transparent 53%,
+      var(--color2) 75%,
+      transparent 100%
+    );
+    opacity: 0.5;
+    filter: brightness(0.5) contrast(1);
+    z-index: 1;
+  }
+
+  .card:after {
+    opacity: var(--spark-opacity, 0.75);
+    background-image: url('https://assets.codepen.io/13471/sparkles.gif'),
+      url(https://assets.codepen.io/13471/holo.png),
+      linear-gradient(125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
+    background-position: var(--spark-pos, 50% 50%);
+    background-size: 160%;
+    background-blend-mode: overlay;
+    z-index: 2;
+    filter: brightness(1) contrast(1);
+    transition: all 0.33s ease;
+    mix-blend-mode: color-dodge;
+    isolation: isolate;
+  }
+
+  .card.active:after,
+  .card:hover:after {
+    filter: brightness(1) contrast(1);
+    opacity: 1;
+    mix-blend-mode: color-dodge !important;
+  }
+
+  .card.active,
+  .card:hover {
+    animation: none;
+    transition: box-shadow 0.1s ease-out;
+  }
+
+  .card.active:before,
+  .card:hover:before {
+    animation: none;
+    /* background-image: linear-gradient(110deg, transparent 25%, var(--color1) 48%, var(--color2) 52%, transparent 75%); */
+    background-image: linear-gradient(
+      115deg,
+      transparent 0%,
+      var(--color1) 25%,
+      transparent 47%,
+      transparent 53%,
+      var(--color2) 75%,
+      transparent 100%
+    );
+    background-position: var(--grad-pos, 50% 50%);
+    background-size: 250% 250%;
+    opacity: 0.88;
+    filter: brightness(0.66) contrast(1.33);
+    transition: none;
+    mix-blend-mode: color-dodge !important;
+  }
+
+  .card.animated {
+    transition: none;
+    animation: holoCard 12s ease 0s 1;
+    &:before {
+      transition: none;
+      animation: holoGradient 12s ease 0s 1;
+    }
+    &:after {
+      transition: none;
+      animation: holoSparkle 12s ease 0s 1;
+    }
+  }
+
+  @keyframes holoSparkle {
+    0%,
+    100% {
+      opacity: 0.75;
+      background-position: 50% 50%;
+      filter: brightness(1.2) contrast(1.25);
+    }
+    5%,
+    8% {
+      opacity: 1;
+      background-position: 40% 40%;
+      filter: brightness(0.8) contrast(1.2);
+    }
+    13%,
+    16% {
+      opacity: 0.5;
+      background-position: 50% 50%;
+      filter: brightness(1.2) contrast(0.8);
+    }
+    35%,
+    38% {
+      opacity: 1;
+      background-position: 60% 60%;
+      filter: brightness(1) contrast(1);
+    }
+    55% {
+      opacity: 0.33;
+      background-position: 45% 45%;
+      filter: brightness(1.2) contrast(1.25);
+    }
+  }
+
+  @keyframes holoGradient {
+    0%,
+    100% {
+      opacity: 0.5;
+      background-position: 50% 50%;
+      filter: brightness(0.5) contrast(1);
+    }
+    5%,
+    9% {
+      background-position: 100% 100%;
+      opacity: 1;
+      filter: brightness(0.75) contrast(1.25);
+    }
+    13%,
+    17% {
+      background-position: 0% 0%;
+      opacity: 0.88;
+    }
+    35%,
+    39% {
+      background-position: 100% 100%;
+      opacity: 1;
+      filter: brightness(0.5) contrast(1);
+    }
+    55% {
+      background-position: 0% 0%;
+      opacity: 1;
+      filter: brightness(0.75) contrast(1.25);
+    }
+  }
+
+  @keyframes holoCard {
+    0%,
+    100% {
+      transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+    }
+    5%,
+    8% {
+      transform: rotateZ(0deg) rotateX(6deg) rotateY(-20deg);
+    }
+    13%,
+    16% {
+      transform: rotateZ(0deg) rotateX(-9deg) rotateY(32deg);
+    }
+    35%,
+    38% {
+      transform: rotateZ(3deg) rotateX(12deg) rotateY(20deg);
+    }
+    55% {
+      transform: rotateZ(-3deg) rotateX(-12deg) rotateY(-27deg);
+    }
+  }
+
+  .card.eevee:hover {
+    box-shadow:
+      0 0 30px -5px white,
+      0 0 10px -2px white,
+      0 55px 35px -20px rgba(0, 0, 0, 0.5);
+  }
+  /* .card.eevee:hover:before,
+  .card.eevee.active:before {
+    background-image: linear-gradient(
+      115deg,
+      transparent 20%,
+      var(--color1) 36%,
+      var(--color2) 43%,
+      var(--color3) 50%,
+      var(--color4) 57%,
+      var(--color5) 64%,
+      transparent 80%
+    );
+  } */
+
+  .cards .three-d-wrapper {
+    perspective: 750px;
+    isolation: isolate;
+    transform: translate3d(0.1px, 0.1px, 0.1px);
+  }
+
+  .operator {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 6vh;
+  }
+
+  .cards .three-d-wrapper {
+    perspective: 750px;
+    isolation: isolate;
+    transform: translate3d(0.1px, 0.1px, 0.1px);
+  }
+
+  .demo,
+  .cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    z-index: 1;
+  }
+  .demo {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 600px) {
+    .cards {
+      flex-direction: row;
+    }
+  }
+
+  /* .cards .card {
+    &:nth-child(2) {
+      &,
+      &:before,
+      &:after {
+        animation-delay: 0.25s;
+      }
+    }
+    &:nth-child(3) {
+      &,
+      &:before,
+      &:after {
+        animation-delay: 0.5s;
+      }
+    }
+    &:nth-child(4) {
+      &,
+      &:before,
+      &:after {
+        animation-delay: 0.75s;
+      }
+    }
+  } */
+</style>
+
+<!-- <div class="flex flex-row gap-8"></div>
+
+  <div class="flex flex-row gap-8">
+    <FeatureCardNew title="urFIT-child">
+      <Fragment slot="description">
+        The main website of Prof. Andrew Agbaje — a world-renowned expert in arterial stiffness and ranked among the top
+        three globally — and his urFit-child research group. <br />
+        The site features 14 in-depth pages with over 160 scientific publications, press releases, additional resources,
+        and more than 15 research-focused videos, all highlighting impactful work in the field.
+        <br /><br />
+        <h3><span class="font-semibold">Size: </span>Large</h3>
+        <br />
+        <a href="https://www.urfit-child.com" class="text-blue-600 hover:underline">urfit-child.com</a>
+      </Fragment>
+    </FeatureCardNew>
+    <FeatureCardNew title="Flame the Freeze">
+      <Fragment slot="description">
+        <br /><br />
+        <h3><span class="font-semibold">Size: </span>Medium</h3>
+        <br />
+        <a href="https://www.flamethefreeze.com" class="text-blue-600 hover:underline">flamethefreeze.com</a>
+      </Fragment>
+    </FeatureCardNew>
+    <FeatureCardNew title="Prayer Church">
+      <Fragment slot="description">
+        <br /><br />
+        <h3><span class="font-semibold">Size: </span>Small</h3>
+        <br />
+        <a href="https://www.prayerchurch.fi" class="text-blue-600 hover:underline">prayerchurch.fi</a>
+      </Fragment>
+    </FeatureCardNew>
+  </div> -->

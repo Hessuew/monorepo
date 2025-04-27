@@ -1,0 +1,126 @@
+---
+---
+
+<div class="card-container">
+  <div class="card">
+    <div class="card-content">Hover me</div>
+  </div>
+</div>
+
+<style>
+  .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #333;
+    perspective: 1000px;
+  }
+
+  .card {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background: #222;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+  }
+
+  .card::before,
+  .card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+  }
+
+  .card::before {
+    background: linear-gradient(
+      115deg,
+      transparent 0%,
+      rgba(0, 231, 255, 0.5) 25%,
+      transparent 47%,
+      transparent 53%,
+      rgba(255, 0, 231, 0.5) 75%,
+      transparent 100%
+    );
+    opacity: 0;
+    mix-blend-mode: color-dodge;
+    z-index: 1;
+  }
+
+  .card::after {
+    background-image: 
+      url('https://assets.codepen.io/13471/sparkles.gif'),
+      linear-gradient(
+        125deg,
+        rgba(255, 0, 132, 0.5) 15%,
+        rgba(252, 164, 0, 0.4) 30%,
+        rgba(255, 255, 0, 0.3) 40%,
+        rgba(0, 255, 138, 0.2) 60%,
+        rgba(0, 207, 255, 0.4) 70%,
+        rgba(204, 76, 250, 0.5) 85%
+      );
+    background-position: center;
+    background-size: 200%;
+    opacity: 0;
+    mix-blend-mode: color-dodge;
+    z-index: 2;
+  }
+
+  .card:hover {
+    transform: rotateX(15deg) rotateY(-15deg);
+  }
+
+  .card:hover::before {
+    opacity: 1;
+  }
+
+  .card:hover::after {
+    opacity: 1;
+  }
+
+  .card-content {
+    color: white;
+    font-size: 24px;
+    font-family: sans-serif;
+    z-index: 3;
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener('astro:page-load', function() {
+    const card = document.querySelector('.card');
+    
+    card.addEventListener('mousemove', function(e) {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateY = (x - centerX) / 10;
+      const rotateX = (centerY - y) / 10;
+      
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      
+      // Update the position of the gradient and sparkles
+      const percentX = (x / rect.width) * 100;
+      const percentY = (y / rect.height) * 100;
+      
+      card.style.setProperty('--x', `${percentX}%`);
+      card.style.setProperty('--y', `${percentY}%`);
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      card.style.transform = 'rotateX(0) rotateY(0)';
+    });
+  });
+</script>
