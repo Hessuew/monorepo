@@ -4,9 +4,10 @@ import urFitChild from '~/assets/images/urfitChild.webp';
 import animated_details from '~/assets/videos/animated_details.mp4';
 import beauty_contrasts from '~/assets/videos/beauty_contrasts.mp4';
 import hot_twist from '~/assets/videos/hot_twist.mp4';
+import testimonials from '~/assets/videos/testimonials.mp4';
 import SvgGem from '~/components/ui/icons/SvgGem';
 import SvgAnimation from '../ui/icons/SvgAnimation';
-import SvgCampfire from '../ui/icons/SvgCampfire';
+import SvgFire from '../ui/icons/SvgFire';
 import SvgGift from '../ui/icons/SvgGift';
 import VideoCard from './VideoCard.astro';
 
@@ -21,7 +22,7 @@ const videos = [
     title: 'Hot twist',
     description:
       'The professional research group has an unique way to introduce the visitor to the deeper truths of life through an interactive and beautifully designed non-academic page.',
-    icon: SvgCampfire,
+    icon: SvgFire,
   },
   {
     videoSrc: beauty_contrasts,
@@ -35,14 +36,14 @@ const videos = [
     icon: SvgGem,
   },
   {
-    videoSrc: animated_details,
+    videoSrc: testimonials,
     thumbnailSrc: {
       src: urFitChild,
       alt: 'Thumbnail for urFit-child',
     },
     title: 'Interesting testimonials',
     description:
-      "estimonials are nice, but they often feel boring—like knowing what's in a gift before you open it. But this site takes a different approach. You never know what you'll find in the next testimonial.",
+      "Testimonials are nice, but they often feel boring—like knowing what's in a gift before you open it. But this site takes a different approach. You never know what you'll find in the next one.",
     icon: SvgGift,
   },
   {
@@ -66,9 +67,9 @@ const videos = [
       <br />
       matches the content.
       <p class="text-[15px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3">
-        The essence of your brand should be displayed simply and clearly.
+        The essence of your brand should be displayed simply and clearly by the wisdom of God.
         <br />
-        We can do that for you. You bring the content. We'll make it shine.
+        We will do that for you. You bring the content. We'll make the glory of God to shine.
       </p>
     </h1>
 
@@ -78,7 +79,7 @@ const videos = [
         <!-- First video -->
         <div class="w-full md:w-1/2">
           <VideoCard videoSrc={videos[0].videoSrc} title={videos[0].title} description={videos[0].description}>
-            <SvgCampfire slot="icon" className="w-12 h-12" />
+            <SvgFire slot="icon" className="w-12 h-12" />
           </VideoCard>
         </div>
 

@@ -4,6 +4,7 @@ import CustomerCards from '~/components/ui/CustomerCards.astro';
 import ContactForm from '~/components/widgets/ContactForm.astro';
 import LandingSection from '~/components/widgets/LandingSection.astro';
 import PriceSection from '~/components/widgets/PriceSection.astro';
+import Principles from '~/components/widgets/Principles.astro';
 import TestimonialsCustom from '~/components/widgets/TestimonialsCustom.astro';
 import VideoSection from '~/components/widgets/VideoSection.astro';
 import Layout from '~/layouts/PageLayout.astro';
@@ -40,23 +41,9 @@ const metadata = {
 
   <PriceSection />
 
-  <div
-    class="relative pt-10 pb-10"
-    style="border-top: 1px solid; border-image: linear-gradient(90deg,#0000 30%,#c8c8c880 50%,#0000 70%) 1;"
-  >
-    <div
-      class="rotate-180 [--color:var(--violet2)] pointer-events-none relative -z-[2] mx-auto h-[50rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_70%)] my-[-18.8rem]
-      before:absolute before:inset-0 before:h-full before:w-full before:opacity-30 before:[background-image:radial-gradient(circle_at_top_center,var(--violet2),transparent_70%)]
-      after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-b after:border-[hsl(var(--border))] after:bg-page after:[transform:scaleY(-1)] after:[box-shadow:0_0_40px_10px_var(--violet2),0_0_40px_10px_var(--violet2)_inset]"
-    >
-    </div>
-    <ContactForm />
+  <!-- <div style="border-top: 1px solid; border-image: linear-gradient(90deg,#0000 30%,#c8c8c880 50%,#0000 70%) 1;"></div> -->
 
-    <div
-      class="[--color:var(--orange)] pointer-events-none relative -z-[2] mx-auto h-[50rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_70%)] my-[-18.8rem]
-      before:absolute before:inset-0 before:h-full before:w-full before:opacity-30 before:[background-image:radial-gradient(circle_at_top_center,var(--color),transparent_70%)]
-      after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-b after:border-[white] after:bg-page after:[transform:scaleY(-1)] after:[box-shadow:0_0_40px_10px_var(--orange),0_0_40px_10px_var(--orange)_inset]"
-    >
-    </div>
-  </div>
+  <Principles />
+
+  <ContactForm />
 </Layout>
