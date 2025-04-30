@@ -1,14 +1,20 @@
 ---
 import flameTheFreeze from '~/assets/images/flameTheFreeze.webp';
 import prayerChurch from '~/assets/images/prayerChurch.webp';
+import flameTheFreezeLogo from '~/assets/images/siteLogos/flameTheFreeze_logo.webp';
+import prayerChurchLogo from '~/assets/images/siteLogos/prayerChurch_logo.webp';
 import urFitChild from '~/assets/images/urfitChild.webp';
+import Image from '~/components/common/Image.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import AnimatedChildSvg from '~/components/widgets/AnimatedChildSvg.astro';
-import SvgDove from './icons/SvgDove';
-import SvgFire from './icons/SvgFire';
+import type { ImageMetadata } from 'astro';
 
 interface Project {
-  icon: 'child' | 'fire' | 'dove';
+  icon?: 'child' | 'candle' | 'dove';
+  image?: {
+    src: ImageMetadata;
+    alt: string;
+  };
   id: string;
   title: string;
   description: string;
@@ -22,25 +28,31 @@ const projects: Array<Project> = [
     id: 'urFitChild',
     title: 'urFit-child',
     description:
-      'The main website of Prof. Andrew Agbaje — a world-renowned expert in arterial stiffness and ranked among the top three globally — and his urFIT-child research group.',
+      'The website of Prof. Andrew Agbaje — a world-renowned expert in arterial stiffness among the top three globally — and his urFIT-child research group.',
     size: 'Large',
     url: 'https://www.urfit-child.com',
   },
   {
-    icon: 'fire',
+    image: {
+      src: flameTheFreezeLogo,
+      alt: 'Flame the Freeze Logo',
+    },
     id: 'flameTheFreeze',
     title: 'Flame the Freeze',
     description:
-      'An in-depth online hub for the global ministry’s message and mission. Flame the Freeze is a bold site that challenging the current religious dogmas.',
+      'An in-depth online hub for the ministry’s message and mission. Flame the Freeze is a bold site challenging and flaming up the current religious dogmas.',
     size: 'Medium',
     url: 'https://www.flamethefreeze.com',
   },
   {
-    icon: 'dove',
+    image: {
+      src: prayerChurchLogo,
+      alt: 'Prayer Church Logo',
+    },
     id: 'prayerChurch',
     title: 'Prayer Church',
     description:
-      'The official website of Prayer Church — a small, local gathering in Kuopio, Finland. The visitors encounter God the first time they visit.',
+      'The official website of Prayer Church — a local gathering in Kuopio, Finland. The visitors encounter God the first time they visit by miracles, sings, and wonders.',
     size: 'Small',
     url: 'https://www.rukouksenseurakunta.fi',
   },
@@ -49,14 +61,19 @@ const projects: Array<Project> = [
 
 <WidgetWrapper id={'customer-cards'} animated={false} containerClass={`max-w-4xl mx-auto`}>
   <section class="pt-40 lg:pt-32 md:pt-24 sm:pt-16">
-    <div class="">
+    <div>
       <div class="flex w-full justify-center">
         <h1 class="text-5xl md:text-7xl font-semibold tracking-tighter text-white pb-7">
           Produce a reaction to
           <br />
           create a connection.
           <p class="text-[15px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3">
-            People remember what stirs emotion—whether good or bad.
+            'That thou art neither cold nor hot: I would thou wert cold or hot.
+            <br />
+            So then because thou art lukewarm, and neither cold nor hot, I will spue thee out of my mouth.'
+            <br />
+            <br />
+            This principals works; people remember what stirs them—whether good or bad.
             <br />
             Let them love it, or let them hate it. But never let them remain neutral.
           </p>
@@ -94,6 +111,7 @@ const projects: Array<Project> = [
         attention and makes it clear: this is something special. -->
       </p>
     </div>
+
     <ul class="relative z-10 mt-8 grid grid-cols-1 gap-8 lg:mt-10 md:gap-16 sm:mt-9 sm:grid-cols-3 sm:gap-y-7">
       {
         projects.map((project) => (
@@ -102,8 +120,19 @@ const projects: Array<Project> = [
               {project.icon === 'child' && (
                 <AnimatedChildSvg animate={false} strokeWidth={52} classes="w-full h-full" />
               )}
-              {project.icon === 'fire' && <SvgFire size={56} />}
-              {project.icon === 'dove' && <SvgDove size={56} />}
+              {project.image && (
+                <Image
+                  class={`min-h-16 min-w-16 2xl:min-h-16 2xl:min-w-16 rounded-full border border-slate-600`}
+                  width={48}
+                  height={48}
+                  widths={[400, 768]}
+                  layout="fixed"
+                  loading="lazy"
+                  decoding="async"
+                  style={`object-fit: cover; object-position: center;`}
+                  {...project.image}
+                />
+              )}
             </div>
             <h3 class="mt-5 font-title max-w-28 text-[20px] leading-none tracking-tighter lg:mt-4 lg:max-w-full lg:text-[28px] md:mt-3.5 sm:mt-2.5 sm:max-w-32 sm:text-[24px]">
               {project.title}

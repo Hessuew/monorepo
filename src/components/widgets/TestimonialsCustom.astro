@@ -18,10 +18,15 @@ import { Icon } from 'astro-icon/components';
     </div>
     <div class="testimonial-inner max-w-[1240px] mx-auto relative z-10">
       <div class="testimonial-row">
-        <h1 class="text-center text-5xl md:text-7xl font-semibold tracking-tighter text-black pb-7">
-          Trusted by the world's fastest
-          <br />
-          growing research groups
+        <h1 class="text-5xl md:text-7xl font-semibold tracking-tighter text-start text-black pb-7">
+          Trusted by professionals
+          <p class="text-[15px] max-w-[786px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3">
+            'Then was king Belshazzar greatly troubled, and his countenance was changed in him, and his lords were
+            astonished. Now the queen by reason of the words of the king and his lords came into the banquet house: and
+            the queen spake and said, O king, live for ever: let not thy thoughts trouble thee, nor let thy countenance
+            be changed: There is a man in thy kingdom ... now let Daniel be called, and he will shew the
+            interpretation.' Daniel 5:9-11.
+          </p>
         </h1>
         <div class="testimonial-wrap relative overflow-hidden my-[6%]">
           <div class="swiper-container">
@@ -32,7 +37,7 @@ import { Icon } from 'astro-icon/components';
                   <div class="w-[240px] h-[240px] mb-[30px] flex-shrink-0 rounded-full relative">
                     <img src={andrewAgbajeHeadshot.src} alt="" class="w-full h-full object-cover rounded-full" />
                     <div
-                      class="absolute bottom-[30px] left-[-10px] w-[68px] h-[68px] bg-[#3c2fc0] rounded-full flex items-center justify-center shadow-md"
+                      class="absolute bottom-[30px] left-[-10px] w-[68px] h-[68px] bg-gradient-to-br from-[var(--aw-color-accent)] from-10% to-[var(--aw-color-secondary)] rounded-full flex items-center justify-center shadow-md"
                     >
                       <Icon name="tabler:quote-filled" class="quote-icon w-[40px] h-[40px] text-white" />
                     </div>
@@ -46,9 +51,9 @@ import { Icon } from 'astro-icon/components';
                       humane. I highly recommend Cherubim IT for its impeccable and high-quality IT services. The proof
                       of the pudding is in the eating; a trial will convince you.
                     </p>
-                    <span class="text-[#3c2fc0] font-extrabold uppercase text-[15px] leading-normal"
-                      >Prof. Andrew Agbaje, urFIT-child, Principal Investigator</span
-                    >
+                    <span class="text-[var(--aw-color-accent)] font-extrabold uppercase text-[15px] leading-normal"
+                      >Prof. Andrew Agbaje, urFIT-child, Principal Investigator
+                    </span>
                   </div>
                 </div>
               </div>

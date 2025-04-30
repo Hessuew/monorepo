@@ -1,6 +1,4 @@
-import b1 from '~/assets/videos/frame_blue.mp4';
-import p1 from '~/assets/videos/frame_purple.mp4';
-import w1 from '~/assets/videos/frame_white.mp4';
+import { getGradientColor } from '~/utils/getGradientColor';
 import { ExternalLink } from 'lucide-react';
 
 type FeaturesCardProps = {
@@ -46,13 +44,6 @@ export default function FeaturesCard({
   url,
   color,
 }: FeaturesCardProps) {
-  // Get gradient colors based on the card color
-  const getGradientColor = (opacity: number): string => {
-    if (color === 'white') return `rgba(255, 255, 255, ${opacity})`;
-    if (color === 'purple') return `rgba(168, 85, 247, ${opacity})`;
-    return `rgba(59, 130, 246, ${opacity})`;
-  };
-
   // Get border class based on card color
   const getBorderClass = (): string => {
     if (color === 'white') return 'gradient-border';
@@ -81,9 +72,9 @@ export default function FeaturesCard({
             className='absolute inset-0 rounded-[24px] -z-5'
             style={{
               background: `
-                radial-gradient(circle at 15% 15%, ${getGradientColor(0.2)} 0%, transparent 40%),
-                radial-gradient(circle at 85% 85%, ${getGradientColor(0.2)} 0%, transparent 40%),
-                linear-gradient(to bottom right, ${getGradientColor(0.05)} 0%, transparent 100%, ${getGradientColor(0.05)} 100%)
+                radial-gradient(circle at 15% 15%, ${getGradientColor(0.2, color)} 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, ${getGradientColor(0.2, color)} 0%, transparent 40%),
+                linear-gradient(to bottom right, ${getGradientColor(0.05, color)} 0%, transparent 100%, ${getGradientColor(0.05, color)} 100%)
               `,
             }}
           ></div>

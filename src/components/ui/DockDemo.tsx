@@ -71,42 +71,44 @@ export function DockDemo(): React.JSX.Element {
   }
 
   // Get current project data
-  const currentProject = projectData[activeProject];
+  // const currentProject = projectData[activeProject];
 
   return (
     <div className='relative'>
-      <Dock iconSize={80} iconMagnification={100} iconDistance={100}>
-        <DockIcon onClick={() => handleProjectSelect('urFitChild')}>
-          <img
-            src={urFitChildLogo.src}
-            className={`duration-300 size-full rounded-full ${activeProject === 'urFitChild' ? 'ring-2 ring-white/50' : ''}`}
-          />
-        </DockIcon>
-        <DockIcon onClick={() => handleProjectSelect('flameTheFreeze')}>
-          <img
-            src={flameTheFreezeLogo.src}
-            className={`duration-300 size-full rounded-full ${activeProject === 'flameTheFreeze' ? 'ring-2 ring-purple-500/50' : ''}`}
-          />
-        </DockIcon>
-        <DockIcon onClick={() => handleProjectSelect('prayerChurch')}>
-          <img
-            src={prayerChurchLogo.src}
-            className={`duration-300 size-full rounded-full ${activeProject === 'prayerChurch' ? 'ring-2 ring-blue-500/50' : ''}`}
-          />
-        </DockIcon>
-      </Dock>
+      <div className='hidden'>
+        <Dock iconSize={80} iconMagnification={100} iconDistance={100}>
+          <DockIcon onClick={() => handleProjectSelect('urFitChild')}>
+            <img
+              src={urFitChildLogo.src}
+              className={`duration-300 size-full rounded-full ${activeProject === 'urFitChild' ? 'ring-2 ring-white/50' : ''}`}
+            />
+          </DockIcon>
+          <DockIcon onClick={() => handleProjectSelect('flameTheFreeze')}>
+            <img
+              src={flameTheFreezeLogo.src}
+              className={`duration-300 size-full rounded-full ${activeProject === 'flameTheFreeze' ? 'ring-2 ring-purple-500/50' : ''}`}
+            />
+          </DockIcon>
+          <DockIcon onClick={() => handleProjectSelect('prayerChurch')}>
+            <img
+              src={prayerChurchLogo.src}
+              className={`duration-300 size-full rounded-full ${activeProject === 'prayerChurch' ? 'ring-2 ring-blue-500/50' : ''}`}
+            />
+          </DockIcon>
+        </Dock>
+      </div>
 
-      <div className={`transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+      <div
+        className={`flex flex-row gap-20 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      >
         <BlurFade delay={0.1} inView duration={0.3}>
-          <FeaturesCard
-            color={currentProject.color}
-            title={currentProject.title}
-            description={currentProject.description}
-            price={currentProject.price}
-            monthlyPrice={currentProject.monthlyPrice}
-            url={currentProject.url}
-            features={currentProject.features}
-          />
+          <FeaturesCard {...projectData.urFitChild} />
+        </BlurFade>
+        <BlurFade delay={0.2} inView duration={0.3}>
+          <FeaturesCard {...projectData.flameTheFreeze} />
+        </BlurFade>
+        <BlurFade delay={0.3} inView duration={0.3}>
+          <FeaturesCard {...projectData.prayerChurch} />
         </BlurFade>
       </div>
     </div>
