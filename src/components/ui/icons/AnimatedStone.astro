@@ -14,9 +14,9 @@ const {
   animate = true,
   classes= '',
   stroke = 'currentColor',
-  strokeWidth = 2,
+  strokeWidth = 28,
   delay = 0,
-  gradientId = 'negotiationGradient',
+  gradientId = 'stoneGradient',
   gradientFrom = '#1a0024',
   gradientTo = 'rgba(255, 170, 64)',
 } = Astro.props;
@@ -25,49 +25,26 @@ const {
 const strokeClass = stroke.startsWith('text-') ? stroke : '';
 
 ---
-<div class={animate ? 'wave-wrapper3' : 'static-wrapper3'}>
+<div class={animate ? 'wave-wrapper1' : 'static-wrapper1'}>
   <svg 
-    class={`curvy-wave3 ${classes} ${strokeClass}`} 
-    viewBox='0 0 36 36'
+    class={`curvy-wave ${classes} ${strokeClass}`} 
+    viewBox='0 -20 560 560'
     xmlns="http://www.w3.org/2000/svg"
   >
       <defs>
         <linearGradient id={gradientId} x1='0' y1='0' x2='1' y2='1'>
-          <stop offset='0%' stop-color={gradientFrom} />
+          <stop offset='14%' stop-color={gradientFrom} />
           <stop offset='100%' stop-color={gradientTo} />
         </linearGradient>
       </defs>
-      
-      <path  d="M8,19V11H5a3,3,0,0,0-3,3V32a1,1,0,0,0,.56.89,1,1,0,0,0,1-.1L8.71,29H22.15A2.77,2.77,0,0,0,25,26.13V25H14A6,6,0,0,1,8,19Z" 
+
+      <path 
+        d="M423.735 371.91c-4.171-1.704-8.515-3.311-12.941-4.87-39.357 15.347-89.359 23.724-142.05 23.724-1.292 0-2.581-.005-3.876-.015-57.896-.45-110.762-10.738-149.956-28.22-9.364 2.83-18.271 5.96-26.644 9.381-38.759 15.83-61.896 36.743-61.896 55.941s23.139 40.11 61.896 55.939C132.805 501.981 192.375 512 256 512s123.195-10.018 167.733-28.21c38.759-15.83 61.896-36.742 61.896-55.939.004-19.198-23.135-40.111-61.894-55.941m-170.334-13.748c52.421.429 101.822-7.95 138.974-23.537 31.958-13.405 51.338-31.202 51.843-47.603.236-7.661-3.508-15.559-11.127-23.478-28.111-29.217-98.234-49.246-174.489-49.839-1.22-.01-2.443-.015-3.66-.015-51.1 0-99.026 8.328-135.314 23.551-31.956 13.407-51.336 31.202-51.841 47.605-.236 7.661 3.506 15.559 11.124 23.477 28.11 29.219 98.232 49.248 174.49 49.839m2.601-164.839c90.905 0 148.917-29.717 148.917-50.174 0-20.459-58.012-50.176-148.917-50.176-90.906 0-148.918 29.717-148.918 50.176s58.011 50.174 148.918 50.174m-53.013-143.46c11.401 10.441 32.088 16.245 53.989 15.124 35.836-1.818 60.173-20.288 59.601-35.725-.179-4.859-2.724-9.571-7.562-14.002C298.546 5.67 280.241 0 260.359 0q-2.652 0-5.335.135c-35.834 1.82-60.171 20.289-59.599 35.725.181 4.862 2.724 9.573 7.564 14.003"
         fill="none"
         stroke={`url(#${gradientId})`}
         stroke-width={strokeWidth} 
         stroke-linecap="round"
-        class={animate ? 'wave-path3' : 'static-path3'}
-        style={animate ? `
-        stroke-dasharray: 1400;
-        stroke-dashoffset: 1400;
-        animation-delay: ${delay}ms;
-      ` : ''}
-      />
-      <path  d="M30,13.5A7.48,7.48,0,0,1,22.78,4H14a3,3,0,0,0-3,3V19a3,3,0,0,0,3,3H27.55l4.78,3.71a1,1,0,0,0,1,.11,1,1,0,0,0,.57-.9V12.37A7.45,7.45,0,0,1,30,13.5Z" 
-        fill="none"
-        stroke={`url(#${gradientId})`}
-        stroke-width={strokeWidth} 
-        stroke-linecap="round"
-        class={animate ? 'wave-path3' : 'static-path3'}
-        style={animate ? `
-        stroke-dasharray: 1400;
-        stroke-dashoffset: 1400;
-        animation-delay: ${delay}ms;
-      ` : ''}
-      />
-      <circle  cx="30" cy="6" r="5" 
-        fill="none"
-        stroke={`url(#${gradientId})`}
-        stroke-width={strokeWidth} 
-        stroke-linecap="round"
-        class={animate ? 'wave-path3' : 'static-path3'}
+        class={animate ? 'wave-path1' : 'static-path1'}
         style={animate ? `
         stroke-dasharray: 1400;
         stroke-dashoffset: 1400;
@@ -79,7 +56,7 @@ const strokeClass = stroke.startsWith('text-') ? stroke : '';
   {animate && (
     <>
       <style is:inline>
-        .wave-wrapper3 {
+        .wave-wrapper1 {
           position: relative;
           width: 100%;
           height: 100%;
@@ -87,16 +64,16 @@ const strokeClass = stroke.startsWith('text-') ? stroke : '';
           display: flex;
         }
 
-        .wave-path3 {
+        .wave-path1 {
           opacity: 0;
         }
 
-        .wave-path3.visible {
+        .wave-path1.visible {
           opacity: 1;
-          animation: drawWave3 5s ease-in-out forwards;
+          animation: drawWave 4s ease-out forwards;
         }
 
-        @keyframes drawWave3 {
+        @keyframes drawWave {
           to {
             stroke-dashoffset: 0;
           }
@@ -110,7 +87,7 @@ const strokeClass = stroke.startsWith('text-') ? stroke : '';
               entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                   entry.target.classList.add('visible');
-                  entry.target.querySelectorAll('.wave-path3').forEach((el) => el.classList.add('visible'));
+                  entry.target.querySelector('.wave-path1')?.classList.add('visible');
                   observer.unobserve(entry.target);
                 }
               });
@@ -121,7 +98,7 @@ const strokeClass = stroke.startsWith('text-') ? stroke : '';
             }
           );
 
-          document.querySelectorAll('.wave-wrapper3').forEach((wrapper) => {
+          document.querySelectorAll('.wave-wrapper1').forEach((wrapper) => {
             if (wrapper && !wrapper.classList.contains('visible')) {
               observer.observe(wrapper);
             }
@@ -143,18 +120,18 @@ const strokeClass = stroke.startsWith('text-') ? stroke : '';
 </div>
 
 <style is:global>
-  .curvy-wave3 {
+  .curvy-wave {
     width: 100%;
     height: 100%;
   }
 
-  .static-wrapper3 {
+  .static-wrapper1 {
     position: relative;
     width: 100%;
     height: 100%;
   }
 
-  .static-path3 {
+  .static-path1 {
     opacity: 1;
   }
 </style>

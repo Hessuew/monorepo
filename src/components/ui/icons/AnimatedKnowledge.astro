@@ -14,9 +14,9 @@ const {
   animate = true,
   classes= '',
   stroke = 'currentColor',
-  strokeWidth = 40,
+  strokeWidth = 2,
   delay = 0,
-  gradientId = 'gemGradient',
+  gradientId = 'knowledgeGradient',
   gradientFrom = '#1a0024',
   gradientTo = 'rgba(255, 170, 64)',
 } = Astro.props;
@@ -25,10 +25,10 @@ const {
 const strokeClass = stroke.startsWith('text-') ? stroke : '';
 
 ---
-<div class={animate ? 'wave-wrapper4' : 'static-wrapper4'}>
+<div class={animate ? 'wave-wrapper3' : 'static-wrapper3'}>
   <svg 
-    class={`curvy-wave4 ${classes} ${strokeClass}`} 
-    viewBox='0 0 32 32'
+    class={`curvy-wave3 ${classes} ${strokeClass}`} 
+    viewBox='0 0 36 36'
     xmlns="http://www.w3.org/2000/svg"
   >
       <defs>
@@ -37,13 +37,37 @@ const strokeClass = stroke.startsWith('text-') ? stroke : '';
           <stop offset='100%' stop-color={gradientTo} />
         </linearGradient>
       </defs>
-
-      <path d="M591.657,1109.24 C592.048,1109.63 592.048,1110.27 591.657,1110.66 C591.267,1111.05 590.633,1111.05 590.242,1110.66 L586.006,1106.42 L581.74,1110.69 C581.346,1111.08 580.708,1111.08 580.314,1110.69 C579.921,1110.29 579.921,1109.65 580.314,1109.26 L584.58,1104.99 L580.344,1100.76 C579.953,1100.37 579.953,1099.73 580.344,1099.34 C580.733,1098.95 581.367,1098.95 581.758,1099.34 L585.994,1103.58 L590.292,1099.28 C590.686,1098.89 591.323,1098.89 591.717,1099.28 C592.11,1099.68 592.11,1100.31 591.717,1100.71 L587.42,1105.01 L591.657,1109.24 L591.657,1109.24 Z M586,1089 C577.163,1089 570,1096.16 570,1105 C570,1113.84 577.163,1121 586,1121 C594.837,1121 602,1113.84 602,1105 C602,1096.16 594.837,1089 586,1089 L586,1089 Z" 
+      
+      <path  d="M8,19V11H5a3,3,0,0,0-3,3V32a1,1,0,0,0,.56.89,1,1,0,0,0,1-.1L8.71,29H22.15A2.77,2.77,0,0,0,25,26.13V25H14A6,6,0,0,1,8,19Z" 
         fill="none"
         stroke={`url(#${gradientId})`}
         stroke-width={strokeWidth} 
         stroke-linecap="round"
-        class={animate ? 'wave-path4' : 'static-path4'}
+        class={animate ? 'wave-path3' : 'static-path3'}
+        style={animate ? `
+        stroke-dasharray: 1400;
+        stroke-dashoffset: 1400;
+        animation-delay: ${delay}ms;
+      ` : ''}
+      />
+      <path  d="M30,13.5A7.48,7.48,0,0,1,22.78,4H14a3,3,0,0,0-3,3V19a3,3,0,0,0,3,3H27.55l4.78,3.71a1,1,0,0,0,1,.11,1,1,0,0,0,.57-.9V12.37A7.45,7.45,0,0,1,30,13.5Z" 
+        fill="none"
+        stroke={`url(#${gradientId})`}
+        stroke-width={strokeWidth} 
+        stroke-linecap="round"
+        class={animate ? 'wave-path3' : 'static-path3'}
+        style={animate ? `
+        stroke-dasharray: 1400;
+        stroke-dashoffset: 1400;
+        animation-delay: ${delay}ms;
+      ` : ''}
+      />
+      <circle  cx="30" cy="6" r="5" 
+        fill="none"
+        stroke={`url(#${gradientId})`}
+        stroke-width={strokeWidth} 
+        stroke-linecap="round"
+        class={animate ? 'wave-path3' : 'static-path3'}
         style={animate ? `
         stroke-dasharray: 1400;
         stroke-dashoffset: 1400;
@@ -55,7 +79,7 @@ const strokeClass = stroke.startsWith('text-') ? stroke : '';
   {animate && (
     <>
       <style is:inline>
-        .wave-wrapper4 {
+        .wave-wrapper3 {
           position: relative;
           width: 100%;
           height: 100%;
@@ -63,16 +87,16 @@ const strokeClass = stroke.startsWith('text-') ? stroke : '';
           display: flex;
         }
 
-        .wave-path4 {
+        .wave-path3 {
           opacity: 0;
         }
 
-        .wave-path4.visible {
+        .wave-path3.visible {
           opacity: 1;
-          animation: drawWave4 4s ease-out forwards;
+          animation: drawWave3 12s ease-in-out forwards;
         }
 
-        @keyframes drawWave4 {
+        @keyframes drawWave3 {
           to {
             stroke-dashoffset: 0;
           }
@@ -86,7 +110,7 @@ const strokeClass = stroke.startsWith('text-') ? stroke : '';
               entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                   entry.target.classList.add('visible');
-                  entry.target.querySelector('.wave-path4')?.classList.add('visible');
+                  entry.target.querySelectorAll('.wave-path3').forEach((el) => el.classList.add('visible'));
                   observer.unobserve(entry.target);
                 }
               });
@@ -97,7 +121,7 @@ const strokeClass = stroke.startsWith('text-') ? stroke : '';
             }
           );
 
-          document.querySelectorAll('.wave-wrapper4').forEach((wrapper) => {
+          document.querySelectorAll('.wave-wrapper3').forEach((wrapper) => {
             if (wrapper && !wrapper.classList.contains('visible')) {
               observer.observe(wrapper);
             }
@@ -119,18 +143,18 @@ const strokeClass = stroke.startsWith('text-') ? stroke : '';
 </div>
 
 <style is:global>
-  .curvy-wave4 {
+  .curvy-wave3 {
     width: 100%;
     height: 100%;
   }
 
-  .static-wrapper4 {
+  .static-wrapper3 {
     position: relative;
     width: 100%;
     height: 100%;
   }
 
-  .static-path4 {
+  .static-path3 {
     opacity: 1;
   }
 </style>

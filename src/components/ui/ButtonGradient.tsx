@@ -2,10 +2,10 @@ import { AnimatedGradientText } from '~/components/magicui/animated-gradient-tex
 import { cn } from '~/lib/utils';
 import { ChevronRight } from 'lucide-react';
 
-export function ButtonGradient() {
+export function ButtonGradient({ href }: { href: string }) {
   return (
-    <button
-      type='button'
+    <a
+      href={href}
       className='group relative mx-auto flex items-center justify-center rounded-full px-4 pt-1 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] '
     >
       <span
@@ -25,6 +25,6 @@ export function ButtonGradient() {
         className='ml-1 size-4 stroke-neutral-500 transition-transform
  duration-300 ease-in-out group-hover:translate-x-0.5'
       />
-    </button>
+    </a>
   );
 }

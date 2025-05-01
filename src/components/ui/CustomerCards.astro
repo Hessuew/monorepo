@@ -9,6 +9,8 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import AnimatedChildSvg from '~/components/widgets/AnimatedChildSvg.astro';
 import type { ImageMetadata } from 'astro';
 
+// import { Icon } from 'astro-icon/components';
+
 interface Project {
   icon?: 'child' | 'candle' | 'dove';
   image?: {
@@ -60,13 +62,22 @@ const projects: Array<Project> = [
 ---
 
 <WidgetWrapper id={'customer-cards'} animated={false} containerClass={`max-w-4xl mx-auto`}>
+  {/* Background gradient */}
+  <div class="absolute -z-10 top-[54%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120vh] h-[96%]">
+    <div class={`card-container4 w-full h-full -z-10`}></div>
+  </div>
+
   <section class="pt-40 lg:pt-32 md:pt-24 sm:pt-16">
     <div>
       <div class="flex w-full justify-center">
         <h1 class="text-5xl md:text-7xl font-semibold tracking-tighter text-white pb-7">
-          Produce a reaction to
-          <br />
-          create a connection.
+          <span
+            class="bg-gradient-to-br from-white from-30% via-[#d5d8f6] via-80% to-black bg-clip-text text-transparent"
+          >
+            Produce a reaction to
+            <br />
+            create a connection.
+          </span>
           <p class="text-[15px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3">
             'That thou art neither cold nor hot: I would thou wert cold or hot.
             <br />
@@ -140,6 +151,23 @@ const projects: Array<Project> = [
             <p class="mt-3.5 text-muted text-[15px] font-medium leading-snug tracking-tighter lg:mt-2.5 md:mt-2 md:leading-tight sm:mt-1 max-w-none sm:max-w-[284px]">
               {project.description}
             </p>
+
+            {/* URL positioned at the bottom of the card */}
+            <a
+              href={project.url}
+              class="flex justify-center items-center gap-1.5 text-sm text-blue-600 hover:text-blue-400 transition-colors group pt-2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="border-b border-current opacity-80 group-hover:opacity-100">
+                {project.url.replace('https://www.', '')}
+              </span>
+
+              {/* <Icon
+                name="tabler:external-link"
+                class="size-4 text-blue-600 group-hover:text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-300"
+              /> */}
+            </a>
           </li>
         ))
       }
@@ -490,9 +518,9 @@ const projects: Array<Project> = [
 
   .card:after {
     opacity: var(--spark-opacity, 0.75);
-    background-image: url('https://assets.codepen.io/13471/sparkles.gif'),
+    /* background-image: url('https://assets.codepen.io/13471/sparkles.gif'),
       url(https://assets.codepen.io/13471/holo.png),
-      linear-gradient(125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
+      linear-gradient(125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%); */
     background-position: var(--spark-pos, 50% 50%);
     background-size: 160%;
     background-blend-mode: overlay;
@@ -665,12 +693,6 @@ const projects: Array<Project> = [
     display: inline-block;
     vertical-align: middle;
     font-size: 6vh;
-  }
-
-  .cards .three-d-wrapper {
-    perspective: 750px;
-    isolation: isolate;
-    transform: translate3d(0.1px, 0.1px, 0.1px);
   }
 
   .demo,
