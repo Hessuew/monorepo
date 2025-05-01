@@ -3,12 +3,13 @@ import andrewAgbajeHeadshot from '~/assets/images/Andrew Headshot.webp';
 import urFitChildLogo from '~/assets/images/siteLogos/urFitChild_logo.webp';
 import worldMap from '~/assets/images/worldMap.webp';
 import { Icon } from 'astro-icon/components';
+import WidgetWrapper from '../ui/WidgetWrapper.astro';
 ---
 
-<div class="relative">
-  <section
-    class="creative-testimonial--slider bg-white relative overflow-hidden py-60 px-safe lg:py-32 md:py-24 sm:pb-[68px] sm:pt-20"
-  >
+<section
+  class="creative-testimonial--slider bg-white relative overflow-hidden py-60 px-safe lg:py-32 md:py-24 sm:pb-[68px] sm:pt-20"
+>
+  <WidgetWrapper id={'testimonials'} animated={false} containerClass={`max-w-7xl mx-auto`}>
     <div class="absolute -z-10 w-full h-[300%] top-[100%] left-0 overflow-visible">
       <div
         class="absolute pointer-events-none opacity-100 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
@@ -43,7 +44,7 @@ import { Icon } from 'astro-icon/components';
                     </div>
                   </div>
                   <div class="testimonial-detail">
-                    <p class="m-0 text-black text-lg leading-[30px] font-medium mb-[5px]">
+                    <p class="m-0 text-black text-[15px] lg:text-[18px] leading-[30px] font-medium mb-[5px]">
                       Cherubim IT has been our client for several years, which is a testament to rigorous, painstaking,
                       and excellent work performance. Cherubim IT delivers tasks very promptly, pre-empts challenges,
                       and efficiently tackles them, creates user-friendly platforms, and optimizes the latest IT
@@ -51,7 +52,8 @@ import { Icon } from 'astro-icon/components';
                       humane. I highly recommend Cherubim IT for its impeccable and high-quality IT services. The proof
                       of the pudding is in the eating; a trial will convince you.
                     </p>
-                    <span class="text-[var(--aw-color-accent)] font-extrabold uppercase text-[15px] leading-normal"
+                    <span
+                      class="text-[var(--aw-color-accent)] font-extrabold uppercase text-[12px] lg:text-[15px] leading-normal"
                       >Prof. Andrew Agbaje, urFIT-child, Principal Investigator
                     </span>
                   </div>
@@ -104,8 +106,8 @@ import { Icon } from 'astro-icon/components';
         </div>
       </div>
     </div>
-  </section>
-</div>
+  </WidgetWrapper>
+</section>
 
 <style define:vars={{ worldMapUrl: `url(${worldMap.src})` }}>
   /* Custom styles that can't be easily converted to Tailwind */
