@@ -1,25 +1,46 @@
 ---
 import Dock from '~/components/ui/Dock.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import { getGradientColor } from '~/utils/getGradientColor';
 ---
 
 <WidgetWrapper id={'pricing'} animated={false} containerClass={`max-w-7xl mx-auto`}>
-  <section class="relative z-10">
-    <div class="p-20">
+  <section class="relative z-10 p-20">
+    <div class="flex w-full justify-center">
       <h1 class="text-5xl md:text-7xl font-semibold tracking-tighter text-start text-white pb-7">
-        Transparency creates an environment of trust
-        <br />
+        <span class="bg-gradient-to-br from-black from-2% via-[#d5d8f6] via-40% to-white bg-clip-text text-transparent">
+          Open pricing.
+          <br />
+          Transparent results.
+        </span>
         <p class="text-[15px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3">
           <br />
-          We are here to advance the kingdom of God together.
+          <!-- We are here to advance the kingdom of God together. -->
+          Too high price is out of the reach. Too low devalues the product.
           <br />
-          The price you are glad to pay, and we are confident to offer.
+          <br />
+          The right price strikes a balance—where the customer is glad to pay,
+          <br />
+          and the seller is confident in what they’re offering.
+          <!-- The price you are glad to pay, and we are confident to offer. -->
         </p>
       </h1>
+    </div>
 
-      <div class="flex w-full justify-center">
-        <Dock />
-      </div>
+    <div class="flex w-full justify-center">
+      <Dock />
+    </div>
+
+    <div
+      class="absolute top-0 left-0 w-full h-full -z-10"
+      style={{
+        background: `
+          radial-gradient(circle at 85% 15%, ${getGradientColor(0.05, 'orange')} 0%, transparent 40%),
+          radial-gradient(circle at 15% 85%, ${getGradientColor(0.05, 'orange')} 0%, transparent 40%),
+          linear-gradient(to bottom left, ${getGradientColor(0.05, 'orange')} 0%, transparent 100%, ${getGradientColor(0.05, 'orange')} 100%)
+        `,
+      }}
+    >
     </div>
   </section>
 </WidgetWrapper>

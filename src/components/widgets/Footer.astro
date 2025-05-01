@@ -1,105 +1,19 @@
 ---
-import flameTheFreezeLogo from '~/assets/images/footer/flame_the_freeze_logo.webp';
-import youtubeLogo from '~/assets/images/footer/youtube_logo.png';
-import { getLangFromUrl, useTranslations } from '~/i18n/utils';
-import Image from 'astro/components/Image.astro';
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-
 export interface Props {
   theme?: string;
 }
 
-const socialLinks = [
-  {
-    ariaLabel: 'YouTube',
-    href: 'https://youtube.com/@rukouksenseurakunta?si=yOmq75WW22QRlJ2N',
-    image: {
-      src: youtubeLogo,
-      alt: 'YouTube',
-    },
-  },
-  {
-    ariaLabel: 'FlameTheFreeze',
-    href: 'https://flamethefreeze.com/fi/',
-    image: {
-      src: flameTheFreezeLogo,
-      alt: 'FlameTheFreeze',
-    },
-  },
-  {
-    ariaLabel: 'YouTube FlameTheFreeze',
-    href: 'https://youtube.com/@flamethefreeze2613?si=wBdFBGx335N-vee-',
-    image: {
-      src: youtubeLogo,
-      alt: 'YouTube FlameTheFreeze',
-    },
-  },
-];
-
 const { theme = 'light' } = Astro.props;
 ---
 
-<footer class:list={[{ dark: theme === 'dark' }, 'relative bg-page border-t border-slate-800 not-prose']}>
+<footer class:list={[{ dark: theme === 'dark' }, 'relative bottom-0 not-prose']}>
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
   <div class="relative max-w-7xl mx-auto pt-20 pb-10 px-4 sm:px-6 text-slate-300">
-    <div class="md:flex items-end md:justify-between py-6 md:py-8">
-      <div class="flex flex-row gap-6 text-start pb-4 lg:pb-0 text-muted font-normal text-xs xs:text-sm">
-        <div class="flex flex-col">
-          <span>{t('address')}</span>
-          <span>{t('time')}</span>
-          <span>{t('phone')}</span>
-          <span>{t('email')}</span>
-        </div>
-        <div class="flex flex-col">
-          <span class="flex flex-row">{t('address2a')}<span class="hidden xs:block">{t('address2b')}</span></span>
-          <span>{t('time2')}</span>
-          <span>{t('phone2')}</span>
-          <span>{t('email2')}</span>
-        </div>
-      </div>
-      <div class="text-sm mr-4 text-muted"></div>
-      {
-        socialLinks?.length ? (
-          <nav
-            aria-label="Social media links"
-            class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4"
-          >
-            {socialLinks.map(({ ariaLabel, href, image }) => (
-              <div class="group relative">
-                <a
-                  class="text-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                  aria-label={ariaLabel}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {image && (
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      class="w-5 h-5 object-contain"
-                      width={400}
-                      height={400}
-                      loading={'lazy'}
-                      decoding={'async'}
-                    />
-                  )}
-                  {ariaLabel === 'YouTube FlameTheFreeze' && (
-                    <span class="absolute top-1 right-1 text-[10px] text-white">FF</span>
-                  )}
-                </a>
-                <span class="absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded px-2 py-1 text-sm opacity-0 transition-opacity delay-500 group-hover:opacity-100 bg-gray-200 text-gray-800">
-                  {ariaLabel}
-                </span>
-              </div>
-            ))}
-          </nav>
-        ) : (
-          ''
-        )
-      }
+    <div class="text-center">
+      <p class="text-[#777]">
+        Made by:
+        <span class="text-[#b8b09f] transition-all duration-300 hover:text-[#f95959] no-underline">Cherubim IT</span>
+      </p>
     </div>
   </div>
 </footer>

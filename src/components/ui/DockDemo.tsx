@@ -26,7 +26,7 @@ const projectData = {
     price: '$2000',
     monthlyPrice: '$25',
     url: 'https://www.flamethefreeze.com',
-    features: ['8 pages', '+100 materials', '6 videos', 'Light dark mode', 'English and Finnish', 'Regular hosting'],
+    features: ['8 pages', '+100 materials', '6 videos', 'English and Finnish', 'Light dark mode', 'Regular hosting'],
   },
   prayerChurch: {
     color: 'blue' as const,
@@ -35,7 +35,7 @@ const projectData = {
     price: '$1000',
     monthlyPrice: '$25',
     url: 'https://www.rukouksenseurakunta.fi',
-    features: ['2 pages', '+20 materials', '3 videos', 'Testimonial section', 'English and Finnish', 'Regular hosting'],
+    features: ['2 pages', '+32 materials', '6 videos', 'English and Finnish', 'Testimonial section', 'Regular hosting'],
   },
 };
 
@@ -99,7 +99,7 @@ export function DockDemo(): React.JSX.Element {
       </div>
 
       <div
-        className={`flex flex-row gap-20 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        className={`flex flex-row gap-32 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
       >
         <BlurFade delay={0.1} inView duration={0.3}>
           <FeaturesCard {...projectData.urFitChild} />

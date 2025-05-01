@@ -1,5 +1,8 @@
 ---
-
+// import GridPattern from '~/components/ui/GridPattern.astro';
+import logo_transparent from '~/assets/images/logo2.webp';
+import Image from '~/components/common/Image.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 ---
 
 <div class="relative pt-10 pb-10">
@@ -9,97 +12,109 @@
       after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-b after:border-[hsl(var(--border))] after:bg-page after:[transform:scaleY(-1)] after:[box-shadow:0_0_40px_10px_var(--violet2),0_0_40px_10px_var(--violet2)_inset]"
   >
   </div>
-  <div class="container mx-auto max-w-5xl px-4 overflow-visible">
-    <section id="formHolder" class="py-12">
-      <div class="flex flex-col md:flex-row">
-        <!-- Brand Box -->
-        <div class="col-sm-6 brand md:w-1/2">
-          <a href="#" class="logo">MR <span>.</span></a>
+  <WidgetWrapper
+    id={'contact'}
+    containerClass={`max-w-7xl py-0 md:py-0 lg:py-0 mx-auto intersect-full sm:intersect-full`}
+  >
+    <div class="container mx-auto max-w-5xl px-4 overflow-visible">
+      <section id="formHolder">
+        <div class="flex flex-col md:flex-row">
+          <!-- Brand Box -->
+          <div class="col-sm-6 brand md:w-1/2">
+            <!-- <a href="#" class="logo">MR <span>.</span></a> -->
+            <Image
+              class={'w-8 h-8 pt-1'}
+              widths={[400, 768, 1024, 2040]}
+              sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+              loading="eager"
+              width={32}
+              height={32}
+              src={logo_transparent}
+              alt="Logo"
+            />
 
-          <div class="heading w-full">
-            <h2>Cherubim IT</h2>
-            <p>Your Right Choice</p>
+            <div class="heading w-full font-title">
+              <h2>Cherubim IT</h2>
+              <p>Your Right Choice</p>
+            </div>
+
+            <div class="success-msg">
+              <p>Great! You are one of our members now</p>
+              <a href="#" class="profile">Your Profile</a>
+            </div>
           </div>
 
-          <div class="success-msg">
-            <p>Great! You are one of our members now</p>
-            <a href="#" class="profile">Your Profile</a>
+          <!-- Form Box -->
+          <div class="col-sm-6 form md:w-1/2">
+            <!-- Login Form -->
+            <div class="login form-peice switched">
+              <form class="login-form" action="#" method="post">
+                <div class="form-group">
+                  <label for="loginemail">Email Adderss</label>
+                  <input type="email" name="loginemail" id="loginemail" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="loginPassword">Password</label>
+                  <input type="password" name="loginPassword" id="loginPassword" required />
+                </div>
+
+                <div class="CTA">
+                  <input type="submit" value="Login" />
+                  <a href="#" class="switch">I'm New</a>
+                </div>
+              </form>
+            </div><!-- End Login Form -->
+
+            <!-- Signup Form -->
+            <div class="signup form-peice">
+              <form class="signup-form" action="#" method="post">
+                <div class="form-group">
+                  <label for="name">Full Name</label>
+                  <input type="text" name="username" id="name" class="name" />
+                  <span class="error"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email Adderss</label>
+                  <input type="email" name="emailAdress" id="email" class="email" />
+                  <span class="error"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="phone">Phone Number - <small>Optional</small></label>
+                  <input type="text" name="phone" id="phone" />
+                </div>
+
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" name="password" id="password" class="pass" />
+                  <span class="error"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="passwordCon">Confirm Password</label>
+                  <input type="password" name="passwordCon" id="passwordCon" class="passConfirm" />
+                  <span class="error"></span>
+                </div>
+
+                <div class="CTA">
+                  <input type="submit" value="Signup Now" id="submit" />
+                  <a href="#" class="switch">I have an account</a>
+                </div>
+              </form>
+            </div><!-- End Signup Form -->
           </div>
         </div>
+      </section>
 
-        <!-- Form Box -->
-        <div class="col-sm-6 form md:w-1/2">
-          <!-- Login Form -->
-          <div class="login form-peice switched">
-            <form class="login-form" action="#" method="post">
-              <div class="form-group">
-                <label for="loginemail">Email Adderss</label>
-                <input type="email" name="loginemail" id="loginemail" required />
-              </div>
+      <!-- Footer removed as it's now in the main Footer component -->
+    </div>
+  </WidgetWrapper>
 
-              <div class="form-group">
-                <label for="loginPassword">Password</label>
-                <input type="password" name="loginPassword" id="loginPassword" required />
-              </div>
-
-              <div class="CTA">
-                <input type="submit" value="Login" />
-                <a href="#" class="switch">I'm New</a>
-              </div>
-            </form>
-          </div><!-- End Login Form -->
-
-          <!-- Signup Form -->
-          <div class="signup form-peice">
-            <form class="signup-form" action="#" method="post">
-              <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" name="username" id="name" class="name" />
-                <span class="error"></span>
-              </div>
-
-              <div class="form-group">
-                <label for="email">Email Adderss</label>
-                <input type="email" name="emailAdress" id="email" class="email" />
-                <span class="error"></span>
-              </div>
-
-              <div class="form-group">
-                <label for="phone">Phone Number - <small>Optional</small></label>
-                <input type="text" name="phone" id="phone" />
-              </div>
-
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="pass" />
-                <span class="error"></span>
-              </div>
-
-              <div class="form-group">
-                <label for="passwordCon">Confirm Password</label>
-                <input type="password" name="passwordCon" id="passwordCon" class="passConfirm" />
-                <span class="error"></span>
-              </div>
-
-              <div class="CTA">
-                <input type="submit" value="Signup Now" id="submit" />
-                <a href="#" class="switch">I have an account</a>
-              </div>
-            </form>
-          </div><!-- End Signup Form -->
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <p>
-        Made by: <a href="http://cherubim-it.com" target="_blank">Cherubim IT</a>
-      </p>
-    </footer>
-  </div>
   <div
-    class="[--color:var(--orange)] pointer-events-none relative -z-[2] mx-auto h-[50rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_70%)] my-[-18.8rem]
-      before:absolute before:inset-0 before:h-full before:w-full before:opacity-30 before:[background-image:radial-gradient(circle_at_top_center,var(--color),transparent_70%)]
+    class="[--color:var(--orange)] pointer-events-none relative -z-[2] mx-auto h-[20rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_70%)] mt-[-4rem] mb-[-12rem]
+      before:absolute before:inset-0 before:h-full before:w-full before:opacity-20 before:[background-image:radial-gradient(circle_at_top_center,var(--color),transparent_70%)]
       after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-b after:border-[white] after:bg-page after:[transform:scaleY(-1)] after:[box-shadow:0_0_40px_10px_var(--orange),0_0_40px_10px_var(--orange)_inset]"
   >
   </div>
@@ -132,7 +147,7 @@
   }
 
   section#formHolder {
-    padding: 50px 0;
+    padding: 0px 0;
   }
 
   .brand {
@@ -341,27 +356,10 @@
     font-weight: 400;
     font-family: 'Montserrat', sans-serif;
     color: #bbbbbb;
-    text-decoration: underline;
+    text-decoration: none;
     transition: all 0.3s;
   }
   .form form .CTA a.switch:hover {
-    color: #f95959;
-  }
-
-  footer {
-    text-align: center;
-  }
-  footer p {
-    color: #777;
-  }
-  footer p a,
-  footer p a:focus {
-    color: #b8b09f;
-    transition: all 0.3s;
-    text-decoration: none !important;
-  }
-  footer p a:hover,
-  footer p a:focus:hover {
     color: #f95959;
   }
 

@@ -1,11 +1,14 @@
 ---
-import AnimatedGem from '~/components/ui/icons/AnimatedGem.astro';
-import AnimatedNegotiation from '~/components/ui/icons/AnimatedNegotiation.astro';
-import AnimatedNo from '~/components/ui/icons/AnimatedNo.astro';
-import SvgGem from '~/components/ui/icons/SvgGem';
+import AnimatedNegotiation from '~/components/ui/icons/AnimatedKnowledge.astro';
+import AnimatedGem from '~/components/ui/icons/AnimatedStar.astro';
+import AnimatedNo from '~/components/ui/icons/AnimatedTemperance.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import AnimatedChildSvg from '~/components/widgets/AnimatedChildSvg.astro';
 import { getGradientColor } from '~/utils/getGradientColor';
+import AnimatedGodliness from '../ui/icons/AnimatedGodliness.astro';
+import AnimatedKindness from '../ui/icons/AnimatedKindness.astro';
+import AnimatedLove from '../ui/icons/AnimatedLove.astro';
+import Animated from '../ui/icons/AnimatedStone.astro';
+import AnimatedTree from '../ui/icons/AnimatedTree.astro';
 
 const principles = [
   {
@@ -31,17 +34,17 @@ const principles = [
   {
     icon: 'patience',
     title: 'Patience',
-    description: 'Patience is a must; a great tree takes time to grow. But it will surely grow.',
+    description: 'Patience is key — even great trees take time to grow. But grow they will.',
   },
   {
     icon: 'godliness',
     title: 'Godliness',
-    description: 'God was manifested in flesh, and we manifest Him on the websites.',
+    description: 'God was manifested in flesh — now we are His witnesses through web.',
   },
   {
     icon: 'brotherly',
     title: 'Brotherly kindness',
-    description: 'We follow the principle of hospitality and present it in our work.',
+    description: 'Can two walk together, except they be agreed? Hearts divide, paths split.',
   },
   {
     icon: 'love',
@@ -55,7 +58,11 @@ const principles = [
   <section class="relative z-10">
     <div class="p-20">
       <h1 class="text-5xl md:text-7xl font-semibold tracking-tighter text-start text-white pb-7">
-        Build upon principles
+        <span
+          class="bg-gradient-to-br from-white from-30% via-[#d5d8f6] via-40% to-black bg-clip-text text-transparent"
+        >
+          Build upon principles
+        </span>
         <br />
         <p class="text-[15px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3">
           Our work is based upon principles from 2 Peter 1:5-7. They are like a set of
@@ -67,18 +74,18 @@ const principles = [
       <ul class="relative z-10 mt-8 grid grid-cols-1 gap-8 lg:mt-10 md:gap-16 sm:mt-9 sm:grid-cols-4 sm:gap-y-7">
         {
           principles.map((principle, i) => {
-            const delay = i * 400;
+            const delay = i * 200;
             return (
               <li>
                 <div class="w-16 h-16 flex items-center">
-                  {principle.icon === 'faith' && <AnimatedChildSvg strokeWidth={52} classes="w-full h-full" />}
-                  {principle.icon === 'excellency' && <AnimatedGem delay={delay} classes="w-14 h-14" />}
+                  {principle.icon === 'faith' && <Animated classes="w-full h-full" />}
+                  {principle.icon === 'excellency' && <AnimatedGem delay={delay} classes="w-full h-full" />}
                   {principle.icon === 'knowledge' && <AnimatedNegotiation delay={delay} classes="w-full h-full" />}
-                  {principle.icon === 'temperance' && <AnimatedNo delay={delay} classes="w-16 h-16" />}
-                  {principle.icon === 'patience' && <SvgGem slot="icon" className="w-12 h-12" />}
-                  {principle.icon === 'godliness' && <SvgGem slot="icon" className="w-12 h-12" />}
-                  {principle.icon === 'brotherly' && <SvgGem slot="icon" className="w-12 h-12" />}
-                  {principle.icon === 'love' && <SvgGem slot="icon" className="w-12 h-12" />}
+                  {principle.icon === 'temperance' && <AnimatedNo delay={delay} classes="w-full h-full" />}
+                  {principle.icon === 'patience' && <AnimatedTree delay={delay} classes="w-full h-full" />}
+                  {principle.icon === 'godliness' && <AnimatedGodliness delay={delay} classes="w-full h-full" />}
+                  {principle.icon === 'brotherly' && <AnimatedKindness delay={delay} classes="w-full h-full" />}
+                  {principle.icon === 'love' && <AnimatedLove delay={delay} classes="w-full h-full" />}
                 </div>
                 <h3 class="mt-5 font-title max-w-28 text-[20px] leading-none tracking-tighter lg:mt-4 lg:max-w-full lg:text-[28px] md:mt-3.5 sm:mt-2.5 sm:max-w-32 sm:text-[24px]">
                   {principle.title}
@@ -96,10 +103,10 @@ const principles = [
         class="absolute top-0 left-0 w-full h-full -z-10"
         style={{
           background: `
-                radial-gradient(circle at 15% 15%, ${getGradientColor(0.2, 'purple')} 0%, transparent 40%),
-                radial-gradient(circle at 85% 85%, ${getGradientColor(0.2, 'purple')} 0%, transparent 40%),
-                linear-gradient(to bottom right, ${getGradientColor(0.05, 'purple')} 0%, transparent 100%, ${getGradientColor(0.05, 'purple')} 100%)
-              `,
+            radial-gradient(circle at 15% 15%, ${getGradientColor(0.2, 'purple')} 0%, transparent 40%),
+            radial-gradient(circle at 85% 85%, ${getGradientColor(0.2, 'purple')} 0%, transparent 40%),
+            linear-gradient(to bottom right, ${getGradientColor(0.05, 'purple')} 0%, transparent 100%, ${getGradientColor(0.05, 'purple')} 100%)
+          `,
         }}
       >
       </div>
