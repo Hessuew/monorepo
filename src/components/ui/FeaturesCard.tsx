@@ -60,7 +60,7 @@ export default function FeaturesCard({
   return (
     <section id='header' className='mt-16 min-h-[320px]'>
       {/* Card container with glow effect */}
-      <div className='relative bg-black rounded-[24px] w-[390px] md:w-[71vw] sm:w-[91%] sm:max-w-[22vw] xs:w-[288px]'>
+      <div className='relative bg-black rounded-[24px] w-[390px] md:w-[71vw] sm:w-[91%] sm:max-w-[310px] xs:w-[288px]'>
         {/* <div className='relative bg-black rounded-[24px] w-[390px] md:w-[366px] sm:w-[91%] sm:max-w-[366px] xs:w-[288px]'> */}
         <div className={`${getCardContainerClass()} absolute top-0 left-0 w-full h-full -z-10`}></div>
 
@@ -93,7 +93,7 @@ export default function FeaturesCard({
           <div className='relative z-10'>
             <h3 className='text-[16px] font-semibold leading-snug tracking-tight sm:text-[16px]'>{title}</h3>
             <p className='mt-2.5 leading-snug'>
-              <span className='text-[20px] font-semibold tracking-tight lg:text-[40px] md:text-[32px] sm:text-[24px] pr-4'>
+              <span className='text-[20px] font-semibold tracking-tight lg:text-[36px] md:text-[32px] sm:text-[24px] pr-4'>
                 {price},
               </span>
               <span className='text-[20px] font-semibold tracking-tight text-white sm:text-[24px]'>{monthlyPrice}</span>

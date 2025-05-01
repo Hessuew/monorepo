@@ -2,6 +2,7 @@
 // import GridPattern from '~/components/ui/GridPattern.astro';
 import logo_transparent from '~/assets/images/logo2.webp';
 import Image from '~/components/common/Image.astro';
+import { InputGradient } from '~/components/ui/InputGradient';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 ---
 
@@ -16,26 +17,30 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
     id={'contact'}
     containerClass={`max-w-7xl py-0 md:py-0 lg:py-0 mx-auto intersect-full sm:intersect-full`}
   >
-    <div class="container mx-auto max-w-5xl px-4 overflow-visible">
+    <div class="mx-auto max-w-5xl px-4 overflow-visible">
       <section id="formHolder">
         <div class="flex flex-col md:flex-row">
           <!-- Brand Box -->
           <div class="col-sm-6 brand md:w-1/2">
             <!-- <a href="#" class="logo">MR <span>.</span></a> -->
-            <Image
-              class={'w-8 h-8 pt-1'}
-              widths={[400, 768, 1024, 2040]}
-              sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-              loading="eager"
-              width={32}
-              height={32}
-              src={logo_transparent}
-              alt="Logo"
-            />
+            <p class="text-[15px] font-light">Contact form</p>
 
-            <div class="heading w-full font-title">
-              <h2>Cherubim IT</h2>
-              <p>Your Right Choice</p>
+            <div class="heading text-[48px] font-title mb-0 font-semibold w-full text-center">
+              <div class="flex flex-row gap-1 items-center w-full justify-center">
+                <Image
+                  class={'w-16 h-16 pt-1'}
+                  widths={[400, 768, 1024, 2040]}
+                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                  loading="eager"
+                  width={64}
+                  height={64}
+                  src={logo_transparent}
+                  alt="Logo"
+                />
+                <h2>Cherubim IT</h2>
+              </div>
+
+              <p class="text-[15px] font-light uppercase tracking-wider font-title pl-12">Your Right Choice</p>
             </div>
 
             <div class="success-msg">
@@ -47,28 +52,49 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
           <!-- Form Box -->
           <div class="col-sm-6 form md:w-1/2">
             <!-- Login Form -->
-            <div class="login form-peice switched">
-              <form class="login-form" action="#" method="post">
-                <div class="form-group">
-                  <label for="loginemail">Email Adderss</label>
-                  <input type="email" name="loginemail" id="loginemail" required />
+            <div class="login form-piece switched">
+              <form class="login-form h-full flex flex-col justify-between" action="#" method="post">
+                <div>
+                  <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" name="username" id="name" class="name" />
+                    <span class="error"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">Email Adderss</label>
+                    <input type="email" name="emailAdress" id="email" class="email" />
+                    <span class="error"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <input type="text" name="message" id="message" class="message" />
+                    <span class="error"></span>
+                  </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="loginPassword">Password</label>
-                  <input type="password" name="loginPassword" id="loginPassword" required />
-                </div>
-
-                <div class="CTA">
-                  <input type="submit" value="Login" />
-                  <a href="#" class="switch">I'm New</a>
+                <div class="CTA flex flex-col sm:flex-row gap-3 justify-start">
+                  <InputGradient text="Send" />
+                  <a
+                    href="#"
+                    class="switch btn-secondary hover:bg-white/10 border-0 text-white h-12 w-32 rounded-full text-base font-light tracking-tighter px-0 md:px-2 focus:ring-0 focus:ring-offset-0"
+                  >
+                    For companies
+                  </a>
                 </div>
               </form>
             </div><!-- End Login Form -->
 
             <!-- Signup Form -->
-            <div class="signup form-peice">
-              <form class="signup-form" action="#" method="post">
+            <div class="signup form-piece">
+              <form class="signup-form h-full flex flex-col justify-between" action="#" method="post">
+                <div class="form-group">
+                  <label for="companyName">Company Name</label>
+                  <input type="text" name="companyName" id="companyName" class="companyName" />
+                  <span class="error"></span>
+                </div>
+
                 <div class="form-group">
                   <label for="name">Full Name</label>
                   <input type="text" name="username" id="name" class="name" />
@@ -82,25 +108,25 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
                 </div>
 
                 <div class="form-group">
-                  <label for="phone">Phone Number - <small>Optional</small></label>
-                  <input type="text" name="phone" id="phone" />
+                  <label for="role">Role in Organization - <small>Optional</small></label>
+                  <input type="text" name="role" id="role" />
                 </div>
 
                 <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" name="password" id="password" class="pass" />
+                  <label for="message">Message</label>
+                  <input type="text" name="message" id="message" class="message" />
                   <span class="error"></span>
                 </div>
 
-                <div class="form-group">
-                  <label for="passwordCon">Confirm Password</label>
-                  <input type="password" name="passwordCon" id="passwordCon" class="passConfirm" />
-                  <span class="error"></span>
-                </div>
+                <div class="CTA flex flex-col sm:flex-row gap-3 justify-start">
+                  <InputGradient text="Send" />
 
-                <div class="CTA">
-                  <input type="submit" value="Signup Now" id="submit" />
-                  <a href="#" class="switch">I have an account</a>
+                  <a
+                    href="#"
+                    class="switch btn-secondary hover:bg-white/10 border-0 text-white h-12 w-32 rounded-full text-base font-light tracking-tighter px-0 md:px-2 focus:ring-0 focus:ring-offset-0"
+                  >
+                    For individuals
+                  </a>
                 </div>
               </form>
             </div><!-- End Signup Form -->
@@ -125,7 +151,6 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
     font-family: 'Montserrat', sans-serif;
     background: #f7edd5;
   }
-
   .container {
     max-width: 900px;
   }
@@ -202,19 +227,6 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
     left: 100px;
     transform: translate(0);
   }
-  .brand .heading h2 {
-    font-size: 60px;
-    font-weight: 700;
-    margin-bottom: 0;
-  }
-  .brand .heading p {
-    font-size: 15px;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    white-space: 4px;
-    font-family: 'Raleway', sans-serif;
-  }
   .brand .success-msg {
     width: 100%;
     text-align: center;
@@ -253,8 +265,8 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
   .form {
     position: relative;
   }
-  .form .form-peice {
-    background: #fff;
+  .form .form-piece {
+    /* background: #fff; */
     min-height: 480px;
     margin-top: 30px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
@@ -267,7 +279,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
     width: 130%;
     overflow: hidden;
   }
-  .form .form-peice.switched {
+  .form .form-piece.switched {
     transform: translateX(-100%);
     width: 100%;
     left: 0;
@@ -286,15 +298,14 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
     position: relative;
   }
   .form form .form-group.hasError input {
-    border-color: #f95959 !important;
+    border-color: red !important;
   }
   .form form .form-group.hasError label {
-    color: #f95959 !important;
+    color: red !important;
   }
   .form form label {
-    font-size: 12px;
-    font-weight: 400;
-    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
     font-family: 'Montserrat', sans-serif;
     transform: translateY(40px);
     transition: all 0.4s;
@@ -323,10 +334,10 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
     z-index: 1;
   }
   .form form input:not([type='submit']).hasError {
-    border-color: #f95959;
+    border-color: red;
   }
   .form form span.error {
-    color: #f95959;
+    color: red;
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
     position: absolute;
@@ -335,7 +346,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
     display: none;
   }
   .form form input[type='password'] {
-    color: #f95959;
+    color: red;
   }
   .form form .CTA {
     margin-top: 30px;
@@ -344,23 +355,12 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
     font-size: 12px;
     text-transform: uppercase;
     padding: 5px 30px;
-    background: #f95959;
+    background: red;
     color: #fff;
     border-radius: 30px;
     margin-right: 20px;
     border: none;
     font-family: 'Montserrat', sans-serif;
-  }
-  .form form .CTA a.switch {
-    font-size: 13px;
-    font-weight: 400;
-    font-family: 'Montserrat', sans-serif;
-    color: #bbbbbb;
-    text-decoration: none;
-    transition: all 0.3s;
-  }
-  .form form .CTA a.switch:hover {
-    color: #f95959;
   }
 
   @media (max-width: 768px) {
@@ -394,19 +394,19 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
       min-height: 500px;
       margin-left: 10vw;
     }
-    section#formHolder .form .form-peice {
+    section#formHolder .form .form-piece {
       margin: 0;
       top: 0;
       left: 0;
       width: 100% !important;
       transition: all 0.5s ease-in-out;
     }
-    section#formHolder .form .form-peice.switched {
+    section#formHolder .form .form-piece.switched {
       transform: translateY(-100%);
       width: 100%;
       left: 0;
     }
-    section#formHolder .form .form-peice > form {
+    section#formHolder .form .form-piece > form {
       width: 100% !important;
       padding: 60px;
       left: 50%;
@@ -432,6 +432,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
       nameError: boolean;
       emailError: boolean;
       messageError: boolean;
+      companyNameError: boolean;
     }
 
     // Form state
@@ -439,6 +440,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
       nameError: true,
       emailError: true,
       messageError: true,
+      companyNameError: true,
     };
 
     // DOM elements
@@ -518,6 +520,20 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
       input.addEventListener('blur', () => {
         const parentElement = input.parentElement as HTMLElement;
 
+        // Company name validation
+        if (input.classList.contains('companyName')) {
+          if (input.value.length === 0) {
+            showError(parentElement, 'Please enter your company name');
+            formState.companyNameError = true;
+          } else if (input.value.length < 2) {
+            showError(parentElement, 'Name must be at least 2 characters');
+            formState.companyNameError = true;
+          } else {
+            hideError(parentElement);
+            formState.companyNameError = false;
+          }
+        }
+
         // Name validation
         if (input.classList.contains('name')) {
           if (input.value.length === 0) {
@@ -581,7 +597,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
         });
 
         // Check if form is valid
-        if (!formState.nameError && !formState.emailError && !formState.messageError) {
+        if (!formState.nameError && !formState.emailError && !formState.messageError && !formState.companyNameError) {
           try {
             // const formData = new FormData(contactForm);
             const formElement = document.querySelector('.form') as HTMLElement;

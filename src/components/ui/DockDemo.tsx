@@ -13,7 +13,7 @@ const projectData = {
   urFitChild: {
     color: 'white' as const,
     title: 'urFIT-child',
-    description: 'For customers and groups reaching for global visibility.',
+    description: 'Helping customers and groups expand their reach worldwide.',
     price: '$5000',
     monthlyPrice: '$50',
     url: 'https://www.urfit-child.com',
@@ -22,7 +22,7 @@ const projectData = {
   flameTheFreeze: {
     color: 'purple' as const,
     title: 'Flame the Freeze',
-    description: 'For customers and groups reaching for public visibility.',
+    description: 'Enabling broader public recognition and awareness.',
     price: '$2000',
     monthlyPrice: '$25',
     url: 'https://www.flamethefreeze.com',
@@ -31,7 +31,7 @@ const projectData = {
   prayerChurch: {
     color: 'blue' as const,
     title: 'Prayer Church',
-    description: 'For customers and groups reaching for local visibility.',
+    description: 'Boosting presence and impact within your local community.',
     price: '$1000',
     monthlyPrice: '$25',
     url: 'https://www.rukouksenseurakunta.fi',
@@ -99,7 +99,7 @@ export function DockDemo(): React.JSX.Element {
       </div>
 
       <div
-        className={`flex flex-row gap-32 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        className={`flex flex-col xl:flex-row gap-32 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
       >
         <BlurFade delay={0.1} inView duration={0.3}>
           <FeaturesCard {...projectData.urFitChild} />
