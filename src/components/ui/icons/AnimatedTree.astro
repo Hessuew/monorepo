@@ -14,7 +14,7 @@ const {
   animate = true,
   classes= '',
   stroke = 'currentColor',
-  strokeWidth = 20,
+  strokeWidth = 24,
   delay = 0,
   gradientId = 'treeGradient',
   gradientFrom = '#1a0024',
@@ -28,7 +28,7 @@ const strokeClass = stroke.startsWith('text-') ? stroke : '';
 <div class={animate ? 'wave-wrapper5' : 'static-wrapper5'}>
   <svg 
     class={`curvy-wave ${classes} ${strokeClass}`} 
-    viewBox='0 -8 390 390'
+    viewBox='0 -8 532 532'
     xmlns="http://www.w3.org/2000/svg"
   >
       <defs>
@@ -39,10 +39,23 @@ const strokeClass = stroke.startsWith('text-') ? stroke : '';
       </defs>
 
       <path 
-        d="M279.3 231.701c26.775-1.755 48.025-24.083 48.025-51.295 0-26.232-19.751-47.925-45.16-51.024a51.3 51.3 0 0 0 1.558-12.562c0-26.465-20.1-48.317-45.835-51.11a51.3 51.3 0 0 0 2.036-14.292C239.925 23.066 216.859 0 188.507 0s-51.418 23.066-51.418 51.418c0 4.96.72 9.751 2.036 14.292-25.735 2.793-45.835 24.645-45.835 51.11 0 4.333.544 8.539 1.558 12.562-25.409 3.099-45.16 24.792-45.16 51.024 0 27.211 21.25 49.54 48.025 51.295l76.87 68.287v49.026h-29.622c-4.62 0-8.378 3.527-8.378 7.863v12.295c0 4.324 3.758 7.842 8.378 7.842h87.092c4.363 0 7.53-3.298 7.53-7.842v-12.295c0-4.556-3.167-7.863-7.53-7.863h-29.47v-49.161zm-76.717-1.795c12.455-3.497 23.007-11.571 29.722-22.293a51.8 51.8 0 0 0 16.46 16.436l-46.182 41.025zm-74.334-5.856a51.8 51.8 0 0 0 16.656-16.743c6.662 10.806 17.209 18.963 29.678 22.53v35.373z"
+        d="M451.799 116.688a8.52 8.52 0 0 0-8.064-5.751c-96.435 0-164.727 166.903-187.733 302.336-23.006-135.433-91.298-302.336-187.734-302.336a8.52 8.52 0 0 0-8.064 5.751C4.064 279.351 48.966 378.406 80.736 422.975c40.328 56.576 104.209 89.028 175.266 89.028s134.938-32.452 175.266-89.028c31.769-44.569 76.672-143.624 20.531-306.287M195.594 459.472a8.54 8.54 0 0 1-7.893 5.282 8.4 8.4 0 0 1-3.251-.657c-30.549-12.621-56.09-33.126-75.921-60.937-40.013-56.14-50.765-136.353-30.277-225.868 1.05-4.599 5.623-7.484 10.214-6.417a8.536 8.536 0 0 1 6.417 10.223c-19.379 84.702-9.6 160.043 27.546 212.156 17.937 25.156 40.994 43.691 68.54 55.074 4.352 1.8 6.426 6.792 4.625 11.144"
         fill="none"
         stroke={`url(#${gradientId})`}
-        stroke-width={strokeWidth} 
+        stroke-width={strokeWidth}
+        stroke-linecap="round"
+        class={animate ? 'wave-path5' : 'static-path5'}
+        style={animate ? `
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        animation-delay: ${delay}ms;
+      ` : ''}
+      />
+      <path 
+        d="M255.97 334.473c22.98-83.115 60.766-164.702 110.592-208.23C344 48.546 302.366 0 256.004 0 209.634 0 168 48.546 145.446 126.242c49.827 43.529 87.552 125.141 110.524 208.231m-77.372-200.346c11.324-38.494 27.682-68.941 46.046-85.734 3.473-3.191 8.875-2.944 12.058.538 3.183 3.473 2.935 8.875-.538 12.049-15.872 14.515-30.882 42.931-41.19 77.961a8.54 8.54 0 0 1-8.183 6.135 8.7 8.7 0 0 1-2.415-.35c-4.523-1.34-7.109-6.076-5.778-10.599"
+        fill="none"
+        stroke={`url(#${gradientId})`}
+        stroke-width={strokeWidth}
         stroke-linecap="round"
         class={animate ? 'wave-path5' : 'static-path5'}
         style={animate ? `
@@ -87,7 +100,7 @@ const strokeClass = stroke.startsWith('text-') ? stroke : '';
               entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                   entry.target.classList.add('visible');
-                  entry.target.querySelector('.wave-path5')?.classList.add('visible');
+                  entry.target.querySelectorAll('.wave-path5').forEach((el) => el.classList.add('visible'));
                   observer.unobserve(entry.target);
                 }
               });

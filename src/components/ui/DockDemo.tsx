@@ -99,7 +99,7 @@ export function DockDemo(): React.JSX.Element {
       </div>
 
       <div
-        className={`flex flex-col xl:flex-row gap-32 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        className={`flex flex-col xl:flex-row gap-8 xl:gap-32 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
       >
         <BlurFade delay={0.1} inView duration={0.3}>
           <FeaturesCard {...projectData.urFitChild} />

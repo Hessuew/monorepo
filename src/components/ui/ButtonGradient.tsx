@@ -6,7 +6,7 @@ export function ButtonGradient({ href, text }: { href: string; text: string }) {
   return (
     <a
       href={href}
-      className='group pb-1 relative mx-auto flex items-center justify-center rounded-full px-4 pt-1 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] '
+      className='group relative mx-auto flex items-center justify-center rounded-full px-4 pt-1 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] '
     >
       <span
         className={cn(
@@ -22,7 +22,7 @@ export function ButtonGradient({ href, text }: { href: string; text: string }) {
       />
       <AnimatedGradientText className='text-base font-semibold'>{text}</AnimatedGradientText>
       <ChevronRight
-        className='ml-1 size-4 stroke-neutral-500 transition-transform
+        className='ml-1 mb-1 size-4 stroke-neutral-500 transition-transform
  duration-300 ease-in-out group-hover:translate-x-0.5'
       />
     </a>
