@@ -44,14 +44,18 @@ const { items, columns = 3, classes = {}, isProfile = false } = Astro.props;
           target="_blank"
           rel="noopener noreferrer"
           class={twMerge(
-            'block no-underline hover:no-underline group opacity-0 translate-y-6 md:translate-y-12 duration-[1500ms] ease-out intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade',
-            'focus:outline-none focus:ring-2 focus:ring-primary rounded-lg',
+            'block no-underline hover:no-underline group opacity-0 translate-y-6 md:translate-y-12 duration-0 ease-out intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade',
+            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg focus-visible:duration-0 focus-visible:transition-none focus:duration-0 focus:transition-none ring-0 ring-transparent transition-none',
             classes.item
           )}
           aria-label={`Visit ${item.title} website`}
           role="listitem"
         >
-          <div class="bg-white dark:bg-transparent rounded-lg shadow-lg dark:shadow-none p-6 h-full transition-all duration-300 hover:bg-gray-100/0 dark:hover:bg-white/0 group-hover:shadow-xl dark:group-hover:shadow-none">
+          <div
+            class={twMerge(
+              'bg-white dark:bg-transparent rounded-lg shadow-lg dark:shadow-none p-6 h-full transition-all duration-300 hover:bg-gray-100/0 dark:hover:bg-white/0 group-hover:shadow-xl dark:group-hover:shadow-none focus-within:duration-0 focus-within:transition-none'
+            )}
+          >
             <div class={twMerge('flex flex-col items-center h-full', classes.itemContainer)}>
               {isProfile ? (
                 <div
