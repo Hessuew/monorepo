@@ -16,6 +16,32 @@ interface Publication {
 
 export const publications: Publication[] = [
   {
+    title:
+      'Persistent Hyperglycemia and Insulin Resistance With the Risk of Worsening Cardiac Damage in Adolescents: A 7-Year Longitudinal Study of the ALSPAC Birth Cohort',
+    authors: 'Agbaje AO, Zachariah JP, Barker AR, Williams CA, Vlachopoulos D, Saner C, Tuomainen TP',
+    date: '2025-04-29',
+    journal: 'Diabetes Care',
+    volume: 'Epub ahead of print',
+    // pages: 'dc242459',
+    pages: '',
+    type: 'Original article',
+    category: 'metabolic-health',
+    url: 'https://diabetesjournals.org/care/article-abstract/doi/10.2337/dc24-2459/158097/Persistent-Hyperglycemia-and-Insulin-Resistance?redirectedFrom=fulltext',
+  },
+  {
+    title:
+      'Cross-sectional associations between physical activity and sedentary time with cardiovascular health in children from the ALSPAC study using compositional data analysis',
+    authors: 'Sansum KM, Bond B, Pulsford RM, McManus A, Agbaje AO, Skinner AM, Barker AR.',
+    date: '2025-04-07',
+    journal: 'Scientific Reports',
+    volume: '',
+    // volume: '5(1):11878',
+    pages: '',
+    type: 'Original article',
+    category: 'cardiovascular-health',
+    doi: '10.1038/s41598-025-95407-x',
+  },
+  {
     title: 'BMI triples overweight prevalence in 7600 children compared with waist-to-height ratio: The ALSPAC Study',
     authors: 'Agbaje AO',
     date: '2025-02-14',

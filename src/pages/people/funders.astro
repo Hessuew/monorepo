@@ -1,4 +1,5 @@
 ---
+import imgALSPAC_newsletter_4_5 from '~/assets/images/funders/ALSPAC_newsletter_4-5.webp';
 import Acknowledgment from '~/components/widgets/Acknowledgment.astro';
 import Features4 from '~/components/widgets/Features4.astro';
 import Hero from '~/components/widgets/Hero.astro';
@@ -99,6 +100,47 @@ const metadata = {
       </div>
     </Fragment>
   </Acknowledgment>
+
+  <Hero id="section1">
+    <Fragment slot="title">
+      <div
+        class="mb-8 md:mx-auto md:mb-12 text-center intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl">
+          2024 ALSPAC newsletter
+        </h2>
+      </div>
+    </Fragment>
+    <Fragment slot="image">
+      <!-- Ebook Widget *************** -->
+
+      <div
+        class="w-full flex justify-center pb-10 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        <div class="w-full flex justify-center pb-10 h-[520px] lg:h-[640px]">
+          <iframe
+            aria-label="Your Life in Science Newsletter 2024"
+            title="Your Life in Science Newsletter 2024"
+            src="https://drive.google.com/file/d/1vEQLdhStYBlvJpbSdMoEgR03ekw_3nKm/preview"
+            width="100%"
+            height="100%"
+            allow="autoplay"
+            class="max-w-2xl"></iframe>
+        </div>
+      </div>
+    </Fragment>
+  </Hero>
+
+  <Hero
+    id="description"
+    image={{
+      src: imgALSPAC_newsletter_4_5,
+      alt: 'ALSPAC newsletter pages 4-5',
+      height: 1638,
+      width: 2312,
+    }}
+    imageText="ALSPAC newsletter pages 4 & 5"
+  />
 
   <Spacer size="sm" />
 </Layout>

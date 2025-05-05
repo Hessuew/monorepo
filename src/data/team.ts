@@ -4,7 +4,8 @@ import imgBenedict from '~/assets/images/team/Benedict Michelle.webp';
 import imgDouglas from '~/assets/images/team/Douglas Corsi.webp';
 import imgShogade from '~/assets/images/team/Dr Tolu Shogade.webp';
 import imgFemaleHeadshot from '~/assets/images/team/Female headshot.webp';
-import imgJuhani from '~/assets/images/team/Juhani Juusola.webp';
+import imgJuhani from '~/assets/images/team/Juhani_Helsinki.webp';
+import imgMahidere from '~/assets/images/team/Mahidere Ali.webp';
 import imgSamuel from '~/assets/images/team/Samuel Barmi.webp';
 import imgSenbanjo from '~/assets/images/team/Senbanjo Odunayo Image.webp';
 import imgTomi from '~/assets/images/team/Tomi Pekka Tuomainen.webp';
@@ -51,6 +52,16 @@ const teamMembers: TeamMember[] = [
     image: {
       src: imgDouglas,
       alt: 'Douglas Corsi',
+    },
+  },
+  {
+    name: 'Mahidere Ali',
+    title: 'Project Researcher',
+    description: 'MD, MPH',
+    url: 'https://fi.linkedin.com/in/mahidere-wondiye-ali-175213211',
+    image: {
+      src: imgMahidere,
+      alt: 'Mahidere Ali',
     },
   },
   {
@@ -125,7 +136,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Juhani Juusola',
     title: 'IT Specialist, Website creator',
-    description: 'Design, web, mobile, server <br /> React, React Native, Node.js, MySQL, Tailwind',
+    description: 'Design, web, mobile, server',
     image: {
       src: imgJuhani,
       alt: 'Juhani Juusola',
