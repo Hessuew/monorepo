@@ -11,11 +11,11 @@ import img11 from '~/assets/images/infographic/Childhood Light Activity Reduces 
 import img14 from '~/assets/images/infographic/Childhood Obesity Light Activity.webp';
 import img15 from '~/assets/images/infographic/Childhood Sedentariness and Cholesterol.webp';
 import img20 from '~/assets/images/infographic/Childhood Sedentariness and Diabetes.webp';
-// import img21 from '~/assets/images/infographic/Childhood Sedentariness Heart Damage.webp';
 import img19 from '~/assets/images/infographic/Childhood Sedentariness Vascular Damage.webp';
 import img22 from '~/assets/images/infographic/Childhood Sedentariness.webp';
 import img16 from '~/assets/images/infographic/Cholesterol Heart Damage Study.webp';
 import img12 from '~/assets/images/infographic/Cholesterol passport for adolescents to halt the world’s deadliest disease – atherosclerosis.webp';
+import img_3_5_25 from '~/assets/images/infographic/Graphic-abstract-revised_280225-1.webp';
 import img5 from '~/assets/images/infographic/Insulin Resistance Mid Adolescence.webp';
 import img4 from '~/assets/images/infographic/Low-Grade Inflammation Atherosclerosis.webp';
 import img24 from '~/assets/images/infographic/Persistent Tobacco Smoking.webp';
@@ -43,10 +43,23 @@ interface InfoGrafic {
 
 export const infografics: InfoGrafic[] = [
   {
-    title: 'Two-thirds of children classified BMI-​overweight had normal fat estimated with waist-​to-height ratio ',
+    title:
+      'High blood sugar in adolescence tripled the risk of premature heart damage affecting females worse than males',
+    date: '2025-04-29',
+    type: 'cardiovascular-health',
+    description: `Persistently high blood sugar and insulin resistance significantly increased the risk of worsening functional and structural heart damage during growth from adolescence to young adulthood, a new study shows.`,
+    url: 'https://www.uef.fi/en/article/high-blood-sugar-in-adolescence-tripled-the-risk-of-premature-heart-damage-affecting-females-worse',
+    // doi: '10.1016/j.brat.2024.104674',
+    image: {
+      src: img_3_5_25,
+      alt: 'High blood sugar in adolescence tripled the risk of premature heart damage',
+    },
+  },
+  {
+    title: 'Two-thirds of children classified BMI-​overweight had normal fat estimated with waist-​to-height ratio',
     date: '2025-03-12',
     type: 'body-composition',
-    description: ``,
+    description: `BMI and weight-to-height indices are universally employed as markers of childhood obesity. However, BMI does not distinguish muscle mass from fat mass, and may misclassify children as overweight. `,
     url: 'https://www.uef.fi/en/article/two-thirds-of-children-classified-bmi-overweight-had-normal-fat-estimated-with-waist-to-height-ratio',
     // doi: '10.1016/j.brat.2024.104674',
     image: {

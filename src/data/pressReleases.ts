@@ -12,6 +12,65 @@ interface PressRelease {
 
 export const pressReleases: PressRelease[] = [
   {
+    title: "Raising cigarette taxes in lower-income countries could save 281,000 children's lives in a year",
+    date: '2025-04-30',
+    url: 'https://www.euronews.com/health/2025/04/30/raising-cigarette-taxes-in-lower-income-countries-could-save-281000-childrens-lives-in-a-y',
+    source: 'Euronews',
+    type: 'News',
+    category: 'public-health',
+  },
+  {
+    title:
+      'American Society for Nutrition Foundation and Novo Nordisk Foundation Announce Inaugural Awardees Advancing Nutrition and Obesity Science',
+    date: '2025-04-30',
+    url: 'https://nutrition.org/american-society-for-nutrition-foundation-and-novo-nordisk-foundation-announce-inaugural-awardees-advancing-nutrition-and-obesity-science/',
+    source: 'American Society for Nutrition',
+    type: 'News',
+    category: 'nutrition',
+  },
+  {
+    title: 'Two new awards given to researchers in nutrition and childhood obesity',
+    date: '2025-04-30',
+    url: 'https://novonordiskfonden.dk/en/news/two-new-awards-given-to-researchers-in-nutrition-and-childhood-obesity/',
+    source: 'Novo Nordisk Foundation',
+    type: 'News',
+    category: 'obesity',
+  },
+  {
+    title: 'Healthy-looking teens ‘may be at risk of heart disease’ due to danger of popular foods and drinks',
+    date: '2025-04-29',
+    url: 'https://www.thesun.ie/health/15124629/blood-sugar-heart-damage-start-teenage-years-study/',
+    source: 'The Sun Ireland',
+    type: 'News',
+    category: 'cardiac-health',
+  },
+  {
+    title:
+      'Prediabetes in older teenagers may triple risk of premature heart damage in young adulthood and affects women worse than men',
+    date: '2025-04-29',
+    url: 'https://www.bristol.ac.uk/alspac/news/2025/prediabetes-in-older-teenagers-may-triple-risk-of-premature-heart-damage-in-youn.html',
+    source: 'University of Bristol',
+    type: 'News',
+    category: 'cardiac-health',
+  },
+  {
+    title:
+      "Millions of teenagers may suffer 'ticking time bomb' heart problem due to common diet mistake, experts warn",
+    date: '2025-04-29',
+    url: 'https://www.dailymail.co.uk/health/article-14659017/teenagers-heart-problem-diet-mistake.html',
+    source: 'Daily Mail',
+    type: 'News',
+    category: 'cardiac-health',
+  },
+  {
+    title: 'Healthy-looking teens ‘may be at risk of heart disease’ due to danger of popular foods and drinks',
+    date: '2025-04-29',
+    url: 'https://www.thesun.co.uk/health/34692509/blood-sugar-heart-damage-start-teenage-years-study/',
+    source: 'The Sun UK',
+    type: 'News',
+    category: 'cardiac-health',
+  },
+  {
     title: 'Use waist-to-height ratio along with BMI to assess obesity for children',
     date: '2025-04-03',
     url: 'https://www.healio.com/news/endocrinology/20250403/use-waisttoheight-ratio-along-with-bmi-to-assess-obesity-for-children',

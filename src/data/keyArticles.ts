@@ -15,12 +15,27 @@ interface KeyArticles {
 
 export const keyArticles: KeyArticles[] = [
   {
+    title:
+      'Persistent Hyperglycemia and Insulin Resistance With the Risk of Worsening Cardiac Damage in Adolescents: A 7-Year Longitudinal Study of the ALSPAC Birth Cohort',
+    authors: 'Agbaje AO, Zachariah JP, Barker AR, Williams CA, Vlachopoulos D, Saner C, Tuomainen TP',
+    date: '2025-04-29',
+    journal: 'Diabetes Care',
+    volume: 'Epub ahead of print',
+    // pages: 'dc242459',
+    pages: '',
+    type: 'Original article',
+    category: 'metabolic-health',
+    url: 'https://diabetesjournals.org/care/article-abstract/doi/10.2337/dc24-2459/158097/Persistent-Hyperglycemia-and-Insulin-Resistance?redirectedFrom=fulltext',
+  },
+  {
     title: 'Incidental and Progressive Tobacco Smoking in Childhood and Subsequent Risk of Premature Cardiac Damage',
-    authors: 'Agbaje, Andrew O',
-    date: '2024-12-11',
+    authors: 'Agbaje AO',
+    // date: '2024-12-11',
+    date: '2025-02-11',
     journal: 'Journal of the American College of Cardiology',
-    volume: '',
-    pages: 'S0735-1097(24)09964-9',
+    volume: '85(5)',
+    // pages: 'S0735-1097(24)09964-9',
+    pages: '546-549',
     type: 'Original article',
     category: 'cardiovascular-health',
     url: ' https://www.jacc.org/doi/10.1016/j.jacc.2024.09.1229',

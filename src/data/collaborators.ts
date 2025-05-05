@@ -1,8 +1,10 @@
 // Import collaborator images
 import imgVlachopoulos from '~/assets/images/collaborators/Dr. Dimitris Vlachopoulos.webp';
 import imgSaner from '~/assets/images/collaborators/Dr. med. Christoph Saner.webp';
+import imgSartorio from '~/assets/images/collaborators/Dr. Sartorio.webp';
 import imgZachariah from '~/assets/images/collaborators/Justin Zachariah MD.webp';
 import imgLewandowski from '~/assets/images/collaborators/Prof Adam Lewandowski.webp';
+import imgSummerbell from '~/assets/images/collaborators/Prof Carolyn Summerbell.webp';
 import imgOjji from '~/assets/images/collaborators/Prof Dike Bevis Ojji.webp';
 import imgMitchell from '~/assets/images/collaborators/Prof Gary F Mitchell.webp';
 import imgBarker from '~/assets/images/collaborators/Prof. Alan R. Barker.jpeg';
@@ -51,13 +53,13 @@ export const collaborators: Collaborator[] = [
     },
   },
   {
-    name: 'Prof. Alan R. Barker',
-    title: 'PhD, Associate Professor in Paediatric Physiology and Health',
-    affiliation: "Children's Health and Exercise Research Centre, University of Exeter, UK",
-    profileUrl: 'https://experts.exeter.ac.uk/1337-alan-barker',
+    name: 'Dr. Sartorio Alessandro',
+    title: 'MD.',
+    affiliation: 'Medical Director of the Auxo-endocrinological Experimental Research Laboratory, Italy.',
+    profileUrl: 'https://www.auxologico.com/dr-alessandro-sartorio',
     image: {
-      src: imgBarker,
-      alt: 'Professor Alan Barker',
+      src: imgSartorio,
+      alt: 'Dr. Sartorio Alessandro',
     },
   },
   {
@@ -68,6 +70,26 @@ export const collaborators: Collaborator[] = [
     image: {
       src: imgMitchell,
       alt: 'Professor Gary Mitchell',
+    },
+  },
+  {
+    name: 'Prof. Carolyn Summerbell',
+    title: 'PhD, Professor of Nutrition',
+    affiliation: 'Department of Sport and Exercise Sciences, Durham University, UK',
+    profileUrl: 'https://www.durham.ac.uk/staff/carolyn-summerbell/',
+    image: {
+      src: imgSummerbell,
+      alt: 'Professor Carolyn Summerbell',
+    },
+  },
+  {
+    name: 'Prof. Alan R. Barker',
+    title: 'PhD, Associate Professor in Paediatric Physiology and Health',
+    affiliation: "Children's Health and Exercise Research Centre, University of Exeter, UK",
+    profileUrl: 'https://experts.exeter.ac.uk/1337-alan-barker',
+    image: {
+      src: imgBarker,
+      alt: 'Professor Alan Barker',
     },
   },
   {

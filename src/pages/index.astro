@@ -1,4 +1,5 @@
 ---
+import imgTedxVaasa from '~/assets/images/index/Tedx Vaasa photo for linkedin and urFIT-child website.webp';
 import imgLogo from '~/assets/images/index/urFIT Child Research Group Logo.webp';
 import imgResearchVisualization from '~/assets/images/index/Urfit Child Website Frontpage.webp';
 import Image from '~/components/common/Image.astro';
@@ -45,8 +46,25 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <!-- <Image
+    class="mx-auto w-full"
+    widths={[200, 384, 512, 1020]}
+    sizes="(max-width: 767px) 200px, (max-width: 1023px) 384px, (max-width: 2039px) 512px, 1020px"
+    loading="eager"
+    width={3000}
+    height={1688}
+    src={imgTedxVaasa}
+    alt="Tedx Vaasa"
+  /> -->
+
   <Stars>
-    <Hero tagline="Welcome to">
+    <Hero
+      tagline="Welcome to"
+      image={{
+        src: imgTedxVaasa,
+        alt: 'urFIT-child Research Group Logo',
+      }}
+    >
       <Fragment slot="image">
         <Image
           class="mx-auto rounded-md w-full"
@@ -249,19 +267,36 @@ const metadata = {
 
   <!-- Stats Widget ****************** -->
 
-  <Stats
-    classes={{ item: 'md:w-full' }}
-    stats={[
-      {
-        amount: 'urFIT-child',
-        classes: { amount: 'text-[2.6rem] font-bold lg:text-7xl xl:text-7xl' },
-        lowerCase: true,
-        curve: true,
-      },
-    ]}
-  >
-    <Fragment slot="title">Enabling children's health globally: </Fragment>
-  </Stats>
+  <div class="flex flex-wrap justify-center items-center">
+    <Stats
+      classes={{ item: 'md:w-full' }}
+      stats={[
+        {
+          amount: 'urFIT-child',
+          classes: { amount: 'text-[2.6rem] font-bold lg:text-7xl xl:text-7xl' },
+          lowerCase: true,
+          curve: true,
+        },
+      ]}
+    >
+      <Fragment slot="title">Enabling children's health globally, </Fragment>
+    </Stats>
+
+    <Hero>
+      <Fragment slot="image">
+        <Image
+          class="mx-auto rounded-md w-full"
+          widths={[200, 384, 512, 1020]}
+          sizes="(max-width: 767px) 200px, (max-width: 1023px) 384px, (max-width: 2039px) 512px, 1020px"
+          loading="eager"
+          width={320}
+          height={320}
+          src={imgLogo}
+          alt="urFIT-child Research Group Logo"
+        />
+      </Fragment>
+    </Hero>
+  </div>
 
   <!-- Spacer ******************* -->
 

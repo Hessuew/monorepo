@@ -8,6 +8,26 @@ type Award = {
 
 export const recentAwards2025: Award[] = [
   {
+    title: '2025 Flemming Quaade Award',
+    subtitle:
+      'American Society of Nutrition Foundation-Novo Nordisk Foundation - Innovative Approaches to Childhood Obesity',
+    details: 'The prestigious award prize is 500,000 Danish Kroner (€67,000 / $70,000)',
+    location: null,
+    icon: 'tabler:award-filled',
+  },
+  {
+    title: 'Oxford 2025 Most Cited Papers Double Awards',
+    subtitle: 'Journal of Clinical Endocrinology and Metabolism',
+    location: null,
+    icon: 'tabler:quote-filled',
+  },
+  {
+    title: "Wiley's 2025 Most-Read Paper Award",
+    subtitle: 'Scandinavian Journal of Medicine & Science in Sports',
+    location: null,
+    icon: 'tabler:file-text',
+  },
+  {
     title: "Wiley's Award for Most Cited Article",
     subtitle: 'Scandinavian Journal of Medicine and Science in Sports March 2025',
     location: null,
