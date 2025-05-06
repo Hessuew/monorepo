@@ -29,7 +29,7 @@ const {
 } = Astro.props;
 
 const {
-  icon: defaultIconClass = 'flex h-7 w-7 items-center justify-center rounded-full bg-green-600 dark:bg-green-700 text-gray-50 p-1',
+  icon: defaultIconClass = 'flex h-7 w-7 xl:h-[28px] xl:w-[28px] items-center justify-center rounded-full bg-green-600 dark:bg-green-700 text-gray-50 p-1 xl:p-[4px]',
 } = classes;
 ---
 
@@ -37,7 +37,7 @@ const {
   animated={animated}
   id={id}
   isDark={isDark}
-  containerClass={`max-w-7xl mx-auto ${isAfterContent ? 'pt-0 md:pt-0 lg:pt-0' : ''} ${classes?.container ?? ''}`}
+  containerClass={`max-w-7xl xl:max-w-[1280px] mx-auto ${isAfterContent ? 'pt-0 md:pt-0 lg:pt-0' : ''} ${classes?.container ?? ''}`}
   bg={bg}
 >
   <Headline
@@ -51,15 +51,22 @@ const {
       subtitle: 'max-w-3xl mx-auto sm:text-center text-xl text-muted dark:text-slate-400',
     }}
   />
-  <div class="mx-auto max-w-7xl p-4 md:px-8">
-    <div class={`md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-16`}>
+  <div class="mx-auto max-w-7xl xl:max-w-[1280px] p-4 xl:p-[16px] md:px-8 xl:px-[32px]">
+    <div class={`md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-16 xl:gap-[64px]`}>
       <section class="md:basis-1/2" aria-labelledby="content-heading">
         <h2 id="content-heading" class="sr-only">Main Content</h2>
-        {content && <div class="mb-12 text-lg dark:text-slate-400 " set:html={content} />}
+        {
+          content && (
+            <div
+              class="mb-12 xl:mb-[48px] text-lg xl:text-[18px] xl:leading-[28px] dark:text-slate-400 "
+              set:html={content}
+            />
+          )
+        }
 
         {
           callToAction && (
-            <div class="mt-[-40px] mb-8 text-primary">
+            <div class="mt-[-40px] mb-8 xl:mb-[32px] text-primary">
               <Button variant="link" {...callToAction} />
             </div>
           )
@@ -70,12 +77,14 @@ const {
           columns={columns}
           defaultIcon={defaultIcon}
           classes={{
-            container: `gap-y-4 md:gap-y-8`,
+            container: `gap-y-4 md:gap-y-8 xl:gap-y-[24px]`,
             panel: 'max-w-none',
-            title: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
-            description: 'text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2',
+            title:
+              'text-lg xl:text-[18px] leading-6 xl:leading-[24px] font-medium dark:text-white ml-2 xl:ml-[8px] rtl:ml-0 rtl:mr-2 xl:mr-[8px]',
+            description: 'text-muted dark:text-slate-400 ml-2 xl:ml-[8px] rtl:ml-0 rtl:mr-2 xl:mr-[8px]',
             icon: defaultIconClass as string,
-            action: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+            action:
+              'text-lg xl:text-[18px] leading-6 xl:leading-[24px] font-medium dark:text-white ml-2 xl:ml-[8px] rtl:ml-0 rtl:mr-2 xl:mr-[8px]',
           }}
         />
       </section>
@@ -85,7 +94,7 @@ const {
       >
         {
           image && (
-            <figure class="relative mx-auto max-w-4xl">
+            <figure class="relative mx-auto max-w-4xl xl:max-w-[896px]">
               {typeof image === 'string' ? (
                 <div class="image-container" aria-label={imageText || 'Content image'}>
                   <Fragment set:html={image} />
@@ -105,7 +114,9 @@ const {
                 />
               )}
               {imageText && (
-                <figcaption class="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">{imageText}</figcaption>
+                <figcaption class="mt-2 xl:mt-[8px] text-center text-sm xl:text-[14px] xl:leading-[20px] text-gray-600 dark:text-gray-400">
+                  {imageText}
+                </figcaption>
               )}
             </figure>
           )

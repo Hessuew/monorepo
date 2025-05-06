@@ -12,7 +12,9 @@ const stars = [
 
 <div class="relative w-full">
   {/* Main content with stars */}
-  <div class="relative w-full min-h-screen overflow-hidden dark:bg-gradient-to-b from-black via-page to-black">
+  <div
+    class="relative w-full min-h-1/2 md:min-h-screen overflow-hidden dark:bg-gradient-to-b from-black via-page to-black"
+  >
     {/* Stars background layer */}
     <div class="absolute inset-0 z-0 overflow-hidden" aria-hidden="true" role="presentation">
       {
@@ -44,7 +46,10 @@ const stars = [
 
   {/* Gradient transition section */}
   <div class="relative h-0">
-    <div class="absolute inset-x-0 -top-0 h-80 dark:bg-gradient-to-b from-black to-white dark:to-[rgb(3,6,32)]"></div>
+    <div
+      class="absolute inset-x-0 -top-0 h-80 xl:h-[320px] dark:bg-gradient-to-b from-black to-white dark:to-[rgb(3,6,32)]"
+    >
+    </div>
   </div>
 </div>
 

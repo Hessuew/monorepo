@@ -21,28 +21,33 @@ const {
 const { item: itemClass = '' } = classes;
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  containerClass={`max-w-6xl xl:max-w-[1152px] mx-auto ${classes?.container ?? ''}`}
+  bg={bg}
+>
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
-  <div class="flex flex-wrap justify-center -m-4 text-center">
+  <div class="flex flex-wrap justify-center -m-4 xl:-m-[16px] text-center">
     {
       stats &&
         stats.map(({ amount, classes, title, icon, lowerCase, curve }) => (
           <div
             class={twMerge(
-              'p-4 md:w-1/4 sm:w-1/2 w-full min-w-[220px] text-center md:border-r md:last:border-none dark:md:border-slate-500 intersect-once motion-safe:opacity-0 motion-safe:intersect:animate-fade intersect-tenth sm:intersect-quarter',
+              'p-4 xl:p-[16px] md:w-1/4 sm:w-1/2 w-full min-w-[220px] text-center md:border-r md:last:border-none dark:md:border-slate-500 intersect-once motion-safe:opacity-0 motion-safe:intersect:animate-fade intersect-tenth sm:intersect-quarter',
               itemClass as string
             )}
           >
             {icon && (
-              <div class="flex items-center justify-center mx-auto mb-4 text-primary">
-                <Icon name={icon} class="w-10 h-10" />
+              <div class="flex items-center justify-center mx-auto mb-4 xl:mb-[16px] text-primary">
+                <Icon name={icon} class="w-10 h-10 xl:w-[40px] xl:h-[40px]" />
               </div>
             )}
             <div class="relative inline-block min-w-[220px]">
               {amount && (
                 <div
                   class={twMerge(
-                    'font-heading text-primary text-3xl sm:text-[2.6rem] font-bold lg:text-5xl xl:text-6xl',
+                    'font-heading text-primary text-3xl sm:text-[2.6rem] font-bold lg:text-5xl xl:text-[60px]',
                     classes?.amount
                   )}
                   aria-label={`${title}: ${amount}`}
@@ -51,7 +56,7 @@ const { item: itemClass = '' } = classes;
                 </div>
               )}
               {curve && (
-                <div class="absolute -bottom-2.5 -right-8 lg:-bottom-10 lg:-right-12 w-16 h-12 lg:w-24 lg:h-20">
+                <div class="absolute -bottom-2.5 lg:-bottom-10 xl:-bottom-[40px] -right-8 lg:-right-12 xl:-right-[48px] w-16 h-12 lg:w-24 lg:h-20 xl:w-[96px] xl:h-[80px]">
                   <AnimatedChildSvg stroke="text-primary" delay={1000} classes="w-full h-full" />
                 </div>
               )}

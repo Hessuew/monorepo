@@ -50,20 +50,20 @@ const {
   id={id}
   isDark={isDark}
   animated={false}
-  containerClass={twMerge('max-w-7xl mx-auto', classes?.container)}
+  containerClass={twMerge('max-w-7xl xl:max-w-[1280px] mx-auto', classes?.container)}
   bg={bg}
 >
   {
     (title || subtitle || tagline) && (
-      <div class="mb-12 md:mx-auto md:mb-16 text-center max-w-3xl">
+      <div class="mb-12 md:mx-auto md:mb-16 xl:mb-[64px] text-center max-w-3xl xl:max-w-[768px]">
         <Headline
           title={title}
           subtitle={subtitle}
           tagline={tagline}
           classes={{
-            container: 'max-w-xl sm:mx-auto lg:max-w-2xl',
+            container: 'max-w-xl sm:mx-auto lg:max-w-2xl xl:max-w-[672px]',
             title: twMerge(
-              'text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading',
+              'text-4xl md:text-5xl xl:text-[48px] font-bold leading-tighter tracking-tighter mb-4 xl:mb-[16px] font-heading',
               classes?.title?.title?.toString() || ''
             ),
             ...((classes?.title as Record<string, string>) ?? {}),
