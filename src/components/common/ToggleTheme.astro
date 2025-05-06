@@ -13,7 +13,7 @@ const {
   label = 'Toggle theme',
   class:
     className = 'text-muted dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center',
-  iconClass = 'w-6 h-6',
+  iconClass = 'w-6 xl:w-[24px] h-6 xl:h-[24px]',
 } = Astro.props;
 
 // Get current path
@@ -41,7 +41,7 @@ const currentPath = Astro.url.pathname;
       >
         <Icon name={'tabler:moon'} class={iconClass} />
       </button>
-      <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-gray-800 px-2 py-1 text-sm text-white opacity-0 transition-opacity delay-500 group-hover:opacity-100 dark:bg-gray-200 dark:text-gray-800">
+      <span class="absolute -bottom-10 xl:-bottom-[40px] left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-gray-800 px-2 xl:px-[10px] py-1 xl:py-[8px] text-sm xl:text-[14px] xl:leading-[20px] text-white opacity-0 transition-opacity delay-500 group-hover:opacity-100 dark:bg-gray-200 dark:text-gray-800">
         {label}
       </span>
     </div>

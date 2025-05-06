@@ -49,9 +49,9 @@ const metadata = {
     title="urFIT-child Team"
   >
     <Fragment slot="subtitle">
-      <div class="max-w-3xl mx-auto">
+      <div class="max-w-3xl xl:max-w-[768px] mx-auto">
         <p
-          class="text-xl text-muted mb-6 dark:text-slate-300 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+          class="text-xl xl:text-[20px] xl:leading-[28px] text-muted mb-6 xl:mb-[24px] dark:text-slate-300 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
         >
           Meet our dedicated team of researchers working to improve children's cardiometabolic health and fitness.
         </p>
@@ -64,11 +64,12 @@ const metadata = {
     columns={3}
     isProfile={true}
     classes={{
-      container: 'max-w-7xl mx-auto px-4 sm:px-6 pb-8 pt-4 sm:pt-8 lg:pt-8 relative bg-grid',
+      container:
+        'max-w-7xl xl:max-w-[1280px] mx-auto px-4 sm:px-6 xl:px-[24px] pb-8 xl:pb-[32px] pt-4 sm:pt-8 lg:pt-8 xl:pt-[32px] relative bg-grid',
       items: {
-        container: 'gap-6',
-        image: 'mb-2 rounded-full overflow-hidden',
-        title: 'text-xl',
+        container: 'gap-6 xl:gap-[24px]',
+        image: 'mb-2 xl:mb-[8px] rounded-full overflow-hidden',
+        title: 'text-xl xl:text-[20px] xl:leading-[28px]',
         subtitle: 'text-primary',
       },
     }}

@@ -56,11 +56,11 @@ const metadata = {
     columns={2}
     isProfile
     classes={{
-      container: 'max-w-7xl mx-auto px-4 sm:px-6 py-8',
+      container: 'max-w-7xl xl:max-w-[1280px] mx-auto px-4 sm:px-6 xl:px-[24px] py-8 xl:py-[32px]',
       items: {
-        container: 'gap-6',
-        image: 'mb-2 rounded-full overflow-hidden',
-        title: 'text-xl',
+        container: 'gap-6 xl:gap-[24px]',
+        image: 'mb-2 xl:mb-[8px] rounded-full overflow-hidden',
+        title: 'text-xl xl:text-[20px] xl:leading-[28px]',
         subtitle: 'text-primary',
       },
     }}
@@ -98,7 +98,11 @@ const metadata = {
     ]}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Celebrating Joint Achievements</h3>
+      <h3
+        class="text-2xl sm:text-3xl xl:text-[30px] xl:leading-[36px] mb-2 xl:mb-[8px] font-bold tracking-tight dark:text-white"
+      >
+        Celebrating Joint Achievements
+      </h3>
       Our collaborative spirit has been recognized through prestigious awards and breakthrough discoveries. Together, we're
       creating a future where every child has the opportunity to thrive.
     </Fragment>
@@ -113,7 +117,7 @@ const metadata = {
     }}
     imageText="Knowledge exchange in action: Engaging discussions with international experts strengthen our research network"
     classes={{
-      container: 'pt-0 md:py-16 lg:py-20',
+      container: 'pt-0 md:py-16 lg:py-20 xl:py-[80px]',
     }}
     items={[
       {
@@ -134,7 +138,11 @@ const metadata = {
     ]}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Fostering Global Connections</h3>
+      <h3
+        class="text-2xl sm:text-3xl xl:text-[30px] xl:leading-[36px] mb-2 xl:mb-[8px] font-bold tracking-tight dark:text-white"
+      >
+        Fostering Global Connections
+      </h3>
       Through regular interactions with leading experts worldwide, we create an environment where innovative ideas flourish
       and transformative research takes shape. These partnerships enrich our understanding and accelerate progress in children's
       health research.

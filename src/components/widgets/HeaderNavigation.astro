@@ -16,7 +16,7 @@ const { links, currentPath } = Astro.props;
   class="dropdown-menu absolute top-[56px] left-[28%] xl:left-[26%] lg:backdrop-blur-md lg:bg-white/80 dark:lg:bg-[#030621e6]/80 drop-shadow-xl lg:border border-gray-200 dark:border-gray-800 transition-all duration-300 ease-in-out hidden rounded-md"
   data-navigation-menu
 >
-  <div class="w-[30rem]">
+  <div class="w-[480px]">
     <div
       class="flex overflow-hidden relative transition-[height] duration-300 ease-in-out"
       style="height: 180px;"
@@ -34,7 +34,7 @@ const { links, currentPath } = Astro.props;
             id={`nav-panel-${index}`}
             data-nav-panel={index}
           >
-            <div class="lg:flex lg:flex-row lg:items-start lg:gap-4 lg:p-4 h-full">
+            <div class="lg:flex lg:flex-row lg:items-start lg:gap-4 xl:gap-[16px] lg:p-4 xl:p-[16px] h-full">
               <ul class="w-1/2">
                 {headerLinks.links
                   ?.filter((link) => !link.image)
@@ -42,29 +42,31 @@ const { links, currentPath } = Astro.props;
                     <li>
                       <a
                         class:list={[
-                          'first:rounded-t last:rounded-b hover:text-primary py-1 px-2 block whitespace-no-wrap',
+                          'first:rounded-t last:rounded-b hover:text-primary py-1 xl:py-[4px] px-2 xl:px-[8px] block whitespace-no-wrap',
                           { 'aw-link-active': href === currentPath },
                         ]}
                         href={getPermalink(`${href}`)}
                       >
-                        <div class="flex items-center gap-2">
-                          {icon && <Icon name={icon} class="w-5 h-5" />}
+                        <div class="flex items-center gap-2 xl:gap-[8px]">
+                          {icon && <Icon name={icon} class="w-5 h-5 xl:w-[20px] xl:h-[20px]" />}
                           <div>
-                            <div class="font-medium">{text}</div>
-                            {description && <div class="text-sm text-muted">{description}</div>}
+                            <div class="font-medium xl:text-[16px] xl:leading-[24px]">{text}</div>
+                            {description && (
+                              <div class="text-sm xl:text-[14px] xl:leading-[20px] text-muted">{description}</div>
+                            )}
                           </div>
                         </div>
                       </a>
                     </li>
                   ))}
               </ul>
-              <ul class="lg:w-1/2 lg:space-y-2 lg:block">
+              <ul class="lg:w-1/2 lg:space-y-2 xl:space-y-[8px] lg:block">
                 {headerLinks.links
                   ?.filter((link) => link.image)
                   .map(({ text, href, image }) => (
                     <li class="group">
                       <a
-                        class="relative block h-24 rounded-lg transform-gpu overflow-hidden ring-0 ring-white dark:ring-gray-700 group-hover:ring-1 transition duration-200"
+                        class="relative block h-24 xl:h-[96px] rounded-lg transform-gpu overflow-hidden ring-0 ring-white dark:ring-gray-700 group-hover:ring-1 transition duration-200"
                         href={getPermalink(`${href}`)}
                       >
                         {image && (
@@ -77,8 +79,8 @@ const { links, currentPath } = Astro.props;
                           />
                         )}
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
-                        <div class="absolute bottom-0 left-0 p-4 py-2">
-                          <span class="text-white font-medium">{text}</span>
+                        <div class="absolute bottom-0 left-0 p-4 xl:p-[16px] py-2 xl:py-[8px]">
+                          <span class="text-white font-medium xl:text-[16px] xl:leading-[24px]">{text}</span>
                         </div>
                       </a>
                     </li>
@@ -133,13 +135,13 @@ const { links, currentPath } = Astro.props;
       if (!isMediumScreen()) return;
 
       const direction = index > activePanel ? 1 : -1;
-      const height = index === 0 ? 14.5 : index === 2 ? 9 : 16.5;
+      const height = index === 0 ? 232 : index === 2 ? 144 : 264;
 
       menu?.classList.remove('hidden');
 
       // Animate container height
       if (container) {
-        container.style.height = `${height}rem`;
+        container.style.height = `${height}px`;
       }
       if (menu) {
         menu.style.left = index === 2 ? '31%' : '29%';

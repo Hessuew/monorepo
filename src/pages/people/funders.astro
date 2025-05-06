@@ -55,9 +55,9 @@ const metadata = {
     items={items}
     columns={3}
     classes={{
-      container: 'max-w-7xl mx-auto px-4 sm:px-6 py-8',
+      container: 'max-w-7xl xl:max-w-[1280px] mx-auto px-4 sm:px-6 xl:px-[24px] py-8 xl:py-[32px]',
       items: {
-        container: 'gap-6',
+        container: 'gap-6 xl:gap-[24px]',
       },
     }}
   />
@@ -66,7 +66,7 @@ const metadata = {
 
   <Acknowledgment>
     <Fragment slot="content">
-      <div class="space-y-6">
+      <div class="space-y-6 xl:space-y-[24px]">
         <p>
           We are extremely grateful to all the families who took part in this study, the midwives for their help in
           recruiting them, and the whole ALSPAC team, which includes interviewers, computer and laboratory technicians,
@@ -91,9 +91,15 @@ const metadata = {
           your partnership makes this important work possible.
         </p>
 
-        <div class="pt-8 text-center">
-          <p class="text-lg md:text-xl font-bold text-primary dark:text-primary-dark mb-2">Thank You</p>
-          <p class="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium italic">
+        <div class="pt-8 xl:pt-[32px] text-center">
+          <p
+            class="text-lg md:text-xl xl:text-[20px] xl:leading-[28px] font-bold text-primary dark:text-primary-dark mb-2 xl:mb-[8px]"
+          >
+            Thank You
+          </p>
+          <p
+            class="text-sm md:text-base xl:text-[16px] xl:leading-[24px] text-gray-600 dark:text-gray-400 font-medium italic"
+          >
             for being part of our journey to improve children's health
           </p>
         </div>
@@ -104,9 +110,11 @@ const metadata = {
   <Hero id="section1">
     <Fragment slot="title">
       <div
-        class="mb-8 md:mx-auto md:mb-12 text-center intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        class="mb-8 md:mx-auto md:mb-12 xl:mb-[48px] text-center intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
       >
-        <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl">
+        <h2
+          class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl xl:text-[30px] xl:leading-[36px]"
+        >
           2024 ALSPAC newsletter
         </h2>
       </div>
@@ -115,9 +123,9 @@ const metadata = {
       <!-- Ebook Widget *************** -->
 
       <div
-        class="w-full flex justify-center pb-10 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        class="w-full flex justify-center pb-10 xl:pb-[40px] intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
       >
-        <div class="w-full flex justify-center pb-10 h-[520px] lg:h-[640px]">
+        <div class="w-full flex justify-center pb-10 xl:pb-[40px] h-[520px] lg:h-[640px]">
           <iframe
             aria-label="Your Life in Science Newsletter 2024"
             title="Your Life in Science Newsletter 2024"
@@ -125,7 +133,7 @@ const metadata = {
             width="100%"
             height="100%"
             allow="autoplay"
-            class="max-w-2xl"></iframe>
+            class="max-w-2xl xl:max-w-[672px]"></iframe>
         </div>
       </div>
     </Fragment>
