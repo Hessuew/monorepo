@@ -27,12 +27,12 @@ import Features5 from '../Features5.astro';
   id="awards-and-honours"
   tagline="Awards and Honours"
   title="A Legacy of Excellence"
-  classes={{ container: 'max-w-7xl mx-auto pb-0 md:pb-0 lg:pb-0' }}
+  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pb-0 md:pb-0 lg:pb-0' }}
 >
   <Fragment slot="subtitle">
     <!-- Biblical Quote Section -->
     <div
-      class="max-w-4xl mx-auto bg-gray-50 dark:bg-slate-900 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      class="max-w-4xl xl:max-w-[896px] mx-auto bg-gray-50 dark:bg-slate-900 p-6 xl:p-[24px] rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
     >
       <p class="text-gray-700 dark:text-gray-300 italic">
         <GradientText class="font-bold">O how love I thy law!</GradientText> it is my meditation all the day. Thou through
@@ -41,14 +41,16 @@ import Features5 from '../Features5.astro';
         for thy testimonies are my meditation.
         <GradientText class="font-bold">I understand more than the ancients</GradientText>, because I keep thy precepts.
       </p>
-      <p class="text-right mt-2 text-sm text-gray-600 dark:text-gray-400">— Psalm 119:97–100</p>
+      <p class="text-right mt-2 xl:mt-[8px] text-sm xl:text-[14px] xl:leading-[20px] text-gray-600 dark:text-gray-400">
+        — Psalm 119:97–100
+      </p>
     </div>
 
     <br />
 
     <!-- Introduction Text -->
     <p
-      class="max-w-4xl mx-auto text-lg text-gray-700 dark:text-gray-300 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      class="max-w-4xl xl:max-w-[896px] mx-auto text-lg xl:text-[20px] xl:leading-[28px] text-gray-700 dark:text-gray-300 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
     >
       The research group urFIT-child and its principal investigator, Andrew Agbaje, have received recognition from
       numerous professional boards, academic institutions, and global media outlets.
@@ -58,7 +60,7 @@ import Features5 from '../Features5.astro';
     <br />
     <!-- Recent Awards 2025 -->
     <h2
-      class="text-center text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      class="text-center text-2xl xl:text-[24px] xl:leading-[32px] font-bold text-gray-900 dark:text-white mb-6 xl:mb-[24px] intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
     >
       Recent Awards & Recognition (2025)
     </h2>
@@ -67,38 +69,38 @@ import Features5 from '../Features5.astro';
 
 <!-- Recent Awards 2025 -->
 <Features2
-  classes={{ container: 'max-w-7xl mx-auto pt-0 md:pt-0 lg:pt-0' }}
+  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pt-0 md:pt-0 lg:pt-0' }}
   columns={3}
   items={recentAwards2025.map((item) => ({
     title: item.title,
     icon: item.icon,
     description: `${item.subtitle}
-                 ${item.details ? `<div class="text-primary mt-2">${item.details}</div>` : ''}
+                 ${item.details ? `<div class="text-primary mt-2 xl:mt-[8px]">${item.details}</div>` : ''}
                  ${item.location ? `<br /><br />${item.location}` : ''}`,
   }))}
 />
 
 <!-- Awards 2024 -->
 <h2
-  class="text-center text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+  class="text-center text-2xl xl:text-[24px] xl:leading-[32px] font-bold text-gray-900 dark:text-white mb-6 xl:mb-[24px] intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
 >
   Awards & Recognition (2024)
 </h2>
 
 <!-- Awards 2024 -->
 <Features2
-  classes={{ container: 'max-w-7xl mx-auto pt-0 md:pt-0 lg:pt-0' }}
+  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pt-0 md:pt-0 lg:pt-0' }}
   columns={3}
   items={recentAwards2024.map((item) => ({
     title: item.title,
     icon: item.icon,
     description: `${item.subtitle}
-                 ${item.details ? `<div class="text-primary mt-2">${item.details}</div>` : ''}
+                 ${item.details ? `<div class="text-primary mt-2 xl:mt-[8px]">${item.details}</div>` : ''}
                  ${item.location ? `<br /><br />${item.location}` : ''}`,
   }))}
 />
 
-<div class="flex flex-row relative max-w-7xl mx-auto px-4 sm:px-6">
+<div class="flex flex-row relative max-w-7xl xl:max-w-[1280px] mx-auto px-4 sm:px-6 xl:px-[24px]">
   <Hero
     classes={{ labelContainer: 'pt-0 md:pt-0 lg:pt-0' }}
     image={{
@@ -139,33 +141,33 @@ import Features5 from '../Features5.astro';
 />
 
 <h2
-  class="text-center text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+  class="text-center text-2xl xl:text-[24px] xl:leading-[32px] font-bold text-gray-900 dark:text-white mb-6 xl:mb-[24px] intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
 >
   Past Awards and Recognition
 </h2>
 
 <!-- Past Awards -->
 <Features2
-  classes={{ container: 'max-w-7xl mx-auto pt-0 md:pt-0 lg:pt-0' }}
+  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pt-0 md:pt-0 lg:pt-0' }}
   columns={3}
   items={pastAwards.map((item) => ({
     icon: item.icon,
     title: item.title,
     description: `${item.subtitle}
-                 ${item.details ? `<div class="text-primary mt-2">${item.details}</div>` : ''}
+                 ${item.details ? `<div class="text-primary mt-2 xl:mt-[8px]">${item.details}</div>` : ''}
                  ${item.location ? `<br /><br />${item.location}` : ''}`,
   }))}
 />
 
 <h2
-  class="text-center text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+  class="text-center text-2xl xl:text-[24px] xl:leading-[32px] font-bold text-gray-900 dark:text-white mb-6 xl:mb-[24px] intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
 >
   International Fellowships
 </h2>
 
 <!-- Fellowships and Positions -->
 <Features5
-  classes={{ container: 'max-w-7xl mx-auto pt-0 md:pt-0 lg:pt-0' }}
+  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pt-0 md:pt-0 lg:pt-0' }}
   columns={1}
   image={{
     src: imgFESC,
@@ -177,7 +179,7 @@ import Features5 from '../Features5.astro';
     title: item.title,
     icon: item.icon,
     description: `${item.subtitle}
-                 ${item.details ? `<div class="text-primary text-center mt-2">${item.details}</div>` : ''}
+                 ${item.details ? `<div class="text-primary text-center mt-2 xl:mt-[8px]">${item.details}</div>` : ''}
                  ${item.date ? `<br /><br />${item.date}` : ''}`,
     classes: {
       title: 'text-center',
@@ -187,14 +189,14 @@ import Features5 from '../Features5.astro';
 />
 
 <h2
-  class="text-center text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+  class="text-center text-2xl xl:text-[24px] xl:leading-[32px] font-bold text-gray-900 dark:text-white mb-6 xl:mb-[24px] intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
 >
   Academic Achievements
 </h2>
 
 <!-- Academic Achievements -->
 <Features5
-  classes={{ container: 'max-w-7xl mx-auto pt-0 md:pt-0 lg:pt-0' }}
+  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pt-0 md:pt-0 lg:pt-0' }}
   columns={2}
   image={{
     src: imgPortmourth,
@@ -210,21 +212,21 @@ import Features5 from '../Features5.astro';
     icon: item.icon,
     title: item.title,
     description: `<div class="flex-1">${item.subtitle}
-                 ${item.details ? `<div class="text-primary mt-2">${item.details}</div>` : ''}
+                 ${item.details ? `<div class="text-primary mt-2 xl:mt-[8px]">${item.details}</div>` : ''}
                  </div>
                  ${item.year ? `${item.year}` : ''}`,
   }))}
 />
 
 <h2
-  class="text-center text-2xl font-bold text-gray-900 dark:text-white mb-6 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+  class="text-center text-2xl xl:text-[24px] xl:leading-[32px] font-bold text-gray-900 dark:text-white mb-6 xl:mb-[24px] intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
 >
   Academic Unpaid Position
 </h2>
 
 <!-- Academic Achievements -->
 <Features5
-  classes={{ container: 'max-w-7xl mx-auto pt-0 md:pt-0 lg:pt-0' }}
+  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pt-0 md:pt-0 lg:pt-0' }}
   columns={1}
   image={{
     src: imgAndrew,
@@ -235,7 +237,7 @@ import Features5 from '../Features5.astro';
     icon: item.icon,
     title: item.title,
     description: `<div class="flex-1">${item.subtitle}
-                 ${item.details ? `<div class="text-primary mt-2">${item.details}</div>` : ''}
+                 ${item.details ? `<div class="text-primary mt-2 xl:mt-[8px]">${item.details}</div>` : ''}
                  </div>
                  ${item.year ? `${item.year}` : ''}`,
   }))}
@@ -243,23 +245,23 @@ import Features5 from '../Features5.astro';
 
 <!-- Biblical Quote Footer -->
 <div
-  class="max-w-4xl mx-auto text-center mt-8 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+  class="max-w-4xl xl:max-w-[896px] mx-auto text-center mt-8 xl:mt-[32px] intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
 >
-  <p class="text-gray-700 dark:text-gray-300 italic">
+  <p class="text-base xl:text-[16px] xl:leading-[24px] text-gray-700 dark:text-gray-300 italic">
     "And in all matters of wisdom and understanding, that the king enquired of them, he found them
     <GradientText class="font-bold">ten times better</GradientText>
     than all the magicians and astrologers that were in all his realm."
   </p>
-  <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">— Daniel 1:20 KJV</p>
+  <p class="text-sm xl:text-[14px] xl:leading-[20px] text-gray-600 dark:text-gray-400 mt-2">— Daniel 1:20 KJV</p>
   <br />
-  <p class="text-gray-700 dark:text-gray-300 italic">
+  <p class="text-base xl:text-[16px] xl:leading-[24px] text-gray-700 dark:text-gray-300 italic">
     "Forasmuch as <GradientText class="font-bold">an excellent spirit</GradientText>, and knowledge, and understanding,
     interpreting of dreams, and shewing of hard sentences, and dissolving of doubts, were found in the same Daniel, whom
     the king named Belteshazzar: now let Daniel be called, and he will shew the interpretation."
   </p>
-  <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">— Daniel 5:12 KJV</p>
+  <p class="text-sm xl:text-[14px] xl:leading-[20px] text-gray-600 dark:text-gray-400 mt-2">— Daniel 5:12 KJV</p>
   <br />
-  <p class="text-gray-700 dark:text-gray-300 italic">
+  <p class="text-base xl:text-[16px] xl:leading-[24px] text-gray-700 dark:text-gray-300 italic">
     "Agbaje is an active science communicator who is
     <GradientText class="font-bold">not afraid to challenge conventional views</GradientText> when doing so is backed up
     by his research. Agbaje remembers to always highlight the practical relevance of his research to both health care and
@@ -267,25 +269,31 @@ import Features5 from '../Features5.astro';
     enough time for honing the text, and he is
     <GradientText class="font-bold">skilled at visualising even complex entities.</GradientText>"
   </p>
-  <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">— University of Eastern Finland</p>
+  <p class="text-sm xl:text-[14px] xl:leading-[20px] text-gray-600 dark:text-gray-400 mt-2">
+    — University of Eastern Finland
+  </p>
 </div>
 
 <!-- Graduation Video -->
 <div
-  class="max-w-4xl mx-auto mt-12 mb-8 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade px-4 sm:px-6 lg:px-8"
+  class="max-w-4xl xl:max-w-[896px] mx-auto mt-12 xl:mt-[48px] mb-8 xl:mb-[32px] intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade px-4 sm:px-6 lg:px-8"
 >
   <div
-    class="relative bg-gray-100 dark:bg-slate-800 rounded-lg shadow-sm overflow-hidden cursor-pointer hover:scale-[1.02] hover:shadow-xl transform transition-all duration-300 ease-in-out group w-full max-w-3xl mx-auto"
+    class="relative bg-gray-100 dark:bg-slate-800 rounded-lg shadow-sm overflow-hidden cursor-pointer hover:scale-[1.02] hover:shadow-xl transform transition-all duration-300 ease-in-out group w-full max-w-3xl xl:max-w-[768px] mx-auto"
     id="videoContainer"
     tabindex="0"
   >
-    <p class="absolute z-10 top-4 left-4 text-white font-medium px-3 py-1.5 text-lg">Graduation Clip</p>
+    <p
+      class="absolute z-10 top-4 xl:top-[16px] left-4 xl:left-[16px] text-white font-medium px-3 xl:px-[12px] py-1.5 xl:py-[6px] text-lg xl:text-[18px] xl:leading-[28px]"
+    >
+      Graduation Clip
+    </p>
     <div
       class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-20 transition-all duration-300"
       id="videoOverlay"
     >
       <svg
-        class="w-16 h-16 text-white opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out"
+        class="w-16 h-16 xl:w-[24px] xl:h-[24px] text-white opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -309,7 +317,7 @@ import Features5 from '../Features5.astro';
       Your browser does not support the video tag.
     </video>
   </div>
-  <p class="pt-4 text-center text-sm text-muted dark:text-slate-400">
+  <p class="pt-4 xl:pt-[16px] text-center text-sm xl:text-[14px] xl:leading-[20px] text-muted dark:text-slate-400">
     "To God be the glory", shouts Agbaje as he accepts the degree
   </p>
 </div>

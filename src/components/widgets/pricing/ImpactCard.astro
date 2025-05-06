@@ -14,9 +14,9 @@ export interface Props {
 const { title, subtitle, position, callToAction, hasRibbon = false } = Astro.props;
 
 const podiumPositions = {
-  first: 'transform scale-100 z-20 translate-y-6 pb-12 sm:pb-0',
+  first: 'transform scale-100 z-20 translate-y-6 xl:translate-y-[24px] pb-12 sm:pb-0',
   second: 'transform scale-95 z-10',
-  third: 'transform scale-90 z-0 -translate-y-4',
+  third: 'transform scale-90 z-0 -translate-y-4 xl:-translate-y-[16px]',
 };
 ---
 
@@ -24,21 +24,26 @@ const podiumPositions = {
   class={`col-span-3 mx-auto flex w-full sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1 ${position && podiumPositions[position]}  intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade`}
 >
   <div
-    class="rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow-lg hover:shadow-xl transition-shadow duration-300 px-6 py-8 flex w-full max-w-sm flex-col justify-between text-center"
+    class="rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow-lg hover:shadow-xl transition-shadow duration-300 px-6 xl:px-[24px] py-8 xl:py-[32px] flex w-full max-w-sm xl:max-w-[384px] flex-col justify-between text-center"
   >
     <slot name="ribbon" />
 
-    <div class="px-2 py-0">
+    <div class="px-2 xl:px-[8px] py-0">
       {
         title && (
-          <h3 class="text-center text-xl font-semibold uppercase leading-6 tracking-wider mb-2 text-gray-900 dark:text-white">
+          <h3 class="text-center text-xl xl:text-[24px] leading-6 xl:leading-[28px] font-semibold uppercase tracking-wider mb-2 xl:mb-[8px] text-gray-900 dark:text-white">
             {title}
           </h3>
         )
       }
       {
         subtitle && (
-          <p class={twMerge('font-light sm:text-lg text-gray-800 dark:text-slate-400', subtitle.length < 30 && 'pb-7')}>
+          <p
+            class={twMerge(
+              'font-light sm:text-lg xl:text-[18px] xl:leading-[28px] text-gray-800 dark:text-slate-400',
+              subtitle.length < 30 && 'pb-7 xl:pb-[28px]'
+            )}
+          >
             {subtitle}
           </p>
         )
