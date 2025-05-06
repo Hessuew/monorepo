@@ -74,7 +74,7 @@ const { nav: navClass = '' } = classes;
   <div class="absolute inset-0"></div>
   <div
     class:list={[
-      'relative text-default py-1 px-3 lg:px-6 mx-auto w-full',
+      'relative text-default py-1 px-3 lg:px-6 xl:py-[4px] xl:px-[24px] mx-auto w-full',
       {
         'lg:flex lg:justify-between': position !== 'center',
       },
@@ -82,14 +82,16 @@ const { nav: navClass = '' } = classes;
         'lg:grid lg:grid-cols-3 lg:items-center': position === 'center',
       },
       {
-        'max-w-7xl': !isFullWidth,
+        'max-w-7xl xl:max-w-[1280px]': !isFullWidth,
       },
     ]}
   >
     <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'flex justify-between']}>
       <a class="items-center relative inline-block" href={getHomePermalink()}>
         <Logo />
-        <div class="absolute w-6 h-6 bottom-2 -right-3.5 lg:-bottom-2.5">
+        <div
+          class="absolute w-6 h-6 bottom-2 -right-3.5 lg:-bottom-2.5 xl:w-[24px] xl:h-[24px] xl:-right-[14px] xl:-bottom-[10px]"
+        >
           <AnimatedChildSvg animate={false} classes="w-full h-full" />
         </div>
       </a>
@@ -100,12 +102,12 @@ const { nav: navClass = '' } = classes;
     <nav
       class={twMerge(
         navClass,
-        'items-center w-full lg:w-auto hidden lg:flex lg:mx-5 text-default overflow-y-auto overflow-x-hidden lg:overflow-y-visible lg:overflow-x-auto lg:justify-self-center'
+        'items-center w-full lg:w-auto hidden lg:flex lg:mx-5 xl:mx-[20px] text-default overflow-y-auto overflow-x-hidden lg:overflow-y-visible lg:overflow-x-auto lg:justify-self-center'
       )}
       aria-label="Main navigation"
     >
       <ul
-        class="flex flex-col lg:flex-row lg:self-center w-full lg:w-auto text-xl lg:text-[0.9375rem] tracking-[0.01rem] font-medium lg:justify-center"
+        class="flex flex-col lg:flex-row lg:self-center w-full lg:w-auto text-xl lg:text-[0.9375rem] tracking-[0.01rem] xl:text-[15px] xl:tracking-[0.16px] font-medium lg:justify-center"
       >
         {
           links.map(({ text, href, links }, index) => (
@@ -115,10 +117,10 @@ const { nav: navClass = '' } = classes;
                   <button
                     type="button"
                     class={twMerge(
-                      'px-2.5 py-3 flex items-center whitespace-nowrap',
-                      index !== 0 && 'px-6',
-                      index === 0 && 'lg:w-36 z-20 relative px-6 lg:px-0',
-                      index === 1 && 'lg:-ml-4 relative z-10 lg:pl-0'
+                      'px-2.5 py-3 xl:px-[10px] xl:py-[12px] flex items-center whitespace-nowrap',
+                      index !== 0 && 'px-6 xl:px-[24px]',
+                      index === 0 && 'lg:w-36 xl:w-[144px] z-20 relative px-6 lg:px-0',
+                      index === 1 && 'relative z-10 lg:pl-0 lg:-ml-4 xl:-ml-[24px]'
                     )}
                     data-nav-button
                     id={`nav-button-${index}`}
@@ -127,13 +129,13 @@ const { nav: navClass = '' } = classes;
                       {text}
                       <Icon
                         name="tabler:chevron-down"
-                        class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden lg:inline"
+                        class="w-3.5 h-3.5 ml-0.5 xl:w-[14px] xl:h-[14px] xl:ml-[2px] rtl:ml-0 rtl:mr-0.5 hidden lg:inline"
                       />
                     </span>
                   </button>
                   <div class="flex lg:hidden lg:backdrop-blur-md dark:lg:bg-dark rounded lg:absolute pl-4 lg:pl-0 font-medium lg:bg-white/90 lg:min-w-[480px] drop-shadow-xl lg:border border-gray-200 dark:border-gray-800">
-                    <div class="lg:flex lg:flex-row lg:items-start lg:gap-4 lg:p-4">
-                      <ul class="py-2 lg:flex-1">
+                    <div class="lg:flex lg:flex-row lg:items-start lg:gap-4 xl:gap-[16px] lg:p-4 xl:p-[16px]">
+                      <ul class="py-2 xl:py-[8px] lg:flex-1">
                         {[
                           ...links.filter((link) => !link.image),
                           ...links.filter((link) => link.image).map((link) => ({ ...link, image: undefined })),
@@ -141,7 +143,7 @@ const { nav: navClass = '' } = classes;
                           <li class="block lg:hidden">
                             <a
                               class:list={[
-                                'first:rounded-t last:rounded-b lg:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap',
+                                'first:rounded-t last:rounded-b lg:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 xl:py-[8px] px-5 xl:px-[20px] block whitespace-no-wrap',
                                 { 'aw-link-active': href2 === currentPath },
                               ]}
                               href={getPermalink(`${href2}`)}
@@ -157,7 +159,7 @@ const { nav: navClass = '' } = classes;
               ) : (
                 <a
                   class:list={[
-                    'hover:text-primary px-2.5 py-3 flex items-center whitespace-nowrap',
+                    'hover:text-primary px-2.5 xl:px-[10px] py-3 xl:py-[12px] flex items-center whitespace-nowrap',
                     { 'aw-link-active': href === currentPath },
                   ]}
                   href={getPermalink(`${href}`)}
@@ -180,7 +182,7 @@ const { nav: navClass = '' } = classes;
       <div class="items-center flex justify-between w-full lg:w-auto">
         <div class="flex">
           <!-- {showLangPicker && <LanguagePicker />} -->
-          {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 lg:w-5 lg:h-5 lg:inline-block" />}
+          {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 lg:w-5 lg:h-5 xl:w-[20px] xl:h-[20px] lg:inline-block" />}
           <!-- {
             showRssFeed && (
               <a
@@ -195,9 +197,12 @@ const { nav: navClass = '' } = classes;
         </div>
         {
           actions?.length ? (
-            <span class="ml-4 rtl:ml-0 rtl:mr-4">
+            <span class="ml-4 xl:ml-[16px] rtl:ml-0 rtl:mr-4">
               {actions.map((btnProps) => (
-                <Button {...btnProps} class="ml-2 py-2.5 px-5.5 lg:px-6 font-semibold shadow-none text-sm w-auto" />
+                <Button
+                  {...btnProps}
+                  class="ml-2 xl:ml-[8px] py-2.5 xl:py-[10px] px-5 xl:px-[24px] font-semibold shadow-none text-sm w-auto"
+                />
               ))}
             </span>
           ) : (

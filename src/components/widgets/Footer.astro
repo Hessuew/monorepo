@@ -85,24 +85,26 @@ const { theme = 'light' } = Astro.props;
 
 <footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-gray-200 dark:border-slate-800 not-prose']}>
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 dark:text-slate-300">
-    <div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 pt-8 pb-4 md:pt-12 md:pb-8">
+  <div class="relative max-w-7xl xl:max-w-[1280px] mx-auto px-4 sm:px-6 xl:px-[24px] dark:text-slate-300">
+    <div
+      class="grid grid-cols-12 gap-4 gap-y-8 xl:gap-y-[32px] sm:gap-8 xl:gap-[32px] pt-8 pb-4 md:pt-12 xl:pt-[48px] md:pb-8 xl:pb-[32px]"
+    >
       <div class="col-span-12 lg:col-span-4">
-        <div class="mb-2">
-          <a class="inline-block font-bold text-xl" href="/">urFIT-child</a>
+        <div class="mb-2 xl:mb-[8px]">
+          <a class="inline-block font-bold text-xl xl:text-[20px] xl:leading-[28px]" href="/">urFIT-child</a>
         </div>
-        <div class="text-sm text-muted lg:max-w-[320px]">
+        <div class="text-sm xl:text-[14px] xl:leading-[20px] text-muted lg:max-w-[320px]">
           UndeRstanding FITness and Cardiometabolic Health In Little Darlings
         </div>
       </div>
       {
         links.map(({ title, links }) => (
           <div class="col-span-6 md:col-span-3 lg:col-span-2">
-            <div class="dark:text-gray-300 font-medium mb-2">{title}</div>
+            <div class="dark:text-gray-300 font-medium mb-2 xl:mb-[8px] xl:text-[16px] xl:leading-[24px]">{title}</div>
             {links && Array.isArray(links) && (
-              <ul class="text-sm">
+              <ul class="text-sm xl:text-[14px] xl:leading-[20px]">
                 {links.map(({ text, href }) => (
-                  <li class="mb-2">
+                  <li class="mb-2 xl:mb-[8px]">
                     <a
                       class="text-muted hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out"
                       href={href}
@@ -117,20 +119,20 @@ const { theme = 'light' } = Astro.props;
         ))
       }
     </div>
-    <div class="md:flex md:items-center md:justify-between py-6 md:py-8">
-      <div class="text-sm mr-4 dark:text-muted">
+    <div class="md:flex md:items-center md:justify-between py-6 md:py-8 xl:py-[32px]">
+      <div class="text-sm xl:text-[14px] xl:leading-[20px] mr-4 xl:mr-[16px] dark:text-muted">
         {new Date().getFullYear()} urFIT-child Research Group · All rights reserved
       </div>
       {
         socialLinks?.length ? (
           <nav
             aria-label="Social media links"
-            class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4"
+            class="flex mb-4 xl:mb-[16px] md:order-1 -ml-2 md:ml-4 xl:ml-[16px] md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4 rtl:xl:mr-[16px]"
           >
             {socialLinks.map(({ ariaLabel, href, image }) => (
               <div class="group relative">
                 <a
-                  class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                  class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm xl:text-[14px] xl:leading-[20px] p-2.5 xl:p-[10px] inline-flex items-center"
                   aria-label={ariaLabel}
                   href={href}
                   target="_blank"
@@ -140,7 +142,7 @@ const { theme = 'light' } = Astro.props;
                     <Image
                       src={image.src}
                       alt={image.alt}
-                      class="w-5 h-5 object-contain"
+                      class="w-5 xl:w-[20px] h-5 xl:h-[20px] object-contain"
                       width={400}
                       height={400}
                       loading={'lazy'}
@@ -148,7 +150,7 @@ const { theme = 'light' } = Astro.props;
                     />
                   )}
                 </a>
-                <span class="absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-gray-800 px-2 py-1 text-sm text-white opacity-0 transition-opacity delay-500 group-hover:opacity-100 dark:bg-gray-200 dark:text-gray-800">
+                <span class="absolute -top-10 xl:-top-[40px] left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-gray-800 px-2 xl:px-[10px] py-1 xl:py-[8px] text-sm xl:text-[14px] xl:leading-[20px] text-white opacity-0 transition-opacity delay-500 group-hover:opacity-100 dark:bg-gray-200 dark:text-gray-800">
                   {ariaLabel}
                 </span>
               </div>

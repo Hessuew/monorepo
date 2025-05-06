@@ -177,7 +177,7 @@ const metadata = {
   >
     <Fragment slot="subtitle">
       <div class="text-center w-full">
-        <div class="max-w-xl text-center inline-flex flex-wrap gap-[0.25em] items-center justify-center">
+        <div class="max-w-xl xl:max-w-[768px] text-center inline-flex flex-wrap gap-[4px] items-center justify-center">
           <span>
             <p class="font-semibold text-primary highlight inline-block">U</p>nde<p
               class="font-semibold text-primary highlight inline-block"
@@ -216,9 +216,9 @@ const metadata = {
 
   <!-- Hero Widget ****************** -->
 
-  <Features3 classes={{ container: 'max-w-6xl' }}>
+  <Features3 classes={{ container: 'max-w-6xl xl:max-w-[1152px]' }}>
     <Fragment slot="subtitle">
-      <span class="text-base"
+      <span class="text-base xl:font-[16px] xl:leading-[24px]"
         >Modifiable risk factors are total cholesterol, triglyceride, low-density lipoprotein cholesterol, high-density
         lipoprotein cholesterol, insulin resistance (glucose and insulin), blood pressure, heart rate, low-grade
         inflammation, obesity, body composition (fat mass and muscle mass), sedentary time, light physical activity,
@@ -273,7 +273,7 @@ const metadata = {
       stats={[
         {
           amount: 'urFIT-child',
-          classes: { amount: 'text-[2.6rem] font-bold lg:text-7xl xl:text-7xl' },
+          classes: { amount: 'text-[2.6rem] font-bold lg:text-[72px] xl:text-[72px]' },
           lowerCase: true,
           curve: true,
         },
