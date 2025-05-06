@@ -27,7 +27,7 @@ import Stats from '~/components/widgets/Stats.astro';
   }
 </style>
 
-<Stats classes={{ container: 'max-w-6xl mx-auto', item: 'md:w-full' }}>
+<Stats classes={{ container: 'max-w-6xl xl:max-w-[1152px] mx-auto', item: 'md:w-full' }}>
   <Fragment slot="title">
     <div class="text-center">
       Engulfing the globe with
@@ -38,7 +38,7 @@ import Stats from '~/components/widgets/Stats.astro';
   <Fragment slot="subtitle">
     <div class="text-center w-full wave-wrapper">
       <div
-        class="inline-flex flex-row bg-gradient-to-r from-orange-600 to-yellow-400 text-transparent bg-clip-text italic text-4xl xs:text-5xl md:text-6xl font-bold leading-tighter tracking-tighter pr-3"
+        class="inline-flex flex-row bg-gradient-to-r from-orange-600 to-yellow-400 text-transparent bg-clip-text italic text-4xl xs:text-5xl md:text-6xl xl:text-[60px] xl:leading-[64px] font-bold leading-tighter tracking-tighter pr-3 xl:pr-[12px]"
       >
         <span class="animate-letter" style="animation-delay: 800ms;">F</span>
         <span class="animate-letter" style="animation-delay: 850ms;">l</span>
