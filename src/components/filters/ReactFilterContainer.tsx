@@ -134,7 +134,8 @@ export default function ReactFilterContainer({
     setFilters((prev) => ({ ...prev, search: event.target.value }));
   };
 
-  const buttonClass = 'rounded-full px-4 py-2 text-sm font-medium transition-all whitespace-nowrap';
+  const buttonClass =
+    'rounded-full px-4 py-2 xl:px-[24px] xl:py-[8px] text-sm xl:text-[14px] xl:leading-[20px] font-medium transition-all whitespace-nowrap';
   const getHoverClass = (variant: 'type' | 'category') =>
     variant === 'type' ? 'hover:bg-blue-100 dark:hover:bg-blue-900' : 'hover:bg-gray-100 dark:hover:bg-gray-800';
 
@@ -156,11 +157,16 @@ export default function ReactFilterContainer({
     >
       <button
         type='button'
-        className='h-full px-3 flex items-center bg-page text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 z-10'
+        className='h-full px-3 xl:px-[12px] flex items-center bg-page text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 z-10'
         onClick={() => handleScroll(direction, variant)}
         aria-label={`Scroll ${direction}`}
       >
-        <svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5' viewBox='0 0 20 20' fill='currentColor'>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          className='h-5 w-5 xl:h-[20px] xl:w-[20px]'
+          viewBox='0 0 20 20'
+          fill='currentColor'
+        >
           <path
             fillRule='evenodd'
             d={
@@ -173,7 +179,7 @@ export default function ReactFilterContainer({
         </svg>
       </button>
       <div
-        className={`absolute ${direction === 'left' ? 'left-full' : 'right-full'} top-0 bottom-0 w-12 
+        className={`absolute ${direction === 'left' ? 'left-full' : 'right-full'} top-0 bottom-0 w-12 xl:w-[48px] 
           ${direction === 'left' ? 'bg-gradient-to-r' : 'bg-gradient-to-l'} 
           from-page to-transparent pointer-events-none`}
       />
@@ -183,12 +189,16 @@ export default function ReactFilterContainer({
   return (
     <div className='w-full' data-filter-root>
       <style>{styles}</style>
-      <div className='flex flex-col gap-4'>
-        <div className='flex flex-wrap-reverse items-center gap-4'>
+      <div className='flex flex-col gap-4 xl:gap-[16px]'>
+        <div className='flex flex-wrap-reverse items-center gap-4 xl:gap-[16px]'>
           <div className='flex-1 min-w-0'>
             <div className='relative'>
               <div className='overflow-x-auto hide-scrollbar' ref={typeScrollContainerRef} data-scroll-container>
-                <div className='flex gap-2 min-w-max px-2' data-filter-buttons data-variant='type'>
+                <div
+                  className='flex gap-2 xl:gap-[8px] min-w-max px-2 xl:px-[8px]'
+                  data-filter-buttons
+                  data-variant='type'
+                >
                   <button
                     type='button'
                     className={`${buttonClass} ${getHoverClass('type')} ${
@@ -230,12 +240,12 @@ export default function ReactFilterContainer({
             </div>
           </div>
           {showSearch && (
-            <div className='w-full md:w-auto md:min-w-[18.75rem]'>
+            <div className='w-full md:w-auto md:min-w-[18.75rem] xl:min-w-[300px]'>
               <div className='relative'>
                 <input
                   id={gridId ? `${gridId}-quick-filter` : 'search-input'}
                   type='text'
-                  className='w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600'
+                  className='text-base xl:text-[16px] xl:leading-[24px] w-full px-4 py-2 xl:px-[16px] xl:py-[8px] rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600'
                   placeholder='Search...'
                   value={filters.search}
                   onChange={handleSearch}
@@ -249,7 +259,11 @@ export default function ReactFilterContainer({
           <div className='w-full'>
             <div className='relative'>
               <div className='overflow-x-auto hide-scrollbar' ref={categoryScrollContainerRef} data-scroll-container>
-                <div className='flex gap-2 min-w-max px-2' data-filter-buttons data-variant='category'>
+                <div
+                  className='flex gap-2 xl:gap-[8px] min-w-max px-2 xl:px-[8px]'
+                  data-filter-buttons
+                  data-variant='category'
+                >
                   <button
                     type='button'
                     className={`${buttonClass} ${getHoverClass('category')} ${

@@ -28,7 +28,7 @@ const {
   id={id}
   animated={animated}
   isDark={isDark}
-  containerClass={`${isBeforeContent ? 'md:pb-8 lg:pb-12 xl:pb-[48px]' : ''} ${isAfterContent ? 'pt-0 md:pt-0 lg:pt-0' : ''} ${
+  containerClass={`${isBeforeContent ? 'md:pb-8 lg:pb-12 xl:pb-[48px]' : ''} ${isAfterContent ? 'pt-0 md:pt-0 lg:pt-0 xl:pt-0' : ''} ${
     classes?.container ?? ''
   }`}
   bg={bg}
@@ -63,7 +63,7 @@ const {
     classes={{
       container: 'mt-12 xl:mt-[48px]',
       panel: 'max-w-full sm:max-w-md',
-      title: 'text-lg font-semibold',
+      title: 'text-lg xl:text-[20px] xl:leading-[28px] font-semibold',
       description: 'mt-0.5 xl:mt-[2px]',
       // icon: 'flex-shrink-0 mt-1 text-secondary w-6 h-6',
       icon: 'flex-shrink-0 mt-1 xl:mt-[4px] text-primary w-6 xl:w-[24px] h-6 xl:h-[24px]',

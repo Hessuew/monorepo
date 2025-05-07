@@ -56,7 +56,11 @@ const metadata = {
       <div
         class="intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
       >
-        <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Waist circumference</h3>
+        <h3
+          class="text-2xl sm:text-3xl xl:text-[30px] xl:leading-[36px] mb-2 xl:mb-[8px] font-bold tracking-tight dark:text-white"
+        >
+          Waist circumference
+        </h3>
         Acquire a flexible measuring tape or tape rule. Feel for your hip bone and your bottom rib, and place the tape measure
         evenly around your waist which is halfway between the last rib and hip bone. The waistline may lie directly above
         your umbilicus. (If needed, use a mirror to guide the tape straight around your waist and parallel to the ground.)
@@ -64,7 +68,11 @@ const metadata = {
         <br />
         <br />
 
-        <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Height measurement</h3>
+        <h3
+          class="text-2xl sm:text-3xl xl:text-[30px] xl:leading-[36px] mb-2 xl:mb-[8px] font-bold tracking-tight dark:text-white"
+        >
+          Height measurement
+        </h3>
         A tape measure, a flat surface, and a pencil are needed. Stand with your feet without shoes flat on the floor with
         your heels against the corner where the wall and floor meet. Ensure your head, shoulders, and buttocks touch the
         wall. Look straight ahead parallel to the floor. Have someone place a book or a ruler over your head and lightly
@@ -81,12 +89,15 @@ const metadata = {
     tagline="Waist-to-height calculator"
     title="Calculate your waist/height ratio"
     classes={{
-      labelContainerClass: 'lg:pt-0 lg:pb-0 md:pt-0 md:pb-0',
+      titleClass: 'lg:text-[44px] lg:leading-[52px] xl:text-[44px] xl:leading-[52px]',
+      labelContainerClass: 'lg:py-0 md:py-0 xl:py-0',
     }}
   >
     <Fragment slot="image">
       <Calculator />
-      <span class="block mt-8 text-center dark:text-slate-400">1 inch = 2.54 cm</span>
+      <span class="text-base xl:text-[16px] xl:leading-[24px] block mt-8 xl:mt-[32px] text-center dark:text-slate-400"
+        >1 inch = 2.54 cm</span
+      >
     </Fragment>
   </Hero>
 
@@ -96,7 +107,7 @@ const metadata = {
     title="Result interpretation"
     columns={1}
     classes={{
-      container: 'lg:pt-0 lg:pb-0 md:pt-0 md:pb-0',
+      container: 'lg:py-0 md:py-0 xl:py-0',
     }}
     items={[
       {
@@ -157,7 +168,7 @@ const metadata = {
   <ContentSection>
     <Fragment slot="subtitle">
       <p
-        class="intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        class="text-base xl:text-[16px] xl:leading-[24px] intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
       >
         Obesity is a chronic relapsing disease of <GradientText class="font-bold">excess fat</GradientText> accumulation
         (adiposopathy) but not <GradientText class="font-bold">excess weight</GradientText>. To limit the stigma
@@ -174,13 +185,13 @@ const metadata = {
   <ContentSection>
     <Fragment slot="subtitle">
       <h3
-        class="text-center text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        class="text-center text-2xl sm:text-3xl xl:text-[30px] xl:leading-[36px] mb-2 xl:mb-[8px] font-bold tracking-tight dark:text-white intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
       >
         Description
       </h3>
       <br />
       <p
-        class="intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        class="text-base xl:text-[16px] xl:leading-[24px] intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
       >
         Waist circumference-to-height ratio had a very high agreement of 81 – 89% with DEXA-measured total body fat mass
         and trunk fat mass, but a low agreement with muscle mass (24 – 39%). BMI had a moderate agreement with total fat
@@ -193,10 +204,10 @@ const metadata = {
         This cut point detected 8 out of 10 males and 7 out of 10 females who truly had excess DEXA-measured fat. The cut
         point also identified 93 out of 100 males and 95 out of 100 females who truly do not have excess fat.
       </p>
-      <br />
-      <br />
+
+      <Hero image={{ src: imgCalculator, alt: 'Waist to Height Ratio vs BMI Press Release', isInfographics: true }} />
       <p
-        class="intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        class="text-base xl:text-[16px] xl:leading-[24px] intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
       >
         “This study provides novel information that would be useful in updating future childhood obesity guidelines and
         policy statements. The average waist circumference-to-height ratio in childhood, adolescence, and young
@@ -207,25 +218,23 @@ const metadata = {
         circumference-to-height ratio.”
         <GradientText class="font-bold"> says Andrew Agbaje </GradientText>
       </p>
+
+      <Hero image={{ src: imgBMI, alt: 'Press release BMI versus WHtR', height: 1333, width: 2000 }} />
     </Fragment>
   </ContentSection>
 
   <!-- Hero Widget ******************* -->
 
-  <Hero image={{ src: imgBMI, alt: 'Press release BMI versus WHtR', height: 1333, width: 2000 }} />
-
-  <Hero image={{ src: imgCalculator, alt: 'Waist to Height Ratio vs BMI Press Release', isInfographics: true }} />
-
   <Features4
     title="References"
     columns={3}
     classes={{
-      container: 'max-w-5xl mx-auto px-4 sm:px-6 py-8',
+      container: 'max-w-5xl xl:max-w-[1024px] mx-auto px-4 sm:px-6 xl:px-[24px] py-8 xl:py-[32px]',
       items: {
-        container: 'gap-6',
+        container: 'gap-6 xl:gap-[24px]',
         itemContainer: 'items-start',
         text: 'text-start',
-        title: 'text-xl',
+        title: 'text-xl xl:text-[20px] xl:leading-[28px]',
         subtitle: 'text-primary',
       },
     }}

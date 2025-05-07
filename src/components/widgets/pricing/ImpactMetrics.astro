@@ -15,7 +15,9 @@ const { impactFactor, impactLabel, items } = Astro.props;
   {
     impactFactor && (
       <div class="flex items-center justify-center text-center mb-1 xl:mb-[4px]">
-        <span class="text-6xl font-extrabold text-gray-900 dark:text-white">{impactFactor}</span>
+        <span class="text-6xl xl:text-[60px] xl:leading-[64px] font-extrabold text-gray-900 dark:text-white">
+          {impactFactor}
+        </span>
       </div>
     )
   }
@@ -42,7 +44,9 @@ const { impactFactor, impactLabel, items } = Astro.props;
                   aria-hidden="true"
                 />
               </div>
-              <span class="text-gray-900 dark:text-white">{description}</span>
+              <span class="text-base xl:text-[16px] xl:leading-[24px] text-gray-900 dark:text-white">
+                {description}
+              </span>
             </li>
           )
       )}

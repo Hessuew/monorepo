@@ -45,7 +45,6 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
     position: relative;
     padding: 12px 42px;
     border-radius: 24px;
-    font-size: 1.25rem;
     color: white;
     background: hsl(213, 51%, 57%);
     /* background: hsl(345deg 100% 47%); */
@@ -148,17 +147,17 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
     <button id="pressMeButton" class="pushable">
       <span class="shadow"></span>
       <span class="edge"></span>
-      <span class="front">
-        <div class="flex flex-row items-center gap-2">
+      <span class="front text-xl xl:text-[20px] xl:leading-[28px]">
+        <div class="flex flex-row items-center gap-2 xl:gap-[8px]">
           Press Me
           <span class="wave">
-            <Icon name="tabler:hand-click" class="mt-3 w-6 h-6" />
+            <Icon name="tabler:hand-click" class="mt-3 xl:mt-[12px] w-6 h-6 xl:w-[24px] xl:h-[24px]" />
           </span>
         </div>
       </span>
     </button>
-    <div class="down-arrow absolute -bottom-10" data-down-arrow>
-      <Icon name="tabler:chevron-down" color="white" class="w-24 h-24 smooth-hover" />
+    <div class="down-arrow absolute -bottom-10 xl:-bottom-[40px]" data-down-arrow>
+      <Icon name="tabler:chevron-down" color="white" class="w-24 h-24 xl:w-[96px] xl:h-[96px] smooth-hover" />
     </div>
   </div>
 </WidgetWrapper>

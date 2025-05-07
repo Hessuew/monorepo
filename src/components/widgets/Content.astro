@@ -29,7 +29,7 @@ const {
 } = Astro.props;
 
 const {
-  icon: defaultIconClass = 'flex h-7 w-7 xl:h-[28px] xl:w-[28px] items-center justify-center rounded-full bg-green-600 dark:bg-green-700 text-gray-50 p-1 xl:p-[4px]',
+  icon: defaultIconClass = 'flex h-7 w-7 xl:h-[32px] xl:w-[32px] items-center justify-center rounded-full bg-green-600 dark:bg-green-700 text-gray-50 p-1 xl:p-[4px]',
 } = classes;
 ---
 
@@ -37,7 +37,7 @@ const {
   animated={animated}
   id={id}
   isDark={isDark}
-  containerClass={`max-w-7xl xl:max-w-[1280px] mx-auto ${isAfterContent ? 'pt-0 md:pt-0 lg:pt-0' : ''} ${classes?.container ?? ''}`}
+  containerClass={`max-w-7xl xl:max-w-[1280px] mx-auto ${isAfterContent ? 'pt-0 md:pt-0 lg:pt-0 xl:pt-0' : ''} ${classes?.container ?? ''}`}
   bg={bg}
 >
   <Headline

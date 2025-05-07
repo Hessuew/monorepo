@@ -27,14 +27,14 @@ import Features5 from '../Features5.astro';
   id="awards-and-honours"
   tagline="Awards and Honours"
   title="A Legacy of Excellence"
-  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pb-0 md:pb-0 lg:pb-0' }}
+  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pb-0 md:pb-0 lg:pb-0 xl:pb-0' }}
 >
   <Fragment slot="subtitle">
     <!-- Biblical Quote Section -->
     <div
       class="max-w-4xl xl:max-w-[896px] mx-auto bg-gray-50 dark:bg-slate-900 p-6 xl:p-[24px] rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
     >
-      <p class="text-gray-700 dark:text-gray-300 italic">
+      <p class="text-base xl:text-[16px] xl:leading-[24px] text-gray-700 dark:text-gray-300 italic">
         <GradientText class="font-bold">O how love I thy law!</GradientText> it is my meditation all the day. Thou through
         thy commandments hast made me wiser than mine enemies: for they are ever with me.
         <GradientText class="font-bold">I have more understanding than all my teachers:</GradientText>
@@ -69,13 +69,13 @@ import Features5 from '../Features5.astro';
 
 <!-- Recent Awards 2025 -->
 <Features2
-  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pt-0 md:pt-0 lg:pt-0' }}
+  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pt-0 md:pt-0 lg:pt-0 xl:pt-0' }}
   columns={3}
   items={recentAwards2025.map((item) => ({
     title: item.title,
     icon: item.icon,
     description: `${item.subtitle}
-                 ${item.details ? `<div class="text-primary mt-2 xl:mt-[8px]">${item.details}</div>` : ''}
+                 ${item.details ? `<div class="text-base xl:text-[16px] xl:leading-[24px] text-primary mt-2 xl:mt-[8px]">${item.details}</div>` : ''}
                  ${item.location ? `<br /><br />${item.location}` : ''}`,
   }))}
 />
@@ -89,20 +89,20 @@ import Features5 from '../Features5.astro';
 
 <!-- Awards 2024 -->
 <Features2
-  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pt-0 md:pt-0 lg:pt-0' }}
+  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pt-0 md:pt-0 lg:pt-0 xl:pt-0' }}
   columns={3}
   items={recentAwards2024.map((item) => ({
     title: item.title,
     icon: item.icon,
     description: `${item.subtitle}
-                 ${item.details ? `<div class="text-primary mt-2 xl:mt-[8px]">${item.details}</div>` : ''}
+                 ${item.details ? `<div class="text-base xl:text-[16px] xl:leading-[24px] text-primary mt-2 xl:mt-[8px]">${item.details}</div>` : ''}
                  ${item.location ? `<br /><br />${item.location}` : ''}`,
   }))}
 />
 
 <div class="flex flex-row relative max-w-7xl xl:max-w-[1280px] mx-auto px-4 sm:px-6 xl:px-[24px]">
   <Hero
-    classes={{ labelContainer: 'pt-0 md:pt-0 lg:pt-0' }}
+    classes={{ labelContainer: 'pt-0 md:pt-0 lg:pt-0 xl:pt-0' }}
     image={{
       src: imgScholarGPS,
       alt: 'ScholarGPS ranking 2024',
@@ -111,7 +111,7 @@ import Features5 from '../Features5.astro';
     imageText="ScholarGPS ranking 2024"
   />
   <Hero
-    classes={{ labelContainer: 'pt-0 md:pt-0 lg:pt-0' }}
+    classes={{ labelContainer: 'pt-0 md:pt-0 lg:pt-0 xl:pt-0' }}
     image={{
       src: imgScholarGPSSpecialties,
       alt: 'ScholarGPS specialties last 5 years',
@@ -122,7 +122,7 @@ import Features5 from '../Features5.astro';
 </div>
 
 <Hero
-  classes={{ labelContainer: 'pt-0 md:pt-0 lg:pt-0' }}
+  classes={{ labelContainer: 'pt-0 md:pt-0 lg:pt-0 xl:pt-0' }}
   image={{
     src: imgEASO_NovoNordisk,
     alt: 'EASO-Novo Nordisk Award 2024',
@@ -132,7 +132,7 @@ import Features5 from '../Features5.astro';
 />
 
 <Hero
-  classes={{ labelContainer: 'pt-0 md:pt-0 lg:pt-0' }}
+  classes={{ labelContainer: 'pt-0 md:pt-0 lg:pt-0 xl:pt-0' }}
   image={{
     src: imgFescLondon,
     alt: 'Agbaje at ESC Congress, London 2024',
@@ -148,13 +148,13 @@ import Features5 from '../Features5.astro';
 
 <!-- Past Awards -->
 <Features2
-  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pt-0 md:pt-0 lg:pt-0' }}
+  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pt-0 md:pt-0 lg:pt-0 xl:pt-0' }}
   columns={3}
   items={pastAwards.map((item) => ({
     icon: item.icon,
     title: item.title,
     description: `${item.subtitle}
-                 ${item.details ? `<div class="text-primary mt-2 xl:mt-[8px]">${item.details}</div>` : ''}
+                 ${item.details ? `<div class="text-base xl:text-[16px] xl:leading-[24px] text-primary mt-2 xl:mt-[8px]">${item.details}</div>` : ''}
                  ${item.location ? `<br /><br />${item.location}` : ''}`,
   }))}
 />
@@ -167,7 +167,7 @@ import Features5 from '../Features5.astro';
 
 <!-- Fellowships and Positions -->
 <Features5
-  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pt-0 md:pt-0 lg:pt-0' }}
+  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pt-0 md:pt-0 lg:pt-0 xl:pt-0' }}
   columns={1}
   image={{
     src: imgFESC,
@@ -179,7 +179,7 @@ import Features5 from '../Features5.astro';
     title: item.title,
     icon: item.icon,
     description: `${item.subtitle}
-                 ${item.details ? `<div class="text-primary text-center mt-2 xl:mt-[8px]">${item.details}</div>` : ''}
+                 ${item.details ? `<div class="text-base xl:text-[16px] xl:leading-[24px] text-primary text-center mt-2 xl:mt-[8px]">${item.details}</div>` : ''}
                  ${item.date ? `<br /><br />${item.date}` : ''}`,
     classes: {
       title: 'text-center',
@@ -196,7 +196,7 @@ import Features5 from '../Features5.astro';
 
 <!-- Academic Achievements -->
 <Features5
-  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pt-0 md:pt-0 lg:pt-0' }}
+  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pt-0 md:pt-0 lg:pt-0 xl:pt-0' }}
   columns={2}
   image={{
     src: imgPortmourth,
@@ -212,7 +212,7 @@ import Features5 from '../Features5.astro';
     icon: item.icon,
     title: item.title,
     description: `<div class="flex-1">${item.subtitle}
-                 ${item.details ? `<div class="text-primary mt-2 xl:mt-[8px]">${item.details}</div>` : ''}
+                 ${item.details ? `<div class="text-base xl:text-[16px] xl:leading-[24px] text-primary mt-2 xl:mt-[8px]">${item.details}</div>` : ''}
                  </div>
                  ${item.year ? `${item.year}` : ''}`,
   }))}
@@ -226,7 +226,7 @@ import Features5 from '../Features5.astro';
 
 <!-- Academic Achievements -->
 <Features5
-  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pt-0 md:pt-0 lg:pt-0' }}
+  classes={{ container: 'max-w-7xl xl:max-w-[1280px] mx-auto pt-0 md:pt-0 lg:pt-0 xl:pt-0' }}
   columns={1}
   image={{
     src: imgAndrew,
@@ -237,7 +237,7 @@ import Features5 from '../Features5.astro';
     icon: item.icon,
     title: item.title,
     description: `<div class="flex-1">${item.subtitle}
-                 ${item.details ? `<div class="text-primary mt-2 xl:mt-[8px]">${item.details}</div>` : ''}
+                 ${item.details ? `<div class="text-base xl:text-[16px] xl:leading-[24px] text-primary mt-2 xl:mt-[8px]">${item.details}</div>` : ''}
                  </div>
                  ${item.year ? `${item.year}` : ''}`,
   }))}
