@@ -135,7 +135,7 @@ export function ReactCalculator(): React.JSX.Element {
   return (
     <div>
       <fieldset
-        className='flex justify-center gap-4 items-center pb-2 sm:pb-4'
+        className='flex justify-center gap-4 xl:gap-[16px] items-center pb-2 sm:pb-4 xl:pb-[16px]'
         role='radiogroup'
         aria-label='Select gender'
       >
@@ -148,9 +148,12 @@ export function ReactCalculator(): React.JSX.Element {
             value='male'
             checked={inputs.gender === 'male'}
             onChange={(e) => setInputs((prev) => ({ ...prev, gender: e.target.value as Gender }))}
-            className='h-4 w-4 text-blue-500 border-gray-300 focus:ring-blue-500 dark:border-gray-600 dark:focus:ring-blue-600'
+            className='text-base xl:text-[16px] xl:leading-[24px] h-4 w-4 xl:h-[16px] xl:w-[16px] text-blue-500 border-gray-300 focus:ring-blue-500 dark:border-gray-600 dark:focus:ring-blue-600'
           />
-          <label htmlFor='male' className='ml-2 text-sm font-medium text-gray-700 dark:text-gray-300'>
+          <label
+            htmlFor='male'
+            className='ml-2 xl:ml-[8px] text-sm xl:text-[14px] xl:leading-[20px] font-medium text-gray-700 dark:text-gray-300'
+          >
             Male
           </label>
         </div>
@@ -162,22 +165,25 @@ export function ReactCalculator(): React.JSX.Element {
             value='female'
             checked={inputs.gender === 'female'}
             onChange={(e) => setInputs((prev) => ({ ...prev, gender: e.target.value as Gender }))}
-            className='h-4 w-4 text-blue-500 border-gray-300 focus:ring-blue-500 dark:border-gray-600 dark:focus:ring-blue-600'
+            className='text-base xl:text-[16px] xl:leading-[24px] h-4 w-4 xl:h-[16px] xl:w-[16px] text-blue-500 border-gray-300 focus:ring-blue-500 dark:border-gray-600 dark:focus:ring-blue-600'
           />
-          <label htmlFor='female' className='ml-2 text-sm font-medium text-gray-700 dark:text-gray-300'>
+          <label
+            htmlFor='female'
+            className='ml-2 xl:ml-[8px] text-sm xl:text-[14px] xl:leading-[20px] font-medium text-gray-700 dark:text-gray-300'
+          >
             Female
           </label>
         </div>
       </fieldset>
 
-      <div className='flex flex-col gap-6 p-4 bg-white dark:bg-slate-900 rounded-lg border border-gray-200 dark:border-gray-700 shadow sm:p-6 lg:p-8 w-full'>
+      <div className='flex flex-col gap-6 xl:gap-[24px] p-4 sm:p-6 lg:p-8 xl:p-[32px] bg-white dark:bg-slate-900 rounded-lg border border-gray-200 dark:border-gray-700 shadow w-full'>
         <div className='flex-row flex gap-2 sm:gap-4 md:gap-6 items-start'>
           <div className='w-24 sm:w-full relative'>
-            <label htmlFor='waist' className='block text-sm font-medium'>
+            <label htmlFor='waist' className='block text-sm xl:text-[14px] xl:leading-[20px] font-medium'>
               Waist (cm)
             </label>
             {errors.waist && (
-              <div className='absolute -top-6 left-0 right-0 px-2 py-1 rounded text-xs bg-red-50 text-red-700 dark:bg-red-900/50 dark:text-red-200'>
+              <div className='absolute -top-6 xl:-top-[24px] left-0 right-0 px-2 xl:px-[8px] py-1 xl:py-[4px] rounded text-xs bg-red-50 text-red-700 dark:bg-red-900/50 dark:text-red-200'>
                 {errors.waist}
               </div>
             )}
@@ -190,19 +196,19 @@ export function ReactCalculator(): React.JSX.Element {
               placeholder='0 cm'
               min='0'
               max='300'
-              className='w-full py-3 pl-4 pr-2 block text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600'
+              className='text-base xl:text-[16px] xl:leading-[24px] w-full py-3 pl-4 pr-2 xl:py-[12px] xl:pl-[16px] xl:pr-[8px] block rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600'
               aria-describedby='waist-error'
             />
           </div>
 
-          <p className='block font-medium text-2xl pt-7'>/</p>
+          <p className='block font-medium text-2xl xl:text-[24px] xl:leading-[32px] pt-7 xl:pt-[28px]'>/</p>
 
           <div className='w-24 sm:w-full relative'>
-            <label htmlFor='height' className='block text-sm font-medium'>
+            <label htmlFor='height' className='block text-sm xl:text-[14px] xl:leading-[20px] font-medium'>
               Height (cm)
             </label>
             {errors.height && (
-              <div className='absolute -top-6 left-0 right-0 px-2 py-1 rounded text-xs bg-red-50 text-red-700 dark:bg-red-900/50 dark:text-red-200'>
+              <div className='absolute -top-6 xl:-top-[24px] left-0 right-0 px-2 xl:px-[8px] py-1 xl:py-[4px] rounded text-xs bg-red-50 text-red-700 dark:bg-red-900/50 dark:text-red-200'>
                 {errors.height}
               </div>
             )}
@@ -215,17 +221,17 @@ export function ReactCalculator(): React.JSX.Element {
               placeholder='0 cm'
               min='0'
               max='300'
-              className='w-full py-3 pl-4 pr-2 block text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600'
+              className='text-base xl:text-[16px] xl:leading-[24px] w-full py-3 pl-4 pr-2 xl:py-[12px] xl:pl-[16px] xl:pr-[8px] block rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600'
               aria-describedby='height-error'
             />
           </div>
 
-          <p className='block font-medium text-2xl pt-7'>=</p>
+          <p className='block font-medium text-2xl xl:text-[24px] xl:leading-[32px] pt-7 xl:pt-[28px]'>=</p>
 
-          <div className='w-24 sm:w-44 pt-8 relative'>
-            <p className='block font-medium text-lg truncate'>{result}</p>
+          <div className='w-24 sm:w-44 xl:w-[176px] pt-8 xl:pt-[32px] relative'>
+            <p className='block font-medium text-lg truncate xl:text-[18px] xl:leading-[28px]'>{result}</p>
             {showLine && (
-              <div className='absolute -bottom-2 left-0 right-0 h-2 w-10 overflow-hidden'>
+              <div className='absolute -bottom-2 xl:-bottom-[8px] left-0 right-0 h-2 xl:h-[8px] w-10 xl:w-[40px] overflow-hidden'>
                 <div
                   className={`h-full transition-[width] duration-500 ease-out ${getResultColor(parseFloat(result))}`}
                   style={{ width: `${lineWidth}%` }}
@@ -235,7 +241,7 @@ export function ReactCalculator(): React.JSX.Element {
             )}
             {showLine && result !== '0' && (
               <div
-                className={`absolute -right-2 bottom-0.5 opacity-0 transition-opacity duration-500 ${lineWidth === 100 ? 'opacity-100' : ''}`}
+                className={`absolute -right-2 xl:-right-[8px] bottom-0.5 xl:bottom-[2px] opacity-0 transition-opacity duration-500 ${lineWidth === 100 ? 'opacity-100' : ''}`}
                 aria-hidden='true'
               >
                 {getResultIcon(parseFloat(result))}

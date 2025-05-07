@@ -33,7 +33,12 @@ const containerId =
     .reduce((a, b) => ((a << 5) - a + b.charCodeAt(0)) | 0, 0)}`;
 ---
 
-<WidgetWrapper id={containerId} isDark={isDark} containerClass={classes?.container ?? `max-w-7xl mx-auto`} bg={bg}>
+<WidgetWrapper
+  id={containerId}
+  isDark={isDark}
+  containerClass={classes?.container ?? `max-w-7xl xl:max-w-[1280px] mx-auto`}
+  bg={bg}
+>
   <ReactFilterContainer
     client:load
     options={options}

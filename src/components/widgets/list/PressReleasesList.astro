@@ -19,17 +19,21 @@ const { columns = 2, classes = {} } = Astro.props;
 ---
 
 <WidgetWrapper animated={false} containerClass="py-0 lg:py-0 md:py-0">
-  <div class="max-w-7xl mx-auto" role="region" aria-label="Press Releases">
+  <div class="max-w-7xl xl:max-w-[1280px] mx-auto" role="region" aria-label="Press Releases">
     {
       sortedYears.map((year) => (
-        <div class="mb-16 sm:mb-24 item-year-card" role="region" aria-label={`Press Releases from ${year}`}>
-          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 sm:mb-12 text-center intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade">
+        <div
+          class="mb-16 sm:mb-24 xl:mb-[96px] item-year-card"
+          role="region"
+          aria-label={`Press Releases from ${year}`}
+        >
+          <h2 class="text-3xl sm:text-4xl xl:text-[36px] xl:leading-[40px] mb-8 sm:mb-12 xl:mb-[48px] font-bold text-gray-900 dark:text-gray-100 text-center intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade">
             {year}
           </h2>
 
           <div
             class={twMerge(
-              `grid gap-8 gap-x-12 sm:gap-y-8 grid-auto-flow-row ${
+              `grid gap-8 gap-x-12 sm:gap-y-8 xl:gap-[32px] xl:gap-x-[48px] xl:gap-y-[32px] grid-auto-flow-row ${
                 columns === 4
                   ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
                   : columns === 3
@@ -49,7 +53,7 @@ const { columns = 2, classes = {} } = Astro.props;
                   target="_blank"
                   rel="noopener noreferrer"
                   class={twMerge(
-                    'item-card block no-underline hover:no-underline group duration-[1500ms] ease-out focus:outline-none focus:ring-2 focus:ring-primary rounded-lg intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade',
+                    'item-card block no-underline hover:no-underline group duration-1000 ease-out focus:outline-none focus:ring-2 focus:ring-primary rounded-lg intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade',
                     classes.item
                   )}
                   data-type={release.type}
@@ -59,7 +63,7 @@ const { columns = 2, classes = {} } = Astro.props;
                 >
                   <div
                     class={twMerge(
-                      'bg-white dark:bg-slate-900 rounded-lg shadow-lg dark:shadow-none p-6 h-full transition-all duration-300 group-hover:shadow-xl dark:group-hover:shadow-none',
+                      'bg-white dark:bg-slate-900 rounded-lg shadow-lg dark:shadow-none p-6 xl:p-[24px] h-full transition-all duration-300 group-hover:shadow-xl dark:group-hover:shadow-none',
                       classes.item
                     )}
                     aria-labelledby={`press-release-${release.title.toLowerCase().replace(/\s+/g, '-')}`}
@@ -67,7 +71,7 @@ const { columns = 2, classes = {} } = Astro.props;
                     <div class="flex flex-col h-full">
                       <div
                         class={twMerge(
-                          'text-sm font-medium text-primary-600 dark:text-primary-400 mb-3',
+                          'text-sm xl:text-[14px] xl:leading-[20px] font-medium text-primary-600 dark:text-primary-400 mb-3 xl:mb-[12px]',
                           classes.subtitle
                         )}
                       >
@@ -77,29 +81,33 @@ const { columns = 2, classes = {} } = Astro.props;
                           day: 'numeric',
                         })}
                       </div>
-                      <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">{release.title}</h3>
-                      <p class="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3">{release.source}</p>
-                      <div class="flex flex-wrap gap-2">
+                      <h3 class="text-xl xl:text-[20px] xl:leading-[28px] font-bold text-gray-900 dark:text-gray-100 mb-4 xl:mb-[16px]">
+                        {release.title}
+                      </h3>
+                      <p class="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3 xl:mb-[24px] text-base xl:text-[16px] xl:leading-[24px]">
+                        {release.source}
+                      </p>
+                      <div class="flex flex-wrap gap-2 xl:gap-[8px]">
                         {release.type && (
-                          <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300 ring-1 ring-inset ring-blue-700/10 dark:ring-blue-700/30">
+                          <span class="inline-flex items-center px-3 py-1 xl:px-[12px] xl:py-[4px] rounded-full text-sm xl:text-[14px] xl:leading-[20px] font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300 ring-1 ring-inset ring-blue-700/10 dark:ring-blue-700/30">
                             {release.type}
                           </span>
                         )}
                         {release.category && (
-                          <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-50 text-green-700 dark:bg-green-900/50 dark:text-green-300 ring-1 ring-inset ring-green-700/10 dark:ring-green-700/30">
+                          <span class="inline-flex items-center px-3 py-1 xl:px-[12px] xl:py-[4px] rounded-full text-sm xl:text-[14px] xl:leading-[20px] font-medium bg-green-50 text-green-700 dark:bg-green-900/50 dark:text-green-300 ring-1 ring-inset ring-green-700/10 dark:ring-green-700/30">
                             {release.category}
                           </span>
                         )}
                       </div>
-                      <div class="mt-auto pt-4">
+                      <div class="mt-auto pt-4 xl:pt-[16px]">
                         <span
-                          class="text-sm text-primary mt-2 inline-flex items-center gap-1 transition-all duration-300 group-hover:gap-2"
+                          class="text-sm xl:text-[14px] xl:leading-[20px] text-primary mt-2 xl:mt-[8px] inline-flex items-center gap-1 xl:gap-[4px] transition-all duration-300 group-hover:gap-[8px]"
                           aria-hidden="true"
                         >
                           Read more
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="h-4 w-4 transition-transform duration-300 transform group-hover:translate-x-1"
+                            class="h-4 w-4 xl:w-[16px] xl:h-[16px] transition-transform duration-300 transform group-hover:translate-x-[4px]"
                             viewBox="0 0 20 20"
                             fill="currentColor"
                             aria-hidden="true"

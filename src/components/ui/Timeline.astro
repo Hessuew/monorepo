@@ -32,13 +32,17 @@ const {
             itemClasses?.panel
           )}
         >
-          <div class="flex flex-col items-center mr-4 rtl:mr-0 rtl:ml-4">
+          <div class="flex flex-col items-center mr-4 xl:mr-[16px] rtl:mr-0 rtl:ml-4 xl:rtl:mr-[16px]">
             <div>
               <div class="flex items-center justify-center">
                 {(icon || defaultIcon) && (
                   <Icon
                     name={icon || defaultIcon}
-                    class={twMerge('w-10 h-10 p-2 rounded-full border-2', defaultIconClass, itemClasses?.icon)}
+                    class={twMerge(
+                      'w-10 h-10 xl:w-[40px] xl:h-[40px] p-2 xl:p-[8px] rounded-full border-2',
+                      defaultIconClass,
+                      itemClasses?.icon
+                    )}
                   />
                 )}
               </div>
@@ -47,8 +51,13 @@ const {
               <div class={twMerge('w-px h-full bg-black/10 dark:bg-slate-400/50', lineClass, itemClasses?.line)} />
             )}
           </div>
-          <div class={`pt-1 ${index !== items.length - 1 ? 'pb-8' : ''}`}>
-            {title && <p class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)} set:html={title} />}
+          <div class={`pt-1 xl:pt-[4px] ${index !== items.length - 1 ? 'pb-8 xl:pb-[32px]' : ''}`}>
+            {title && (
+              <p
+                class={twMerge('text-xl xl:text-[20px] xl:leading-[28px] font-bold', titleClass, itemClasses?.title)}
+                set:html={title}
+              />
+            )}
             <ItemDescription description={description} classes={itemClasses} />
           </div>
         </div>

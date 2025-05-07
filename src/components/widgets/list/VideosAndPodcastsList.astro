@@ -199,11 +199,11 @@ const { columns = 2, classes = {} } = Astro.props;
       closeButton.type = 'button';
       closeButton.setAttribute('aria-label', 'Close modal');
       closeButton.className =
-        'absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary';
+        'absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 xl:top-[16px] xl:right-[16px] p-2 xl:p-[8px] rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary';
       closeButton.onclick = closeModal;
       closeButton.innerHTML = `
           <svg
-            class="w-5 h-5 text-gray-500 dark:text-gray-400"
+            class="w-5 h-5 xl:w-[20px] xl:h-[20px] text-gray-500 dark:text-gray-400"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -302,7 +302,7 @@ const { columns = 2, classes = {} } = Astro.props;
 
         // Add title
         const titleEl = document.createElement('h3');
-        titleEl.className = 'text-xl font-bold text-gray-900 dark:text-gray-100 mb-4';
+        titleEl.className = 'text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 xl:mb-[16px]';
         titleEl.textContent = selectedItem.title;
         modalContent.appendChild(titleEl);
 
@@ -391,16 +391,20 @@ const { columns = 2, classes = {} } = Astro.props;
 </style>
 
 <WidgetWrapper animated={false} containerClass="py-0 lg:py-0 md:py-0">
-  <div class="max-w-7xl mx-auto" role="region" aria-label="Videos and Podcasts">
+  <div class="max-w-7xl xl:max-w-[1280px] mx-auto" role="region" aria-label="Videos and Podcasts">
     {
       sortedYears.map((year) => (
-        <div class="mb-16 sm:mb-24 item-year-card" role="region" aria-label={`Videos and Podcasts from ${year}`}>
-          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 sm:mb-12 text-center intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade">
+        <div
+          class="mb-16 sm:mb-24 xl:mb-[96px] item-year-card"
+          role="region"
+          aria-label={`Videos and Podcasts from ${year}`}
+        >
+          <h2 class="text-3xl sm:text-4xl xl:text-[36px] xl:leading-[40px] font-bold text-gray-900 dark:text-gray-100 mb-8 sm:mb-12 xl:mb-[48px] text-center intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade">
             {year}
           </h2>
           <div
             class={twMerge(
-              'grid gap-8 gap-x-12 sm:gap-y-8',
+              'grid gap-8 gap-x-12 sm:gap-y-8 xl:gap-[32px] xl:gap-x-[48px] xl:gap-y-[32px]',
               columns === 1 ? 'md:grid-cols-1' : null,
               columns === 2 ? 'md:grid-cols-2' : null,
               columns === 3 ? 'md:grid-cols-3' : null,
@@ -421,19 +425,21 @@ const { columns = 2, classes = {} } = Astro.props;
               >
                 <div
                   class={twMerge(
-                    'bg-white dark:bg-slate-900 rounded-lg shadow-lg dark:shadow-none p-6 h-full transition-all duration-300 group-hover:shadow-xl dark:group-hover:shadow-none',
+                    'bg-white dark:bg-slate-900 rounded-lg shadow-lg dark:shadow-none p-6 xl:p-[24px] h-full transition-all duration-300 group-hover:shadow-xl dark:group-hover:shadow-none',
                     classes.item
                   )}
                   aria-labelledby={`video-${item.title.toLowerCase().replace(/\s+/g, '-')}`}
                 >
-                  <div class="text-sm font-medium text-primary-600 dark:text-primary-400 mb-3">
+                  <div class="text-sm xl:text-[14px] xl:leading-[20px] font-medium text-primary-600 dark:text-primary-400 mb-3 xl:mb-[12px]">
                     {new Date(item.date).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',
                       day: 'numeric',
                     })}
                   </div>
-                  <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">{item.title}</h3>
+                  <h3 class="text-xl xl:text-[20px] xl:leading-[28px] font-bold text-gray-900 dark:text-gray-100 mb-4 xl:mb-[16px]">
+                    {item.title}
+                  </h3>
                   <div class="relative w-full aspect-video thumbnail-wrapper transition-transform duration-300 ease-out group-hover:scale-[1.01]">
                     {item.platform === 'Youtube' ? (
                       <img
@@ -454,14 +460,18 @@ const { columns = 2, classes = {} } = Astro.props;
                       />
                     ) : item.platform === 'Soundcloud' ? (
                       <div class="w-full h-full bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center thumbnail-placeholder hover:shadow-lg transition-shadow duration-300">
-                        <svg class="w-16 h-16 text-white" viewBox="0 0 24 24" fill="currentColor">
+                        <svg
+                          class="w-16 h-16 xl:w-[64px] xl:h-[64px] text-white"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
                           <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
                         </svg>
                       </div>
                     ) : null}
                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 ease-out flex items-center justify-center rounded-lg">
                       <svg
-                        class="w-16 h-16 text-white opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out"
+                        class="w-16 h-16 xl:w-[64px] xl:h-[64px] text-white opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -502,7 +512,7 @@ const { columns = 2, classes = {} } = Astro.props;
   <div
     id="modal-content"
     role="document"
-    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] sm:w-[calc(100%-4rem)] md:w-[calc(100%-8rem)] max-w-4xl mx-auto bg-white dark:bg-slate-900 rounded-lg shadow-lg dark:shadow-none p-4 pt-8 sm:p-6 md:p-8"
+    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] sm:w-[calc(100%-4rem)] md:w-[calc(100%-8rem)] xl:w-[calc(100%-128px)] max-w-4xl xl:max-w-[896px] mx-auto bg-white dark:bg-slate-900 rounded-lg shadow-lg dark:shadow-none p-4 pt-8 sm:p-6 md:p-8 xl:p-[32px]"
   >
   </div>
 </div>
