@@ -22,23 +22,28 @@ const {
 } = Astro.props;
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''}`} bg={bg}>
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  containerClass={`max-w-5xl xl:max-w-[1024px] ${classes?.container ?? ''}`}
+  bg={bg}
+>
   <div
     class:list={[
-      'flex flex-col gap-8 md:gap-12',
+      'flex flex-col gap-8 md:gap-12 xl:gap-[48px]',
       { 'md:flex-row-reverse': isReversed && !bigImage },
       { 'md:flex-row': image && !bigImage },
       { 'lg:flex-row-reverse': bigImage },
     ]}
   >
-    <div class:list={['md:py-4 self-center', { 'md:basis-1/2': image }, { 'w-full': !image }]}>
+    <div class:list={['md:py-4 xl:py-[16px] self-center', { 'md:basis-1/2': image }, { 'w-full': !image }]}>
       <Headline
         title={title}
         subtitle={subtitle}
         tagline={tagline}
         classes={{
           container: 'text-left rtl:text-right',
-          title: 'text-3xl md:text-4xl',
+          title: 'text-3xl md:text-4xl xl:text-[36px] xl:leading-[40px]',
           ...((classes?.headline as object) ?? {}),
         }}
       />
@@ -69,7 +74,7 @@ const {
     footer && (
       <div class="w-full">
         <p
-          class="text-xl max-w-5xl mx-auto text-center pt-8 text-muted mb-6 dark:text-slate-300 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+          class="text-xl max-w-5xl xl:max-w-[1024px] mx-auto text-center pt-8 xl:pt-[32px] text-muted mb-6 xl:mb-[24px] dark:text-slate-300 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
           set:html={footer}
         />
       </div>

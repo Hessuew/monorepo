@@ -20,6 +20,7 @@ const {
 } = Astro.props;
 
 const { labelContainer: labelContainerClass = '' } = classes;
+const { titleClass = '' } = classes;
 ---
 
 <section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
@@ -31,7 +32,7 @@ const { labelContainer: labelContainerClass = '' } = classes;
   <div class="relative max-w-7xl xl:max-w-[1440px] mx-auto px-4 sm:px-6 xl:px-[24px]">
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
     <div class={twMerge('py-12 md:py-20 xl:py-[80px]', labelContainerClass as string)}>
-      <div class="text-center max-w-5xl xl:max-w-[1024px] mx-auto">
+      <div class="text-center max-w-6xl xl:max-w-[1080px] mx-auto">
         {
           tagline && (
             <p
@@ -51,12 +52,15 @@ const { labelContainer: labelContainerClass = '' } = classes;
         {
           title && (
             <h1
-              class="text-4xl xs:text-5xl md:text-6xl xl:text-[60px] xl:leading-[72px] font-bold leading-tighter tracking-tighter mb-4 xl:mb-[16px] font-heading dark:text-gray-200 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+              class={twMerge(
+                'text-4xl xs:text-5xl md:text-6xl xl:text-[60px] xl:leading-[64px] font-bold leading-tighter tracking-tighter mb-4 xl:mb-[16px] font-heading dark:text-gray-200 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade',
+                titleClass
+              )}
               set:html={title}
             />
           )
         }
-        <div class="max-w-3xl xl:max-w-[1024px] mx-auto">
+        <div class="max-w-3xl xl:max-w-[1080px] mx-auto">
           {
             subtitle && (
               <p

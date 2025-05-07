@@ -64,6 +64,7 @@ const metadata = {
         src: imgTedxVaasa,
         alt: 'urFIT-child Research Group Logo',
       }}
+      classes={{ labelContainer: 'lg:max-w-[840px] mx-auto' }}
     >
       <Fragment slot="image">
         <Image
@@ -78,7 +79,7 @@ const metadata = {
         />
       </Fragment>
       <Fragment slot="title">
-        <div class="flex flex-wrap gap-[0.25em] items-center justify-center">
+        <div class="flex flex-wrap gap-[0.25em] xl:gap-y-[4px] items-center justify-center">
           <span>
             <p class="text-primary highlight inline-block">U</p>nde<p class="text-primary highlight inline-block">
               r
@@ -123,7 +124,7 @@ const metadata = {
     animated={false}
     tagline="Description"
     title="We are a multi-disciplinary and multi-collaborative research group with clear objectives"
-    classes={{ container: 'max-w-6xl pb-0 md:pb-0 lg:pb-0' }}
+    classes={{ container: 'max-w-6xl xl:max-w-[1152px] pb-0 md:pb-0 lg:pb-0 xl:pb-[0px]' }}
     columns={2}
     items={[
       {
@@ -242,7 +243,7 @@ const metadata = {
       >(Children of the 90s)</a>
     from the University of Bristol, UK, our findings reach the widest audience possible.
     `
-    classes={{ container: 'pb-0 md:pb-0 lg:pb-0' }}
+    classes={{ container: 'pb-0 md:pb-0 lg:pb-0 xl:pb-0' }}
     stats={[
       { title: 'Participating families', amount: '14.5K' },
       { title: 'Years of data collection', amount: '30' },
@@ -252,7 +253,7 @@ const metadata = {
   <!-- Stats Widget ****************** -->
 
   <Stats
-    classes={{ item: 'md:w-full pt-0 md:pt-0 lg:pt-0' }}
+    classes={{ item: 'md:w-full pt-0 md:pt-0 lg:pt-0 xl:pt-0' }}
     stats={[{ title: 'Global audience of our work', amount: '5,500,000,000+' }]}
   />
 

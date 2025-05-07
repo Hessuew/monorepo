@@ -26,7 +26,11 @@ const { description: descriptionClass = '' } = classes;
     ? description.map((item) =>
         item.link ? (
           <a
-            class={twMerge('text-blue-700 mt-2 hover:underline break-all', descriptionClass, classes?.description)}
+            class={twMerge(
+              'text-blue-700 mt-2 xl:mt-[8px] hover:underline break-all',
+              descriptionClass,
+              classes?.description
+            )}
             set:html={item.text}
             href={item.text.toString()}
             target="_blank"
@@ -34,11 +38,11 @@ const { description: descriptionClass = '' } = classes;
         ) : (
           <p
             class={twMerge(
-              'text-muted mt-2',
+              'text-base xl:text-[16px] xl:leading-[24px]  text-muted mt-2 xl:mt-[8px]',
               descriptionClass,
               classes?.description,
               item.classes?.subtitle,
-              item.subtitle && 'font-bold text-lg'
+              item.subtitle && 'font-bold text-lg xl:text-[18px] xl:leading-[28px]'
               // item.subtitle && "text-dark dark:text-white font-semibold"
             )}
             set:html={item.text}
@@ -46,6 +50,13 @@ const { description: descriptionClass = '' } = classes;
         )
       )
     : description && (
-        <p class={twMerge('text-muted mt-2', descriptionClass, classes?.description)} set:html={description} />
+        <p
+          class={twMerge(
+            'text-base xl:text-[16px] xl:leading-[24px] text-muted mt-2 xl:mt-[8px]',
+            descriptionClass,
+            classes?.description
+          )}
+          set:html={description}
+        />
       )
 }

@@ -17,15 +17,17 @@ const { title, description, hrefLabel, link, image } = Astro.props;
 
 <Fragment>
   <div class="relative">
-    <div class="space-y-4 relative z-10">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl">{title}</h3>
-      <p class="text-lg max-w-[80%]">{description}</p>
+    <div class="space-y-4 xl:space-y-[16px] relative z-10">
+      <h3 class="text-2xl sm:text-3xl xl:text-[30px] xl:leading-[36px] font-bold tracking-tight dark:text-white">
+        {title}
+      </h3>
+      <p class="text-lg xl:text-[20px] xl:leading-[28px] max-w-[80%]">{description}</p>
       <div class="flex items-start">
         {
           link && (
             <a
               href={link.url}
-              class="inline-flex items-center text-blue-600 hover:underline text-lg"
+              class="inline-flex items-center text-blue-600 hover:underline text-lg xl:text-[20px] xl:leading-[28px]"
               target="_blank"
               rel="noopener noreferrer nofollow"
               aria-label={`Learn more about ${hrefLabel} (opens in new tab)`}
@@ -42,7 +44,7 @@ const { title, description, hrefLabel, link, image } = Astro.props;
           <img
             src={image.src}
             alt={`${title} logo`}
-            class="h-24 xs:h-40 md:h-24 xl:h-40 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+            class="h-24 xs:h-40 md:h-24 xl:h-[160px] w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
           />
         </div>
       )

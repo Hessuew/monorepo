@@ -11,28 +11,42 @@ export interface Props {
 const { impactFactor, impactLabel, items } = Astro.props;
 ---
 
-<div class="my-8">
+<div class="my-8 xl:my-[32px]">
   {
     impactFactor && (
-      <div class="flex items-center justify-center text-center mb-1">
-        <span class="text-6xl font-extrabold text-gray-900 dark:text-white">{impactFactor}</span>
+      <div class="flex items-center justify-center text-center mb-1 xl:mb-[4px]">
+        <span class="text-6xl xl:text-[60px] xl:leading-[64px] font-extrabold text-gray-900 dark:text-white">
+          {impactFactor}
+        </span>
       </div>
     )
   }
-  {impactLabel && <span class="text-base leading-6 lowercase text-gray-800 dark:text-slate-400">{impactLabel}</span>}
+  {
+    impactLabel && (
+      <span class="text-base xl:text-[16px] leading-6 xl:leading-[24px] lowercase text-gray-800 dark:text-slate-400">
+        {impactLabel}
+      </span>
+    )
+  }
 </div>
 
 {
   items && (
-    <ul class="my-8 md:my-10 space-y-2 text-left" aria-label="Impact features">
+    <ul class="my-8 md:my-10 xl:my-[40px] space-y-2 xl:space-y-[8px] text-left" aria-label="Impact features">
       {items.map(
         ({ description, icon }) =>
           description && (
-            <li class="mb-1.5 flex items-start space-x-3 leading-7">
+            <li class="mb-1.5 xl:mb-[6px] flex items-start space-x-3 xl:space-x-[12px] leading-7 xl:leading-[28px]">
               <div class="rounded-full bg-primary mt-1">
-                <Icon name={icon ? icon : 'tabler:check'} class="w-5 h-5 font-bold p-1 text-white" aria-hidden="true" />
+                <Icon
+                  name={icon ? icon : 'tabler:check'}
+                  class="w-5 h-5 xl:w-[20px] xl:h-[20px] font-bold p-1 xl:p-[4px] text-white"
+                  aria-hidden="true"
+                />
               </div>
-              <span class="text-gray-900 dark:text-white">{description}</span>
+              <span class="text-base xl:text-[16px] xl:leading-[24px] text-gray-900 dark:text-white">
+                {description}
+              </span>
             </li>
           )
       )}

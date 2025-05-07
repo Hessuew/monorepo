@@ -12,7 +12,7 @@ const {
 } = Astro.props;
 ---
 
-<div class="w-full py-16">
+<div class="w-full py-16 xl:py-[64px]">
   <section
     class:list={[
       'not-prose intersect-once intersect-quarter motion-reduce:opacity-100 motion-safe:opacity-0 motion-safe:intersect:animate-fade p-8 rounded-lg',
@@ -22,14 +22,20 @@ const {
       },
     ]}
   >
-    <blockquote class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+    <blockquote
+      class="max-w-6xl xl:max-w-[1152px] mx-auto px-4 sm:px-6 xl:px-[24px] text-center text-base xl:text-[16px] xl:leading-[24px]"
+    >
       <span class="text-4xl text-blue-600/25 dark:text-blue-400/25 font-serif">"</span>
-      <p class="text-xl md:text-2xl font-serif italic mb-4 text-slate-700 dark:text-slate-300">
+      <p
+        class="text-xl md:text-2xl xl:text-[24px] xl:leading-[32px] font-serif italic mb-4 xl:mb-[16px] text-slate-700 dark:text-slate-300"
+      >
         {text}
       </p>
       {
         author && (
-          <cite class="text-sm md:text-base font-medium text-slate-600 dark:text-slate-400 font-sans">— {author}</cite>
+          <cite class="text-sm md:text-base xl:text-[16px] xl:leading-[24px] font-medium text-slate-600 dark:text-slate-400 font-sans">
+            — {author}
+          </cite>
         )
       }
     </blockquote>

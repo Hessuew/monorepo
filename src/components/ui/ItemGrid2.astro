@@ -21,7 +21,7 @@ const {
   items && (
     <div
       class={twMerge(
-        `grid gap-8 gap-x-12 sm:gap-y-8 ${
+        `grid mx-auto gap-8 md:gap-y-12 xl:gap-[32px] xl:gap-y-[48px] ${
           columns === 4
             ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
             : columns === 3
@@ -42,12 +42,12 @@ const {
           )}
         >
           {image && (
-            <div class="h-32 w-32 mb-8 rounded-full border border-slate-200 dark:border-slate-600">
+            <div class="h-32 w-32 xl:h-[128px] xl:w-[128px] mb-8 xl:mb-[32px] rounded-full border border-slate-200 dark:border-slate-600">
               {typeof image === 'string' ? (
                 <Fragment set:html={image} />
               ) : (
                 <Image
-                  class="h-32 w-32 rounded-full border border-slate-200 dark:border-slate-600 min-w-full min-h-full"
+                  class="h-32 w-32 xl:h-[128px] xl:w-[128px] rounded-full border border-slate-200 dark:border-slate-600 min-w-full min-h-full"
                   width={40}
                   height={40}
                   widths={[400, 768]}
@@ -62,14 +62,24 @@ const {
             </div>
           )}
           {(icon || defaultIcon) && (
-            <Icon name={icon || defaultIcon} class={twMerge('mb-2 w-10 h-10', defaultIconClass, itemClasses?.icon)} />
+            <Icon
+              name={icon || defaultIcon}
+              class={twMerge('mb-2 xl:mb-[8px] w-10 h-10 xl:w-[40px] xl:h-[40px]', defaultIconClass, itemClasses?.icon)}
+            />
           )}
-          <div class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</div>
+          <div class={twMerge('text-xl xl:text-[20px] xl:leading-[28px] font-bold', titleClass, itemClasses?.title)}>
+            {title}
+          </div>
           {description && (
-            <p class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)} set:html={description} />
+            <div class="flex-1 text-base xl:text-[16px] xl:leading-[24px] justify-between flex flex-col">
+              <p
+                class={twMerge('text-muted mt-2 xl:mt-[8px]', descriptionClass, itemClasses?.description)}
+                set:html={description}
+              />
+            </div>
           )}
           {callToAction && (
-            <div class="mt-2">
+            <div class="mt-2 xl:mt-[8px]">
               <Button {...callToAction} />
             </div>
           )}

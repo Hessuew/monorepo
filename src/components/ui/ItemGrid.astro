@@ -34,7 +34,7 @@ const {
     >
       {items.map(({ title, description, icon, callToAction, flag, classes: itemClasses = {} }) => (
         <div class="intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade">
-          <div class={twMerge('flex flex-row max-w-md xl:max-w-[448px]', panelClass, itemClasses?.panel)}>
+          <div class={twMerge('flex flex-row max-w-md', panelClass, itemClasses?.panel)}>
             <div class="flex justify-center">
               {(icon || defaultIcon) && (
                 <Icon
@@ -47,7 +47,10 @@ const {
                 />
               )}
               {flag && (
-                <span class="text-4xl pr-2 -mt-0.5 xl:text-[36px] xl:leading-[40px] xl:-mt-[2px]" set:html={flag} />
+                <span
+                  class="text-4xl xl:text-[36px] xl:leading-[40px] pr-2 -mt-0.5 xl:pr-[8px] xl:-mt-[2px]"
+                  set:html={flag}
+                />
               )}
             </div>
             <div class="mt-0.5 xl:mt-[2px]">
