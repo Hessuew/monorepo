@@ -2,35 +2,35 @@
 
 ---
 
-<script is:inline define:vars={{ defaultTheme: 'light' }}>
+<script is:inline>
   if (window.basic_script) {
     return;
   }
 
   window.basic_script = true;
 
-  function applyTheme(theme) {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }
+  // function applyTheme(theme) {
+  //   if (theme === 'dark') {
+  //     document.documentElement.classList.add('dark');
+  //   } else {
+  //     document.documentElement.classList.remove('dark');
+  //   }
+  // }
 
-  function getThemePreference() {
-    if ((defaultTheme && defaultTheme.endsWith(':only')) || (!localStorage.theme && defaultTheme !== 'system')) {
-      return defaultTheme.replace(':only', '');
-    } else if (
-      localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      return 'dark';
-    }
-    return 'light';
-  }
+  // function getThemePreference() {
+  //   if ((defaultTheme && defaultTheme.endsWith(':only')) || (!localStorage.theme && defaultTheme !== 'system')) {
+  //     return defaultTheme.replace(':only', '');
+  //   } else if (
+  //     localStorage.theme === 'dark' ||
+  //     (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+  //   ) {
+  //     return 'dark';
+  //   }
+  //   return 'light';
+  // }
 
-  // Initialize theme immediately
-  applyTheme(getThemePreference());
+  // // Initialize theme immediately
+  // applyTheme(getThemePreference());
 
   function attachEvent(selector, event, fn) {
     const matches = typeof selector === 'string' ? document.querySelectorAll(selector) : selector;

@@ -1,6 +1,6 @@
 ---
 // import GridPattern from '~/components/ui/GridPattern.astro';
-import logo_transparent from '~/assets/images/logo2.webp';
+import logo_transparent from '~/assets/images/logo3.webp';
 import Image from '~/components/common/Image.astro';
 import { InputGradient } from '~/components/ui/InputGradient';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
@@ -10,14 +10,14 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
   <div
     class="rotate-180 [--color:var(--violet2)] pointer-events-none relative -z-[2] mx-auto h-[50rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_70%)] my-[-18.8rem]
       before:absolute before:inset-0 before:h-full before:w-full before:opacity-30 before:[background-image:radial-gradient(circle_at_top_center,var(--violet2),transparent_70%)]
-      after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-b after:border-[hsl(var(--border))] after:bg-page after:[transform:scaleY(-1)] after:[box-shadow:0_0_40px_10px_var(--violet2),0_0_40px_10px_var(--violet2)_inset]"
+      after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-b after:border-[hsl(var(--border))] after:[transform:scaleY(-1)] after:[box-shadow:0_0_40px_10px_var(--violet2),0_0_40px_10px_var(--violet2)_inset]"
   >
   </div>
   <WidgetWrapper
     id={'contact'}
     containerClass={`max-w-7xl py-0 md:py-0 lg:py-0 mx-auto intersect-full sm:intersect-full`}
   >
-    <div class="mx-auto max-w-5xl px-4 overflow-visible">
+    <div class="mx-auto max-w-5xl px-4 overflow-hidden">
       <section id="formHolder">
         <div class="flex flex-col md:flex-row">
           <!-- Brand Box -->
@@ -53,7 +53,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
           <div class="col-sm-6 form md:w-1/2">
             <!-- Login Form -->
             <div class="login form-piece switched">
-              <form class="login-form" action="#" method="post">
+              <form class="login-form md:h-full md:flex md:flex-col md:justify-between" action="#" method="post">
                 <div>
                   <div class="form-group">
                     <label for="name">Full Name</label>
@@ -78,7 +78,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
                   <InputGradient text="Send" />
                   <a
                     href="#"
-                    class="switch btn-secondary hover:bg-white/10 border-0 text-white h-12 w-32 rounded-full text-base font-light tracking-tighter px-0 md:px-2 focus:ring-0 focus:ring-offset-0"
+                    class="switch truncate btn-secondary hover:bg-white/10 border-0 text-white h-12 w-32 rounded-full text-base font-light tracking-tighter px-0 md:px-2 focus:ring-0 focus:ring-offset-0"
                   >
                     For companies
                   </a>
@@ -88,7 +88,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 
             <!-- Signup Form -->
             <div class="signup form-piece">
-              <form class="signup-form" action="#" method="post">
+              <form class="signup-form md:h-full md:flex md:flex-col md:justify-between" action="#" method="post">
                 <div class="form-group">
                   <label for="companyName">Company / Organization Name</label>
                   <input type="text" name="companyName" id="companyName" class="companyName" />
@@ -123,7 +123,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 
                   <a
                     href="#"
-                    class="switch btn-secondary hover:bg-white/10 border-0 text-white h-12 w-32 rounded-full text-base font-light tracking-tighter px-0 md:px-2 focus:ring-0 focus:ring-offset-0"
+                    class="switch truncate btn-secondary hover:bg-white/10 border-0 text-white h-12 w-32 rounded-full text-base font-light tracking-tighter px-0 md:px-2 focus:ring-0 focus:ring-offset-0"
                   >
                     For individuals
                   </a>
@@ -141,7 +141,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
   <div
     class="[--color:var(--orange)] pointer-events-none relative -z-[2] mx-auto h-[20rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_70%)] mt-[-4rem] mb-[-12rem]
       before:absolute before:inset-0 before:h-full before:w-full before:opacity-20 before:[background-image:radial-gradient(circle_at_top_center,var(--color),transparent_70%)]
-      after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-b after:border-[white] after:bg-page after:[transform:scaleY(-1)] after:[box-shadow:0_0_40px_10px_var(--orange),0_0_40px_10px_var(--orange)_inset]"
+      after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-b after:border-[white] after:[transform:scaleY(-1)] after:[box-shadow:0_0_40px_10px_var(--orange),0_0_40px_10px_var(--orange)_inset]"
   >
   </div>
 </div>
@@ -177,7 +177,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 
   .brand {
     padding: 20px;
-    background: url(https://goo.gl/A0ynht);
+    /* background: url(https://goo.gl/A0ynht); */
     background-size: cover;
     background-position: center center;
     color: #fff;
