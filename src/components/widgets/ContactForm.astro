@@ -4,6 +4,7 @@ import logo_transparent from '~/assets/images/logo3.webp';
 import Image from '~/components/common/Image.astro';
 import { InputGradient } from '~/components/ui/InputGradient';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import { Icon } from 'astro-icon/components';
 ---
 
 <div class="relative pt-10 pb-10">
@@ -55,6 +56,20 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
             <div class="login form-piece switched">
               <form class="login-form md:h-full md:flex md:flex-col md:justify-between" action="#" method="post">
                 <div>
+                  <div class="flex justify-end">
+                    <a
+                      href="#"
+                      class="switch group truncate btn-secondary hover:bg-white/10 border-0 text-white h-12 w-40 rounded-full text-base font-light tracking-tighter px-0 md:px-2 focus:ring-0 focus:ring-offset-0"
+                    >
+                      <span class="flex flex-row items-center justify-center gap-2">
+                        For companies
+                        <Icon
+                          name="tabler:arrow-right"
+                          class="w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5"
+                        />
+                      </span>
+                    </a>
+                  </div>
                   <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" name="username" id="name" class="name" />
@@ -74,14 +89,8 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
                   </div>
                 </div>
 
-                <div class="CTA flex flex-col sm:flex-row gap-3 justify-start">
+                <div class="CTA flex flex-col sm:flex-row justify-start">
                   <InputGradient text="Send" />
-                  <a
-                    href="#"
-                    class="switch truncate btn-secondary hover:bg-white/10 border-0 text-white h-12 w-32 rounded-full text-base font-light tracking-tighter px-0 md:px-2 focus:ring-0 focus:ring-offset-0"
-                  >
-                    For companies
-                  </a>
                 </div>
               </form>
             </div><!-- End Login Form -->
@@ -89,6 +98,20 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
             <!-- Signup Form -->
             <div class="signup form-piece">
               <form class="signup-form md:h-full md:flex md:flex-col md:justify-between" action="#" method="post">
+                <div class="flex justify-end">
+                  <a
+                    href="#"
+                    class="switch group truncate btn-secondary hover:bg-white/10 border-0 text-white h-12 w-40 rounded-full text-base font-light tracking-tighter px-0 md:px-2 focus:ring-0 focus:ring-offset-0"
+                  >
+                    <span class="flex flex-row items-center justify-center gap-2">
+                      For individuals
+                      <Icon
+                        name="tabler:arrow-right"
+                        class="w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5"
+                      />
+                    </span>
+                  </a>
+                </div>
                 <div class="form-group">
                   <label for="companyName">Company / Organization Name</label>
                   <input type="text" name="companyName" id="companyName" class="companyName" />
@@ -120,13 +143,6 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 
                 <div class="CTA flex flex-col sm:flex-row gap-3 justify-start">
                   <InputGradient text="Send" />
-
-                  <a
-                    href="#"
-                    class="switch truncate btn-secondary hover:bg-white/10 border-0 text-white h-12 w-32 rounded-full text-base font-light tracking-tighter px-0 md:px-2 focus:ring-0 focus:ring-offset-0"
-                  >
-                    For individuals
-                  </a>
                 </div>
               </form>
             </div><!-- End Signup Form -->
@@ -267,8 +283,8 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
   }
   .form .form-piece {
     /* background: #fff; */
-    min-height: 480px;
-    margin-top: 30px;
+    min-height: 500px;
+    margin-top: 10px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
     color: #bbbbbb;
     padding: 30px 0 60px;
