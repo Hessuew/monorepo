@@ -11,8 +11,8 @@ import type { ImageMetadata } from 'astro';
 
 // import { Icon } from 'astro-icon/components';
 
-interface Project {
-  icon?: 'child' | 'candle' | 'dove';
+export interface Project {
+  icon?: 'child' | 'mail' | 'money';
   image?: {
     src: ImageMetadata;
     alt: string;
@@ -357,57 +357,30 @@ const projects: Array<Project> = [
     });
   }
 
-  function setupWaveObserver() {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            entry.target.querySelector('.wave-path')?.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '50px',
-      }
-    );
-
-    document.querySelectorAll('.wrapper').forEach((wrapper) => {
-      if (wrapper && !wrapper.classList.contains('visible')) {
-        observer.observe(wrapper);
-      }
-    });
-  }
-
   // Run immediately
-  setupWaveObserver();
   setupCardObserver();
 
   // Run again after page load to catch any dynamically loaded elements
   window.addEventListener('load', () => {
-    setupWaveObserver();
     setupCardObserver();
   });
 
   // Run when Astro view transitions complete
   document.addEventListener('astro:page-load', () => {
-    setupWaveObserver();
     setupCardObserver();
   });
 </script>
 <style>
   :root {
-    --color1: rgb(0, 231, 255);
-    --color2: rgb(255, 0, 231);
+    --color1: white;
+    --color2: var(--violet);
     --back: url(https://cdn2.bulbagarden.net/upload/1/17/Cardback.jpg);
     --pika1: #245ced;
     --pika2: #ffffff;
     --eevee1: #efb2fb;
     --eevee2: #acc6f8;
-    --mewtwo1: #efb2fb;
-    --mewtwo2: #acc6f8;
+    --mewtwo1: #acc6f8;
+    --mewtwo2: #efb2fb;
   }
 
   /* .card {
@@ -553,8 +526,8 @@ const projects: Array<Project> = [
   .card.active:before,
   .card:hover:before {
     animation: none;
-    /* background-image: linear-gradient(110deg, transparent 25%, var(--color1) 48%, var(--color2) 52%, transparent 75%); */
-    background-image: linear-gradient(
+    background-image: linear-gradient(110deg, transparent 25%, var(--color1) 48%, var(--color2) 52%, transparent 75%);
+    /* background-image: linear-gradient(
       115deg,
       transparent 0%,
       var(--color1) 25%,
@@ -562,7 +535,7 @@ const projects: Array<Project> = [
       transparent 53%,
       var(--color2) 75%,
       transparent 100%
-    );
+    ); */
     background-position: var(--grad-pos, 50% 50%);
     background-size: 250% 250%;
     opacity: 0.88;
@@ -578,12 +551,13 @@ const projects: Array<Project> = [
       transition: none;
       animation: holoGradient 12s ease 0s 1;
     }
-    &:after {
+    /* &:after {
       transition: none;
       animation: holoSparkle 12s ease 0s 1;
-    }
+    } */
   }
 
+  /* Holo Sparkle Animation 
   @keyframes holoSparkle {
     0%,
     100% {
@@ -615,6 +589,7 @@ const projects: Array<Project> = [
       filter: brightness(1.2) contrast(1.25);
     }
   }
+*/
 
   @keyframes holoGradient {
     0%,
@@ -675,7 +650,7 @@ const projects: Array<Project> = [
       0 0 10px -2px white,
       0 55px 35px -20px rgba(0, 0, 0, 0.5);
   }
-  /* .card.eevee:hover:before,
+  .card.eevee:hover:before,
   .card.eevee.active:before {
     background-image: linear-gradient(
       115deg,
@@ -687,7 +662,7 @@ const projects: Array<Project> = [
       var(--color5) 64%,
       transparent 80%
     );
-  } */
+  }
 
   .cards .three-d-wrapper {
     perspective: 750px;
@@ -721,7 +696,7 @@ const projects: Array<Project> = [
     }
   }
 
-  /* .cards .card {
+  .cards .card {
     &:nth-child(2) {
       &,
       &:before,
@@ -743,7 +718,7 @@ const projects: Array<Project> = [
         animation-delay: 0.75s;
       }
     }
-  } */
+  }
 </style>
 
 <!-- <div class="flex flex-row gap-8"></div>

@@ -11,44 +11,9 @@ flameTheFreeze dark purple:
   --violet2: #9c40ff;
   --blue: #0ff;
   --orange: rgba(255, 170, 64);
+  --orange2: #260e02;
   --white: rgba(160, 160, 160, 0.2);
   --shadow-color: 0deg 0% 0%;
-}
-
-.shadow-high2 {
-  box-shadow:
-    1px -1px 1.6px hsl(var(--shadow-color) / 0.2),
-    8.3px -8.3px 13.2px -0.4px hsl(var(--shadow-color) / 0.2),
-    15.9px -15.9px 25.3px -0.7px hsl(var(--shadow-color) / 0.2),
-    26.4px -26.4px 42px -1.1px hsl(var(--shadow-color) / 0.2),
-    42.5px -42.5px 67.6px -1.4px hsl(var(--shadow-color) / 0.2),
-    66.7px -66.7px 106.1px -1.8px hsl(var(--shadow-color) / 0.2),
-    101.7px -101.7px 161.8px -2.1px hsl(var(--shadow-color) / 0.2),
-    150px -150px 238.6px -2.5px hsl(var(--shadow-color) / 0.2);
-}
-
-.shadow-high3 {
-  box-shadow:
-    -1px 1px 1.6px hsl(var(--shadow-color) / 0.2),
-    -8.3px 8.3px 13.2px -0.4px hsl(var(--shadow-color) / 0.2),
-    -15.9px 15.9px 25.3px -0.7px hsl(var(--shadow-color) / 0.2),
-    -26.4px 26.4px 42px -1.1px hsl(var(--shadow-color) / 0.2),
-    -42.5px 42.5px 67.6px -1.4px hsl(var(--shadow-color) / 0.2),
-    -66.7px 66.7px 106.1px -1.8px hsl(var(--shadow-color) / 0.2),
-    -101.7px 101.7px 161.8px -2.1px hsl(var(--shadow-color) / 0.2),
-    -150px 150px 238.6px -2.5px hsl(var(--shadow-color) / 0.2);
-}
-
-.shadow-high {
-  box-shadow:
-    -1px -1px 1.6px hsl(var(--shadow-color) / 0.2),
-    -5.8px -5.8px 9.2px -0.4px hsl(var(--shadow-color) / 0.2),
-    -10.9px -10.9px 17.3px -0.7px hsl(var(--shadow-color) / 0.2),
-    -17.9px -17.9px 28.5px -1.1px hsl(var(--shadow-color) / 0.2),
-    -28.6px -28.6px 45.5px -1.4px hsl(var(--shadow-color) / 0.2),
-    -44.7px -44.7px 71.1px -1.8px hsl(var(--shadow-color) / 0.2),
-    -67.9px -67.9px 108px -2.1px hsl(var(--shadow-color) / 0.2),
-    -100px -100px 159.1px -2.5px hsl(var(--shadow-color) / 0.2);
 }
 
 /* Base gradient border styles */

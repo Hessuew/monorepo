@@ -1,0 +1,224 @@
+---
+import img_money from '~/assets/images/emailSection/euro2.webp';
+import img_gmail from '~/assets/images/emailSection/gmail-new.png';
+import email_example from '~/assets/images/example_email2.webp';
+import Image from '~/components/common/Image.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import type { Project } from '../ui/CustomerCards.astro';
+
+const originalW = 1192;
+const originalH = 1482;
+const ratio = originalW / originalH;
+const h = 600;
+const w = h * ratio;
+
+const projects: Array<Project> = [
+  {
+    image: {
+      src: img_gmail,
+      alt: 'Gmail logo',
+    },
+    id: 'urFitChild',
+    title: 'Monthly updates',
+    description:
+      'We provide monthly updates on how we’ve enhanced your project—we want you to be part of the journey as we enhance your website together.',
+    size: '',
+    url: '',
+  },
+  {
+    image: {
+      src: img_money,
+      alt: 'Euro logo',
+    },
+    id: 'money',
+    title: 'No Lock-Ins',
+    description:
+      'You are able to cancel the service at any time, and you will only pay for the ongoing month; we are here to serve you, and  not to rob you.',
+    size: '',
+    url: '',
+  },
+];
+---
+
+<WidgetWrapper id={'email'} animated={false} containerClass={`max-w-7xl mx-auto`}>
+  <section class="relative flex flex-row gap-20 z-10 p-20">
+    <div class="flex flex-col justify-center w-full">
+      <h1 class="text-4xl md:text-7xl font-semibold tracking-tighter text-start text-white pb-7">
+        Customer
+        <br />
+        experience
+        <br />
+        on top.
+        <p class="text-[15px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3">
+          <br />
+          We aim to build a genuine connection with our customers by creating an atmosphere of trust, "This team isn’t here
+          for my money. They’re here to serve and support my experience and needs."
+          <br class="hidden md:block" />
+        </p>
+      </h1>
+
+      <ul
+        class="relative z-10 mt-12 md:mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:mt-10 md:gap-16 lg:gap-y-7 md:max-w-[520px] lg:max-w-none mx-auto xl:mx-0"
+      >
+        {
+          projects.map((project) => (
+            <li>
+              <div class="w-16 h-16">
+                <Image
+                  class={`min-h-16 min-w-16 2xl:min-h-16 2xl:min-w-16 rounded-lg`}
+                  width={64}
+                  height={64}
+                  widths={[400, 768]}
+                  layout="fixed"
+                  loading="lazy"
+                  decoding="async"
+                  style={`object-fit: cover; object-position: center;`}
+                  {...project.image}
+                />
+              </div>
+              <h3 class="mt-5 font-title max-w-28 text-[20px] leading-none tracking-tighter lg:mt-4 lg:max-w-full lg:text-[28px] md:mt-3.5 sm:mt-2.5 sm:max-w-32 sm:text-[20px]">
+                {project.title}
+              </h3>
+              <p class="mt-3.5 text-muted text-[15px] font-medium leading-snug tracking-tighter lg:mt-2.5 md:mt-2 md:leading-tight sm:mt-1 max-w-none sm:max-w-[284px]">
+                {project.description}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="cards flex w-full h-full">
+      <div class="three-d-wrapper flex-1 w-full h-full">
+        <div
+          class={`card2 w-[${w}px] h-[${h}px]`}
+          style={`background-image: url(${email_example.src}); background-size: cover; background-position: center;`}
+        >
+        </div>
+      </div>
+    </div>
+
+    <!-- <div
+      class="absolute top-0 left-0 w-full h-full -z-10"
+      style={{
+        background: `
+          radial-gradient(circle at 85% 15%, ${getGradientColor(0.2, 'orange')} 0%, transparent 40%),
+          radial-gradient(circle at 15% 85%, ${getGradientColor(0.2, 'orange')} 0%, transparent 40%),
+          linear-gradient(to bottom left, ${getGradientColor(0.05, 'orange')} 0%, transparent 100%, ${getGradientColor(0.05, 'orange')} 100%)
+        `,
+      }}
+    >
+    </div> -->
+  </section>
+</WidgetWrapper>
+
+<style>
+  .card2 {
+    border-color: rgba(255, 255, 255, 0.4);
+    border-image: none;
+    border-style: inset;
+    border-image: none;
+    border-style: groove;
+    border-width: 3px;
+    border-bottom-width: 2px;
+    position: relative;
+    overflow: hidden;
+    overflow: hidden;
+    z-index: 10;
+    touch-action: none;
+    isolation: isolate;
+
+    border-radius: 5% / 3.5%;
+    /* box-shadow:
+      -5px -5px 5px -5px var(--color1),
+      5px 5px 5px -5px var(--color2),
+      -7px -7px 10px -5px transparent,
+      7px 7px 10px -5px transparent,
+      0 0 5px 0px rgba(255, 255, 255, 0),
+      0 55px 35px -20px rgba(0, 0, 0, 0.5); */
+
+    box-shadow:
+      -20px -20px 30px -25px var(--color1),
+      20px 20px 30px -25px var(--color2),
+      -7px -7px 10px -5px var(--color1),
+      7px 7px 10px -5px var(--color2),
+      0 0 13px 4px rgba(255, 255, 255, 0.3),
+      0 55px 35px -20px rgba(0, 0, 0, 0.5);
+
+    transition:
+      transform 0.5s ease,
+      box-shadow 0.2s ease;
+    will-change: transform, filter;
+
+    background-color: #040712;
+    background-image: var(--front);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    transform-origin: center;
+  }
+
+  .card2-content {
+    position: relative;
+    z-index: 20;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .card2:before,
+  .card2:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    mix-blend-mode: color-dodge;
+    transition: all 0.33s ease;
+    pointer-events: none;
+  }
+
+  .card2:before {
+    background-position: var(--grad-pos, 50% 50%);
+    background-size: 300% 300%;
+    background-image: linear-gradient(
+      115deg,
+      transparent 0%,
+      var(--color1) 25%,
+      transparent 47%,
+      transparent 53%,
+      var(--color2) 75%,
+      transparent 100%
+    );
+    opacity: 0.5;
+    filter: brightness(0.5) contrast(1);
+    z-index: 1;
+  }
+
+  /* .card2.animated {
+    transition: none;
+    animation-fill-mode: forwards;
+    transform-style: preserve-3d;
+    animation: holoCard2 6s ease 0s 1 forwards;
+    &:before {
+      transition: none;
+      animation: holoGradient2 6s ease 0s 1 forwards;
+    }
+  }
+
+  @keyframes holoCard2 {
+    0%,
+    50% {
+      transform: translateY(100px) rotateZ(-4deg) rotateX(26deg) rotateY(-20deg);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(0px) rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+      opacity: 1;
+    }
+  } */
+</style>
