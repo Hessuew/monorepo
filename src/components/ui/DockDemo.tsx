@@ -1,8 +1,4 @@
-import flameTheFreezeLogo from '~/assets/images/siteLogos/flameTheFreeze_logo.webp';
-import prayerChurchLogo from '~/assets/images/siteLogos/prayerChurch_logo.webp';
-import urFitChildLogo from '~/assets/images/siteLogos/urFitChild_logo.webp';
 import { BlurFade } from '~/components/magicui/blur-fade';
-import { Dock, DockIcon } from '~/components/magicui/dock';
 import React, { useEffect, useState } from 'react';
 import FeaturesCard from './FeaturesCard';
 
@@ -40,8 +36,6 @@ const projectData = {
 };
 
 export function DockDemo(): React.JSX.Element {
-  const [activeProject, setActiveProject] = useState<keyof typeof projectData>('urFitChild');
-  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(true);
 
   // Initialize with urFitChild card visible
@@ -49,55 +43,8 @@ export function DockDemo(): React.JSX.Element {
     setIsVisible(true);
   }, []);
 
-  function handleProjectSelect(projectId: keyof typeof projectData): void {
-    if (!isTransitioning && activeProject !== projectId) {
-      // Start transition
-      setIsTransitioning(true);
-
-      // Fade out current card
-      setIsVisible(false);
-
-      // After fade out completes, change the project and fade in
-      setTimeout(() => {
-        setActiveProject(projectId);
-
-        // Short delay before fading in the new card
-        setTimeout(() => {
-          setIsVisible(true);
-          setIsTransitioning(false);
-        }, 100);
-      }, 300); // Match this with the transition duration
-    }
-  }
-
-  // Get current project data
-  // const currentProject = projectData[activeProject];
-
   return (
     <div className='relative'>
-      <div className='hidden'>
-        <Dock iconSize={80} iconMagnification={100} iconDistance={100}>
-          <DockIcon onClick={() => handleProjectSelect('urFitChild')}>
-            <img
-              src={urFitChildLogo.src}
-              className={`duration-300 size-full rounded-full ${activeProject === 'urFitChild' ? 'ring-2 ring-white/50' : ''}`}
-            />
-          </DockIcon>
-          <DockIcon onClick={() => handleProjectSelect('flameTheFreeze')}>
-            <img
-              src={flameTheFreezeLogo.src}
-              className={`duration-300 size-full rounded-full ${activeProject === 'flameTheFreeze' ? 'ring-2 ring-purple-500/50' : ''}`}
-            />
-          </DockIcon>
-          <DockIcon onClick={() => handleProjectSelect('prayerChurch')}>
-            <img
-              src={prayerChurchLogo.src}
-              className={`duration-300 size-full rounded-full ${activeProject === 'prayerChurch' ? 'ring-2 ring-blue-500/50' : ''}`}
-            />
-          </DockIcon>
-        </Dock>
-      </div>
-
       <div
         className={`flex flex-col xl:flex-row gap-8 xl:gap-32 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
       >

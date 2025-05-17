@@ -7,7 +7,7 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
 ---
 
 <section
-  class="creative-testimonial--slider bg-white relative overflow-hidden py-60 px-6 lg:py-32 md:py-24 sm:pb-[68px] sm:pt-20"
+  class="creative-testimonial--slider bg-white relative overflow-hidden py-20 px-6 lg:py-32 md:py-24 sm:pb-[68px] sm:pt-20"
 >
   <WidgetWrapper id={'testimonials'} animated={false} containerClass={`max-w-7xl mx-auto py-0 md:py-0 lg:py-0`}>
     <div class="absolute -z-10 w-full h-[300%] top-[100%] left-0 overflow-visible">
@@ -52,13 +52,12 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
                   </div>
                   <div class="testimonial-detail">
                     <p class="m-0 text-black text-[15px] text-left lg:text-[18px] leading-[30px] font-medium mb-[5px]">
-                      Cherubim IT has provided services to us for GRETAN IHANAN VAIMONI JA AIIIIIIVAN IHANAN RAKKAANI
-                      HUOMIO ❤️❤️❤️❤️❤️, which is a testament to rigorous, painstaking, and excellent work performance.
-                      Cherubim IT delivers tasks very promptly, pre-empts challenges, and efficiently tackles them,
-                      creates user-friendly platforms, and optimizes the latest IT technology in their work. Cherubim IT
-                      customer service is highly considerate, friendly, and humane. I highly recommend Cherubim IT for
-                      its impeccable and high-quality IT services. The proof of the pudding is in the eating; a trial
-                      will convince you.
+                      Cherubim IT has provided their services to us for many months now, which is a testament to
+                      rigorous, painstaking, and excellent work performance. Cherubim IT delivers tasks very promptly,
+                      pre-empts challenges, and efficiently tackles them, creates user-friendly platforms, and optimizes
+                      the latest IT technology in their work. Cherubim IT customer service is highly considerate,
+                      friendly, and humane. I highly recommend Cherubim IT for its impeccable and high-quality IT
+                      services. The proof of the pudding is in the eating; a trial will convince you.
                     </p>
                     <span
                       class="text-[var(--aw-color-accent)] font-extrabold uppercase text-[12px] lg:text-[15px] leading-normal"
@@ -67,9 +66,9 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
                   </div>
                 </div>
               </div>
-              <!-- Slide 2 -->
               <!-- Slide 1 -->
-              <div class="swiper-slide">
+              <!-- Slide 2 -->
+              <!-- <div class="swiper-slide">
                 <div
                   class="swiper-slide--inner px-6 sm:px-20 lg:px-[15%] flex items-center gap-[50px] relative overflow-x-hidden"
                 >
@@ -96,11 +95,11 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
                     </span>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- Slide 2 -->
             </div>
-            <div class="swiper-button-next slide-btns"></div>
-            <div class="swiper-button-prev slide-btns"></div>
+            <div class="swiper-button-next slide-btns text-[var(--violet)]"></div>
+            <div class="swiper-button-prev slide-btns text-[var(--violet)]"></div>
           </div>
         </div>
         <!-- Company details -->
@@ -117,7 +116,13 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
               </div>
               <div class="company-box-bottom p-5">
                 <span class="text-[15px] text-[#878898] leading-[30px]">
-                  Single source - <strong class="text-[#242e45]">100% Centralized platform</strong>
+                  <div class="flex flex-row gap-1">
+                    Single source -
+                    <strong class="text-[#242e45] text-start">
+                      100% Centralized platform
+                      <!-- <br /> for +200 materials -->
+                    </strong>
+                  </div>
                 </span>
                 <!-- <div class="stats-container mt-4 grid grid-cols-3 gap-2">
                   <div class="stat-item text-center">
