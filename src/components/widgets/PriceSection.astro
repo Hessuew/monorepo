@@ -1,11 +1,11 @@
 ---
-import Dock from '~/components/ui/Dock.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import { getGradientColor } from '~/utils/getGradientColor';
+import { DockDemo } from '../ui/DockDemo';
 ---
 
 <WidgetWrapper id={'pricing'} animated={false} containerClass={`max-w-7xl mx-auto`}>
-  <section class="relative z-10 p-20">
+  <section class="relative z-10 p-10 sm:p-20">
     <div class="flex w-full justify-center">
       <h1 class="text-4xl md:text-7xl font-semibold tracking-tighter text-start text-white pb-7">
         <span
@@ -31,7 +31,7 @@ import { getGradientColor } from '~/utils/getGradientColor';
     </div>
 
     <div class="flex w-full justify-center">
-      <Dock />
+      <DockDemo client:load />
     </div>
 
     <!-- <div

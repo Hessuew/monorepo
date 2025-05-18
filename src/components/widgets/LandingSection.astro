@@ -2,7 +2,6 @@
 import Logo from '~/components/Logo.astro';
 import { AnimatedGradientText } from '~/components/magicui/animated-gradient-text';
 import Button from '~/components/ui/Button.astro';
-import { ButtonGradient } from '~/components/ui/ButtonGradient';
 import GridPattern from '~/components/ui/GridPattern.astro';
 ---
 
@@ -18,16 +17,11 @@ import GridPattern from '~/components/ui/GridPattern.astro';
     <Logo />
   </div>
 </div>
-<!-- <div class="orb"></div> -->
 
 <div class="lg:min-h-[100vh]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <!-- Hero Section with Background Grid -->
     <div class="relative flex overflow-visible pt-10">
-      <div class="-z-10 absolute -top-40 -right-[440px]">
-        <!-- <Marquee /> -->
-      </div>
-      <!-- Content -->
+      <div class="-z-10 absolute -top-40 -right-[440px]"></div>
       <div class="relative flex flex-col">
         <h1
           class="relative z-30 max-w-[666px] font-title text-[42px] font-semibold leading-[0.9] tracking-tight lg:max-w-[648px] lg:text-[84px] md:max-w-[521px] md:text-[68px] sm:max-w-[400px] xs:text-[52px]"
@@ -44,7 +38,6 @@ import GridPattern from '~/components/ui/GridPattern.astro';
           </span>
         </h1>
 
-        <!-- sm:max-w-[248px]  -->
         <p
           class="relative z-30 mt-5 max-w-md text-[18px] leading-snug tracking-tight text-grey-90 lg:mt-4 md:mt-3.5 md:text-[18px] sm:mt-3 sm:text-[15px]"
         >
@@ -60,20 +53,13 @@ import GridPattern from '~/components/ui/GridPattern.astro';
           >
             Why Cherubim
           </Button>
-          <ButtonGradient text="Quick Contact" href="#contact" />
+
+          <a href="#contact" class="shiny-cta shiny-cta-orange h-12 items-center justify-center flex pt-1">
+            <span class="text-base font-semibold px-4">Quick Contact</span>
+          </a>
         </div>
       </div>
     </div>
-
-    <!-- <div class="absolute top-1/2 right-0 -translate-y-1/2 text-right pr-10">
-        <h1 class="text-5xl md:text-[11rem] font-title font-extrabold tracking-tighter text-[rgb(255,255,255,0.01)]">
-          JESUS
-          <br />
-          IS
-          <br />
-          LORD
-        </h1>
-      </div> -->
 
     <GridPattern fadeDirection="both" fadeHorizontal="none" />
 

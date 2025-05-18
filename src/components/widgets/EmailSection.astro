@@ -6,12 +6,6 @@ import Image from '~/components/common/Image.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import type { Project } from '../ui/CustomerCards.astro';
 
-const originalW = 1192;
-const originalH = 1482;
-const ratio = originalW / originalH;
-const h = 600;
-const w = h * ratio;
-
 const projects: Array<Project> = [
   {
     image: {
@@ -41,13 +35,13 @@ const projects: Array<Project> = [
 ---
 
 <WidgetWrapper id={'email'} animated={false} containerClass={`max-w-7xl mx-auto`}>
-  <section class="relative flex flex-row gap-20 z-10 p-20">
+  <section class="relative flex flex-col lg:flex-row gap-20 z-10 p-8 sm:p-20">
     <div class="flex flex-col justify-center w-full">
       <h1 class="text-4xl md:text-7xl font-semibold tracking-tighter text-start text-white pb-7">
         Customer
-        <br />
+        <br class="block xs:hidden md:block" />
         experience
-        <br />
+        <br class="block xs:hidden md:block" />
         on top.
         <p class="text-[15px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3">
           <br />
@@ -88,10 +82,12 @@ const projects: Array<Project> = [
       </ul>
     </div>
 
-    <div class="cards flex w-full h-full">
-      <div class="three-d-wrapper flex-1 w-full h-full">
+    <div class="cards flex w-full h-full justify-center">
+      <!-- <div class="three-d-wrapper flex-1 w-full h-full"> -->
+      <div class="three-d-wrapper w-full max-w-[500px]">
+        <!-- class={`card2 w-[${w}px] h-[${h}px]`} -->
         <div
-          class={`card2 w-[${w}px] h-[${h}px]`}
+          class="card2 w-full max-w-[500px] aspect-[1192/1482]"
           style={`background-image: url(${email_example.src}); background-size: cover; background-position: center;`}
         >
         </div>
