@@ -1,11 +1,13 @@
 ---
 import imgGold from '~/assets/images/gold_original.webp';
+import imgGradient from '~/assets/images/gradient.webp';
 import urFitChild from '~/assets/images/urfitChild.webp';
 // import animated_details from '~/assets/videos/animated_details.mp4';
 import animated_details from '~/assets/videos/animated_details2.mp4';
 import beauty_contrasts from '~/assets/videos/beauty_contrasts.mp4';
 import hot_twist from '~/assets/videos/hot_twist.mp4';
 import testimonials from '~/assets/videos/testimonials.mp4';
+// import Image from '~/components/common/Image.astro';
 import SvgGem from '~/components/ui/icons/SvgGem';
 import SvgAnimation from '../ui/icons/SvgAnimation';
 import SvgFire from '../ui/icons/SvgFire';
@@ -62,6 +64,7 @@ const videos = [
 ---
 
 <section class="stay-productive relative z-10 pt-40 lg:pt-32 md:pt-24 sm:pt-16">
+  <img src={imgGradient.src} alt="" class="w-full -n h-40" />
   <div class="bg-white p-8 py-20 md:p-12 lg:p-20 relative overflow-hidden">
     <h1 class="text-4xl md:text-7xl font-semibold tracking-tighter text-start text-black pb-7">
       Packaging matters
