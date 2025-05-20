@@ -13,7 +13,7 @@ const projectData = {
     price: '$5000',
     monthlyPrice: '$50',
     url: 'https://www.urfit-child.com',
-    features: ['14 pages', '+150 materials', '+15 videos', 'Email subscription', 'Light dark mode', 'Premium hosting'],
+    features: ['14 pages', '+200 materials', '+15 videos', 'Email subscription', 'Light dark mode', 'Premium hosting'],
   },
   flameTheFreeze: {
     color: 'purple' as const,

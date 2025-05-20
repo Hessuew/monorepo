@@ -1,9 +1,41 @@
 ---
 import andrewAgbajeHeadshot from '~/assets/images/Andrew Headshot.webp';
+import imgGradient from '~/assets/images/gradient.webp';
+import prayerChurchLogo from '~/assets/images/siteLogos/prayerChurch_logo.webp';
 import urFitChildLogo from '~/assets/images/siteLogos/urFitChild_logo.webp';
 import worldMap from '~/assets/images/worldMap.webp';
-import { Icon } from 'astro-icon/components';
 import WidgetWrapper from '../ui/WidgetWrapper.astro';
+import CompanyBox from './CompanyBox.astro';
+import Slide from './Slide.astro';
+
+const slides = [
+  {
+    image: andrewAgbajeHeadshot,
+    name: 'Prof. Andrew Agbaje, urFIT-child, Principal Investigator',
+    description:
+      'Cherubim IT has provided their services to us for many months now, which is a testament to rigorous, painstaking, and excellent work performance. Cherubim IT delivers tasks very promptly, pre-empts challenges, and efficiently tackles them, creates user-friendly platforms, and optimizes the latest IT technology in their work. Cherubim IT customer service is highly considerate, friendly, and humane. I highly recommend Cherubim IT for its impeccable and high-quality IT services. The proof of the pudding is in the eating; a trial will convince you.',
+  },
+  {
+    image: prayerChurchLogo,
+    name: 'The prayer church elders and deacons',
+    description: 'The local church ',
+  },
+];
+
+const companies = [
+  {
+    logo: urFitChildLogo,
+    name: 'urFIT-child',
+    description1: 'Single source -',
+    description2: '100% Centralized platform',
+  },
+  {
+    logo: prayerChurchLogo,
+    name: 'Prayer Church',
+    description1: 'Local visibility -',
+    description2: 'hundreds of visitors',
+  },
+];
 ---
 
 <section
@@ -33,70 +65,8 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
           <div class="swiper-container">
             <div class="swiper-wrapper">
               <!-- Slide 1 -->
-              <div class="swiper-slide">
-                <div
-                  class="swiper-slide--inner px-6 sm:px-20 lg:px-[15%] flex items-center gap-[50px] relative overflow-x-hidden"
-                >
-                  <div
-                    class="w-[200px] h-[200px] lg:w-[240px] lg:h-[240px] mb-[30px] flex-shrink-0 rounded-full relative"
-                  >
-                    <img src={andrewAgbajeHeadshot.src} alt="" class="w-full h-full object-cover rounded-full" />
-                    <div
-                      class="absolute bottom-[30px] left-[-10px] w-[52px] h-[52px] lg:w-[68px] lg:h-[68px] bg-gradient-to-br from-[var(--aw-color-accent)] from-10% to-[var(--aw-color-secondary)] rounded-full flex items-center justify-center shadow-md"
-                    >
-                      <Icon
-                        name="tabler:quote-filled"
-                        class="quote-icon w-[32px] h-[32px] lg:w-[40px] lg:h-[40px] text-white"
-                      />
-                    </div>
-                  </div>
-                  <div class="testimonial-detail">
-                    <p class="m-0 text-black text-[15px] text-left lg:text-[18px] leading-[30px] font-medium mb-[5px]">
-                      Cherubim IT has provided their services to us for many months now, which is a testament to
-                      rigorous, painstaking, and excellent work performance. Cherubim IT delivers tasks very promptly,
-                      pre-empts challenges, and efficiently tackles them, creates user-friendly platforms, and optimizes
-                      the latest IT technology in their work. Cherubim IT customer service is highly considerate,
-                      friendly, and humane. I highly recommend Cherubim IT for its impeccable and high-quality IT
-                      services. The proof of the pudding is in the eating; a trial will convince you.
-                    </p>
-                    <span
-                      class="text-[var(--aw-color-accent)] font-extrabold uppercase text-[12px] lg:text-[15px] leading-normal"
-                      >Prof. Andrew Agbaje, urFIT-child, Principal Investigator
-                    </span>
-                  </div>
-                </div>
-              </div>
+              {slides.map((slide, index) => <Slide key={index} {...slide} />)}
               <!-- Slide 1 -->
-              <!-- Slide 2 -->
-              <!-- <div class="swiper-slide">
-                <div
-                  class="swiper-slide--inner px-6 sm:px-20 lg:px-[15%] flex items-center gap-[50px] relative overflow-x-hidden"
-                >
-                  <div
-                    class="w-[200px] h-[200px] lg:w-[240px] lg:h-[240px] mb-[30px] flex-shrink-0 rounded-full relative"
-                  >
-                    <img src={andrewAgbajeHeadshot.src} alt="" class="w-full h-full object-cover rounded-full" />
-                    <div
-                      class="absolute bottom-[30px] left-[-10px] w-[52px] h-[52px] lg:w-[68px] lg:h-[68px] bg-gradient-to-br from-[var(--aw-color-accent)] from-10% to-[var(--aw-color-secondary)] rounded-full flex items-center justify-center shadow-md"
-                    >
-                      <Icon
-                        name="tabler:quote-filled"
-                        class="quote-icon w-[32px] h-[32px] lg:w-[40px] lg:h-[40px] text-white"
-                      />
-                    </div>
-                  </div>
-                  <div class="testimonial-detail">
-                    <p class="m-0 text-black text-[15px] text-left lg:text-[18px] leading-[30px] font-medium mb-[5px]">
-                      Customer review 2
-                    </p>
-                    <span
-                      class="text-[var(--aw-color-accent)] font-extrabold uppercase text-[12px] lg:text-[15px] leading-normal"
-                      >Customer 2
-                    </span>
-                  </div>
-                </div>
-              </div> -->
-              <!-- Slide 2 -->
             </div>
             <div class="swiper-button-next slide-btns text-[var(--violet)]"></div>
             <div class="swiper-button-prev slide-btns text-[var(--violet)]"></div>
@@ -104,54 +74,13 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
         </div>
         <!-- Company details -->
         <div class="company-details--row flex flex-wrap w-full justify-center">
-          <div class="company-box flex-none px-[15px] sm:px-0 sm:mb-5">
-            <div
-              class="company-box-inner shadow-lg bg-white/80 text-center rounded-xl overflow-hidden transition-all duration-350"
-            >
-              <div class="company-box-top py-[25px] px-[20px] border-b border-[#dee2e6]">
-                <div class="company-logo-wrapper flex flex-row items-center justify-center gap-3">
-                  <img src={urFitChildLogo.src} alt="urFIT-child logo" class="h-[60px] object-contain rounded" />
-                  <h3 class="company-name text-black m-0 text-2xl font-bold tracking-tight">urFIT-child</h3>
-                </div>
-              </div>
-              <div class="company-box-bottom p-5">
-                <span class="text-[15px] text-[#878898] leading-[30px]">
-                  <div class="flex flex-row gap-1">
-                    Single source -
-                    <strong class="text-[#242e45] text-start">
-                      100% Centralized platform
-                      <!-- <br /> for +200 materials -->
-                    </strong>
-                  </div>
-                </span>
-                <!-- <div class="stats-container mt-4 grid grid-cols-3 gap-2">
-                  <div class="stat-item text-center">
-                    <span class="block text-black text-2xl font-bold">
-                      <NumberTicket value={22} />
-                    </span>
-                    <span class="text-md text-[#878898]">Awards</span>
-                  </div>
-                  <div class="stat-item text-center">
-                    <span class="block text-black text-2xl font-bold">
-                      <NumberTicket value={79} />
-                    </span>
-                    <span class="text-md text-[#878898]">Publications</span>
-                  </div>
-                  <div class="stat-item text-center">
-                    <span class="block text-black text-2xl font-bold">
-                      +<NumberTicket decimalPlaces={2} value={5.5} /> B
-                    </span>
-                    <span class="text-md text-[#878898]">People Reached</span>
-                  </div>
-                </div> -->
-              </div>
-            </div>
-          </div>
+          {companies.map((company) => <CompanyBox {...company} />)}
         </div>
       </div>
     </div>
   </WidgetWrapper>
 </section>
+<img src={imgGradient.src} alt="" class="w-full -n h-40 rotate-180" />
 
 <style define:vars={{ worldMapUrl: `url(${worldMap.src})` }}>
   /* Custom styles that can't be easily converted to Tailwind */
@@ -184,19 +113,188 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
       text-align: center;
     }
   }
+
+  .creative-testimonial--slider .testimonial-inner {
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .testimonial-inner .testimonial-heading {
+    text-align: center;
+    max-width: 60%;
+    margin: auto;
+    font-size: 2.813rem;
+    line-height: 3.125rem;
+    letter-spacing: -1px;
+    margin-top: 0px;
+    margin-bottom: 50px;
+  }
+  .testimonial-wrap {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 6%;
+  }
+  .swiper-slide .swiper-slide--inner {
+    padding-left: 15%;
+    padding-right: 15%;
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    position: relative;
+    overflow-x: hidden;
+  }
+  .swiper-slide--inner .testimonial-detail img {
+    height: 35px;
+  }
+  .swiper-slide--inner .testimonial-detail p {
+    margin: 0px;
+    color: #242e45;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  .swiper-slide--inner .testimonial-detail span {
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 15px;
+    line-height: normal;
+  }
+  .company-details--row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+  .company-details--row .company-box .company-box-inner {
+    -webkit-box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    -webkit-transition: all 350ms cubic-bezier(0.37, 0, 0.63, 1);
+    transition: all 350ms cubic-bezier(0.37, 0, 0.63, 1);
+    text-align: center;
+    border-radius: 6px;
+  }
+  .company-box-inner .company-box-top {
+    padding-top: 10%;
+    padding-bottom: 10%;
+    border-bottom: 1px solid #dee2e6;
+  }
+  .company-box-inner .company-box-top img {
+    height: 40px;
+  }
+  .company-box-inner .company-box-bottom {
+    padding: 15px;
+  }
+  .company-box-inner .company-box-bottom span {
+    font-size: 15px;
+    color: #878898;
+    line-height: 30px;
+  }
+  .company-box-inner .company-box-bottom span strong {
+    color: #242e45;
+  }
+  /* ======== Sticky Footer ========= */
+  .sticky-footer {
+    position: fixed;
+    width: 100%;
+    background: #333;
+    z-index: 999;
+    bottom: 0;
+  }
+  .sticky-footer .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    padding-right: 15px;
+  }
+  .creditd a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .social ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0px;
+    column-gap: 10px;
+    align-items: center;
+  }
+  .social ul li a {
+    display: flex;
+    background: #fff;
+    height: 30px;
+    width: 30px;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+  }
+  .social ul li a img {
+    max-width: 20px;
+  }
+
+  /* Responsive Ipad */
+  @media only screen and (max-width: 981px) {
+    body {
+      background-color: lightblue;
+    }
+    .creative-testimonial--slider {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .testimonial-inner .testimonial-heading {
+      max-width: 100%;
+    }
+    .swiper-slide .swiper-slide--inner {
+      padding-left: 0%;
+      padding-right: 0%;
+    }
+    .swiper-button-next.slide-btns,
+    .swiper-button-prev.slide-btns {
+      display: none;
+    }
+    .company-details--row .company-box {
+      padding: 0px 5px;
+    }
+  }
+  /* Responsive Ipad */
+  @media only screen and (max-width: 460px) {
+    .testimonial-inner .testimonial-heading {
+      font-size: 1.813rem;
+      line-height: 2.125rem;
+    }
+    .swiper-slide .swiper-slide--inner {
+      flex-direction: column;
+      text-align: center;
+    }
+    .company-details--row {
+      justify-content: center;
+      flex-direction: column;
+    }
+    .company-details--row .company-box {
+      padding: 0px 0px;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+  }
 </style>
 
 <script is:inline>
-  // Function to initialize Swiper
+  // Function to initialize Swiper based on the working jQuery implementation
   function initializeSwiper() {
     // Check if Swiper is available in the global scope
     if (typeof Swiper !== 'undefined') {
-      // Initialize Swiper with configuration
-      new Swiper('.swiper-container', {
+      // Store the Swiper instance for reference
+      const swiperInstance = new Swiper('.swiper-container', {
+        // Core configuration
         loop: true,
         autoplay: {
           delay: 8000,
-          disableOnInteraction: true,
+          disableOnInteraction: truej,
         },
         keyboard: {
           enabled: true,
@@ -207,7 +305,54 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
           prevEl: '.swiper-button-prev',
         },
         effect: 'slide',
+        // Event handlers to fix first transition issue
+        // on: {
+        //   init: function () {
+        //     // Ensure slides are properly initialized
+        //     setTimeout(() => {
+        //       if (this && this.update) {
+        //         this.update();
+        //       }
+        //     }, 50);
+        //   },
+        // },
+
+        on: {
+          init: function () {
+            // Force recalculation of loop slides on init
+            setTimeout(() => {
+              this.update();
+            }, 100);
+          },
+          beforeTransitionStart: function (swiper, speed, internal) {
+            // Fix for first transition by ensuring proper slide positions
+            if (this.isBeginning && !internal) {
+              this.slideToLoop(1, 0, false);
+              return false;
+            }
+          },
+        },
       });
+
+      // Add manual event listeners to navigation buttons to ensure proper slide transitions
+      const nextButton = document.querySelector('.swiper-button-next');
+      const prevButton = document.querySelector('.swiper-button-prev');
+
+      if (nextButton) {
+        nextButton.addEventListener('click', () => {
+          if (swiperInstance && swiperInstance.slideNext) {
+            swiperInstance.slideNext();
+          }
+        });
+      }
+
+      if (prevButton) {
+        prevButton.addEventListener('click', () => {
+          if (swiperInstance && swiperInstance.slidePrev) {
+            swiperInstance.slidePrev();
+          }
+        });
+      }
     } else {
       console.error('Swiper is not defined. Make sure to include the Swiper library.');
     }
