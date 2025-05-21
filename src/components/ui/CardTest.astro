@@ -1,4 +1,5 @@
 ---
+
 ---
 
 <div class="card-container">
@@ -56,8 +57,7 @@
   }
 
   .card::after {
-    background-image: 
-      url('https://assets.codepen.io/13471/sparkles.gif'),
+    background-image: url('https://assets.codepen.io/13471/sparkles.gif'),
       linear-gradient(
         125deg,
         rgba(255, 0, 132, 0.5) 15%,
@@ -95,31 +95,31 @@
 </style>
 
 <script is:inline>
-  document.addEventListener('astro:page-load', function() {
+  document.addEventListener('astro:page-load', function () {
     const card = document.querySelector('.card');
-    
-    card.addEventListener('mousemove', function(e) {
+
+    card.addEventListener('mousemove', function (e) {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      
+
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      
+
       const rotateY = (x - centerX) / 10;
       const rotateX = (centerY - y) / 10;
-      
+
       card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      
+
       // Update the position of the gradient and sparkles
       const percentX = (x / rect.width) * 100;
       const percentY = (y / rect.height) * 100;
-      
+
       card.style.setProperty('--x', `${percentX}%`);
       card.style.setProperty('--y', `${percentY}%`);
     });
-    
-    card.addEventListener('mouseleave', function() {
+
+    card.addEventListener('mouseleave', function () {
       card.style.transform = 'rotateX(0) rotateY(0)';
     });
   });

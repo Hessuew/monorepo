@@ -54,7 +54,7 @@ interface ReviewCardProps {
 
 const cardBgUrls = [imgGold.src, imgSilver.src, imgBronze.src];
 
-function ReviewCard({ img, index, name, username, body, bgStart = 0, columnIndex = 0 }: ReviewCardProps) {
+function ReviewCard({ index, name, username, body, bgStart = 0, columnIndex = 0 }: ReviewCardProps) {
   // Generate a random background position for each card instance
   const backgroundPosition = useMemo(() => {
     const x = Math.floor(Math.random() * 80); // percent (avoid 100% for edge artifacts)

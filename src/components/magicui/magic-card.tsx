@@ -83,7 +83,7 @@ export function MagicCard({
       <motion.div
         className='pointer-events-none absolute inset-0 rounded-[inherit] bg-border duration-300 group-hover:opacity-100'
         style={{
-          background: borderColors 
+          background: borderColors
             ? useMotionTemplate`
                 radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px,
                 ${borderColors.join(', ')}, transparent 100%)
@@ -97,10 +97,10 @@ export function MagicCard({
               `,
         }}
       />
-      <div 
-        className='absolute rounded-[inherit] bg-background' 
-        style={{ 
-          inset: `${borderWidth}px` 
+      <div
+        className='absolute rounded-[inherit] bg-background'
+        style={{
+          inset: `${borderWidth}px`,
         }}
       />
       <motion.div
