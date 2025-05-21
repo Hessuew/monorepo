@@ -139,6 +139,7 @@ const websiteLink = {
   textDecoration: 'none',
   fontWeight: '500',
   fontSize: '0.75rem',
+  transition: 'color 0.2s ease !important',
 };
 
 const footer = {
@@ -172,6 +173,7 @@ const socialLink = {
   fontSize: '0.875rem',
   display: 'inline-block',
   margin: '0 0.5rem',
+  transition: 'color 0.2s ease !important',
 };
 
 const bullet = {
