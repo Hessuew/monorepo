@@ -1,13 +1,10 @@
 import { AnimatedGradientText } from '~/components/magicui/animated-gradient-text';
 import { cn } from '~/lib/utils';
-import { ChevronRight } from 'lucide-react';
+import { Send } from 'lucide-react';
 
-export function ButtonGradient({ href, text }: { href: string; text: string }) {
+export function InputGradient({ text }: { text: string }) {
   return (
-    <a
-      href={href}
-      className='group relative mx-auto flex items-center justify-center rounded-full px-4 pt-1 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] '
-    >
+    <div className='group relative flex h-12 pb-1 items-center justify-center rounded-full px-8 pt-1 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] '>
       <span
         className={cn(
           'absolute inset-0 block h-full w-full animate-gradient rounded-[inherit] bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:300%_100%] p-0.5'
@@ -21,10 +18,10 @@ export function ButtonGradient({ href, text }: { href: string; text: string }) {
         }}
       />
       <AnimatedGradientText className='text-base font-semibold'>{text}</AnimatedGradientText>
-      <ChevronRight
-        className='ml-1 mb-1 size-4 stroke-neutral-500 transition-transform
+      <Send
+        className='ml-2 size-4 stroke-neutral-500 transition-transform
  duration-300 ease-in-out group-hover:translate-x-0.5'
       />
-    </a>
+    </div>
   );
 }

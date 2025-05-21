@@ -11,45 +11,15 @@ flameTheFreeze dark purple:
   --violet2: #9c40ff;
   --blue: #0ff;
   --orange: rgba(255, 170, 64);
+  --orange2: #260e02;
   --white: rgba(160, 160, 160, 0.2);
   --shadow-color: 0deg 0% 0%;
-}
 
-.shadow-high2 {
-  box-shadow: 
-    1px -1px 1.6px hsl(var(--shadow-color) / 0.2),
-    8.3px -8.3px 13.2px -0.4px hsl(var(--shadow-color) / 0.2),
-    15.9px -15.9px 25.3px -0.7px hsl(var(--shadow-color) / 0.2),
-    26.4px -26.4px 42px -1.1px hsl(var(--shadow-color) / 0.2),
-    42.5px -42.5px 67.6px -1.4px hsl(var(--shadow-color) / 0.2),
-    66.7px -66.7px 106.1px -1.8px hsl(var(--shadow-color) / 0.2),
-    101.7px -101.7px 161.8px -2.1px hsl(var(--shadow-color) / 0.2),
-    150px -150px 238.6px -2.5px hsl(var(--shadow-color) / 0.2);
-}
-
-.shadow-high3 {
-  box-shadow: 
-    -1px 1px 1.6px hsl(var(--shadow-color) / 0.2),
-    -8.3px 8.3px 13.2px -0.4px hsl(var(--shadow-color) / 0.2),
-    -15.9px 15.9px 25.3px -0.7px hsl(var(--shadow-color) / 0.2),
-    -26.4px 26.4px 42px -1.1px hsl(var(--shadow-color) / 0.2),
-    -42.5px 42.5px 67.6px -1.4px hsl(var(--shadow-color) / 0.2),
-    -66.7px 66.7px 106.1px -1.8px hsl(var(--shadow-color) / 0.2),
-    -101.7px 101.7px 161.8px -2.1px hsl(var(--shadow-color) / 0.2),
-    -150px 150px 238.6px -2.5px hsl(var(--shadow-color) / 0.2);
-}
-
-.shadow-high {
-  box-shadow: 
-    -1px -1px 1.6px hsl(var(--shadow-color) / 0.2),
-    -5.8px -5.8px 9.2px -0.4px hsl(var(--shadow-color) / 0.2),
-    -10.9px -10.9px 17.3px -0.7px hsl(var(--shadow-color) / 0.2),
-    -17.9px -17.9px 28.5px -1.1px hsl(var(--shadow-color) / 0.2),
-    -28.6px -28.6px 45.5px -1.4px hsl(var(--shadow-color) / 0.2),
-    -44.7px -44.7px 71.1px -1.8px hsl(var(--shadow-color) / 0.2),
-    -67.9px -67.9px 108px -2.1px hsl(var(--shadow-color) / 0.2),
-    -100px -100px 159.1px -2.5px hsl(var(--shadow-color) / 0.2);
-  ;
+  --shiny-cta-bg: #000000;
+  --shiny-cta-bg-subtle: #1a1818;
+  --shiny-cta-fg: #ffffff;
+  --shiny-cta-highlight: var(--violet2);
+  --shiny-cta-highlight-subtle: var(--violet);
 }
 
 /* Base gradient border styles */
@@ -64,7 +34,7 @@ flameTheFreeze dark purple:
 .gradient-border::before,
 .gradient-border2::before,
 .gradient-border3::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   border-radius: inherit;
@@ -73,7 +43,7 @@ flameTheFreeze dark purple:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
-          mask-composite: exclude;
+  mask-composite: exclude;
   pointer-events: none;
   z-index: -1;
 }
@@ -82,35 +52,36 @@ flameTheFreeze dark purple:
 .gradient-border::before {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.6),   /* Top-left */
-    rgba(255, 255, 255, 0.1),   /* Center-ish */
-    rgba(255, 255, 255, 0.6)    /* Bottom-right */
+    rgba(255, 255, 255, 0.6),
+    /* Top-left */ rgba(255, 255, 255, 0.1),
+    /* Center-ish */ rgba(255, 255, 255, 0.6) /* Bottom-right */
   );
 }
 
 .gradient-border2::before {
   background: linear-gradient(
     135deg,
-    rgba(168, 85, 247, 0.6),   /* Top-left */
-    rgba(168, 85, 247, 0.1),   /* Center-ish */
-    rgba(168, 85, 247, 0.6)    /* Bottom-right */
+    rgba(168, 85, 247, 0.6),
+    /* Top-left */ rgba(168, 85, 247, 0.1),
+    /* Center-ish */ rgba(168, 85, 247, 0.6) /* Bottom-right */
   );
 }
 
 .gradient-border3::before {
   background: linear-gradient(
     135deg,
-    rgba(59, 130, 246, 0.6),   /* Top-left */
-    rgba(59, 130, 246, 0.1),   /* Center-ish */
-    rgba(59, 130, 246, 0.6)    /* Bottom-right */
+    rgba(59, 130, 246, 0.6),
+    /* Top-left */ rgba(59, 130, 246, 0.1),
+    /* Center-ish */ rgba(59, 130, 246, 0.6) /* Bottom-right */
   );
 }
 
 /* Glow element */
 .card-container::before,
 .card-container2::before,
-.card-container3::before {
-  content: "";
+.card-container3::before,
+.card-container4::before {
+  content: '';
   position: absolute;
   inset: -30px;
   border-radius: 1.5rem;
@@ -126,34 +97,31 @@ flameTheFreeze dark purple:
     
     /* Boosted top center glow */
     radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.5), transparent 60%),
-    
-    /* Boosted bottom right glow */
-    radial-gradient(circle at 90% 110%, rgba(255, 255, 255, 0.4), transparent 65%);
-
+    /* Boosted bottom right glow */ radial-gradient(circle at 90% 110%, rgba(255, 255, 255, 0.4), transparent 65%);
 }
 
 .card-container2::before {
   background:
     /* Base even glow */
     radial-gradient(closest-side, rgba(168, 85, 247, 0.3), transparent 70%) center / 100% 100% no-repeat,
-    
-    /* Boosted top center glow */
-    radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.5), transparent 60%),
-    
-    /* Boosted bottom right glow */
-    radial-gradient(circle at 90% 100%, rgba(168, 85, 247, 0.4), transparent 65%);
+    /* Boosted top center glow */ radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.5), transparent 60%),
+    /* Boosted bottom right glow */ radial-gradient(circle at 90% 100%, rgba(168, 85, 247, 0.4), transparent 65%);
 }
 
 .card-container3::before {
   background:
     /* Base even glow */
     radial-gradient(closest-side, rgba(59, 130, 246, 0.3), transparent 70%) center / 100% 100% no-repeat,
-    
-    /* Boosted top center glow */
-    radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.5), transparent 60%),
-    
-    /* Boosted bottom right glow */
-    radial-gradient(circle at 90% 100%, rgba(59, 130, 246, 0.4), transparent 65%);
+    /* Boosted top center glow */ radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.5), transparent 60%),
+    /* Boosted bottom right glow */ radial-gradient(circle at 90% 100%, rgba(59, 130, 246, 0.4), transparent 65%);
+}
+
+.card-container4::before {
+  background:
+    /* Base even glow */
+    radial-gradient(closest-side, rgba(168, 85, 247, 0.3), transparent 70%) center / 100% 100% no-repeat,
+    /* Boosted top center glow */ radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.5), transparent 60%),
+    /* Boosted bottom right glow */ radial-gradient(circle at 90% 100%, rgba(168, 85, 247, 0.4), transparent 65%);
 }
 
 .orb {
@@ -216,14 +184,14 @@ flameTheFreeze dark purple:
   }
 }
 
-#header>div:first-child {
+#header > div:first-child {
   @apply border-b border-transparent;
   transition:
     border-color 0.3s ease-in-out,
     border-width 0.3s ease-in-out;
 }
 
-#header.scroll>div:first-child {
+#header.scroll > div:first-child {
   /* @apply bg-[#87ceeb]/80 backdrop-blur-md; */
   @apply bg-[#09183F]/80 border-b border-gray-500/20;
   /* @apply bg-page md:bg-white/90 md:backdrop-blur-md; */
@@ -234,8 +202,8 @@ flameTheFreeze dark purple:
     border-width 0.3s ease-in-out;
 }
 
-.dark #header.scroll>div:first-child,
-#header.scroll.dark>div:first-child {
+.dark #header.scroll > div:first-child,
+#header.scroll.dark > div:first-child {
   @apply bg-[#09183F]/80 border-b border-gray-500/20;
   /* @apply bg-page md:bg-[#030621e6] border-b border-gray-500/20; */
   box-shadow: none;
@@ -270,11 +238,13 @@ flameTheFreeze dark purple:
 }
 
 .edge {
-  background: linear-gradient(to left,
-      hsl(216deg 99.2% 16%) 0%,
-      hsl(216deg 99.2% 32%) 8%,
-      hsl(216deg 99.2% 32%) 92%,
-      hsl(216deg 99.2% 16%) 100%);
+  background: linear-gradient(
+    to left,
+    hsl(216deg 99.2% 16%) 0%,
+    hsl(216deg 99.2% 32%) 8%,
+    hsl(216deg 99.2% 32%) 92%,
+    hsl(216deg 99.2% 16%) 100%
+  );
 }
 
 .front {
@@ -317,11 +287,11 @@ flameTheFreeze dark purple:
   @apply text-white;
 }
 
-[astro-icon].icon-light>* {
+[astro-icon].icon-light > * {
   stroke-width: 1.2;
 }
 
-[astro-icon].icon-bold>* {
+[astro-icon].icon-bold > * {
   stroke-width: 2;
 }
 
@@ -329,11 +299,11 @@ flameTheFreeze dark purple:
   @apply transition;
 }
 
-[data-aw-toggle-menu].expanded g>path:first-child {
+[data-aw-toggle-menu].expanded g > path:first-child {
   @apply -rotate-45 translate-y-[15px] translate-x-[-3px];
 }
 
-[data-aw-toggle-menu].expanded g>path:last-child {
+[data-aw-toggle-menu].expanded g > path:last-child {
   @apply rotate-45 translate-y-[-8px] translate-x-[14px];
 }
 
@@ -435,7 +405,7 @@ flameTheFreeze dark purple:
 @layer theme {
   @keyframes gradient {
     to {
-      backgroundPosition: var(--bg-size, 300%) 0;
+      backgroundposition: var(--bg-size, 300%) 0;
     }
   }
 }
@@ -454,4 +424,183 @@ flameTheFreeze dark purple:
       background-position: 0% 0%;
     }
   }
+}
+
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@property --gradient-angle-offset {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@property --gradient-percent {
+  syntax: '<percentage>';
+  initial-value: 5%;
+  inherits: false;
+}
+
+@property --gradient-shine {
+  syntax: '<color>';
+  initial-value: white;
+  inherits: false;
+}
+
+.shiny-cta {
+  --animation: gradient-angle linear infinite;
+  --duration: 5s;
+  --shadow-size: 2px;
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  outline-offset: 4px;
+  font-family: inherit;
+  font-size: 1.125rem;
+  line-height: 1.2;
+  border: 1px solid transparent;
+  border-radius: 360px;
+  color: var(--shiny-cta-fg);
+  background:
+    linear-gradient(var(--shiny-cta-bg), var(--shiny-cta-bg)) padding-box,
+    conic-gradient(
+        from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+        transparent,
+        var(--shiny-cta-highlight) var(--gradient-percent),
+        var(--gradient-shine) calc(var(--gradient-percent) * 2),
+        var(--shiny-cta-highlight) calc(var(--gradient-percent) * 3),
+        transparent calc(var(--gradient-percent) * 4)
+      )
+      border-box;
+  box-shadow: inset 0 0 0 1px var(--shiny-cta-bg-subtle);
+
+  &::before,
+  &::after,
+  span::before {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    inset-inline-start: 50%;
+    inset-block-start: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+  }
+
+  &:active {
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in-out;
+  }
+}
+
+.shiny-cta::before {
+  --size: calc(100% - var(--shadow-size) * 3);
+  --position: 2px;
+  --space: calc(var(--position) * 2);
+  width: var(--size);
+  height: var(--size);
+  background: radial-gradient(circle at var(--position) var(--position), white calc(var(--position) / 4), transparent 0)
+    padding-box;
+  background-size: var(--space) var(--space);
+  background-repeat: space;
+  mask-image: conic-gradient(from calc(var(--gradient-angle) + 45deg), black, transparent 10% 90%, black);
+  border-radius: inherit;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.shiny-cta::after {
+  --animation: shimmer linear infinite;
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(-50deg, transparent, var(--shiny-cta-highlight), transparent);
+  mask-image: radial-gradient(circle at bottom, transparent 40%, black);
+  opacity: 0.6;
+}
+
+.shiny-cta span {
+  z-index: 1;
+
+  &::before {
+    --size: calc(100% + 1rem);
+    width: var(--size);
+    height: var(--size);
+    box-shadow: inset 0 -1ex 2rem 4px var(--shiny-cta-highlight);
+    opacity: 0;
+  }
+}
+
+.shiny-cta {
+  --transition: 800ms cubic-bezier(0.25, 1, 0.5, 1);
+  transition: var(--transition);
+  transition-property: --gradient-angle-offset, --gradient-percent, --gradient-shine;
+  /* --shiny-cta-highlight: var(--violet2);
+  --shiny-cta-highlight-subtle: var(--violet); */
+
+  &,
+  &::before,
+  &::after {
+    animation:
+      var(--animation) var(--duration),
+      var(--animation) calc(var(--duration) / 0.4) reverse paused;
+    animation-composition: add;
+  }
+
+  span::before {
+    transition: opacity var(--transition);
+    animation: calc(var(--duration) * 1.5) breathe linear infinite;
+  }
+}
+
+.shiny-cta:is(:hover, :focus-visible) {
+  --gradient-percent: 20%;
+  --gradient-angle-offset: 95deg;
+  --gradient-shine: var(--shiny-cta-highlight-subtle);
+
+  &:active {
+    --gradient-percent: 20%;
+    --gradient-angle-offset: 95deg;
+    --gradient-shine: var(--shiny-cta-highlight-subtle);
+  }
+
+  &,
+  &::before,
+  &::after {
+    animation-play-state: running;
+  }
+
+  span::before {
+    opacity: 1;
+  }
+}
+
+@keyframes gradient-angle {
+  to {
+    --gradient-angle: 360deg;
+  }
+}
+
+@keyframes shimmer {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes breathe {
+  from,
+  to {
+    scale: 1;
+  }
+  50% {
+    scale: 1.2;
+  }
+}
+
+/* Modifier classes for shiny-cta */
+.shiny-cta-orange {
+  --shiny-cta-highlight: var(--orange);
+  --shiny-cta-highlight-subtle: var(--orange2);
 }

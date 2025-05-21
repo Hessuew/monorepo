@@ -2,7 +2,6 @@
 import Logo from '~/components/Logo.astro';
 import { AnimatedGradientText } from '~/components/magicui/animated-gradient-text';
 import Button from '~/components/ui/Button.astro';
-import { ButtonGradient } from '~/components/ui/ButtonGradient';
 import GridPattern from '~/components/ui/GridPattern.astro';
 ---
 
@@ -18,19 +17,14 @@ import GridPattern from '~/components/ui/GridPattern.astro';
     <Logo />
   </div>
 </div>
-<!-- <div class="orb"></div> -->
 
-<div class="min-h-[100vh]">
+<div class="lg:min-h-[100vh]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <!-- Hero Section with Background Grid -->
     <div class="relative flex overflow-visible pt-10">
-      <div class="-z-10 absolute -top-40 -right-[440px]">
-        <!-- <Marquee /> -->
-      </div>
-      <!-- Content -->
+      <div class="-z-10 absolute -top-40 -right-[440px]"></div>
       <div class="relative flex flex-col">
         <h1
-          class="relative z-30 max-w-[666px] font-title text-[84px] font-semibold leading-[0.9] tracking-tight lg:max-w-[608px] lg:text-[84px] md:max-w-[521px] md:text-[56px] sm:max-w-64 sm:text-[32px]"
+          class="relative z-30 max-w-[666px] font-title text-[42px] font-semibold leading-[0.9] tracking-tight lg:max-w-[648px] lg:text-[84px] md:max-w-[521px] md:text-[68px] sm:max-w-[400px] xs:text-[52px]"
         >
           <AnimatedGradientText className="tracking-tighter" colorFrom="#ffaa40" colorTo="#1a0024"
             >Premium</AnimatedGradientText
@@ -38,41 +32,34 @@ import GridPattern from '~/components/ui/GridPattern.astro';
           <span
             class="bg-gradient-to-br from-white from-30% via-[#d5d8f6] via-80% to-[#fdf7fe] bg-clip-text text-transparent"
           >
-            website
+            websites
             <br />
-            for you brand
+            for God's children
           </span>
         </h1>
 
-        <!-- sm:max-w-[248px]  -->
         <p
           class="relative z-30 mt-5 max-w-md text-[18px] leading-snug tracking-tight text-grey-90 lg:mt-4 md:mt-3.5 md:text-[18px] sm:mt-3 sm:text-[15px]"
         >
           <br />
-          Cherubim IT, create yourself a brand and <br />
-          a presence you are confident to present.
+          Cherubim IT, create yourself a brand and a presence <br class="hidden md:block" />
+          you can confidently present to the whole world.
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-3 mt-11 lg:mt-9 md:mt-7 sm:mt-5">
+        <div class="flex flex-row gap-3 mt-11 lg:mt-9 md:mt-7 sm:mt-5">
           <Button
-            class="bg-white/5 backdrop-blur-lg hover:bg-white/10 border-0 text-white h-12 w-37 rounded-full text-base font-semibold"
+            href="#customer-cards"
+            class="bg-white/5 backdrop-blur-lg hover:bg-white/10 border-0 text-white h-12 w-34 md:px-6 rounded-full text-base font-semibold"
           >
             Why Cherubim
           </Button>
-          <ButtonGradient />
+
+          <a href="#contact" class="shiny-cta shiny-cta-orange h-12 items-center justify-center flex pt-1">
+            <span class="text-base font-semibold px-4">Quick Contact</span>
+          </a>
         </div>
       </div>
     </div>
-
-    <!-- <div class="absolute top-1/2 right-0 -translate-y-1/2 text-right pr-10">
-        <h1 class="text-5xl md:text-[11rem] font-title font-extrabold tracking-tighter text-[rgb(255,255,255,0.01)]">
-          JESUS
-          <br />
-          IS
-          <br />
-          LORD
-        </h1>
-      </div> -->
 
     <GridPattern fadeDirection="both" fadeHorizontal="none" />
 

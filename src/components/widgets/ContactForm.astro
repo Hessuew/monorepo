@@ -1,94 +1,211 @@
 ---
+// import GridPattern from '~/components/ui/GridPattern.astro';
+import logo_transparent from '~/assets/images/logo3.webp';
+import Image from '~/components/common/Image.astro';
+// import { InputGradient } from '~/components/ui/InputGradient';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 
+// import { Icon } from 'astro-icon/components';
 ---
 
-<div class="container mx-auto max-w-5xl px-4 overflow-visible">
-  <section id="formHolder" class="py-12">
-    <div class="flex flex-col md:flex-row">
-      <!-- Brand Box -->
-      <div class="col-sm-6 brand md:w-1/2">
-        <a href="#" class="logo">MR <span>.</span></a>
+<div class="relative pt-10 pb-10">
+  <div
+    class="rotate-180 [--color:var(--violet2)] pointer-events-none relative -z-[2] mx-auto h-[50rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_70%)] my-[-18.8rem]
+      before:absolute before:inset-0 before:h-full before:w-full before:opacity-30 before:[background-image:radial-gradient(circle_at_top_center,var(--violet2),transparent_70%)]
+      after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-b after:border-[hsl(var(--border))] after:[transform:scaleY(-1)] after:[box-shadow:0_0_40px_10px_var(--violet2),0_0_40px_10px_var(--violet2)_inset]"
+  >
+  </div>
+  <WidgetWrapper
+    id={'contact'}
+    containerClass={`max-w-7xl py-0 md:py-0 lg:py-0 mx-auto intersect-quarter sm:intersect-full`}
+  >
+    <div class="mx-auto max-w-5xl px-4 overflow-hidden">
+      <section id="formHolder">
+        <div class="flex flex-col md:flex-row">
+          <!-- Brand Box -->
+          <div class="col-sm-6 brand md:w-1/2">
+            <!-- <a href="#" class="logo">MR <span>.</span></a> -->
+            <p class="text-[15px] font-light">Contact form</p>
 
-        <div class="heading w-full">
-          <h2>Cherubim IT</h2>
-          <p>Your Right Choice</p>
+            <div class="heading sm:text-[48px] font-title mb-0 font-semibold w-full text-center">
+              <div class="flex flex-row gap-1 items-center w-full justify-center">
+                <Image
+                  class={'w-16 h-16 pt-1'}
+                  widths={[400, 768, 1024, 2040]}
+                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                  loading="eager"
+                  width={64}
+                  height={64}
+                  src={logo_transparent}
+                  alt="Logo"
+                />
+                <h2>Cherubim IT</h2>
+              </div>
+
+              <p class="text-[15px] font-light uppercase tracking-wider font-title pl-12">Your Right Choice</p>
+            </div>
+
+            <div class="absolute -bottom-8 sm:bottom-0 w-full justify-center turnstile-container">
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAABdpbcazSwxXVATY"></div>
+            </div>
+
+            <div class="success-msg">
+              <p>
+                Thank you for getting in touch! We're reviewing your message and will respond shortly.
+                <br />
+                <br />
+                Grace be unto you and peace from God the Father, and from our Lord Jesus Christ.
+              </p>
+            </div>
+
+            <div class="error-msg">
+              <p>
+                Something went wrong with the form submission. Please try again. If the problem persists, please be
+                patient as we fix the issue.
+              </p>
+            </div>
+          </div>
+
+          <!-- Form Box -->
+          <div class="col-sm-6 form md:w-1/2">
+            <!-- Login Form -->
+            <div class="login form-piece switched">
+              <form
+                class="login-form md:h-full md:flex md:flex-col md:justify-between"
+                action="javascript:void(0)"
+                method="post"
+              >
+                <div>
+                  <div class="flex justify-end">
+                    <a
+                      href="#"
+                      class="switch group truncate btn-secondary hover:bg-white/10 border-0 text-white h-12 w-40 rounded-full text-base font-light tracking-tighter px-0 md:px-2 focus:ring-0 focus:ring-offset-0"
+                    >
+                      <span class="flex flex-row items-center justify-center gap-2">
+                        For companies
+                        <span class="transition-transform duration-300 ease-in-out group-hover:translate-x-0.5">
+                          {'>>'}
+                        </span>
+                        <!-- <Icon
+                          name="tabler:arrow-right"
+                          class="w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5"
+                        /> -->
+                      </span>
+                    </a>
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" name="username" id="name" class="name" />
+                    <span class="error"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" name="emailAddress" id="email" class="email" />
+                    <span class="error"></span>
+                  </div>
+
+                  <!-- Honeypot field to catch bots. Purposefully misspelled "email" as "emai" to trick automated form fillers -->
+                  <div style="position: absolute; left: -9999px;" aria-hidden="true">
+                    <label for="emai">If you're a human, leave this field empty</label>
+                    <input id="emai" name="emai" type="text" autocomplete="off" tabindex="-1" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <input type="text" name="message" id="message" class="message" />
+                    <span class="error"></span>
+                  </div>
+                </div>
+
+                <div class="CTA">
+                  <button type="submit" class="shiny-cta shiny-cta-orange h-12 mb-4 w-32">
+                    <span class="text-base font-semibold px-4">Send</span>
+                  </button>
+                </div>
+              </form>
+            </div><!-- End Login Form -->
+
+            <!-- Signup Form -->
+            <div class="signup form-piece">
+              <form
+                class="signup-form md:h-full md:flex md:flex-col md:justify-between"
+                action="javascript:void(0)"
+                method="post"
+              >
+                <div class="flex justify-end">
+                  <a
+                    href="#"
+                    class="switch group truncate btn-secondary hover:bg-white/10 border-0 text-white h-12 w-40 rounded-full text-base font-light tracking-tighter px-0 md:px-2 focus:ring-0 focus:ring-offset-0"
+                  >
+                    <span class="flex flex-row items-center justify-center gap-2">
+                      For individuals
+                      <span class="transition-transform duration-300 ease-in-out group-hover:translate-x-0.5">
+                        {'>>'}
+                      </span>
+                      <!-- <Icon
+                        name="tabler:arrow-right"
+                        class="w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5"
+                      /> -->
+                    </span>
+                  </a>
+                </div>
+                <div class="form-group">
+                  <label for="companyName">Company / Organization Name</label>
+                  <input type="text" name="companyName" id="companyName" class="companyName" />
+                  <span class="error"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Full Name</label>
+                  <input type="text" name="username" id="name" class="name" />
+                  <span class="error"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" name="emailAddress" id="email" class="email" />
+                  <span class="error"></span>
+                </div>
+
+                <!-- Honeypot field to catch bots. Purposefully misspelled "email" as "emai" to trick automated form fillers -->
+                <div style="position: absolute; left: -9999px;" aria-hidden="true">
+                  <label for="emai">If you're a human, leave this field empty</label>
+                  <input id="emai" name="emai" type="text" autocomplete="off" tabindex="-1" />
+                </div>
+
+                <div class="form-group">
+                  <label for="role">Role in Company - <small>Optional</small></label>
+                  <input type="text" name="role" id="role" />
+                </div>
+
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <input type="text" name="message" id="message" class="message" />
+                  <span class="error"></span>
+                </div>
+
+                <div class="CTA">
+                  <button type="submit" class="shiny-cta shiny-cta-orange h-12 mb-4 w-32">
+                    <span class="text-base font-semibold px-4">Send</span>
+                  </button>
+                </div>
+              </form>
+            </div><!-- End Signup Form -->
+          </div>
         </div>
+      </section>
 
-        <div class="success-msg">
-          <p>Great! You are one of our members now</p>
-          <a href="#" class="profile">Your Profile</a>
-        </div>
-      </div>
-
-      <!-- Form Box -->
-      <div class="col-sm-6 form md:w-1/2">
-        <!-- Login Form -->
-        <div class="login form-peice switched">
-          <form class="login-form" action="#" method="post">
-            <div class="form-group">
-              <label for="loginemail">Email Adderss</label>
-              <input type="email" name="loginemail" id="loginemail" required />
-            </div>
-
-            <div class="form-group">
-              <label for="loginPassword">Password</label>
-              <input type="password" name="loginPassword" id="loginPassword" required />
-            </div>
-
-            <div class="CTA">
-              <input type="submit" value="Login" />
-              <a href="#" class="switch">I'm New</a>
-            </div>
-          </form>
-        </div><!-- End Login Form -->
-
-        <!-- Signup Form -->
-        <div class="signup form-peice">
-          <form class="signup-form" action="#" method="post">
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" name="username" id="name" class="name" />
-              <span class="error"></span>
-            </div>
-
-            <div class="form-group">
-              <label for="email">Email Adderss</label>
-              <input type="email" name="emailAdress" id="email" class="email" />
-              <span class="error"></span>
-            </div>
-
-            <div class="form-group">
-              <label for="phone">Phone Number - <small>Optional</small></label>
-              <input type="text" name="phone" id="phone" />
-            </div>
-
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" name="password" id="password" class="pass" />
-              <span class="error"></span>
-            </div>
-
-            <div class="form-group">
-              <label for="passwordCon">Confirm Password</label>
-              <input type="password" name="passwordCon" id="passwordCon" class="passConfirm" />
-              <span class="error"></span>
-            </div>
-
-            <div class="CTA">
-              <input type="submit" value="Signup Now" id="submit" />
-              <a href="#" class="switch">I have an account</a>
-            </div>
-          </form>
-        </div><!-- End Signup Form -->
-      </div>
+      <!-- Footer removed as it's now in the main Footer component -->
     </div>
-  </section>
+  </WidgetWrapper>
 
-  <footer>
-    <p>
-      Made by: <a href="http://cherubim-it.com" target="_blank">Cherubim IT</a>
-    </p>
-  </footer>
+  <div
+    class="[--color:var(--orange)] pointer-events-none relative -z-[2] mx-auto h-[20rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_70%)] mt-[-4rem] mb-[-12rem]
+      before:absolute before:inset-0 before:h-full before:w-full before:opacity-20 before:[background-image:radial-gradient(circle_at_top_center,var(--color),transparent_70%)]
+      after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-b after:border-[white] after:[transform:scaleY(-1)] after:[box-shadow:0_0_40px_10px_var(--orange),0_0_40px_10px_var(--orange)_inset]"
+  >
+  </div>
 </div>
 
 <style>
@@ -96,7 +213,6 @@
     font-family: 'Montserrat', sans-serif;
     background: #f7edd5;
   }
-
   .container {
     max-width: 900px;
   }
@@ -118,16 +234,16 @@
   }
 
   section#formHolder {
-    padding: 50px 0;
+    padding: 0px 0;
   }
 
   .brand {
     padding: 20px;
-    background: url(https://goo.gl/A0ynht);
+    /* background: url(https://goo.gl/A0ynht); */
     background-size: cover;
     background-position: center center;
     color: #fff;
-    min-height: 540px;
+    min-height: 580px;
     position: relative;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
     transition: all 0.6s cubic-bezier(1, -0.375, 0.285, 0.995);
@@ -173,19 +289,6 @@
     left: 100px;
     transform: translate(0);
   }
-  .brand .heading h2 {
-    font-size: 60px;
-    font-weight: 700;
-    margin-bottom: 0;
-  }
-  .brand .heading p {
-    font-size: 15px;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    white-space: 4px;
-    font-family: 'Raleway', sans-serif;
-  }
   .brand .success-msg {
     width: 100%;
     text-align: center;
@@ -221,16 +324,51 @@
     opacity: 1;
   }
 
+  .brand .error-msg {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 60px;
+  }
+  .brand .error-msg p {
+    font-size: 25px;
+    font-weight: 400;
+    font-family: 'Raleway', sans-serif;
+  }
+  .brand .error-msg a {
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 8px 30px;
+    background: #f95959;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 30px;
+  }
+  .brand .error-msg p,
+  .brand .error-msg a {
+    transition: all 0.9s;
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  .brand .error-msg p.active,
+  .brand .error-msg a.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
   .form {
     position: relative;
   }
-  .form .form-peice {
-    background: #fff;
-    min-height: 480px;
-    margin-top: 30px;
+  .form .form-piece {
+    /* background: #fff; */
+    min-height: 540px;
+    margin-top: 10px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
     color: #bbbbbb;
-    padding: 30px 0 60px;
+    /* padding: 30px 0 60px; */
     transition: all 0.9s cubic-bezier(1, -0.375, 0.285, 0.995);
     position: absolute;
     top: 0;
@@ -238,7 +376,7 @@
     width: 130%;
     overflow: hidden;
   }
-  .form .form-peice.switched {
+  .form .form-piece.switched {
     transform: translateX(-100%);
     width: 100%;
     left: 0;
@@ -253,19 +391,18 @@
     transform: translate(-50%, -50%);
   }
   .form form .form-group {
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     position: relative;
   }
   .form form .form-group.hasError input {
-    border-color: #f95959 !important;
+    border-color: red !important;
   }
   .form form .form-group.hasError label {
-    color: #f95959 !important;
+    color: red !important;
   }
   .form form label {
-    font-size: 12px;
-    font-weight: 400;
-    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
     font-family: 'Montserrat', sans-serif;
     transform: translateY(40px);
     transition: all 0.4s;
@@ -285,19 +422,24 @@
     outline: none;
     border: none;
     display: block;
-    padding: 10px 0;
+    padding: 4px 0;
     width: 100%;
     border-bottom: 1px solid #eee;
-    color: #444;
+    color: white;
     font-size: 15px;
     font-family: 'Montserrat', sans-serif;
     z-index: 1;
   }
+  input::selection,
+  textarea::selection {
+    background: #3390ff;
+    color: white;
+  }
   .form form input:not([type='submit']).hasError {
-    border-color: #f95959;
+    border-color: red;
   }
   .form form span.error {
-    color: #f95959;
+    color: red;
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
     position: absolute;
@@ -306,49 +448,20 @@
     display: none;
   }
   .form form input[type='password'] {
-    color: #f95959;
-  }
-  .form form .CTA {
-    margin-top: 30px;
+    color: red;
   }
   .form form .CTA input {
-    font-size: 12px;
-    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    /* text-transform: uppercase; */
     padding: 5px 30px;
-    background: #f95959;
-    color: #fff;
+    background: transparent;
+    /* color: #fff; */
     border-radius: 30px;
     margin-right: 20px;
-    border: none;
+    /* border: none; */
     font-family: 'Montserrat', sans-serif;
-  }
-  .form form .CTA a.switch {
-    font-size: 13px;
-    font-weight: 400;
-    font-family: 'Montserrat', sans-serif;
-    color: #bbbbbb;
-    text-decoration: underline;
-    transition: all 0.3s;
-  }
-  .form form .CTA a.switch:hover {
-    color: #f95959;
-  }
-
-  footer {
-    text-align: center;
-  }
-  footer p {
-    color: #777;
-  }
-  footer p a,
-  footer p a:focus {
-    color: #b8b09f;
-    transition: all 0.3s;
-    text-decoration: none !important;
-  }
-  footer p a:hover,
-  footer p a:focus:hover {
-    color: #f95959;
   }
 
   @media (max-width: 768px) {
@@ -360,7 +473,7 @@
       padding: 0;
     }
     section#formHolder div.brand {
-      min-height: 200px !important;
+      min-height: 260px !important;
     }
     section#formHolder div.brand.active {
       min-height: 100vh !important;
@@ -377,27 +490,37 @@
       padding: 5px 30px;
       font-size: 10px;
     }
+    section#formHolder div.brand .error-msg p {
+      font-size: 16px;
+    }
+    section#formHolder div.brand .error-msg a {
+      padding: 5px 30px;
+      font-size: 10px;
+    }
     section#formHolder .form {
       width: 80vw;
       min-height: 500px;
       margin-left: 10vw;
     }
-    section#formHolder .form .form-peice {
+    section#formHolder .form .form-piece {
       margin: 0;
       top: 0;
       left: 0;
-      width: 100% !important;
+      width: 80% !important;
       transition: all 0.5s ease-in-out;
     }
-    section#formHolder .form .form-peice.switched {
+    section#formHolder .form .form-piece.switched {
       transform: translateY(-100%);
       width: 100%;
       left: 0;
     }
-    section#formHolder .form .form-peice > form {
+    section#formHolder .form .form-piece > form {
       width: 100% !important;
-      padding: 60px;
+      padding: 60px 20px;
       left: 50%;
+    }
+    h2 {
+      font-size: 42px !important;
     }
   }
   @media (max-width: 480px) {
@@ -407,30 +530,44 @@
     }
 
     h2 {
-      font-size: 50px !important;
+      font-size: 42px !important;
     }
   }
 </style>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
+  // Define Cloudflare Turnstile interface
+  interface Turnstile {
+    getResponse: () => string;
+    render: (container: string | HTMLElement, options: object) => string;
+    reset: (widgetId?: string) => void;
+  }
+
+  // Declare turnstile as a global variable
+  declare const turnstile: Turnstile;
+
+  // Type definitions
+  interface FormState {
+    nameError: boolean;
+    emailError: boolean;
+    messageError: boolean;
+    companyNameError: boolean;
+    isCompanyForm: boolean;
+  }
+
+  // Form state - moved outside DOMContentLoaded for better scoping
+  const formState: FormState = {
+    nameError: true,
+    emailError: true,
+    messageError: true,
+    companyNameError: true, // Default to true since it's required for company form
+    isCompanyForm: true, // Track if company form is active
+  };
+
   // Form validation and submission handling
   document.addEventListener('DOMContentLoaded', () => {
-    // Type definitions
-    interface FormState {
-      nameError: boolean;
-      emailError: boolean;
-      messageError: boolean;
-    }
-
-    // Form state
-    const formState: FormState = {
-      nameError: true,
-      emailError: true,
-      messageError: true,
-    };
-
     // DOM elements
-    const contactForm = document.querySelector('form.contact-form') as HTMLFormElement;
     const inputs = document.querySelectorAll('input, textarea') as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
 
     // Switch form elements
@@ -445,6 +582,9 @@
         e.preventDefault();
         signupForm.classList.add('switched');
         loginForm.classList.remove('switched');
+        formState.isCompanyForm = false;
+        // Make company name required when switching to company form
+        formState.companyNameError = false;
       });
     }
 
@@ -453,6 +593,9 @@
         e.preventDefault();
         loginForm.classList.add('switched');
         signupForm.classList.remove('switched');
+        formState.isCompanyForm = true;
+        // Make company name not required when switching to individual form
+        formState.companyNameError = true;
       });
     }
 
@@ -502,132 +645,205 @@
         }
       });
 
-      // Blur event for validation
-      input.addEventListener('blur', () => {
+      // Validation function that can be reused for both blur and input events
+      const validateField = (isBlurEvent = false) => {
         const parentElement = input.parentElement as HTMLElement;
+        let isValid = true;
+        let errorMessage = '';
+
+        // Company name validation - only validate if it's the company form
+        if (input.classList.contains('companyName')) {
+          if (formState.isCompanyForm) {
+            if (input.value.length === 0) {
+              errorMessage = 'Please enter your company name';
+              isValid = false;
+            } else if (input.value.length < 2) {
+              errorMessage = 'Company name must be at least 2 characters';
+              isValid = false;
+            }
+            formState.companyNameError = !isValid;
+          } else {
+            // If not company form, consider company name as valid
+            formState.companyNameError = false;
+          }
+        }
 
         // Name validation
         if (input.classList.contains('name')) {
           if (input.value.length === 0) {
-            showError(parentElement, 'Please enter your name');
-            formState.nameError = true;
+            errorMessage = 'Please enter your name';
+            isValid = false;
           } else if (input.value.length < 2) {
-            showError(parentElement, 'Name must be at least 2 characters');
-            formState.nameError = true;
-          } else {
-            hideError(parentElement);
-            formState.nameError = false;
+            errorMessage = 'Name must be at least 2 characters';
+            isValid = false;
           }
+          formState.nameError = !isValid;
         }
 
         // Email validation
         if (input.classList.contains('email')) {
           if (input.value.length === 0) {
-            showError(parentElement, 'Please enter your email address');
-            formState.emailError = true;
+            errorMessage = 'Please enter your email address';
+            isValid = false;
           } else if (!validateEmail(input.value)) {
-            showError(parentElement, 'Please enter a valid email address');
-            formState.emailError = true;
-          } else {
-            hideError(parentElement);
-            formState.emailError = false;
+            errorMessage = 'Please enter a valid email address';
+            isValid = false;
           }
+          formState.emailError = !isValid;
         }
 
         // Message validation
         if (input.classList.contains('message')) {
           if (input.value.length === 0) {
-            showError(parentElement, 'Please enter your message');
-            formState.messageError = true;
+            errorMessage = 'Please enter your message';
+            isValid = false;
           } else if (input.value.length < 10) {
-            showError(parentElement, 'Message must be at least 10 characters');
-            formState.messageError = true;
-          } else {
-            hideError(parentElement);
-            formState.messageError = false;
+            errorMessage = 'Message must be at least 10 characters';
+            isValid = false;
           }
+          formState.messageError = !isValid;
         }
 
-        // Label effect (remove active class if empty)
-        if (input.value.length === 0) {
-          const label = input.previousElementSibling as HTMLLabelElement;
-          if (label && label.tagName === 'LABEL') {
-            label.classList.remove('active');
+        // Only show error message if the field is invalid
+        if (!isValid && (isBlurEvent || (!isBlurEvent && !parentElement.classList.contains('hasError')))) {
+          // Don't show error on input if the field was previously valid
+          // This prevents showing errors while the user is still typing
+          if (isBlurEvent || parentElement.classList.contains('hasError')) {
+            showError(parentElement, errorMessage);
           }
+        } else if (isValid) {
+          hideError(parentElement);
+        }
+      };
+
+      // Add blur event for validation when user leaves the field
+      input.addEventListener('blur', () => {
+        validateField(true); // true indicates this is a blur event
+      });
+
+      // Add input event for real-time validation as user types
+      input.addEventListener('input', () => {
+        // Only validate if there's already an error (to clear it when fixed)
+        const parentElement = input.parentElement as HTMLElement;
+        if (parentElement.classList.contains('hasError')) {
+          validateField(false);
         }
       });
+
+      // Label effect (remove active class if empty)
+      if (input.value.length === 0) {
+        const label = input.previousElementSibling as HTMLLabelElement;
+        if (label && label.tagName === 'LABEL') {
+          label.classList.remove('active');
+        }
+      } else {
+        // Make sure label stays active when typing (in case it was cleared by blur)
+        const label = input.previousElementSibling as HTMLLabelElement;
+        if (label && label.tagName === 'LABEL') {
+          label.classList.add('active');
+        }
+      }
     });
-
-    // Form submission
-    if (contactForm) {
-      contactForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
-
-        // Trigger validation on all fields
-        inputs.forEach((input) => {
-          input.dispatchEvent(new Event('blur'));
-        });
-
-        // Check if form is valid
-        if (!formState.nameError && !formState.emailError && !formState.messageError) {
-          try {
-            // const formData = new FormData(contactForm);
-            const formElement = document.querySelector('.form') as HTMLElement;
-            const successMsg = document.querySelector('.success-msg') as HTMLElement;
-
-            // Here you would typically send the form data to your backend
-            // For example:
-            // const response = await fetch('/api/contact', {
-            //   method: 'POST',
-            //   body: formData
-            // });
-
-            // Show success message
-            if (formElement && successMsg) {
-              // Add transition classes
-              document.querySelector('.contact')?.classList.add('switched');
-
-              setTimeout(() => {
-                document.querySelector('.contact')?.classList.add('hidden');
-              }, 700);
-
-              setTimeout(() => {
-                document.querySelector('.brand')?.classList.add('active');
-              }, 300);
-
-              setTimeout(() => {
-                document.querySelector('.heading')?.classList.add('active');
-              }, 600);
-
-              setTimeout(() => {
-                const successParagraph = successMsg.querySelector('p');
-                if (successParagraph) successParagraph.classList.add('active');
-              }, 900);
-
-              setTimeout(() => {
-                const successLink = successMsg.querySelector('a');
-                if (successLink) successLink.classList.add('active');
-              }, 1050);
-
-              setTimeout(() => {
-                if (formElement) formElement.style.display = 'none';
-              }, 700);
-            }
-          } catch (error) {
-            console.error('Error submitting form:', error);
-            // Handle error case
-          }
-        }
-      });
-    }
-
-    // Reset form on "Try Again" click
-    const resetLink = document.querySelector('a.profile');
-    if (resetLink) {
-      resetLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.location.reload();
-      });
-    }
   });
+
+  // Form submission
+  // Get all forms in the component
+  const forms = document.querySelectorAll('form');
+
+  // Add submit handler to all forms
+  forms.forEach((form) => {
+    form.addEventListener('submit', async (event) => {
+      // Prevent default form submission which causes page jump
+      event.preventDefault();
+
+      // Get inputs within this specific form
+      const formInputs = Array.from(form.querySelectorAll('input'));
+
+      // Trigger validation on all fields in this form
+      formInputs.forEach((input) => {
+        input.dispatchEvent(new Event('blur'));
+      });
+
+      // Check if form is valid
+      const isFormValid =
+        !formState.nameError && !formState.emailError && !formState.messageError && !formState.companyNameError;
+
+      if (isFormValid) {
+        try {
+          const formData = new FormData(form);
+          const formElement = form.closest('.form') as HTMLElement;
+          const successMsg = document.querySelector('.success-msg') as HTMLElement;
+          const errorMsg = document.querySelector('.error-msg') as HTMLElement;
+          formData.append('cfTurnstileToken', turnstile.getResponse());
+          formData.append('isCompanyForm', formState.isCompanyForm.toString());
+          // Here you would typically send the form data to your backend
+          // const workerUrl = 'http://localhost:8787/contact';
+          const workerUrl = 'https://contact-form.juhani-juusola.workers.dev/contact';
+
+          const response = await fetch(workerUrl, {
+            method: 'POST',
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+            body: formData,
+          });
+
+          // Show success message
+          if (formElement && successMsg) {
+            // Add transition classes
+            document.querySelector('.contact')?.classList.add('switched');
+
+            setTimeout(() => {
+              document.querySelector('.contact')?.classList.add('hidden');
+            }, 700);
+
+            setTimeout(() => {
+              document.querySelector('.brand')?.classList.add('active');
+              // Hide the Turnstile container after successful submission
+              document.querySelector('.turnstile-container')?.classList.add('hidden');
+            }, 300);
+
+            setTimeout(() => {
+              document.querySelector('.heading')?.classList.add('active');
+            }, 600);
+
+            setTimeout(() => {
+              if (!response.ok) {
+                const errorParagraph = errorMsg.querySelector('p');
+                if (errorParagraph) errorParagraph.classList.add('active');
+                return;
+              }
+
+              const successParagraph = successMsg.querySelector('p');
+              if (successParagraph) successParagraph.classList.add('active');
+            }, 900);
+
+            setTimeout(() => {
+              if (!response.ok) {
+                const errorLink = errorMsg.querySelector('a');
+                if (errorLink) errorLink.classList.add('active');
+                return;
+              }
+              const successLink = successMsg.querySelector('a');
+              if (successLink) successLink.classList.add('active');
+            }, 1050);
+
+            setTimeout(() => {
+              if (formElement) formElement.style.display = 'none';
+            }, 700);
+          }
+        } catch (error) {
+          console.error('Error submitting form:', error);
+          // Handle error case
+        }
+      }
+    });
+  });
+
+  // Reset form on "Try Again" click
+  const resetLink = document.querySelector('a.profile');
+  if (resetLink) {
+    resetLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.reload();
+    });
+  }
 </script>

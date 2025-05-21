@@ -1,0 +1,8 @@
+name = "contact-form"
+main = "src/index.ts"
+compatibility_date = "2023-12-27"
+
+# Replace these with your own values
+[vars]
+RESEND_API_KEY = "your-resend-api-key"
+RESEND_AUDIENCE_ID = "your-resend-audience-id"

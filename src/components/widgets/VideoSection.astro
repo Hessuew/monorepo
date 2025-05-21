@@ -1,12 +1,16 @@
 ---
 import imgGold from '~/assets/images/gold_original.webp';
+import imgGradient from '~/assets/images/gradient.webp';
 import urFitChild from '~/assets/images/urfitChild.webp';
-import animated_details from '~/assets/videos/animated_details.mp4';
+// import animated_details from '~/assets/videos/animated_details.mp4';
+import animated_details from '~/assets/videos/animated_details2.mp4';
 import beauty_contrasts from '~/assets/videos/beauty_contrasts.mp4';
 import hot_twist from '~/assets/videos/hot_twist.mp4';
+import testimonials from '~/assets/videos/testimonials.mp4';
+// import Image from '~/components/common/Image.astro';
 import SvgGem from '~/components/ui/icons/SvgGem';
 import SvgAnimation from '../ui/icons/SvgAnimation';
-import SvgCampfire from '../ui/icons/SvgCampfire';
+import SvgFire from '../ui/icons/SvgFire';
 import SvgGift from '../ui/icons/SvgGift';
 import VideoCard from './VideoCard.astro';
 
@@ -21,7 +25,7 @@ const videos = [
     title: 'Hot twist',
     description:
       'The professional research group has an unique way to introduce the visitor to the deeper truths of life through an interactive and beautifully designed non-academic page.',
-    icon: SvgCampfire,
+    icon: SvgFire,
   },
   {
     videoSrc: beauty_contrasts,
@@ -35,14 +39,14 @@ const videos = [
     icon: SvgGem,
   },
   {
-    videoSrc: animated_details,
+    videoSrc: testimonials,
     thumbnailSrc: {
       src: urFitChild,
       alt: 'Thumbnail for urFit-child',
     },
     title: 'Interesting testimonials',
     description:
-      "estimonials are nice, but they often feel boring—like knowing what's in a gift before you open it. But this site takes a different approach. You never know what you'll find in the next testimonial.",
+      "Testimonials are nice, but they often feel boring—like knowing what's in a gift before you open it. But this site takes a different approach. You never know what you'll find in the next one.",
     icon: SvgGift,
   },
   {
@@ -60,25 +64,25 @@ const videos = [
 ---
 
 <section class="stay-productive relative z-10 pt-40 lg:pt-32 md:pt-24 sm:pt-16">
-  <div class="bg-white p-8 md:p-12 lg:p-20 relative overflow-hidden">
-    <h1 class="text-5xl md:text-7xl font-semibold tracking-tighter text-start text-black pb-7">
-      Packaging that
-      <br />
-      matches the content.
+  <img src={imgGradient.src} alt="" class="w-full -n h-40" />
+  <div class="bg-white p-8 py-20 md:p-12 lg:p-20 relative overflow-hidden">
+    <h1 class="text-4xl md:text-7xl font-semibold tracking-tighter text-start text-black pb-7">
+      Packaging matters
       <p class="text-[15px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3">
-        The essence of your brand should be displayed simply and clearly.
-        <br />
-        We can do that for you. You bring the content. We'll make it shine.
+        The essence of your brand should be displayed with clarity.
+        <br class="hidden xs:block" />
+        <!-- You bring the content — we'll make it shine and unforgettable. -->
+        Professional content that brings Jesus to the forefront.
       </p>
     </h1>
 
-    <div class="flex flex-col gap-12 lg:gap-16 pt-10">
+    <div class="flex flex-col gap-12 lg:gap-16">
       <!-- Videos container - top row -->
       <div class="flex flex-col md:flex-row gap-8 md:gap-6 lg:gap-10">
         <!-- First video -->
         <div class="w-full md:w-1/2">
           <VideoCard videoSrc={videos[0].videoSrc} title={videos[0].title} description={videos[0].description}>
-            <SvgCampfire slot="icon" className="w-12 h-12" />
+            <SvgFire slot="icon" className="w-12 h-12" />
           </VideoCard>
         </div>
 

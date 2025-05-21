@@ -1,0 +1,117 @@
+---
+import AnimatedNegotiation from '~/components/ui/icons/AnimatedKnowledge.astro';
+import AnimatedGem from '~/components/ui/icons/AnimatedStar.astro';
+import AnimatedNo from '~/components/ui/icons/AnimatedTemperance.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import { getGradientColor } from '~/utils/getGradientColor';
+import AnimatedGodliness from '../ui/icons/AnimatedGodliness.astro';
+import AnimatedKindness from '../ui/icons/AnimatedKindness.astro';
+import AnimatedLove from '../ui/icons/AnimatedLove.astro';
+import Animated from '../ui/icons/AnimatedStone.astro';
+import AnimatedTree from '../ui/icons/AnimatedTree.astro';
+
+const principles = [
+  {
+    icon: 'faith',
+    title: 'Faith',
+    description: 'Build upon the corner stone: Jesus Christ, the Son of the living God.',
+  },
+  {
+    icon: 'excellency',
+    title: 'Excellency',
+    description: 'The only way to produce premium is excellency. Nothing less is accepted.',
+  },
+  {
+    icon: 'knowledge',
+    title: 'Knowledge',
+    description: 'Our object is to create a connection with our customers to know their will.',
+  },
+  {
+    icon: 'temperance',
+    title: 'Temperance',
+    description: 'We follow the highest standard of morals in our lives and in our work.',
+  },
+  {
+    icon: 'patience',
+    title: 'Patience',
+    description: 'Patience is key — even great trees take time to grow. But grow they will.',
+  },
+  {
+    icon: 'godliness',
+    title: 'Godliness',
+    description: 'Our websites are heavy. Every part is meant to carry weight in the spirit.',
+  },
+  {
+    icon: 'brotherly',
+    title: 'Brotherly kindness',
+    description: 'Can two walk together, except they be agreed? Hearts divide, paths split.',
+  },
+  {
+    icon: 'love',
+    title: 'Love',
+    description: 'The end of our principles is love out of a pure heart. Love never fails.',
+  },
+];
+---
+
+<WidgetWrapper id={'principles'} animated={false} containerClass={`max-w-7xl mx-auto`}>
+  <section class="relative z-10">
+    <div class="p-10 sm:py-20">
+      <h1 class="text-4xl md:text-7xl font-semibold tracking-tighter text-start text-white pb-7">
+        <span
+          class="bg-gradient-to-br from-white from-30% via-[#d5d8f6] via-40% to-black bg-clip-text text-transparent"
+        >
+          Build upon principles
+        </span>
+        <br />
+        <p class="text-[15px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3">
+          Our work is based upon principles from 2 Peter 1:5-7. They are like a set of
+          <br class="hidden md:block" />
+          bricks, and when we build upon them we know we create something solid.
+        </p>
+      </h1>
+
+      <ul
+        class="relative z-10 mt-8 grid grid-cols-1 gap-8 lg:mt-10 md:gap-16 lg:grid-cols-4 sm:mt-9 sm:grid-cols-2 sm:gap-y-7"
+      >
+        {
+          principles.map((principle, i) => {
+            const delay = i * 200;
+            return (
+              <li>
+                <div class="w-16 h-16 flex items-center">
+                  {principle.icon === 'faith' && <Animated classes="w-full h-full" />}
+                  {principle.icon === 'excellency' && <AnimatedGem delay={delay} classes="w-full h-full" />}
+                  {principle.icon === 'knowledge' && <AnimatedNegotiation delay={delay} classes="w-full h-full" />}
+                  {principle.icon === 'temperance' && <AnimatedNo delay={delay} classes="w-full h-full" />}
+                  {principle.icon === 'patience' && <AnimatedTree delay={delay} classes="w-full h-full" />}
+                  {principle.icon === 'godliness' && <AnimatedGodliness delay={delay} classes="w-14 h-14" />}
+                  {principle.icon === 'brotherly' && <AnimatedKindness delay={delay} classes="w-full h-full" />}
+                  {principle.icon === 'love' && <AnimatedLove delay={delay} classes="w-full h-full" />}
+                </div>
+                <h3 class="mt-5 font-title max-w-48 text-[20px] leading-none tracking-tighter lg:mt-4 lg:max-w-full lg:text-[28px] md:mt-3.5 sm:mt-2.5 sm:max-w-32 sm:text-[24px]">
+                  {principle.title}
+                </h3>
+                <p class="mt-3.5 text-muted text-[15px] font-medium leading-snug tracking-tighter lg:mt-2.5 md:mt-2 md:leading-tight sm:mt-1 max-w-none sm:max-w-[284px]">
+                  {principle.description}
+                </p>
+              </li>
+            );
+          })
+        }
+      </ul>
+
+      <div
+        class="absolute top-0 left-0 w-full h-full -z-10"
+        style={{
+          background: `
+            radial-gradient(circle at 15% 15%, ${getGradientColor(0.2, 'purple')} 0%, transparent 40%),
+            radial-gradient(circle at 85% 85%, ${getGradientColor(0.2, 'purple')} 0%, transparent 40%),
+            linear-gradient(to bottom right, ${getGradientColor(0.05, 'purple')} 0%, transparent 100%, ${getGradientColor(0.05, 'purple')} 100%)
+          `,
+        }}
+      >
+      </div>
+    </div>
+  </section>
+</WidgetWrapper>

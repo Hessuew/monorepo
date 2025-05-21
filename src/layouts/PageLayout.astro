@@ -1,4 +1,5 @@
 ---
+import Footer from '~/components/widgets/Footer.astro';
 import Layout from '~/layouts/Layout.astro';
 import type { MetaData } from '~/types';
 
@@ -17,9 +18,12 @@ const { metadata } = Astro.props;
   <!-- <slot name="header">
     <Header {...headerData} classes={classes?.header as Record<string, string>} isSticky showRssFeed showToggleTheme />
   </slot> -->
-  <main>
-    <slot />
-  </main>
-  <!-- <slot name="footer">
-    <Footer /> -->
+  <div class="flex flex-col min-h-screen">
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <slot name="footer">
+      <Footer />
+    </slot>
+  </div>
 </Layout>
