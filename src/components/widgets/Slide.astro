@@ -5,7 +5,9 @@ const { image, name, description } = Astro.props;
 ---
 
 <div class="swiper-slide">
-  <div class="swiper-slide--inner px-6 sm:px-20 lg:px-[15%] flex items-center gap-[50px] relative overflow-x-hidden">
+  <div
+    class="swiper-slide--inner px-6 sm:px-20 lg:px-[15%] flex flex-col sm:flex-row items-center gap-[50px] relative overflow-x-hidden"
+  >
     <div class="w-[200px] h-[200px] lg:w-[240px] lg:h-[240px] mb-[30px] flex-shrink-0 rounded-full relative">
       <img src={image.src} alt="" class="w-full h-full object-cover rounded-full" />
       <div

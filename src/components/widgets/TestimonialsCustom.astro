@@ -18,7 +18,7 @@ const slides = [
   {
     image: prayerChurchLogo,
     name: 'The prayer church elders and deacons',
-    description: 'The local church ',
+    description: 'Placeholder for the testimonial of the prayer church elders and deacons',
   },
 ];
 
@@ -33,7 +33,7 @@ const companies = [
     logo: prayerChurchLogo,
     name: 'Prayer Church',
     description1: 'Local visibility -',
-    description2: 'hundreds of visitors',
+    description2: 'Thousands of visitors',
   },
 ];
 ---
@@ -284,17 +284,21 @@ const companies = [
 </style>
 
 <script is:inline>
+  let swiperInstance = null;
   // Function to initialize Swiper based on the working jQuery implementation
   function initializeSwiper() {
     // Check if Swiper is available in the global scope
     if (typeof Swiper !== 'undefined') {
+      if (swiperInstance) {
+        swiperInstance.destroy(true, true);
+      }
       // Store the Swiper instance for reference
-      const swiperInstance = new Swiper('.swiper-container', {
+      swiperInstance = new Swiper('.swiper-container', {
         // Core configuration
         loop: true,
         autoplay: {
           delay: 8000,
-          disableOnInteraction: truej,
+          disableOnInteraction: true,
         },
         keyboard: {
           enabled: true,
@@ -305,18 +309,6 @@ const companies = [
           prevEl: '.swiper-button-prev',
         },
         effect: 'slide',
-        // Event handlers to fix first transition issue
-        // on: {
-        //   init: function () {
-        //     // Ensure slides are properly initialized
-        //     setTimeout(() => {
-        //       if (this && this.update) {
-        //         this.update();
-        //       }
-        //     }, 50);
-        //   },
-        // },
-
         on: {
           init: function () {
             // Force recalculation of loop slides on init
