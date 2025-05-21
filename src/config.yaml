@@ -1,7 +1,7 @@
 # Main site configuration
 site:
-  name: Rukouksen seurakunta # Website name used across the site
-  site: 'https://rukouksenseurakunta.fi' # Production URL
+  name: Cherubim IT # Website name used across the site
+  site: 'https://cherubim-it.com' # Production URL
   base: '/' # Base URL path
   trailingSlash: false # URL format configuration
 
@@ -10,22 +10,22 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Rukouksen seurakunta # Default page title
-    template: '%s — Rukouksen seurakunta' # Template for dynamic page titles
-  description: 'Käytyäsi rukouksen seurakunnassa Jeesus ei enää kysy sinulta, "Etkö jaksanut valvoa minun kanssani edes yhtä hetkeä?" '
+    default: Cherubim IT # Default page title
+    template: '%s — Cherubim IT' # Template for dynamic page titles
+  description: 'Cherubim IT, create yourself a brand and a presence you can confidently present to the whole world.'
   robots:
     index: true # Allow search engines to index
     follow: true # Allow search engines to follow links
   openGraph:
-    site_name: Rukouksen seurakunta # Site name for social sharing
+    site_name: Cherubim IT # Site name for social sharing
     images:
-      - url: '~/assets/images/index/other/logo.webp'
+      - url: '~/assets/images/index/other/logo3.webp'
         width: 1024
         height: 1024
     type: website
   twitter:
-    handle: '@rukouksen_seurakunta' # Twitter handle
-    site: '@rukouksen_seurakunta' # Twitter site account
+    handle: '@cherubim_it' # Twitter handle
+    site: '@cherubim_it' # Twitter site account
     cardType: summary_large_image # Twitter card type
 
 # Internationalization settings
