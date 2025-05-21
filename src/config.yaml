@@ -12,7 +12,7 @@ metadata:
   title:
     default: urFIT-child # Default page title
     template: '%s — urFIT-child' # Template for dynamic page titles
-  description: 'urFIT-child is a multi-disciplinary and multi-collaborative research group with clear objectives.'
+  description: "Andrew Agbaje's leading research group dedicated to revolutionizing children's health assessment through evidence-based methods. Discover our groundbreaking findings on waist-to-height ratio and obesity diagnosis."
   robots:
     index: true # Allow search engines to index
     follow: true # Allow search engines to follow links
