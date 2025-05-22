@@ -6,22 +6,22 @@ import GridPattern from '~/components/ui/GridPattern.astro';
 ---
 
 <div
-  class="rotate-180 [--color:var(--orange)] pointer-events-none relative -z-[2] mx-auto h-[50rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_70%)] my-[-18.8rem]
+  class="max-w-[1480px] rotate-180 [--color:var(--orange)] pointer-events-none relative -z-[2] mx-auto h-[50rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_70%)] my-[-18.8rem]
       before:absolute before:inset-0 before:h-full before:w-full before:opacity-30 before:[background-image:radial-gradient(circle_at_top_center,var(--color),transparent_70%)]
       after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-b after:border-[white] after:bg-page after:[transform:scaleY(-1)] after:[box-shadow:0_0_40px_10px_var(--orange),0_0_40px_10px_var(--orange)_inset]"
 >
 </div>
 
 <div class="absolute top-0 left-0 w-full">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-4">
+  <div class="max-w-7xl xl:max-w-[1280px] mx-auto px-4 sm:px-6 xl:px-[24px] pt-4 xl:pt-[16px]">
     <Logo />
   </div>
 </div>
 
-<div class="lg:min-h-[100vh]">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="relative flex overflow-visible pt-10">
-      <div class="-z-10 absolute -top-40 -right-[440px]"></div>
+<div class="lg:min-h-[100vh] xl:min-h-[80vh]">
+  <div class="max-w-7xl xl:max-w-[1280px] mx-auto px-4 sm:px-8 xl:px-[24px]">
+    <div class="relative flex overflow-visible pt-10 xl:pt-[40px]">
+      <div class="-z-10 absolute -top-40 xl:-top-[160px] -right-[440px]"></div>
       <div class="relative flex flex-col">
         <h1
           class="relative z-30 max-w-[666px] font-title text-[42px] font-semibold leading-[0.9] tracking-tight lg:max-w-[648px] lg:text-[84px] md:max-w-[521px] md:text-[68px] sm:max-w-[400px] xs:text-[52px]"
@@ -39,23 +39,27 @@ import GridPattern from '~/components/ui/GridPattern.astro';
         </h1>
 
         <p
-          class="relative z-30 mt-5 max-w-md text-[18px] leading-snug tracking-tight text-grey-90 lg:mt-4 md:mt-3.5 md:text-[18px] sm:mt-3 sm:text-[15px]"
+          class="relative z-30 mt-5 max-w-md xl:max-w-[448px] text-[18px] leading-snug tracking-tight text-grey-90 xl:mt-[16px] lg:mt-4 md:mt-3.5 md:text-[18px] sm:mt-3 sm:text-[15px]"
         >
           <br />
           Cherubim IT, create yourself a brand and a presence <br class="hidden md:block" />
           you can confidently present to the whole world.
         </p>
 
-        <div class="flex flex-row gap-3 mt-11 lg:mt-9 md:mt-7 sm:mt-5">
+        <div class="flex flex-row gap-3 xl:gap-[18px] mt-11 lg:mt-9 md:mt-7 sm:mt-5 xl:mt-[44px]">
           <Button
             href="#customer-cards"
-            class="bg-white/5 backdrop-blur-lg hover:bg-white/10 border-0 text-white h-12 w-34 md:px-6 rounded-full text-base font-semibold"
+            class="bg-white/5 backdrop-blur-lg hover:bg-white/10 border-0 text-white h-12 xl:h-[48px] w-34 xl:w-[136px] md:px-6 xl:px-[3px] rounded-full text-base xl:text-[16px] xl:leading-[24px] font-semibold"
           >
             Why Cherubim
           </Button>
 
-          <a href="#contact" class="shiny-cta shiny-cta-orange h-12 items-center justify-center flex pt-1">
-            <span class="text-base font-semibold px-4">Quick Contact</span>
+          <a
+            href="#contact"
+            class="shiny-cta shiny-cta-orange h-12 xl:h-[48px] items-center justify-center flex pt-1 xl:pt-[4px]"
+          >
+            <span class="text-base xl:text-[16px] xl:leading-[24px] font-semibold px-4 xl:px-[16px]">Quick Contact</span
+            >
           </a>
         </div>
       </div>

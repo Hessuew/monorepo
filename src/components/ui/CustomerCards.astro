@@ -61,7 +61,11 @@ const projects: Array<Project> = [
 ];
 ---
 
-<WidgetWrapper id={'customer-cards'} animated={false} containerClass={`max-w-5xl mx-auto px-8`}>
+<WidgetWrapper
+  id={'customer-cards'}
+  animated={false}
+  containerClass={`max-w-5xl xl:max-w-[1024px] mx-auto px-8 xl:px-[32px]`}
+>
   {/* Background gradient */}
   <div
     class="absolute -z-10 top-[52%] md:top-[54%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[72vw] h-[96%]"
@@ -69,10 +73,10 @@ const projects: Array<Project> = [
     <div class={`card-container4 w-full h-full -z-10`}></div>
   </div>
 
-  <section class="p-8 py-20 lg:pt-32 md:pt-24 sm:pt-16">
+  <section class="p-8 xl:p-[32px] py-20 xl:py-[80px] lg:pt-32 md:pt-24 sm:pt-16">
     <div>
       <div class="flex w-full justify-center">
-        <h1 class="text-4xl md:text-7xl font-semibold tracking-tighter text-white pb-7">
+        <h1 class="text-4xl md:text-7xl xl:text-[72px] font-semibold tracking-tighter text-white pb-7 xl:pb-[28px]">
           <span
             class="bg-gradient-to-br from-white from-30% via-[#d5d8f6] via-80% to-black bg-clip-text text-transparent"
           >
@@ -81,7 +85,7 @@ const projects: Array<Project> = [
             create a connection.
           </span>
           <p
-            class="text-[15px] font-normal leading-tight tracking-tight max-w-[520px] sm:text-[18px] mt-3 md:max-w-none"
+            class="text-[15px] font-normal leading-tight tracking-tight max-w-[520px] sm:text-[18px] mt-3 xl:mt-[12px] md:max-w-none"
           >
             'That thou art neither cold nor hot: I would thou wert cold or hot. So then because
             <br class="hidden md:block" />
@@ -95,7 +99,7 @@ const projects: Array<Project> = [
         </h1>
       </div>
 
-      <div class="cards gap-8 pt-10">
+      <div class="cards gap-8 xl:gap-[32px] pt-10 xl:pt-[40px]">
         <div class="three-d-wrapper">
           <div
             class="card eevee"
@@ -128,20 +132,20 @@ const projects: Array<Project> = [
     </div>
 
     <ul
-      class="relative z-10 mt-12 md:mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:mt-10 md:gap-16 lg:grid-cols-3 lg:gap-y-7 md:max-w-[520px] lg:max-w-none mx-auto xl:mx-0"
+      class="relative z-10 mt-12 md:mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:mt-10 xl:mt-[40px] md:gap-16 lg:grid-cols-3 lg:gap-y-7 xl:gap-y-[28px] md:max-w-[520px] lg:max-w-none mx-auto xl:mx-0"
     >
       {
         projects.map((project) => (
           <li>
-            <div class="w-16 h-16">
+            <div class="w-16 h-16 xl:w-[64px] xl:h-[64px]">
               {project.icon === 'child' && (
                 <AnimatedChildSvg animate={false} strokeWidth={52} classes="w-full h-full" />
               )}
               {project.image && (
                 <Image
-                  class={`min-h-16 min-w-16 2xl:min-h-16 2xl:min-w-16 rounded-full border border-slate-600`}
-                  width={48}
-                  height={48}
+                  class={`min-h-16 min-w-16 xl:min-h-[64px] xl:min-w-[64px] rounded-full border border-slate-600`}
+                  width={64}
+                  height={64}
                   widths={[400, 768]}
                   layout="fixed"
                   loading="lazy"
@@ -151,17 +155,17 @@ const projects: Array<Project> = [
                 />
               )}
             </div>
-            <h3 class="mt-5 font-title max-w-28 text-[20px] leading-none tracking-tighter lg:mt-4 lg:max-w-full lg:text-[28px] md:mt-3.5 sm:mt-2.5 sm:max-w-32 sm:text-[20px]">
+            <h3 class="mt-5 font-title text-[20px] leading-none tracking-tighter lg:mt-4 xl:mt-[16px] lg:max-w-full lg:text-[28px] md:mt-3.5 sm:mt-2.5 sm:max-w-32 sm:text-[20px]">
               {project.title}
             </h3>
-            <p class="mt-3.5 text-muted text-[15px] font-medium leading-snug tracking-tighter lg:mt-2.5 md:mt-2 md:leading-tight sm:mt-1 max-w-none sm:max-w-[284px]">
+            <p class="mt-3.5 text-muted text-[15px] font-medium leading-snug tracking-tighter lg:mt-2.5 xl:mt-[10px] md:mt-2 md:leading-tight sm:mt-1 max-w-none sm:max-w-[284px]">
               {project.description}
             </p>
 
             {/* URL positioned at the bottom of the card */}
             <a
               href={project.url}
-              class="flex lg:justify-center items-center gap-1.5 text-sm text-blue-600 hover:text-blue-400 transition-colors group pt-2"
+              class="flex lg:justify-center items-center gap-1.5 xl:gap-[6px] text-sm text-blue-600 hover:text-blue-400 transition-colors group pt-2 xl:pt-[8px]"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -424,6 +428,8 @@ const projects: Array<Project> = [
       /* width: clamp(24vw, 61vh, 18vw);
       height: clamp(32vw, 85vh, 25.2vw); */
       width: clamp(12.9vw, 61vh, 18vw);
+      max-width: 260px;
+      max-height: 340px;
       height: clamp(18vw, 85vh, 25.2vw);
     }
   }

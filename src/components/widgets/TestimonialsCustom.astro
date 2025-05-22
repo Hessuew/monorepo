@@ -27,7 +27,7 @@ const companies = [
     logo: urFitChildLogo,
     name: 'urFIT-child',
     description1: 'Single source -',
-    description2: '100% Centralized platform',
+    description2: 'Centralized platform',
   },
   {
     logo: prayerChurchLogo,
@@ -39,9 +39,13 @@ const companies = [
 ---
 
 <section
-  class="creative-testimonial--slider bg-white relative overflow-hidden py-20 px-6 lg:py-32 md:py-24 sm:pb-[68px] sm:pt-20"
+  class="creative-testimonial--slider bg-white relative overflow-hidden py-20 px-6 xl:py-[128px] xl:px-[24px] lg:py-32 md:py-24 sm:pb-[68px] sm:pt-20"
 >
-  <WidgetWrapper id={'testimonials'} animated={false} containerClass={`max-w-7xl mx-auto py-0 md:py-0 lg:py-0`}>
+  <WidgetWrapper
+    id={'testimonials'}
+    animated={false}
+    containerClass={`max-w-7xl xl:max-w-[1280px] mx-auto py-0 md:py-0 lg:py-0`}
+  >
     <div class="absolute -z-10 w-full h-[300%] top-[100%] left-0 overflow-visible">
       <div
         class="absolute pointer-events-none opacity-100 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
@@ -51,9 +55,13 @@ const companies = [
     </div>
     <div class="testimonial-inner max-w-[1240px] mx-auto relative z-10">
       <div class="testimonial-row">
-        <h1 class="text-4xl md:text-7xl font-semibold tracking-tighter text-start text-black pb-7">
+        <h1
+          class="text-4xl md:text-7xl xl:text-[72px] font-semibold tracking-tighter text-start text-black pb-7 xl:pb-[28px]"
+        >
           Trusted by professionals
-          <p class="text-[15px] max-w-[786px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3">
+          <p
+            class="text-[15px] max-w-[786px] font-normal leading-normal tracking-tight sm:text-[18px] mt-3 xl:mt-[12px]"
+          >
             'Then was king Belshazzar greatly troubled, and his countenance was changed in him, and his lords were
             astonished. Now the queen by reason of the words of the king and his lords came into the banquet house: and
             the queen spake and said, O king, live for ever: let not thy thoughts trouble thee, nor let thy countenance
@@ -80,7 +88,7 @@ const companies = [
     </div>
   </WidgetWrapper>
 </section>
-<img src={imgGradient.src} alt="" class="w-full -n h-40 rotate-180" />
+<img src={imgGradient.src} alt="" class="w-full h-40 xl:h-[40px] rotate-180" />
 
 <style define:vars={{ worldMapUrl: `url(${worldMap.src})` }}>
   /* Custom styles that can't be easily converted to Tailwind */
