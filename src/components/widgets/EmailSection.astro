@@ -34,16 +34,18 @@ const projects: Array<Project> = [
 ];
 ---
 
-<WidgetWrapper id={'email'} animated={false} containerClass={`max-w-7xl mx-auto`}>
-  <section class="relative flex flex-col lg:flex-row gap-20 z-10 p-8 sm:p-20">
+<WidgetWrapper id={'email'} animated={false}>
+  <section class="relative flex flex-col lg:flex-row gap-20 xl:gap-[80px] z-10 p-8 sm:p-20 xl:p-[80px]">
     <div class="flex flex-col justify-center w-full">
-      <h1 class="text-4xl md:text-7xl font-semibold tracking-tighter text-start text-white pb-7">
+      <h1
+        class="text-4xl md:text-7xl xl:text-[72px] font-semibold tracking-tighter text-start text-white pb-7 xl:pb-[28px]"
+      >
         Customer
         <br class="block xs:hidden md:block" />
         experience
         <br class="block xs:hidden md:block" />
         on top.
-        <p class="text-[15px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3">
+        <p class="text-[15px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3 xl:mt-[12px]">
           <br />
           We aim to build a genuine connection with our customers by creating an atmosphere of trust, "This team isn’t here
           for my money. They’re here to serve and support my experience and needs."
@@ -59,7 +61,7 @@ const projects: Array<Project> = [
             <li>
               <div class="w-16 h-16">
                 <Image
-                  class={`min-h-16 min-w-16 2xl:min-h-16 2xl:min-w-16 rounded-lg`}
+                  class={`min-h-16 min-w-16 xl:min-h-[64px] xl:min-w-[64px] rounded-lg`}
                   width={64}
                   height={64}
                   widths={[400, 768]}
@@ -70,10 +72,10 @@ const projects: Array<Project> = [
                   {...project.image}
                 />
               </div>
-              <h3 class="mt-5 font-title max-w-28 text-[20px] leading-none tracking-tighter lg:mt-4 lg:max-w-full lg:text-[28px] md:mt-3.5 sm:mt-2.5 sm:max-w-32 sm:text-[20px]">
+              <h3 class="mt-5 font-title max-w-28 text-[20px] leading-none tracking-tighter lg:mt-4 xl:mt-[16px] lg:max-w-full lg:text-[28px] md:mt-3.5 sm:mt-2.5 sm:max-w-32 sm:text-[20px]">
                 {project.title}
               </h3>
-              <p class="mt-3.5 text-muted text-[15px] font-medium leading-snug tracking-tighter lg:mt-2.5 md:mt-2 md:leading-tight sm:mt-1 max-w-none sm:max-w-[284px]">
+              <p class="mt-3.5 text-muted text-[15px] font-medium leading-snug tracking-tighter lg:mt-2.5 xl:mt-[10px] md:mt-2 md:leading-tight sm:mt-1 max-w-none sm:max-w-[284px]">
                 {project.description}
               </p>
             </li>

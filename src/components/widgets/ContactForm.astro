@@ -8,18 +8,15 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 // import { Icon } from 'astro-icon/components';
 ---
 
-<div class="relative pt-10 pb-10">
+<div class="relative py-10 xl:py-[40px]">
   <div
-    class="rotate-180 [--color:var(--violet2)] pointer-events-none relative -z-[2] mx-auto h-[50rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_70%)] my-[-18.8rem]
+    class="max-w-[1480px] rotate-180 [--color:var(--violet2)] pointer-events-none relative -z-[2] mx-auto h-[50rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_70%)] my-[-18.8rem]
       before:absolute before:inset-0 before:h-full before:w-full before:opacity-30 before:[background-image:radial-gradient(circle_at_top_center,var(--violet2),transparent_70%)]
       after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-b after:border-[hsl(var(--border))] after:[transform:scaleY(-1)] after:[box-shadow:0_0_40px_10px_var(--violet2),0_0_40px_10px_var(--violet2)_inset]"
   >
   </div>
-  <WidgetWrapper
-    id={'contact'}
-    containerClass={`max-w-7xl py-0 md:py-0 lg:py-0 mx-auto intersect-quarter sm:intersect-full`}
-  >
-    <div class="mx-auto max-w-5xl px-4 overflow-hidden">
+  <WidgetWrapper id={'contact'} containerClass={`py-0 md:py-0 lg:py-0 intersect-quarter sm:intersect-full`}>
+    <div class="mx-auto max-w-5xl xl:max-w-[1024px] px-4 xl:px-[16px] overflow-hidden">
       <section id="formHolder">
         <div class="flex flex-col md:flex-row">
           <!-- Brand Box -->
@@ -28,9 +25,9 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
             <p class="text-[15px] font-light">Contact form</p>
 
             <div class="heading sm:text-[48px] font-title mb-0 font-semibold w-full text-center">
-              <div class="flex flex-row gap-1 items-center w-full justify-center">
+              <div class="flex flex-row gap-1 xl:gap-[4px] items-center w-full justify-center">
                 <Image
-                  class={'w-16 h-16 pt-1'}
+                  class={'w-16 h-16 xl:w-[64px] xl:h-[64px] pt-1 xl:pt-[4px]'}
                   widths={[400, 768, 1024, 2040]}
                   sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
                   loading="eager"
@@ -42,7 +39,9 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
                 <h2>Cherubim IT</h2>
               </div>
 
-              <p class="text-[15px] font-light uppercase tracking-wider font-title pl-12">Your Right Choice</p>
+              <p class="text-[15px] font-light uppercase tracking-wider font-title pl-12 xl:pl-[48px]">
+                Your Right Choice
+              </p>
             </div>
 
             <div class="absolute -bottom-8 sm:bottom-0 w-full justify-center turnstile-container">
@@ -79,9 +78,9 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
                   <div class="flex justify-end">
                     <a
                       href="#"
-                      class="switch group truncate btn-secondary hover:bg-white/10 border-0 text-white h-12 w-40 rounded-full text-base font-light tracking-tighter px-0 md:px-2 focus:ring-0 focus:ring-offset-0"
+                      class="switch group truncate btn-secondary hover:bg-white/10 border-0 text-white h-12 w-40 xl:h-[48px] xl:w-[169px] rounded-full text-base xl:text-[16px] xl:leading-[24px] font-light tracking-tighter px-0 md:px-2 xl:px-[8px] focus:ring-0 focus:ring-offset-0"
                     >
-                      <span class="flex flex-row items-center justify-center gap-2">
+                      <span class="flex flex-row items-center justify-center gap-2 xl:gap-[8px]">
                         For companies
                         <span class="transition-transform duration-300 ease-in-out group-hover:translate-x-0.5">
                           {'>>'}
@@ -119,8 +118,11 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
                 </div>
 
                 <div class="CTA">
-                  <button type="submit" class="shiny-cta shiny-cta-orange h-12 mb-4 w-32">
-                    <span class="text-base font-semibold px-4">Send</span>
+                  <button
+                    type="submit"
+                    class="shiny-cta shiny-cta-orange h-12 w-32 xl:h-[48px] xl:w-[128px] mb-4 xl:mb-[16px]"
+                  >
+                    <span class="text-base xl:text-[16px] xl:leading-[24px] font-semibold px-4 xl:px-[16px]">Send</span>
                   </button>
                 </div>
               </form>
@@ -136,9 +138,9 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
                 <div class="flex justify-end">
                   <a
                     href="#"
-                    class="switch group truncate btn-secondary hover:bg-white/10 border-0 text-white h-12 w-40 rounded-full text-base font-light tracking-tighter px-0 md:px-2 focus:ring-0 focus:ring-offset-0"
+                    class="switch group truncate btn-secondary hover:bg-white/10 border-0 text-white h-12 w-40 xl:h-[48px] xl:w-[160px] rounded-full text-base xl:text-[16px] xl:leading-[24px] font-light tracking-tighter px-0 md:px-2 xl:px-[8px] focus:ring-0 focus:ring-offset-0"
                   >
-                    <span class="flex flex-row items-center justify-center gap-2">
+                    <span class="flex flex-row items-center justify-center gap-2 xl:gap-[8px]">
                       For individuals
                       <span class="transition-transform duration-300 ease-in-out group-hover:translate-x-0.5">
                         {'>>'}
@@ -186,8 +188,11 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
                 </div>
 
                 <div class="CTA">
-                  <button type="submit" class="shiny-cta shiny-cta-orange h-12 mb-4 w-32">
-                    <span class="text-base font-semibold px-4">Send</span>
+                  <button
+                    type="submit"
+                    class="shiny-cta shiny-cta-orange h-12 w-32 xl:h-[48px] xl:w-[128px] mb-4 xl:mb-[16px]"
+                  >
+                    <span class="text-base xl:text-[16px] xl:leading-[24px] font-semibold px-4 xl:px-[16px]">Send</span>
                   </button>
                 </div>
               </form>
@@ -201,7 +206,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
   </WidgetWrapper>
 
   <div
-    class="[--color:var(--orange)] pointer-events-none relative -z-[2] mx-auto h-[20rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_70%)] mt-[-4rem] mb-[-12rem]
+    class="max-w-[1480px] [--color:var(--orange)] pointer-events-none relative -z-[2] mx-auto h-[20rem] overflow-hidden [mask-image:radial-gradient(ellipse_at_center_center,#000,transparent_70%)] mt-[-4rem] mb-[-12rem]
       before:absolute before:inset-0 before:h-full before:w-full before:opacity-20 before:[background-image:radial-gradient(circle_at_top_center,var(--color),transparent_70%)]
       after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[50%] after:border-t after:border-b after:border-[white] after:[transform:scaleY(-1)] after:[box-shadow:0_0_40px_10px_var(--orange),0_0_40px_10px_var(--orange)_inset]"
   >
