@@ -1,7 +1,7 @@
 ---
+import { DockDemo } from '~/components/ui/DockDemo';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import { getGradientColor } from '~/utils/getGradientColor';
-import { DockDemo } from '../ui/DockDemo';
 ---
 
 <WidgetWrapper id={'pricing'} animated={false}>
@@ -13,21 +13,18 @@ import { DockDemo } from '../ui/DockDemo';
         <span
           class="bg-gradient-to-br from-white from-30% via-[#d5d8f6] via-40% to-black bg-clip-text text-transparent"
         >
-          <!-- <span class="bg-gradient-to-br from-black from-2% via-[#d5d8f6] via-34% to-white bg-clip-text text-transparent"> -->
-          Open pricing.
+          Open pricing.&nbsp;
           <br />
           Transparent results.
         </span>
         <p class="text-[15px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3 xl:mt-[12px]">
           <br />
-          <!-- We are here to advance the kingdom of God together. -->
-          Too high price is out of the reach. Too low devalues the product.
+          Too high price is out of the reach. Too low devalues the product.&nbsp;
           <br />
           <br />
-          The right price strikes a balance—where the customer is glad to pay,
+          The right price strikes a balance—where the customer is glad to pay,&nbsp;
           <br class="hidden md:block" />
           and the seller is confident in what they’re offering.
-          <!-- The price you are glad to pay, and we are confident to offer. -->
         </p>
       </h1>
     </div>
@@ -35,18 +32,6 @@ import { DockDemo } from '../ui/DockDemo';
     <div class="flex w-full justify-center">
       <DockDemo client:load />
     </div>
-
-    <!-- <div
-      class="absolute top-0 left-0 w-full h-full -z-10"
-      style={{
-        background: `
-          radial-gradient(circle at 85% 15%, ${getGradientColor(0.2, 'purple')} 0%, transparent 40%),
-          radial-gradient(circle at 15% 85%, ${getGradientColor(0.2, 'purple')} 0%, transparent 40%),
-          linear-gradient(to bottom left, ${getGradientColor(0.05, 'purple')} 0%, transparent 100%, ${getGradientColor(0.05, 'purple')} 100%)
-        `,
-      }}
-    >
-    </div> -->
 
     <div
       class="absolute top-0 left-0 w-full h-full -z-10"
