@@ -154,6 +154,7 @@ export interface ItemLink {
   subtitle?: string;
   description?: string;
   url?: string;
+  urlText?: string;
   image?: {
     src: string | ImageMetadata;
     alt: string;
