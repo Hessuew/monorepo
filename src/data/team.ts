@@ -16,6 +16,7 @@ interface TeamMember {
   title: string;
   description: string;
   url?: string;
+  urlText?: string;
   image?: {
     src: string | ImageMetadata;
     alt: string;
@@ -135,8 +136,10 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: 'Juhani Juusola',
-    title: 'IT Specialist, Website creator',
-    description: 'Design, web, mobile, server',
+    title: 'Senior developer',
+    description: 'Architecture, design, db admin, testing',
+    url: 'https://cherubim-it.com/',
+    urlText: 'Cherubim IT',
     image: {
       src: imgJuhani,
       alt: 'Juhani Juusola',
@@ -149,5 +152,6 @@ export const items = teamMembers.map((member) => ({
   subtitle: member.title,
   description: member.description,
   url: member.url,
+  urlText: member.urlText,
   image: member.image,
 }));

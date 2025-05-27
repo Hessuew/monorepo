@@ -136,7 +136,7 @@ const { items, columns = 3, classes = {}, isProfile = false } = Astro.props;
                     class="w-full justify-center text-sm xl:text-[14px] xl:leading-[20px] text-primary mt-auto pt-2 xl:pt-[8px] inline-flex items-center gap-1 xl:gap-[4px] transition-all duration-300 group-hover:gap-2"
                     aria-hidden="true"
                   >
-                    Visit website
+                    {item.urlText || 'Visit website'}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       class="h-4 w-4 xl:h-[16px] xl:w-[16px] transition-transform duration-300 transform group-hover:translate-x-1"
