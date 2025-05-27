@@ -93,7 +93,7 @@ export default function FeaturesCard({
             <h3 className='text-[16px] font-semibold leading-snug tracking-tight'>{title}</h3>
             <p className='mt-2.5 xl:mt-[10px] leading-snug'>
               <span className='text-[32px] font-semibold tracking-tight lg:text-[36px] md:text-[32px] pr-4 xl:pr-[16px]'>
-                {price},
+                {price}
               </span>
               <span className='text-[20px] font-semibold tracking-tight text-white sm:text-[24px]'>{monthlyPrice}</span>
               <span className='text-[20px] font-medium tracking-tight text-muted sm:text-[20px]'> / monthly</span>
