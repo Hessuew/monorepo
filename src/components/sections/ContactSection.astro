@@ -50,10 +50,10 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 
             <div class="success-msg">
               <p>
-                Thank you for getting in touch! We're reviewing your message and will respond shortly.
+                Thank you for getting in touch. We're reviewing your message and will respond shortly.
                 <br />
                 <br />
-                Grace be unto you and peace from God the Father, and from our Lord Jesus Christ.
+                The grace of our Lord Jesus Christ be with your spirit, amen.
               </p>
             </div>
 
@@ -120,9 +120,16 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
                 <div class="CTA">
                   <button
                     type="submit"
-                    class="shiny-cta shiny-cta-orange h-12 w-32 xl:h-[48px] xl:w-[128px] mb-4 xl:mb-[16px]"
+                    class="shiny-cta h-12 w-32 xl:h-[48px] xl:w-[128px] mb-4 xl:mb-[16px] relative overflow-hidden transition-colors duration-700 ease-in-out"
                   >
-                    <span class="text-base xl:text-[16px] xl:leading-[24px] font-semibold px-4 xl:px-[16px]">Send</span>
+                    <span
+                      class="button-text button-text-send text-base xl:text-[16px] xl:leading-[24px] font-semibold px-4 xl:px-[16px] inline-block transition-opacity duration-700 ease-in-out"
+                      >Send</span
+                    >
+                    <span
+                      class="button-text button-text-loading text-base xl:text-[16px] xl:leading-[24px] font-semibold px-4 xl:px-[16px] transition-opacity duration-700 ease-in-out absolute inset-0 flex items-center justify-center opacity-0"
+                      >Loading...</span
+                    >
                   </button>
                 </div>
               </form>
@@ -190,9 +197,16 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
                 <div class="CTA">
                   <button
                     type="submit"
-                    class="shiny-cta shiny-cta-orange h-12 w-32 xl:h-[48px] xl:w-[128px] mb-4 xl:mb-[16px]"
+                    class="shiny-cta h-12 w-32 xl:h-[48px] xl:w-[128px] mb-4 xl:mb-[16px] relative overflow-hidden transition-colors duration-700 ease-in-out"
                   >
-                    <span class="text-base xl:text-[16px] xl:leading-[24px] font-semibold px-4 xl:px-[16px]">Send</span>
+                    <span
+                      class="button-text button-text-send text-base xl:text-[16px] xl:leading-[24px] font-semibold px-4 xl:px-[16px] inline-block transition-opacity duration-700 ease-in-out"
+                      >Send</span
+                    >
+                    <span
+                      class="button-text button-text-loading text-base xl:text-[16px] xl:leading-[24px] font-semibold px-4 xl:px-[16px] transition-opacity duration-700 ease-in-out absolute inset-0 flex items-center justify-center opacity-0"
+                      >Loading...</span
+                    >
                   </button>
                 </div>
               </form>
@@ -774,6 +788,18 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
         !formState.nameError && !formState.emailError && !formState.messageError && !formState.companyNameError;
 
       if (isFormValid) {
+        const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+        if (submitButton) {
+          // submitButton.classList.remove('shiny-cta-orange');
+          const sendTextSpan = submitButton.querySelector('.button-text-send') as HTMLElement;
+          const loadingTextSpan = submitButton.querySelector('.button-text-loading') as HTMLElement;
+          if (sendTextSpan && loadingTextSpan) {
+            sendTextSpan.style.opacity = '0';
+            loadingTextSpan.style.opacity = '1';
+          }
+          submitButton.disabled = true; // Disable button
+        }
+
         try {
           const formData = new FormData(form);
           const formElement = form.closest('.form') as HTMLElement;
@@ -782,7 +808,6 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
           formData.append('cfTurnstileToken', turnstile.getResponse());
           formData.append('isCompanyForm', formState.isCompanyForm.toString());
           // Here you would typically send the form data to your backend
-          // const workerUrl = 'http://localhost:8787/contact';
           const workerUrl = 'https://contact-form.juhani-juusola.workers.dev/contact';
 
           const response = await fetch(workerUrl, {
@@ -838,6 +863,16 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
         } catch (error) {
           console.error('Error submitting form:', error);
           // Handle error case
+          if (submitButton) {
+            // submitButton.classList.add('shiny-cta-orange');
+            const sendTextSpan = submitButton.querySelector('.button-text-send') as HTMLElement;
+            const loadingTextSpan = submitButton.querySelector('.button-text-loading') as HTMLElement;
+            if (sendTextSpan && loadingTextSpan) {
+              sendTextSpan.style.opacity = '1';
+              loadingTextSpan.style.opacity = '0';
+            }
+            submitButton.disabled = false; // Re-enable button on error
+          }
         }
       }
     });
