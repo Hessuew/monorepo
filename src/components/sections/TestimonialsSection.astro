@@ -4,9 +4,9 @@ import imgGradient from '~/assets/images/gradient.webp';
 import prayerChurchLogo from '~/assets/images/siteLogos/prayerChurch_logo.webp';
 import urFitChildLogo from '~/assets/images/siteLogos/urFitChild_logo.webp';
 import worldMap from '~/assets/images/worldMap.webp';
-import WidgetWrapper from '../ui/WidgetWrapper.astro';
-import CompanyBox from './CompanyBox.astro';
-import Slide from './Slide.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import CompanyBox from '~/components/widgets/CompanyBox.astro';
+import Slide from '~/components/widgets/Slide.astro';
 
 const slides = [
   {
@@ -88,7 +88,7 @@ const companies = [
     </div>
   </WidgetWrapper>
 </section>
-<img src={imgGradient.src} alt="" class="w-full h-40 xl:h-[40px] rotate-180" />
+<img src={imgGradient.src} alt="" class="w-full h-40 xl:h-[160px] rotate-180" />
 
 <style define:vars={{ worldMapUrl: `url(${worldMap.src})` }}>
   /* Custom styles that can't be easily converted to Tailwind */
