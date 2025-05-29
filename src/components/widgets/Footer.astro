@@ -119,7 +119,7 @@ const { theme = 'light' } = Astro.props;
         ))
       }
     </div>
-    <div class="md:flex md:items-center md:justify-between py-6 md:py-8 xl:py-[32px]">
+    <div class="md:flex md:items-center md:justify-between pt-6 md:pt-8 xl:pt-[32px]">
       <div class="text-sm xl:text-[14px] xl:leading-[20px] mr-4 xl:mr-[16px] dark:text-muted">
         {new Date().getFullYear()} urFIT-child Research Group · All rights reserved
       </div>
@@ -160,6 +160,17 @@ const { theme = 'light' } = Astro.props;
           ''
         )
       }
+    </div>
+    <div class="text-center pb-2">
+      <p class="text-[#777] text-base xl:text-[16px] xl:leading-[24px]">
+        Made by:
+        <a
+          href="https://cherubim-it.com"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          class="text-[#b8b09f] transition-all duration-300 hover:text-[var(--violet2)] no-underline">Cherubim IT</a
+        >
+      </p>
     </div>
   </div>
 </footer>

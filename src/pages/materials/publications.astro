@@ -4,7 +4,6 @@ import FilterContainer from '~/components/filters/FilterContainer.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import PublicationsList from '~/components/widgets/list/PublicationsList.astro';
 import Spacer from '~/components/widgets/Spacer.astro';
-import SubscribeForm from '~/components/widgets/subscribe/SubscribeForm.astro';
 import { publicationCategories, publicationTypes } from '~/data/publications';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -52,8 +51,6 @@ const sortedCategories = [...publicationCategories].filter((category) => categor
     title="Scientific Output"
     subtitle="Explore our peer-reviewed publications, research papers, and academic contributions advancing the understanding of child health through comprehensive longitudinal studies and evidence-based research."
   />
-
-  <SubscribeForm />
 
   <FilterContainer
     options={[sortedTypes, sortedCategories]}
