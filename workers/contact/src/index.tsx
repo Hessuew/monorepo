@@ -143,7 +143,7 @@ app.post('/contact', csrfProtection, zValidator('form', contactFormSchema), asyn
     const resend = new Resend(env.RESEND_API_KEY);
 
     const { error: emailError } = await resend.emails.send({
-      from: 'Cherubim IT <no-reply@urfit-child.com>',
+      from: 'Cherubim IT <contact@cherubim-it.com>',
       to: 'juhanijuusola@gmail.com',
       subject: 'New Contact Form Submission',
       react: (
