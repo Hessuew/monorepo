@@ -58,7 +58,7 @@
   top: 70px;
   left: 0;
   right: 0;
-  bottom: 70px !important;
+  bottom: 0px !important;
   padding: 0 5px;
 }
 
@@ -152,7 +152,6 @@
   --trans-timing-out: cubic-bezier(0.05, 0.76, 0.06, 0.86);
 }
 .switch {
-  margin: auto;
   position: relative;
 }
 .switch__icon,
@@ -162,7 +161,7 @@
 .switch__icon {
   position: absolute;
   top: 0.375em;
-  right: -2.625em;
+  right: -2.625em; /* This positions the icon relative to the switch */
   width: 0.75em;
   height: 0.75em;
   transition:
