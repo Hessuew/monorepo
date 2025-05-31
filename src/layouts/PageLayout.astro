@@ -9,18 +9,19 @@ import type { MetaData } from '~/types';
 
 export interface Props {
   metadata?: MetaData;
+  schemaType?: 'index' | 'calculator';
   classes?: Record<string, string | Record<string, string>>;
 }
 
-const { metadata, classes } = Astro.props;
+const { metadata, schemaType, classes } = Astro.props;
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} schemaType={schemaType}>
   <!-- <slot name="announcement">
     <Announcement />
   </slot> -->
   <slot name="header">
-    <Header {...headerData} classes={classes?.header as Record<string, string>} isSticky showRssFeed showToggleTheme />
+    <Header {...headerData} classes={classes?.header as Record<string, string>} isSticky showToggleTheme />
   </slot>
   <main>
     <slot />
