@@ -47,6 +47,12 @@ import { UI } from 'astrowind:config';
       const newElem = elem.cloneNode(true);
       elem.parentNode.replaceChild(newElem, elem);
 
+      // Set initial state based on current theme
+      const isDark = document.documentElement.classList.contains('dark');
+      if (newElem instanceof HTMLInputElement) {
+        newElem.checked = isDark;
+      }
+
       newElem.addEventListener('click', function () {
         // if (defaultTheme.endsWith(':only')) {
         //   return;

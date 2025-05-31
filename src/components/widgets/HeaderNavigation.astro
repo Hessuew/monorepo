@@ -1,7 +1,7 @@
 ---
 import { getPermalink } from '~/utils/permalinks';
 import { Icon } from 'astro-icon/components';
-import { Image } from 'astro:assets';
+import Image from 'astro/components/Image.astro';
 import type { MenuLink } from './Header.astro';
 
 interface Props {
@@ -16,7 +16,7 @@ const { links, currentPath } = Astro.props;
   class="dropdown-menu absolute top-[56px] left-[28%] xl:left-[26%] lg:backdrop-blur-md lg:bg-white/80 dark:lg:bg-[#030621e6]/80 drop-shadow-xl lg:border border-gray-200 dark:border-gray-800 transition-all duration-300 ease-in-out hidden rounded-md"
   data-navigation-menu
 >
-  <div class="w-[480px]">
+  <div class="w-[492px]">
     <div
       class="flex overflow-hidden relative transition-[height] duration-300 ease-in-out"
       style="height: 180px;"
@@ -104,6 +104,8 @@ const { links, currentPath } = Astro.props;
     let isMouseOverMenu = false;
     const mdBreakpoint = 768; // Tailwind's md breakpoint
 
+    if (window.innerWidth <= 1024) return;
+
     function isMediumScreen() {
       return window.innerWidth >= mdBreakpoint;
     }
@@ -135,7 +137,7 @@ const { links, currentPath } = Astro.props;
       if (!isMediumScreen()) return;
 
       const direction = index > activePanel ? 1 : -1;
-      const height = index === 0 ? 232 : index === 2 ? 144 : 264;
+      const height = index === 0 ? 232 : index === 2 ? 144 : 248;
 
       menu?.classList.remove('hidden');
 

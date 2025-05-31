@@ -41,6 +41,7 @@ export const headerData: { links: Array<MenuLink> } = {
             src: imgAndrew,
             alt: 'Agbaje headshot',
           },
+          description: 'Lead researcher and project coordinator',
         },
       ],
     },
@@ -73,6 +74,7 @@ export const headerData: { links: Array<MenuLink> } = {
           text: 'Videos and Podcasts',
           href: getPermalink('/materials/videos-and-podcasts'),
           description: 'Multimedia research content',
+          icon: 'tabler:video',
         },
         {
           image: {
@@ -82,6 +84,7 @@ export const headerData: { links: Array<MenuLink> } = {
           text: 'Infographics',
           href: getPermalink('/materials/infografics'),
           description: 'Visual research summaries',
+          icon: 'tabler:presentation',
         },
         {
           text: 'Press Releases',

@@ -119,58 +119,60 @@ const { theme = 'light' } = Astro.props;
         ))
       }
     </div>
-    <div class="md:flex md:items-center md:justify-between pt-6 md:pt-8 xl:pt-[32px]">
-      <div class="text-sm xl:text-[14px] xl:leading-[20px] mr-4 xl:mr-[16px] dark:text-muted">
-        {new Date().getFullYear()} urFIT-child Research Group · All rights reserved
+    <div class="md:flex md:items-end md:justify-between py-6 xl:py-[24px]">
+      <div
+        class="text-sm text-center sm:text-left pb-4 sm:pb-0 xl:text-[14px] xl:leading-[20px] mr-4 xl:mr-[16px] dark:text-muted"
+      >
+        © {new Date().getFullYear()} urFIT-child · All rights reserved
       </div>
-      {
-        socialLinks?.length ? (
-          <nav
-            aria-label="Social media links"
-            class="flex mb-4 xl:mb-[16px] md:order-1 -ml-2 md:ml-4 xl:ml-[16px] md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4 rtl:xl:mr-[16px]"
-          >
-            {socialLinks.map(({ ariaLabel, href, image }) => (
-              <div class="group relative">
-                <a
-                  class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm xl:text-[14px] xl:leading-[20px] p-2.5 xl:p-[10px] inline-flex items-center"
-                  aria-label={ariaLabel}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {image && (
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      class="w-5 xl:w-[20px] h-5 xl:h-[20px] object-contain"
-                      width={400}
-                      height={400}
-                      loading={'lazy'}
-                      decoding={'async'}
-                    />
-                  )}
-                </a>
-                <span class="absolute -top-10 xl:-top-[40px] left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-gray-800 px-2 xl:px-[10px] py-1 xl:py-[8px] text-sm xl:text-[14px] xl:leading-[20px] text-white opacity-0 transition-opacity delay-500 group-hover:opacity-100 dark:bg-gray-200 dark:text-gray-800">
-                  {ariaLabel}
-                </span>
-              </div>
-            ))}
-          </nav>
-        ) : (
-          ''
-        )
-      }
-    </div>
-    <div class="text-center pb-2">
-      <p class="text-[#777] text-base xl:text-[16px] xl:leading-[24px]">
-        Made by:
-        <a
-          href="https://cherubim-it.com"
-          target="_blank"
-          rel="noopener noreferrer nofollow"
-          class="text-[#b8b09f] transition-all duration-300 hover:text-[var(--violet2)] no-underline">Cherubim IT</a
-        >
-      </p>
+      <div class="flex flex-col items-center sm:items-end sm:justify-end">
+        {
+          socialLinks?.length ? (
+            <nav aria-label="Social media links" class="flex mb-4">
+              {socialLinks.map(({ ariaLabel, href, image }) => (
+                <div class="group relative">
+                  <a
+                    class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm xl:text-[14px] xl:leading-[20px] p-2.5 xl:p-[10px] inline-flex items-center"
+                    aria-label={ariaLabel}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {image && (
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        class="w-5 xl:w-[20px] h-5 xl:h-[20px] object-contain"
+                        width={400}
+                        height={400}
+                        loading={'lazy'}
+                        decoding={'async'}
+                      />
+                    )}
+                  </a>
+                  <span class="absolute -top-10 xl:-top-[40px] left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-gray-800 px-2 xl:px-[10px] py-1 xl:py-[8px] text-sm xl:text-[14px] xl:leading-[20px] text-white opacity-0 transition-opacity delay-500 group-hover:opacity-100 dark:bg-gray-200 dark:text-gray-800">
+                    {ariaLabel}
+                  </span>
+                </div>
+              ))}
+            </nav>
+          ) : (
+            ''
+          )
+        }
+        <div class="text-end">
+          <p class="text-sm xl:text-[14px] xl:leading-[20px] mr-3 xl:mr-[12px] dark:text-muted">
+            Designed and developed by
+            <a
+              href="https://cherubim-it.com"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              class="text-primary font-semibold transition-all duration-300 hover:text-blue-500 hover:underline"
+              >Cherubim IT</a
+            >
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
