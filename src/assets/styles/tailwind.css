@@ -152,7 +152,13 @@
   --trans-timing-out: cubic-bezier(0.05, 0.76, 0.06, 0.86);
 }
 .switch {
+  margin: auto;
   position: relative;
+  width: 3em;
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .switch__icon,
 .switch__input {
@@ -160,10 +166,10 @@
 }
 .switch__icon {
   position: absolute;
-  top: 0.375em;
-  right: -2.625em; /* This positions the icon relative to the switch */
-  width: 0.75em;
-  height: 0.75em;
+  top: 6px;
+  right: 6px;
+  width: 12px;
+  height: 12px;
   transition:
     opacity calc(var(--trans-dur) / 2),
     transform calc(var(--trans-dur) / 2);
