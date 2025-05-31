@@ -2,10 +2,8 @@
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import Logo from '~/components/Logo.astro';
-import Button from '~/components/ui/Button.astro';
 import AnimatedChildSvg from '~/components/widgets/AnimatedChildSvg.astro';
 import HeaderNavigation from '~/components/widgets/HeaderNavigation.astro';
-import type { CallToAction } from '~/types';
 import { getHomePermalink, getPermalink, trimSlash } from '~/utils/permalinks';
 import type { ImageMetadata } from 'astro';
 import { Icon } from 'astro-icon/components';
@@ -31,7 +29,6 @@ export interface Props {
   id?: string;
   links?: Array<MenuLink>;
   classes?: Record<string, string>;
-  actions?: Array<CallToAction>;
   isSticky?: boolean;
   isDark?: boolean;
   isFullWidth?: boolean;
@@ -42,7 +39,6 @@ export interface Props {
 const {
   id = 'header',
   links = [],
-  actions = [],
   isSticky = false,
   isDark = false,
   isFullWidth = false,
@@ -99,7 +95,7 @@ const { nav: navClass = '' } = classes;
       )}
       aria-label="Main navigation"
     >
-      <div class="flex justify-start py-2 px-6 lg:hidden">
+      <div class="flex justify-start py-2 px-6 xl:py-[8px] xl:px-[24px] lg:hidden">
         {showToggleTheme && <ToggleTheme />}
       </div>
       <ul
@@ -125,9 +121,9 @@ const { nav: navClass = '' } = classes;
                     <div class="flex items-center ">
                       <Icon
                         name="tabler:chevron-down"
-                        class="w-5 h-5 mr-2 text-white transition-transform duration-200 lg:hidden mobile-chevron"
+                        class="w-5 h-5 mr-2 text-black dark:text-white transition-transform duration-200 lg:hidden mobile-chevron"
                       />
-                      <span class="font-bold lg:font-normal ">
+                      <span class="font-bold lg:font-normal">
                         {text}
                         <Icon
                           name="tabler:chevron-down"
@@ -195,20 +191,6 @@ const { nav: navClass = '' } = classes;
         <div class="hidden lg:flex">
           {showToggleTheme && <ToggleTheme />}
         </div>
-        {
-          actions?.length ? (
-            <span class="ml-4 xl:ml-[16px] rtl:ml-0 rtl:mr-4">
-              {actions.map((btnProps) => (
-                <Button
-                  {...btnProps}
-                  class="ml-2 xl:ml-[8px] py-2.5 xl:py-[10px] px-5 xl:px-[24px] font-semibold shadow-none text-sm w-auto"
-                />
-              ))}
-            </span>
-          ) : (
-            ''
-          )
-        }
       </div>
     </div>
   </div>
