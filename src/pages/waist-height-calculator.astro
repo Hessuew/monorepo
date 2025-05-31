@@ -14,14 +14,14 @@ import { THRESHOLDS } from '~/data/thresholds';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Waist to Height Ratio Calculator | Ideal Waist Size by urFIT',
+  title: 'Waist to Height Ratio (WHtR) | Healthy & Normal Waist to Height Ratio',
   description:
-    'Waist to height ratio is a better health indicator than waist to hip. Learn how to measure it at home. Also known as height to waist ratio.',
+    'Waist to height ratio (WHtR) is a better health indicator than waist to hip ratio (WHR). Learn how to measure your healthy and normal waist to height ratio at home.',
   ignoreTitleTemplate: true,
   openGraph: {
-    title: 'Waist to Height Ratio Calculator | Ideal Waist Size by urFIT',
+    title: 'Waist to Height Ratio (WHtR) | Healthy & Normal Waist to Height Ratio',
     description:
-      'Waist to height ratio is a better health indicator than waist to hip. Learn how to measure it at home. Also known as height to waist ratio.',
+      'Waist to height ratio (WHtR) is a better health indicator than waist to hip ratio (WHR). Learn how to measure your healthy and normal waist to height ratio at home.',
     type: 'website',
     image: imgCalculator,
     article: {
@@ -50,7 +50,7 @@ const metadata = {
 };
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} schemaType="calculator">
   <Content
     id="waist-to-height-1"
     tagline="waist-height-calculator"

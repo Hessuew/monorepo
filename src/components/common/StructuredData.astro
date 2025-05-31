@@ -3,6 +3,12 @@ import logoUrl from '~/assets/images/index/urFIT Child Research Group Logo.webp'
 import { getImage } from 'astro:assets';
 import { SITE } from 'astrowind:config';
 
+export interface Props {
+  type?: 'index' | 'calculator';
+}
+
+const { type = 'index' } = Astro.props;
+
 const optimizedLogo = await getImage({ src: logoUrl });
 
 const organizationSchema = {
@@ -17,8 +23,32 @@ const organizationSchema = {
     width: '640',
     height: '640',
   },
-  description: 'Understanding FITness and cardiometabolic health in children research group',
+  description:
+    'Official site of urFIT-child, led by Dr. Andrew Agbaje. Explore leading pediatric health research on waist-to-height ratio, childhood obesity, and evidence-based diagnostics for a healthier future.',
 };
+
+const calculatorSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Waist-to-Height Ratio Calculator',
+  url: `${SITE.site}/waist-to-height-calculator`,
+  applicationCategory: 'HealthApplication',
+  operatingSystem: 'All',
+  description:
+    'Waist to height ratio is a better health indicator than waist to hip. Learn how to measure it at home. Also known as height to waist ratio.',
+  offers: {
+    '@type': 'Offer',
+    price: '0.00',
+    priceCurrency: 'USD',
+  },
+  publisher: {
+    '@type': 'ResearchOrganization',
+    name: 'urFIT-child Research Group',
+    url: SITE.site,
+  },
+};
+
+const schema = type === 'calculator' ? calculatorSchema : organizationSchema;
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

@@ -5,7 +5,6 @@ import ApplyColorMode from '~/components/common/ApplyColorMode.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
 import CommonMeta from '~/components/common/CommonMeta.astro';
 import Metadata from '~/components/common/Metadata.astro';
-import SiteVerification from '~/components/common/SiteVerification.astro';
 import StructuredData from '~/components/common/StructuredData.astro';
 import CustomStyles from '~/components/CustomStyles.astro';
 import Favicons from '~/components/Favicons.astro';
@@ -16,9 +15,10 @@ import { I18N } from 'astrowind:config';
 
 export interface Props {
   metadata?: MetaDataType;
+  schemaType?: 'index' | 'calculator';
 }
 
-const { metadata = {} } = Astro.props;
+const { metadata = {}, schemaType = 'index' } = Astro.props;
 const { language, textDirection } = I18N;
 ---
 
@@ -30,9 +30,8 @@ const { language, textDirection } = I18N;
     <CustomStyles />
     <ApplyColorMode />
     <Metadata {...metadata} />
-    <SiteVerification />
     <Analytics />
-    <StructuredData />
+    <StructuredData type={schemaType} />
 
     <!-- Comment the line below to disable View Transitions -->
     <ClientRouter fallback="swap" />
