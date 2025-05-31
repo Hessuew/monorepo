@@ -113,7 +113,7 @@ const { nav: navClass = '' } = classes;
                   <button
                     type="button"
                     class={twMerge(
-                      'w-full px-2.5 py-3 xl:px-[10px] xl:py-[12px] flex items-center whitespace-nowrap justify-between border-b lg:border-b-0 border-gray-100 dark:border-gray-800',
+                      'w-full px-2.5 py-3 xl:px-[10px] xl:py-[12px] flex items-center whitespace-nowrap justify-between border-b lg:border-b-0 border-gray-100 dark:border-gray-800 hover:text-primary',
                       index !== 0 && 'px-6 xl:px-[24px]',
                       index === 0 && 'lg:w-36 xl:w-[144px] z-20 relative px-6 lg:px-0',
                       index === 1 && 'relative z-10 lg:pl-0 lg:-ml-4 xl:-ml-[24px]'
@@ -122,12 +122,12 @@ const { nav: navClass = '' } = classes;
                     id={`nav-button-${index}`}
                     data-mobile-toggle={`mobile-section-${index}`}
                   >
-                    <div class="flex items-center">
+                    <div class="flex items-center ">
                       <Icon
                         name="tabler:chevron-down"
-                        class="w-5 h-5 mr-2 transition-transform duration-200 lg:hidden mobile-chevron"
+                        class="w-5 h-5 mr-2 text-white transition-transform duration-200 lg:hidden mobile-chevron"
                       />
-                      <span class="font-bold lg:font-normal">
+                      <span class="font-bold lg:font-normal ">
                         {text}
                         <Icon
                           name="tabler:chevron-down"
