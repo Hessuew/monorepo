@@ -77,7 +77,6 @@ const companies = [
               <!-- Slide 1 -->
             </div>
             <div class="swiper-button-next slide-btns text-[var(--violet)]"></div>
-            <div class="swiper-button-prev slide-btns text-[var(--violet)]"></div>
           </div>
         </div>
         <!-- Company details -->
@@ -303,6 +302,7 @@ const companies = [
       // Store the Swiper instance for reference
       swiperInstance = new Swiper('.swiper-container', {
         // Core configuration
+        allowSlidePrev: false, // disables swiping to the prev (left)
         loop: true,
         autoplay: {
           delay: 8000,
@@ -314,7 +314,6 @@ const companies = [
         },
         navigation: {
           nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
         },
         effect: 'slide',
         on: {
@@ -336,20 +335,11 @@ const companies = [
 
       // Add manual event listeners to navigation buttons to ensure proper slide transitions
       const nextButton = document.querySelector('.swiper-button-next');
-      const prevButton = document.querySelector('.swiper-button-prev');
 
       if (nextButton) {
         nextButton.addEventListener('click', () => {
           if (swiperInstance && swiperInstance.slideNext) {
             swiperInstance.slideNext();
-          }
-        });
-      }
-
-      if (prevButton) {
-        prevButton.addEventListener('click', () => {
-          if (swiperInstance && swiperInstance.slidePrev) {
-            swiperInstance.slidePrev();
           }
         });
       }
