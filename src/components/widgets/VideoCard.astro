@@ -1,6 +1,7 @@
 ---
 // VideoCard.astro - A component that displays a video with a thumbnail overlay
-// Following the Rule: Write concise, technical TypeScript code with accurate examples
+
+import { Icon } from 'astro-icon/components';
 
 interface Props {
   videoSrc: string;
@@ -13,9 +14,13 @@ const { videoSrc, title, description } = Astro.props;
 
 <div class="w-full rounded-3xl xl:rounded-[24px] bg-transparent">
   <div class="video-container relative rounded-3xl xl:rounded-[24px] overflow-hidden">
+    <Icon
+      name="tabler:hand-click"
+      class="absolute top-[12px] right-[12px] text-white w-6 h-6 xl:w-[24px] xl:h-[24px] -rotate-12"
+    />
     <!-- Video element -->
-    <video src={videoSrc} muted playsinline preload="auto" class="rounded-3xl xl:rounded-[24px] w-full min-h-[180px]">
-    </video>
+    <video src={videoSrc} muted playsinline preload="auto" class="rounded-3xl xl:rounded-[24px] w-full min-h-[180px]"
+    ></video>
 
     <!-- Content below video -->
     <div class="pt-6 pl-4 xl:pt-[24px] xl:pl-[16px]">
