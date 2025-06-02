@@ -20,7 +20,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
       <section id="formHolder">
         <div class="flex flex-col md:flex-row">
           <!-- Form Box -->
-          <div class="col-sm-6 form md:w-1/2">
+          <div class="col-sm-6 form order-2 md:order-1 md:w-1/2">
             <!-- Login Form -->
             <div class="login form-piece switched">
               <form
@@ -168,7 +168,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
           </div>
 
           <!-- Brand Box -->
-          <div class="col-sm-6 brand md:w-1/2">
+          <div class="col-sm-6 brand order-1 md:order-2 md:w-1/2">
             <!-- <a href="#" class="logo">MR <span>.</span></a> -->
             <p class="text-[15px] font-light">Contact form</p>
 
@@ -262,7 +262,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
     background-size: cover;
     background-position: center center;
     color: #fff;
-    min-height: 580px;
+    min-height: 600px;
     position: relative;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
     transition: all 0.6s cubic-bezier(1, -0.375, 0.285, 0.995);
@@ -383,7 +383,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
   }
   .form .form-piece {
     /* background: #fff; */
-    min-height: 540px;
+    min-height: 600px;
     margin-top: 10px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
     color: #bbbbbb;
@@ -518,7 +518,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
     }
     section#formHolder .form {
       width: 80vw;
-      min-height: 500px;
+      min-height: 560px;
       margin-left: 10vw;
     }
     section#formHolder .form .form-piece {
