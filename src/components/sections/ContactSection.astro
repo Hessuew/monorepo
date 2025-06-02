@@ -19,52 +19,6 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
     <div class="mx-auto max-w-5xl xl:max-w-[1024px] px-4 xl:px-[16px] overflow-hidden">
       <section id="formHolder">
         <div class="flex flex-col md:flex-row">
-          <!-- Brand Box -->
-          <div class="col-sm-6 brand md:w-1/2">
-            <!-- <a href="#" class="logo">MR <span>.</span></a> -->
-            <p class="text-[15px] font-light">Contact form</p>
-
-            <div class="heading sm:text-[48px] font-title mb-0 font-semibold w-full text-center">
-              <div class="flex flex-row gap-1 xl:gap-[4px] items-center w-full justify-center">
-                <Image
-                  class={'w-16 h-16 xl:w-[64px] xl:h-[64px] pt-1 xl:pt-[4px]'}
-                  widths={[400, 768, 1024, 2040]}
-                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                  loading="eager"
-                  width={64}
-                  height={64}
-                  src={logo_transparent}
-                  alt="Logo"
-                />
-                <h2>Cherubim IT</h2>
-              </div>
-
-              <p class="text-[15px] font-light uppercase tracking-wider font-title pl-12 xl:pl-[48px]">
-                Your Right Choice
-              </p>
-            </div>
-
-            <div class="absolute -bottom-8 sm:bottom-0 w-full justify-center turnstile-container">
-              <div class="cf-turnstile" data-sitekey="0x4AAAAAABdpbcazSwxXVATY"></div>
-            </div>
-
-            <div class="success-msg">
-              <p>
-                Thank you for getting in touch. We're reviewing your message and will respond shortly.
-                <br />
-                <br />
-                The grace of our Lord Jesus Christ be with you. Amen.
-              </p>
-            </div>
-
-            <div class="error-msg">
-              <p>
-                Something went wrong with the form submission. Please try again. If the problem persists, please be
-                patient as we fix the issue.
-              </p>
-            </div>
-          </div>
-
           <!-- Form Box -->
           <div class="col-sm-6 form md:w-1/2">
             <!-- Login Form -->
@@ -112,7 +66,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 
                   <div class="form-group">
                     <label for="message">Message</label>
-                    <input type="text" name="message" id="message" class="message" />
+                    <textarea name="message" id="message" class="message" rows="4" spellcheck="false"></textarea>
                     <span class="error"></span>
                   </div>
                 </div>
@@ -190,7 +144,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 
                 <div class="form-group">
                   <label for="message">Message</label>
-                  <input type="text" name="message" id="message" class="message" />
+                  <textarea name="message" id="message" class="message" rows="4" spellcheck="false"></textarea>
                   <span class="error"></span>
                 </div>
 
@@ -211,6 +165,52 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
                 </div>
               </form>
             </div><!-- End Signup Form -->
+          </div>
+
+          <!-- Brand Box -->
+          <div class="col-sm-6 brand md:w-1/2">
+            <!-- <a href="#" class="logo">MR <span>.</span></a> -->
+            <p class="text-[15px] font-light">Contact form</p>
+
+            <div class="heading sm:text-[48px] font-title mb-0 font-semibold w-full text-center">
+              <div class="flex flex-row gap-1 xl:gap-[4px] items-center w-full justify-center">
+                <Image
+                  class={'w-16 h-16 xl:w-[64px] xl:h-[64px] pt-1 xl:pt-[4px]'}
+                  widths={[400, 768, 1024, 2040]}
+                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                  loading="eager"
+                  width={64}
+                  height={64}
+                  src={logo_transparent}
+                  alt="Logo"
+                />
+                <h2>Cherubim IT</h2>
+              </div>
+
+              <p class="text-[15px] font-light uppercase tracking-wider font-title pl-12 xl:pl-[48px]">
+                Your Right Choice
+              </p>
+            </div>
+
+            <div class="absolute -bottom-8 sm:bottom-0 sm:right-24 justify-center turnstile-container">
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAABdpbcazSwxXVATY"></div>
+            </div>
+
+            <div class="success-msg">
+              <p>
+                Thank you for getting in touch. We're reviewing your message and will respond shortly.
+                <br />
+                <br />
+                The grace of our Lord Jesus Christ be with you. Amen.
+              </p>
+            </div>
+
+            <div class="error-msg">
+              <p>
+                Something went wrong with the form submission. Please try again. If the problem persists, please be
+                patient as we fix the issue.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -396,7 +396,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
     overflow: hidden;
   }
   .form .form-piece.switched {
-    transform: translateX(-100%);
+    transform: translateX(90%);
     width: 100%;
     left: 0;
   }
@@ -436,7 +436,8 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
     font-family: 'Raleway', sans-serif !important;
     font-weight: 600;
   }
-  .form form input:not([type='submit']) {
+  .form form input:not([type='submit']),
+  .form form textarea {
     background: none;
     outline: none;
     border: none;
@@ -448,14 +449,16 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
     font-size: 15px;
     font-family: 'Montserrat', sans-serif;
     z-index: 1;
+    resize: none;
   }
   input::selection,
   textarea::selection {
     background: #3390ff;
     color: white;
   }
-  .form form input:not([type='submit']).hasError {
-    border-color: red;
+  .form form .form-group.hasError input:not([type='submit']),
+  .form form .form-group.hasError textarea {
+    border-bottom-color: red;
   }
   .form form span.error {
     color: red;
@@ -465,9 +468,6 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
     bottom: -20px;
     right: 0;
     display: none;
-  }
-  .form form input[type='password'] {
-    color: red;
   }
   .form form .CTA input {
     font-size: 16px;
@@ -712,7 +712,10 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
         }
 
         // Message validation
-        if (input.classList.contains('message')) {
+        if (
+          input.classList.contains('message') ||
+          (input.id === 'message' && input.tagName.toLowerCase() === 'textarea')
+        ) {
           if (input.value.length === 0) {
             errorMessage = 'Please enter your message';
             isValid = false;
@@ -775,8 +778,8 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
       // Prevent default form submission which causes page jump
       event.preventDefault();
 
-      // Get inputs within this specific form
-      const formInputs = Array.from(form.querySelectorAll('input'));
+      // Get inputs and textareas within this specific form
+      const formInputs = Array.from(form.querySelectorAll('input, textarea'));
 
       // Trigger validation on all fields in this form
       formInputs.forEach((input) => {
