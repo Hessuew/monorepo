@@ -23,8 +23,8 @@ import img9 from '~/assets/images/infographic/Sedentary Time Adolescents Heart.w
 import img26 from '~/assets/images/infographic/Sedentary Time Tobacco Study 2503 Children.webp';
 import img17 from '~/assets/images/infographic/Teenagers Insulin Resistance Risk.webp';
 import img2 from '~/assets/images/infographic/Weight Gain Childhood Vascular Health.webp';
-import imgBMI from '~/assets/images/waist-to-height-calculator/Press release BMI versus WHtR_v2.webp';
-import img18 from '~/assets/images/waist-to-height-calculator/Waist to Height Ratio vs BMI Press Release.webp';
+import imgBMI from '~/assets/images/waist-to-height-calculator/waist-to-height-ratio-category-whtr-vs-bmi-category.webp';
+import img18 from '~/assets/images/waist-to-height-calculator/waist-to-height-ratio-whtr-with-a-measurement-tape.webp';
 import type { ImageMetadata } from 'astro';
 import { getYear, parseISO } from 'date-fns';
 

@@ -1,7 +1,7 @@
 ---
-import imgAgbaje from '~/assets/images/waist-to-height-calculator/Agbaje Waist to Height.webp';
-import imgBMI from '~/assets/images/waist-to-height-calculator/Press release BMI versus WHtR_v2.webp';
-import imgCalculator from '~/assets/images/waist-to-height-calculator/Waist to Height Ratio vs BMI Press Release.webp';
+import imgAgbaje from '~/assets/images/waist-to-height-calculator/professor-agbaje-waist-to-height-ratio-whtr-demonstration.webp';
+import imgBMI from '~/assets/images/waist-to-height-calculator/waist-to-height-ratio-category-whtr-vs-bmi-category.webp';
+import imgCalculator from '~/assets/images/waist-to-height-calculator/waist-to-height-ratio-whtr-with-a-measurement-tape.webp';
 import Calculator from '~/components/ui/calculator/Calculator.astro';
 import GradientText from '~/components/ui/GradientText.astro';
 import Content from '~/components/widgets/Content.astro';
@@ -12,16 +12,17 @@ import Hero from '~/components/widgets/Hero.astro';
 import { references } from '~/data/calculatorReferences';
 import { THRESHOLDS } from '~/data/thresholds';
 import Layout from '~/layouts/PageLayout.astro';
+import { YouTube } from 'astro-embed';
 
 const metadata = {
-  title: 'Waist to Height Ratio (WHtR) | Healthy & Normal Waist to Height Ratio',
+  title: 'New Waist to Height Ratio (WHtR) Calculator – Measure at Home',
   description:
-    'Waist to height ratio (WHtR) is a better health indicator than waist to hip ratio (WHR). Measure your (WHtR) at home with this waist to height ratio calculator.',
+    'Easily measure your waist to height ratio (WHtR) at home with our calculator. Learn what normal and healthy waist to height ratio means for your health.',
   ignoreTitleTemplate: true,
   openGraph: {
-    title: 'Waist to Height Ratio (WHtR) | Healthy & Normal Waist to Height Ratio',
+    title: 'New Waist to Height Ratio (WHtR) Calculator – Measure at Home',
     description:
-      'Waist to height ratio (WHtR) is a better health indicator than waist to hip ratio (WHR). Measure your (WHtR) at home with this waist to height ratio calculator.',
+      'Easily measure your waist to height ratio (WHtR) at home with our calculator. Learn what normal and healthy waist to height ratio means for your health.',
     type: 'website',
     image: imgCalculator,
     article: {
@@ -51,16 +52,22 @@ const metadata = {
 ---
 
 <Layout metadata={metadata} schemaType="calculator">
+  <title>How to Measure Waist to Height Ratio (WHtR) – Healthy Calculator</title>
+  <meta
+    name="description"
+    content="Discover how to measure your waist to height ratio (WHtR) at home. Learn about normal and healthy waist to height ratio ranges and use our easy calculator."
+  />
+
   <Content
     id="waist-to-height-1"
-    tagline="waist-height-calculator"
-    title="How to measure waist-to-height ratio at home"
+    tagline="waist to height ratio calculator whtr"
+    title="How to measure waist to height ratio (WHtR) at home"
     classes={{
       container: 'lg:pb-0 md:pb-0',
     }}
     image={{
       src: imgAgbaje,
-      alt: 'Professor Agbaje demonstrating how to calculate the waist to height ratio',
+      alt: 'Professor Agbaje holding a measuring tape while demonstrating how to calculate the waist to height ratio (WHtR) for a healthy and normal body size',
     }}
   >
     <Fragment slot="content">
@@ -97,8 +104,8 @@ const metadata = {
 
   <Hero
     id="calculator"
-    tagline="Waist-to-height calculator"
-    title="Calculate your waist/height ratio"
+    tagline="waist to height calculator"
+    title="Calculate your waist to height ratio (WHtR)"
     classes={{
       titleClass: 'lg:text-[44px] lg:leading-[52px] xl:text-[44px] xl:leading-[52px]',
       labelContainerClass: 'lg:py-0 md:py-0 xl:py-0',
@@ -111,6 +118,35 @@ const metadata = {
       >
     </Fragment>
   </Hero>
+
+  <Content>
+    <Fragment slot="content">
+      <h3 class="text-xl tracking-tight sm:text-2xl xl:text-[24px] xl:leading-[32px] mb-2 xl:mb-[8px]">
+        <span class="font-semibold text-black dark:text-white">Waist to height ratio (WHtR) video tutorial</span>
+        <p class="text-lg sm:text-xl xl:text-[20px] xl:leading-[28px]">
+          <GradientText class="font-semibold text-primary" style2
+            >BBC Point West: Expert WHtR Assessment Guide</GradientText
+          >
+          <br />
+          <br />
+          <span class="text-black dark:text-white text-lg xl:text-[18px] xl:leading-[28px]"
+            >Learn the proper technique for measuring waist to height ratio, a superior indicator of health risks
+            compared to BMI for children and adults. Super simple and super effective.</span
+          >
+        </p>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="image">
+      <div class="relative">
+        <YouTube
+          id="AuFbnDornog"
+          title="How to measure waist to height ratio (WHtR) at home"
+          params="start=101&end=122"
+        />
+      </div>
+    </Fragment>
+  </Content>
 
   <!-- Features2 Widget ************** -->
 
@@ -198,7 +234,7 @@ const metadata = {
       <h3
         class="text-center text-2xl sm:text-3xl xl:text-[30px] xl:leading-[36px] mb-2 xl:mb-[8px] font-bold tracking-tight dark:text-white intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
       >
-        Description
+        Benefits of waist to height ratio (WHtR) over body mass index (BMI)
       </h3>
       <br />
       <p
@@ -216,7 +252,9 @@ const metadata = {
         point also identified 93 out of 100 males and 95 out of 100 females who truly do not have excess fat.
       </p>
 
-      <Hero image={{ src: imgCalculator, alt: 'Waist to Height Ratio vs BMI Press Release', isInfographics: true }} />
+      <Hero
+        image={{ src: imgCalculator, alt: 'Waist to height ratio (WHtR) with a measuring tape', isInfographics: true }}
+      />
       <p
         class="text-base xl:text-[16px] xl:leading-[24px] intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
       >
@@ -230,7 +268,9 @@ const metadata = {
         <GradientText class="font-bold"> says Andrew Agbaje </GradientText>
       </p>
 
-      <Hero image={{ src: imgBMI, alt: 'Press release BMI versus WHtR', height: 1333, width: 2000 }} />
+      <Hero
+        image={{ src: imgBMI, alt: 'Waist to height ratio (WHtR) category vs BMI category', height: 1333, width: 2000 }}
+      />
     </Fragment>
   </ContentSection>
 

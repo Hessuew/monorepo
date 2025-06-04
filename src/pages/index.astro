@@ -83,30 +83,32 @@ const metadata = {
       <Fragment slot="title">
         <div class="flex flex-wrap gap-[0.25em] xl:gap-y-[4px] items-center justify-center">
           <span>
-            <p class="text-primary highlight inline-block">U</p>nde<p class="text-primary highlight inline-block">
+            <span class="text-primary highlight inline-block">U</span>nde<span
+              class="text-primary highlight inline-block"
+            >
               r
-            </p>standing
+            </span>standing
           </span>
           <span>
-            <p class="text-primary highlight inline-block">FIT</p>ness
+            <span class="text-primary highlight inline-block">FIT</span>ness
           </span>
           <span class="whitespace-nowrap">and</span>
           <span>
-            <p class="text-primary highlight inline-block">c</p>ardiometabolic
+            <span class="text-primary highlight inline-block">c</span>ardiometabolic
           </span>
           <span>
-            <p class="text-primary highlight inline-block">h</p>ealth
+            <span class="text-primary highlight inline-block">h</span>ealth
           </span>
           <span>
-            <p class="text-primary highlight inline-block">i</p>n
+            <span class="text-primary highlight inline-block">i</span>n
           </span>
           <span>
-            <p class="text-primary highlight inline-block">l</p>ittle
+            <span class="text-primary highlight inline-block">l</span>ittle
           </span>
           <span>
-            <p class="text-primary highlight inline-block">d</p>arlings
+            <span class="text-primary highlight inline-block">d</span>arlings
           </span>
-          <span class="whitespace-nowrap"><p class="text-primary highlight inline-block">(urFIT-child)</p></span>
+          <!-- <span class="whitespace-nowrap"><span class="text-primary highlight inline-block">(urFIT-child)</span></span> -->
         </div>
       </Fragment>
 
@@ -236,7 +238,8 @@ const metadata = {
   <!-- Stats Widget ****************** -->
 
   <Stats
-    title=`With world-class data 
+    title="World-class data"
+    subtitle={`With world-class data 
     <a
       href="https://www.bristol.ac.uk/alspac/"
       target="_blank"
@@ -244,7 +247,7 @@ const metadata = {
       class="text-blue-700 hover:underline"
       >(Children of the 90s)</a>
     from the University of Bristol, UK, our findings reach the widest audience possible.
-    `
+    `}
     classes={{ container: 'pb-0 md:pb-0 lg:pb-0 xl:pb-0' }}
     stats={[
       { title: 'Participating families', amount: '14.5K' },
