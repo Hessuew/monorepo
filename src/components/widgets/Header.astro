@@ -95,8 +95,27 @@ const { nav: navClass = '' } = classes;
       )}
       aria-label="Main navigation"
     >
-      <div class="flex justify-start py-2 px-6 xl:py-[8px] xl:px-[24px] lg:hidden">
+      <div class="flex justify-between py-2 px-6 xl:py-[8px] xl:px-[24px] lg:hidden">
         {showToggleTheme && <ToggleTheme />}
+        <a
+          class="text-primary select-none inline-flex items-center gap-1 xl:gap-[4px] text-sm font-bold lg:font-normal tracking-tighter whitespace-nowrap transition-all duration-300 hover:gap-2 group"
+          href={getPermalink('/waist-to-height-ratio-calculator')}
+        >
+          <span class="border-b border-primary"> Waist to height ratio calculator </span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 xl:h-[16px] xl:w-[16px] transition-transform duration-300 transform group-hover:translate-x-1 group-active:translate-x-1"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+            role="presentation"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </a>
       </div>
       <ul
         class="flex flex-col lg:flex-row lg:self-center w-full lg:w-auto text-xl lg:text-[0.9375rem] tracking-[0.01rem] xl:text-[15px] xl:tracking-[0.16px] font-medium lg:justify-center"
@@ -166,7 +185,7 @@ const { nav: navClass = '' } = classes;
               ) : (
                 <a
                   class:list={[
-                    'font-bold lg:font-normal pl-[52px] lg:pl-0 hover:text-primary pr-2.5 xl:pr-[10px] py-3 xl:py-[12px] flex items-center whitespace-nowrap',
+                    'font-bold lg:font-normal pl-[52px] lg:pl-0 hover:text-primary px-2.5 xl:px-[10px] py-3 xl:py-[12px] flex items-center whitespace-nowrap',
                     { 'aw-link-active': href === currentPath },
                     'border-b lg:border-b-0 border-gray-100 dark:border-gray-800',
                   ]}
@@ -187,10 +206,29 @@ const { nav: navClass = '' } = classes;
         'hidden lg:self-center lg:flex items-center lg:mb-0 fixed w-full lg:w-auto lg:static justify-end left-0 rtl:left-auto rtl:right-0 bottom-0 p-3 lg:p-0 lg:justify-self-end z-50',
       ]}
     >
-      <div class="items-center flex justify-between w-full lg:w-auto">
-        <div class="hidden lg:flex">
-          {showToggleTheme && <ToggleTheme />}
-        </div>
+      <div class="hidden lg:flex flex-none items-center w-full lg:w-auto gap-3 xl:gap-[12px]">
+        {showToggleTheme && <ToggleTheme />}
+        <a
+          class="text-primary hover:text-black dark:hover:text-white inline-flex items-center gap-1 xl:gap-[4px] text-sm font-bold lg:font-normal tracking-tighter whitespace-nowrap transition-all duration-300 group"
+          href={getPermalink('/waist-to-height-ratio-calculator')}
+        >
+          <span class="border-b border-primary group-hover:border-black dark:group-hover:border-white duration-300">
+            Waist to height ratio calculator
+          </span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 xl:h-[16px] xl:w-[16px] transition-transform duration-300 transform group-hover:translate-x-1.5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+            role="presentation"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </a>
       </div>
     </div>
   </div>

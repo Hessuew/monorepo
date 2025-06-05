@@ -30,7 +30,7 @@ const links = [
       { text: 'Videos and Podcasts', href: getPermalink('/materials/videos-and-podcasts') },
       { text: 'Infographics', href: getPermalink('/materials/infografics') },
       { text: 'Press Releases', href: getPermalink('/materials/press-releases') },
-      { text: 'Waist/Height Calculator', href: getPermalink('/waist-height-calculator') },
+      { text: 'Waist to height ratio calculator', href: getPermalink('/waist-to-height-ratio-calculator') },
       { text: 'Call to Action', href: getPermalink('/call-to-action') },
       { text: 'Non-academic', href: getPermalink('/non-academic') },
     ],
@@ -99,7 +99,7 @@ const { theme = 'light' } = Astro.props;
       </div>
       {
         links.map(({ title, links }) => (
-          <div class="col-span-6 md:col-span-3 lg:col-span-2">
+          <div class="col-span-6 md:col-span-3 lg:col-span-2 lg:min-w-[200px]">
             <div class="dark:text-gray-300 font-medium mb-2 xl:mb-[8px] xl:text-[16px] xl:leading-[24px]">{title}</div>
             {links && Array.isArray(links) && (
               <ul class="text-sm xl:text-[14px] xl:leading-[20px]">

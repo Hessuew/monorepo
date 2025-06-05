@@ -94,32 +94,32 @@ export const headerData: { links: Array<MenuLink> } = {
         },
       ],
     },
-    {
-      text: 'Waist/Height Calc',
-      href: getPermalink('/waist-height-calculator'),
-      description: 'Waist-to-height ratio tool',
-      icon: 'tabler:calculator',
-    },
+    // {
+    //   text: 'Waist to height ratio (WHtR)',
+    //   href: getPermalink('/waist-height-calculator'),
+    //   description: 'Waist-to-height ratio tool',
+    //   icon: 'tabler:calculator',
+    // },
+    // {
+    // text: 'Call to Action',
+    // links: [
     {
       text: 'Call to Action',
-      links: [
-        {
-          text: 'Call to Action',
-          href: getPermalink('/call-to-action'),
-          description: 'Practical applications',
-          icon: 'tabler:speakerphone',
-        },
-        {
-          image: {
-            src: imgOrangeSparks,
-            alt: 'Orange Sparks',
-          },
-          text: 'Non-academic',
-          href: getPermalink('/non-academic'),
-          description: 'Beyond scientific research',
-          icon: 'tabler:flame',
-        },
-      ],
+      href: getPermalink('/call-to-action'),
+      description: 'Practical applications',
+      icon: 'tabler:speakerphone',
     },
+    {
+      image: {
+        src: imgOrangeSparks,
+        alt: 'Orange Sparks',
+      },
+      text: 'Non-academic',
+      href: getPermalink('/non-academic'),
+      description: 'Beyond scientific research',
+      icon: 'tabler:flame',
+    },
+    // ],
+    // },
   ],
 };
