@@ -53,6 +53,7 @@ export interface MetaData {
   title?: string;
   ignoreTitleTemplate?: boolean;
 
+  redirect?: string;
   canonical?: string;
 
   robots?: MetaDataRobots;

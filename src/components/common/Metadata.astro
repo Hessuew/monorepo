@@ -15,6 +15,7 @@ const {
   title,
   ignoreTitleTemplate = false,
   canonical = String(getCanonical(String(Astro.url.pathname))),
+  redirect = '',
   robots = {},
   description,
   openGraph = {},
@@ -63,3 +64,5 @@ const seoProps: AstroSeoProps = merge(
 ---
 
 <AstroSeo {...{ ...seoProps, openGraph: await adaptOpenGraphImages(seoProps?.openGraph, Astro.site) }} />
+<!-- redirects -->
+{redirect ? <meta http-equiv="refresh" content={`0; url=${redirect}`} /> : null}
