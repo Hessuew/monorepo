@@ -47,9 +47,10 @@ const {
     tagline2={tagline2}
     classes={{
       container: 'max-w-xl sm:mx-auto lg:max-w-xl xl:max-w-[576px]',
-      title: 'text-4xl md:text-5xl xl:text-[48px] font-bold tracking-tighter mb-4 xl:mb-[16px] font-heading',
-      subtitle:
-        'max-w-3xl xl:max-w-[768px] mx-auto sm:text-center text-xl xl:text-[20px] xl:leading-[28px] text-muted dark:text-slate-400',
+      // title: 'text-4xl md:text-5xl xl:text-[48px] font-bold tracking-tighter mb-4 xl:mb-[16px] font-heading',
+      title: 'max-w-5xl xl:max-w-[980px] mx-auto',
+      subtitleClass: (classes?.subtitleClass as string) || '',
+      // subtitle: 'sm:text-center text-xl xl:text-[20px] xl:leading-[28px] text-muted dark:text-slate-400',
     }}
   />
   <div class="mx-auto max-w-7xl xl:max-w-[1280px] p-4 xl:p-[16px] md:px-8 xl:px-[32px]">

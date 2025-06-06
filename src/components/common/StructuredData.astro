@@ -1,15 +1,17 @@
 ---
 import logoUrl from '~/assets/images/index/urFIT Child Research Group Logo.webp';
+import imgAndrew2 from '~/assets/images/principalInvestigator/andrew-agbaje-landing-picture.webp';
 import { getImage } from 'astro:assets';
 import { SITE } from 'astrowind:config';
 
 export interface Props {
-  type?: 'index' | 'calculator';
+  type?: 'index' | 'calculator' | 'person';
 }
 
 const { type = 'index' } = Astro.props;
 
 const optimizedLogo = await getImage({ src: logoUrl });
+const optimizedPersonLogo = await getImage({ src: imgAndrew2 });
 
 const organizationSchema = {
   '@context': 'https://schema.org',
@@ -24,18 +26,18 @@ const organizationSchema = {
     height: '640',
   },
   description:
-    'Official site of urFIT-child, led by Dr. Andrew Agbaje. Explore leading pediatric health research on waist-to-height ratio, childhood obesity, and evidence-based diagnostics for a healthier future.',
+    'Official site of urFIT-child, led by Dr. Andrew Agbaje. Discover research on waist-to-height ratio, childhood obesity, and pediatric health diagnostics.',
 };
 
 const calculatorSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
-  name: 'Waist-to-Height Ratio Calculator',
-  url: `${SITE.site}/waist-to-height-calculator`,
+  name: 'Waist to Height Ratio Calculator',
+  url: `${SITE.site}/waist-to-height-ratio-calculator`,
   applicationCategory: 'HealthApplication',
   operatingSystem: 'All',
   description:
-    'Waist to height ratio is a better health indicator than waist to hip. Learn how to measure it at home. Also known as height to waist ratio.',
+    'Waist to height ratio calculator with visual and color-coded results. Based on the largest WHtR dataset to assess body fat and find your healthy range.',
   offers: {
     '@type': 'Offer',
     price: '0.00',
@@ -48,7 +50,35 @@ const calculatorSchema = {
   },
 };
 
-const schema = type === 'calculator' ? calculatorSchema : organizationSchema;
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Dr. Andrew Agbaje',
+  jobTitle: 'Principal Investigator',
+  url: `${SITE.site}/andrew-agbaje`,
+  description:
+    'Prof. Andrew Agbaje leads the urFIT-child group, advancing global research on pediatric health, fitness, and waist to height ratio (WHtR).',
+  affiliation: {
+    '@type': 'ResearchOrganization',
+    name: 'urFIT-child Research Group',
+    url: SITE.site,
+  },
+  sameAs: [
+    'https://uefconnect.uef.fi/en/group/understanding-fitness-and-cardiometabolic-health-in-little-darlings-urfit-child',
+    'https://www.researchgate.net/profile/Andrew-Agbaje',
+    'https://www.linkedin.com/in/andrew-agbaje-5783b253',
+    'https://orcid.org/0000-0001-5138-3441',
+    'https://pubmed.ncbi.nlm.nih.gov/?term=Agbaje+AO&cauthor_id=36214333',
+  ],
+  image: {
+    '@type': 'ImageObject',
+    url: new URL(optimizedPersonLogo.src, SITE.site).toString(),
+    width: '640',
+    height: '640',
+  },
+};
+
+const schema = type === 'calculator' ? calculatorSchema : type === 'person' ? personSchema : organizationSchema;
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />

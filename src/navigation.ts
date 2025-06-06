@@ -1,5 +1,5 @@
 import imgAndrew from '~/assets/images//navigation/Andrew Agbaje RT 2022.webp';
-import imgAndrewCraig from '~/assets/images//principalInvestigator/Andrew Craig Dimitri Alan.webp';
+import imgAndrewCraig from '~/assets/images//principalInvestigator/andrew-agbaje-with-barker-vlachopoulos-williams.webp';
 import cholesterolPassport from '~/assets/images/infographic/Cholesterol passport for adolescents to halt the world’s deadliest disease – atherosclerosis.webp';
 import imgVideosAndPodcasts from '~/assets/images/navigation/Smoking During Childhood.webp';
 import imgOrangeSparks from '~/assets/images/non-academic/Orange Sparks.webp';
@@ -34,8 +34,8 @@ export const headerData: { links: Array<MenuLink> } = {
           description: 'Research funding partners',
         },
         {
-          text: 'Principal Investigator',
-          href: getPermalink('/people/principal-investigator'),
+          text: 'Principal Investigator Andrew Agbaje',
+          href: getPermalink('/people/andrew-agbaje'),
           icon: 'tabler:user-circle',
           image: {
             src: imgAndrew,

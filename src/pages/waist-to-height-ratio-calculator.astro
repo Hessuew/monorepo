@@ -9,6 +9,7 @@ import ContentSection from '~/components/widgets/ContentSection.astro';
 import Features4 from '~/components/widgets/Features4.astro';
 import GraphGrid from '~/components/widgets/GraphGrid.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
 import { references } from '~/data/calculatorReferences';
 import { THRESHOLDS } from '~/data/thresholds';
 import Layout from '~/layouts/PageLayout.astro';
@@ -57,7 +58,9 @@ const metadata = {
     tagline="Waist/Height calculator"
     title="New Waist to Height Ratio Calculator"
     subtitle="Waist to height ratio calculator is a simple, low-cost way to assess body fat mass and health risk. It offers a more accurate picture than BMI, and helps detect excess fat without the need for expensive tools."
-    classes={{ container: 'lg:pb-0 md:pb-0' }}
+    classes={{
+      container: 'lg:pb-0 md:pb-0',
+    }}
     image={{
       src: imgAgbaje,
       alt: 'Professor Andrew Agbaje, a leading childhood obesity researcher, demonstrating how to use a waist to height ratio calculator (WHtR) with a measuring tape.',
@@ -94,6 +97,14 @@ const metadata = {
     </Fragment>
   </Content>
 
+  <Note
+    text="Please do not diagnose overweight and obesity in children and adolescents with body mass index (BMI) alone. BMI was NEVER designed to detect obesity in an individual. Kindly use the waist to height ratio calculator to confirm if the body size is due to fat mass or if the children are simply heavy due to muscle mass."
+    author="Prof. Andrew Agbaje"
+    classes={{
+      text: 'not-italic text-xl xl:text-[20px] xl:leading-[28px] max-w-4xl xl:max-w-[896px] mx-auto',
+    }}
+  />
+
   <!-- Hero Widget ******************* -->
 
   <Hero
@@ -113,7 +124,12 @@ const metadata = {
     </Fragment>
   </Hero>
 
-  <Content>
+  <Content
+    classes={{
+      titleClass: 'lg:text-[44px] lg:leading-[52px] xl:text-[44px] xl:leading-[52px]',
+      container: 'lg:pt-0 md:pt-0 xl:pt-0',
+    }}
+  >
     <Fragment slot="content">
       <h3
         class="text-xl font-semibold text-black dark:text-white tracking-tight sm:text-2xl xl:text-[24px] xl:leading-[32px] mb-2 xl:mb-[8px]"
@@ -148,7 +164,7 @@ const metadata = {
     title="Result interpretation"
     columns={1}
     classes={{
-      container: 'lg:py-0 md:py-0 xl:py-0',
+      container: 'lg:pb-0 md:pb-0 xl:pb-0',
     }}
     items={[
       {
