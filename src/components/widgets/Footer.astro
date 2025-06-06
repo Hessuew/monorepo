@@ -6,6 +6,7 @@ import ResearchGate_logo from '~/assets/images/footer/ResearchGate_logo.webp';
 import uefLogo from '~/assets/images/funders/UEF Logo.png';
 import { getPermalink } from '~/utils/permalinks';
 import Image from 'astro/components/Image.astro';
+import { twMerge } from 'tailwind-merge';
 
 export interface Props {
   theme?: string;
@@ -15,7 +16,7 @@ const links = [
   {
     title: 'About',
     links: [
-      { text: 'Principal Investigator', href: getPermalink('/people/principal-investigator') },
+      { text: 'Principal Investigator Andrew Agbaje', href: getPermalink('/people/andrew-agbaje') },
       { text: 'Team', href: getPermalink('/people/team') },
       { text: 'Collaborators', href: getPermalink('/people/collaborators') },
       { text: 'Funders', href: getPermalink('/people/funders') },
@@ -98,8 +99,8 @@ const { theme = 'light' } = Astro.props;
         </div>
       </div>
       {
-        links.map(({ title, links }) => (
-          <div class="col-span-6 md:col-span-3 lg:col-span-2 lg:min-w-[200px]">
+        links.map(({ title, links }, index) => (
+          <div class={twMerge('col-span-6 md:col-span-3 lg:col-span-2 lg:min-w-[200px]', index === 0 && 'lg:min-w-0')}>
             <div class="dark:text-gray-300 font-medium mb-2 xl:mb-[8px] xl:text-[16px] xl:leading-[24px]">{title}</div>
             {links && Array.isArray(links) && (
               <ul class="text-sm xl:text-[14px] xl:leading-[20px]">

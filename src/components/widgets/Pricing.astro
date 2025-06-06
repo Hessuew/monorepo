@@ -26,7 +26,7 @@ const {
   containerClass={`max-w-7xl xl:max-w-[1280px] mx-auto ${classes?.container ?? ''}`}
   bg={bg}
 >
-  <Headline title={title} subtitle={subtitle} tagline={tagline} />
+  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
   <div class="flex items-stretch justify-center">
     <div
       class="grid grid-cols-3 gap-4 xl:gap-[16px] dark:text-white sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3"
