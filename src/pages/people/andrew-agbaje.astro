@@ -11,12 +11,12 @@ import PIHero from '~/components/widgets/principal-investigator/PIHero.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Prof. Andrew Agbaje | Pediatric Health & Obesity Research',
+  title: 'The Official Website of Prof. Andrew Agbaje',
   description:
     'Prof. Andrew Agbaje leads the urFIT-child group, advancing global research on pediatric health, fitness, and waist to height ratio (WHtR).',
   ignoreTitleTemplate: true,
   openGraph: {
-    title: 'Prof. Andrew Agbaje | Pediatric Health & Obesity Research',
+    title: 'The Official Website of Prof. Andrew Agbaje',
     description:
       'Prof. Andrew Agbaje leads the urFIT-child group, advancing global research on pediatric health, fitness, and waist to height ratio (WHtR).',
     type: 'profile',
@@ -46,7 +46,7 @@ const metadata = {
 };
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} schemaType="person">
   <PIHero />
 
   <Note
