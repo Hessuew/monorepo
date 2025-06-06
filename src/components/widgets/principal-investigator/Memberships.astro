@@ -42,8 +42,14 @@ export const editorialItems = [
 
 <Features3
   id="memberships"
-  title="Memberships in Scientific Societies"
+  title="Memberships in Leading Scientific Societies"
+  subtitle="An active member of American, European, and Finnish research communities, Prof. Agbaje contributes to advancing global health, cardiology, and epidemiology."
   columns={3}
+  classes={{
+    headline: {
+      title: 'max-w-3xl xl:max-w-[768px] mx-auto text-3xl md:text-4xl xl:text-[36px] xl:leading-[40px]',
+    },
+  }}
   items={editorialItems.map((item) => ({
     ...item,
     description: item.description.map((j) => `• ${j}`).join('<br/>'),
