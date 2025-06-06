@@ -1,5 +1,6 @@
 ---
 import imgResearchVisualization from '~/assets/images/index/Urfit Child Website Frontpage.webp';
+import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Layout from '~/layouts/PageLayout.astro';
@@ -37,9 +38,9 @@ const metadata = {
     title="We aim to translate research findings into clinical and public health practice. Below are a few recommendations based on our research."
     items={[
       {
-        title: 'Beyond BMI: <span class="font-medium">Use Waist-to-Height Ratio for Accurate Diagnosis</span>',
+        title: 'Beyond BMI: <span class="font-medium">Use Waist to Height Ratio for Accurate Diagnosis</span>',
         description:
-          'Please do not diagnose overweight and obesity in children and adolescents with body mass index (BMI) alone. BMI was NEVER designed to detect obesity in an individual. Kindly use the waist circumference-to-height ratio calculator to confirm if the body size is due to fat mass or if the children are simply heavy due to muscle mass.',
+          'Please do not diagnose overweight and obesity in children and adolescents with body mass index (BMI) alone. BMI was NEVER designed to detect obesity in an individual. Kindly use the waist to height ratio calculator to confirm if the body size is due to fat mass or if the children are simply heavy due to muscle mass.',
         icon: 'tabler:ruler-measure',
       },
       {
@@ -85,6 +86,20 @@ const metadata = {
       },
     ]}
   />
+
+  <Features3 animated={false} items={[]}>
+    <Fragment slot="subtitle">
+      <div class="text-center w-full text-xl xl:text-[20px] xl:leading-[28px] text-muted">
+        <p>
+          Learn how to use our
+          <a href="/waist-to-height-ratio-calculator" class="text-blue-600 hover:underline font-semibold">
+            waist to height ratio calculator
+          </a>
+          to assess your body fat more accurately.
+        </p>
+      </div>
+    </Fragment>
+  </Features3>
 
   <!-- Hero Widget ******************* -->
 

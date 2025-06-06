@@ -1,14 +1,22 @@
 ---
+import { twMerge } from 'tailwind-merge';
+
 interface Props {
   text?: string;
   author?: string;
   highlight?: boolean;
+  classes?: {
+    container?: string;
+    text?: string;
+    author?: string;
+  };
 }
 
 const {
   text = "Let's keep fighting for kids' health, because today's kids are tomorrow's adults",
   author,
   highlight = false,
+  classes = {},
 } = Astro.props;
 ---
 
@@ -20,6 +28,7 @@ const {
         'bg-transparent': !highlight,
         'bg-blue-50 dark:bg-slate-800 shadow-sm': highlight,
       },
+      classes?.container,
     ]}
   >
     <blockquote
@@ -27,13 +36,21 @@ const {
     >
       <span class="text-4xl text-blue-600/25 dark:text-blue-400/25 font-serif">"</span>
       <p
-        class="text-xl md:text-2xl xl:text-[24px] xl:leading-[32px] font-serif italic mb-4 xl:mb-[16px] text-slate-700 dark:text-slate-300"
+        class={twMerge(
+          'text-xl md:text-2xl xl:text-[24px] xl:leading-[32px] font-serif italic mb-4 xl:mb-[16px] text-slate-700 dark:text-slate-300',
+          classes?.text
+        )}
       >
         {text}
       </p>
       {
         author && (
-          <cite class="text-sm md:text-base xl:text-[16px] xl:leading-[24px] font-medium text-slate-600 dark:text-slate-400 font-sans">
+          <cite
+            class={twMerge(
+              'text-sm md:text-base xl:text-[16px] xl:leading-[24px] font-medium text-slate-600 dark:text-slate-400 font-sans',
+              classes?.author
+            )}
+          >
             — {author}
           </cite>
         )
