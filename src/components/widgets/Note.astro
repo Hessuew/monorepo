@@ -20,7 +20,7 @@ const {
 } = Astro.props;
 ---
 
-<div class="w-full py-16 xl:py-[64px]">
+<div class={twMerge('w-full py-16 xl:py-[64px]', classes?.container)}>
   <section
     class:list={[
       'not-prose intersect-once intersect-quarter motion-reduce:opacity-100 motion-safe:opacity-0 motion-safe:intersect:animate-fade p-8 rounded-lg',
@@ -28,7 +28,6 @@ const {
         'bg-transparent': !highlight,
         'bg-blue-50 dark:bg-slate-800 shadow-sm': highlight,
       },
-      classes?.container,
     ]}
   >
     <blockquote
