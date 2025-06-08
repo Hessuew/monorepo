@@ -35,7 +35,7 @@ export const headerData: { links: Array<MenuLink> } = {
         },
         {
           text: 'Principal Investigator Andrew Agbaje',
-          href: getPermalink('/people/principal-investigator'),
+          href: getPermalink('/people/andrew-agbaje'),
           icon: 'tabler:user-circle',
           image: {
             src: imgAndrew,
