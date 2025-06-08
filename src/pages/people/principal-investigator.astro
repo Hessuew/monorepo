@@ -1,0 +1,70 @@
+---
+import imgAndrew2 from '~/assets/images/principalInvestigator/andrew-agbaje-landing-picture.webp';
+import Note from '~/components/widgets/Note.astro';
+import Academic from '~/components/widgets/principal-investigator/Academic.astro';
+import Affiliations from '~/components/widgets/principal-investigator/Affiliations.astro';
+import AwardsAndHonours from '~/components/widgets/principal-investigator/AwardsAndHonours.astro';
+import Contact from '~/components/widgets/principal-investigator/Contact.astro';
+import Editorial from '~/components/widgets/principal-investigator/Editorial.astro';
+import Memberships from '~/components/widgets/principal-investigator/Memberships.astro';
+import PIHero from '~/components/widgets/principal-investigator/PIHero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'The Official Website of Prof. Andrew Agbaje',
+  description:
+    'Prof. Andrew Agbaje leads the urFIT-child group, advancing global research on pediatric health, fitness, and waist to height ratio (WHtR).',
+  ignoreTitleTemplate: true,
+  canonical: '/people/andrew-agbaje',
+  redirect: '/people/andrew-agbaje',
+  openGraph: {
+    title: 'The Official Website of Prof. Andrew Agbaje',
+    description:
+      'Prof. Andrew Agbaje leads the urFIT-child group, advancing global research on pediatric health, fitness, and waist to height ratio (WHtR).',
+    type: 'profile',
+    image: imgAndrew2,
+    article: {
+      publishedTime: '2025-01-17T05:15:47+02:00',
+      modifiedTime: '2025-01-17T05:15:47+02:00',
+      authors: ['urFIT-child Research Group'],
+      tags: [
+        'Prof. Andrew Agbaje',
+        'Dr. Andrew Agbaje',
+        'principal investigator',
+        'pediatric health research',
+        'children’s fitness research',
+        'waist to height ratio expert',
+        'childhood obesity prevention',
+        'academic research leadership',
+        'urFIT-child research',
+      ],
+    },
+  },
+  twitter: {
+    handle: '@urFIT-child',
+    site: '@urFIT-child',
+    cardType: 'summary_large_image',
+  },
+};
+---
+
+<Layout metadata={metadata} schemaType="person">
+  <PIHero />
+
+  <Note
+    text="Let's keep fighting for kids' health, because today's kids are tomorrow's adults"
+    author="Prof. Andrew Agbaje"
+  />
+
+  <Academic />
+
+  <AwardsAndHonours />
+
+  <Editorial />
+
+  <Affiliations />
+
+  <Memberships />
+
+  <Contact />
+</Layout>
