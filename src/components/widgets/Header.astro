@@ -99,7 +99,7 @@ const { nav: navClass = '' } = classes;
         {showToggleTheme && <ToggleTheme />}
         <a
           class="text-primary select-none inline-flex items-center gap-1 xl:gap-[4px] text-sm font-bold lg:font-normal tracking-tighter whitespace-nowrap transition-all duration-300 hover:gap-2 group"
-          href={getPermalink('/waist-to-height-ratio-calculator')}
+          href={getPermalink('/waist-height-calculator')}
         >
           <span class="border-b border-primary"> Waist to height ratio calculator </span>
           <svg
@@ -121,7 +121,7 @@ const { nav: navClass = '' } = classes;
         class="flex flex-col lg:flex-row lg:self-center w-full lg:w-auto text-xl lg:text-[0.9375rem] tracking-[0.01rem] xl:text-[15px] xl:tracking-[0.16px] font-medium lg:justify-center"
       >
         {
-          links.map(({ text, href, links }, index) => (
+          links.map(({ text, href, links, icon, description }, index) => (
             <li class={links?.length ? 'dropdown' : ''}>
               {links?.length ? (
                 <>
@@ -185,14 +185,21 @@ const { nav: navClass = '' } = classes;
               ) : (
                 <a
                   class:list={[
-                    'font-bold lg:font-normal pl-[52px] lg:pl-0 hover:text-primary px-2.5 xl:px-[10px] py-3 xl:py-[12px] flex items-center whitespace-nowrap',
+                    'font-bold lg:font-normal ml-[16px] lg:pl-0 hover:text-primary px-2.5 xl:px-[10px] py-3 xl:py-[12px] flex items-center whitespace-nowrap',
                     { 'aw-link-active': href === currentPath },
                     'border-b lg:border-b-0 border-gray-100 dark:border-gray-800',
                     index === 2 && 'mr-[10px]',
                   ]}
                   href={getPermalink(`${href}`)}
                 >
-                  {text}
+                  <div class="hidden lg:flex">{text}</div>
+                  <div class="flex lg:hidden items-center gap-3 active:text-primary pl-0">
+                    {icon && <Icon name={icon} class="w-5 h-5 mt-0.5" />}
+                    <div>
+                      <div class="font-bold">{text}</div>
+                      {description && <div class="text-sm text-gray-500 dark:text-gray-400">{description}</div>}
+                    </div>
+                  </div>
                 </a>
               )}
             </li>
@@ -211,7 +218,7 @@ const { nav: navClass = '' } = classes;
         {showToggleTheme && <ToggleTheme />}
         <a
           class="text-primary hover:text-black dark:hover:text-white inline-flex items-center gap-1 xl:gap-[4px] text-sm xl:text-[14px] xl:leading-[20px] font-bold lg:font-normal tracking-tighter whitespace-nowrap transition-all duration-300 group"
-          href={getPermalink('/waist-to-height-ratio-calculator')}
+          href={getPermalink('/waist-height-calculator')}
         >
           <span class="border-b border-primary group-hover:border-black dark:group-hover:border-white duration-300">
             Waist to height ratio calculator

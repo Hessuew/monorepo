@@ -9,6 +9,7 @@ import ContentSection from '~/components/widgets/ContentSection.astro';
 import Features4 from '~/components/widgets/Features4.astro';
 import GraphGrid from '~/components/widgets/GraphGrid.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
 import { references } from '~/data/calculatorReferences';
 import { THRESHOLDS } from '~/data/thresholds';
 import Layout from '~/layouts/PageLayout.astro';
@@ -19,8 +20,6 @@ const metadata = {
   description:
     'Waist to height ratio calculator with visual and color-coded results. Based on the largest WHtR dataset to assess body fat and find your healthy range.',
   ignoreTitleTemplate: true,
-  canonical: '/waist-to-height-ratio-calculator',
-  redirect: '/waist-to-height-ratio-calculator',
   openGraph: {
     title: 'New Waist to Height Ratio Calculator – Measure at Home',
     description:
@@ -59,7 +58,9 @@ const metadata = {
     tagline="Waist/Height calculator"
     title="New Waist to Height Ratio Calculator"
     subtitle="Waist to height ratio calculator is a simple, low-cost way to assess body fat mass and health risk. It offers a more accurate picture than BMI, and helps detect excess fat without the need for expensive tools."
-    classes={{ container: 'lg:pb-0 md:pb-0' }}
+    classes={{
+      container: 'lg:pb-0 md:pb-0',
+    }}
     image={{
       src: imgAgbaje,
       alt: 'Professor Andrew Agbaje, a leading childhood obesity researcher, demonstrating how to use a waist to height ratio calculator (WHtR) with a measuring tape.',
@@ -96,6 +97,45 @@ const metadata = {
     </Fragment>
   </Content>
 
+  <Content
+    classes={{
+      titleClass: 'lg:text-[44px] lg:leading-[52px] xl:text-[44px] xl:leading-[52px]',
+      container: 'lg:pt-0 md:pt-0 xl:pt-0',
+    }}
+  >
+    <Fragment slot="content">
+      <h3
+        class="text-xl font-semibold text-black dark:text-white tracking-tight sm:text-2xl xl:text-[24px] xl:leading-[32px] mb-2 xl:mb-[8px]"
+      >
+        🎥 Video Tutorial:
+        <br />
+        How to use the waist to height ratio calculator
+      </h3>
+      <p class="text-lg sm:text-xl xl:text-[20px] xl:leading-[28px]">
+        <!-- <GradientText class="font-semibold text-primary" style2
+          >BBC Point West: how to calculate whtr with waist to height ratio calculator</GradientText
+        > -->
+        <br />
+        <span class="text-black dark:text-white text-lg xl:text-[18px] xl:leading-[28px]">
+          Learn how to measure waist to height ratio using our easy-to-use waist to height ratio calculator. Unlike
+          regular tools, it gives visual and color-coded results to clearly show health risk levels. Backed by
+          world-class research results and perfect for both children and adults, it's a smarter alternative to BMI.
+        </span>
+      </p>
+    </Fragment>
+
+    <Fragment slot="image">
+      <div class="relative">
+        <YouTube
+          id="AuFbnDornog"
+          class="rounded-lg"
+          title="How to measure waist to height ratio at home"
+          params="start=101"
+        />
+      </div>
+    </Fragment>
+  </Content>
+
   <!-- Hero Widget ******************* -->
 
   <Hero
@@ -115,42 +155,13 @@ const metadata = {
     </Fragment>
   </Hero>
 
-  <Content>
-    <Fragment slot="content">
-      <h3
-        class="text-xl font-semibold text-black dark:text-white tracking-tight sm:text-2xl xl:text-[24px] xl:leading-[32px] mb-2 xl:mb-[8px]"
-      >
-        🎥 Video Tutorial:
-        <br />
-        How to Use the Waist to Height Ratio Calculator
-      </h3>
-      <p class="text-lg sm:text-xl xl:text-[20px] xl:leading-[28px]">
-        <!-- <GradientText class="font-semibold text-primary" style2
-          >BBC Point West: how to calculate whtr with waist to height ratio calculator</GradientText
-        > -->
-        <br />
-        <span class="text-black dark:text-white text-lg xl:text-[18px] xl:leading-[28px]">
-          Learn how to measure waist to height ratio using our easy-to-use waist to height ratio calculator. Unlike
-          regular tools, it gives visual and color-coded results to clearly show health risk levels. Backed by
-          world-class research results and perfect for both children and adults, it's a smarter alternative to BMI.
-        </span>
-      </p>
-    </Fragment>
-
-    <Fragment slot="image">
-      <div class="relative">
-        <YouTube id="AuFbnDornog" title="How to measure waist to height ratio at home" params="start=101" />
-      </div>
-    </Fragment>
-  </Content>
-
   <!-- Features2 Widget ************** -->
 
   <GraphGrid
     title="Result interpretation"
     columns={1}
     classes={{
-      container: 'lg:py-0 md:py-0 xl:py-0',
+      container: 'lg:pb-0 md:pb-0 xl:pb-0',
     }}
     items={[
       {
@@ -225,7 +236,7 @@ const metadata = {
 
   <!-- HeroText Widget ******************* -->
 
-  <ContentSection>
+  <ContentSection containerClass="pb-0 xl:pb-[0px]">
     <Fragment slot="subtitle">
       <h3
         class="text-center text-2xl sm:text-3xl xl:text-[30px] xl:leading-[36px] mb-2 xl:mb-[8px] font-bold tracking-tight dark:text-white intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
@@ -280,6 +291,15 @@ const metadata = {
       />
     </Fragment>
   </ContentSection>
+
+  <Note
+    text="Please do not diagnose overweight and obesity in children and adolescents with body mass index (BMI) alone. BMI was NEVER designed to detect obesity in an individual. Kindly use the waist to height ratio calculator to confirm if the body size is due to fat mass or if the children are simply heavy due to muscle mass."
+    author="Prof. Andrew Agbaje"
+    classes={{
+      container: 'pt-0 xl:pt-[0px]',
+      text: 'not-italic text-xl xl:text-[20px] xl:leading-[28px] max-w-4xl xl:max-w-[896px] mx-auto',
+    }}
+  />
 
   <!-- Hero Widget ******************* -->
 
