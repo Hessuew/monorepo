@@ -3,8 +3,8 @@ import img_money from '~/assets/images/emailSection/euro2.webp';
 import img_gmail from '~/assets/images/emailSection/gmail-new.png';
 import email_example from '~/assets/images/example_email2.webp';
 import Image from '~/components/common/Image.astro';
+import type { Project } from '~/components/sections/CardsSection.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import type { Project } from '../ui/CustomerCards.astro';
 
 const projects: Array<Project> = [
   {
@@ -37,7 +37,7 @@ const projects: Array<Project> = [
 <WidgetWrapper id={'email'} animated={false}>
   <section class="relative flex flex-col lg:flex-row gap-20 xl:gap-[80px] z-10 p-8 sm:p-20 xl:p-[80px]">
     <div class="flex flex-col justify-center w-full">
-      <h1
+      <h2
         class="text-4xl md:text-7xl xl:text-[72px] font-semibold tracking-tighter text-start text-white pb-7 xl:pb-[28px]"
       >
         Customer&nbsp;
@@ -50,7 +50,7 @@ const projects: Array<Project> = [
           here for my money. They’re here to serve and support my experience and needs."
           <br class="hidden md:block" />
         </p>
-      </h1>
+      </h2>
 
       <ul
         class="relative z-10 mt-12 md:mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 md:max-w-[520px] lg:mt-10 xl:mt-[40px] md:gap-16 xl:gap-[64px] lg:gap-y-7 xl:gap-y-[28px] lg:max-w-none mx-auto xl:mx-0"

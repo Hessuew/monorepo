@@ -30,7 +30,8 @@ const projects: Array<Project> = [
     id: 'urFitChild',
     title: 'urFit-child',
     description:
-      'The website of Prof. Andrew Agbaje — a world-renowned expert in arterial stiffness among the top three globally — and his urFIT-child research group.',
+      // 'The website of Prof. Andrew Agbaje — a world-renowned expert in arterial stiffness among the top three globally — and his urFIT-child research group.',
+      'A premium, custom-built research website created for Prof. Andrew Agbaje, one of the world’s top experts in arterial stiffness. <br /><br /> This site supports the urFIT-child research group with academic content, visual impact, and a spiritual tone tailored to a global audience.',
     size: 'Large',
     url: 'https://www.urfit-child.com',
   },
@@ -42,7 +43,7 @@ const projects: Array<Project> = [
     id: 'flameTheFreeze',
     title: 'Flame the Freeze',
     description:
-      'An in-depth online hub for the ministry’s message and mission. Flame the Freeze is a bold site challenging and flaming up the current religious dogmas.',
+      'A bold, custom website for a ministry that confronts today’s religious lukewarmness with fire. <br /><br /> Flame the Freeze is more than content — it’s a spiritual garrison, a mission in digital form, crafted with design that ignites and provokes.',
     size: 'Medium',
     url: 'https://www.flamethefreeze.com',
   },
@@ -54,7 +55,7 @@ const projects: Array<Project> = [
     id: 'prayerChurch',
     title: 'Prayer Church',
     description:
-      'The official website of Prayer Church — a local gathering in Kuopio, Finland. The visitors encounter God the first time they visit by miracles, sings, and wonders.',
+      'A custom website for a local church in Kuopio, Finland, designed to reflect divine encounters. <br /><br /> Visitors often witness miracles, signs, and wonders on their very first visit — and the website captures this supernatural atmosphere.',
     size: 'Small',
     url: 'https://www.rukouksenseurakunta.fi',
   },
@@ -76,7 +77,7 @@ const projects: Array<Project> = [
   <section class="p-8 xl:p-[32px] py-20 xl:py-[80px] lg:pt-32 md:pt-24 sm:pt-16">
     <div>
       <div class="flex w-full justify-center">
-        <h1 class="text-4xl md:text-7xl xl:text-[72px] font-semibold tracking-tighter text-white pb-7 xl:pb-[28px]">
+        <h2 class="text-4xl md:text-7xl xl:text-[72px] font-semibold tracking-tighter text-white pb-7 xl:pb-[28px]">
           <span
             class="bg-gradient-to-br from-white from-30% via-[#d5d8f6] via-80% to-black bg-clip-text text-transparent"
           >
@@ -92,11 +93,14 @@ const projects: Array<Project> = [
             thou art lukewarm, and neither cold nor hot, I will spue thee out of my mouth.'
             <br />
             <br />
+            At Cherubim IT, we design custom websites for ministries that stir the heart.
+            <br />
+            <br />
             People remember what stirs them—whether good or bad.&nbsp;
             <br class="hidden md:block" />
             Let them love it, or let them hate it. But never let them remain neutral.
           </p>
-        </h1>
+        </h2>
       </div>
 
       <div class="cards gap-8 xl:gap-[32px] pt-10 xl:pt-[40px]">
@@ -158,9 +162,10 @@ const projects: Array<Project> = [
             <h3 class="mt-5 font-title text-[20px] leading-none tracking-tighter lg:mt-4 xl:mt-[16px] lg:max-w-full lg:text-[28px] md:mt-3.5 sm:mt-2.5 sm:max-w-32 sm:text-[20px]">
               {project.title}
             </h3>
-            <p class="mt-3.5 text-muted text-[15px] font-medium leading-snug tracking-tighter lg:mt-2.5 xl:mt-[10px] md:mt-2 md:leading-tight sm:mt-1 max-w-none sm:max-w-[284px]">
-              {project.description}
-            </p>
+            <p
+              class="mt-3.5 text-muted text-[15px] font-medium leading-snug tracking-tighter lg:mt-2.5 xl:mt-[10px] md:mt-2 md:leading-tight sm:mt-1 max-w-none sm:max-w-[284px]"
+              set:html={project.description}
+            />
 
             {/* URL positioned at the bottom of the card */}
             <a

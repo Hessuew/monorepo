@@ -17,80 +17,119 @@ import VideoCard from '~/components/widgets/VideoCard.astro';
 const videos = [
   {
     videoSrc: hot_twist,
+    videoTitle:
+      'Interactive, non-academic ministry website design presenting deep spiritual truths with creativity and engagement.',
     thumbnailSrc: {
       src: urFitChild,
       alt: 'Thumbnail for urFit-child',
     },
     title: 'Hot twist',
     description:
-      'The professional research group has an unique way to introduce the visitor to the deeper truths of life through an interactive and beautifully designed non-academic page.',
+      // 'The professional research group has an unique way to introduce the visitor to the deeper truths of life through an interactive and beautifully designed non-academic page.',
+      'An engaging, non-academic website design that presents deep spiritual truths through interactivity and creativity. This fresh approach by a professional research group demonstrates how custom websites for ministries can resonate with both hearts and minds.',
     icon: SvgFire,
   },
   {
     videoSrc: beauty_contrasts,
+    videoTitle:
+      'Ministry website design featuring bold color contrasts of deep blues and rich golds with elegant typography.',
     thumbnailSrc: {
       src: imgGold,
       alt: 'Thumbnail for Prayer Church',
     },
     title: 'The beauty of contrasts',
     description:
-      'From the stunning logo to the beautiful color contrasts of dark blue and gold, the whole site is a gem. The big gold texts both surprise and impress the visitor.',
+      // 'From the stunning logo to the beautiful color contrasts of dark blue and gold, the whole site is a gem. The big gold texts both surprise and impress the visitor.',
+      'A visually stunning website design featuring bold contrasts—deep blues, rich golds, and elegant typography. Every element is crafted to surprise, impress, and reflect the excellence of a ministry website design done right.',
     icon: SvgGem,
   },
   {
     videoSrc: testimonials,
+    videoTitle:
+      'Authentic and inspiring ministry testimonials showing real-life impact through custom websites for ministries.',
     thumbnailSrc: {
       src: urFitChild,
       alt: 'Thumbnail for urFit-child',
     },
     title: 'Interesting testimonials',
     description:
-      "Testimonials are nice, but they often feel boring—like knowing what's in a gift before you open it. But this site takes a different approach. You never know what you'll find in the next one.",
+      // "Testimonials are nice, but they often feel boring—like knowing what's in a gift before you open it. But this site takes a different approach. You never know what you'll find in the next one.",
+      'These testimonials break the mold—unexpected, authentic, and spiritually rich. Instead of predictable praise, visitors encounter personal stories that inspire and reveal the impact of real-life ministry, made stronger by custom websites built for ministries.',
     icon: SvgGift,
   },
   {
     videoSrc: animated_details,
+    videoTitle:
+      'Smooth animations and transitions in a custom ministry website design making complex spiritual content accessible.',
     thumbnailSrc: {
       src: urFitChild,
       alt: 'Thumbnail for urFit-child',
     },
     title: 'Animated details',
     description:
-      'From the uniquely crafted navigation animations to the subtle text effects, this site is designed to engage users even as they read high-level academic material.',
+      // 'From the uniquely crafted navigation animations to the subtle text effects, this site is designed to engage users even as they read high-level academic material.',
+      'Every detail moves with purpose—from fluid animations to carefully timed transitions. Even complex content is made accessible and engaging through thoughtful design and modern front-end performance, showcasing the power of custom ministry websites.',
     icon: SvgAnimation,
   },
 ];
 ---
 
-<section class="stay-productive relative z-10 pt-40 xl:pt-[160px] lg:pt-32 md:pt-24 sm:pt-16">
+<section
+  id="videoSection"
+  aria-label="Video examples of custom ministry websites"
+  class="stay-productive relative z-10 pt-40 xl:pt-[160px] lg:pt-32 md:pt-24 sm:pt-16"
+>
   <img src={imgGradient.src} alt="" class="w-full h-40 xl:h-[160px]" />
   <div class="bg-white">
     <WidgetWrapper animated={false} containerClass="p-8 py-20 md:p-12 lg:p-20 xl:p-[80px] relative overflow-hidden">
-      <h1
-        class="text-4xl md:text-7xl xl:text-[72px] font-semibold tracking-tighter text-start text-black pb-7 xl:pb-[28px]"
-      >
-        Packaging matters
-        <p class="text-[15px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3 xl:mt-[12px]">
-          The essence of your brand should be displayed with clarity.&nbsp;
+      <div class="text-start text-black pb-7 xl:pb-[28px]">
+        <h2 class="text-4xl md:text-7xl xl:text-[60px] font-semibold tracking-tighter">
+          Custom websites for ministries
+          <br />
+          Optimized for outreach, built for impact.
+        </h2>
+
+        <p
+          class="text-[15px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3 xl:mt-[12px] mb-7 xl:mb-[48px]"
+        >
+          From message to mission, we craft custom-designed ministry websites&nbsp;
           <br class="hidden xs:block" />
-          <!-- You bring the content — we'll make it shine and unforgettable. -->
-          Professional content that brings Jesus to the forefront.
+          with SEO best practices, mobile performance, and spiritual clarity.
         </p>
-      </h1>
+
+        <h3 class="text-2xl md:text-4xl xl:text-[36px] font-semibold tracking-tighter text-start text-black">
+          Examples of custom
+          <br />
+          websites for ministries
+        </h3>
+        <p class="text-black text-[15px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3 xl:mt-[12px]">
+          Watch how we’ve brought spiritual depth and creative&nbsp;
+          <br class="hidden xs:block" />
+          excellence together in these custom ministry websites.
+        </p>
+      </div>
 
       <div class="flex flex-col gap-12 lg:gap-16 xl:gap-[64px]">
         <!-- Videos container - top row -->
         <div class="flex flex-col md:flex-row gap-8 md:gap-6 lg:gap-10 xl:gap-[40px]">
           <!-- First video -->
           <div class="w-full md:w-1/2">
-            <VideoCard videoSrc={videos[0].videoSrc} title={videos[0].title} description={videos[0].description}>
+            <VideoCard
+              video={{
+                videoSrc: videos[0].videoSrc,
+                videoTitle: videos[0].videoTitle,
+                thumbnailSrc: videos[0].thumbnailSrc,
+                title: videos[0].title,
+                description: videos[0].description,
+              }}
+            >
               <SvgFire slot="icon" className="w-12 h-12 xl:w-[48px] xl:h-[48px]" />
             </VideoCard>
           </div>
 
           <!-- Second video -->
           <div class="w-full md:w-1/2">
-            <VideoCard videoSrc={videos[1].videoSrc} title={videos[1].title} description={videos[1].description}>
+            <VideoCard video={videos[1]}>
               <SvgGem slot="icon" className="w-12 h-12 xl:w-[48px] xl:h-[48px]" />
             </VideoCard>
           </div>
@@ -100,14 +139,14 @@ const videos = [
         <div class="flex flex-col md:flex-row gap-8 md:gap-6 lg:gap-10 xl:gap-[40px]">
           <!-- Third video -->
           <div class="w-full md:w-1/2">
-            <VideoCard videoSrc={videos[2].videoSrc} title={videos[2].title} description={videos[2].description}>
+            <VideoCard video={videos[2]}>
               <SvgGift slot="icon" className="w-12 h-12 xl:w-[48px] xl:h-[48px]" />
             </VideoCard>
           </div>
 
           <!-- Fourth video -->
           <div class="w-full md:w-1/2">
-            <VideoCard videoSrc={videos[3].videoSrc} title={videos[3].title} description={videos[3].description}>
+            <VideoCard video={videos[3]}>
               <SvgAnimation slot="icon" className="w-12 h-12 xl:w-[48px] xl:h-[48px]" />
             </VideoCard>
           </div>
