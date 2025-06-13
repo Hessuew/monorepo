@@ -1,7 +1,8 @@
 ---
+import Image from '~/components/common/Image.astro';
 import { Icon } from 'astro-icon/components';
 
-const { image, name, description } = Astro.props;
+const { image, imageAlt, name, nameCompany, description, logo, logoAlt } = Astro.props;
 ---
 
 <div class="swiper-slide">
@@ -9,7 +10,14 @@ const { image, name, description } = Astro.props;
     class="swiper-slide--inner px-6 sm:px-20 lg:px-[15%] flex flex-col sm:flex-row items-center gap-[50px] relative overflow-x-hidden"
   >
     <div class="w-[200px] h-[200px] lg:w-[240px] lg:h-[240px] mb-[30px] flex-shrink-0 rounded-full relative">
-      <img src={image.src} alt="" class="w-full h-full object-cover rounded-full" />
+      <Image
+        class="w-full h-full rounded-full"
+        loading="lazy"
+        decoding="async"
+        style={`object-fit: cover; object-position: center;`}
+        src={image.src}
+        alt={imageAlt}
+      />
       <div
         class="absolute bottom-[30px] left-[-10px] w-[52px] h-[52px] lg:w-[68px] lg:h-[68px] bg-gradient-to-br from-[var(--aw-color-accent)] from-10% to-[var(--aw-color-secondary)] rounded-full flex items-center justify-center shadow-md"
       >
@@ -17,6 +25,18 @@ const { image, name, description } = Astro.props;
       </div>
     </div>
     <div class="testimonial-detail">
+      <div class="flex flex-row items-center gap-3 pb-4 xl:gap-[12px] xl:pb-[16px]">
+        <Image
+          class="h-[42px] w-[42px] max-w-[42px] max-h-[42px]"
+          loading="lazy"
+          decoding="async"
+          style={`object-fit: contain; object-position: center;`}
+          src={logo.src}
+          alt={logoAlt}
+        />
+        <h3 class="text-black m-0 text-xl xl:text-[24px] xl:leading-[28px] tracking-tight">{nameCompany}</h3>
+      </div>
+
       <p
         class="m-0 text-black text-[15px] leading-[24px] text-left lg:text-[18px] md:leading-[30px] font-medium mb-[5px]"
       >

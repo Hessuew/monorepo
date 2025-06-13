@@ -1,8 +1,8 @@
 ---
-import andrewAgbajeHeadshot from '~/assets/images/Andrew Headshot.webp';
-import imgGradient from '~/assets/images/gradient.webp';
-import prayerChurchLogo from '~/assets/images/siteLogos/prayerChurch_logo.webp';
-import urFitChildLogo from '~/assets/images/siteLogos/urFitChild_logo.webp';
+import andrewAgbajeHeadshot from '~/assets/images/andrew-agbaje-church-website-client.webp';
+import imgGradient from '~/assets/images/other/gradient.webp';
+import prayerChurchLogo from '~/assets/images/siteLogos/prayer-church-website-design-logo.webp';
+import urFitChildLogo from '~/assets/images/siteLogos/urfit-child-church-website-design.webp';
 import worldMap from '~/assets/images/worldMap.webp';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import CompanyBox from '~/components/widgets/CompanyBox.astro';
@@ -11,12 +11,20 @@ import Slide from '~/components/widgets/Slide.astro';
 const slides = [
   {
     image: andrewAgbajeHeadshot,
+    imageAlt: 'Prof. Andrew Agbaje – client of Cherubim IT for church website design',
+    logo: urFitChildLogo,
+    logoAlt: 'urFIT-child logo – custom research and church website design project',
+    nameCompany: 'urFIT-child',
     name: 'Prof. Andrew Agbaje, urFIT-child, Principal Investigator',
     description:
       'Cherubim IT has provided their services to us for many months now, which is a testament to rigorous, painstaking, and excellent work performance. Cherubim IT delivers tasks very promptly, pre-empts challenges, and efficiently tackles them, creates user-friendly platforms, and optimizes the latest IT technology in their work. Cherubim IT customer service is highly considerate, friendly, and humane. I highly recommend Cherubim IT for its impeccable and high-quality IT services. The proof of the pudding is in the eating; a trial will convince you.',
   },
   {
     image: prayerChurchLogo,
+    imageAlt: 'Prayer Church logo – example of custom church website design',
+    logo: prayerChurchLogo,
+    logoAlt: 'Prayer Church logo – example of custom church website design',
+    nameCompany: 'Prayer Church',
     name: 'The prayer church elders and deacons',
     description: 'Placeholder for the testimonial of the prayer church elders and deacons',
   },
@@ -25,12 +33,14 @@ const slides = [
 const companies = [
   {
     logo: urFitChildLogo,
+    logoAlt: 'urFIT-child logo – custom research and church website design project',
     name: 'urFIT-child',
     description1: 'Single source -',
     description2: 'Centralized platform',
   },
   {
     logo: prayerChurchLogo,
+    logoAlt: 'Prayer Church logo – example of custom church website design',
     name: 'Prayer Church',
     description1: 'Local visibility -',
     description2: 'Thousands of visitors',
@@ -55,20 +65,22 @@ const companies = [
     </div>
     <div class="testimonial-inner max-w-[1240px] mx-auto relative z-10">
       <div class="testimonial-row">
-        <h1
+        <h2
           class="text-4xl md:text-7xl xl:text-[72px] font-semibold tracking-tighter text-start text-black pb-7 xl:pb-[28px]"
         >
-          Trusted by professionals
-          <p
-            class="text-[15px] max-w-[786px] font-normal leading-normal tracking-tight sm:text-[18px] mt-3 xl:mt-[12px]"
-          >
-            'Then was king Belshazzar greatly troubled, and his countenance was changed in him, and his lords were
-            astonished. Now the queen by reason of the words of the king and his lords came into the banquet house: and
-            the queen spake and said, O king, live for ever: let not thy thoughts trouble thee, nor let thy countenance
-            be changed: There is a man in thy kingdom ... now let Daniel be called, and he will shew the
-            interpretation.' Daniel 5:9-11.
-          </p>
-        </h1>
+          Ministry websites trusted
+          <br class="hidden md:block" />
+          by professionals.
+        </h2>
+        <p
+          class="text-black text-[15px] max-w-[786px] font-normal leading-normal tracking-tight sm:text-[18px] mt-3 xl:mt-[12px] mb-7 xl:mb-[28px]"
+        >
+          Our church website design services earn trust through excellence. Like Daniel who was called upon for his
+          wisdom, our clients rely on our expertise to interpret their vision and create digital platforms that stand
+          out. 'Then was king Belshazzar greatly troubled... Let not thy thoughts trouble thee, nor let thy countenance
+          be changed: There is a man in thy kingdom... now let Daniel be called, and he will shew the interpretation.'
+          Daniel 5:9-11.
+        </p>
         <div class="testimonial-wrap relative overflow-hidden my-[6%]">
           <div class="swiper-container">
             <div class="swiper-wrapper">

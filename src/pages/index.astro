@@ -1,5 +1,6 @@
 ---
 import logo from '~/assets/images/other/logo.webp';
+import CardsSection from '~/components/sections/CardsSection.astro';
 import ContactSection from '~/components/sections/ContactSection.astro';
 import EmailSection from '~/components/sections/EmailSection.astro';
 import LandingSection from '~/components/sections/LandingSection.astro';
@@ -7,19 +8,18 @@ import PriceSection from '~/components/sections/PriceSection.astro';
 import PrinciplesSection from '~/components/sections/PrinciplSection.astro';
 import TestimonialsCustom from '~/components/sections/TestimonialsSection.astro';
 import VideoSection from '~/components/sections/VideoSection.astro';
-import CustomerCards from '~/components/ui/CustomerCards.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
   title: 'Christian Website Design & Branding | Cherubim IT',
   description:
-    'Cherubim IT specializes in affordable, faith-based web design and branding for churches, ministries, and Christian organizations. Build your online presence with us today.',
+    'Cherubim IT specializes in church website design for Bible-based, Spirit-filled ministries. Custom, SEO-optimized websites that glorify Jesus.',
   ignoreTitleTemplate: true,
   canonical: 'https://cherubimit.com',
   openGraph: {
     title: 'Christian Website Design & Branding | Cherubim IT',
     description:
-      'Cherubim IT specializes in affordable, faith-based web design and branding for churches, ministries, and Christian organizations. Build your online presence with us today.',
+      'Cherubim IT specializes in church website design for Bible-based, Spirit-filled ministries. Custom, SEO-optimized websites that glorify Jesus.',
     type: 'website',
     image: logo,
   },
@@ -34,7 +34,7 @@ const metadata = {
 <Layout metadata={metadata}>
   <LandingSection />
 
-  <CustomerCards />
+  <CardsSection />
 
   <VideoSection />
 
