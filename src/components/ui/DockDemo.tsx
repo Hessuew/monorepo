@@ -9,7 +9,8 @@ const projectData = {
   urFitChild: {
     color: 'white' as const,
     title: 'urFIT-child',
-    description: 'Helping customers and groups expand their reach worldwide.',
+    description: 'Premium website design helping groups expand worldwide reach.',
+    // description: 'Helping customers and groups expand their reach worldwide asd asd asd asd.',
     price: '€10,000',
     monthlyPrice: '€50',
     url: 'https://www.urfit-child.com',
@@ -18,7 +19,8 @@ const projectData = {
   flameTheFreeze: {
     color: 'purple' as const,
     title: 'Flame the Freeze',
-    description: 'Enabling broader public recognition and awareness.',
+    description: 'Bold church website design to expand reach and birth revival.',
+    // description: 'Enabling broader public recognition and awareness.',
     price: '€5,000',
     monthlyPrice: '€25',
     url: 'https://www.flamethefreeze.com',
@@ -27,7 +29,8 @@ const projectData = {
   prayerChurch: {
     color: 'blue' as const,
     title: 'Prayer Church',
-    description: 'Boosting presence and impact within your local community.',
+    description: 'Custom church website design to boost your local ministry’s impact.',
+    // description: 'Boosting presence and impact within your local community.',
     price: '€2,500',
     monthlyPrice: '€25',
     url: 'https://www.rukouksenseurakunta.fi',
