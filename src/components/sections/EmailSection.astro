@@ -1,7 +1,7 @@
 ---
-import img_money from '~/assets/images/emailSection/euro2.webp';
-import img_gmail from '~/assets/images/emailSection/gmail-new.png';
-import email_example from '~/assets/images/example_email2.webp';
+import email_example from '~/assets/images/emailSection/church-website-email-report-example.webp';
+import img_gmail from '~/assets/images/emailSection/church-website-monthly-updates.png';
+import img_money from '~/assets/images/emailSection/church-website-seo-traffic.webp';
 import Image from '~/components/common/Image.astro';
 import type { Project } from '~/components/sections/CardsSection.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
@@ -10,24 +10,24 @@ const projects: Array<Project> = [
   {
     image: {
       src: img_gmail,
-      alt: 'Gmail logo',
+      alt: 'Monthly email updates – church website design support feature',
     },
     id: 'urFitChild',
     title: 'Monthly updates',
     description:
-      "We provide monthly updates on how we've enhanced your custom ministry website—keeping you informed and involved in the continuous improvement of your digital ministry presence.",
+      'We provide monthly updates on how we’ve enhanced your church website design—keeping you informed and involved in the ongoing growth and impact of your digital ministry presence.',
     size: '',
     url: '',
   },
   {
     image: {
       src: img_money,
-      alt: 'Euro logo',
+      alt: 'Weekly visits and SEO optimization – church website design feature',
     },
     id: 'money',
     title: 'Visits & SEO',
     description:
-      "We provide weekly visitor statistics for your ministry website and continuously optimize your custom website for search engines to maximize your ministry's digital visibility.",
+      'We provide weekly visitor reports and actively optimize your church website for search engines—helping your ministry grow its digital presence through effective church website design and performance.',
     size: '',
     url: '',
   },
@@ -37,21 +37,24 @@ const projects: Array<Project> = [
 <WidgetWrapper id={'email'} animated={false}>
   <section class="relative flex flex-col lg:flex-row gap-20 xl:gap-[80px] z-10 p-8 sm:p-20 xl:p-[80px]">
     <div class="flex flex-col justify-center w-full">
-      <h2
-        class="text-4xl md:text-7xl xl:text-[72px] font-semibold tracking-tighter text-start text-white pb-7 xl:pb-[28px]"
-      >
-        Minister's&nbsp;
-        <br class="block xs:hidden md:block" />
-        experience&nbsp;
-        <br class="block xs:hidden md:block" />
-        on top.
+      <div class="pb-7 xl:pb-[28px]">
+        <h2 class="text-4xl md:text-7xl xl:text-[72px] font-semibold tracking-tighter text-start text-white">
+          Delivering&nbsp;
+          <br class="block xs:hidden md:block" />
+          exceptional&nbsp;
+          <br class="block xs:hidden md:block" />
+          experiences.
+        </h2>
         <p class="text-[15px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3 xl:mt-[16px]">
-          We prioritize your satisfaction. Our custom websites deliver measurable results while our ongoing support
+          <!-- We prioritize your satisfaction. Our custom websites deliver measurable results while our ongoing support
           ensures you're never left wondering about performance or updates. When you work with us, you're not just
-          buying a website—you're investing in a partnership focused on your success.
+          buying a website—you're investing in a partnership focused on your success. -->
+          We prioritize your satisfaction. Our custom church websites are built to deliver measurable results — with fast
+          performance, SEO optimization, and an ongoing support partnership you can count on. With us, you're not just getting
+          a church website; you're investing in a digital foundation for your ministry's long-term success.
           <br class="hidden md:block" />
         </p>
-      </h2>
+      </div>
 
       <ul
         class="relative z-10 mt-12 md:mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 md:max-w-[520px] lg:mt-10 xl:mt-[40px] md:gap-16 xl:gap-[64px] lg:gap-y-7 xl:gap-y-[28px] lg:max-w-none mx-auto xl:mx-0"
@@ -85,28 +88,20 @@ const projects: Array<Project> = [
     </div>
 
     <div class="cards flex w-full h-full justify-center">
-      <!-- <div class="three-d-wrapper flex-1 w-full h-full"> -->
       <div class="three-d-wrapper w-full max-w-[500px]">
-        <!-- class={`card2 w-[${w}px] h-[${h}px]`} -->
-        <div
-          class="card2 w-full max-w-[500px] aspect-[1192/1482]"
-          style={`background-image: url(${email_example.src}); background-size: cover; background-position: center;`}
-        >
+        <div class="card2 w-full max-w-[500px] aspect-[1192/1482]">
+          <Image
+            class="w-full h-full"
+            layout="fixed"
+            loading="lazy"
+            decoding="async"
+            style={`object-fit: cover; object-position: center;`}
+            src={email_example.src}
+            alt="Example email report – ongoing church website design improvements"
+          />
         </div>
       </div>
     </div>
-
-    <!-- <div
-      class="absolute top-0 left-0 w-full h-full -z-10"
-      style={{
-        background: `
-          radial-gradient(circle at 85% 15%, ${getGradientColor(0.2, 'orange')} 0%, transparent 40%),
-          radial-gradient(circle at 15% 85%, ${getGradientColor(0.2, 'orange')} 0%, transparent 40%),
-          linear-gradient(to bottom left, ${getGradientColor(0.05, 'orange')} 0%, transparent 100%, ${getGradientColor(0.05, 'orange')} 100%)
-        `,
-      }}
-    >
-    </div> -->
   </section>
 </WidgetWrapper>
 

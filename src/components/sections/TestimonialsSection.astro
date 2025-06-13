@@ -1,8 +1,8 @@
 ---
-import andrewAgbajeHeadshot from '~/assets/images/Andrew Headshot.webp';
-import imgGradient from '~/assets/images/gradient.webp';
-import prayerChurchLogo from '~/assets/images/siteLogos/prayerChurch_logo.webp';
-import urFitChildLogo from '~/assets/images/siteLogos/urFitChild_logo.webp';
+import andrewAgbajeHeadshot from '~/assets/images/andrew-agbaje-church-website-client.webp';
+import imgGradient from '~/assets/images/other/gradient.webp';
+import prayerChurchLogo from '~/assets/images/siteLogos/prayer-church-website-design-logo.webp';
+import urFitChildLogo from '~/assets/images/siteLogos/urfit-child-church-website-design.webp';
 import worldMap from '~/assets/images/worldMap.webp';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import CompanyBox from '~/components/widgets/CompanyBox.astro';
@@ -11,7 +11,9 @@ import Slide from '~/components/widgets/Slide.astro';
 const slides = [
   {
     image: andrewAgbajeHeadshot,
+    imageAlt: 'Prof. Andrew Agbaje – client of Cherubim IT for church website design',
     logo: urFitChildLogo,
+    logoAlt: 'urFIT-child logo – custom research and church website design project',
     nameCompany: 'urFIT-child',
     name: 'Prof. Andrew Agbaje, urFIT-child, Principal Investigator',
     description:
@@ -19,7 +21,9 @@ const slides = [
   },
   {
     image: prayerChurchLogo,
+    imageAlt: 'Prayer Church logo – example of custom church website design',
     logo: prayerChurchLogo,
+    logoAlt: 'Prayer Church logo – example of custom church website design',
     nameCompany: 'Prayer Church',
     name: 'The prayer church elders and deacons',
     description: 'Placeholder for the testimonial of the prayer church elders and deacons',
@@ -29,12 +33,14 @@ const slides = [
 const companies = [
   {
     logo: urFitChildLogo,
+    logoAlt: 'urFIT-child logo – custom research and church website design project',
     name: 'urFIT-child',
     description1: 'Single source -',
     description2: 'Centralized platform',
   },
   {
     logo: prayerChurchLogo,
+    logoAlt: 'Prayer Church logo – example of custom church website design',
     name: 'Prayer Church',
     description1: 'Local visibility -',
     description2: 'Thousands of visitors',
@@ -63,13 +69,13 @@ const companies = [
           class="text-4xl md:text-7xl xl:text-[72px] font-semibold tracking-tighter text-start text-black pb-7 xl:pb-[28px]"
         >
           Ministry websites trusted
-          <br />
+          <br class="hidden md:block" />
           by professionals.
         </h2>
         <p
           class="text-black text-[15px] max-w-[786px] font-normal leading-normal tracking-tight sm:text-[18px] mt-3 xl:mt-[12px] mb-7 xl:mb-[28px]"
         >
-          Our custom websites for ministries earn trust through excellence. Like Daniel who was called upon for his
+          Our church website design services earn trust through excellence. Like Daniel who was called upon for his
           wisdom, our clients rely on our expertise to interpret their vision and create digital platforms that stand
           out. 'Then was king Belshazzar greatly troubled... Let not thy thoughts trouble thee, nor let thy countenance
           be changed: There is a man in thy kingdom... now let Daniel be called, and he will shew the interpretation.'

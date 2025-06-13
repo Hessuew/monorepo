@@ -19,7 +19,7 @@ metadata:
   openGraph:
     site_name: Cherubim IT # Site name for social sharing
     images:
-      - url: '~/assets/images/index/other/logo3.webp'
+      - url: '~/assets/images/index/other/cherubim-it-church-website-design-logo.webp'
         width: 1024
         height: 1024
     type: website
