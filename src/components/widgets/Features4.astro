@@ -73,22 +73,20 @@ const {
     )
   }
   <div class={`${classes?.container ?? ''}`}>
-    <div id="itemsContainer">
-      <ItemGridLink
-        items={items}
-        columns={columns}
-        isProfile={isProfile}
-        classes={{
-          container: classes?.items?.container,
-          item: classes?.items?.item,
-          itemContainer: classes?.items?.itemContainer,
-          text: classes?.items?.text,
-          title: classes?.items?.title,
-          subtitle: classes?.items?.subtitle,
-          description: classes?.items?.description,
-          image: classes?.items?.image,
-        }}
-      />
-    </div>
+    <ItemGridLink
+      items={items}
+      columns={columns}
+      isProfile={isProfile}
+      classes={{
+        container: classes?.items?.container,
+        item: classes?.items?.item,
+        itemContainer: classes?.items?.itemContainer,
+        text: classes?.items?.text,
+        title: classes?.items?.title,
+        subtitle: classes?.items?.subtitle,
+        description: classes?.items?.description,
+        image: classes?.items?.image,
+      }}
+    />
   </div>
 </WidgetWrapper>
