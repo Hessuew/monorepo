@@ -19,7 +19,7 @@ metadata:
   openGraph:
     site_name: urFIT-child # Site name for social sharing
     images:
-      - url: '~/assets/images/index/urFIT Child Research Group Logo.webp'
+      - url: '~/assets/images/index/urfit-child-research-group-logo.webp'
         width: 1600
         height: 1600
     type: website
