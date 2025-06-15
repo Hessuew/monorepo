@@ -1,5 +1,7 @@
 ---
+import imgAndrew2 from '~/assets/images/principalInvestigator/andrew-agbaje-landing-picture.webp';
 import Features5 from '~/components/widgets/Features5.astro';
+import Hero from '~/components/widgets/Hero.astro';
 
 export const contactInfo = {
   emails: [
@@ -49,3 +51,12 @@ const items = [
     </div>
   </Fragment>
 </Features5>
+
+<Hero
+  id="finalImage"
+  image={{
+    src: imgAndrew2,
+    alt: 'Professor Andrew Agbaje, Principal Investigator of urFIT Research Group',
+  }}
+  imageText="Professor Andrew Agbaje, Principal Investigator of urFIT Research Group"
+/>
