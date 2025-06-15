@@ -1,7 +1,7 @@
 ---
-import imgTedxVaasa from '~/assets/images/index/Tedx Vaasa photo for linkedin and urFIT-child website.webp';
-import imgLogo from '~/assets/images/index/urFIT Child Research Group Logo.webp';
-import imgResearchVisualization from '~/assets/images/index/Urfit Child Website Frontpage.webp';
+import imgTedxVaasa from '~/assets/images/index/tedx-vaasa-prof-andrew-agbaje-urfit-child-presentation.webp';
+import imgResearchVisualization from '~/assets/images/index/urfit-child-prevention-stages-visualization.webp';
+import imgLogo from '~/assets/images/index/urfit-child-research-group-logo.webp';
 import Image from '~/components/common/Image.astro';
 import GradientText from '~/components/ui/GradientText.astro';
 import Features3 from '~/components/widgets/Features3.astro';
@@ -10,6 +10,7 @@ import Spacer from '~/components/widgets/Spacer.astro';
 import Stars from '~/components/widgets/Stars.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import { YouTube } from 'astro-embed';
 
 const metadata = {
   title: 'urFIT-child | Prof. Andrew Agbaje – Pediatric Obesity Research',
@@ -64,24 +65,13 @@ const metadata = {
       tagline="Welcome to"
       image={{
         src: imgTedxVaasa,
-        alt: 'urFIT-child Research Group Logo',
+        alt: 'urFIT-child principal investigator Prof. Andrew Agbaje presenting at TEDx Vaasa',
       }}
+      imageText="urFIT-child principal investigator Prof. Andrew Agbaje presenting at TEDx Vaasa"
       classes={{ labelContainer: 'lg:max-w-[840px] mx-auto' }}
     >
-      <Fragment slot="image">
-        <Image
-          class="mx-auto rounded-md w-full"
-          widths={[200, 384, 512, 1020]}
-          sizes="(max-width: 767px) 200px, (max-width: 1023px) 384px, (max-width: 2039px) 512px, 1020px"
-          loading="eager"
-          width={640}
-          height={640}
-          src={imgLogo}
-          alt="urFIT-child Research Group Logo"
-        />
-      </Fragment>
       <Fragment slot="title">
-        <p class="text-center mt-4">urFIT-child</p>
+        <p class="text-center">urFIT-child</p>
         <div class="flex flex-wrap gap-[0.25em] xl:gap-y-[4px] items-center justify-center">
           <span>
             <span class="text-primary highlight inline-block">U</span>nde<span
@@ -128,7 +118,7 @@ const metadata = {
     id="description"
     animated={false}
     tagline="Description"
-    title="We are a multi-disciplinary and multi-collaborative research group with clear objectives"
+    title="urFIT-child is a multi-disciplinary and multi-collaborative research group with clear objectives"
     classes={{ container: 'max-w-6xl xl:max-w-[1152px] pb-0 md:pb-0 lg:pb-0 xl:pb-[0px]' }}
     columns={2}
     items={[
@@ -236,6 +226,45 @@ const metadata = {
     </Fragment>
   </Features3>
 
+  <!-- Content Widget **************** -->
+
+  <Hero>
+    <Fragment slot="title">
+      <div
+        class={'text-center intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade'}
+      >
+        <h2 class="text-3xl md:text-4xl xl:text-[36px] xl:leading-[40px]">Global recognitions</h2>
+      </div>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <div
+        class={'mb-8 xl:mb-[48px] text-center intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade'}
+      >
+        <p class="text-muted text-xl xl:text-[20px] xl:leading-[28px] max-w-5xl xl:max-w-[1080px] mx-auto">
+          The urFIT-child research and its principal investigator Andrew Agbaje have received several recognitions for
+          their thorough and innovative work. Among the recognitions are the Flemming Quaade Award for innovation in
+          childhood obesity research.
+        </p>
+      </div>
+    </Fragment>
+
+    <Fragment slot="image">
+      <YouTube
+        id="EQDC2E6R4xM"
+        posterQuality="max"
+        title="Professor Andrew Agbaje receiving the Flemming Quaade Award for innovation in childhood obesity research"
+        class="rounded-lg"
+      />
+      <style is:inline>
+        lite-youtube {
+          margin: 0 auto;
+          max-width: 100%;
+        }
+      </style>
+    </Fragment>
+  </Hero>
+
   <!-- Stats Widget ****************** -->
 
   <Stats
@@ -268,8 +297,9 @@ const metadata = {
   <Hero
     image={{
       src: imgResearchVisualization,
-      alt: 'urFIT-child research visualization',
+      alt: 'urFIT-child research visualization showing stages of prevention: primordial, early primary, mid-primary, late primary, secondary, and tertiary',
     }}
+    imageText="urFIT-child prevention stages: from primordial to tertiary"
   />
 
   <!-- Stats Widget ****************** -->
@@ -299,7 +329,7 @@ const metadata = {
           width={320}
           height={320}
           src={imgLogo}
-          alt="urFIT-child Research Group Logo"
+          alt="urFIT Child Research Group logo"
         />
       </Fragment>
     </Hero>
