@@ -71,8 +71,10 @@ const metadata = {
       classes={{ labelContainer: 'lg:max-w-[840px] mx-auto' }}
     >
       <Fragment slot="title">
-        <p class="text-center">urFIT-child</p>
-        <div class="flex flex-wrap gap-[0.25em] xl:gap-y-[4px] items-center justify-center">
+        <p class="text-center pb-[2px]">urFIT-child</p>
+        <div
+          class="flex flex-wrap gap-y-[0.1em] gap-x-[0.25em] md:gap-y-[0.125em] xl:gap-y-[4px] items-center justify-center"
+        >
           <span>
             <span class="text-primary highlight inline-block">U</span>nde<span
               class="text-primary highlight inline-block"
@@ -118,7 +120,7 @@ const metadata = {
     id="description"
     animated={false}
     tagline="Description"
-    title="urFIT-child is a multi-disciplinary and multi-collaborative research group with clear objectives"
+    title="urFIT-child is a multidisciplinary and collaborative research group with clear objectives"
     classes={{ container: 'max-w-6xl xl:max-w-[1152px] pb-0 md:pb-0 lg:pb-0 xl:pb-[0px]' }}
     columns={2}
     items={[
@@ -229,15 +231,16 @@ const metadata = {
   <!-- Content Widget **************** -->
 
   <Hero>
-    <Fragment slot="title">
+    <Fragment slot="subtitle">
       <div
         class={'text-center intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade'}
       >
-        <h2 class="text-3xl md:text-4xl xl:text-[36px] xl:leading-[40px]">Global recognitions</h2>
+        <h2
+          class="text-3xl md:text-4xl xl:text-[36px] xl:leading-[40px] font-bold leading-tighter tracking-tighter mb-4 xl:mb-[16px] font-heading"
+        >
+          Global recognitions
+        </h2>
       </div>
-    </Fragment>
-
-    <Fragment slot="subtitle">
       <div
         class={'mb-8 xl:mb-[48px] text-center intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade'}
       >
