@@ -1,9 +1,10 @@
 ---
 import imgResearchVisualization from '~/assets/images/index/urfit-child-prevention-stages-visualization.webp';
-import Features3 from '~/components/widgets/Features3.astro';
+import CallToActionWidget from '~/components/widgets/CallToAction.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Research-Based Health Guidelines for Children | Call to Action',
@@ -87,20 +88,6 @@ const metadata = {
     ]}
   />
 
-  <Features3 animated={false} items={[]}>
-    <Fragment slot="subtitle">
-      <div class="text-center w-full text-xl xl:text-[20px] xl:leading-[28px] text-muted">
-        <p>
-          Learn how to use our
-          <a href="/waist-height-calculator" class="text-blue-600 hover:underline font-semibold">
-            waist to height ratio calculator
-          </a>
-          to assess your body fat more accurately.
-        </p>
-      </div>
-    </Fragment>
-  </Features3>
-
   <!-- Hero Widget ******************* -->
 
   <Hero
@@ -108,5 +95,21 @@ const metadata = {
       src: imgResearchVisualization,
       alt: 'urFIT-child research visualization',
     }}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToActionWidget
+    title="Our waist to height ratio calculator WHtR"
+    subtitle="Waist to height ratio calculator WHtR 2025 based on 30 years of WHtR data. Discover normal waist to height ratio and healthy waist to height ratio values."
+    actions={[
+      {
+        variant: 'primary',
+        target: '_self',
+        text: 'Try the waist to height ratio calculator',
+        href: getPermalink('/waist-height-calculator'),
+        icon: 'tabler:calculator',
+      },
+    ]}
   />
 </Layout>

@@ -1,9 +1,11 @@
 ---
 import imgAndrew from '~/assets/images/thesis/Andrew Agbaje RT.webp';
 import imgKate from '~/assets/images/thesis/Kate Sansum Exeter.webp';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 import Content from '~/components/widgets/Content.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: "Doctoral & Master's Theses | Advanced Research in Child Health",
@@ -147,4 +149,20 @@ const metadata = {
       </div>
     </Fragment>
   </Content>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    title="Meet Prof. Andrew Agbaje"
+    subtitle="Discover the pioneering research and global impact of our Principal Investigator, a leading voice in pediatric health and childhood obesity."
+    actions={[
+      {
+        variant: 'tertiary',
+        target: '_self',
+        text: 'Learn about Prof. Andrew Agbaje',
+        href: getPermalink('/people/andrew-agbaje'),
+        icon: 'tabler:user-circle',
+      },
+    ]}
+  />
 </Layout>
