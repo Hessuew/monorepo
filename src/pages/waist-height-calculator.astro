@@ -6,24 +6,26 @@ import Calculator from '~/components/ui/calculator/Calculator.astro';
 import GradientText from '~/components/ui/GradientText.astro';
 import Content from '~/components/widgets/Content.astro';
 import ContentSection from '~/components/widgets/ContentSection.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
 import Features4 from '~/components/widgets/Features4.astro';
 import GraphGrid from '~/components/widgets/GraphGrid.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
+import TableOfContents from '~/components/widgets/TableOfContents.astro';
 import { references } from '~/data/calculatorReferences';
 import { THRESHOLDS } from '~/data/thresholds';
 import Layout from '~/layouts/PageLayout.astro';
 import { YouTube } from 'astro-embed';
 
 const metadata = {
-  title: 'New Waist to Height Ratio Calculator – Measure at Home',
+  title: 'New waist to height ratio calculator WHtR – 2025',
   description:
-    'Waist to height ratio calculator with visual and color-coded results. Based on the largest WHtR dataset to assess body fat and find your healthy range.',
+    'Waist to height ratio calculator WHtR 2025 based on 30 years of WHtR data. Discover normal waist to height ratio and healthy waist to height ratio values.',
   ignoreTitleTemplate: true,
   openGraph: {
-    title: 'New Waist to Height Ratio Calculator – Measure at Home',
+    title: 'New waist to height ratio calculator WHtR – 2025',
     description:
-      'Waist to height ratio calculator with visual and color-coded results. Based on the largest WHtR dataset to assess body fat and find your healthy range.',
+      'Waist to height ratio calculator WHtR 2025 based on 30 years of WHtR data. Discover normal waist to height ratio and healthy waist to height ratio values.',
     type: 'website',
     image: imgCalculator,
     article: {
@@ -54,12 +56,26 @@ const metadata = {
 
 <Layout metadata={metadata} schemaType="calculator">
   <Content
-    id="waist-to-height-1"
-    tagline="Waist/Height calculator"
-    title="New Waist to Height Ratio Calculator"
-    subtitle="Waist to height ratio calculator is a simple, low-cost way to assess body fat mass and health risk. It offers a more accurate picture than BMI, and helps detect excess fat without the need for expensive tools."
+    id="waist-to-height-title"
+    tagline="Waist to height ratio WHtR"
+    subtitle="Waist to height ratio calculator WHtR 2025 based on the largest WHtR dataset (30 years of data). Discover normal waist to height ratio and healthy waist to height ratio values. Waist to height ratio calculator is a <span class='font-semibold'>simple</span>, <span class='font-semibold'>low-cost</span> way to assess body fat mass and health risk. It offers a more accurate picture than BMI, and helps detect excess fat without the need for expensive tools.</span>"
+    classes={{ container: 'pb-0 lg:pb-0 md:pb-0 xl:pb-0' }}
+  >
+    <Fragment slot="title">
+      <h1
+        class="text-4xl xs:text-5xl md:text-6xl xl:text-[60px] xl:leading-[64px] font-bold leading-tighter tracking-tighter mb-4 xl:mb-[16px] font-heading dark:text-gray-200 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        Waist to height ratio calculator
+      </h1>
+    </Fragment>
+  </Content>
+
+  <TableOfContents classes={{ container: 'pt-0 md:pt-0 lg:pt-0 xl:pt-0' }} />
+
+  <Content
+    id="waist-to-height-how-to"
     classes={{
-      container: 'lg:pb-0 md:pb-0',
+      container: 'md:py-0 lg:py-0 xl:pt-0',
     }}
     image={{
       src: imgAgbaje,
@@ -74,43 +90,45 @@ const metadata = {
         <h3
           class="text-2xl sm:text-3xl xl:text-[30px] xl:leading-[36px] mb-2 xl:mb-[8px] font-bold tracking-tight dark:text-white"
         >
-          Waist circumference
+          How to measure waist circumference
         </h3>
         Acquire a flexible measuring tape or tape rule. Feel for your hip bone and your bottom rib, and place the tape measure
         evenly around your waist which is halfway between the last rib and hip bone. The waistline may lie directly above
         your umbilicus. (If needed, use a mirror to guide the tape straight around your waist and parallel to the ground.)
-        Record the values in centimeters.
+        Record the value in centimeters.
         <br />
         <br />
 
         <h3
           class="text-2xl sm:text-3xl xl:text-[30px] xl:leading-[36px] mb-2 xl:mb-[8px] font-bold tracking-tight dark:text-white"
         >
-          Height measurement
+          How to measure height
         </h3>
         A tape measure, a flat surface, and a pencil are needed. Stand with your feet without shoes flat on the floor with
         your heels against the corner where the wall and floor meet. Ensure your head, shoulders, and buttocks touch the
         wall. Look straight ahead parallel to the floor. Have someone place a book or a ruler over your head and lightly
-        mark the wall with a pencil. Then measure the distance between the marked point and the floor. Now calculate waist
-        circumference (cm)/height (cm) and check the results against the categories provided below.
+        mark the wall with a pencil. Then measure the distance between the marked point and the floor. Record the value.
       </div>
     </Fragment>
   </Content>
 
+  <!-- Waist to height ratio calculator video tutorial Widget ******************* -->
+
   <Content
+    id="waist-to-height-ratio-calculator-video-tutorial"
     classes={{
       titleClass: 'lg:text-[44px] lg:leading-[52px] xl:text-[44px] xl:leading-[52px]',
       container: 'lg:pt-0 md:pt-0 xl:pt-0',
     }}
   >
     <Fragment slot="content">
-      <h3
+      <h2
         class="text-xl font-semibold text-black dark:text-white tracking-tight sm:text-2xl xl:text-[24px] xl:leading-[32px] mb-2 xl:mb-[8px]"
       >
-        🎥 Video Tutorial:
+        🎥 Video tutorial:
         <br />
         How to use the waist to height ratio calculator
-      </h3>
+      </h2>
       <p class="text-lg sm:text-xl xl:text-[20px] xl:leading-[28px]">
         <!-- <GradientText class="font-semibold text-primary" style2
           >BBC Point West: how to calculate whtr with waist to height ratio calculator</GradientText
@@ -136,7 +154,7 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <!-- Hero Widget ******************* -->
+  <!-- Waist to height ratio calculator Widget ******************* -->
 
   <Hero
     id="calculator"
@@ -155,9 +173,10 @@ const metadata = {
     </Fragment>
   </Hero>
 
-  <!-- Features2 Widget ************** -->
+  <!-- Waist to height ratio calculator result interpretation Widget ******************* -->
 
   <GraphGrid
+    id="waist-to-height-ratio-calculator-result-interpretation"
     title="Result interpretation"
     columns={1}
     classes={{
@@ -234,9 +253,9 @@ const metadata = {
     </Fragment>
   </ContentSection>
 
-  <!-- HeroText Widget ******************* -->
+  <!-- Waist to height ratio calculator benefits Widget ******************* -->
 
-  <ContentSection containerClass="pb-0 xl:pb-[0px]">
+  <ContentSection id="waist-to-height-ratio-calculator-benefits" containerClass="pb-0 xl:pb-[0px]">
     <Fragment slot="subtitle">
       <h3
         class="text-center text-2xl sm:text-3xl xl:text-[30px] xl:leading-[36px] mb-2 xl:mb-[8px] font-bold tracking-tight dark:text-white intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
@@ -292,6 +311,8 @@ const metadata = {
     </Fragment>
   </ContentSection>
 
+  <!-- Note Widget ******************* -->
+
   <Note
     text="Please do not diagnose overweight and obesity in children and adolescents with body mass index (BMI) alone. BMI was NEVER designed to detect obesity in an individual. Kindly use the waist to height ratio calculator to confirm if the body size is due to fat mass or if the children are simply heavy due to muscle mass."
     author="Prof. Andrew Agbaje"
@@ -301,9 +322,37 @@ const metadata = {
     }}
   />
 
-  <!-- Hero Widget ******************* -->
+  <!-- Health Implications Widget ******************* -->
+
+  <FAQs
+    id="waist-to-height-ratio-calculator-health-implications"
+    title="Health implications"
+    subtitle="Coming soon"
+    items={[]}
+  />
+
+  <!-- Tips for maintaining a healthy WHtR Widget ******************* -->
+
+  <FAQs
+    id="waist-to-height-ratio-calculator-tips-for-maintaining-a-healthy-whtr"
+    title="Tips for maintaining a healthy WHtR"
+    subtitle="Coming soon"
+    items={[]}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    id="waist-to-height-ratio-calculator-faqs"
+    title="Frequently Asked Questions"
+    subtitle="Coming soon"
+    items={[]}
+  />
+
+  <!-- Waist to height ratio calculator references Widget ******************* -->
 
   <Features4
+    id="waist-to-height-ratio-calculator-references"
     title="References"
     columns={3}
     classes={{

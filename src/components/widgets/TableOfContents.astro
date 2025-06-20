@@ -1,0 +1,225 @@
+---
+import type { TableOfContents as Props } from '~/types';
+import WidgetWrapper from '../ui/WidgetWrapper.astro';
+
+const { id, animated = true, isDark = false, classes = {}, bg = await Astro.slots.render('bg'), ...rest } = Astro.props;
+
+// Define the table of contents items
+const tocItems = [
+  {
+    id: 'waist-to-height-how-to',
+    title: 'How to measure waist to height ratio',
+    level: 2,
+  },
+  {
+    id: 'waist-to-height-ratio-calculator-video-tutorial',
+    title: 'Video tutorial',
+    level: 2,
+  },
+  {
+    id: 'calculator',
+    title: 'Waist to height ratio calculator',
+    level: 2,
+  },
+  {
+    id: 'waist-to-height-ratio-calculator-result-interpretation',
+    title: 'Result interpretation',
+    level: 2,
+  },
+  {
+    id: 'waist-to-height-ratio-calculator-benefits',
+    title: 'Benefits over BMI',
+    level: 2,
+  },
+  {
+    id: 'waist-to-height-ratio-calculator-health-implications',
+    title: 'Health implications (coming soon)',
+    level: 2,
+  },
+  {
+    id: 'waist-to-height-ratio-calculator-tips-for-maintaining-a-healthy-whtr',
+    title: 'Tips for maintaining a healthy WHtR (coming soon)',
+    level: 2,
+  },
+  {
+    id: 'waist-to-height-ratio-calculator-faqs',
+    title: 'FAQs (coming soon)',
+    level: 2,
+  },
+  {
+    id: 'waist-to-height-ratio-calculator-references',
+    title: 'References',
+    level: 2,
+  },
+];
+---
+
+<WidgetWrapper
+  animated={animated}
+  id={id}
+  isDark={isDark}
+  containerClass={`max-w-4xl xl:max-w-[896px] mx-auto ${classes?.container ?? ''}`}
+  bg={bg}
+>
+  <nav
+    class={`bg-gray-50 dark:bg-gray-800 rounded-lg p-6 xl:p-[24px] border border-gray-200 dark:border-gray-700 ${classes?.nav ?? ''}`}
+    aria-label="Table of Contents"
+    {...rest}
+  >
+    <h2
+      class={`text-2xl xl:text-[24px] xl:leading-[32px] font-bold tracking-tight text-gray-900 dark:text-white mb-4 xl:mb-[16px] flex items-center ${classes?.title ?? ''}`}
+    >
+      <svg
+        class="w-5 h-5 xl:w-[20px] xl:h-[20px] mr-2 xl:mr-[8px] text-primary"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"
+        ></path>
+      </svg>
+      Table of Contents
+    </h2>
+
+    <ol class={`space-y-2 xl:space-y-[8px] ${classes?.list ?? ''}`}>
+      {
+        tocItems.map((item, index) => (
+          <li class={`${classes?.item ?? ''}`}>
+            <a
+              href={`#${item.id}`}
+              class={`group flex items-center text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors duration-200 text-base xl:text-[16px] xl:leading-[24px] py-1 xl:py-[4px] ${classes?.link ?? ''}`}
+            >
+              <span class="inline-flex items-center justify-center w-6 h-6 xl:w-[24px] xl:h-[24px] mr-3 xl:mr-[12px] text-xs xl:text-[12px] font-medium text-gray-500 dark:text-gray-400 bg-gray-200 dark:bg-gray-700 rounded-full group-hover:bg-primary group-hover:text-white transition-colors duration-200">
+                {index + 1}
+              </span>
+              <span class="group-hover:underline">{item.title}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="mt-4 xl:mt-[16px] pt-4 xl:pt-[16px] border-t border-gray-200 dark:border-gray-600">
+      <p class="text-sm xl:text-[14px] xl:leading-[20px] text-gray-600 dark:text-gray-400 flex items-center">
+        <svg
+          class="w-4 h-4 xl:w-[16px] xl:h-[16px] mr-2 xl:mr-[8px] text-gray-500"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        Click any section to jump directly to that content
+      </p>
+    </div>
+  </nav>
+</WidgetWrapper>
+
+<script>
+  // Smooth scrolling behavior for table of contents links
+  document.addEventListener('DOMContentLoaded', function () {
+    const tocLinks = document.querySelectorAll('nav[aria-label="Table of Contents"] a[href^="#"]');
+
+    tocLinks.forEach((link) => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href')?.substring(1);
+        const targetElement = document.getElementById(targetId || '');
+
+        if (targetElement) {
+          // Smooth scroll to target with offset for fixed headers
+          const headerOffset = 80;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+
+          // Update URL without triggering scroll
+          history.pushState(null, '', `#${targetId}`);
+        }
+      });
+    });
+  });
+
+  // Highlight current section in table of contents
+  document.addEventListener('DOMContentLoaded', function () {
+    const tocLinks = document.querySelectorAll('nav[aria-label="Table of Contents"] a[href^="#"]');
+    const sections = Array.from(tocLinks)
+      .map((link) => {
+        const targetId = link.getAttribute('href')?.substring(1);
+        return document.getElementById(targetId || '');
+      })
+      .filter(Boolean);
+
+    function updateActiveLink() {
+      let current = '';
+      const scrollPosition = window.scrollY + 100;
+
+      sections.forEach((section) => {
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            current = section.id;
+          }
+        }
+      });
+
+      tocLinks.forEach((link) => {
+        const targetId = link.getAttribute('href')?.substring(1);
+        if (targetId === current) {
+          link.classList.add('text-primary', 'font-medium');
+          link.classList.remove('text-gray-700', 'dark:text-gray-300');
+        } else {
+          link.classList.remove('text-primary', 'font-medium');
+          link.classList.add('text-gray-700', 'dark:text-gray-300');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink(); // Initial call
+  });
+</script>
+
+<style>
+  /* Ensure smooth scrolling for the entire page */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar for better UX */
+  nav[aria-label='Table of Contents'] {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(156 163 175) transparent;
+  }
+
+  nav[aria-label='Table of Contents']::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  nav[aria-label='Table of Contents']::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  nav[aria-label='Table of Contents']::-webkit-scrollbar-thumb {
+    background-color: rgb(156 163 175);
+    border-radius: 3px;
+  }
+
+  nav[aria-label='Table of Contents']::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(107 114 128);
+  }
+</style>

@@ -1,11 +1,13 @@
 ---
 import imgNnf from '~/assets/images/collaborators/Nnf Cbc26 053 Scaled.webp';
 import imgNovo from '~/assets/images/collaborators/Novo Nordisk Conference Award.webp';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 import Content from '~/components/widgets/Content.astro';
 import Features4 from '~/components/widgets/Features4.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import { items } from '~/data/collaborators';
 import Layout from '~/layouts/PageLayout.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Research Collaborators | Pediatric & Cardiovascular Experts',
@@ -152,4 +154,20 @@ const metadata = {
       health research.
     </Fragment>
   </Content>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    title="Meet the supporters behind the science"
+    subtitle="Discover how our dedicated funders empower groundbreaking pediatric health research and make lasting impact possible."
+    actions={[
+      {
+        variant: 'tertiary',
+        target: '_self',
+        text: 'Meet our funders',
+        href: getPermalink('/people/funders'),
+        icon: 'tabler:cash',
+      },
+    ]}
+  />
 </Layout>
