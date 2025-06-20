@@ -1,5 +1,6 @@
 ---
 import imgAndrew2 from '~/assets/images/principalInvestigator/andrew-agbaje-landing-picture.webp';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 import Note from '~/components/widgets/Note.astro';
 import Academic from '~/components/widgets/principal-investigator/Academic.astro';
 import Affiliations from '~/components/widgets/principal-investigator/Affiliations.astro';
@@ -9,16 +10,17 @@ import Editorial from '~/components/widgets/principal-investigator/Editorial.ast
 import Memberships from '~/components/widgets/principal-investigator/Memberships.astro';
 import PIHero from '~/components/widgets/principal-investigator/PIHero.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'The Official Website of Prof. Andrew Agbaje',
   description:
-    'Prof. Andrew Agbaje leads the urFIT-child group, advancing global research on pediatric health, fitness, and waist to height ratio (WHtR).',
+    'Andrew Agbaje is Professor of Clinical Epidemiology and Child Health at the University of Eastern Finland - the official site of Prof. Andrew O Agbaje.',
   ignoreTitleTemplate: true,
   openGraph: {
     title: 'The Official Website of Prof. Andrew Agbaje',
     description:
-      'Prof. Andrew Agbaje leads the urFIT-child group, advancing global research on pediatric health, fitness, and waist to height ratio (WHtR).',
+      'Andrew Agbaje is Professor of Clinical Epidemiology and Child Health at the University of Eastern Finland - the official site of Prof. Andrew O Agbaje.',
     type: 'profile',
     image: imgAndrew2,
     article: {
@@ -65,4 +67,20 @@ const metadata = {
   <Memberships />
 
   <Contact />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    title="Our waist to height ratio calculator WHtR"
+    subtitle="Waist to height ratio calculator WHtR 2025 based on 30 years of WHtR data. Discover normal waist to height ratio and healthy waist to height ratio values."
+    actions={[
+      {
+        variant: 'primary',
+        target: '_self',
+        text: 'Try the waist to height ratio calculator',
+        href: getPermalink('/waist-height-calculator'),
+        icon: 'tabler:calculator',
+      },
+    ]}
+  />
 </Layout>

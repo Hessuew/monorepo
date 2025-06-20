@@ -1,9 +1,11 @@
 ---
 import imgAndrew from '~/assets/images/team/Andrew Headshot.webp';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 import Features4 from '~/components/widgets/Features4.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import { items } from '~/data/team';
 import Layout from '~/layouts/PageLayout.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Research Team | urFIT-child Research Group',
@@ -73,5 +75,21 @@ const metadata = {
         subtitle: 'text-primary',
       },
     }}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    title="Meet our collaborators"
+    subtitle="Learn how our global network of collaborators helps drive innovative pediatric health research and supports our mission."
+    actions={[
+      {
+        variant: 'tertiary',
+        target: '_self', // Opens in the same tab
+        text: 'Meet our collaborators',
+        href: getPermalink('/people/collaborators'),
+        icon: 'tabler:world',
+      },
+    ]}
   />
 </Layout>

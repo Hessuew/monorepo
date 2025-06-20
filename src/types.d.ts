@@ -326,6 +326,10 @@ export interface GraphGrid extends Omit<Headline, 'classes'>, Widget {
   isAfterContent?: boolean;
 }
 
+export interface TableOfContents extends Omit<Headline, 'classes'>, Widget {
+  animated?: boolean;
+}
+
 export interface Faqs extends Omit<Headline, 'classes'>, Widget {
   iconUp?: string;
   iconDown?: string;
