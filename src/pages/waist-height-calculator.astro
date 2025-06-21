@@ -1,5 +1,10 @@
 ---
 import imgAgbaje from '~/assets/images/waist-to-height-calculator/professor-agbaje-waist-to-height-ratio-calculator-demonstration.webp';
+import img_whtr_liver_disease from '~/assets/images/waist-to-height-calculator/waist_to_height_ratio_calculator_and_liver_disease_ENG.webp';
+import imgFemale from '~/assets/images/waist-to-height-calculator/waist_to_height_ratio_calculator-obesity_and_its_impact_on_health_female.webp';
+import imgMale from '~/assets/images/waist-to-height-calculator/waist_to_height_ratio_calculator-obesity_and_its_impact_on_health_male.webp';
+import imgEaso from '~/assets/images/waist-to-height-calculator/waist_to_height_ratio_calculator-obesity_diagnosis_landscape_EASO.webp';
+import imgKorean from '~/assets/images/waist-to-height-calculator/waist_to_height_ratio_calculator-WHtR_vs_fracture_in_korean_adults.webp';
 import imgCalculator from '~/assets/images/waist-to-height-calculator/waist-to-height-ratio-calculator-with-a-measurement-tape.webp';
 import imgBMI from '~/assets/images/waist-to-height-calculator/waist-to-height-ratio-category-whtr-vs-bmi-category.webp';
 import Calculator from '~/components/ui/calculator/Calculator.astro';
@@ -11,6 +16,7 @@ import Features4 from '~/components/widgets/Features4.astro';
 import GraphGrid from '~/components/widgets/GraphGrid.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
+import Steps from '~/components/widgets/Steps.astro';
 import TableOfContents from '~/components/widgets/TableOfContents.astro';
 import { references } from '~/data/calculatorReferences';
 import { THRESHOLDS } from '~/data/thresholds';
@@ -18,12 +24,12 @@ import Layout from '~/layouts/PageLayout.astro';
 import { YouTube } from 'astro-embed';
 
 const metadata = {
-  title: 'New waist to height ratio calculator WHtR – 2025',
+  title: 'Waist to height ratio calculator WHtR – Most thorough 2025 guide',
   description:
     'Waist to height ratio calculator WHtR 2025 based on 30 years of WHtR data. Discover normal waist to height ratio and healthy waist to height ratio values.',
   ignoreTitleTemplate: true,
   openGraph: {
-    title: 'New waist to height ratio calculator WHtR – 2025',
+    title: 'Waist to height ratio calculator WHtR – Most thorough 2025 guide',
     description:
       'Waist to height ratio calculator WHtR 2025 based on 30 years of WHtR data. Discover normal waist to height ratio and healthy waist to height ratio values.',
     type: 'website',
@@ -238,7 +244,7 @@ const metadata = {
     ]}
   />
 
-  <ContentSection>
+  <ContentSection containerClass="pt-4 md:pt-4 lg:pt-4 xl:pt-[16px]">
     <Fragment slot="subtitle">
       <p
         class="text-base xl:text-[16px] xl:leading-[24px] intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
@@ -255,14 +261,12 @@ const metadata = {
 
   <!-- Waist to height ratio calculator benefits Widget ******************* -->
 
-  <ContentSection id="waist-to-height-ratio-calculator-benefits" containerClass="pb-0 xl:pb-[0px]">
+  <ContentSection
+    id="waist-to-height-ratio-calculator-benefits"
+    title="Benefits of using waist to height ratio calculator over body mass index (BMI)"
+    containerClass="max-w-4xl xl:max-w-[896px] pb-0 md:pb-0 lg:pb-0 xl:pb-[0px]"
+  >
     <Fragment slot="subtitle">
-      <h3
-        class="text-center text-2xl sm:text-3xl xl:text-[30px] xl:leading-[36px] mb-2 xl:mb-[8px] font-bold tracking-tight dark:text-white intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
-      >
-        Benefits of using waist to height ratio calculator over body mass index (BMI)
-      </h3>
-      <br />
       <p
         class="text-base xl:text-[16px] xl:leading-[24px] intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
       >
@@ -286,9 +290,10 @@ const metadata = {
           isInfographics: true,
         }}
         imageText="Measuring tape wrapped around a waist to demonstrate how to use the waist to height ratio calculator (WHtR)"
+        classes={{ labelContainer: 'py-2 md:py-2 lg:py-2 xl:py-[8px]' }}
       />
       <p
-        class="text-base xl:text-[16px] xl:leading-[24px] intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        class="my-4 xl:my-[16px] text-base xl:text-[16px] xl:leading-[24px] intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
       >
         “This study provides novel information that would be useful in updating future childhood obesity guidelines and
         policy statements. The average waist to height ratio in childhood, adolescence, and young adulthood is 0.45, it
@@ -307,6 +312,7 @@ const metadata = {
           width: 2000,
         }}
         imageText="Visual comparison of waist to height ratio (WHtR) categories vs BMI categories for assessing body fat."
+        classes={{ labelContainer: 'py-4 md:py-4 lg:py-4 xl:py-[16px]' }}
       />
     </Fragment>
   </ContentSection>
@@ -324,20 +330,195 @@ const metadata = {
 
   <!-- Health Implications Widget ******************* -->
 
-  <FAQs
+  <ContentSection
     id="waist-to-height-ratio-calculator-health-implications"
     title="Health implications"
-    subtitle="Coming soon"
-    items={[]}
-  />
+    containerClass="pb-0 md:pb-0 lg:pb-0 xl:pb-[0px]"
+  >
+    <Fragment slot="subtitle">
+      <p
+        class="text-base xl:text-[16px] xl:leading-[24px] intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        Our team and other researchers across the globe have shown that waist to height ratio (whtr) is a significantly
+        better predictor of type 2 diabetes, heart failure, fatty liver diseases, liver fibrosis/cirrhosis,
+        hypertension, and bone fracture risks than BMI.
+      </p>
+
+      <Hero
+        image={{
+          src: img_whtr_liver_disease,
+          alt: 'Waist to height ratio calculator (WHtR) linked to liver disease risk in research findings',
+          height: 1384,
+          width: 2000,
+        }}
+        imageText="Waist to height ratio calculator (WHtR) helps assess liver disease risk better than BMI, based on recent pediatric health research."
+        classes={{ labelContainer: 'py-4 md:py-4 lg:py-4 xl:py-[16px]' }}
+      />
+      <p
+        class="my-4 xl:my-[16px] text-base xl:text-[16px] xl:leading-[24px] intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        These research findings provide evidence that children, youth and adults with normal BMI but with high or excess
+        waist to height ratio (whtr) estimated fat mass are at risk of several cardiometabolic diseases. This is because
+        waist to height ratio is a specific tool for detecting adiposity (excess fat) and is the most affordable and
+        universally available tool for early detection, screening, diagnosis and management of excess adiposity
+        (obesity) and its related complications.
+      </p>
+
+      <Hero
+        image={{
+          src: imgKorean,
+          alt: 'Association between waist to height ratio (WHtR) categories and fracture risk using WHtR calculator',
+          height: 1350,
+          width: 2400,
+          class: 'border rounded-lg',
+        }}
+        imageText="Fracture risk linked to WHtR categories: Study shows how the waist to height ratio calculator can help predict incident fractures through fat mass assessment."
+        classes={{ labelContainer: 'py-4 md:py-4 lg:py-4 xl:py-[16px]' }}
+      />
+
+      <p
+        class="text-base xl:text-[16px] xl:leading-[24px] intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        Emerging consensus expert statements (European Association for the Study of Obesity and the Lancet Commission)
+        have strongly recommended that obesity should not be diagnosed in adults with BMI alone but must be confirmed
+        with waist-to-height ratio. There is no consensus statement yet in the paediatric and young adult population.
+      </p>
+
+      <Hero
+        image={{
+          src: imgEaso,
+          alt: 'Framework for obesity diagnosis, staging, and management using waist to height ratio calculator (WHtR)',
+          height: 1810,
+          width: 2560,
+        }}
+        imageText="Obesity diagnosis and management framework: WHtR-based waist to height ratio calculator supports improved staging and clinical decision-making."
+        classes={{ labelContainer: 'py-4 pd:py-4 lg:py-4 xl:py-[16px]' }}
+      />
+
+      <p
+        class="text-base xl:text-[16px] xl:leading-[24px] intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        The European Association for the study of Obesity infographic summarizes the health implications of obesity in
+        males and females.
+      </p>
+
+      <h3
+        class="mt-8 xl:mt-[32px] text-xl md:text-2xl xl:text-[24px] xl:leading-[32px] font-bold leading-tight tracking-tight dark:text-white text-center intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        Male
+      </h3>
+
+      <Hero
+        image={{
+          src: imgMale,
+          alt: 'Health risks of obesity in males illustrated using the waist to height ratio calculator (WHtR).',
+          height: 1414,
+          width: 2000,
+          class: 'border rounded-lg',
+        }}
+        imageText="Male obesity and its health impact shown through the waist to height ratio calculator’s visual indicators."
+        classes={{ labelContainer: 'pt-4 md:pt-4 lg:pt-4 xl:pt-[16px]' }}
+      />
+
+      <h3
+        class="text-xl md:text-2xl xl:text-[24px] xl:leading-[32px] font-bold leading-tight tracking-tight dark:text-white text-center intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        Female
+      </h3>
+
+      <Hero
+        image={{
+          src: imgFemale,
+          alt: 'Health risks of obesity in females illustrated using the waist to height ratio calculator (WHtR)',
+          height: 1414,
+          width: 2000,
+          class: 'border rounded-lg',
+        }}
+        imageText="Female obesity and its health impact shown through the waist to height ratio calculator’s visual indicators."
+        classes={{ labelContainer: 'py-2 md:py-2 lg:py-2 xl:py-[8px]' }}
+      />
+    </Fragment>
+  </ContentSection>
 
   <!-- Tips for maintaining a healthy WHtR Widget ******************* -->
 
-  <FAQs
+  <Steps
     id="waist-to-height-ratio-calculator-tips-for-maintaining-a-healthy-whtr"
     title="Tips for maintaining a healthy WHtR"
-    subtitle="Coming soon"
-    items={[]}
+    subtitle="Tips for maintaining a healthy waist to height ratio (whtr) below 0.5 for males and 0.51 for females"
+    items={[
+      {
+        title:
+          '1. Monitor regularly: <span class="font-medium">Know your waist to height ratio (whtr) today and recheck once in 3 months.</span>',
+        description:
+          'Regular monitoring of your waist-to-height ratio provides valuable insights into your body composition changes over time. Quarterly assessments help track progress and identify trends early, enabling timely adjustments to your health strategy.',
+        icon: 'tabler:calendar-stats',
+      },
+      {
+        title:
+          '2. Stay consistent: <span class="font-medium">If within normal range, continue a healthy lifestyle.</span>',
+        description:
+          'Maintaining a healthy WHtR below 0.5 (males) or 0.51 (females) indicates optimal body fat distribution. Consistency in healthy habits is key to preserving this beneficial ratio and preventing future health complications.',
+        icon: 'tabler:heart-handshake',
+      },
+      {
+        title:
+          '3. Eliminate toxins: <span class="font-medium">Stop drinking alcohol and smoking cigarette (combustible and non-combustible).</span>',
+        description:
+          'Alcohol and tobacco products significantly contribute to abdominal fat accumulation and metabolic dysfunction. Eliminating these substances reduces inflammation, improves metabolism, and supports healthy weight distribution.',
+        icon: 'tabler:smoking-no',
+      },
+      {
+        title:
+          '4. Stay active: <span class="font-medium">Break sedentariness with at least 3 hours of daily light physical activity.</span>',
+        description:
+          'Prolonged sitting increases visceral fat accumulation. Incorporating light activities like walking, stretching, or household tasks throughout the day boosts metabolism and promotes fat burning, particularly around the waist area.',
+        icon: 'tabler:walk',
+      },
+      {
+        title: '5. Rest well: <span class="font-medium">Sleep adequately for >7 hours daily.</span>',
+        description:
+          'Quality sleep regulates hormones that control hunger, metabolism, and fat storage. Insufficient sleep disrupts cortisol and insulin levels, leading to increased abdominal fat accumulation and elevated WHtR.',
+        icon: 'tabler:moon',
+      },
+      {
+        title: '6. Hydrate properly: <span class="font-medium">Drink adequate volume of water >3 litres/daily.</span>',
+        description:
+          'Proper hydration supports metabolic processes, reduces water retention, and helps control appetite. Adequate water intake enhances fat metabolism and can help reduce waist circumference measurements.',
+        icon: 'tabler:droplet',
+      },
+      {
+        title: '7. Choose wisely: <span class="font-medium">Avoid sugary drinks and beverages.</span>',
+        description:
+          'Sugar-sweetened beverages are rapidly absorbed and preferentially stored as abdominal fat. Eliminating these drinks reduces caloric intake and prevents insulin spikes that promote visceral fat accumulation.',
+        icon: 'tabler:bottle-off',
+      },
+      {
+        title:
+          '8. Reduce processed foods: <span class="font-medium">Significantly reduce high salt intake and processed foods.</span>',
+        description:
+          'Excessive sodium causes water retention and bloating, artificially increasing waist measurements. Processed foods often contain hidden sugars and unhealthy fats that contribute to abdominal weight gain.',
+        icon: 'tabler:salt',
+      },
+      {
+        title: '9. Cook at home: <span class="font-medium">Cook your own meal and reduce fries and fast foods.</span>',
+        description:
+          'Home-cooked meals allow portion control and ingredient selection, reducing hidden calories and unhealthy fats. Fast foods are typically high in trans fats and calories that preferentially accumulate around the waist.',
+        icon: 'tabler:chef-hat',
+      },
+      {
+        title: '10. Eat natural: <span class="font-medium">Increase daily portion of vegetables and fruits.</span>',
+        description:
+          'Fiber-rich vegetables and fruits promote satiety, support healthy digestion, and provide essential nutrients while being naturally low in calories. They help maintain stable blood sugar levels and reduce cravings for processed foods.',
+        icon: 'tabler:apple',
+      },
+      {
+        title: '11. Time your meals: <span class="font-medium">Avoid late and heavy night meals before bed.</span>',
+        description:
+          'Consuming large meals close to bedtime can disrupt digestion, leading to poor nutrient absorption and increased fat storage. Eating earlier in the day allows for better digestion and reduces the risk of abdominal fat accumulation.',
+        icon: 'tabler:clock-hour-10',
+      },
+    ]}
   />
 
   <!-- FAQs Widget ******************* -->
@@ -345,8 +526,52 @@ const metadata = {
   <FAQs
     id="waist-to-height-ratio-calculator-faqs"
     title="Frequently Asked Questions"
-    subtitle="Coming soon"
-    items={[]}
+    items={[
+      {
+        title: 'What is the youngest age to use this waist to height ratio calculator?',
+        description: 'Age 5 years.',
+      },
+      {
+        title: 'What is the oldest age to use this waist to height ratio calculator?',
+        description: '>80 years of age.',
+      },
+      {
+        title: 'What do I do when child’s BMI is high?',
+        description:
+          'Confirm with a waist to height ratio (whtr) to identify if this is due to heavy muscle mass or fat mass.',
+      },
+      {
+        title: 'What do I do when child’s waist to height ratio (whtr) is high?',
+        description:
+          'Contact health nurse and request for referral to paediatric endocrinologist for further guidance.',
+      },
+      {
+        title:
+          'Why is the UK NICE guideline recommending waist-to-height ratios cut point of 0.5 to 0.6 as an indicator of high adiposity in children and adolescents?',
+        description: `These cut points were adopted for ease of memorization and related to cardiometabolic health risks
+among adults. This is not a statistically and scientifically valid approach for deriving cut points. In
+addition, waist to height ratio (whtr)s cut point of 0.6 are very rare among children but is common among
+adults who have significantly higher fat mass than kids. Future update of the UK NICE guideline
+may incorporate new and emerging evidence on this topic.`,
+      },
+      {
+        title: 'Can this waist to height ratio (whtr) cut point be used in Africa, Asia, and South America?',
+        description: `Yes, the new cut point has been validated among major ethnic groups across the globe and it is
+universally accurate across all continents in the world for predicting cardiometabolic health risks.
+This is a significant advantage over BMI which varies significantly with age, sex and ethnic groups.`,
+      },
+      {
+        title: 'Do males and females have the same waist to height ratio (whtr) cut point?',
+        description: `No, among children and adolescents, females naturally have slightly higher fat mass than males.
+The waist to height ratio (whtr) cut point for high fat mass in females is 0.51 and that for males is 0.50.`,
+      },
+      {
+        title: 'When should the waist to height ratio (whtr) calculator be avoided?',
+        description: `In children <5 years old, during pregnancy, if growth disorder or condition that affects height has
+been diagnosed, in the presence of eating disorder, and in the presence of abdominal swelling
+caused by kidney, liver or heart failure.`,
+      },
+    ]}
   />
 
   <!-- Waist to height ratio calculator references Widget ******************* -->
