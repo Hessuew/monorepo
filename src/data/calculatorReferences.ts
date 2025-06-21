@@ -7,6 +7,12 @@ interface Reference {
 
 export const references: Reference[] = [
   {
+    title: 'Journal of the Endocrine Society',
+    subtitle: 'Novel Pediatric Waist-to-height Ratio Fat Mass Cutoff Predicts Liver Steatosis and Fibrosis Better than Body Mass Index',
+    description: 'Agbaje AO. J Endocr Soc. 2025 May 3;9(7):bvaf079.',
+    url: 'https://doi.org/10.1210/jendso/bvaf079',
+  },
+  {
     title: 'Obesity and Endocrinology',
     subtitle:
       'BMI triples overweight prevalence in 7600 children compared with waist-to-height ratio: The ALSPAC Study',
@@ -50,6 +56,18 @@ export const references: Reference[] = [
     subtitle: 'Near-universal prevalence of central adiposity in heart failure with preserved ejection fraction',
     description: 'Peikert A, Vaduganathan M, Claggett BL et al. Eur Heart J. 2025 Jan 28:ehaf057.',
     url: 'https://doi.org/10.1093/eurheartj/ehaf057',
+  },
+  {
+    title: 'Journal of Cachexia, Sarcopenia and Muscle',
+    subtitle: 'Association Between Waist-to-Height Ratio Estimated Fat Mass Categories and Incident Fractures',
+    description: 'Cho Y, Jhee JH, Hong N, et al. J Cachexia Sarcopenia Muscle. 2025 Jun;16(3):e13834.',
+    url: 'https://doi.org/10.1002/jcsm.13834',
+  },
+  {
+    title: 'Archives of Disease in Childhood',
+    subtitle: 'Associations of waist circumference to height ratio and body mass index through childhood and adolescence on blood pressure and risk of young adult hepatic steatosis',
+    description: 'Mandal S, Leary SD, Timpson N, et al. Arch Dis Child. 2025 May 26:archdischild-2024-328140.',
+    url: 'https://doi.org/10.1136/archdischild-2024-328140',
   },
   {
     title: 'European Heart Journal',
