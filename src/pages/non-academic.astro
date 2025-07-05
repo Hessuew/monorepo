@@ -1,7 +1,6 @@
 ---
 import imgFlame from '~/assets/images/non-academic/Flame the Freeze website.webp';
 import imgOrangeSparks from '~/assets/images/non-academic/Orange Sparks.webp';
-import video from '~/assets/videos/Abstract Orange Sparks Bonfire Video.mp4';
 import Image from '~/components/common/Image.astro';
 import GradientText from '~/components/ui/GradientText.astro';
 import AnimatedStats from '~/components/widgets/AnimatedStats.astro';
@@ -13,6 +12,7 @@ import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
 import PressMe from '~/components/widgets/PressMe.astro';
 import Spacer from '~/components/widgets/Spacer.astro';
+import { ENDPOINTS } from '~/config/endpoints';
 import Layout from '~/layouts/PageLayout.astro';
 import { YouTube } from 'astro-embed';
 
@@ -365,7 +365,7 @@ const metadata = {
           <iframe
             aria-label="Flame the Freeze pdf"
             title="Flame the Freeze pdf"
-            src="https://drive.google.com/file/d/1zneuhOi34EhsjQzCKHE3szRxmHhJCOuB/preview"
+            src={`${ENDPOINTS.publicFiles}/flame_the_freeze_ebook.pdf`}
             width="100%"
             height="100%"
             allow="autoplay"
@@ -406,7 +406,7 @@ const metadata = {
         playsinline
         preload="auto"
       >
-        <source src={video} type="video/mp4" />
+        <source src={`${ENDPOINTS.publicFiles}/abstract_orange_sparks_bonfire.mp4`} type="video/mp4" />
       </video>
     </div>
   </div>
