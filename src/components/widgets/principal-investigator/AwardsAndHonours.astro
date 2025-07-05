@@ -7,10 +7,10 @@ import imgPortmourth from '~/assets/images/principalInvestigator/andrew-agbaje-p
 import imgScholarGPSSpecialties from '~/assets/images/principalInvestigator/andrew-agbaje-scholargps-impact-arterial-stiffness.webp';
 import imgFescLondon from '~/assets/images/principalInvestigator/andrew-agbaje-top-reviewer-esc-congress-2024.webp';
 import imgAndrew from '~/assets/images/principalInvestigator/andrew-agbaje-university-of-portsmouth-campus.webp';
-import videoGraduationClip from '~/assets/videos/Graduation Clip Andrew Agbaje Portsmouth.mp4';
 import GradientText from '~/components/ui/GradientText.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Spacer from '~/components/widgets/Spacer.astro';
+import { ENDPOINTS } from '~/config/endpoints';
 import {
   academicAchievements,
   academicAppointments,
@@ -313,15 +313,11 @@ import Features5 from '../Features5.astro';
     </div>
     <video
       class="w-full aspect-video"
-      preload="metadata"
+      preload="none"
       aria-label="Dr. Andrew Agbaje's graduation ceremony at Portsmouth"
       id="graduationVideo"
+      data-src={`${ENDPOINTS.publicFiles}/graduation_clip_andrew_agbaje_portsmouth.mp4`}
     >
-      <source
-        aria-label="Video showing Prof. Andrew Agbaje joyfully shouting ‘To God be the glory!’ as he accepts his degree at the University of Portsmouth graduation ceremony."
-        src={videoGraduationClip}
-        type="video/mp4"
-      />
       Your browser does not support the video tag.
     </video>
   </div>
@@ -371,4 +367,57 @@ import Features5 from '../Features5.astro';
       }
     });
   }
+
+  function setUpVideo() {
+    const videos = document.querySelectorAll('video.aspect-video[data-src]');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const video = entry.target as HTMLVideoElement;
+            const videoSrc = video.dataset.src;
+
+            if (videoSrc && !video.src) {
+              video.src = videoSrc;
+              video.load(); // Ensure the video loads properly
+            }
+
+            observer.unobserve(video);
+          }
+        });
+      },
+      {
+        rootMargin: '50px', // Start loading when video is 50px away from viewport
+        threshold: 0.1, // Trigger when 10% of video is visible
+      }
+    );
+
+    videos.forEach((video) => observer.observe(video));
+  }
+
+  // // Initialize navigation when the DOM is ready and after each page navigation
+  // function initializeVideo() {
+  //   if (document.readyState === 'loading') {
+  //     document.addEventListener('DOMContentLoaded', setUpVideo);
+  //   } else {
+  //     setUpVideo();
+  //   }
+  // }
+
+  // initializeVideo();
+  // document.addEventListener('astro:page-load', initializeVideo);
+  // Delay the initialization by 1 second (1000ms)
+  function initializeVideo() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(setUpVideo, 1000);
+      });
+    } else {
+      setTimeout(setUpVideo, 1000);
+    }
+  }
+
+  initializeVideo();
+  document.addEventListener('astro:page-load', initializeVideo);
 </script>

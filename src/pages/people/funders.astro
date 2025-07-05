@@ -5,6 +5,7 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import Features4 from '~/components/widgets/Features4.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Spacer from '~/components/widgets/Spacer.astro';
+import { ENDPOINTS } from '~/config/endpoints';
 import { items } from '~/data/funders';
 import Layout from '~/layouts/PageLayout.astro';
 import { getPermalink } from '~/utils/permalinks';
@@ -131,7 +132,7 @@ const metadata = {
           <iframe
             aria-label="Your Life in Science Newsletter 2024"
             title="Your Life in Science Newsletter 2024"
-            src="https://drive.google.com/file/d/1vEQLdhStYBlvJpbSdMoEgR03ekw_3nKm/preview"
+            src={`${ENDPOINTS.publicFiles}/your_life_in_science_2024_newsletter_ALSPAC.pdf`}
             width="100%"
             height="100%"
             allow="autoplay"
