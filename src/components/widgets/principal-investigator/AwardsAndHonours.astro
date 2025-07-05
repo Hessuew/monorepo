@@ -396,17 +396,6 @@ import Features5 from '../Features5.astro';
     videos.forEach((video) => observer.observe(video));
   }
 
-  // // Initialize navigation when the DOM is ready and after each page navigation
-  // function initializeVideo() {
-  //   if (document.readyState === 'loading') {
-  //     document.addEventListener('DOMContentLoaded', setUpVideo);
-  //   } else {
-  //     setUpVideo();
-  //   }
-  // }
-
-  // initializeVideo();
-  // document.addEventListener('astro:page-load', initializeVideo);
   // Delay the initialization by 1 second (1000ms)
   function initializeVideo() {
     if (document.readyState === 'loading') {
