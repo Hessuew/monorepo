@@ -128,15 +128,17 @@ const metadata = {
       <div
         class="w-full flex justify-center pb-10 xl:pb-[40px] intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
       >
-        <div class="w-full flex justify-center pb-10 xl:pb-[40px] h-[520px] lg:h-[640px]">
-          <iframe
-            aria-label="Your Life in Science Newsletter 2024"
-            title="Your Life in Science Newsletter 2024"
-            src={`${ENDPOINTS.publicFiles}/your_life_in_science_2024_newsletter_ALSPAC.pdf`}
-            width="100%"
-            height="100%"
-            allow="autoplay"
-            class="max-w-2xl xl:max-w-[672px]"></iframe>
+        <div 
+          class="w-full flex justify-center pb-10 xl:pb-[40px] h-[520px] lg:h-[640px] pdf-container"
+          data-pdf-src={`${ENDPOINTS.publicFiles}/your_life_in_science_2024_newsletter_ALSPAC.pdf`}
+        >
+          <!-- PDF Loading State -->
+          <div class="pdf-preview max-w-2xl xl:max-w-[672px] w-full h-full bg-gray-100 dark:bg-slate-800 rounded-lg shadow-sm flex items-center justify-center">
+            <div class="text-center">
+              <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+              <p class="text-gray-600 dark:text-slate-400">Loading ALSPAC Newsletter...</p>
+            </div>
+          </div>
         </div>
       </div>
     </Fragment>
@@ -169,3 +171,78 @@ const metadata = {
     ]}
   />
 </Layout>
+
+<script>
+  function loadPdf(container: HTMLElement) {
+    const pdfSrc = container.dataset.pdfSrc;
+    if (!pdfSrc) return;
+
+    // Show loading state
+    const preview = container.querySelector('.pdf-preview');
+    if (preview) {
+      preview.innerHTML = `
+        <div class="flex items-center justify-center h-full">
+          <div class="text-center">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p class="text-gray-600 dark:text-slate-400">Loading PDF...</p>
+          </div>
+        </div>
+      `;
+    }
+
+    // Load the PDF iframe
+    setTimeout(() => {
+      container.innerHTML = `
+        <iframe
+          aria-label="Your Life in Science Newsletter 2024"
+          title="Your Life in Science Newsletter 2024"
+          src="${pdfSrc}"
+          width="100%"
+          height="100%"
+          class="max-w-2xl xl:max-w-[672px] w-full h-full rounded-lg shadow-sm"
+          loading="lazy">
+        </iframe>
+      `;
+    }, 500); // Small delay to show loading state
+  }
+
+  function setUpPdfLazyLoading() {
+    const pdfContainers = document.querySelectorAll('.pdf-container[data-pdf-src]');
+
+    // Set up intersection observer for automatic loading when scrolled into view
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const container = entry.target as HTMLElement;
+            // Auto-load when 30% of the container is visible
+            if (entry.intersectionRatio >= 0.3) {
+              loadPdf(container);
+              observer.unobserve(container);
+            }
+          }
+        });
+      },
+      {
+        rootMargin: '50px', // Start observing when PDF is 50px away
+        threshold: [0.1, 0.3, 0.5], // Trigger at 30% visibility
+      }
+    );
+
+    pdfContainers.forEach((container) => observer.observe(container));
+  }
+
+  // Initialize PDF lazy loading
+  function initializePdfLazyLoading() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(setUpPdfLazyLoading, 1000);
+      });
+    } else {
+      setTimeout(setUpPdfLazyLoading, 1000);
+    }
+  }
+
+  initializePdfLazyLoading();
+  document.addEventListener('astro:page-load', initializePdfLazyLoading);
+</script>
