@@ -8,11 +8,7 @@ export const contactInfo = {
   emails: [
     {
       type: 'Primary',
-      address: 'andrew.agbaje@uef.fi',
-    },
-    {
-      type: 'Secondary',
-      address: 'a.agbaje@exeter.ac.uk',
+      address: 'andrew.agbaje@urfit-child.com',
     },
   ],
   phone: '+358 46 896 5633',
@@ -39,12 +35,14 @@ const items = [
     <div
       class="w-full flex justify-center pb-10 xl:pb-[40px] intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
     >
-      <div 
+      <div
         class="w-full flex justify-center pb-10 xl:pb-[40px] h-[520px] lg:h-[640px] pdf-container"
         data-pdf-src={`${ENDPOINTS.publicFiles}/endocrine_news_andrew_agbaje.pdf`}
       >
         <!-- PDF Loading State -->
-        <div class="pdf-preview max-w-2xl xl:max-w-[672px] w-full h-full bg-gray-100 dark:bg-slate-800 rounded-lg shadow-sm flex items-center justify-center">
+        <div
+          class="pdf-preview max-w-2xl xl:max-w-[672px] w-full h-full bg-gray-100 dark:bg-slate-800 rounded-lg shadow-sm flex items-center justify-center"
+        >
           <div class="text-center">
             <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
             <p class="text-gray-600 dark:text-slate-400">Loading Endocrine News PDF...</p>
