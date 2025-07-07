@@ -62,12 +62,7 @@ app.get(
   '/files/:filename',
   // csrfProtection,
   cors({
-    origin: [
-      'https://117eae3e.urfit-child.pages.dev',
-      'https://urfit-child.pages.dev',
-      'https://urfit-child.com',
-      'http://localhost:4321',
-    ],
+    origin: ['https://urfit-child.pages.dev', 'https://urfit-child.com'],
     allowMethods: ['GET', 'OPTIONS'],
     allowHeaders: ['Content-Type', 'Range'],
   }),
