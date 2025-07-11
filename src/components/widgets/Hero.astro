@@ -101,7 +101,7 @@ const { titleClass = '' } = classes;
                     {image.link ? (
                       <a href={image.link.href} target={image.link.target} rel={image.link.rel}>
                         <Image
-                          class={twMerge('mx-auto rounded-md w-full', image?.class ?? '')}
+                          class={twMerge('mx-auto rounded-md', image?.class ?? '')}
                           widths={[400, 768, 1024, 2040]}
                           sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
                           loading="eager"
@@ -113,9 +113,9 @@ const { titleClass = '' } = classes;
                       </a>
                     ) : (
                       <Image
-                        class={twMerge('mx-auto rounded-md w-full', image?.class ?? '')}
-                        widths={[400, 768, 1024, 2040]}
-                        sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                        class={twMerge('mx-auto rounded-md', image?.class ?? '')}
+                        widths={[320, 400, 768, 1024, 2040]}
+                        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
                         loading="eager"
                         decoding="async"
                         objectPosition={image?.objectPosition || 'top top'}
