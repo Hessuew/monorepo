@@ -165,13 +165,16 @@ const metadata = {
   <Hero
     id="calculator"
     tagline="Calculate"
-    title="Waist to height ratio calculator"
     classes={{
-      titleClass: 'lg:text-[44px] lg:leading-[52px] xl:text-[44px] xl:leading-[52px]',
       labelContainerClass: 'lg:py-0 md:py-0 xl:py-0',
     }}
   >
     <Fragment slot="image">
+      <h2
+        class="text-center lg:text-[44px] lg:leading-[52px] xl:text-[44px] xl:leading-[52px] font-bold leading-tighter tracking-tighter mb-4 xl:mb-[16px] font-heading dark:text-gray-200 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        Waist to height ratio calculator
+      </h2>
       <Calculator />
       <span class="text-base xl:text-[16px] xl:leading-[24px] block mt-8 xl:mt-[32px] text-center dark:text-slate-400"
         >1 inch = 2.54 cm</span
