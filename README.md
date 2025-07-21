@@ -1,28 +1,37 @@
-# 🔬 urFIT Research Group Website
+# 🔬 urFIT Research Group - Child Health & Fitness Research Website
 
-A comprehensive website for the urFIT research group, built with modern web technologies to provide a single source of truth for all research group content.
+> **Leading pediatric health research transforming children's wellness through evidence-based fitness solutions and interactive health tools.**
 
-## 🎯 Project Overview
+🌐 **Live Website**: [https://urfit-child.com](https://urfit-child.com)
 
-This website serves as the central hub for our research group, showcasing Jesus. The work bridges the gap between academic research and real-world impact. Our mission combines scientific research with practical applications:
+A comprehensive research platform for the urFIT research group, specializing in child health, pediatric fitness, and evidence-based wellness interventions. Built with modern web technologies (Astro, React, TypeScript) to provide researchers, healthcare professionals, and families with cutting-edge health research and practical tools.
 
-- Transform academic findings into everyday health solutions
-- Make health research accessible and actionable for everyone
-- Provide resources for both academic and non-academic audiences
-- Inspire positive health changes through practical tools and success stories
+## 🎯 About urFIT Child Health Research
 
-The website includes:
+**Keywords:** _child health research, pediatric fitness, evidence-based wellness, health interventions, research group_
 
-- 👥 Team and collaborator profiles
-- 💰 Funding of the research group
-- 🧮 Interactive calculators and tools
-- 📚 Research publications and materials
-- 📊 Infographics and visual content
-- 🎥 Videos and podcasts
-- 📰 Press releases and news
-- 📜 Academic theses
-- 📧 Newsletter subscription
-- 💡 Practical health tips and guides
+The urFIT research group is a leading authority in pediatric health and fitness research, bridging the critical gap between academic research and real-world health applications. Our mission centers on transforming scientific discoveries into actionable health solutions for children and families worldwide.
+
+### 🔬 Research Focus Areas
+
+- **Pediatric Health Assessment** - Advanced tools for child health evaluation
+- **Evidence-Based Fitness Interventions** - Research-backed exercise programs for children
+- **Health Technology Innovation** - Interactive calculators and assessment tools
+- **Community Health Impact** - Translating research into practical family solutions
+- **Academic-Clinical Bridge** - Connecting research findings with healthcare practice
+
+### 🌟 Key Features & Resources
+
+- 👥 **[Expert Research Team](https://urfit-child.com/people/team)** - Profiles of leading pediatric health researchers
+- 💰 **[Research Funding & Partnerships](https://urfit-child.com/people/funders)** - Transparent funding sources and collaborations
+- 🧮 **[Interactive Health Tools](https://urfit-child.com/waist-height-calculator)** - Evidence-based calculators and assessment instruments
+- 📚 **[Peer-Reviewed Publications](https://urfit-child.com/materials/publications)** - Latest research findings and academic papers
+- 📊 **[Data Visualizations](https://urfit-child.com/materials/infografics)** - Infographics making health research accessible
+- 🎥 **[Educational Media](https://urfit-child.com/materials/videos-and-podcasts)** - Videos, podcasts, and multimedia health content
+- 📰 **[Research News](https://urfit-child.com/materials/press-releases)** - Press releases and latest research developments
+- 📜 **[Academic Resources](https://urfit-child.com/materials/thesis)** - Theses, dissertations, and scholarly work
+- 📧 **Research Updates** - Newsletter for latest findings and tools
+- 💡 **[Practical Health Guides](https://urfit-child.com/non-academic)** - Evidence-based tips for families and practitioners
 
 ## 📑 Pages
 
