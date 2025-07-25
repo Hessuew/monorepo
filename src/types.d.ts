@@ -262,6 +262,7 @@ export interface Hero extends Headline, Widget {
         };
       };
   imageText?: string;
+  imageLoading?: 'eager' | 'lazy';
 }
 
 export interface Team extends Omit<Headline, 'classes'>, Widget {
