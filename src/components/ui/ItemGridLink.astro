@@ -35,6 +35,7 @@ const { items, columns = 3, classes = {}, isProfile = false } = Astro.props;
     }`,
     classes.container
   )}
+  role="list"
 >
   {
     items.map((item, index) => {
@@ -49,7 +50,6 @@ const { items, columns = 3, classes = {}, isProfile = false } = Astro.props;
             classes.item
           )}
           aria-label={`Visit ${item.title} website`}
-          role="listitem"
         >
           <div
             class={twMerge(
@@ -114,7 +114,7 @@ const { items, columns = 3, classes = {}, isProfile = false } = Astro.props;
                   {item.subtitle && (
                     <p
                       class={twMerge(
-                        'mt-2 xl:mt-[8px] text-sm xl:text-[14px] xl:leading-[20px] text-gray-600 dark:text-gray-400',
+                        'mt-2 xl:mt-[8px] text-sm xl:text-[14px] xl:leading-[20px] text-accent dark:text-primary',
                         classes.subtitle
                       )}
                     >
@@ -133,7 +133,7 @@ const { items, columns = 3, classes = {}, isProfile = false } = Astro.props;
                 </div>
                 {item.url && (
                   <span
-                    class="w-full justify-center text-sm xl:text-[14px] xl:leading-[20px] text-primary mt-auto pt-2 xl:pt-[8px] inline-flex items-center gap-1 xl:gap-[4px] transition-all duration-300 group-hover:gap-2"
+                    class="w-full justify-center text-sm xl:text-[14px] xl:leading-[20px] text-accent dark:text-primary mt-auto pt-2 xl:pt-[8px] inline-flex items-center gap-1 xl:gap-[4px] transition-all duration-300 group-hover:gap-2"
                     aria-hidden="true"
                   >
                     {item.urlText || 'Visit website'}
