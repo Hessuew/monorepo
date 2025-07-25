@@ -17,6 +17,7 @@ const {
   items = [],
   columns,
   image = await Astro.slots.render('image'),
+  imageAriaHidden = true,
   imageText = await Astro.slots.render('imageText'),
   isReversed = false,
   isAfterContent = false,
@@ -91,7 +92,7 @@ const {
         />
       </section>
       <div
-        aria-hidden="true"
+        aria-hidden={imageAriaHidden}
         class="mt-10 md:mt-0 md:basis-1/2 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
       >
         {
