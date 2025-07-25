@@ -13,6 +13,7 @@ const {
   actions = await Astro.slots.render('actions'),
   image = await Astro.slots.render('image'),
   imageText = await Astro.slots.render('imageText'),
+  imageLoading = 'eager',
 
   classes = {},
   id,
@@ -104,7 +105,7 @@ const { titleClass = '' } = classes;
                           class={twMerge('mx-auto rounded-md', image?.class ?? '')}
                           widths={[400, 768, 1024, 2040]}
                           sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                          loading="eager"
+                          loading={imageLoading}
                           width={1024}
                           height={image.isInfographics ? 737 : 576}
                           objectPosition={image?.objectPosition || 'top top'}
@@ -116,7 +117,7 @@ const { titleClass = '' } = classes;
                         class={twMerge('mx-auto rounded-md', image?.class ?? '')}
                         widths={[320, 400, 768, 1024, 2040]}
                         sizes="(max-width: 767px) 100vw, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                        loading="eager"
+                        loading={imageLoading}
                         decoding="async"
                         objectPosition={image?.objectPosition || 'top top'}
                         width={image?.width || (image.isInfographics ? 1080 : 1024)}

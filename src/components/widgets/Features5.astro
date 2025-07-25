@@ -70,7 +70,7 @@ const {
           image && (
             <figure class="relative mx-auto max-w-4xl xl:max-w-[896px]">
               {typeof image === 'string' ? (
-                <div class="image-container" aria-label={imageText || 'Content image'}>
+                <div class="image-container" role="img" aria-label={imageText || 'Content image'}>
                   <Fragment set:html={image} />
                 </div>
               ) : (
@@ -100,7 +100,7 @@ const {
           image2 && (
             <figure class="relative mx-auto max-w-4xl xl:max-w-[896px]">
               {typeof image2 === 'string' ? (
-                <div class="image-container" aria-label={imageText || 'Content image'}>
+                <div class="image-container" role="img" aria-label={imageText || 'Content image'}>
                   <Fragment set:html={image2} />
                 </div>
               ) : (

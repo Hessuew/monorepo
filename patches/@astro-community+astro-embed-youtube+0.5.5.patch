@@ -1,0 +1,83 @@
+diff --git a/node_modules/@astro-community/astro-embed-youtube/YouTube.astro b/node_modules/@astro-community/astro-embed-youtube/YouTube.astro
+index 0d4c0f5..58d2f69 100644
+--- a/node_modules/@astro-community/astro-embed-youtube/YouTube.astro
++++ b/node_modules/@astro-community/astro-embed-youtube/YouTube.astro
+@@ -45,7 +45,7 @@ const href = `https://youtube.com/watch?v=${videoid}`;
+ 	{...attrs}
+ 	style={`background-image: url('${posterURL}');`}
+ >
+-	<a {href} class="lty-playbtn">
++	<a {href} class="lty-playbtn" aria-label={attrs.playlabel || "Play video"}>
+ 		<span class="lyt-visually-hidden">{attrs.playlabel}</span>
+ 	</a>
+ </lite-youtube>
+diff --git a/node_modules/@astro-community/astro-embed-youtube/YouTube.astro.backup b/node_modules/@astro-community/astro-embed-youtube/YouTube.astro.backup
+new file mode 100644
+index 0000000..0d4c0f5
+--- /dev/null
++++ b/node_modules/@astro-community/astro-embed-youtube/YouTube.astro.backup
+@@ -0,0 +1,64 @@
++---
++import 'lite-youtube-embed/src/lite-yt-embed.css';
++import urlMatcher from './matcher';
++
++export interface Props extends astroHTML.JSX.HTMLAttributes {
++	id: string;
++	poster?: string;
++	posterQuality?: 'max' | 'high' | 'default' | 'low';
++	params?: string;
++	playlabel?: string;
++}
++
++const {
++	id,
++	poster,
++	posterQuality = 'default',
++	title,
++	...attrs
++} = Astro.props as Props;
++
++const idRegExp = /^[A-Za-z0-9-_]+$/;
++
++function extractID(idOrUrl: string) {
++	if (idRegExp.test(idOrUrl)) return idOrUrl;
++	return urlMatcher(idOrUrl);
++}
++
++const videoid = extractID(id);
++const posterFile =
++	{
++		max: 'maxresdefault',
++		high: 'sddefault',
++		default: 'hqdefault',
++		low: 'default',
++	}[posterQuality] || 'hqdefault';
++const posterURL =
++	poster || `https://i.ytimg.com/vi/${videoid}/${posterFile}.jpg`;
++const href = `https://youtube.com/watch?v=${videoid}`;
++---
++
++<lite-youtube
++	{videoid}
++	{title}
++	data-title={title}
++	{...attrs}
++	style={`background-image: url('${posterURL}');`}
++>
++	<a {href} class="lty-playbtn">
++		<span class="lyt-visually-hidden">{attrs.playlabel}</span>
++	</a>
++</lite-youtube>
++
++<script src="lite-youtube-embed"></script>
++
++<style is:global>
++	lite-youtube > iframe {
++		all: unset !important;
++		width: 100% !important;
++		height: 100% !important;
++		position: absolute !important;
++		inset: 0 !important;
++		border: 0 !important;
++	}
++</style>

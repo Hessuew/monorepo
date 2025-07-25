@@ -40,123 +40,125 @@ const { items, columns = 3, classes = {}, isProfile = false } = Astro.props;
   {
     items.map((item, index) => {
       return (
-        <a
-          href={item.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class={twMerge(
-            'block no-underline hover:no-underline group translate-y-6 md:translate-y-12 xl:translate-y-[48px] duration-0 ease-out intersect-once intersect-tenth intercept-no-queue motion-safe:intersect:animate-fade',
-            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg focus-visible:duration-0 focus-visible:transition-none focus:duration-0 focus:transition-none ring-0 ring-transparent transition-none',
-            classes.item
-          )}
-          aria-label={`Visit ${item.title} website`}
-        >
-          <div
+        <div role="listitem">
+          <a
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
             class={twMerge(
-              'bg-white dark:bg-transparent rounded-lg shadow-lg dark:shadow-none p-6 xl:p-[24px] h-full transition-all duration-300 hover:bg-gray-100/0 dark:hover:bg-white/0 group-hover:shadow-xl dark:group-hover:shadow-none focus-within:duration-0 focus-within:transition-none'
+              'block no-underline hover:no-underline group translate-y-6 md:translate-y-12 xl:translate-y-[48px] duration-0 ease-out intersect-once intersect-tenth intercept-no-queue motion-safe:intersect:animate-fade',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg focus-visible:duration-0 focus-visible:transition-none focus:duration-0 focus:transition-none ring-0 ring-transparent transition-none',
+              classes.item
             )}
+            aria-label={`Visit ${item.title} website`}
           >
-            <div class={twMerge('flex flex-col items-center h-full', classes.itemContainer)}>
-              {isProfile ? (
-                <div
-                  class={twMerge(
-                    'mb-4 xl:mb-[16px] relative rounded-full overflow-hidden',
-                    'w-32 xl:w-[128px] h-32 xl:h-[128px] border-2 border-gray-200 dark:border-gray-700',
-                    'transition-transform duration-300 ease-out group-hover:scale-105',
-                    classes.image
-                  )}
-                >
-                  {item.image ? (
-                    <Image
-                      src={item.image.src}
-                      alt={item.image.alt}
-                      class="w-full h-full object-cover object-center"
-                      width={item.image.width ?? 256}
-                      height={item.image.height ?? 256}
-                      loading={index < 6 ? 'eager' : 'lazy'}
-                      decoding={index < 6 ? 'sync' : 'async'}
-                    />
-                  ) : (
-                    <div class="w-full h-full bg-gray-100 dark:bg-transparent" />
-                  )}
-                </div>
-              ) : (
-                item.image && (
+            <div
+              class={twMerge(
+                'bg-white dark:bg-transparent rounded-lg shadow-lg dark:shadow-none p-6 xl:p-[24px] h-full transition-all duration-300 hover:bg-gray-100/0 dark:hover:bg-white/0 group-hover:shadow-xl dark:group-hover:shadow-none focus-within:duration-0 focus-within:transition-none'
+              )}
+            >
+              <div class={twMerge('flex flex-col items-center h-full', classes.itemContainer)}>
+                {isProfile ? (
                   <div
                     class={twMerge(
-                      'mb-4 flex items-center justify-center bg-white dark:bg-white rounded-lg p-4 xl:p-[16px]',
-                      'w-full aspect-[3/2] max-w-[240px]',
+                      'mb-4 xl:mb-[16px] relative rounded-full overflow-hidden',
+                      'w-32 xl:w-[128px] h-32 xl:h-[128px] border-2 border-gray-200 dark:border-gray-700',
                       'transition-transform duration-300 ease-out group-hover:scale-105',
                       classes.image
                     )}
                   >
-                    <Image
-                      src={item.image.src}
-                      alt={item.title}
-                      width={item.image.width}
-                      height={item.image.height}
-                      class="h-full w-full object-contain"
-                      loading="lazy"
-                    />
-                  </div>
-                )
-              )}
-              <div class={twMerge('text-center flex flex-col flex-1', classes.text)}>
-                <div>
-                  <h3
-                    class={twMerge(
-                      'text-xl xl:text-[20px] xl:leading-[28px] font-semibold text-gray-800 dark:text-gray-100',
-                      classes.title
+                    {item.image ? (
+                      <Image
+                        src={item.image.src}
+                        alt={item.image.alt}
+                        class="w-full h-full object-cover object-center"
+                        width={item.image.width ?? 256}
+                        height={item.image.height ?? 256}
+                        loading={index < 6 ? 'eager' : 'lazy'}
+                        decoding={index < 6 ? 'sync' : 'async'}
+                      />
+                    ) : (
+                      <div class="w-full h-full bg-gray-100 dark:bg-transparent" />
                     )}
-                  >
-                    {item.title}
-                  </h3>
-                  {item.subtitle && (
-                    <p
+                  </div>
+                ) : (
+                  item.image && (
+                    <div
                       class={twMerge(
-                        'mt-2 xl:mt-[8px] text-sm xl:text-[14px] xl:leading-[20px] text-accent dark:text-primary',
-                        classes.subtitle
+                        'mb-4 flex items-center justify-center bg-white dark:bg-white rounded-lg p-4 xl:p-[16px]',
+                        'w-full aspect-[3/2] max-w-[240px]',
+                        'transition-transform duration-300 ease-out group-hover:scale-105',
+                        classes.image
                       )}
                     >
-                      {item.subtitle}
-                    </p>
-                  )}
-                  {item.description && (
-                    <p
+                      <Image
+                        src={item.image.src}
+                        alt={item.title}
+                        width={item.image.width}
+                        height={item.image.height}
+                        class="h-full w-full object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                  )
+                )}
+                <div class={twMerge('text-center flex flex-col flex-1', classes.text)}>
+                  <div>
+                    <h3
                       class={twMerge(
-                        'mt-2 xl:mt-[8px] text-sm xl:text-[14px] xl:leading-[20px] text-gray-500 dark:text-gray-400',
-                        classes.description
+                        'text-xl xl:text-[20px] xl:leading-[28px] font-semibold text-gray-800 dark:text-gray-100',
+                        classes.title
                       )}
-                      set:html={item.description}
-                    />
+                    >
+                      {item.title}
+                    </h3>
+                    {item.subtitle && (
+                      <p
+                        class={twMerge(
+                          'mt-2 xl:mt-[8px] text-sm xl:text-[14px] xl:leading-[20px] text-accent dark:text-primary',
+                          classes.subtitle
+                        )}
+                      >
+                        {item.subtitle}
+                      </p>
+                    )}
+                    {item.description && (
+                      <p
+                        class={twMerge(
+                          'mt-2 xl:mt-[8px] text-sm xl:text-[14px] xl:leading-[20px] text-gray-500 dark:text-gray-400',
+                          classes.description
+                        )}
+                        set:html={item.description}
+                      />
+                    )}
+                  </div>
+                  {item.url && (
+                    <span
+                      class="w-full justify-center text-sm xl:text-[14px] xl:leading-[20px] text-accent dark:text-primary mt-auto pt-2 xl:pt-[8px] inline-flex items-center gap-1 xl:gap-[4px] transition-all duration-300 group-hover:gap-2"
+                      aria-hidden="true"
+                    >
+                      {item.urlText || 'Visit website'}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-4 w-4 xl:h-[16px] xl:w-[16px] transition-transform duration-300 transform group-hover:translate-x-1"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                        role="presentation"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
                   )}
                 </div>
-                {item.url && (
-                  <span
-                    class="w-full justify-center text-sm xl:text-[14px] xl:leading-[20px] text-accent dark:text-primary mt-auto pt-2 xl:pt-[8px] inline-flex items-center gap-1 xl:gap-[4px] transition-all duration-300 group-hover:gap-2"
-                    aria-hidden="true"
-                  >
-                    {item.urlText || 'Visit website'}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4 xl:h-[16px] xl:w-[16px] transition-transform duration-300 transform group-hover:translate-x-1"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                      role="presentation"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                )}
               </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
       );
     })
   }
