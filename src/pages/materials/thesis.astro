@@ -1,4 +1,5 @@
 ---
+import imgBasil from '~/assets/images/team/Basil Apaokwueze.webp';
 import imgAndrew from '~/assets/images/thesis/Andrew Agbaje RT.webp';
 import imgKate from '~/assets/images/thesis/Kate Sansum Exeter.webp';
 import CallToAction from '~/components/widgets/CallToAction.astro';
@@ -74,7 +75,9 @@ const metadata = {
     <Fragment slot="content">
       <div class="space-y-8">
         <div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
-          <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-2xl mb-2">Doctoral Thesis</h3>
+          <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-2xl mb-2">
+            Doctoral Thesis - Andrew Agbaje
+          </h3>
           <p class="text-gray-700 dark:text-gray-300 mb-4">
             The Effect of Cardiometabolic Factors, Body Composition, Cardiorespiratory Fitness, Sedentary Time, and
             Physical Activity on Arterial and Cardiac Structure and Function in Children and Adolescents and Young
@@ -125,7 +128,9 @@ const metadata = {
     <Fragment slot="content">
       <div class="space-y-8">
         <div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
-          <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-2xl mb-2">Master's Thesis</h3>
+          <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-2xl mb-2">
+            Master's Thesis - Sansum M. Kate
+          </h3>
           <p class="text-gray-700 dark:text-gray-300 mb-4">
             Associations between physical activity and sedentary time with endothelial function, arterial stiffness,
             arterial elasticity, and clustered cardiometabolic risk in children: The ALSPAC Study
@@ -141,6 +146,58 @@ const metadata = {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Download PhD thesis (PDF)"
+            role="document"
+          >
+            Access Thesis <i class="ml-2 fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget ****************** -->
+
+  <Content
+    id="thesis-3"
+    isReversed={false}
+    image={{
+      src: imgBasil,
+      alt: 'Basil Apaokwueze',
+    }}
+    items={[
+      {
+        title: "Master's Thesis",
+        description: `Investigating the cross-sectional relationships between sedentary behavior and physical activity patterns with liver enzyme levels in adolescent populations`,
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'Key Findings',
+        description: `Utilizing the ALSPAC UK cohort to examine how lifestyle factors influence hepatic health markers in young people`,
+        icon: 'tabler:bulb',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <div class="space-y-8">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+          <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-2xl mb-2">
+            Master's Thesis - Basil Apaokwueze
+          </h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            Cross-Sectional Associations between Sedentary Time and Physical Activity with Liver Enzymes in Adolescents:
+            The ALSPAC UK Cohort.
+          </p>
+          <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-4">
+            <span class="mr-2"><i class="fas fa-university"></i> University of Eastern Finland</span>
+            <span class="mx-2">•</span>
+            <span>Published: May 22, 2025</span>
+          </div>
+          <a
+            href="https://erepo.uef.fi/items/ddc6fb77-e748-48f8-9b68-a48fa9aec7a3"
+            class="inline-flex items-center text-blue-600 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download Master's thesis (PDF)"
             role="document"
           >
             Access Thesis <i class="ml-2 fas fa-external-link-alt"></i>
