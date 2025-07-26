@@ -33,16 +33,6 @@ interface Collaborator {
 
 export const collaborators: Collaborator[] = [
   {
-    name: 'Prof. Kai Kaarniranta',
-    title: 'MD, PhD, Professor of Ophthalmology',
-    affiliation: 'University of Eastern Finland and Chief physician, Department of Ophthalmology, Kuopio University Hospital, Finland',
-    profileUrl: 'https://www.uef.fi/en/article/passion-for-better-vision-an-interview-with-kai-kaarniranta',
-    image: {
-      src: imgKaarniranta,
-      alt: 'Prof. Kai Kaarniranta',
-    },
-  },
-  {
     name: 'Prof. Justin Zachariah',
     title: 'MD, MPH, Associate Professor in Pediatric Cardiology',
     affiliation: "Department of Pediatrics, Texas Children's Hospital, Baylor College of Medicine, Houston, Texas, US",
@@ -101,6 +91,17 @@ export const collaborators: Collaborator[] = [
     image: {
       src: imgBarker,
       alt: 'Professor Alan Barker',
+    },
+  },
+  {
+    name: 'Prof. Kai Kaarniranta',
+    title: 'MD, PhD, Professor of Ophthalmology',
+    affiliation:
+      'University of Eastern Finland and Chief physician, Department of Ophthalmology, Kuopio University Hospital, Finland',
+    profileUrl: 'https://www.uef.fi/en/article/passion-for-better-vision-an-interview-with-kai-kaarniranta',
+    image: {
+      src: imgKaarniranta,
+      alt: 'Prof. Kai Kaarniranta',
     },
   },
   {
