@@ -222,6 +222,7 @@ const metadata = {
   <!-- Content Widget **************** -->
 
   <Hero
+    classes={{ labelContainer: 'lg:max-w-[840px] mx-auto' }}
     imageText={`Learn how to use our
           <a href="/waist-height-calculator" class="text-blue-600 hover:underline font-semibold">
             waist to height ratio calculator
@@ -256,12 +257,6 @@ const metadata = {
         poster={imgNovoNordisk.src}
         title="Professor Andrew Agbaje receiving the Flemming Quaade Award for innovation in childhood obesity research"
       />
-      <style is:inline>
-        lite-youtube {
-          margin: 0 auto;
-          max-width: 100%;
-        }
-      </style>
     </Fragment>
   </Hero>
 
@@ -339,3 +334,10 @@ const metadata = {
 
   <Spacer size="sm" />
 </Layout>
+
+<style is:inline>
+  lite-youtube {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+</style>
