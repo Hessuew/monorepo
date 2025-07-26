@@ -3,6 +3,7 @@ import imgVlachopoulos from '~/assets/images/collaborators/Dr. Dimitris Vlachopo
 import imgSaner from '~/assets/images/collaborators/Dr. med. Christoph Saner.webp';
 import imgSartorio from '~/assets/images/collaborators/Dr. Sartorio.webp';
 import imgZachariah from '~/assets/images/collaborators/Justin Zachariah MD.webp';
+import imgKaarniranta from '~/assets/images/collaborators/Kaarniranta_Kai.webp';
 import imgLewandowski from '~/assets/images/collaborators/Prof Adam Lewandowski.webp';
 import imgSummerbell from '~/assets/images/collaborators/Prof Carolyn Summerbell.webp';
 import imgOjji from '~/assets/images/collaborators/Prof Dike Bevis Ojji.webp';
@@ -31,6 +32,16 @@ interface Collaborator {
 }
 
 export const collaborators: Collaborator[] = [
+  {
+    name: 'Prof. Kai Kaarniranta',
+    title: 'MD, PhD, Professor of Ophthalmology',
+    affiliation: 'University of Eastern Finland and Chief physician, Department of Ophthalmology, Kuopio University Hospital, Finland',
+    profileUrl: 'https://www.uef.fi/en/article/passion-for-better-vision-an-interview-with-kai-kaarniranta',
+    image: {
+      src: imgKaarniranta,
+      alt: 'Prof. Kai Kaarniranta',
+    },
+  },
   {
     name: 'Prof. Justin Zachariah',
     title: 'MD, MPH, Associate Professor in Pediatric Cardiology',
