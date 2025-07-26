@@ -1,10 +1,16 @@
 ---
+import imgNNF2024 from '~/assets/images/call-to-action/andrew_agbaje_NNF_Award_2024.webp';
+import imgNNF2025 from '~/assets/images/call-to-action/andrew_agbaje_NNF_Award_2025.webp';
+import imgTedxVaasa from '~/assets/images/index/tedx-vaasa-prof-andrew-agbaje-urfit-child-presentation.webp';
+import imgNovoNordisk from '~/assets/images/index/urfit-child_novo_nordisk_foundation.webp';
 import imgResearchVisualization from '~/assets/images/index/urfit-child-prevention-stages-visualization.webp';
+import CustomVimeo from '~/components/common/CustomVimeo.astro';
 import CallToActionWidget from '~/components/widgets/CallToAction.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import { getPermalink } from '~/utils/permalinks';
+import { YouTube } from 'astro-embed';
 
 const metadata = {
   title: 'Research-Based Health Guidelines for Children | Call to Action',
@@ -97,6 +103,116 @@ const metadata = {
       alt: 'urFIT-child research visualization',
     }}
   />
+
+  <!-- TEDx Vaasa 2025 Section *********** -->
+
+  <section class="py-16 md:py-20 xl:py-[80px] bg-gray-50 dark:bg-slate-800">
+    <div class="max-w-3xl xl:max-w-[768px] mx-auto px-4 sm:px-6 xl:px-[24px]">
+      <div class="text-center mb-12">
+        <h2
+          class="text-3xl md:text-4xl xl:text-[36px] xl:leading-[40px] font-bold text-gray-900 dark:text-white mb-4 xl:mb-[16px]"
+        >
+          TEDx Vaasa 2025
+        </h2>
+        <p class="text-xl xl:text-[20px] xl:leading-[28px] text-gray-600 dark:text-gray-300 mx-auto">
+          Prof. Andrew Agbaje presents groundbreaking research on childhood health and obesity prevention at TEDx Vaasa
+          2025.
+        </p>
+      </div>
+      <div class="max-w-4xl mx-auto">
+        <div class="w-full">
+          <YouTube
+            id="Zr-EHkDEAmo"
+            class="rounded-lg shadow-lg w-full"
+            poster={imgTedxVaasa.src}
+            title="TEDx Vaasa 2025 - Prof. Andrew Agbaje"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASN-NNF Award 2025 Section *********** -->
+
+  <section class="py-16 md:py-20 xl:py-[80px]">
+    <div class="max-w-3xl xl:max-w-[768px] mx-auto px-4 sm:px-6 xl:px-[24px]">
+      <div class="text-center mb-12 xl:mb-[48px]">
+        <h2
+          class="text-3xl md:text-4xl xl:text-[36px] xl:leading-[40px] font-bold text-gray-900 dark:text-white mb-4 xl:mb-[16px]"
+        >
+          ASN-NNF Award 2025
+        </h2>
+        <p class="text-xl xl:text-[20px] xl:leading-[28px] text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          Prof. Andrew Agbaje receives the prestigious American Society of Nutrition Foundation-Novo Nordisk Foundation
+          2025 Flemming Quaade Award for Innovative Approaches to Childhood Obesity.
+        </p>
+      </div>
+      <div class="max-w-4xl mx-auto">
+        <div class="w-full">
+          <YouTube
+            id="EQDC2E6R4xM"
+            class="rounded-lg shadow-lg w-full"
+            poster={imgNovoNordisk.src}
+            title="ASN-NNF Award 2025 - Prof. Andrew Agbaje"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EASO-NNF Award 2024 Section *********** -->
+
+  <section class="py-16 md:py-20 xl:py-[80px] bg-gray-50 dark:bg-slate-800">
+    <div class="max-w-3xl xl:max-w-[768px] mx-auto px-4 sm:px-6 xl:px-[24px]">
+      <div class="text-center mb-12">
+        <h2
+          class="text-3xl md:text-4xl xl:text-[36px] xl:leading-[40px] font-bold text-gray-900 dark:text-white mb-4 xl:mb-[16px]"
+        >
+          EASO-NNF Award 2024
+        </h2>
+        <p class="text-xl xl:text-[20px] xl:leading-[28px] text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          Prof. Andrew Agbaje discusses winning the European Association for the Study of Obesity-Novo Nordisk
+          Foundation Award for Child Obesity research.
+        </p>
+      </div>
+      <div class="max-w-4xl mx-auto space-y-8 xl:space-y-[32px]">
+        <!-- First Vimeo Video -->
+        <div class="w-full">
+          <CustomVimeo id="944938770/8269ce30e4" class="rounded-lg shadow-lg w-full" poster={imgNNF2024} />
+        </div>
+
+        <!-- Second Vimeo Video -->
+        <div class="w-full">
+          <CustomVimeo id="1080620838/33801202a5" class="rounded-lg shadow-lg w-full" poster={imgNNF2025} />
+        </div>
+
+        <!-- EASO Website Link -->
+        <div class="text-center mt-6 xl:mt-[24px]">
+          <a
+            href="https://easo.org/watch-andrew-agbaje-discuss-winning-the-easo-nn-foundation-award-for-child-obesity/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-6 py-3 xl:px-[24px] xl:py-[12px] bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200"
+          >
+            <svg
+              class="w-5 h-5 mr-2 xl:w-[20px] xl:h-[20px] xl:mr-[8px]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+            Watch on EASO Website
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- CallToAction Widget *********** -->
 
