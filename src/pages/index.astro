@@ -50,15 +50,7 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <Stars>
-    <Hero
-      tagline="Welcome to"
-      image={{
-        src: imgTedxVaasa,
-        alt: 'urFIT-child principal investigator Prof. Andrew Agbaje presenting at TEDx Vaasa',
-      }}
-      imageText="urFIT-child principal investigator Prof. Andrew Agbaje presenting at TEDx Vaasa"
-      classes={{ labelContainer: 'lg:max-w-[840px] mx-auto' }}
-    >
+    <Hero tagline="Welcome to" classes={{ labelContainer: 'lg:max-w-[840px] mx-auto' }}>
       <Fragment slot="title">
         <p class="text-center pb-[2px]">urFIT-child</p>
         <div
@@ -99,6 +91,15 @@ const metadata = {
           ><GradientText class="font-bold">improving</GradientText></span
         >
         children, adolescents, and young adults' health.
+      </Fragment>
+      <Fragment slot="image">
+        <div class="relative">
+          <YouTube id="Zr-EHkDEAmo" class="rounded-lg" title="urFIT-child TEDxVaasa" poster={imgTedxVaasa.src} />
+          <p
+            class="text-center text-sm xl:text-[14px] xl:leading-[20px] text-muted dark:text-slate-400"
+            set:html="urFIT-child principal investigator Prof. Andrew Agbaje presenting at TEDx Vaasa"
+          />
+        </div>
       </Fragment>
     </Hero>
   </Stars>
