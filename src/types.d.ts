@@ -327,8 +327,15 @@ export interface GraphGrid extends Omit<Headline, 'classes'>, Widget {
   isAfterContent?: boolean;
 }
 
-export interface TableOfContents extends Omit<Headline, 'classes'>, Widget {
+export interface TocItem {
+  id: string;
+  title: string;
+  level: number;
+}
+
+export interface TableOfContents extends Widget {
   animated?: boolean;
+  tocItems: TocItem[];
 }
 
 export interface Faqs extends Omit<Headline, 'classes'>, Widget {

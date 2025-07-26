@@ -2,56 +2,15 @@
 import type { TableOfContents as Props } from '~/types';
 import WidgetWrapper from '../ui/WidgetWrapper.astro';
 
-const { id, animated = true, isDark = false, classes = {}, bg = await Astro.slots.render('bg'), ...rest } = Astro.props;
-
-// Define the table of contents items
-const tocItems = [
-  {
-    id: 'waist-to-height-how-to',
-    title: 'How to measure waist to height ratio?',
-    level: 2,
-  },
-  {
-    id: 'waist-to-height-ratio-calculator-video-tutorial',
-    title: 'Video tutorial',
-    level: 2,
-  },
-  {
-    id: 'calculator',
-    title: 'Waist to height ratio calculator',
-    level: 2,
-  },
-  {
-    id: 'waist-to-height-ratio-calculator-result-interpretation',
-    title: 'Result interpretation',
-    level: 2,
-  },
-  {
-    id: 'waist-to-height-ratio-calculator-benefits',
-    title: 'Benefits over BMI',
-    level: 2,
-  },
-  {
-    id: 'waist-to-height-ratio-calculator-health-implications',
-    title: 'Health implications',
-    level: 2,
-  },
-  {
-    id: 'waist-to-height-ratio-calculator-tips-for-maintaining-a-healthy-whtr',
-    title: 'Tips for maintaining a healthy WHtR',
-    level: 2,
-  },
-  {
-    id: 'waist-to-height-ratio-calculator-faqs',
-    title: 'FAQs',
-    level: 2,
-  },
-  {
-    id: 'waist-to-height-ratio-calculator-references',
-    title: 'References',
-    level: 2,
-  },
-];
+const {
+  id,
+  animated = true,
+  isDark = false,
+  classes = {},
+  tocItems,
+  bg = await Astro.slots.render('bg'),
+  ...rest
+} = Astro.props;
 ---
 
 <WidgetWrapper
