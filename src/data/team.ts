@@ -3,6 +3,7 @@ import imgBasil from '~/assets/images/team/Basil Apaokwueze.webp';
 import imgBenedict from '~/assets/images/team/Benedict Michelle.webp';
 import imgDouglas from '~/assets/images/team/Douglas Corsi.webp';
 import imgShogade from '~/assets/images/team/Dr Tolu Shogade.webp';
+import imgEugene from '~/assets/images/team/Eugene Enimah.webp';
 import imgFemaleHeadshot from '~/assets/images/team/Female headshot.webp';
 import imgJuhani from '~/assets/images/team/Juhani_Helsinki.webp';
 import imgMahidere from '~/assets/images/team/Mahidere Ali.webp';
@@ -107,13 +108,13 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
-    name: 'Basil Apaokwueze',
-    title: "Master's degree candidate",
-    description: 'MBBS, MPH candidate',
-    url: 'https://www.linkedin.com/in/basil-apaokwueze-515313185/?originalSubdomain=ng',
+    name: 'Eugene Enimah',
+    title: 'Doctoral (PhD) Researcher',
+    description: 'BSC, OD, MOptom, MPH',
+    url: 'https://fi.linkedin.com/in/eugene-enimah-252483103',
     image: {
-      src: imgBasil,
-      alt: 'Basil Apaokwueze',
+      src: imgEugene,
+      alt: 'Eugene Enimah',
     },
   },
   {
@@ -123,6 +124,16 @@ const teamMembers: TeamMember[] = [
     image: {
       src: imgFemaleHeadshot,
       alt: 'Female headshot',
+    },
+  },
+  {
+    name: 'Basil Apaokwueze',
+    title: 'Alumni',
+    description: 'MBBS, MPH, Pediatric Resident (Research) Children\'s National Hospital, Washington D.C, US <br /> (MPH thesis completed in May 2025)',
+    url: 'https://www.linkedin.com/in/basil-apaokwueze-515313185/?originalSubdomain=ng',
+    image: {
+      src: imgBasil,
+      alt: 'Basil Apaokwueze',
     },
   },
   {

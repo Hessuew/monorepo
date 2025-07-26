@@ -26,7 +26,7 @@ const subtitle = await Astro.slots.render('subtitle');
     <div class="flex flex-col gap-8 md:gap-12 xl:gap-[48px]">
       {
         title && (
-          <div class="mb-0 text-center">
+          <div class="mb-0 text-center intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade">
             <h2
               class={twMerge(
                 'text-3xl md:text-4xl xl:text-[36px] xl:leading-[40px] font-bold leading-tight tracking-tight dark:text-white text-center',
@@ -39,14 +39,24 @@ const subtitle = await Astro.slots.render('subtitle');
       }
       {
         subtitle && (
-          <div class={twMerge('max-w-3xl xl:max-w-[768px] mx-auto', classes?.subtitle ?? '')}>
+          <div
+            class={twMerge(
+              'max-w-3xl xl:max-w-[768px] mx-auto intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade',
+              classes?.subtitle ?? ''
+            )}
+          >
             <Fragment set:html={subtitle} />
           </div>
         )
       }
       {
         content && (
-          <div class={twMerge('max-w-3xl xl:max-w-[768px] mx-auto', classes?.content ?? '')}>
+          <div
+            class={twMerge(
+              'max-w-3xl xl:max-w-[768px] mx-auto intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade',
+              classes?.content ?? ''
+            )}
+          >
             <Fragment set:html={content} />
           </div>
         )

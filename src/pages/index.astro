@@ -1,9 +1,11 @@
 ---
 import imgTedxVaasa from '~/assets/images/index/tedx-vaasa-prof-andrew-agbaje-urfit-child-presentation.webp';
+import imgNovoNordisk from '~/assets/images/index/urfit-child_novo_nordisk_foundation.webp';
 import imgResearchVisualization from '~/assets/images/index/urfit-child-prevention-stages-visualization.webp';
 import imgLogo from '~/assets/images/index/urfit-child-research-group-logo.webp';
 import Image from '~/components/common/Image.astro';
 import GradientText from '~/components/ui/GradientText.astro';
+import Content from '~/components/widgets/Content.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Spacer from '~/components/widgets/Spacer.astro';
@@ -50,15 +52,7 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <Stars>
-    <Hero
-      tagline="Welcome to"
-      image={{
-        src: imgTedxVaasa,
-        alt: 'urFIT-child principal investigator Prof. Andrew Agbaje presenting at TEDx Vaasa',
-      }}
-      imageText="urFIT-child principal investigator Prof. Andrew Agbaje presenting at TEDx Vaasa"
-      classes={{ labelContainer: 'lg:max-w-[840px] mx-auto' }}
-    >
+    <Hero tagline="Welcome to" classes={{ labelContainer: 'lg:max-w-[840px] mx-auto' }}>
       <Fragment slot="title">
         <p class="text-center pb-[2px]">urFIT-child</p>
         <div
@@ -99,6 +93,15 @@ const metadata = {
           ><GradientText class="font-bold">improving</GradientText></span
         >
         children, adolescents, and young adults' health.
+      </Fragment>
+      <Fragment slot="image">
+        <div class="relative">
+          <YouTube id="Zr-EHkDEAmo" class="rounded-lg" poster={imgTedxVaasa.src} title="urFIT-child TEDxVaasa" />
+          <p
+            class="text-center text-sm xl:text-[14px] xl:leading-[20px] text-muted dark:text-slate-400"
+            set:html="urFIT-child principal investigator Prof. Andrew Agbaje presenting at TEDx Vaasa"
+          />
+        </div>
       </Fragment>
     </Hero>
   </Stars>
@@ -220,6 +223,7 @@ const metadata = {
   <!-- Content Widget **************** -->
 
   <Hero
+    classes={{ labelContainer: 'lg:max-w-[840px] mx-auto' }}
     imageText={`Learn how to use our
           <a href="/waist-height-calculator" class="text-blue-600 hover:underline font-semibold">
             waist to height ratio calculator
@@ -250,16 +254,10 @@ const metadata = {
     <Fragment slot="image">
       <YouTube
         id="EQDC2E6R4xM"
-        posterQuality="high"
-        title="Professor Andrew Agbaje receiving the Flemming Quaade Award for innovation in childhood obesity research"
         class="rounded-lg"
+        poster={imgNovoNordisk.src}
+        title="Professor Andrew Agbaje receiving the Flemming Quaade Award for innovation in childhood obesity research"
       />
-      <style is:inline>
-        lite-youtube {
-          margin: 0 auto;
-          max-width: 100%;
-        }
-      </style>
     </Fragment>
   </Hero>
 
@@ -276,7 +274,7 @@ const metadata = {
       >(Children of the 90s)</a>
     from the University of Bristol, UK, our findings reach the widest audience possible.
     `}
-    classes={{ container: 'pb-0 md:pb-0 lg:pb-0 xl:pb-0' }}
+    classes={{ container: 'pb-0 md:pb-0 lg:pb-0 xl:pb-0 max-w-4xl xl:max-w-[896px] mx-auto' }}
     stats={[
       { title: 'Participating families', amount: '14.5K' },
       { title: 'Years of data collection', amount: '30' },
@@ -292,13 +290,28 @@ const metadata = {
 
   <!-- Hero Widget ******************* -->
 
-  <Hero
-    image={{
-      src: imgResearchVisualization,
-      alt: 'urFIT-child research visualization showing stages of prevention: primordial, early primary, mid-primary, late primary, secondary, and tertiary',
-    }}
-    imageText="urFIT-child prevention stages: from primordial to tertiary"
-  />
+  <Content title="Superior health solutions">
+    <Fragment slot="subtitle">
+      <div
+        class="max-w-3xl xl:max-w-[768px] mx-auto intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        <p class="text-muted text-xl xl:text-[20px] xl:leading-[28px] max-w-5xl xl:max-w-[1080px] mx-auto">
+          We are changing the global standards of childhood obesity through simple, yet extremely effective and
+          cost-efficient methods. The work is not yet done, but we are willing to work for the future because the future
+          is in the children.
+        </p>
+      </div>
+      <div class="max-w-4xl xl:max-w-[896px] mx-auto">
+        <Hero
+          image={{
+            src: imgResearchVisualization,
+            alt: 'urFIT-child research visualization showing stages of prevention: primordial, early primary, mid-primary, late primary, secondary, and tertiary',
+          }}
+          imageText="urFIT-child prevention stages: from primordial to tertiary"
+        />
+      </div>
+    </Fragment>
+  </Content>
 
   <!-- Stats Widget ****************** -->
 
@@ -337,3 +350,10 @@ const metadata = {
 
   <Spacer size="sm" />
 </Layout>
+
+<style is:inline>
+  lite-youtube {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+</style>

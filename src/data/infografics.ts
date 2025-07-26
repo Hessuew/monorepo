@@ -1,6 +1,6 @@
-import img25 from '~/assets/images/infographic/Accelerometer Sedentary Time.webp';
-import img1 from '~/assets/images/infographic/Arterial Stiffness Adolescence Impact.webp';
-import img13 from '~/assets/images/infographic/Arterial Stiffness Heart Damage.webp';
+import imgAccolometerSedentary from '~/assets/images/infographic/Accelerometer Sedentary Time.webp';
+import imgArterialStiffnessAdolescence from '~/assets/images/infographic/Arterial Stiffness Adolescence Impact.webp';
+import imgArterialStiffnessHeart from '~/assets/images/infographic/Arterial Stiffness Heart Damage.webp';
 import img6 from '~/assets/images/infographic/Arterial Stiffness Insulin Resistance HDL.webp';
 import img10 from '~/assets/images/infographic/Arterial Stiffness Metabolic Syndrome.webp';
 import img3 from '~/assets/images/infographic/Atherosclerosis Lipid Screening Intervention.webp';
@@ -23,6 +23,7 @@ import img9 from '~/assets/images/infographic/Sedentary Time Adolescents Heart.w
 import img26 from '~/assets/images/infographic/Sedentary Time Tobacco Study 2503 Children.webp';
 import img17 from '~/assets/images/infographic/Teenagers Insulin Resistance Risk.webp';
 import img2 from '~/assets/images/infographic/Weight Gain Childhood Vascular Health.webp';
+import img_whtr_liver_disease from '~/assets/images/waist-to-height-calculator/waist_to_height_ratio_calculator_and_liver_disease_ENG.webp';
 import img18 from '~/assets/images/waist-to-height-calculator/waist-to-height-ratio-calculator-with-a-measurement-tape.webp';
 import imgBMI from '~/assets/images/waist-to-height-calculator/waist-to-height-ratio-category-whtr-vs-bmi-category.webp';
 import type { ImageMetadata } from 'astro';
@@ -42,6 +43,18 @@ interface InfoGrafic {
 }
 
 export const infografics: InfoGrafic[] = [
+  {
+    title: 'Waist-to-height ratio outperforms BMI in detecting the risk of fatty liver disease and liver cirrhosis',
+    date: '2025-06-11',
+    type: 'body-composition',
+    description: `Excess fat mass estimated by waist circumference-to-height ratio predicts the risk of liver damage better than body mass index (BMI) estimated obesity, a new study shows. Waist-to-height ratio is a cheap and universally accessible tool to detect the risk of fatty liver disease both in the young and adult population.`,
+    url: 'https://www.uef.fi/en/article/waist-to-height-ratio-outperforms-bmi-in-detecting-the-risk-of-fatty-liver-disease-and-liver',
+    doi: '10.1210/jendso/bvaf079',
+    image: {
+      src: img_whtr_liver_disease,
+      alt: 'Waist-to-height ratio outperforms BMI in detecting fatty liver disease risk',
+    },
+  },
   {
     title:
       'High blood sugar in adolescence tripled the risk of premature heart damage affecting females worse than males',
@@ -118,7 +131,7 @@ Based at the University of Bristol, Children of the 90s, also known as the Avon 
     url: 'https://www.uef.fi/en/article/aha-names-andrew-agbajes-study-among-biggest-advances-in-cardiovascular-research-for-2024',
     doi: '10.1093/eurjpc/zwae129',
     image: {
-      src: img25,
+      src: imgAccolometerSedentary,
       alt: 'Accelerometer-based sedentary time',
     },
   },
@@ -248,7 +261,7 @@ Based at the University of Bristol, Children of the 90s, also known as the Avon 
     url: 'https://www.uef.fi/en/article/arterial-stiffness-may-cause-and-worsen-heart-damage-among-adolescents-by-increasing-blood-pressure',
     doi: '10.1016/j.atherosclerosis.2023.117197',
     image: {
-      src: img13,
+      src: imgArterialStiffnessHeart,
       alt: 'Arterial stiffness may cause and worsen heart damage among adolescents by increasing blood pressure and insulin resistance',
     },
   },
@@ -403,7 +416,7 @@ Based at the University of Bristol, Children of the 90s, also known as the Avon 
     url: 'https://www.uef.fi/en/article/arterial-stiffness-in-adolescence-may-potentially-cause-hypertension-and-obesity-in-young-adulthood',
     doi: '10.1161/HYPERTENSIONAHA.121.18449',
     image: {
-      src: img1,
+      src: imgArterialStiffnessAdolescence,
       alt: 'Arterial stiffness in adolescence may potentially cause hypertension and obesity in young adulthood',
     },
   },

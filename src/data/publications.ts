@@ -16,17 +16,29 @@ interface Publication {
 
 export const publications: Publication[] = [
   {
+    title: 'Novel Pediatric Waist-to-height Ratio Fat Mass Cutoff Predicts Liver Steatosis and Fibrosis Better than Body Mass Index: The NHANES',
+    authors: 'Agbaje AO',
+    date: '2025-05-03',
+    journal: 'Journal of the Endocrine Society',
+    volume: '9(7)',
+    pages: 'bvaf079',
+    type: 'Original article',
+    category: 'metabolic-health',
+    doi: '10.1210/jendso/bvaf079',
+    url: 'https://academic.oup.com/jes/article/9/7/bvaf079/7669079',
+  },
+  {
     title:
       'Persistent Hyperglycemia and Insulin Resistance With the Risk of Worsening Cardiac Damage in Adolescents: A 7-Year Longitudinal Study of the ALSPAC Birth Cohort',
     authors: 'Agbaje AO, Zachariah JP, Barker AR, Williams CA, Vlachopoulos D, Saner C, Tuomainen TP',
-    date: '2025-04-29',
+    date: '2025-06-01',
     journal: 'Diabetes Care',
-    volume: 'Epub ahead of print',
-    // pages: 'dc242459',
-    pages: '',
+    volume: '48(6)',
+    pages: '896-904',
     type: 'Original article',
     category: 'metabolic-health',
-    url: 'https://diabetesjournals.org/care/article-abstract/doi/10.2337/dc24-2459/158097/Persistent-Hyperglycemia-and-Insulin-Resistance?redirectedFrom=fulltext',
+    doi: '10.2337/dc24-2459',
+    url: 'https://diabetesjournals.org/care/article/48/6/896/158097/Persistent-Hyperglycemia-and-Insulin-Resistance',
   },
   {
     title:
