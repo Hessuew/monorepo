@@ -1,4 +1,5 @@
 ---
+import imgTedxVaasa from '~/assets/images/index/tedx-vaasa-prof-andrew-agbaje-urfit-child-presentation.webp';
 import imgVideo from '~/assets/images/waist-to-height-calculator/how-to-use-waist-to-height-ratio-calculator-video.webp';
 import imgAgbaje from '~/assets/images/waist-to-height-calculator/professor-agbaje-waist-to-height-ratio-calculator-demonstration.webp';
 import img_whtr_liver_disease from '~/assets/images/waist-to-height-calculator/waist_to_height_ratio_calculator_and_liver_disease_ENG.webp';
@@ -625,6 +626,18 @@ const metadata = {
       },
     ]}
   />
+
+  <Hero classes={{ labelContainer: 'lg:max-w-[840px] mx-auto' }}>
+    <Fragment slot="image">
+      <div class="relative">
+        <YouTube id="Zr-EHkDEAmo" class="rounded-lg" poster={imgTedxVaasa.src} title="urFIT-child TEDxVaasa" />
+        <p
+          class="text-center text-sm xl:text-[14px] xl:leading-[20px] text-muted dark:text-slate-400"
+          set:html="urFIT-child principal investigator Prof. Andrew Agbaje presenting at TEDx Vaasa"
+        />
+      </div>
+    </Fragment>
+  </Hero>
 
   <!-- FAQs Widget ******************* -->
 

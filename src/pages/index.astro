@@ -5,6 +5,7 @@ import imgResearchVisualization from '~/assets/images/index/urfit-child-preventi
 import imgLogo from '~/assets/images/index/urfit-child-research-group-logo.webp';
 import Image from '~/components/common/Image.astro';
 import GradientText from '~/components/ui/GradientText.astro';
+import Content from '~/components/widgets/Content.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Spacer from '~/components/widgets/Spacer.astro';
@@ -273,7 +274,7 @@ const metadata = {
       >(Children of the 90s)</a>
     from the University of Bristol, UK, our findings reach the widest audience possible.
     `}
-    classes={{ container: 'pb-0 md:pb-0 lg:pb-0 xl:pb-0' }}
+    classes={{ container: 'pb-0 md:pb-0 lg:pb-0 xl:pb-0 max-w-4xl xl:max-w-[896px] mx-auto' }}
     stats={[
       { title: 'Participating families', amount: '14.5K' },
       { title: 'Years of data collection', amount: '30' },
@@ -289,13 +290,28 @@ const metadata = {
 
   <!-- Hero Widget ******************* -->
 
-  <Hero
-    image={{
-      src: imgResearchVisualization,
-      alt: 'urFIT-child research visualization showing stages of prevention: primordial, early primary, mid-primary, late primary, secondary, and tertiary',
-    }}
-    imageText="urFIT-child prevention stages: from primordial to tertiary"
-  />
+  <Content title="Superior health solutions">
+    <Fragment slot="subtitle">
+      <div
+        class="max-w-3xl xl:max-w-[768px] mx-auto intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        <p class="text-muted text-xl xl:text-[20px] xl:leading-[28px] max-w-5xl xl:max-w-[1080px] mx-auto">
+          We are changing the global standards of childhood obesity through simple, yet extremely effective and
+          cost-efficient methods. The work is not yet done, but we are willing to work for the future because the future
+          is in the children.
+        </p>
+      </div>
+      <div class="max-w-4xl xl:max-w-[896px] mx-auto">
+        <Hero
+          image={{
+            src: imgResearchVisualization,
+            alt: 'urFIT-child research visualization showing stages of prevention: primordial, early primary, mid-primary, late primary, secondary, and tertiary',
+          }}
+          imageText="urFIT-child prevention stages: from primordial to tertiary"
+        />
+      </div>
+    </Fragment>
+  </Content>
 
   <!-- Stats Widget ****************** -->
 

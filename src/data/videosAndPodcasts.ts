@@ -1,3 +1,4 @@
+import imgNNF2025 from '~/assets/images/call-to-action/andrew_agbaje_NNF_Award_2025.webp';
 import videoAgbaje from '~/assets/images/videosAndPodcasts/Agbaje Video.mp4';
 import imgEp205 from '~/assets/images/videosAndPodcasts/EP 205 Kids Fitness with Prof Agbaje.webp';
 import imgNewseriaInterview from '~/assets/images/videosAndPodcasts/Newseria Interview.webp';
@@ -20,6 +21,25 @@ interface MediaItem {
 }
 
 export const videosAndPodcasts: MediaItem[] = [
+  {
+    title: 'A better approach to childhood obesity management | Andrew Agbaje | TEDxVaasa',
+    date: '2025-06-01',
+    videoId: 'Zr-EHkDEAmo',
+    platform: 'Youtube',
+  },
+  {
+    title: '2025 ASNF-NNF Flemming Quaade Award: Andrew Agbaje, MD, MPH, PhD, FACC, FESC, FAHA, FNYAM',
+    date: '2025-06-06',
+    videoId: 'EQDC2E6R4xM',
+    platform: 'Youtube',
+  },
+  {
+    title: 'EASO NNF Andrew Agbaje',
+    date: '2025-05-01',
+    videoId: '1080620838/33801202a5',
+    platform: 'Vimeo',
+    poster: imgNNF2025,
+  },
   {
     title: 'How Childhood Exercise Can Curb Smoking',
     date: '2025-02-14',
