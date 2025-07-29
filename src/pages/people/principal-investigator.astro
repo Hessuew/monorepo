@@ -9,19 +9,20 @@ import Contact from '~/components/widgets/principal-investigator/Contact.astro';
 import Editorial from '~/components/widgets/principal-investigator/Editorial.astro';
 import Memberships from '~/components/widgets/principal-investigator/Memberships.astro';
 import PIHero from '~/components/widgets/principal-investigator/PIHero.astro';
+import TableOfContents from '~/components/widgets/TableOfContents.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
-  title: 'Andrew Agbaje – Child Health & WHtR | Official Website',
+  title: 'Official Website of Andrew O. Agbaje – Child Health Research',
   description:
-    'Andrew Agbaje is Professor of Clinical Epidemiology and Child Health at the University of Eastern Finland - the official site of Prof. Andrew O Agbaje.',
+    'Discover the official site of Prof. Andrew O. Agbaje, leading expert in child health, epidemiology, and WHtR research at the University of Eastern Finland.',
   ignoreTitleTemplate: true,
   canonical: 'https://urfit-child.com/people/andrew-agbaje/',
   openGraph: {
-    title: 'Andrew Agbaje – Child Health & WHtR | Official Website',
+    title: 'Official Website of Andrew O. Agbaje – Child Health Research',
     description:
-      'Andrew Agbaje is Professor of Clinical Epidemiology and Child Health at the University of Eastern Finland - the official site of Prof. Andrew O Agbaje.',
+      'Discover the official site of Prof. Andrew O. Agbaje, leading expert in child health, epidemiology, and WHtR research at the University of Eastern Finland.',
     type: 'profile',
     image: imgAndrew2,
     article: {
@@ -55,6 +56,42 @@ const metadata = {
   <Note
     text="Let's keep fighting for kids' health, because today's kids are tomorrow's adults"
     author="Prof. Andrew Agbaje"
+  />
+
+  <TableOfContents
+    classes={{ container: 'pt-0 md:pt-0 lg:pt-0 xl:pt-0' }}
+    tocItems={[
+      {
+        id: 'academic',
+        title: 'Academic Excellence',
+        level: 2,
+      },
+      {
+        id: 'awards-and-honours',
+        title: 'Awards and Honours',
+        level: 2,
+      },
+      {
+        id: 'editorial',
+        title: 'Editorial and Journal Roles',
+        level: 2,
+      },
+      {
+        id: 'affiliations',
+        title: 'Affiliations',
+        level: 2,
+      },
+      {
+        id: 'memberships',
+        title: 'Memberships',
+        level: 2,
+      },
+      {
+        id: 'contact',
+        title: 'Contact Information',
+        level: 2,
+      },
+    ]}
   />
 
   <Academic />
