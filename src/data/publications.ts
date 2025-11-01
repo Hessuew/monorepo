@@ -16,7 +16,46 @@ interface Publication {
 
 export const publications: Publication[] = [
   {
-    title: 'Novel Pediatric Waist-to-height Ratio Fat Mass Cutoff Predicts Liver Steatosis and Fibrosis Better than Body Mass Index: The NHANES',
+    title:
+      'Longitudinal association of peak oxygen uptake with vascular and cardiac structure and function in German pediatric athletes',
+    authors: 'Baumgartner L, Weberruß H, Schulz T, Oberhoffer-Fritz RM, Agbaje AO',
+    date: '2025-10-01',
+    journal: 'American Journal of Physiology - Heart and Circulatory Physiology',
+    volume: '329(4)',
+    pages: 'H959-H968',
+    type: 'Original article',
+    category: 'cardiovascular-health',
+    doi: '10.1152/ajpheart.00570.2025',
+    url: 'https://doi.org/10.1152/ajpheart.00570.2025',
+  },
+  {
+    title: 'Impact of smoking from childhood associated with greater risk of cardiac damage',
+    authors: 'Corsi DR, Agbaje AO',
+    date: '2025-10-11',
+    journal: 'Trends in Cardiovascular Medicine',
+    volume: '',
+    pages: '',
+    type: 'Original article',
+    category: 'cardiovascular-health',
+    doi: '10.1016/j.tcm.2025.10.002',
+    url: 'https://doi.org/10.1016/j.tcm.2025.10.002',
+  },
+  {
+    title:
+      'Response to Comment on Agbaje et al. Persistent Hyperglycemia and Insulin Resistance With the Risk of Worsening Cardiac Damage in Adolescents: A 7-Year Longitudinal Study of the ALSPAC Birth Cohort. Diabetes Care 2025;48:896-904',
+    authors: 'Agbaje AO',
+    date: '2025-11-01',
+    journal: 'Diabetes Care',
+    volume: '48(11)',
+    pages: 'e169-e170',
+    type: 'Response to comment',
+    category: 'cardiovascular-health',
+    doi: '10.2337/dci25-0105',
+    url: 'https://doi.org/10.2337/dci25-0105',
+  },
+  {
+    title:
+      'Novel Pediatric Waist-to-height Ratio Fat Mass Cutoff Predicts Liver Steatosis and Fibrosis Better than Body Mass Index: The NHANES',
     authors: 'Agbaje AO',
     date: '2025-05-03',
     journal: 'Journal of the Endocrine Society',
@@ -968,6 +1007,7 @@ export const publicationTypes = [
   'Correspondence',
   'Study protocol',
   'Conference abstract',
+  'Response to comment',
 ];
 export const publicationCategories = [...new Set(publications.map((item) => item.category))].filter(Boolean);
 

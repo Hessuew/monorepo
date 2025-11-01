@@ -16,6 +16,7 @@ import img22 from '~/assets/images/infographic/Childhood Sedentariness.webp';
 import img16 from '~/assets/images/infographic/Cholesterol Heart Damage Study.webp';
 import img12 from '~/assets/images/infographic/Cholesterol passport for adolescents to halt the world’s deadliest disease – atherosclerosis.webp';
 import img_3_5_25 from '~/assets/images/infographic/Graphic-abstract-revised_280225-1.webp';
+import img_impact_smoking from '~/assets/images/infographic/Impact of smoking from childhood associated with greater risk of cardiac damage.webp';
 import img5 from '~/assets/images/infographic/Insulin Resistance Mid Adolescence.webp';
 import img4 from '~/assets/images/infographic/Low-Grade Inflammation Atherosclerosis.webp';
 import img24 from '~/assets/images/infographic/Persistent Tobacco Smoking.webp';
@@ -43,6 +44,17 @@ interface InfoGrafic {
 }
 
 export const infografics: InfoGrafic[] = [
+  {
+    title: 'Impact of smoking from childhood associated with greater risk of cardiac damage',
+    date: '2025-10-11',
+    type: 'cardiovascular-health',
+    description: `Active and passive tobacco exposure during childhood and adolescence represents a critical preventable risk factor for premature cardiovascular disease. Tobacco smoking in early life poses an elevated risk of endothelial dysfunction, vascular alteration, and irregular heart rhythm, which may lead to thrombosis. Smoking may temporarily raise cardiac output, enhance heart rate, augment cardiac contractility, and increase cardiac filling due to systemic venoconstriction. Emerging studies have shown that smoking is an independent driver of ventricular hypertrophy in the young population, as a crucial factor in cardiovascular risk progression.`,
+    doi: '10.1152/ajpheart.00570.2025',
+    image: {
+      src: img_impact_smoking,
+      alt: 'Impact of smoking from childhood associated with greater risk of cardiac damage',
+    },
+  },
   {
     title: 'Waist-to-height ratio outperforms BMI in detecting the risk of fatty liver disease and liver cirrhosis',
     date: '2025-06-11',
