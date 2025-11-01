@@ -12,6 +12,40 @@ interface PressRelease {
 
 export const pressReleases: PressRelease[] = [
   {
+    title:
+      'Increased aerobic fitness in paediatric athletes is linked to yet poorly understood abnormal cardiovascular changes',
+    date: '2025-10-01',
+    url: 'https://www.uef.fi/en/article/increased-aerobic-fitness-in-paediatric-athletes-is-linked-to-yet-poorly-understood-abnormal',
+    source: 'University of Eastern Finland',
+    type: 'News',
+    category: 'cardiovascular-health',
+  },
+  {
+    title: 'Your Waist Could Warn About Liver Disease Long Before the Scales Do',
+    date: '2025-09-09',
+    url: 'https://sciencenews.dk/en/your-waist-could-warn-about-liver-disease-long-before-the-scales-do',
+    source: 'Science News',
+    type: 'News',
+    category: 'metabolic-health',
+  },
+  {
+    title: 'UNIBEN Alumnus Shines at Global Stage',
+    date: '2025-07-19',
+    url: 'https://news.uniben.edu/uniben-alumnus-shines-at-global-stage/',
+    source: 'UniBEN NEWS',
+    type: 'News',
+    category: 'public-health',
+  },
+  {
+    title:
+      'Review: Tobacco smoking from childhood is associated with premature cardiac damage, subsequent heart failure and sudden death',
+    date: '2025-10-21',
+    url: 'https://www.uef.fi/en/article/review-tobacco-smoking-from-childhood-is-associated-with-premature-cardiac-damage-subsequent-heart',
+    source: 'University of Eastern Finland',
+    type: 'News',
+    category: 'cardiovascular-health',
+  },
+  {
     title: 'New Study Questions BMI Accuracy in Childhood Obesity Screening',
     date: '2025-06-15',
     url: 'https://endocrinenews.endocrine.org/new-study-questions-bmi-accuracy-in-childhood-obesity-screening/?utm_medium=email&utm_source=rasa_io&utm_campaign=newsletter',

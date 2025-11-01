@@ -1,4 +1,5 @@
 ---
+import imgFesc from '~/assets/images/collaborators/ESC Congress 2025 FESC.webp';
 import imgNnf from '~/assets/images/collaborators/Nnf Cbc26 053 Scaled.webp';
 import imgNovo from '~/assets/images/collaborators/Novo Nordisk Conference Award.webp';
 import CallToAction from '~/components/widgets/CallToAction.astro';
@@ -154,6 +155,19 @@ const metadata = {
       health research.
     </Fragment>
   </Content>
+
+  <Hero
+    image={{
+      src: imgFesc,
+      alt: 'ESC Congress 2025 FESC - Prof A. Agbaje (Kuopio, FI) , Dr V. Zorzanelli Rocha (Sao Paulo, BR)',
+      height: 1734,
+      width: 2600,
+      class: 'border rounded-lg',
+    }}
+    imageText="ESC Congress 2025 FESC - Prof A. Agbaje (Kuopio, FI) , Dr V. Zorzanelli Rocha (Sao Paulo, BR)."
+    imageLoading="lazy"
+    classes={{ labelContainer: 'pt-4 md:pt-4 lg:pt-4 xl:pt-[16px]' }}
+  />
 
   <!-- CallToAction Widget *********** -->
 

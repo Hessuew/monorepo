@@ -12,7 +12,7 @@ interface MediaItem {
   title: string;
   date: string;
   videoId: string;
-  platform: 'Youtube' | 'Vimeo' | 'Doccheck' | 'Soundcloud' | 'Spotify' | 'Other';
+  platform: 'Youtube' | 'Vimeo' | 'Doccheck' | 'Soundcloud' | 'Spotify' | 'Other' | 'Instagram';
   author?: string;
   trackUrl?: string;
   poster?: ImageMetadata;
@@ -21,6 +21,24 @@ interface MediaItem {
 }
 
 export const videosAndPodcasts: MediaItem[] = [
+  {
+    title: 'Obesity Has A Tendency To Cause Many Diseases, There’s A Need To Pay Attention To It - Expert',
+    date: '2025-06-06',
+    videoId: 'cgWBH_oUwwg',
+    platform: 'Youtube',
+  },
+  {
+    title: 'The Hidden Epidemic in Childhood – with Dr. Andrew Agbaje',
+    date: '2025-10-01',
+    videoId: 'uwrK8MTqx0U',
+    platform: 'Youtube',
+  },
+  {
+    title: 'Instagram Reel: The Hidden Epidemic in Childhood – with Dr. Andrew Agbaje',
+    date: '2025-10-04',
+    videoId: 'daniel.laurean/reel/DPYiUrEDWM1',
+    platform: 'Instagram',
+  },
   {
     title: 'A better approach to childhood obesity management | Andrew Agbaje | TEDxVaasa',
     date: '2025-06-01',
