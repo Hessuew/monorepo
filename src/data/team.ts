@@ -1,6 +1,7 @@
 import imgAndrew from '~/assets/images/team/Andrew Headshot.webp';
 import imgBasil from '~/assets/images/team/Basil Apaokwueze.webp';
 import imgBenedict from '~/assets/images/team/Benedict Michelle.webp';
+import imgDaniella from '~/assets/images/team/Daniella (Daramola) Olutayo.webp';
 import imgDouglas from '~/assets/images/team/Douglas Corsi.webp';
 import imgShogade from '~/assets/images/team/Dr Tolu Shogade.webp';
 import imgEugene from '~/assets/images/team/Eugene Enimah.webp';
@@ -58,7 +59,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: 'Mahidere Ali',
-    title: 'Project Researcher',
+    title: 'Doctoral (PhD) Researcher',
     description: 'MD, MPH',
     url: 'https://fi.linkedin.com/in/mahidere-wondiye-ali-175213211',
     image: {
@@ -118,6 +119,16 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
+    name: 'Daniella Olutayo',
+    title: 'Science Communicator',
+    description: 'PharmD, MPH(c)',
+    url: 'https://ng.linkedin.com/in/daniella-olutayo-6a76ab1a3',
+    image: {
+      src: imgDaniella,
+      alt: 'Daniella (Daramola) Olutayo',
+    },
+  },
+  {
     name: 'Ada Korhonen',
     title: 'MD candidate',
     description: 'MD candidate',
@@ -129,7 +140,8 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Basil Apaokwueze',
     title: 'Alumni',
-    description: 'MBBS, MPH, Pediatric Resident (Research) Children\'s National Hospital, Washington D.C, US <br /> (MPH thesis completed in May 2025)',
+    description:
+      "MBBS, MPH, Pediatric Resident (Research) Children's National Hospital, Washington D.C, US <br /> (MPH thesis completed in May 2025)",
     url: 'https://www.linkedin.com/in/basil-apaokwueze-515313185/?originalSubdomain=ng',
     image: {
       src: imgBasil,
