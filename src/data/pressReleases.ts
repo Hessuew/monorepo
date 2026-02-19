@@ -12,6 +12,22 @@ interface PressRelease {
 
 export const pressReleases: PressRelease[] = [
   {
+    title: 'Why family health history matters for early heart disease prevention',
+    date: '2025-12-18',
+    url: 'https://guardian.ng/features/health/why-family-health-history-matters-for-early-heart-disease-prevention/',
+    source: 'The Guardian Nigeria',
+    type: 'News',
+    category: 'cardiovascular-health',
+  },
+  {
+    title: "Cardiac damage starts early when there's family history of cardiometabolic disease",
+    date: '2025-12-18',
+    url: 'https://www.tctmd.com/news/cardiac-damage-starts-early-when-theres-family-history-cardiometabolic-disease',
+    source: 'TCTMD',
+    type: 'News',
+    category: 'cardiovascular-health',
+  },
+  {
     title:
       'Increased aerobic fitness in paediatric athletes is linked to yet poorly understood abnormal cardiovascular changes',
     date: '2025-10-01',

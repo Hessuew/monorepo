@@ -76,7 +76,8 @@ import Features5 from '../Features5.astro';
     icon: item.icon,
     description: `${item.subtitle}
                  ${item.details ? `<div class="text-base xl:text-[16px] xl:leading-[24px] text-primary mt-2 xl:mt-[8px]">${item.details}</div>` : ''}
-                 ${item.location ? `<br /><br />${item.location}` : ''}`,
+                 ${item.location ? `<br /><br />${item.location}` : ''}
+                 ${item.link ? `<br /><br /><a href="${item.link}" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Read more</a>` : ''}`,
   }))}
 />
 

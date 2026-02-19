@@ -22,6 +22,18 @@ interface MediaItem {
 
 export const videosAndPodcasts: MediaItem[] = [
   {
+    title: "Prof. Andrew Agbaje's highlights adolescence as a pivotal window for protecting future heart health",
+    date: '2025-12-18',
+    videoId: 'ws-BLaAnLv4',
+    platform: 'Youtube',
+  },
+  {
+    title: 'Family history of heart disease tied to early cardiac damage in adolescents: Study',
+    date: '2025-12-15',
+    videoId: 'RXrc1X-zfDs',
+    platform: 'Youtube',
+  },
+  {
     title: 'Obesity Has A Tendency To Cause Many Diseases, There’s A Need To Pay Attention To It - Expert',
     date: '2025-06-06',
     videoId: 'cgWBH_oUwwg',
