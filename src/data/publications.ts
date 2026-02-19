@@ -17,6 +17,32 @@ interface Publication {
 export const publications: Publication[] = [
   {
     title:
+      'Tobacco and Electronic Cigarette Use with Hypertension and the Mediating Effect of Dyslipidemia - The NHANES Study',
+    authors: 'Corsi DR, Agbaje AO',
+    date: '2026-02-06',
+    journal: 'American Journal of Physiology - Heart and Circulatory Physiology',
+    volume: '',
+    pages: '',
+    type: 'Original article',
+    category: 'cardiovascular-health',
+    doi: '10.1152/ajpheart.00958.2025',
+    url: 'https://doi.org/10.1152/ajpheart.00958.2025',
+  },
+  {
+    title:
+      "Parents' History of Hypertension, Diabetes, and Dyslipidemia with Offspring Cardiac Damage - A 24-Year Longitudinal Study",
+    authors: 'Corsi DR, Agbaje AO',
+    date: '2025-11-21',
+    journal: 'European Journal of Preventive Cardiology',
+    volume: '',
+    pages: '',
+    type: 'Original article',
+    category: 'cardiovascular-health',
+    doi: '10.1093/eurjpc/zwaf744',
+    url: 'https://doi.org/10.1093/eurjpc/zwaf744',
+  },
+  {
+    title:
       'Longitudinal association of peak oxygen uptake with vascular and cardiac structure and function in German pediatric athletes',
     authors: 'Baumgartner L, Weberruß H, Schulz T, Oberhoffer-Fritz RM, Agbaje AO',
     date: '2025-10-01',
