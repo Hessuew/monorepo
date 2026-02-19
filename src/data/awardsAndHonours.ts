@@ -4,9 +4,30 @@ type Award = {
   details?: string;
   location?: string | null;
   icon?: string;
+  link?: string;
 };
 
 export const recentAwards2025: Award[] = [
+  {
+    title: 'European Heart Journal 2025 Global Rising Star in Cardiology',
+    subtitle: 'Global recognition of emerging leaders in cardiovascular research',
+    location: null,
+    icon: 'tabler:star-filled',
+    link: 'https://academic.oup.com/eurheartj/article/46/47/5108/8322238',
+  },
+  {
+    title: "World's Number 1 Highly Ranked Scholar",
+    subtitle: 'Arterial Stiffness Specialty by ScholarGPS, November 2025 ranking',
+    location: null,
+    icon: 'tabler:chart-bar-popular',
+  },
+  {
+    title: "World's Most Significant Research",
+    subtitle: "American Heart Association's 2025 World's Most Significant Advances in Cardiovascular Research",
+    location: null,
+    icon: 'tabler:world',
+    link: 'https://www.heart.org/en/around-the-aha/heart-association-highlights-2025s-major-research-findings',
+  },
   {
     title: '2025 Flemming Quaade Award',
     subtitle:
@@ -232,6 +253,13 @@ export const academicAchievements: Achievement[] = [
 ];
 
 export const academicAppointments: Achievement[] = [
+  {
+    title: 'Associate Editor',
+    subtitle: 'European Journal of Preventive Cardiology',
+    details: 'Impact Factor 7.5',
+    year: '2025',
+    icon: 'tabler:pencil-minus',
+  },
   {
     title: 'Docent in Clinical Epidemiology and Child Health',
     subtitle: 'Faculty of Health Sciences, University of Eastern Finland',

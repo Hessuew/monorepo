@@ -1,3 +1,4 @@
+import imgAhunsi from '~/assets/images/team/Ahunsi_Adeniran.webp';
 import imgAndrew from '~/assets/images/team/Andrew Headshot.webp';
 import imgBasil from '~/assets/images/team/Basil Apaokwueze.webp';
 import imgBenedict from '~/assets/images/team/Benedict Michelle.webp';
@@ -35,16 +36,6 @@ const teamMembers: TeamMember[] = [
     image: {
       src: imgAndrew,
       alt: 'Andrew Agbaje',
-    },
-  },
-  {
-    name: 'Tomi -Pekka Tuomainen',
-    title: 'Senior Researcher',
-    description: 'MD, PhD, Professor of Epidemiology',
-    url: 'https://uefconnect.uef.fi/en/tomi-pekka.tuomainen/#information',
-    image: {
-      src: imgTomi,
-      alt: 'Tomi -Pekka Tuomainen',
     },
   },
   {
@@ -119,9 +110,19 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
+    name: 'Ahunsi Adeniran',
+    title: 'MD, MPH candidate',
+    description: 'MD, MPH candidate',
+    url: 'https://ng.linkedin.com/in/ahunsi-adeniran-41027a323',
+    image: {
+      src: imgAhunsi,
+      alt: 'Ahunsi Adeniran',
+    },
+  },
+  {
     name: 'Daniella Olutayo',
     title: 'Science Communicator',
-    description: 'PharmD, MPH(c)',
+    description: 'BPharm, MPH(c)',
     url: 'https://ng.linkedin.com/in/daniella-olutayo-6a76ab1a3',
     image: {
       src: imgDaniella,
@@ -159,13 +160,23 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: 'Juhani Juusola',
-    title: 'Senior developer',
+    title: 'Developer',
     description: 'Architecture, design, db admin, testing',
     url: 'https://cherubim-it.com/',
     urlText: 'Cherubim IT',
     image: {
       src: imgJuhani,
       alt: 'Juhani Juusola',
+    },
+  },
+  {
+    name: 'Tomi -Pekka Tuomainen',
+    title: 'Adjunct Researcher',
+    description: 'MD, PhD, Professor of Epidemiology',
+    url: 'https://uefconnect.uef.fi/en/tomi-pekka.tuomainen/#information',
+    image: {
+      src: imgTomi,
+      alt: 'Tomi -Pekka Tuomainen',
     },
   },
 ];

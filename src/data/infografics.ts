@@ -15,6 +15,7 @@ import img19 from '~/assets/images/infographic/Childhood Sedentariness Vascular 
 import img22 from '~/assets/images/infographic/Childhood Sedentariness.webp';
 import img16 from '~/assets/images/infographic/Cholesterol Heart Damage Study.webp';
 import img12 from '~/assets/images/infographic/Cholesterol passport for adolescents to halt the world’s deadliest disease – atherosclerosis.webp';
+import imgFamilyHxCardiacDamage from '~/assets/images/infographic/EJPC_family hx_cardiac damage_graphic abstract.webp';
 import img_3_5_25 from '~/assets/images/infographic/Graphic-abstract-revised_280225-1.webp';
 import img_impact_smoking from '~/assets/images/infographic/Impact of smoking from childhood associated with greater risk of cardiac damage.webp';
 import img5 from '~/assets/images/infographic/Insulin Resistance Mid Adolescence.webp';
@@ -23,6 +24,7 @@ import img4 from '~/assets/images/infographic/Low-Grade Inflammation Atheroscler
 import img24 from '~/assets/images/infographic/Persistent Tobacco Smoking.webp';
 import img9 from '~/assets/images/infographic/Sedentary Time Adolescents Heart.webp';
 import img26 from '~/assets/images/infographic/Sedentary Time Tobacco Study 2503 Children.webp';
+import imgSmokingVapingHypertension from '~/assets/images/infographic/smoking_vaping vs hypertension_graphic abstract.webp';
 import img17 from '~/assets/images/infographic/Teenagers Insulin Resistance Risk.webp';
 import img2 from '~/assets/images/infographic/Weight Gain Childhood Vascular Health.webp';
 import img_whtr_liver_disease from '~/assets/images/waist-to-height-calculator/waist_to_height_ratio_calculator_and_liver_disease_ENG.webp';
@@ -45,6 +47,27 @@ interface InfoGrafic {
 }
 
 export const infografics: InfoGrafic[] = [
+  {
+    title: 'Why family health history matters for early heart disease prevention',
+    date: '2025-12-18',
+    url: 'https://guardian.ng/features/health/why-family-health-history-matters-for-early-heart-disease-prevention/',
+    type: 'cardiovascular-health',
+    image: {
+      src: imgSmokingVapingHypertension,
+      alt: 'Why family health history matters for early heart disease prevention',
+    },
+  },
+  {
+    title: "Cardiac damage starts early when there's family history of cardiometabolic disease",
+    date: '2025-12-18',
+    type: 'cardiovascular-health',
+    description:
+      'Echocardiograms reveal a rapid rise in LV hypertrophy from ages 17 to 24 years, bolstering the case for primordial prevention.',
+    image: {
+      src: imgFamilyHxCardiacDamage,
+      alt: "Cardiac damage starts early when there's family history of cardiometabolic disease",
+    },
+  },
   {
     title:
       'Longitudinal association of peak oxygen uptake with vascular and cardiac structure and function in German pediatric athletes',
