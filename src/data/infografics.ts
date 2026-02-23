@@ -16,6 +16,7 @@ import img22 from '~/assets/images/infographic/Childhood Sedentariness.webp';
 import img16 from '~/assets/images/infographic/Cholesterol Heart Damage Study.webp';
 import img12 from '~/assets/images/infographic/Cholesterol passport for adolescents to halt the world’s deadliest disease – atherosclerosis.webp';
 import imgFamilyHxCardiacDamage from '~/assets/images/infographic/EJPC_family hx_cardiac damage_graphic abstract.webp';
+import imgWHtR_Hypertension from '~/assets/images/infographic/Graphic abstract_WHtR and hypertension_JN manuscript.webp';
 import img_3_5_25 from '~/assets/images/infographic/Graphic-abstract-revised_280225-1.webp';
 import img_impact_smoking from '~/assets/images/infographic/Impact of smoking from childhood associated with greater risk of cardiac damage.webp';
 import img5 from '~/assets/images/infographic/Insulin Resistance Mid Adolescence.webp';
@@ -48,19 +49,30 @@ interface InfoGrafic {
 
 export const infografics: InfoGrafic[] = [
   {
-    title: 'Why family health history matters for early heart disease prevention',
-    date: '2025-12-18',
-    url: 'https://guardian.ng/features/health/why-family-health-history-matters-for-early-heart-disease-prevention/',
+    title: 'Waist-to-height ratio predicts hypertension better than BMI',
+    date: '2026-02-18',
+    doi: '10.1016/j.tjnut.2026.101426',
+    type: 'metabolic-health',
+    image: {
+      src: imgWHtR_Hypertension,
+      alt: 'Waist-to-height ratio predicts hypertension better than BMI',
+    },
+  },
+  {
+    title: 'Tobacco and Vaping Increases Hypertension Risk',
+    date: '2026-02-06',
+    doi: '10.1152/ajpheart.00958.2025',
     type: 'cardiovascular-health',
     image: {
       src: imgSmokingVapingHypertension,
-      alt: 'Why family health history matters for early heart disease prevention',
+      alt: 'Tobacco and Vaping Increases Hypertension Risk',
     },
   },
   {
     title: "Cardiac damage starts early when there's family history of cardiometabolic disease",
     date: '2025-12-18',
     type: 'cardiovascular-health',
+    doi: '10.1093/eurjpc/zwaf744',
     description:
       'Echocardiograms reveal a rapid rise in LV hypertrophy from ages 17 to 24 years, bolstering the case for primordial prevention.',
     image: {
