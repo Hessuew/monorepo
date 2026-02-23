@@ -7,8 +7,16 @@ interface Reference {
 
 export const references: Reference[] = [
   {
+    title: 'The Journal of Nutrition',
+    subtitle:
+      'Novel Waist-to-Height Ratio Estimated Fat Mass Pediatric Cut-offs Predict Hypertension Better than Body Mass Index in Multiracial US Youths and Adults: The NHANES 2015 – 2023 Cycle',
+    description: 'Ali MW, Corsi DR, Agbaje AO. J Nutr. 2026 Feb 18. https://doi.org/10.1016/j.tjnut.2026.101426',
+    url: 'https://doi.org/10.1016/j.tjnut.2026.101426',
+  },
+  {
     title: 'Journal of the Endocrine Society',
-    subtitle: 'Novel Pediatric Waist-to-height Ratio Fat Mass Cutoff Predicts Liver Steatosis and Fibrosis Better than Body Mass Index',
+    subtitle:
+      'Novel Pediatric Waist-to-height Ratio Fat Mass Cutoff Predicts Liver Steatosis and Fibrosis Better than Body Mass Index',
     description: 'Agbaje AO. J Endocr Soc. 2025 May 3;9(7):bvaf079.',
     url: 'https://doi.org/10.1210/jendso/bvaf079',
   },
@@ -65,7 +73,8 @@ export const references: Reference[] = [
   },
   {
     title: 'Archives of Disease in Childhood',
-    subtitle: 'Associations of waist circumference to height ratio and body mass index through childhood and adolescence on blood pressure and risk of young adult hepatic steatosis',
+    subtitle:
+      'Associations of waist circumference to height ratio and body mass index through childhood and adolescence on blood pressure and risk of young adult hepatic steatosis',
     description: 'Mandal S, Leary SD, Timpson N, et al. Arch Dis Child. 2025 May 26:archdischild-2024-328140.',
     url: 'https://doi.org/10.1136/archdischild-2024-328140',
   },

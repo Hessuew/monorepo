@@ -17,6 +17,19 @@ interface Publication {
 export const publications: Publication[] = [
   {
     title:
+      'Novel Waist-to-Height Ratio Estimated Fat Mass Pediatric Cut-offs Predict Hypertension Better than Body Mass Index in Multiracial US Youths and Adults: The NHANES 2015 – 2023 Cycle',
+    authors: 'Ali MW, Corsi DR, Agbaje AO',
+    date: '2026-02-18',
+    journal: 'The Journal of Nutrition',
+    volume: '',
+    pages: '',
+    type: 'Original article',
+    category: 'metabolic-health',
+    doi: '10.1016/j.tjnut.2026.101426',
+    url: 'https://doi.org/10.1016/j.tjnut.2026.101426',
+  },
+  {
+    title:
       'Tobacco and Electronic Cigarette Use with Hypertension and the Mediating Effect of Dyslipidemia - The NHANES Study',
     authors: 'Corsi DR, Agbaje AO',
     date: '2026-02-06',
