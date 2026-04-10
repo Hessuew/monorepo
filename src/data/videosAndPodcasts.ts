@@ -22,6 +22,12 @@ interface MediaItem {
 
 export const videosAndPodcasts: MediaItem[] = [
   {
+    title: 'Serious condition vapers could develop | 9 News Australia',
+    date: '2026-03-09',
+    videoId: 'aDF-kFQDTeE',
+    platform: 'Youtube',
+  },
+  {
     title: "Prof. Andrew Agbaje's highlights adolescence as a pivotal window for protecting future heart health",
     date: '2025-12-18',
     videoId: 'ws-BLaAnLv4',

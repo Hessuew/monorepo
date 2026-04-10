@@ -12,6 +12,47 @@ interface PressRelease {
 
 export const pressReleases: PressRelease[] = [
   {
+    title: 'If your parents had high blood pressure, your heart may struggle',
+    date: '2026-03-10',
+    url: 'https://sciencenews.dk/en/if-your-parents-had-high-blood-pressure-your-heart-may-struggle',
+    source: 'Science News',
+    type: 'News',
+    category: 'cardiovascular-health',
+  },
+  {
+    title:
+      'SMOKE SCREEN Vaping or smoking just ONCE a week ‘raises risk of killer high blood pressure almost 50%’, study claims ',
+    date: '2026-03-04',
+    url: 'https://www.thesun.co.uk/health/38408770/vaping-raises-deadly-blood-pressure-risk-50/',
+    source: 'The Sun',
+    type: 'News',
+    category: 'cardiovascular-health',
+  },
+  {
+    title: 'Researchers link e-cigarettes to 46% hypertension risk',
+    date: '2026-03-12',
+    url: 'https://guardian.ng/features/health/researchers-link-e-cigarettes-to-46-hypertension-risk/',
+    source: 'The Guardian',
+    type: 'News',
+    category: 'cardiovascular-health',
+  },
+  {
+    title: 'Vaping: emerging harms health systems cant ignore',
+    date: '2026-03-11',
+    url: 'https://theconversation.com/vaping-emerging-harms-health-systems-cant-ignore-277808',
+    source: 'The Conversation',
+    type: 'News',
+    category: 'cardiovascular-health',
+  },
+  {
+    title: 'Smoking, vaping linked to elevated blood pressure, hypertension',
+    date: '2026-03-17',
+    url: 'https://www.healio.com/news/cardiology/20260317/smoking-vaping-linked-to-elevated-blood-pressure-hypertension',
+    source: 'Healio',
+    type: 'News',
+    category: 'cardiovascular-health',
+  },
+  {
     title: 'Why family health history matters for early heart disease prevention',
     date: '2025-12-18',
     url: 'https://guardian.ng/features/health/why-family-health-history-matters-for-early-heart-disease-prevention/',

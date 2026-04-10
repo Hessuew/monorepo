@@ -21,6 +21,7 @@ import img_3_5_25 from '~/assets/images/infographic/Graphic-abstract-revised_280
 import img_impact_smoking from '~/assets/images/infographic/Impact of smoking from childhood associated with greater risk of cardiac damage.webp';
 import img5 from '~/assets/images/infographic/Insulin Resistance Mid Adolescence.webp';
 import img_longitudinal_association from '~/assets/images/infographic/Longitudinal association of peak oxygen uptake.webp';
+import imgLongitudinalInsights from '~/assets/images/infographic/Longitudinal Insights Into Pediatric Hypertension, Cardiac Consequences, and Physical Activity.webp';
 import img4 from '~/assets/images/infographic/Low-Grade Inflammation Atherosclerosis.webp';
 import img24 from '~/assets/images/infographic/Persistent Tobacco Smoking.webp';
 import img9 from '~/assets/images/infographic/Sedentary Time Adolescents Heart.webp';
@@ -48,6 +49,16 @@ interface InfoGrafic {
 }
 
 export const infografics: InfoGrafic[] = [
+  {
+    title: 'Longitudinal Insights Into Pediatric Hypertension, Cardiac Consequences, and Physical Activity',
+    date: '2026-03-03',
+    doi: '10.1007/s11906-026-01370-x',
+    type: 'cardiovascular-health',
+    image: {
+      src: imgLongitudinalInsights,
+      alt: 'Longitudinal Insights Into Pediatric Hypertension, Cardiac Consequences, and Physical Activity',
+    },
+  },
   {
     title: 'Waist-to-height ratio predicts hypertension better than BMI',
     date: '2026-02-18',
