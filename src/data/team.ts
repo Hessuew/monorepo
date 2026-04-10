@@ -11,7 +11,6 @@ import imgJuhani from '~/assets/images/team/Juhani_Helsinki.webp';
 import imgMahidere from '~/assets/images/team/Mahidere Ali.webp';
 import imgSamuel from '~/assets/images/team/Samuel Barmi.webp';
 import imgSenbanjo from '~/assets/images/team/Senbanjo Odunayo Image.webp';
-import imgTomi from '~/assets/images/team/Tomi Pekka Tuomainen.webp';
 import type { ImageMetadata } from 'astro';
 
 interface TeamMember {
@@ -167,16 +166,6 @@ const teamMembers: TeamMember[] = [
     image: {
       src: imgJuhani,
       alt: 'Juhani Juusola',
-    },
-  },
-  {
-    name: 'Tomi -Pekka Tuomainen',
-    title: 'Adjunct Researcher',
-    description: 'MD, PhD, Professor of Epidemiology',
-    url: 'https://uefconnect.uef.fi/en/tomi-pekka.tuomainen/#information',
-    image: {
-      src: imgTomi,
-      alt: 'Tomi -Pekka Tuomainen',
     },
   },
 ];
