@@ -16,6 +16,31 @@ interface Publication {
 
 export const publications: Publication[] = [
   {
+    title: 'Longitudinal Insights Into Pediatric Hypertension, Cardiac Consequences, and Physical Activity',
+    authors: 'Corsi DR, Agbaje AO',
+    date: '2026-03-03',
+    journal: 'Current Hypertension Reports',
+    volume: '28',
+    pages: '15',
+    type: 'Original article',
+    category: 'cardiovascular-health',
+    doi: '10.1007/s11906-026-01370-x',
+    url: 'https://doi.org/10.1007/s11906-026-01370-x',
+  },
+  {
+    title:
+      'Adiposity Rebound or Fat-Free Mass Anabolism in Children – Challenging a 42-Year-Old BMI puzzle with Waist-to-Height Ratio: The American Society of Nutrition Foundation’s 2025 Inaugural Flemming Quaade Award for Innovation in Childhood Obesity Lecture',
+    authors: 'Agbaje AO',
+    date: '2026-03-10',
+    journal: 'The Journal of Nutrition',
+    volume: '',
+    pages: '',
+    type: 'Original article',
+    category: 'cardiovascular-health',
+    doi: '10.1016/j.tjnut.2026.101437',
+    url: 'https://doi.org/10.1016/j.tjnut.2026.101437',
+  },
+  {
     title:
       'Novel Waist-to-Height Ratio Estimated Fat Mass Pediatric Cut-offs Predict Hypertension Better than Body Mass Index in Multiracial US Youths and Adults: The NHANES 2015 – 2023 Cycle',
     authors: 'Ali MW, Corsi DR, Agbaje AO',
