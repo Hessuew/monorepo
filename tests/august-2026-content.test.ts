@@ -52,6 +52,7 @@ describe('August 2026 content contracts', () => {
     expect(assets.filter((asset) => asset.endsWith('.webp'))).toHaveLength(18);
     expect(page).toContain('images: [{ url: newsAndEvents[0].images[0] }]');
     expect(page).not.toContain('image: newsAndEvents[0].images[0]');
+    expect(page).toContain('widths={[400, 768, 1200]}');
   });
 
   test('exposes safe DINA navigation and the News and Events route', async () => {
