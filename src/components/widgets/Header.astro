@@ -259,14 +259,14 @@ const { nav: navClass = '' } = classes;
     const themeToggleContainer = document.querySelector('nav .group.relative');
     if (themeToggleContainer) {
       // Stop propagation on the entire container
-      themeToggleContainer.addEventListener('click', (e) => {
+      themeToggleContainer.addEventListener('click', (e: Event) => {
         e.stopPropagation();
       });
 
       // Also target specific elements to ensure complete coverage
       const themeToggleElements = themeToggleContainer.querySelectorAll('*');
       themeToggleElements.forEach((element) => {
-        element.addEventListener('click', (e) => {
+        element.addEventListener('click', (e: Event) => {
           e.stopPropagation();
         });
       });
@@ -276,12 +276,7 @@ const { nav: navClass = '' } = classes;
     let currentOpenMenu: HTMLElement | null = null;
 
     // Function to safely toggle menu items
-    function toggleMenuItem(
-      button: Element | null,
-      content: HTMLElement,
-      chevron: Element | null,
-      forceClose?: boolean
-    ): void {
+    function toggleMenuItem(content: HTMLElement, chevron: Element | null, forceClose?: boolean): void {
       // Determine if we should show or hide
       let shouldShow = true;
 
@@ -339,7 +334,7 @@ const { nav: navClass = '' } = classes;
       const chevron = button.querySelector('.mobile-chevron');
 
       if (button && content) {
-        button.addEventListener('click', (e) => {
+        button.addEventListener('click', (e: Event) => {
           // Only handle click for mobile view
           if (window.innerWidth >= 1024) return;
 
@@ -348,7 +343,7 @@ const { nav: navClass = '' } = classes;
           e.preventDefault();
 
           // Toggle this menu item - no need to close other menus as toggleMenuItem handles this
-          toggleMenuItem(button, content, chevron);
+          toggleMenuItem(content, chevron);
         });
       }
     });

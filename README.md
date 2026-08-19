@@ -144,8 +144,9 @@ The project includes a Cloudflare Worker that handles email subscriptions:
 - `bun run dev` - Start development server
 - `bun run build` - Build for production
 - `bun run preview` - Preview production build
-- `bun run lint` - Lint code
-- `bun run format` - Format code
+- `bun test` - Run the test suite
+- `bun run check` - Run Astro, ESLint, and Prettier checks
+- `bun run fix` - Apply ESLint and Prettier fixes
 
 ## 📝 Contributing
 

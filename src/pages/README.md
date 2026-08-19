@@ -1,107 +1,11 @@
-# 📄 Pages Directory - urFIT Research Website Navigation
+# 📄 Pages Directory - urFIT Research Website
 
-> **Complete site navigation and page structure for the urFIT child health research platform**
+> **Implementation notes for the urFIT child health research routes**
 
 🌐 **Live Website**: [https://urfit-child.com](https://urfit-child.com)
 
-This directory contains all the main pages and routes for the urFIT research group website, providing comprehensive access to pediatric health research, tools, and resources.
-
-## 🗺️ Site Structure & Navigation
-
-**Keywords:** _child health pages, research navigation, pediatric fitness tools, health assessment pages_
-
-### 🏠 Main Pages
-
-#### **[Homepage](https://urfit-child.com)** (`index.astro`)
-
-- **Purpose**: Primary landing page showcasing latest research and key resources
-- **SEO Focus**: Child health research, pediatric fitness, evidence-based wellness
-- **Content**: Featured research, interactive tools preview, team highlights
-- **Target Audience**: Researchers, healthcare professionals, families
-
-#### **Call to Action** (`call-to-action.astro`)
-
-- **Purpose**: Engagement hub for research participation and collaboration
-- **SEO Focus**: Research participation, health study enrollment, collaboration opportunities
-- **Content**: Study participation forms, partnership opportunities, contact information
-
-#### **[Waist-Height Calculator](https://urfit-child.com/waist-height-calculator)** (`waist-height-calculator.astro`)
-
-- **Purpose**: Interactive pediatric health assessment tool
-- **SEO Focus**: Child health calculator, waist-to-height ratio, pediatric BMI assessment
-- **Content**: Evidence-based calculator, health interpretation, actionable recommendations
-- **Features**: Real-time calculations, age-appropriate guidelines, printable results
-
-#### **Non-Academic Content** (`non-academic.astro`)
-
-- **Purpose**: Accessible health information for families and general public
-- **SEO Focus**: Family health tips, child wellness guide, practical health advice
-- **Content**: Simplified research findings, practical health tips, family resources
-
-### 👥 People Section (`/people/`)
-
-Comprehensive profiles and information about the research team, collaborators, and funding organizations.
-
-#### **Team** (`people/team.astro`)
-
-- **SEO Focus**: Pediatric health researchers, child fitness experts, research team
-- **Content**: Researcher profiles, expertise areas, contact information
-
-#### **Principal Investigator** (`people/principal-investigator.astro`)
-
-- **SEO Focus**: Lead researcher, principal investigator, research leadership
-- **Content**: Leadership profile, research vision, academic background
-
-#### **Collaborators** (`people/collaborators.astro`)
-
-- **SEO Focus**: Research partnerships, academic collaboration, health research network
-- **Content**: Partner institutions, collaborative projects, joint research initiatives
-
-#### **Funders** (`people/funders.astro`)
-
-- **SEO Focus**: Research funding, grant organizations, health research support
-- **Content**: Funding sources, grant acknowledgments, partnership details
-
-### 📚 Materials Section (`/materials/`)
-
-Comprehensive research resources, publications, and educational materials.
-
-#### **Key Articles** (`materials/key-articles.astro`)
-
-- **SEO Focus**: Pediatric health research papers, child fitness studies, seminal research
-- **Content**: Featured publications, research highlights, citation information
-
-#### **Publications** (`materials/publications.astro`)
-
-- **SEO Focus**: Research publications, peer-reviewed articles, academic papers
-- **Content**: Complete publication list, abstracts, download links
-
-#### **Thesis Collection** (`materials/thesis.astro`)
-
-- **SEO Focus**: Academic theses, dissertations, graduate research, doctoral studies
-- **Content**: Student research, thesis abstracts, academic achievements
-
-#### **Press Releases** (`materials/press-releases.astro`)
-
-- **SEO Focus**: Research news, health study announcements, media coverage
-- **Content**: Media releases, research announcements, public communications
-
-#### **Videos & Podcasts** (`materials/videos-and-podcasts.astro`)
-
-- **SEO Focus**: Health education videos, research podcasts, educational media
-- **Content**: Educational videos, podcast episodes, multimedia resources
-
-#### **Infographics** (`materials/infografics.astro`)
-
-- **SEO Focus**: Health data visualization, research infographics, child health statistics
-- **Content**: Visual data representations, downloadable graphics, research summaries
-
-### 🚫 Error Pages
-
-#### **404 Error** (`404.astro`)
-
-- **Purpose**: User-friendly error handling with helpful navigation
-- **Content**: Error message, site navigation, search functionality
+This directory contains the file-based Astro routes for the urFIT research group website. See the root
+[README](../../README.md#-pages) for the authoritative user-facing page and navigation inventory.
 
 ## 🎯 SEO Optimization Features
 
