@@ -36,7 +36,10 @@ describe('August 2026 content contracts', () => {
   });
 
   test('keeps all 18 event photos mapped across 14 source-ordered events', async () => {
-    const source = await read('../src/data/newsAndEvents.ts');
+    const [source, page] = await Promise.all([
+      read('../src/data/newsAndEvents.ts'),
+      read('../src/pages/news-and-events.astro'),
+    ]);
     const eventArrays = [...source.matchAll(/images: \[([^\]]+)\]/g)];
     const imageCount = eventArrays.reduce(
       (total, [, images]) => total + images.split(',').filter((image) => image.trim()).length,
@@ -47,6 +50,8 @@ describe('August 2026 content contracts', () => {
     expect(eventArrays).toHaveLength(14);
     expect(imageCount).toBe(18);
     expect(assets.filter((asset) => asset.endsWith('.webp'))).toHaveLength(18);
+    expect(page).toContain('images: [{ url: newsAndEvents[0].images[0] }]');
+    expect(page).not.toContain('image: newsAndEvents[0].images[0]');
   });
 
   test('exposes safe DINA navigation and the News and Events route', async () => {
