@@ -39,8 +39,10 @@ The urFIT research group is a leading authority in pediatric health and fitness 
 
 - Home (`/`) - Overview and latest updates
 - Call to Action (`/call-to-action`) - Call to Action section
+- News and Events (`/news-and-events`) - Conference presentations, awards, and networking highlights
 - Waist-Height Calculator (`/waist-height-calculator`) - Interactive health assessment tool
 - Non-Academic (`/non-academic`) - Non-academic content
+- DINA (`https://christ-dina.org`) - Official external discipleship website
 
 ### People
 

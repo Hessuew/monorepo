@@ -16,6 +16,19 @@ interface Publication {
 
 export const publications: Publication[] = [
   {
+    title:
+      'DXA-measured truncal adiposity in adolescence but not in childhood longitudinally predicts worsening cardiac outcomes',
+    authors: 'Agbaje AO',
+    date: '2026-04-06',
+    journal: 'European Journal of Endocrinology',
+    volume: '194(4)',
+    pages: '454-466',
+    type: 'Original article',
+    category: 'cardiovascular-health',
+    doi: '10.1093/ejendo/lvag044',
+    url: 'https://doi.org/10.1093/ejendo/lvag044',
+  },
+  {
     title: 'Longitudinal Insights Into Pediatric Hypertension, Cardiac Consequences, and Physical Activity',
     authors: 'Corsi DR, Agbaje AO',
     date: '2026-03-03',

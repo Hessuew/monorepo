@@ -15,7 +15,8 @@ interface KeyArticles {
 
 export const keyArticles: KeyArticles[] = [
   {
-    title: 'Novel Pediatric Waist-to-height Ratio Fat Mass Cutoff Predicts Liver Steatosis and Fibrosis Better than Body Mass Index: The NHANES',
+    title:
+      'Novel Pediatric Waist-to-height Ratio Fat Mass Cutoff Predicts Liver Steatosis and Fibrosis Better than Body Mass Index: The NHANES',
     authors: 'Agbaje AO',
     date: '2025-05-03',
     journal: 'Journal of the Endocrine Society',

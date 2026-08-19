@@ -4,6 +4,7 @@ import imgEp205 from '~/assets/images/videosAndPodcasts/EP 205 Kids Fitness with
 import imgNewseriaInterview from '~/assets/images/videosAndPodcasts/Newseria Interview.webp';
 import imgNNFoundationAward from '~/assets/images/videosAndPodcasts/NN Foundation Award.webp';
 import imgPhysicalActivity from '~/assets/images/videosAndPodcasts/physical_activity_slow_and_steady_wins_the_race.webp';
+import imgAdiposityReboundVideo from '~/assets/images/videosAndPodcasts/researchers-debunk-childhood-obesity-theory.webp';
 import { groupByYear } from '~/utils/dataProcessing';
 import type { ImageMetadata } from 'astro';
 import { parseISO } from 'date-fns';
@@ -21,6 +22,19 @@ interface MediaItem {
 }
 
 export const videosAndPodcasts: MediaItem[] = [
+  {
+    title: 'Waist-to-Height Ratio May Predict Hypertension Risk More Accurately Than BMI',
+    date: '2026-08-06',
+    videoId: '4UAYX4ubMVM',
+    platform: 'Youtube',
+  },
+  {
+    title: 'Researchers Debunk 42-Year-Old Theory Behind Childhood Obesity',
+    date: '2026-08-06',
+    videoId: 'qyIGhXff8dk',
+    platform: 'Youtube',
+    poster: imgAdiposityReboundVideo,
+  },
   {
     title: 'Serious condition vapers could develop | 9 News Australia',
     date: '2026-03-09',

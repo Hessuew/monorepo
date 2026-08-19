@@ -14,6 +14,8 @@ interface Link {
   description?: string;
   href?: string;
   ariaLabel?: string;
+  target?: '_blank' | '_self';
+  rel?: string;
   icon?: string;
   image?: {
     src: ImageMetadata;
@@ -121,7 +123,7 @@ const { nav: navClass = '' } = classes;
         class="flex flex-col lg:flex-row lg:self-center w-full lg:w-auto text-xl lg:text-[0.9375rem] tracking-[0.01rem] xl:text-[15px] xl:tracking-[0.16px] font-medium lg:justify-center"
       >
         {
-          links.map(({ text, href, links, icon, description }, index) => (
+          links.map(({ text, href, links, icon, description, target, rel, ariaLabel }, index) => (
             <li class={links?.length ? 'dropdown' : ''}>
               {links?.length ? (
                 <>
@@ -157,7 +159,7 @@ const { nav: navClass = '' } = classes;
                   >
                     <div class="w-full">
                       <ul class="py-2 space-y-2">
-                        {links.map(({ text: text2, href: href2, icon, description }) => (
+                        {links.map(({ text: text2, href: href2, icon, description, target, rel, ariaLabel }) => (
                           <li class="block lg:hidden">
                             <a
                               class:list={[
@@ -165,6 +167,9 @@ const { nav: navClass = '' } = classes;
                                 { 'aw-link-active': href2 === currentPath },
                               ]}
                               href={getPermalink(`${href2}`)}
+                              target={target}
+                              rel={rel}
+                              aria-label={ariaLabel}
                             >
                               <div class="flex items-center gap-3 active:text-primary">
                                 {icon && <Icon name={icon} class="w-5 h-5 mt-0.5" />}
@@ -191,6 +196,9 @@ const { nav: navClass = '' } = classes;
                     index === 2 && 'mr-[10px]',
                   ]}
                   href={getPermalink(`${href}`)}
+                  target={target}
+                  rel={rel}
+                  aria-label={ariaLabel}
                 >
                   <div class="hidden lg:flex">{text}</div>
                   <div class="flex lg:hidden items-center gap-3 active:text-primary pl-0">

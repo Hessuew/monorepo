@@ -447,11 +447,23 @@ const { columns = 2, classes = {} } = Astro.props;
                   </h3>
                   <div class="relative w-full aspect-video thumbnail-wrapper transition-transform duration-300 ease-out group-hover:scale-[1.01]">
                     {item.platform === 'Youtube' ? (
-                      <img
-                        src={`https://img.youtube.com/vi/${item.videoId}/${item.videoQuality === 'hq' ? 'hqdefault' : 'maxresdefault'}.jpg`}
-                        alt={item.title}
-                        class="w-full h-full object-cover rounded-lg"
-                      />
+                      item.poster ? (
+                        <Image
+                          src={item.poster}
+                          alt={item.title}
+                          class="w-full h-full object-cover rounded-lg"
+                          width={1240}
+                          height={631}
+                        />
+                      ) : (
+                        <img
+                          src={`https://img.youtube.com/vi/${item.videoId}/${item.videoQuality === 'hq' ? 'hqdefault' : 'maxresdefault'}.jpg`}
+                          alt={item.title}
+                          class="w-full h-full object-cover rounded-lg"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      )
                     ) : item.platform === 'Vimeo' ||
                       item.platform === 'Spotify' ||
                       item.platform === 'Doccheck' ||

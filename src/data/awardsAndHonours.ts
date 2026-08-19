@@ -256,7 +256,7 @@ export const academicAppointments: Achievement[] = [
   {
     title: 'Associate Editor',
     subtitle: 'European Journal of Preventive Cardiology',
-    details: 'Impact Factor 7.5',
+    details: 'Impact Factor 10.0',
     year: '2025',
     icon: 'tabler:pencil-minus',
   },
@@ -270,7 +270,7 @@ export const academicAppointments: Achievement[] = [
   {
     title: 'Associate Editor',
     subtitle: 'Journal of Cachexia, Sarcopenia and Muscle',
-    details: 'Impact Factor 9.4',
+    details: 'Impact Factor 9.9',
     year: 'April 2024',
     icon: 'tabler:pencil-minus',
   },

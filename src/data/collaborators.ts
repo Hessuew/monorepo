@@ -54,6 +54,26 @@ export const collaborators: Collaborator[] = [
     },
   },
   {
+    name: 'Prof. Melania Manco',
+    title: 'MD, PhD, Professor of Pediatrics and Endocrinology',
+    affiliation: 'Unit of Preventive and Predictive Medicine, Bambino Gesù Hospital in Rome, Italy.',
+    profileUrl:
+      'https://www.ese-hormones.org/news/professor-melania-manco-announced-as-first-editor-in-chief-of-obesity-and-endocrinology/',
+  },
+  {
+    name: 'Prof. Jami Josefson',
+    title: 'MD, MS, Associate Professor of Pediatrics (Endocrinology)',
+    affiliation: "Northwestern University Feinberg School of Medicine, and Lurie Children's Hospital of Chicago, US.",
+    profileUrl: 'https://www.luriechildrens.org/en/doctors/josefson-jami-l-2819/',
+  },
+  {
+    name: 'Dr. Kozeta Miliku',
+    title: 'MD, PhD, Assistant Professor',
+    affiliation:
+      'Department of Nutritional Sciences, Canada Research Chair, Nutrition and Child and Youth Health, Temerty Faculty of Medicine, University of Toronto, Canada.',
+    profileUrl: 'https://nutrisci.med.utoronto.ca/faculty/kozeta-miliku',
+  },
+  {
     name: 'Dr. Sartorio Alessandro',
     title: 'MD.',
     affiliation: 'Medical Director of the Auxo-endocrinological Experimental Research Laboratory, Italy.',

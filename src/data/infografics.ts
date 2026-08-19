@@ -1,4 +1,5 @@
 import imgAccolometerSedentary from '~/assets/images/infographic/Accelerometer Sedentary Time.webp';
+import imgAdiposityRebound from '~/assets/images/infographic/Adiposity rebound or fat-free mass anabolism.webp';
 import imgArterialStiffnessAdolescence from '~/assets/images/infographic/Arterial Stiffness Adolescence Impact.webp';
 import imgArterialStiffnessHeart from '~/assets/images/infographic/Arterial Stiffness Heart Damage.webp';
 import img6 from '~/assets/images/infographic/Arterial Stiffness Insulin Resistance HDL.webp';
@@ -15,6 +16,7 @@ import img19 from '~/assets/images/infographic/Childhood Sedentariness Vascular 
 import img22 from '~/assets/images/infographic/Childhood Sedentariness.webp';
 import img16 from '~/assets/images/infographic/Cholesterol Heart Damage Study.webp';
 import img12 from '~/assets/images/infographic/Cholesterol passport for adolescents to halt the world’s deadliest disease – atherosclerosis.webp';
+import imgTruncalAdiposity from '~/assets/images/infographic/DXA-measured truncal adiposity.webp';
 import imgFamilyHxCardiacDamage from '~/assets/images/infographic/EJPC_family hx_cardiac damage_graphic abstract.webp';
 import imgWHtR_Hypertension from '~/assets/images/infographic/Graphic abstract_WHtR and hypertension_JN manuscript.webp';
 import img_3_5_25 from '~/assets/images/infographic/Graphic-abstract-revised_280225-1.webp';
@@ -49,6 +51,28 @@ interface InfoGrafic {
 }
 
 export const infografics: InfoGrafic[] = [
+  {
+    title:
+      'DXA-measured truncal adiposity in adolescence but not in childhood longitudinally predicts worsening cardiac outcomes',
+    date: '2026-04-06',
+    doi: '10.1093/ejendo/lvag044',
+    type: 'cardiovascular-health',
+    image: {
+      src: imgTruncalAdiposity,
+      alt: 'DXA-measured truncal adiposity in adolescence but not in childhood longitudinally predicts worsening cardiac outcomes',
+    },
+  },
+  {
+    title:
+      'Adiposity Rebound or Fat-Free Mass Anabolism in Children—Challenging a 42-Year-Old BMI Puzzle with Waist-to-Height Ratio',
+    date: '2026-03-10',
+    doi: '10.1016/j.tjnut.2026.101437',
+    type: 'body-composition',
+    image: {
+      src: imgAdiposityRebound,
+      alt: 'Adiposity Rebound or Fat-Free Mass Anabolism in Children—Challenging a 42-Year-Old BMI Puzzle with Waist-to-Height Ratio',
+    },
+  },
   {
     title: 'Longitudinal Insights Into Pediatric Hypertension, Cardiac Consequences, and Physical Activity',
     date: '2026-03-03',
