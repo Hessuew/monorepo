@@ -1,6 +1,6 @@
 ---
-import Image from '~/components/common/Image.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import { NewsAndEventsCarousel } from '~/components/widgets/NewsAndEventsCarousel';
 import Spacer from '~/components/widgets/Spacer.astro';
 import { newsAndEvents } from '~/data/newsAndEvents';
 import Layout from '~/layouts/PageLayout.astro';
@@ -32,46 +32,19 @@ const metadata = {
       {
         newsAndEvents.map((event, eventIndex) => (
           <article
-            class="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl dark:border-gray-700 dark:bg-slate-900 dark:shadow-none"
+            class="flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl dark:border-gray-700 dark:bg-slate-900 dark:shadow-none"
             role="listitem"
             aria-labelledby={`${event.id}-title`}
           >
-            <div
-              class:list={[
-                'grid gap-px bg-gray-200 dark:bg-gray-700',
-                event.images.length > 1 ? 'sm:grid-cols-2' : 'grid-cols-1',
-              ]}
-            >
-              {event.images.map((eventImage, imageIndex) => {
-                const alt =
-                  event.images.length > 1
-                    ? `${event.caption} Photo ${imageIndex + 1} of ${event.images.length}.`
-                    : event.caption;
-
-                return (
-                  <figure
-                    class:list={[
-                      'relative min-w-0 aspect-[4/3] bg-slate-50 dark:bg-slate-950',
-                      event.images.length === 3 && imageIndex === 2 ? 'sm:col-span-2 sm:aspect-[8/3]' : '',
-                    ]}
-                  >
-                    <Image
-                      src={eventImage}
-                      alt={alt}
-                      class="h-full w-full object-contain"
-                      loading={eventIndex < 2 ? 'eager' : 'lazy'}
-                      decoding="async"
-                      layout="contained"
-                      width={1200}
-                      height={900}
-                      widths={[400, 768, 1200]}
-                    />
-                    <figcaption class="sr-only">{alt}</figcaption>
-                  </figure>
-                );
-              })}
+            <div class="w-full overflow-hidden rounded-t-2xl">
+              <NewsAndEventsCarousel
+                client:load
+                caption={event.caption}
+                images={event.images}
+                eager={eventIndex < 2}
+              />
             </div>
-            <header class="p-6 xl:p-[24px]">
+            <header class="flex-1 p-6 xl:p-[24px]">
               <time
                 datetime={event.datetime}
                 class="mb-3 block text-sm font-semibold uppercase tracking-wide text-primary xl:mb-[12px] xl:text-[14px] xl:leading-[20px]"

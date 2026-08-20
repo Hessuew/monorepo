@@ -28,17 +28,25 @@ describe('August 2026 content contracts', () => {
     }
   });
 
-  test('places the three collaborators in positions 3, 4, and 5', async () => {
-    const source = (await read('../src/data/collaborators.ts')).split('export const collaborators')[1];
+  test('places the three collaborators in positions 3, 4, and 5 and attaches their images', async () => {
+    const full = await read('../src/data/collaborators.ts');
+    const source = full.split('export const collaborators')[1];
     const names = [...source.matchAll(/name: '([^']+)'/g)].map((match) => match[1]);
 
     expect(names.slice(2, 5)).toEqual(['Prof. Melania Manco', 'Prof. Jami Josefson', 'Dr. Kozeta Miliku']);
+    expect(full).toContain("import imgManco from '~/assets/images/collaborators/melania-manco.png';");
+    expect(full).toContain("import imgJosefson from '~/assets/images/collaborators/josefsonjami24_epi.webp';");
+    expect(full).toContain("import imgMiliku from '~/assets/images/collaborators/Miliku Kozeta.webp';");
+    expect(source).toContain('src: imgManco');
+    expect(source).toContain('src: imgJosefson');
+    expect(source).toContain('src: imgMiliku');
   });
 
-  test('keeps all 18 event photos mapped across 14 source-ordered events', async () => {
-    const [source, page] = await Promise.all([
+  test('keeps all 18 event photos mapped across 14 source-ordered events with fill-and-crop carousel', async () => {
+    const [source, page, carousel] = await Promise.all([
       read('../src/data/newsAndEvents.ts'),
       read('../src/pages/news-and-events.astro'),
+      read('../src/components/widgets/NewsAndEventsCarousel.tsx'),
     ]);
     const eventArrays = [...source.matchAll(/images: \[([^\]]+)\]/g)];
     const imageCount = eventArrays.reduce(
@@ -52,7 +60,11 @@ describe('August 2026 content contracts', () => {
     expect(assets.filter((asset) => asset.endsWith('.webp'))).toHaveLength(18);
     expect(page).toContain('images: [{ url: newsAndEvents[0].images[0] }]');
     expect(page).not.toContain('image: newsAndEvents[0].images[0]');
-    expect(page).toContain('widths={[400, 768, 1200]}');
+    expect(page).toContain('NewsAndEventsCarousel');
+    expect(page).not.toContain('object-contain');
+    expect(carousel).toContain('object-cover');
+    expect(carousel).toContain('Previous photo');
+    expect(carousel).toContain('Next photo');
   });
 
   test('exposes safe DINA navigation and the News and Events route', async () => {
