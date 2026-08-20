@@ -37,12 +37,7 @@ const metadata = {
             aria-labelledby={`${event.id}-title`}
           >
             <div class="w-full overflow-hidden rounded-t-2xl">
-              <NewsAndEventsCarousel
-                client:load
-                caption={event.caption}
-                images={event.images}
-                eager={eventIndex < 2}
-              />
+              <NewsAndEventsCarousel client:load caption={event.caption} images={event.images} eager={eventIndex < 2} />
             </div>
             <header class="flex-1 p-6 xl:p-[24px]">
               <time
