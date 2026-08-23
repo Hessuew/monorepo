@@ -141,7 +141,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Ahunsi Adeniran',
     title: 'Alumni',
-    description: 'MD, MPH candidate',
+    description: 'MD, MPH',
     url: 'https://ng.linkedin.com/in/ahunsi-adeniran-41027a323',
     image: {
       src: imgAhunsi,
