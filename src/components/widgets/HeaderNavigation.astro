@@ -33,12 +33,17 @@ const { links, currentPath } = Astro.props;
             role="tabpanel"
             id={`nav-panel-${index}`}
             data-nav-panel={index}
+            data-panel-height={headerLinks.links && headerLinks.links.length <= 2 ? 144 : 232}
           >
             <div class="lg:flex lg:flex-row lg:items-start lg:gap-4 xl:gap-[16px] lg:p-4 xl:p-[16px] h-full">
-              <ul class="w-1/2">
+              <ul
+                class={
+                  headerLinks.links?.some((link) => link.image) ? 'w-1/2' : 'w-full grid grid-cols-2 gap-2 xl:gap-[8px]'
+                }
+              >
                 {headerLinks.links
                   ?.filter((link) => !link.image)
-                  .map(({ text, href, icon, description }) => (
+                  .map(({ text, href, icon, description, target, rel, ariaLabel }) => (
                     <li>
                       <a
                         class:list={[
@@ -46,6 +51,9 @@ const { links, currentPath } = Astro.props;
                           { 'aw-link-active': href === currentPath },
                         ]}
                         href={getPermalink(`${href}`)}
+                        target={target}
+                        rel={rel}
+                        aria-label={ariaLabel}
                       >
                         <div class="flex items-center gap-2 xl:gap-[8px]">
                           {icon && <Icon name={icon} class="w-5 h-5 xl:w-[20px] xl:h-[20px]" />}
@@ -60,14 +68,23 @@ const { links, currentPath } = Astro.props;
                     </li>
                   ))}
               </ul>
-              <ul class="lg:w-1/2 lg:space-y-2 xl:space-y-[8px] lg:block">
+              <ul
+                class={
+                  headerLinks.links?.some((link) => link.image)
+                    ? 'lg:w-1/2 lg:space-y-2 xl:space-y-[8px] lg:block'
+                    : 'hidden'
+                }
+              >
                 {headerLinks.links
                   ?.filter((link) => link.image)
-                  .map(({ text, href, image }) => (
+                  .map(({ text, href, image, target, rel, ariaLabel }) => (
                     <li class="group">
                       <a
                         class="relative block h-24 xl:h-[96px] rounded-lg transform-gpu overflow-hidden ring-0 ring-white dark:ring-gray-700 group-hover:ring-1 transition duration-200"
                         href={getPermalink(`${href}`)}
+                        target={target}
+                        rel={rel}
+                        aria-label={ariaLabel}
                       >
                         {image && (
                           <Image
@@ -137,7 +154,8 @@ const { links, currentPath } = Astro.props;
       if (!isMediumScreen()) return;
 
       const direction = index > activePanel ? 1 : -1;
-      const height = index === 0 ? 232 : index === 2 ? 144 : 232;
+      const activePanelElement = panels?.[index] as HTMLElement | undefined;
+      const height = Number(activePanelElement?.dataset.panelHeight ?? 232);
 
       menu?.classList.remove('hidden');
 

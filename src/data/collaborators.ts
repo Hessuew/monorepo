@@ -2,8 +2,11 @@
 import imgVlachopoulos from '~/assets/images/collaborators/Dr. Dimitris Vlachopoulos.webp';
 import imgSaner from '~/assets/images/collaborators/Dr. med. Christoph Saner.webp';
 import imgSartorio from '~/assets/images/collaborators/Dr. Sartorio.webp';
+import imgJosefson from '~/assets/images/collaborators/josefsonjami24_epi.webp';
 import imgZachariah from '~/assets/images/collaborators/Justin Zachariah MD.webp';
 import imgKaarniranta from '~/assets/images/collaborators/Kaarniranta_Kai.webp';
+import imgManco from '~/assets/images/collaborators/melania-manco.png';
+import imgMiliku from '~/assets/images/collaborators/Miliku Kozeta.webp';
 import imgLewandowski from '~/assets/images/collaborators/Prof Adam Lewandowski.webp';
 import imgSummerbell from '~/assets/images/collaborators/Prof Carolyn Summerbell.webp';
 import imgOjji from '~/assets/images/collaborators/Prof Dike Bevis Ojji.webp';
@@ -51,6 +54,38 @@ export const collaborators: Collaborator[] = [
     image: {
       src: imgOjji,
       alt: 'Prof. Dike Bevis Ojji',
+    },
+  },
+  {
+    name: 'Prof. Melania Manco',
+    title: 'MD, PhD, Professor of Pediatrics and Endocrinology',
+    affiliation: 'Unit of Preventive and Predictive Medicine, Bambino Gesù Hospital in Rome, Italy.',
+    profileUrl:
+      'https://www.ese-hormones.org/news/professor-melania-manco-announced-as-first-editor-in-chief-of-obesity-and-endocrinology/',
+    image: {
+      src: imgManco,
+      alt: 'Prof. Melania Manco',
+    },
+  },
+  {
+    name: 'Prof. Jami Josefson',
+    title: 'MD, MS, Associate Professor of Pediatrics (Endocrinology)',
+    affiliation: "Northwestern University Feinberg School of Medicine, and Lurie Children's Hospital of Chicago, US.",
+    profileUrl: 'https://www.luriechildrens.org/en/doctors/josefson-jami-l-2819/',
+    image: {
+      src: imgJosefson,
+      alt: 'Prof. Jami Josefson',
+    },
+  },
+  {
+    name: 'Dr. Kozeta Miliku',
+    title: 'MD, PhD, Assistant Professor',
+    affiliation:
+      'Department of Nutritional Sciences, Canada Research Chair, Nutrition and Child and Youth Health, Temerty Faculty of Medicine, University of Toronto, Canada.',
+    profileUrl: 'https://nutrisci.med.utoronto.ca/faculty/kozeta-miliku',
+    image: {
+      src: imgMiliku,
+      alt: 'Dr. Kozeta Miliku',
     },
   },
   {

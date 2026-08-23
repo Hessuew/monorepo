@@ -1,0 +1,63 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import { NewsAndEventsCarousel } from '~/components/widgets/NewsAndEventsCarousel';
+import Spacer from '~/components/widgets/Spacer.astro';
+import { newsAndEvents } from '~/data/newsAndEvents';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'News and Events | urFIT-child Research Group',
+  description: 'Conference presentations, awards, and scientific networking highlights from urFIT-child researchers.',
+  ignoreTitleTemplate: true,
+  openGraph: {
+    title: 'News and Events | urFIT-child Research Group',
+    description: 'Conference presentations, awards, and scientific networking highlights from urFIT-child researchers.',
+    type: 'website',
+    images: [{ url: newsAndEvents[0].images[0] }],
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Call to Action"
+    title="News and Events"
+    subtitle="Scientific conference presentations, awards, and networking moments from urFIT-child researchers."
+    classes={{ labelContainer: 'pb-0 md:pb-0 lg:pb-0' }}
+  />
+
+  <section class="max-w-7xl xl:max-w-[1280px] mx-auto px-4 sm:px-6 xl:px-[24px] pb-12 sm:pb-20 xl:pb-[80px]">
+    <h2 class="sr-only">Conference, award, and networking highlights</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-[32px]" role="list">
+      {
+        newsAndEvents.map((event, eventIndex) => (
+          <article
+            class="flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg hover:shadow-xl dark:border-gray-700 dark:bg-slate-900 dark:shadow-none duration-1000 ease-out intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+            role="listitem"
+            aria-labelledby={`${event.id}-title`}
+          >
+            <div class="w-full overflow-hidden rounded-t-2xl">
+              <NewsAndEventsCarousel client:load caption={event.caption} images={event.images} eager={eventIndex < 2} />
+            </div>
+            <header class="flex-1 p-6 xl:p-[24px]">
+              <time
+                datetime={event.datetime}
+                class="mb-3 block text-sm font-semibold uppercase tracking-wide text-primary xl:mb-[12px] xl:text-[14px] xl:leading-[20px]"
+              >
+                {event.dateLabel}
+              </time>
+              <h3
+                id={`${event.id}-title`}
+                class="text-xl font-bold leading-relaxed text-gray-900 dark:text-gray-100 xl:text-[20px] xl:leading-[30px]"
+              >
+                {event.caption}
+              </h3>
+            </header>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <Spacer size="sm" />
+</Layout>

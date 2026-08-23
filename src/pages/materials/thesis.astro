@@ -1,4 +1,5 @@
 ---
+import imgAhunsi from '~/assets/images/team/Ahunsi_Adeniran.webp';
 import imgBasil from '~/assets/images/team/Basil Apaokwueze.webp';
 import imgAndrew from '~/assets/images/thesis/Andrew Agbaje RT.webp';
 import imgKate from '~/assets/images/thesis/Kate Sansum Exeter.webp';
@@ -198,6 +199,58 @@ const metadata = {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Download Master's thesis (PDF)"
+            role="document"
+          >
+            Access Thesis <i class="ml-2 fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget ****************** -->
+
+  <Content
+    id="thesis-4"
+    isReversed={true}
+    image={{
+      src: imgAhunsi,
+      alt: 'Ahunsi Adeniran',
+    }}
+    items={[
+      {
+        title: "Master's Thesis",
+        description: `Examining sex- and adiposity-based associations of accelerometer-measured physical activity with apolipoprotein B`,
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'NHANES Study',
+        description: `Population-based research using data from the National Health and Nutrition Examination Survey`,
+        icon: 'tabler:chart-dots',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <div class="space-y-8">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+          <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-2xl mb-2">
+            Master's Thesis - Ahunsi Adeniran
+          </h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            Sex and Adiposity-based Associations of Accelerometer-measured Physical Activity and Apolipoprotein B: The
+            NHANES Study
+          </p>
+          <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-gray-600 dark:text-gray-400 mb-4">
+            <span><i class="fas fa-university"></i> University of Eastern Finland</span>
+            <span aria-hidden="true">•</span>
+            <span>Published: June 18, 2026</span>
+          </div>
+          <a
+            href="https://erepo.uef.fi/handle/123456789/38435"
+            class="inline-flex items-center text-blue-600 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Access Ahunsi Adeniran's master's thesis"
             role="document"
           >
             Access Thesis <i class="ml-2 fas fa-external-link-alt"></i>

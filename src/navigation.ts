@@ -100,26 +100,46 @@ export const headerData: { links: Array<MenuLink> } = {
     //   description: 'Waist-to-height ratio tool',
     //   icon: 'tabler:calculator',
     // },
-    // {
-    // text: 'Call to Action',
-    // links: [
     {
       text: 'Call to Action',
-      href: getPermalink('/call-to-action'),
-      description: 'Practical applications',
-      icon: 'tabler:speakerphone',
+      links: [
+        {
+          text: 'Overview',
+          href: getPermalink('/call-to-action'),
+          description: 'Practical applications',
+          icon: 'tabler:speakerphone',
+        },
+        {
+          text: 'News and Events',
+          href: getPermalink('/news-and-events'),
+          description: 'Conference presentations and awards',
+          icon: 'tabler:calendar-event',
+        },
+      ],
     },
     {
-      image: {
-        src: imgOrangeSparks,
-        alt: 'Orange Sparks',
-      },
       text: 'Non-academic',
-      href: getPermalink('/non-academic'),
-      description: 'Beyond scientific research',
-      icon: 'tabler:flame',
+      links: [
+        {
+          image: {
+            src: imgOrangeSparks,
+            alt: 'Orange Sparks',
+          },
+          text: 'Overview',
+          href: getPermalink('/non-academic'),
+          description: 'Beyond scientific research',
+          icon: 'tabler:flame',
+        },
+        {
+          text: 'DINA',
+          href: 'https://christ-dina.org',
+          target: '_blank',
+          rel: 'noopener noreferrer',
+          ariaLabel: 'DINA discipleship website (opens in a new tab)',
+          description: 'Visit the official discipleship website',
+          icon: 'tabler:external-link',
+        },
+      ],
     },
-    // ],
-    // },
   ],
 };

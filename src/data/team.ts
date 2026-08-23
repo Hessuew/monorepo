@@ -109,13 +109,14 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
-    name: 'Ahunsi Adeniran',
-    title: 'MD, MPH candidate',
-    description: 'MD, MPH candidate',
-    url: 'https://ng.linkedin.com/in/ahunsi-adeniran-41027a323',
+    name: 'Basil Apaokwueze',
+    title: 'MD, MPH, PhD candidate',
+    description:
+      "MBBS, MPH, Pediatric Resident (Research) Children's National Hospital, Washington D.C, US <br /> (MPH thesis completed in May 2025)",
+    url: 'https://www.linkedin.com/in/basil-apaokwueze-515313185/?originalSubdomain=ng',
     image: {
-      src: imgAhunsi,
-      alt: 'Ahunsi Adeniran',
+      src: imgBasil,
+      alt: 'Basil Apaokwueze',
     },
   },
   {
@@ -138,14 +139,13 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
-    name: 'Basil Apaokwueze',
+    name: 'Ahunsi Adeniran',
     title: 'Alumni',
-    description:
-      "MBBS, MPH, Pediatric Resident (Research) Children's National Hospital, Washington D.C, US <br /> (MPH thesis completed in May 2025)",
-    url: 'https://www.linkedin.com/in/basil-apaokwueze-515313185/?originalSubdomain=ng',
+    description: 'MD, MPH',
+    url: 'https://ng.linkedin.com/in/ahunsi-adeniran-41027a323',
     image: {
-      src: imgBasil,
-      alt: 'Basil Apaokwueze',
+      src: imgAhunsi,
+      alt: 'Ahunsi Adeniran',
     },
   },
   {

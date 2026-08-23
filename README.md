@@ -39,8 +39,10 @@ The urFIT research group is a leading authority in pediatric health and fitness 
 
 - Home (`/`) - Overview and latest updates
 - Call to Action (`/call-to-action`) - Call to Action section
+- News and Events (`/news-and-events`) - Conference presentations, awards, and networking highlights
 - Waist-Height Calculator (`/waist-height-calculator`) - Interactive health assessment tool
 - Non-Academic (`/non-academic`) - Non-academic content
+- DINA (`https://christ-dina.org`) - Official external discipleship website
 
 ### People
 
@@ -142,8 +144,9 @@ The project includes a Cloudflare Worker that handles email subscriptions:
 - `bun run dev` - Start development server
 - `bun run build` - Build for production
 - `bun run preview` - Preview production build
-- `bun run lint` - Lint code
-- `bun run format` - Format code
+- `bun test` - Run the test suite
+- `bun run check` - Run Astro, ESLint, and Prettier checks
+- `bun run fix` - Apply ESLint and Prettier fixes
 
 ## 📝 Contributing
 
