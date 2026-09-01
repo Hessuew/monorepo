@@ -17,12 +17,23 @@ interface Env {
 
 const app = new Hono<{ Bindings: Env }>();
 
+const allowedOrigins = ['http://localhost:4321', 'https://cherubim-it.pages.dev', 'https://cherubim-it.com'];
+
+const isAllowedOrigin = (value: string | undefined): boolean => {
+  if (!value) return false;
+
+  try {
+    return allowedOrigins.includes(new URL(value).origin);
+  } catch {
+    return false;
+  }
+};
+
 // CORS middleware
 app.use(
   '/*',
   cors({
-    // origin: ['http://localhost:4321', 'https://urfit-child.pages.dev', 'https://urfit-child.com'],
-    origin: ['https://cherubim-it.pages.dev', 'https://cherubim-it.com'],
+    origin: allowedOrigins,
     allowMethods: ['POST', 'OPTIONS'],
   })
 );
@@ -61,15 +72,7 @@ const csrfProtection = async (c: Context<{ Bindings: Env }>, next: Next) => {
   const origin = c.req.header('Origin');
   const referer = c.req.header('Referer');
 
-  if (
-    !requestedWith ||
-    requestedWith !== 'XMLHttpRequest' ||
-    // !origin
-    !origin ||
-    (!origin.endsWith('cherubim-it.com') && !origin.endsWith('cherubim-it.pages.dev')) ||
-    !referer ||
-    (!referer.startsWith('https://cherubim-it.com') && !referer.startsWith('https://cherubim-it.pages.dev'))
-  ) {
+  if (!requestedWith || requestedWith !== 'XMLHttpRequest' || !isAllowedOrigin(origin) || !isAllowedOrigin(referer)) {
     return c.json(
       {
         success: false,

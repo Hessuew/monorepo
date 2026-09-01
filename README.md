@@ -1,6 +1,6 @@
-# Rukouksen seurakunta Website
+# Cherubim IT Website
 
-![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/Hessuew/rukouksen_seurakunta?utm_source=oss&utm_medium=github&utm_campaign=Hessuew%2Frukouksen_seurakunta&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
+![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/Hessuew/cherubim_it?utm_source=oss&utm_medium=github&utm_campaign=Hessuew%2Fcherubim_it&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
 
 ## 🎯 Project Overview
 
@@ -14,26 +14,31 @@ The website includes:
 - [React](https://reactjs.org/) - UI Components
 - [TypeScript](https://www.typescriptlang.org/) - Type Safety
 - [Tailwind CSS](https://tailwindcss.com/) - Styling
-- [Bun](https://bun.sh/) - JavaScript Runtime & Package Manager
+- [Bun](https://bun.sh/) - JavaScript runtime and package manager
+- [Node.js](https://nodejs.org/) - Supported JavaScript runtime
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Bun (latest version)
+- Bun (latest version recommended)
+- Node.js version matching the `engines` range in `package.json` when using npm instead of Bun
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone [repository-url]
+git clone https://github.com/Hessuew/cherubim_it.git
+cd cherubim_it
 
-# Install dependencies
+# Install dependencies with Bun
 bun install
 
 # Start development server
 bun run dev
 ```
+
+When using Node.js, replace `bun install` with `npm install` and `bun run` with `npm run`.
 
 ### Building for Production
 
@@ -75,8 +80,22 @@ src/
 - `bun run dev` - Start development server
 - `bun run build` - Build for production
 - `bun run preview` - Preview production build
-- `bun run lint` - Lint code
-- `bun run format` - Format code
+- `bun run check` - Run Astro, ESLint, and Prettier checks
+- `bun run check:astro` - Run the Astro type checker
+- `bun run check:eslint` - Run ESLint
+- `bun run check:prettier` - Check formatting
+- `bun run fix` - Apply ESLint and Prettier fixes
+- `bun test --pass-with-no-tests` - Run the Bun test runner
+
+The contact Worker has its own dependencies and TypeScript configuration:
+
+```bash
+cd workers/contact
+bun install
+bunx tsc --noEmit
+cp wrangler.toml.example wrangler.toml
+bunx wrangler deploy --dry-run
+```
 
 ## 📝 Contributing
 

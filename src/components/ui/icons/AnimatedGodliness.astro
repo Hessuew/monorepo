@@ -12,7 +12,7 @@ interface Props {
 
 const {
   animate = true,
-  classes= '',
+  classes = '',
   stroke = 'currentColor',
   strokeWidth = 1,
   delay = 0,
@@ -23,118 +23,111 @@ const {
 
 // Determine Tailwind color class
 const strokeClass = stroke.startsWith('text-') ? stroke : '';
-
 ---
-<div class={animate ? 'wave-wrapper6' : 'static-wrapper6'}>
-  <svg 
-    class={`curvy-wave ${classes} ${strokeClass}`} 
-    viewBox='0 0 16 16'
-    xmlns="http://www.w3.org/2000/svg"
-  >
-      <defs>
-        <linearGradient id={gradientId} x1='0' y1='0' x2='1' y2='1'>
-          <stop offset='0%' stop-color={gradientFrom} />
-          <stop offset='100%' stop-color={gradientTo} />
-        </linearGradient>
-      </defs>
 
-      <path 
-        d="M3.25 1A2.25 2.25 0 001 3.25v9.5A2.25 2.25 0 003.25 15h9.5A2.25 2.25 0 0015 12.75v-9.5A2.25 2.25 0 0012.75 1h-9.5z"
-        fill="none"
-        stroke={`url(#${gradientId})`}
-        stroke-width={strokeWidth} 
-        stroke-linecap="round"
-        class={animate ? 'wave-path6' : 'static-path6'}
-        style={animate ? `
+<div class={animate ? 'wave-wrapper6' : 'static-wrapper6'}>
+  <svg class={`curvy-wave ${classes} ${strokeClass}`} viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color={gradientFrom}></stop>
+        <stop offset="100%" stop-color={gradientTo}></stop>
+      </linearGradient>
+    </defs>
+
+    <path
+      d="M3.25 1A2.25 2.25 0 001 3.25v9.5A2.25 2.25 0 003.25 15h9.5A2.25 2.25 0 0015 12.75v-9.5A2.25 2.25 0 0012.75 1h-9.5z"
+      fill="none"
+      stroke={`url(#${gradientId})`}
+      stroke-width={strokeWidth}
+      stroke-linecap="round"
+      class={animate ? 'wave-path6' : 'static-path6'}
+      style={animate
+        ? `
         stroke-dasharray: 100;
         stroke-dashoffset: 100;
         animation-delay: ${delay}ms;
-      ` : ''}
-      />
+      `
+        : ''}></path>
     <!-- Centered inner rectangle at 60% size (9.6x9.6) -->
-      <rect 
-        x="3.4" 
-        y="3.4" 
-        width="9" 
-        height="9" 
-        rx="1"
-        fill="none"
-        stroke={`url(#${gradientId})`}
-        stroke-width={strokeWidth} 
-        stroke-linecap="round"
-        class={animate ? 'wave-path6' : 'static-path6'}
-        style={animate ? `
+    <rect
+      x="3.4"
+      y="3.4"
+      width="9"
+      height="9"
+      rx="1"
+      fill="none"
+      stroke={`url(#${gradientId})`}
+      stroke-width={strokeWidth}
+      stroke-linecap="round"
+      class={animate ? 'wave-path6' : 'static-path6'}
+      style={animate
+        ? `
         stroke-dasharray: 100;
         stroke-dashoffset: 100;
         animation-delay: ${delay}ms;
-      ` : ''}
-      />
+      `
+        : ''}></rect>
   </svg>
 
-  {animate && (
-    <>
-      <style is:inline>
-        .wave-wrapper6 {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          align-items: end;
-          display: flex;
-        }
+  <style is:inline>
+    .wave-wrapper6 {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      align-items: end;
+      display: flex;
+    }
 
-        .wave-path6 {
-          opacity: 0;
-        }
+    .wave-path6 {
+      opacity: 0;
+    }
 
-        .wave-path6.visible {
-          opacity: 1;
-          animation: drawWave 6s ease-out forwards;
-        }
+    .wave-path6.visible {
+      opacity: 1;
+      animation: drawWave 6s ease-out forwards;
+    }
 
-        @keyframes drawWave {
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-      </style>
+    @keyframes drawWave {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
 
-      <script>
-        function setupWaveObserver() {
-          const observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add('visible');
-                  entry.target.querySelectorAll('.wave-path6').forEach((el) => el.classList.add('visible'));
-                  observer.unobserve(entry.target);
-                }
-              });
-            },
-            { 
-              threshold: 0.1,
-              rootMargin: '50px'
-            }
-          );
-
-          document.querySelectorAll('.wave-wrapper6').forEach((wrapper) => {
-            if (wrapper && !wrapper.classList.contains('visible')) {
-              observer.observe(wrapper);
+  <script>
+    function setupWaveObserver() {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              entry.target.querySelectorAll('.wave-path6').forEach((el) => el.classList.add('visible'));
+              observer.unobserve(entry.target);
             }
           });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: '50px',
         }
+      );
 
-        // Run immediately
-        setupWaveObserver();
+      document.querySelectorAll('.wave-wrapper6').forEach((wrapper) => {
+        if (wrapper && !wrapper.classList.contains('visible')) {
+          observer.observe(wrapper);
+        }
+      });
+    }
 
-        // Run again after page load to catch any dynamically loaded elements
-        window.addEventListener('load', setupWaveObserver);
+    // Run immediately
+    setupWaveObserver();
 
-        // Run when Astro view transitions complete
-        document.addEventListener('astro:page-load', setupWaveObserver);
+    // Run again after page load to catch any dynamically loaded elements
+    window.addEventListener('load', setupWaveObserver);
 
-      </script>
-    </>
-  )}
+    // Run when Astro view transitions complete
+    document.addEventListener('astro:page-load', setupWaveObserver);
+  </script>
 </div>
 
 <style is:global>
