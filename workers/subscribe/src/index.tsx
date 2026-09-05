@@ -65,14 +65,18 @@ const csrfProtection = async (c: Context<{ Bindings: WorkerEnv }>, next: Next) =
 };
 
 // Public files endpoint with CORS and security headers
-app.get(
-  '/files/:filename',
-  // csrfProtection,
+app.use(
+  '/files/*',
   cors({
     origin: (origin) => (isAllowedOrigin(origin) ? origin : ''),
     allowMethods: ['GET', 'OPTIONS'],
     allowHeaders: ['Content-Type', 'Range'],
-  }),
+  })
+);
+
+app.get(
+  '/files/:filename',
+  // csrfProtection,
   async (c) => {
     const { filename } = c.req.param();
 
