@@ -1,6 +1,6 @@
 [build]
-  publish = "dist"
-  command = "bun run build"
+  publish = "apps/flamethefreeze/dist"
+  command = "bun run --filter flamethefreeze build"
 [build.processing.html]
   pretty_urls = false
 [[headers]]
