@@ -18,7 +18,7 @@ Each app and Worker keeps its own package manifest, runtime configuration, conte
 ```sh
 bun install --frozen-lockfile
 bun run build
-bun test
+bun run test
 bun run check
 ```
 

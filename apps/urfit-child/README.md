@@ -143,7 +143,7 @@ Newsletter subscriptions use the separate `workers/subscribe/` Worker. See the
 - `bun run --filter urFIT-child dev` - Start development server
 - `bun run --filter urFIT-child build` - Build for production
 - `bun run --filter urFIT-child preview` - Preview production build
-- `bun run --filter urFIT-child test` - Run the test suite
+- `bun run --filter urFIT-child test` - Run the test suite; succeeds when no tests are found
 - `bun run --filter urFIT-child check` - Run Astro, ESLint, and Prettier checks
 - `bun run --filter urFIT-child fix` - Apply ESLint and Prettier fixes
 
