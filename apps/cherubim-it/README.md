@@ -87,14 +87,12 @@ src/
 - `bun run fix` - Apply ESLint and Prettier fixes
 - `bun test --pass-with-no-tests` - Run the Bun test runner
 
-The contact Worker has its own dependencies and TypeScript configuration:
+From the repository root, install the workspace dependencies and check the contact Worker:
 
 ```bash
-cd workers/contact
-bun install
-bunx tsc --noEmit
-cp wrangler.toml.example wrangler.toml
-bunx wrangler deploy --dry-run
+bun install --frozen-lockfile
+bun run check:worker:contact
+bun run dry-run:worker:contact
 ```
 
 ## 📝 Contributing
