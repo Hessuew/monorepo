@@ -1,6 +1,8 @@
 [build]
   publish = "apps/flamethefreeze/dist"
   command = "bun run --filter flamethefreeze build"
+[build.environment]
+  BUN_VERSION = "1.3.10"
 [build.processing.html]
   pretty_urls = false
 [[headers]]

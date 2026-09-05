@@ -110,3 +110,9 @@ Made by Juhani Juusola out of love for God • All rights reserved.
 ## Acknowledgements
 
 Initially created by [onWidget](https://onwidget.com), made with [AstroWind](https://github.com/onwidget/astrowind) which is maintained by a community of [contributors](https://github.com/onwidget/astrowind/graphs/contributors).
+
+## Hosting
+
+For Netlify, use the repository root as the base directory and `apps/flamethefreeze` as the package directory containing [netlify.toml](netlify.toml). The configuration runs `bun run --filter flamethefreeze build`, publishes `apps/flamethefreeze/dist`, and sets `BUN_VERSION=1.3.10` under `[build.environment]`. Keep that version synchronized with the root `.bun-version` and `packageManager` pin.
+
+See [Cloudflare deployment settings](../../docs/cloudflare-deployments.md) for this app’s Pages settings and the separate Worker configuration.
