@@ -55,17 +55,20 @@ To run package-local commands instead, change to `apps/cherubim-it` after the ro
 ## 📁 Project Structure
 
 ```
-src/
-├── assets/         # Static assets (images, styles)
-├── components/     # Shared Astro components
-├── content/        # Blog related content
-├── data/          # Data for different pages
-├── layouts/       # Shared layout components
-├── pages/         # Route pages
-├── utils/         # Helper functions
-├── config/        # Shared configuration
-├── navigation/    # Navigation of the website
-└── types.d.ts     # TypeScript definitions
+apps/cherubim-it/
+├── public/         # Public files and CMS assets
+├── src/
+│   ├── assets/     # Static assets (images, styles)
+│   ├── components/ # Shared Astro and React components
+│   ├── data/       # Data and email templates
+│   ├── i18n/       # Localization data and helpers
+│   ├── layouts/    # Shared layout components
+│   ├── pages/      # Route pages
+│   ├── utils/      # Helper functions and configuration
+│   └── types.d.ts  # TypeScript definitions
+├── vendor/         # CMS/vendor integration
+├── astro.config.ts
+└── package.json
 ```
 
 ## 🧪 Development

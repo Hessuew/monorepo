@@ -32,7 +32,7 @@ const app = new Hono<{ Bindings: WorkerEnv }>();
 
 // CORS middleware
 app.use(
-  '/*',
+  '/subscribe',
   cors({
     origin: (origin) => (isAllowedOrigin(origin) ? origin : ''),
     allowMethods: ['POST', 'OPTIONS'],
