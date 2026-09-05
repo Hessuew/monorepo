@@ -27,15 +27,15 @@ The website includes:
 ### Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/Hessuew/cherubim_it.git
-cd cherubim_it
+# Clone the Flame the Freeze monorepo
+git clone https://github.com/Hessuew/flamethefreeze.git
+cd flamethefreeze
 
-# Install dependencies with Bun
-bun install
+# Install all workspace dependencies from the repository root
+bun install --frozen-lockfile
 
-# Start development server
-bun run dev
+# Start the Cherubim IT development server
+bun run --filter rukouksen_seurakunta dev
 ```
 
 When using Node.js, replace `bun install` with `npm install` and `bun run` with `npm run`.
@@ -44,11 +44,13 @@ When using Node.js, replace `bun install` with `npm install` and `bun run` with 
 
 ```bash
 # Create production build
-bun run build
+bun run --filter rukouksen_seurakunta build
 
 # Preview production build
-bun run preview
+bun run --filter rukouksen_seurakunta preview
 ```
+
+To run package-local commands instead, change to `apps/cherubim-it` after the root install and omit the filter.
 
 ## 📁 Project Structure
 
@@ -77,15 +79,14 @@ src/
 
 ### Commands
 
-- `bun run dev` - Start development server
-- `bun run build` - Build for production
-- `bun run preview` - Preview production build
-- `bun run check` - Run Astro, ESLint, and Prettier checks
-- `bun run check:astro` - Run the Astro type checker
-- `bun run check:eslint` - Run ESLint
-- `bun run check:prettier` - Check formatting
-- `bun run fix` - Apply ESLint and Prettier fixes
-- `bun test --pass-with-no-tests` - Run the Bun test runner
+- `bun run --filter rukouksen_seurakunta dev` - Start development server
+- `bun run --filter rukouksen_seurakunta build` - Build for production
+- `bun run --filter rukouksen_seurakunta preview` - Preview production build
+- `bun run --filter rukouksen_seurakunta check` - Run Astro, ESLint, and Prettier checks
+- `bun run --filter rukouksen_seurakunta check:astro` - Run the Astro type checker
+- `bun run --filter rukouksen_seurakunta check:eslint` - Run ESLint
+- `bun run --filter rukouksen_seurakunta check:prettier` - Check formatting
+- `bun run --filter rukouksen_seurakunta test` - Run the Bun test runner
 
 From the repository root, install the workspace dependencies and check the contact Worker:
 

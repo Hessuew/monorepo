@@ -32,3 +32,5 @@ pnpm-lock.yaml
 
 # Bun creates one authoritative lockfile at the repository root.
 **/bun.lockb
+/apps/*/bun.lock
+/workers/*/bun.lock

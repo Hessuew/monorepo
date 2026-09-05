@@ -80,40 +80,44 @@ The urFIT research group is a leading authority in pediatric health and fitness 
 ### Installation
 
 ```bash
-# Clone the repository
-git clone [repository-url]
+# Clone the Flame the Freeze monorepo
+git clone https://github.com/Hessuew/flamethefreeze.git
+cd flamethefreeze
 
-# Install dependencies
-bun install
+# Install all workspace dependencies from the repository root
+bun install --frozen-lockfile
 
-# Start development server
-bun run dev
+# Start the urFIT-child development server
+bun run --filter urFIT-child dev
 ```
 
 ### Building for Production
 
 ```bash
 # Create production build
-bun run build
+bun run --filter urFIT-child build
 
 # Preview production build
-bun run preview
+bun run --filter urFIT-child preview
 ```
+
+To run package-local commands instead, change to `apps/urfit-child` after the root install and omit the filter.
 
 ## 📁 Project Structure
 
 ```
-src/
-├── assets/         # Static assets (images, styles)
-├── components/     # Shared Astro components
-├── content/        # Blog related content
-├── data/          # Data for different pages
-├── layouts/       # Shared layout components
-├── pages/         # Route pages
-├── utils/         # Helper functions
-├── config/        # Shared configuration
-├── navigation/    # Navigation of the website
-└── types.d.ts     # TypeScript definitions
+apps/urfit-child/
+└── src/
+    ├── assets/         # Static assets (images, styles)
+    ├── components/     # Shared Astro components
+    ├── content/        # Blog related content
+    ├── data/            # Data for different pages
+    ├── layouts/        # Shared layout components
+    ├── pages/           # Route pages
+    ├── utils/           # Helper functions
+    ├── config/          # Shared configuration
+    ├── navigation/      # Navigation of the website
+    └── types.d.ts       # TypeScript definitions
 
 workers/
 └── subscribe/     # Cloudflare Worker for email subscriptions
@@ -141,12 +145,12 @@ The project includes a Cloudflare Worker that handles email subscriptions:
 
 ### Commands
 
-- `bun run dev` - Start development server
-- `bun run build` - Build for production
-- `bun run preview` - Preview production build
-- `bun test` - Run the test suite
-- `bun run check` - Run Astro, ESLint, and Prettier checks
-- `bun run fix` - Apply ESLint and Prettier fixes
+- `bun run --filter urFIT-child dev` - Start development server
+- `bun run --filter urFIT-child build` - Build for production
+- `bun run --filter urFIT-child preview` - Preview production build
+- `bun run --filter urFIT-child test` - Run the test suite
+- `bun run --filter urFIT-child check` - Run Astro, ESLint, and Prettier checks
+- `bun run --filter urFIT-child fix` - Apply ESLint and Prettier fixes
 
 ## 📝 Contributing
 
