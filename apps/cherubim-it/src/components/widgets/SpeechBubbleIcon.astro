@@ -1,0 +1,308 @@
+---
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+import { Icon } from 'astro-icon/components';
+
+// Props for customizing the speech bubble
+const {
+  position = 'top-right', // Position of the bubble
+  size = 'md', // Size of the icon: sm, md, lg
+  classes = {},
+  targetSectionId = 'testimonialsContainer', // ID of the section to observe
+} = Astro.props;
+
+// Size mapping
+const sizeMap = {
+  sm: 'w-6 h-6',
+  md: 'w-8 h-8',
+  lg: 'w-10 h-10',
+};
+
+// Position mapping
+const positionMap = {
+  'top-right': 'top-4 right-4',
+  'top-left': 'top-4 left-4',
+  'bottom-right': 'bottom-4 right-4',
+  'bottom-left': 'bottom-4 left-4',
+  center: 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
+};
+
+const iconSize = sizeMap[size] || sizeMap.md;
+const iconPosition = positionMap[position] || positionMap['top-right'];
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<!-- Wrapper with fixed positioning -->
+<div class="speech-bubble-wrapper">
+  <div
+    id="speech-bubble-icon"
+    class={`fixed z-[9999] ${iconPosition} ${iconSize} ${classes.container || ''} opacity-0 pointer-events-none transition-opacity duration-500 group cursor-pointer no-movement`}
+  >
+    <div class="relative">
+      <!-- Icon wrapper to prevent movement - hidden on mobile -->
+      <div class="lg:block hidden">
+        <Icon
+          name="tabler:info-circle-filled"
+          class={`text-primary-600 drop-shadow-lg ${iconSize} ${classes.icon || ''} group-hover:scale-110 transition-transform no-movement`}
+        />
+      </div>
+
+      <!-- Tooltip that appears on hover (desktop) or by default (mobile) -->
+      <div
+        id="speech-bubble-tooltip"
+        class="absolute flex flex-col bottom-full items-start justify-start right-0 mb-2 w-max max-w-[200px] bg-white/90 text-black text-sm p-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none no-movement speech-bubble"
+      >
+        <!-- Close button (X) for mobile - hidden by default -->
+        <button
+          id="speech-bubble-close-btn"
+          class="absolute top-1 right-1 text-black hidden no-movement"
+          aria-label="Close tooltip"
+          type="button"
+        >
+          <Icon name="tabler:x" class="w-4 h-4" />
+        </button>
+
+        <div class="flex flex-row items-center gap-1">
+          {t('press')}
+          <Icon name="tabler:hand-click" class="w-5 h-5 text-black flex-shrink-0" title="Click to see more content" />
+          {t('icon')}
+        </div>
+        <div class="text-left">{t('toReadTheFullTestimony')}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ targetSectionId }}>
+  // Check if we're on a mobile device
+  function isMobileDevice() {
+    return (
+      window.innerWidth <= 1000 ||
+      navigator.userAgent.match(/Android/i) ||
+      navigator.userAgent.match(/iPhone|iPad|iPod/i)
+    );
+  }
+
+  // Function to show the speech bubble
+  function showSpeechBubble() {
+    const speechBubble = document.getElementById('speech-bubble-icon');
+    const tooltip = document.getElementById('speech-bubble-tooltip');
+    const closeBtn = document.getElementById('speech-bubble-close-btn');
+
+    if (!speechBubble || !tooltip || !closeBtn) return;
+
+    // Make visible with fade-in animation
+    speechBubble.style.display = 'block';
+
+    // Use setTimeout to ensure the display change has taken effect before adding the opacity transition
+    setTimeout(() => {
+      speechBubble.classList.remove('opacity-0', 'pointer-events-none');
+      speechBubble.classList.add('opacity-100');
+
+      // Only add bounce animation for desktop
+      if (!isMobileDevice()) {
+        speechBubble.classList.add('animate-bounce-gentle');
+      }
+    }, 10);
+
+    // For mobile devices, show the tooltip by default and make it interactive
+    if (isMobileDevice()) {
+      tooltip.classList.remove('opacity-0', 'pointer-events-none');
+      tooltip.classList.add('opacity-100', 'pointer-events-auto');
+
+      // Show the close button
+      closeBtn.classList.remove('hidden');
+    }
+
+    // Add a debug class to help identify if it's being shown
+    speechBubble.classList.add('speech-bubble-visible');
+  }
+
+  // Function to hide the speech bubble
+  function hideSpeechBubble() {
+    const speechBubble = document.getElementById('speech-bubble-icon');
+    if (!speechBubble) return;
+
+    // Hide immediately without animation
+    speechBubble.style.display = 'none';
+
+    // Also remove all classes that might cause movement
+    speechBubble.classList.remove('opacity-100', 'animate-bounce-gentle', 'speech-bubble-visible');
+    speechBubble.classList.add('opacity-0', 'pointer-events-none');
+  }
+
+  // Function to handle click on the speech bubble
+  function handleSpeechBubbleClick(e) {
+    // Prevent any default behavior
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    // Hide the speech bubble immediately
+    hideSpeechBubble();
+  }
+
+  // Function to setup the intersection observer for the speech bubble
+  function setupWaveObserver() {
+    const speechBubble = document.getElementById('speech-bubble-icon');
+    const targetSection = document.getElementById(targetSectionId);
+    const closeBtn = document.getElementById('speech-bubble-close-btn');
+
+    if (!speechBubble || !targetSection) {
+      return;
+    }
+
+    // Add click event listener to the speech bubble (remove existing first to prevent duplicates)
+    speechBubble.removeEventListener('click', handleSpeechBubbleClick);
+    speechBubble.addEventListener('click', handleSpeechBubbleClick);
+
+    // Add touch event listeners to prevent movement
+    speechBubble.addEventListener(
+      'touchstart',
+      function (e) {
+        e.preventDefault();
+        handleSpeechBubbleClick(e);
+      },
+      { passive: false }
+    );
+
+    // Add click event listener to the close button if it exists
+    if (closeBtn) {
+      closeBtn.removeEventListener('click', function (e) {
+        e.stopPropagation(); // Prevent the event from bubbling up to the speech bubble
+        hideSpeechBubble();
+      });
+
+      closeBtn.addEventListener('click', function (e) {
+        e.stopPropagation(); // Prevent the event from bubbling up to the speech bubble
+        e.preventDefault();
+        hideSpeechBubble();
+      });
+
+      // Add touch event listener to prevent movement
+      closeBtn.addEventListener(
+        'touchstart',
+        function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          hideSpeechBubble();
+        },
+        { passive: false }
+      );
+    }
+
+    // Create an Intersection Observer to detect when the testimonial section is visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // When the testimonial section comes into view
+          if (entry.isIntersecting) {
+            // Show the speech bubble with a slight delay
+            setTimeout(showSpeechBubble, 500);
+          } else {
+            // Hide the speech bubble when scrolling past the testimonial section
+            hideSpeechBubble();
+          }
+        });
+      },
+      {
+        // Options for the observer
+        threshold: 0.1, // Trigger when at least 10% of the target is visible
+        rootMargin: '0px 0px -10% 0px', // Adjust the bottom margin to trigger earlier
+      }
+    );
+
+    // Start observing the testimonial section
+    observer.observe(targetSection);
+  }
+
+  // Initialize on DOMContentLoaded
+  document.addEventListener('DOMContentLoaded', () => {
+    setupWaveObserver();
+  });
+
+  // Run when Astro view transitions complete
+  document.addEventListener('astro:page-load', () => {
+    setupWaveObserver();
+  });
+</script>
+
+<style>
+  /* Speech bubble wrapper to prevent movement */
+  .speech-bubble-wrapper {
+    position: relative;
+    z-index: 9999;
+  }
+
+  /* Transition for opacity is now handled by Tailwind classes */
+  #speech-bubble-icon {
+    will-change: opacity, transform;
+    /* Prevent any movement when clicked */
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Button reset to prevent movement */
+  button {
+    appearance: none;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    outline: none;
+  }
+
+  /* Prevent any movement on click */
+  .no-movement {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    touch-action: none;
+    user-select: none;
+    pointer-events: auto;
+  }
+
+  /* Mobile-specific styles */
+  @media (max-width: 1000px) {
+    #speech-bubble-tooltip {
+      /* Ensure tooltip is visible and interactive on mobile */
+      position: fixed;
+      max-width: 200px;
+      width: max-content;
+      bottom: auto;
+      right: 4px;
+      top: 4px;
+    }
+
+    #speech-bubble-close-btn {
+      cursor: pointer;
+      padding: 2px;
+      border-radius: 50%;
+      display: block;
+    }
+
+    #speech-bubble-close-btn:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  /* Debug styles */
+  .speech-bubble-visible {
+    border: 2px solid transparent;
+  }
+
+  /* Speech bubble triangle */
+  .speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 10px;
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.9) transparent transparent transparent;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+  }
+</style>

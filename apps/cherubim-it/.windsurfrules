@@ -1,0 +1,121 @@
+# rukouksen_seurakunta
+
+Every time you choose to apply a rule(s), explicitly state the rule(s) in the output. You can abbreviate the rule description to a single word or phrase.
+
+## Project Context
+
+The official website of the Prayer church.
+
+- Objectives: Provide a single source of truth for all the content of the church
+- Target audience: Members and visitors of the church
+- Key features:
+  - Easy navigation
+  - Easy to search
+  - Easy to read
+  - Great UI/UX
+
+## Code Style and Structure
+
+- Write concise, technical TypeScript code with accurate examples
+- Use functional and declarative programming patterns; avoid classes
+- Prefer iteration and modularization over code duplication
+- Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError)
+- Structure repository files as follows:
+
+```
+├── src/
+    ├── assets/         # favicon, images, and tailwind styles
+    ├── components/     # Shared Astro components
+    ├── content/        # Blog related content
+    ├── data/           # Data for different pages
+    ├── layouts/        # Shared layout components
+    ├── pages/         # Route pages
+    ├── utils/         # Helper functions
+    ├── config         # Shared configuration
+    ├── navigation     # Navigation of the website
+    ├── types.d.ts     # Types of the website
+    └── tests/         # Unit and integration tests
+```
+
+## Tech Stack
+
+- Astro
+- React
+- TypeScript
+- Tailwind CSS
+- Bun
+
+## Naming Conventions
+
+- Use lowercase with dashes for directories (e.g., components/form-wizard)
+- Favor named exports for components and utilities
+- Use PascalCase for component files (e.g., VisaForm.tsx)
+- Use camelCase for utility files (e.g., formValidator.ts)
+
+## TypeScript Usage
+
+- Use TypeScript for all code; prefer interfaces over types
+- Avoid enums; use const objects with 'as const' assertion
+- Use functional components with TypeScript interfaces
+- Define strict types for message passing between different parts of the extension
+- Use absolute imports for all files ~/...
+- Avoid try/catch blocks unless there's good reason to translate or handle error in that abstraction
+- Use explicit return types for all functions
+
+## Syntax and Formatting
+
+- Use "function" keyword for pure functions
+- Avoid unnecessary curly braces in conditionals
+- Use declarative JSX
+- Implement proper TypeScript discriminated unions for message types
+
+## UI and Styling
+
+- Use existing components when possible
+- Create new components when necessary
+- Implement Tailwind CSS for styling
+- Follow responsive design principles
+- Maintain consistent spacing using Tailwind's spacing scale
+- Use semantic color variables for theming
+- Ensure smooth transitions and animations
+
+## Accessibility Guidelines
+
+- Follow WCAG 2.1 guidelines
+- Implement proper ARIA labels
+- Ensure keyboard navigation support
+- Maintain sufficient color contrast
+- Provide alt text for images
+
+## Git Usage
+
+We use Graphite The AI-powered pull request toolchain.
+
+Users will themselves create branches with descriptive names that reflect the changes. When committing:
+
+1. Give a good commit message
+2. Use and fill the existing pull request template .github/PULL_REQUEST_TEMPLATE.md
+   2.1 Don't remove unchecked checkboxes
+3. Always check all related files when creating a PR, not just the active file
+4. Include both technical and visual changes in PR descriptions
+5. Group changes by component/page for better organization
+6. Reference specific UI/UX improvements made
+
+## Documentation
+
+- Maintain clear README with setup instructions
+- Keep manifest.json well-documented
+- Don't include comments unless it's for complex logic
+- Follow Keep a Changelog format (https://keepachangelog.com)
+- Include version, date, and categorized changes
+
+## Development Workflow
+
+- Use proper version control
+- Follow semantic versioning for releases
+- Maintain changelog, when version is updated in changelog update version in package.json
+
+## Notes
+
+- If you are asked to fix something, start with analyzing what files you need in context and ask the user for them, do not make assumptions.
+- Make self-improving updates to the .windsurfrules file.

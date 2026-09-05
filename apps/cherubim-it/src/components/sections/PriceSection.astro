@@ -1,0 +1,48 @@
+---
+import { DockDemo } from '~/components/ui/DockDemo';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import { getGradientColor } from '~/utils/getGradientColor';
+---
+
+<WidgetWrapper id={'pricing'} animated={false}>
+  <section class="relative z-10 p-10 sm:p-20 xl:p-[80px]">
+    <div class="flex w-full justify-center">
+      <h2
+        class="text-4xl md:text-7xl xl:text-[72px] font-semibold tracking-tighter text-start text-white pb-7 xl:pb-[28px]"
+      >
+        <span
+          class="bg-gradient-to-br from-white from-30% via-[#d5d8f6] via-80% md:via-40% to-black bg-clip-text text-transparent"
+        >
+          Church website design&nbsp;
+          <br class="hidden md:block" />
+          with transparent pricing.
+        </span>
+        <p class="text-[15px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3 xl:mt-[12px]">
+          <br />
+          Church websites shouldn't be overpriced or undervalued.&nbsp;
+          <br />
+          <br />
+          Our church website design is priced at the perfect balance—where you're&nbsp;
+          <br class="hidden md:block" />
+          glad to invest, and we're confident in delivering exceptional digital ministry solutions.
+        </p>
+      </h2>
+    </div>
+
+    <div class="flex w-full justify-center">
+      <DockDemo client:load />
+    </div>
+
+    <div
+      class="absolute top-0 left-0 w-full h-full -z-10"
+      style={{
+        background: `
+            radial-gradient(circle at 15% 15%, ${getGradientColor(0.2, 'purple')} 0%, transparent 40%),
+            radial-gradient(circle at 85% 85%, ${getGradientColor(0.2, 'purple')} 0%, transparent 40%),
+            linear-gradient(to bottom right, ${getGradientColor(0.05, 'purple')} 0%, transparent 100%, ${getGradientColor(0.05, 'purple')} 100%)
+          `,
+      }}
+    >
+    </div>
+  </section>
+</WidgetWrapper>

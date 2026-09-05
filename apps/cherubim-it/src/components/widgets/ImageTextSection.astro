@@ -1,0 +1,177 @@
+---
+import type { ImageTextSectionItem, ImageTextSection as Props } from '~/types';
+import Image from 'astro/components/Image.astro';
+import GradientText from '../ui/GradientText.astro';
+import Headline from '../ui/Headline.astro';
+import WidgetWrapper from '../ui/WidgetWrapper.astro';
+
+// Define types for grouped items
+interface ContentGroup {
+  type: 'content';
+  item: ImageTextSectionItem;
+}
+
+interface GridGroup {
+  type: 'grid';
+  items: ImageTextSectionItem[];
+}
+
+type GroupedItem = ContentGroup | GridGroup;
+
+const {
+  title = '',
+  subtitle = '',
+  tagline = '',
+  items = [],
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+
+// Group consecutive items without content
+const groupedItems: GroupedItem[] = [];
+let currentGroup: ImageTextSectionItem[] = [];
+
+items.forEach((item, index) => {
+  if (!item.content) {
+    // Add to the current group of items without content
+    currentGroup.push(item);
+
+    // If this is the last item or the next item has content, close the group
+    if (index === items.length - 1 || items[index + 1].content) {
+      if (currentGroup.length > 0) {
+        groupedItems.push({ type: 'grid', items: [...currentGroup] });
+        currentGroup = [];
+      }
+    }
+  } else {
+    // If there are items in the current group, add them first
+    if (currentGroup.length > 0) {
+      groupedItems.push({ type: 'grid', items: [...currentGroup] });
+      currentGroup = [];
+    }
+
+    // Add the item with content
+    groupedItems.push({ type: 'content', item });
+  }
+});
+
+// Helper function to determine grid columns based on item count
+function getGridClasses(itemCount: number): string {
+  // Default classes for all grid layouts
+  const baseClasses = 'grid gap-8 mx-auto';
+
+  // Responsive column classes based on item count
+  if (itemCount === 1) {
+    return `${baseClasses} grid-cols-1 max-w-xs`;
+  } else if (itemCount === 2) {
+    return `${baseClasses} grid-cols-1 sm:grid-cols-2 max-w-2xl`;
+  } else if (itemCount === 3) {
+    return `${baseClasses} grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-4xl`;
+  } else {
+    return `${baseClasses} grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4`;
+  }
+}
+
+const styleStyle = {
+  backgroundAttachment: 'local',
+  backgroundRepeat: 'repeat',
+  backgroundSize: '200% 100%',
+  backgroundPosition: '10% 20%',
+};
+---
+
+<WidgetWrapper
+  id={id}
+  animated={false}
+  isDark={isDark}
+  containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`}
+  bg={bg}
+>
+  <Headline
+    title={title}
+    subtitle={subtitle}
+    tagline={tagline}
+    classes={{
+      ...((classes?.headline as object) ?? {}),
+    }}
+  />
+
+  <div class="space-y-16">
+    {
+      groupedItems.map((group) => {
+        if (group.type === 'content') {
+          const { isReversed, image, title, content } = group.item;
+          return (
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:items-center items-start intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-tenth sm:intersect-quarter">
+              <div
+                class={`pt-12 flex justify-center self-start col-span-1 md:col-span-1 ${isReversed ? 'md:order-3 order-1' : 'order-1'}`}
+              >
+                <Image
+                  class="rounded-lg shadow-md w-full max-w-40 sm:max-w-52"
+                  width={680}
+                  height={840}
+                  widths={[300, 400, 680]}
+                  layout="responsive"
+                  {...image}
+                />
+              </div>
+
+              <div
+                class={`md:order-2 ${isReversed ? 'order-2' : 'order-2'} md:col-start-2 md:col-span-3 col-span-1 flex flex-col h-full`}
+              >
+                <div class="border-b-2 border-primary-500 pb-2 w-full mb-4">
+                  <h3 class="inline-flex xs:items-center flex-wrap flex-col xs:flex-row">
+                    <GradientText
+                      animate={false}
+                      imageNro={2}
+                      backgroundStyles={styleStyle}
+                      class="text-5xl font-bold font-signature italic pr-4"
+                      set:html={title}
+                    />
+                  </h3>
+                </div>
+                <div class="text-muted prose prose-lg max-w-none" set:html={content} />
+              </div>
+            </div>
+          );
+        } else if (group.type === 'grid') {
+          // Use the helper function to determine grid classes based on item count
+          const gridClasses = getGridClasses(group.items.length);
+
+          return (
+            <div class={gridClasses}>
+              {group.items.map(({ image, title }) => (
+                <div class="flex flex-col items-center intersect-once motion-safe:intersect:animate-fade motion-safe:opacity-0 intersect-tenth sm:intersect-quarter">
+                  <div class="flex justify-center mb-4">
+                    <Image
+                      class="rounded-lg shadow-md w-full max-w-40 sm:max-w-52"
+                      width={680}
+                      height={840}
+                      widths={[300, 400, 680]}
+                      layout="responsive"
+                      {...image}
+                    />
+                  </div>
+                  <div class="text-center border-b-2 border-primary-500 pb-2 w-full mb-2">
+                    <h3 class="inline-flex xs:items-center flex-wrap flex-col xs:flex-row">
+                      <GradientText
+                        animate={false}
+                        backgroundStyles={styleStyle}
+                        class="text-5xl font-bold font-signature italic pr-4"
+                        set:html={title}
+                      />
+                    </h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          );
+        }
+        return null;
+      })
+    }
+  </div>
+</WidgetWrapper>

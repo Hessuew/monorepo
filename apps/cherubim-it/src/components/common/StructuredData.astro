@@ -1,0 +1,129 @@
+---
+import logoUrl from '~/assets/images/other/logo.webp';
+import { getImage } from 'astro:assets';
+import { SITE } from 'astrowind:config';
+
+const optimizedLogo = await getImage({ src: logoUrl });
+
+const logoUrlFull = new URL(optimizedLogo.src, SITE.site).toString();
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': SITE.site + '#organization',
+    name: 'Cherubim IT',
+    url: SITE.site,
+    logo: {
+      '@type': 'ImageObject',
+      url: logoUrlFull,
+      width: 640,
+      height: 640,
+    },
+    description:
+      'Cherubim IT specializes in church website design for Bible-based, Spirit-filled ministries and businesses. Custom, SEO-optimized websites that glorify Jesus.',
+    sameAs: ['https://flamethefreeze.com', 'https://rukouksenseurakunta.fi', 'https://urfit-child.com'],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'Cherubim IT',
+    image: logoUrlFull,
+    '@id': SITE.site + '#localbusiness',
+    url: SITE.site,
+    telephone: '+358440408941',
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'FI',
+    },
+    description:
+      'Cherubim IT specializes in church website design for Bible-based, Spirit-filled ministries and businesses. Custom, SEO-optimized websites that glorify Jesus.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Church Website Design',
+    provider: {
+      '@type': 'Organization',
+      name: 'Cherubim IT',
+      url: SITE.site,
+    },
+    areaServed: {
+      '@type': 'Country',
+      name: 'Worldwide',
+    },
+    description:
+      'Cherubim IT specializes in church website design for Bible-based, Spirit-filled ministries and businesses. Custom, SEO-optimized websites that glorify Jesus.',
+    offers: [
+      {
+        '@type': 'Offer',
+        url: SITE.site + '#pricing',
+        priceCurrency: 'EUR',
+        price: '2500',
+        eligibleRegion: {
+          '@type': 'Country',
+          name: 'Worldwide',
+        },
+        name: 'Prayer Church Package',
+        description: 'Custom church website design to boost your local ministry’s impact.',
+      },
+      {
+        '@type': 'Offer',
+        url: SITE.site + '#pricing',
+        priceCurrency: 'EUR',
+        price: '5000',
+        eligibleRegion: {
+          '@type': 'Country',
+          name: 'Worldwide',
+        },
+        name: 'Flame the Freeze Package',
+        description: 'Bold church website design to expand reach and birth revival.',
+      },
+      {
+        '@type': 'Offer',
+        url: SITE.site + '#pricing',
+        priceCurrency: 'EUR',
+        price: '10000',
+        eligibleRegion: {
+          '@type': 'Country',
+          name: 'Worldwide',
+        },
+        name: 'urFIT-child Package',
+        description: 'Premium website design helping groups expand worldwide reach.',
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Cherubim IT',
+    url: SITE.site,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${SITE.site}/?s={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    itemReviewed: {
+      '@type': 'Organization',
+      name: 'Cherubim IT',
+    },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: '5',
+      bestRating: '5',
+    },
+    author: {
+      '@type': 'Person',
+      name: 'Prof. Andrew Agbaje',
+    },
+    reviewBody:
+      'Cherubim IT delivers tasks very promptly, pre-empts challenges, and creates user-friendly platforms. Highly recommended for premium IT services in church and research settings.',
+  },
+];
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

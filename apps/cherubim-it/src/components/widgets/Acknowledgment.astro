@@ -1,0 +1,21 @@
+---
+import WidgetWrapper from '../ui/WidgetWrapper.astro';
+
+interface Props {
+  title?: string;
+  isDark?: boolean;
+}
+
+const { title = 'Acknowledgment', isDark = false } = Astro.props;
+---
+
+<WidgetWrapper isDark={isDark} containerClass="max-w-3xl mx-auto px-4 sm:px-6 py-4 lg:py-6">
+  <div class="bg-blue-50 dark:bg-slate-900 rounded-xl p-6 sm:p-8">
+    <slot name="title">
+      <h2 id="acknowledgment-title" class="text-2xl font-bold mb-4 text-center">{title}</h2>
+    </slot>
+    <div class="text-gray-700 dark:text-gray-300 prose dark:prose-invert max-w-none">
+      <slot name="content" />
+    </div>
+  </div>
+</WidgetWrapper>

@@ -1,0 +1,49 @@
+---
+import { twMerge } from 'tailwind-merge';
+
+export interface Props {
+  id?: string;
+  title?: string;
+  classes?: Record<string, string>;
+  containerClass?: string;
+}
+
+const { id, title = await Astro.slots.render('title'), classes = {}, containerClass = 'max-w-5xl' } = Astro.props;
+
+const content = await Astro.slots.render('default');
+const subtitle = await Astro.slots.render('subtitle');
+---
+
+<section id={id} class={twMerge('relative', classes?.section ?? '')}>
+  <div class={twMerge('relative mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20', containerClass)}>
+    <div class="flex flex-col gap-8 md:gap-12">
+      {
+        title && (
+          <div class="mb-0 text-center">
+            <h2
+              class={twMerge(
+                'text-2xl md:text-3xl font-bold leading-tight tracking-tight dark:text-white text-center',
+                classes?.title ?? ''
+              )}
+              set:html={title}
+            />
+          </div>
+        )
+      }
+      {
+        subtitle && (
+          <div class={twMerge('max-w-3xl mx-auto', classes?.subtitle ?? '')}>
+            <Fragment set:html={subtitle} />
+          </div>
+        )
+      }
+      {
+        content && (
+          <div class={twMerge('max-w-3xl mx-auto', classes?.content ?? '')}>
+            <Fragment set:html={content} />
+          </div>
+        )
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+---
+export interface Props {
+  title?: string;
+  medalColor?: 'gold' | 'silver' | 'bronze';
+}
+
+const { title, medalColor } = Astro.props;
+
+const medalColors = {
+  gold: 'bg-yellow-500 before:border-l-yellow-600 before:border-t-yellow-600 after:border-r-yellow-600 after:border-t-yellow-600',
+  silver:
+    'bg-gray-500 before:border-l-gray-600 before:border-t-gray-600 after:border-r-gray-600 after:border-t-gray-600',
+  bronze:
+    'bg-orange-700 before:border-l-orange-800 before:border-t-orange-800 after:border-r-orange-800 after:border-t-orange-800',
+};
+---
+
+{
+  medalColor && (
+    <div class="absolute right-[-5px] 2xl:right-[-8px] rtl:right-auto rtl:left-[-8px] rtl:2xl:left-[-10px] top-[-5px] 2xl:top-[-10px] z-[1] h-[100px] w-[100px] overflow-hidden text-right">
+      <span
+        class={`absolute top-[19px] right-[-21px] rtl:right-auto rtl:left-[-21px] block w-full rotate-45 rtl:-rotate-45 ${medalColors[medalColor]} text-center text-[10px] font-bold uppercase leading-5 text-white shadow-[0_3px_10px_-5px_rgba(0,0,0,0.3)] before:absolute before:left-0 before:top-full before:z-[-1] before:border-[3px] before:border-r-transparent before:border-b-transparent before:content-[''] after:absolute after:right-0 after:top-full after:z-[-1] after:border-[3px] after:border-l-transparent after:border-b-transparent after:content-['']`}
+      >
+        {title || '\u00A0'}
+      </span>
+    </div>
+  )
+}

@@ -1,0 +1,52 @@
+---
+import type { Item } from '~/types';
+import { twMerge } from 'tailwind-merge';
+import GradientText from './GradientText.astro';
+import ItemDescription from './ItemDescription.astro';
+
+export interface Props {
+  items?: Array<Item>;
+  defaultIcon?: string;
+  classes?: Record<string, string>;
+}
+
+const { items = [], classes = {} } = Astro.props as Props;
+
+const {
+  container: containerClass = '',
+  panel: panelClass = '',
+  title: titleClass = '',
+  line: lineClass = '',
+} = classes;
+---
+
+{
+  items && items.length && (
+    <div class={containerClass}>
+      {items.map(({ title, description, classes: itemClasses = {} }, index = 0) => (
+        <div
+          class={twMerge(
+            'flex intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade',
+            panelClass,
+            itemClasses?.panel
+          )}
+        >
+          <div class="flex flex-col items-center mr-4 rtl:mr-0 rtl:ml-4">
+            <div>
+              <div class="flex items-center justify-center pt-1">
+                <GradientText class="text-5xl font-bold">{index + 1}</GradientText>
+              </div>
+            </div>
+            {index !== items.length - 1 && (
+              <div class={twMerge('w-px h-full bg-black/10 dark:bg-slate-400/50', lineClass, itemClasses?.line)} />
+            )}
+          </div>
+          <div class={`pt-1 ${index !== items.length - 1 ? 'pb-8' : ''}`}>
+            {title && <p class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)} set:html={title} />}
+            <ItemDescription description={description} classes={itemClasses} />
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}

@@ -1,0 +1,115 @@
+---
+import Image from '~/components/common/Image.astro';
+import type { Stats as Props } from '~/types';
+import { Icon } from 'astro-icon/components';
+import { twMerge } from 'tailwind-merge';
+import GradientText from '../ui/GradientText.astro';
+import Headline from '../ui/Headline.astro';
+import WidgetWrapper from '../ui/WidgetWrapper.astro';
+import AnimatedChildSvg from './AnimatedChildSvg.astro';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline,
+  stats = [],
+  image = await Astro.slots.render('image'),
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+
+const { item: itemClass = '' } = classes;
+
+const styleStyle = {
+  backgroundAttachment: 'local',
+  backgroundRepeat: 'repeat',
+  backgroundSize: '300% 100%',
+  backgroundPosition: '0% 10%',
+};
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} />
+  <div class="flex flex-wrap justify-center -m-4 text-center pb-8">
+    {
+      stats &&
+        stats.map(({ amount, classes, title, icon, lowerCase, curve }) => (
+          <div
+            class={twMerge(
+              'p-4 md:w-1/4 sm:w-1/2 w-full min-w-[220px] text-center md:border-r md:last:border-none md:border-slate-500 intersect-once motion-safe:opacity-0 motion-safe:intersect:animate-fade intersect-tenth sm:intersect-quarter',
+              itemClass as string
+            )}
+          >
+            {icon && (
+              <div class="flex items-center justify-center mx-auto mb-4 text-primary">
+                <Icon name={icon} class="w-10 h-10" />
+              </div>
+            )}
+            <div class="relative inline-block pb-2">
+              {amount && (
+                <div
+                  class={twMerge(
+                    'font-heading text-primary text-3xl sm:text-[2.6rem] font-bold lg:text-5xl xl:text-6xl',
+                    classes?.amount
+                  )}
+                  aria-label={`${title}: ${amount}`}
+                >
+                  <GradientText imageNro={2} backgroundStyles={styleStyle}>
+                    {amount}
+                  </GradientText>
+                </div>
+              )}
+              {curve && (
+                <div class="absolute -bottom-2.5 -right-8 lg:-bottom-10 lg:-right-12 w-16 h-12 lg:w-24 lg:h-20">
+                  <AnimatedChildSvg stroke="text-primary" delay={1000} classes="w-full h-full" />
+                </div>
+              )}
+            </div>
+            {title && (
+              <div
+                class={twMerge(
+                  `text-sm lg:text-base font-medium tracking-widest text-slate-400`,
+                  !lowerCase ? 'uppercase' : ''
+                )}
+              >
+                {title}
+              </div>
+            )}
+          </div>
+        ))
+    }
+  </div>
+
+  <div
+    class="intersect-once intercept-no-queue intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+  >
+    {
+      image && (
+        <div class="relative m-auto max-w-5xl">
+          {typeof image === 'string' ? (
+            <Fragment set:html={image} />
+          ) : (
+            image && (
+              <div class="relative m-auto max-w-5xl">
+                <Image
+                  class={twMerge('mx-auto rounded-md w-full', image?.class ?? '')}
+                  widths={[400, 768, 1024, 2040]}
+                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                  loading="eager"
+                  decoding="async"
+                  objectPosition="top top"
+                  width={2040}
+                  height={800}
+                  {...image}
+                />
+              </div>
+            )
+          )}
+        </div>
+      )
+    }
+  </div>
+</WidgetWrapper>

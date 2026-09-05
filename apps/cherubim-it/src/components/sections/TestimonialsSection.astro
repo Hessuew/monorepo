@@ -1,0 +1,372 @@
+---
+import andrewAgbajeHeadshot from '~/assets/images/andrew-agbaje-church-website-client.webp';
+import imgGradient from '~/assets/images/other/gradient.webp';
+import prayerChurchLogo from '~/assets/images/siteLogos/prayer-church-website-design-logo.webp';
+import urFitChildLogo from '~/assets/images/siteLogos/urfit-child-church-website-design.webp';
+import worldMap from '~/assets/images/worldMap.webp';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import CompanyBox from '~/components/widgets/CompanyBox.astro';
+import Slide from '~/components/widgets/Slide.astro';
+
+const slides = [
+  {
+    image: andrewAgbajeHeadshot,
+    imageAlt: 'Prof. Andrew Agbaje – client of Cherubim IT for church website design',
+    logo: urFitChildLogo,
+    logoAlt: 'urFIT-child logo – custom research and church website design project',
+    nameCompany: 'urFIT-child',
+    name: 'Prof. Andrew Agbaje, urFIT-child, Principal Investigator',
+    description:
+      'Cherubim IT has provided their services to us for many months now, which is a testament to rigorous, painstaking, and excellent work performance. Cherubim IT delivers tasks very promptly, pre-empts challenges, and efficiently tackles them, creates user-friendly platforms, and optimizes the latest IT technology in their work. Cherubim IT customer service is highly considerate, friendly, and humane. I highly recommend Cherubim IT for its impeccable and high-quality IT services. The proof of the pudding is in the eating; a trial will convince you.',
+  },
+  {
+    image: prayerChurchLogo,
+    imageAlt: 'Prayer Church logo – example of custom church website design',
+    logo: prayerChurchLogo,
+    logoAlt: 'Prayer Church logo – example of custom church website design',
+    nameCompany: 'Prayer Church',
+    name: 'The prayer church elders and deacons',
+    description: 'Placeholder for the testimonial of the prayer church elders and deacons',
+  },
+];
+
+const companies = [
+  {
+    logo: urFitChildLogo,
+    logoAlt: 'urFIT-child logo – custom research and church website design project',
+    name: 'urFIT-child',
+    description1: 'Single source -',
+    description2: 'Centralized platform',
+  },
+  {
+    logo: prayerChurchLogo,
+    logoAlt: 'Prayer Church logo – example of custom church website design',
+    name: 'Prayer Church',
+    description1: 'Local visibility -',
+    description2: 'Thousands of visitors',
+  },
+];
+---
+
+<section
+  class="creative-testimonial--slider bg-white relative overflow-hidden py-20 px-6 xl:py-[128px] xl:px-[24px] lg:py-32 md:py-24 sm:pb-[68px] sm:pt-20"
+>
+  <WidgetWrapper
+    id={'testimonials'}
+    animated={false}
+    containerClass={`max-w-7xl xl:max-w-[1280px] mx-auto py-0 md:py-0 lg:py-0`}
+  >
+    <div class="absolute -z-10 w-full h-[300%] top-[100%] left-0 overflow-visible">
+      <div
+        class="absolute pointer-events-none opacity-100 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
+        style="filter: blur(100px); height: 80vh; width: 180vh; background-image: radial-gradient(circle at 50% 140%, rgba(81, 35, 131, 0.7), rgba(81, 35, 131, 0.7), rgba(255, 170, 64, 0.7));"
+      >
+      </div>
+    </div>
+    <div class="testimonial-inner max-w-[1240px] mx-auto relative z-10">
+      <div class="testimonial-row">
+        <h2
+          class="text-4xl md:text-7xl xl:text-[72px] font-semibold tracking-tighter text-start text-black pb-7 xl:pb-[28px]"
+        >
+          Ministry websites trusted&nbsp;
+          <br class="hidden md:block" />
+          by professionals.
+        </h2>
+        <p
+          class="text-black text-[15px] max-w-[786px] font-normal leading-normal tracking-tight sm:text-[18px] mt-3 xl:mt-[12px] mb-7 xl:mb-[28px]"
+        >
+          Our church website design services earn trust through excellence. Like Daniel who was called upon for his
+          wisdom, our clients rely on our expertise to interpret their vision and create digital platforms that stand
+          out. 'Then was king Belshazzar greatly troubled... Let not thy thoughts trouble thee, nor let thy countenance
+          be changed: There is a man in thy kingdom... now let Daniel be called, and he will shew the interpretation.'
+          Daniel 5:9-11.
+        </p>
+        <div class="testimonial-wrap relative overflow-hidden my-[6%]">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <!-- Slide 1 -->
+              {slides.map((slide, index) => <Slide key={index} {...slide} />)}
+              <!-- Slide 1 -->
+            </div>
+            <div class="swiper-button-next slide-btns text-[var(--violet)]"></div>
+          </div>
+        </div>
+        <!-- Company details -->
+        <div class="company-details--row flex flex-wrap w-full justify-center">
+          {companies.map((company) => <CompanyBox {...company} />)}
+        </div>
+      </div>
+    </div>
+  </WidgetWrapper>
+</section>
+<img src={imgGradient.src} alt="" class="w-full h-40 xl:h-[160px] rotate-180" />
+
+<style define:vars={{ worldMapUrl: `url(${worldMap.src})` }}>
+  /* Custom styles that can't be easily converted to Tailwind */
+  .creative-testimonial--slider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--worldMapUrl);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.05;
+    z-index: 0;
+  }
+
+  /* Responsive styles */
+  @media only screen and (max-width: 981px) {
+    .swiper-button-next.slide-btns,
+    .swiper-button-prev.slide-btns {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 981px) {
+    .swiper-slide .swiper-slide--inner {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  .creative-testimonial--slider .testimonial-inner {
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .testimonial-inner .testimonial-heading {
+    text-align: center;
+    max-width: 60%;
+    margin: auto;
+    font-size: 2.813rem;
+    line-height: 3.125rem;
+    letter-spacing: -1px;
+    margin-top: 0px;
+    margin-bottom: 50px;
+  }
+  .testimonial-wrap {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 6%;
+  }
+  .swiper-slide .swiper-slide--inner {
+    padding-left: 15%;
+    padding-right: 15%;
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    position: relative;
+    overflow-x: hidden;
+  }
+  .swiper-slide--inner .testimonial-detail img {
+    height: 35px;
+  }
+  .swiper-slide--inner .testimonial-detail p {
+    margin: 0px;
+    color: #242e45;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  .swiper-slide--inner .testimonial-detail span {
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 15px;
+    line-height: normal;
+  }
+  .company-details--row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+  .company-details--row .company-box .company-box-inner {
+    -webkit-box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    -webkit-transition: all 350ms cubic-bezier(0.37, 0, 0.63, 1);
+    transition: all 350ms cubic-bezier(0.37, 0, 0.63, 1);
+    text-align: center;
+    border-radius: 6px;
+  }
+  .company-box-inner .company-box-top {
+    padding-top: 10%;
+    padding-bottom: 10%;
+    border-bottom: 1px solid #dee2e6;
+  }
+  .company-box-inner .company-box-top img {
+    height: 40px;
+  }
+  .company-box-inner .company-box-bottom {
+    padding: 15px;
+  }
+  .company-box-inner .company-box-bottom span {
+    font-size: 15px;
+    color: #878898;
+    line-height: 30px;
+  }
+  .company-box-inner .company-box-bottom span strong {
+    color: #242e45;
+  }
+  /* ======== Sticky Footer ========= */
+  .sticky-footer {
+    position: fixed;
+    width: 100%;
+    background: #333;
+    z-index: 999;
+    bottom: 0;
+  }
+  .sticky-footer .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    padding-right: 15px;
+  }
+  .creditd a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .social ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0px;
+    column-gap: 10px;
+    align-items: center;
+  }
+  .social ul li a {
+    display: flex;
+    background: #fff;
+    height: 30px;
+    width: 30px;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+  }
+  .social ul li a img {
+    max-width: 20px;
+  }
+
+  /* Responsive Ipad */
+  @media only screen and (max-width: 981px) {
+    body {
+      background-color: lightblue;
+    }
+    .creative-testimonial--slider {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .testimonial-inner .testimonial-heading {
+      max-width: 100%;
+    }
+    .swiper-slide .swiper-slide--inner {
+      padding-left: 0%;
+      padding-right: 0%;
+    }
+    .swiper-button-next.slide-btns,
+    .swiper-button-prev.slide-btns {
+      display: none;
+    }
+    .company-details--row .company-box {
+      padding: 0px 5px;
+    }
+  }
+  /* Responsive Ipad */
+  @media only screen and (max-width: 460px) {
+    .testimonial-inner .testimonial-heading {
+      font-size: 1.813rem;
+      line-height: 2.125rem;
+    }
+    .swiper-slide .swiper-slide--inner {
+      flex-direction: column;
+      text-align: center;
+    }
+    .company-details--row {
+      justify-content: center;
+      flex-direction: column;
+    }
+    .company-details--row .company-box {
+      padding: 0px 0px;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+  }
+</style>
+
+<script is:inline>
+  let swiperInstance = null;
+  // Function to initialize Swiper based on the working jQuery implementation
+  function initializeSwiper() {
+    // Check if Swiper is available in the global scope
+    if (typeof Swiper !== 'undefined') {
+      if (swiperInstance) {
+        swiperInstance.destroy(true, true);
+      }
+      // Store the Swiper instance for reference
+      swiperInstance = new Swiper('.swiper-container', {
+        // Core configuration
+        allowSlidePrev: false, // disables swiping to the prev (left)
+        loop: true,
+        autoplay: {
+          delay: 8000,
+          disableOnInteraction: true,
+        },
+        keyboard: {
+          enabled: true,
+          onlyInViewport: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+        },
+        effect: 'slide',
+        on: {
+          init: function () {
+            // Force recalculation of loop slides on init
+            setTimeout(() => {
+              this.update();
+            }, 100);
+          },
+          beforeTransitionStart: function (swiper, speed, internal) {
+            // Fix for first transition by ensuring proper slide positions
+            if (this.isBeginning && !internal) {
+              this.slideToLoop(1, 0, false);
+              return false;
+            }
+          },
+        },
+      });
+
+      // Add manual event listeners to navigation buttons to ensure proper slide transitions
+      const nextButton = document.querySelector('.swiper-button-next');
+
+      if (nextButton) {
+        nextButton.addEventListener('click', () => {
+          if (swiperInstance && swiperInstance.slideNext) {
+            swiperInstance.slideNext();
+          }
+        });
+      }
+    } else {
+      console.error('Swiper is not defined. Make sure to include the Swiper library.');
+    }
+  }
+
+  // Initialize on page load with passive event listeners where possible
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeSwiper, { passive: true });
+  } else {
+    initializeSwiper();
+  }
+
+  // Re-initialize on Astro page transitions with passive event listener
+  document.addEventListener('astro:page-load', initializeSwiper, { passive: true });
+</script>

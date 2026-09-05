@@ -1,0 +1,163 @@
+---
+import imgGold from '~/assets/images/gold_small.webp';
+import type { ItemGrid as Props } from '~/types';
+import { Icon } from 'astro-icon/components';
+import { twMerge } from 'tailwind-merge';
+import Button from './Button.astro';
+
+const { items = [], columns, defaultIcon = '', classes = {} } = Astro.props;
+
+const {
+  container: containerClass = '',
+  panel: panelClass = '',
+  title: titleClass = '',
+  description: descriptionClass = '',
+  icon: defaultIconClass = 'text-primary',
+  action: actionClass = '',
+} = classes;
+---
+
+{
+  items && (
+    <div
+      class={twMerge(
+        `grid mx-auto gap-8 md:gap-y-12 ${
+          columns === 4
+            ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
+            : columns === 3
+              ? 'lg:grid-cols-3 sm:grid-cols-2'
+              : columns === 2
+                ? 'sm:grid-cols-2 '
+                : ''
+        }`,
+        containerClass
+      )}
+    >
+      {items.map(({ title, description, icon, callToAction, flag, classes: itemClasses = {} }, index) => (
+        <div
+          class={`intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade ${index === 6 ? 'col-span-full' : ''}`}
+        >
+          <div
+            class={twMerge(
+              'flex flex-row max-w-md',
+              panelClass,
+              itemClasses?.panel,
+              index === 6 ? 'mx-auto sm:max-w-sm' : ''
+            )}
+          >
+            <div class="flex justify-center">
+              {(icon || defaultIcon) && (
+                <div
+                  class="icon-gold-container"
+                  style={{
+                    position: 'relative',
+                    width: '28px',
+                    height: '28px',
+                    marginRight: '0.5rem',
+                  }}
+                >
+                  <div
+                    class="icon-gold-background"
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                      backgroundImage: `url(${imgGold.src})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat',
+                      WebkitMaskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='0' height='0'%3E%3C/svg%3E")`,
+                      maskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='0' height='0'%3E%3C/svg%3E")`,
+                      WebkitMaskSize: 'contain',
+                      maskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      maskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskPosition: 'center',
+                    }}
+                    data-icon-name={icon || defaultIcon}
+                  />
+                  <Icon
+                    name={icon || defaultIcon}
+                    class={twMerge('w-7 h-7 opacity-0', defaultIconClass, itemClasses?.icon)}
+                    style="position: absolute; top: 0; left: 0;"
+                  />
+                </div>
+              )}
+              {flag && <span class="text-4xl pr-2 -mt-0.5" set:html={flag} />}
+            </div>
+            <div class="mt-0.5">
+              {title && <h3 class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)} set:html={title} />}
+              {description && (
+                <p
+                  class={twMerge(`${title ? 'mt-3' : ''} text-muted`, descriptionClass, itemClasses?.description)}
+                  set:html={description}
+                />
+              )}
+              {callToAction && (
+                <div class={twMerge(`${title || description ? 'mt-3' : ''}`, actionClass, itemClasses?.actionClass)}>
+                  <Button variant="link" {...callToAction} />
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+<script>
+  // Function to extract SVG path from Icon component and apply it as mask
+  function applySVGMask() {
+    // Get all icon background elements
+    const iconBackgrounds = document.querySelectorAll('.icon-gold-background');
+
+    iconBackgrounds.forEach((background) => {
+      // Find the corresponding Icon SVG
+      const container = background.closest('.icon-gold-container');
+      if (!container) return;
+
+      const svgElement = container.querySelector('svg');
+      if (!svgElement) return;
+
+      // Clone the SVG to avoid modifying the original
+      const svgClone = svgElement.cloneNode(true) as Element;
+
+      // Remove any fill attributes to ensure mask works properly
+      const paths = svgClone.querySelectorAll('path');
+      paths.forEach((path) => {
+        if (path.hasAttribute('fill')) {
+          path.setAttribute('fill', '#000000');
+        }
+      });
+
+      // Convert SVG to a data URL for use as mask
+      const svgString = new XMLSerializer().serializeToString(svgClone);
+      const encodedSvg = encodeURIComponent(svgString).replace(/'/g, '%27').replace(/"/g, '%22');
+
+      const svgUrl = `data:image/svg+xml,${encodedSvg}`;
+
+      // Apply the SVG as mask
+      (background as HTMLElement).style.maskImage = `url("${svgUrl}")`;
+      (background as HTMLElement).style.webkitMaskImage = `url("${svgUrl}")`;
+    });
+  }
+
+  // Initialize icon masks when the DOM is ready and after each page navigation
+  function initializeIconMasks() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', applySVGMask);
+    } else {
+      applySVGMask();
+    }
+  }
+
+  // Run on initial load
+  initializeIconMasks();
+
+  // Run after each Astro page navigation
+  document.addEventListener('astro:page-load', applySVGMask);
+</script>

@@ -1,0 +1,182 @@
+---
+import imgGold from '~/assets/images/gold_small.webp';
+import Image from '~/components/common/Image.astro';
+import { Icon } from 'astro-icon/components';
+import { twMerge } from 'tailwind-merge';
+
+const { title, testimonial, name, job, image, isPositive = true, extraContent, waveLg, waveMd, waveSm } = Astro.props;
+
+const defaultBackgroundStyles = {
+  backgroundImage: `url(${imgGold.src})`,
+  color: 'transparent',
+  backgroundRepeat: 'no-repeat',
+  backgroundAttachment: 'local',
+  backgroundPosition: '0% 10%',
+  backgroundSize: 'cover',
+};
+
+const hasExtraContent = !!extraContent;
+const imageUrl = typeof image === 'string' ? image : image?.src ? image.src : '';
+---
+
+<style>
+  .wave {
+    animation-name: wave-animation;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    transform-origin: 70% 70%;
+    display: inline-block;
+  }
+
+  @keyframes wave-animation {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(14deg);
+    }
+    20% {
+      transform: rotate(-8deg);
+    }
+    30% {
+      transform: rotate(14deg);
+    }
+    40% {
+      transform: rotate(-4deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    60% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+</style>
+
+<div
+  class="flex h-auto justify-center intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-tenth sm:intersect-quarter"
+>
+  <div
+    style={defaultBackgroundStyles}
+    class={`max-w-[400px] sm:max-w-none flex flex-col w-full rounded-md shadow-none border border-white/60 overflow-hidden relative ${hasExtraContent ? 'cursor-pointer hover:shadow-2xl transition-shadow duration-300' : ''}`}
+    data-testimonial-id={hasExtraContent ? crypto.randomUUID() : undefined}
+    data-has-extra-content={hasExtraContent.toString()}
+    data-name={name}
+    data-job={job}
+    data-title={title}
+    data-testimonial={testimonial}
+    data-extra-content={extraContent}
+    data-image={imageUrl.src}
+  >
+    <div class="flex flex-col p-4 md:p-6">
+      <div class="flex items-center">
+        <div class="absolute right-4 top-3 z-10 flex items-center gap-4">
+          {
+            hasExtraContent && (
+              <div class="flex items-center">
+                {/* Large screens - wave animation */}
+                {waveLg && (
+                  <div class="hidden lg:inline-block">
+                    <div class="wave">
+                      <Icon
+                        name="tabler:hand-click"
+                        class="w-6 h-6 text-black flex-shrink-0"
+                        title="Click to see more content"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Medium screens - wave animation */}
+                {waveMd && (
+                  <div class="hidden md:inline-block lg:hidden">
+                    <div class="wave">
+                      <Icon
+                        name="tabler:hand-click"
+                        class="w-6 h-6 text-black flex-shrink-0"
+                        title="Click to see more content"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Small screens - wave animation */}
+                {waveSm && (
+                  <div class="inline-block sm:hidden">
+                    <div class="wave">
+                      <Icon
+                        name="tabler:hand-click"
+                        class="w-6 h-6 text-black flex-shrink-0"
+                        title="Click to see more content"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Static icon for all other cases */}
+                <div
+                  class={twMerge(
+                    waveLg ? 'inline-block lg:hidden' : '',
+                    waveMd ? 'inline-block md:hidden lg:inline-block' : '',
+                    waveSm ? 'hidden sm:inline-block' : '',
+                    !waveLg && !waveMd && !waveSm ? 'inline-block' : ''
+                  )}
+                >
+                  <Icon
+                    name="tabler:hand-click"
+                    class="w-6 h-6 text-black flex-shrink-0"
+                    title="Click to see more content"
+                  />
+                </div>
+              </div>
+            )
+          }
+          <Icon
+            name={isPositive ? 'tabler:thumb-up' : 'tabler:thumb-down'}
+            class={`w-6 h-6 ${isPositive ? 'text-green-600' : 'text-red-600'} flex-shrink-0`}
+          />
+        </div>
+        {
+          image && (
+            <div class={`min-h-12 min-w-12 2xl:min-h-16 2xl:min-w-16 rounded-full border border-slate-600`}>
+              {typeof image === 'string' ? (
+                <Fragment set:html={image} />
+              ) : (
+                <Image
+                  class={`min-h-12 min-w-12 2xl:min-h-16 2xl:min-w-16 rounded-full border border-slate-600`}
+                  width={48}
+                  height={48}
+                  widths={[400, 768]}
+                  layout="fixed"
+                  loading="lazy"
+                  decoding="async"
+                  style={`object-fit: cover; object-position: center;`}
+                  {...image}
+                />
+              )}
+            </div>
+          )
+        }
+
+        <div class="grow ml-3 rtl:ml-0 rtl:mr-3">
+          {name && <p class="text-base font-semibold text-black">{name}</p>}
+          {job && <p class="text-sm text-black/70">{job}</p>}
+        </div>
+      </div>
+
+      <hr class="border-slate-600 my-4" />
+
+      {title && <h2 class="text-lg font-medium leading-6 pb-4 text-black">{title}</h2>}
+      {
+        testimonial && (
+          <blockquote class="flex-auto bg-white/60 self-baseline rounded-lg py-2 px-4">
+            <p class="text-black" set:html={testimonial} />
+          </blockquote>
+        )
+      }
+    </div>
+  </div>
+</div>

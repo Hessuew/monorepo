@@ -1,0 +1,606 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* 
+flameTheFreeze dark purple:
+#1a0024;
+ */
+
+:root {
+  --violet: #1a0024;
+  --violet2: #9c40ff;
+  --blue: #0ff;
+  --orange: rgba(255, 170, 64);
+  --orange2: #260e02;
+  --white: rgba(160, 160, 160, 0.2);
+  --shadow-color: 0deg 0% 0%;
+
+  --shiny-cta-bg: #000000;
+  --shiny-cta-bg-subtle: #1a1818;
+  --shiny-cta-fg: #ffffff;
+  --shiny-cta-highlight: var(--violet2);
+  --shiny-cta-highlight-subtle: var(--violet);
+}
+
+/* Base gradient border styles */
+.gradient-border,
+.gradient-border2,
+.gradient-border3 {
+  position: relative;
+  border-radius: 24px;
+  z-index: 0;
+}
+
+.gradient-border::before,
+.gradient-border2::before,
+.gradient-border3::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px; /* Thickness of the border */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Color-specific gradient borders */
+.gradient-border::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.6),
+    /* Top-left */ rgba(255, 255, 255, 0.1),
+    /* Center-ish */ rgba(255, 255, 255, 0.6) /* Bottom-right */
+  );
+}
+
+.gradient-border2::before {
+  background: linear-gradient(
+    135deg,
+    rgba(168, 85, 247, 0.6),
+    /* Top-left */ rgba(168, 85, 247, 0.1),
+    /* Center-ish */ rgba(168, 85, 247, 0.6) /* Bottom-right */
+  );
+}
+
+.gradient-border3::before {
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.6),
+    /* Top-left */ rgba(59, 130, 246, 0.1),
+    /* Center-ish */ rgba(59, 130, 246, 0.6) /* Bottom-right */
+  );
+}
+
+/* Glow element */
+.card-container::before,
+.card-container2::before,
+.card-container3::before,
+.card-container4::before {
+  content: '';
+  position: absolute;
+  inset: -30px;
+  border-radius: 1.5rem;
+  filter: blur(40px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.card-container::before {
+  background:
+    /* Base even glow */
+    /* radial-gradient(closest-side, rgba(255, 255, 255, 0), transparent 70%) center / 100% 100% no-repeat, */
+    
+    /* Boosted top center glow */
+    radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.5), transparent 60%),
+    /* Boosted bottom right glow */ radial-gradient(circle at 90% 110%, rgba(255, 255, 255, 0.4), transparent 65%);
+}
+
+.card-container2::before {
+  background:
+    /* Base even glow */
+    radial-gradient(closest-side, rgba(168, 85, 247, 0.3), transparent 70%) center / 100% 100% no-repeat,
+    /* Boosted top center glow */ radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.5), transparent 60%),
+    /* Boosted bottom right glow */ radial-gradient(circle at 90% 100%, rgba(168, 85, 247, 0.4), transparent 65%);
+}
+
+.card-container3::before {
+  background:
+    /* Base even glow */
+    radial-gradient(closest-side, rgba(59, 130, 246, 0.3), transparent 70%) center / 100% 100% no-repeat,
+    /* Boosted top center glow */ radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.5), transparent 60%),
+    /* Boosted bottom right glow */ radial-gradient(circle at 90% 100%, rgba(59, 130, 246, 0.4), transparent 65%);
+}
+
+.card-container4::before {
+  background:
+    /* Base even glow */
+    radial-gradient(closest-side, rgba(168, 85, 247, 0.3), transparent 70%) center / 100% 100% no-repeat,
+    /* Boosted top center glow */ radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.5), transparent 60%),
+    /* Boosted bottom right glow */ radial-gradient(circle at 90% 100%, rgba(168, 85, 247, 0.4), transparent 65%);
+}
+
+.orb {
+  animation: spin 4s linear infinite;
+  box-shadow:
+    inset 0 0 50px #fff,
+    inset 20px 0 60px var(--violet),
+    inset -20px 0 60px var(--blue),
+    inset 20px 0 300px var(--violet),
+    inset -20px 0 300px var(--blue),
+    0 0 50px #fff,
+    -10px 0 60px var(--violet),
+    10px 0 60px var(--blue);
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@layer utilities {
+  .bg-page {
+    background-color: var(--aw-color-bg-page);
+  }
+
+  .bg-dark {
+    background-color: var(--aw-color-bg-page-dark);
+  }
+
+  .bg-light {
+    background-color: var(--aw-color-bg-page);
+  }
+
+  .text-page {
+    color: var(--aw-color-text-page);
+  }
+
+  .text-muted {
+    color: var(--aw-color-text-muted);
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full border-slate-500 border bg-transparent font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-slate-800 hover:border-slate-800 text-slate-300 cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply btn font-semibold bg-primary text-white border-primary hover:bg-secondary hover:border-secondary hover:text-white;
+  }
+
+  .btn-secondary {
+    @apply btn;
+  }
+
+  .btn-tertiary {
+    @apply btn border-none shadow-none text-gray-400 hover:text-white;
+  }
+}
+
+#header > div:first-child {
+  @apply border-b border-transparent;
+  transition:
+    border-color 0.3s ease-in-out,
+    border-width 0.3s ease-in-out;
+}
+
+#header.scroll > div:first-child {
+  /* @apply bg-[#87ceeb]/80 backdrop-blur-md; */
+  @apply bg-[#09183F]/80 border-b border-gray-500/20;
+  /* @apply bg-page md:bg-white/90 md:backdrop-blur-md; */
+  /* box-shadow: 0 0.375rem 1.5rem 0 rgb(140 152 164 / 13%); */
+  box-shadow: none;
+  transition:
+    border-color 0.3s ease-in-out,
+    border-width 0.3s ease-in-out;
+}
+
+.dark #header.scroll > div:first-child,
+#header.scroll.dark > div:first-child {
+  @apply bg-[#09183F]/80 border-b border-gray-500/20;
+  /* @apply bg-page md:bg-[#030621e6] border-b border-gray-500/20; */
+  box-shadow: none;
+}
+
+/* #header.scroll > div:last-child {
+  @apply py-3;
+} */
+
+#header.expanded nav {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 70px !important;
+  padding: 0 5px;
+}
+
+.dropdown-menu {
+  @apply transition-[opacity,transform] duration-300 ease-in-out;
+}
+
+@media (min-width: 1024px) {
+  .dropdown-menu.lg\:block {
+    animation: dropdownAppear 100ms ease-in-out forwards;
+  }
+
+  .dropdown-menu img {
+    transform-origin: center;
+    backface-visibility: hidden;
+  }
+}
+
+.edge {
+  background: linear-gradient(
+    to left,
+    hsl(216deg 99.2% 16%) 0%,
+    hsl(216deg 99.2% 32%) 8%,
+    hsl(216deg 99.2% 32%) 92%,
+    hsl(216deg 99.2% 16%) 100%
+  );
+}
+
+.front {
+  @apply bg-[hsl(216deg,99.2%,47.1%)];
+}
+
+@keyframes dropdownAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  @apply text-white;
+}
+
+.prose p,
+.prose ul,
+.prose ol,
+.prose blockquote {
+  @apply text-gray-300;
+}
+
+.prose a {
+  @apply text-blue-400 hover:text-blue-300;
+}
+
+.prose strong {
+  @apply text-white;
+}
+
+[astro-icon].icon-light > * {
+  stroke-width: 1.2;
+}
+
+[astro-icon].icon-bold > * {
+  stroke-width: 2;
+}
+
+[data-aw-toggle-menu] path {
+  @apply transition;
+}
+
+[data-aw-toggle-menu].expanded g > path:first-child {
+  @apply -rotate-45 translate-y-[15px] translate-x-[-3px];
+}
+
+[data-aw-toggle-menu].expanded g > path:last-child {
+  @apply rotate-45 translate-y-[-8px] translate-x-[14px];
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .btn {
+    transition: none !important;
+  }
+
+  [data-aw-toggle-menu] path {
+    transition: none !important;
+  }
+}
+
+/* To deprecated */
+
+.dd *:first-child {
+  margin-top: 0;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: hsl(0 0% 89.8%);
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: hsl(0 0% 14.9%);
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
+  .theme {
+    --animate-gradient: gradient 8s linear infinite;
+    --animate-shine: shine var(--duration) infinite linear;
+    --animate-marquee: marquee var(--duration) infinite linear;
+    --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer theme {
+  @keyframes gradient {
+    to {
+      backgroundposition: var(--bg-size, 300%) 0;
+    }
+  }
+}
+
+@theme inline {
+  @keyframes shine {
+    0% {
+      background-position: 0% 0%;
+    }
+
+    50% {
+      background-position: 100% 100%;
+    }
+
+    to {
+      background-position: 0% 0%;
+    }
+  }
+}
+
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@property --gradient-angle-offset {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@property --gradient-percent {
+  syntax: '<percentage>';
+  initial-value: 5%;
+  inherits: false;
+}
+
+@property --gradient-shine {
+  syntax: '<color>';
+  initial-value: white;
+  inherits: false;
+}
+
+.shiny-cta {
+  --animation: gradient-angle linear infinite;
+  --duration: 5s;
+  --shadow-size: 2px;
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  outline-offset: 4px;
+  font-family: inherit;
+  font-size: 1.125rem;
+  line-height: 1.2;
+  border: 1px solid transparent;
+  border-radius: 360px;
+  color: var(--shiny-cta-fg);
+  background:
+    linear-gradient(var(--shiny-cta-bg), var(--shiny-cta-bg)) padding-box,
+    conic-gradient(
+        from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+        transparent,
+        var(--shiny-cta-highlight) var(--gradient-percent),
+        var(--gradient-shine) calc(var(--gradient-percent) * 2),
+        var(--shiny-cta-highlight) calc(var(--gradient-percent) * 3),
+        transparent calc(var(--gradient-percent) * 4)
+      )
+      border-box;
+  box-shadow: inset 0 0 0 1px var(--shiny-cta-bg-subtle);
+
+  &::before,
+  &::after,
+  span::before {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    inset-inline-start: 50%;
+    inset-block-start: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+  }
+
+  &:active {
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in-out;
+  }
+}
+
+.shiny-cta::before {
+  --size: calc(100% - var(--shadow-size) * 3);
+  --position: 2px;
+  --space: calc(var(--position) * 2);
+  width: var(--size);
+  height: var(--size);
+  background: radial-gradient(circle at var(--position) var(--position), white calc(var(--position) / 4), transparent 0)
+    padding-box;
+  background-size: var(--space) var(--space);
+  background-repeat: space;
+  mask-image: conic-gradient(from calc(var(--gradient-angle) + 45deg), black, transparent 10% 90%, black);
+  border-radius: inherit;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.shiny-cta::after {
+  --animation: shimmer linear infinite;
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(-50deg, transparent, var(--shiny-cta-highlight), transparent);
+  mask-image: radial-gradient(circle at bottom, transparent 40%, black);
+  opacity: 0.6;
+}
+
+.shiny-cta span {
+  z-index: 1;
+
+  &::before {
+    --size: calc(100% + 1rem);
+    width: var(--size);
+    height: var(--size);
+    box-shadow: inset 0 -1ex 2rem 4px var(--shiny-cta-highlight);
+    opacity: 0;
+  }
+}
+
+.shiny-cta {
+  --transition: 800ms cubic-bezier(0.25, 1, 0.5, 1);
+  transition: var(--transition);
+  transition-property: --gradient-angle-offset, --gradient-percent, --gradient-shine;
+  /* --shiny-cta-highlight: var(--violet2);
+  --shiny-cta-highlight-subtle: var(--violet); */
+
+  &,
+  &::before,
+  &::after {
+    animation:
+      var(--animation) var(--duration),
+      var(--animation) calc(var(--duration) / 0.4) reverse paused;
+    animation-composition: add;
+  }
+
+  span::before {
+    transition: opacity var(--transition);
+    animation: calc(var(--duration) * 1.5) breathe linear infinite;
+  }
+}
+
+.shiny-cta:is(:hover, :focus-visible) {
+  --gradient-percent: 20%;
+  --gradient-angle-offset: 95deg;
+  --gradient-shine: var(--shiny-cta-highlight-subtle);
+
+  &:active {
+    --gradient-percent: 20%;
+    --gradient-angle-offset: 95deg;
+    --gradient-shine: var(--shiny-cta-highlight-subtle);
+  }
+
+  &,
+  &::before,
+  &::after {
+    animation-play-state: running;
+  }
+
+  span::before {
+    opacity: 1;
+  }
+}
+
+@keyframes gradient-angle {
+  to {
+    --gradient-angle: 360deg;
+  }
+}
+
+@keyframes shimmer {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes breathe {
+  from,
+  to {
+    scale: 1;
+  }
+  50% {
+    scale: 1.2;
+  }
+}
+
+/* Modifier classes for shiny-cta */
+.shiny-cta-orange {
+  --shiny-cta-highlight: var(--orange);
+  --shiny-cta-highlight-subtle: var(--orange2);
+}

@@ -1,0 +1,357 @@
+---
+import imgGold from '~/assets/images/gold_small.webp';
+import LanguagePicker from '~/components/common/LanguagePicker.astro';
+import ToggleMenu from '~/components/common/ToggleMenu.astro';
+import Logo from '~/components/Logo.astro';
+import Button from '~/components/ui/Button.astro';
+import HeaderNavigation from '~/components/widgets/HeaderNavigation.astro';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+import type { CallToAction } from '~/types';
+import { getPermalink, trimSlash } from '~/utils/permalinks';
+import type { ImageMetadata } from 'astro';
+import { Icon } from 'astro-icon/components';
+import { twMerge } from 'tailwind-merge';
+
+interface Link {
+  text?: string;
+  description?: string;
+  href?: string;
+  ariaLabel?: string;
+  icon?: string;
+  image?: {
+    src: ImageMetadata;
+    alt: string;
+  };
+  separator?: boolean;
+}
+
+export interface MenuLink extends Link {
+  links?: Array<MenuLink>;
+}
+
+export interface Props {
+  id?: string;
+  links?: Array<MenuLink>;
+  classes?: Record<string, string>;
+  actions?: Array<CallToAction>;
+  isSticky?: boolean;
+  isDark?: boolean;
+  isFullWidth?: boolean;
+  showToggleTheme?: boolean;
+  showLangPicker?: boolean;
+  showRssFeed?: boolean;
+  position?: string;
+}
+
+const {
+  id = 'header',
+  links = [],
+  actions = [],
+  isSticky = false,
+  isDark = false,
+  isFullWidth = false,
+  // showToggleTheme = false,
+  // showLangPicker = true,
+  // showRssFeed = false,
+  position = 'center',
+  classes = {},
+} = Astro.props;
+
+const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
+
+const { nav: navClass = '' } = classes;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const navigateToLanguage = (href: string | undefined) => {
+  if (!href) return '#';
+
+  // Get the current language from URL
+  const currentLang = getLangFromUrl(Astro.url);
+
+  if (href === '/') {
+    if (currentLang === 'en') {
+      return '/en';
+    }
+    return '/';
+  }
+
+  // Check if the current URL already contains /en
+  const currentUrl = new URL(Astro.url);
+  const pathContainsEn = currentUrl.pathname.includes('/en');
+  const pathContainsPodkastit = currentUrl.pathname.includes('podkastit');
+
+  // Handle anchor links specially
+  if (href.startsWith('#')) {
+    // When on podcast page and clicking an anchor link, go to the main page with the anchor
+    if (pathContainsPodkastit) {
+      if (currentLang === 'en') {
+        // For English, go to /en with the anchor
+        return `/en${href}`;
+      }
+      // For Finnish, go to root with the anchor
+      return `/${href}`;
+    }
+
+    // Only add /en if we're in English mode and the current path doesn't already have it
+    if (currentLang === 'en' && !pathContainsEn) {
+      return `/en${href}`;
+    }
+    return href;
+  }
+
+  // Handle podcast link
+  if (href.includes('podkastit')) {
+    if (currentLang === 'en') {
+      return `/en${href}`;
+    }
+    return href;
+  }
+
+  // Handle regular links when on podcast page
+  if (pathContainsPodkastit && !href.startsWith('#') && !href.includes('podkastit')) {
+    if (currentLang === 'en') {
+      return `/en${href}`;
+    }
+    return href;
+  }
+
+  return href;
+};
+---
+
+<style>
+  @keyframes slideDown {
+    from {
+      transform: translateY(-32%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-down {
+    animation: slideDown 1.2s ease-out forwards;
+  }
+</style>
+
+<header
+  class:list={[
+    { sticky: isSticky, relative: !isSticky, dark: isDark },
+    'top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out',
+    { 'animate-slide-down': currentPath === '/' || currentPath === '/en' },
+  ]}
+  {...isSticky ? { 'data-aw-sticky-header': true } : {}}
+  {...id ? { id } : {}}
+>
+  <div class="absolute inset-0"></div>
+  <div
+    class:list={[
+      'relative text-default py-1 px-3 lg:px-6 mx-auto w-full',
+      {
+        'lg:flex lg:justify-between': position !== 'center',
+      },
+      {
+        'lg:grid lg:grid-cols-3 lg:items-center': position === 'center',
+      },
+      {
+        'max-w-7xl': !isFullWidth,
+      },
+    ]}
+  >
+    <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'flex justify-between']}>
+      <a class="flex items-center" href={navigateToLanguage('/')}>
+        <Logo />
+      </a>
+      <div class="flex items-center lg:hidden">
+        <ToggleMenu />
+      </div>
+    </div>
+    <nav
+      class={twMerge(
+        navClass,
+        'items-center w-full lg:w-auto hidden lg:flex lg:mx-5 text-default overflow-y-auto overflow-x-hidden lg:overflow-y-visible lg:overflow-x-auto lg:justify-self-center'
+      )}
+      aria-label="Main navigation"
+    >
+      <div class="flex justify-start py-2 lg:hidden">
+        <LanguagePicker />
+      </div>
+      <ul
+        class="flex flex-col lg:flex-row lg:self-center w-full lg:w-auto text-xl lg:text-[0.9375rem] tracking-[0.01rem] font-medium lg:justify-center"
+      >
+        {
+          links.map(({ text, href, links, icon }, index) => (
+            <li class={links?.length ? 'dropdown' : ''}>
+              {links?.length ? (
+                <>
+                  <button
+                    type="button"
+                    class={twMerge(
+                      'px-2.5 py-3 flex items-center whitespace-nowrap',
+                      index !== 0 && 'px-6',
+                      index === 0 && 'w-36 z-20 relative',
+                      index === 1 && '-ml-4 relative z-10 pl-0'
+                    )}
+                    data-nav-button
+                    id={`nav-button-${index}`}
+                  >
+                    <span>
+                      {text}
+                      <Icon
+                        name="tabler:chevron-down"
+                        class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden lg:inline"
+                      />
+                    </span>
+                  </button>
+                  <div class="flex lg:hidden lg:backdrop-blur-md dark:lg:bg-dark rounded lg:absolute pl-4 lg:pl-0 font-medium lg:bg-white/90 lg:min-w-[480px] drop-shadow-xl lg:border border-gray-200 dark:border-gray-800">
+                    <div class="lg:flex lg:flex-row lg:items-start lg:gap-4 lg:p-4">
+                      <ul class="py-2 lg:flex-1">
+                        {[
+                          ...links.filter((link) => !link.image),
+                          ...links.filter((link) => link.image).map((link) => ({ ...link, image: undefined })),
+                        ].map(({ text: text2, href: href2 }) => (
+                          <li class="block lg:hidden">
+                            <a
+                              class:list={[
+                                'first:rounded-t last:rounded-b lg:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap',
+                                { 'aw-link-active': href2 === currentPath },
+                              ]}
+                              href={getPermalink(`${href2}`)}
+                            >
+                              {text2}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <a
+                  class:list={[
+                    'hover:text-muted px-2.5 py-3 flex items-center whitespace-nowrap',
+                    { 'aw-link-active': href === currentPath },
+                  ]}
+                  href={navigateToLanguage(href)}
+                >
+                  <span class="flex items-center">
+                    {t(text as keyof typeof t)}
+                    {icon && (
+                      <div class="icon-gold-container relative w-5 h-5 inline-flex ml-1 -mt-1.5">
+                        <div
+                          class="icon-gold-background"
+                          style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            backgroundImage: `url(${imgGold.src})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
+                            WebkitMaskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='0' height='0'%3E%3C/svg%3E")`,
+                            maskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='0' height='0'%3E%3C/svg%3E")`,
+                            WebkitMaskSize: 'contain',
+                            maskSize: 'contain',
+                            WebkitMaskRepeat: 'no-repeat',
+                            maskRepeat: 'no-repeat',
+                            WebkitMaskPosition: 'center',
+                            maskPosition: 'center',
+                          }}
+                          data-icon-name={icon}
+                        />
+                        <Icon name={icon} class="w-5 h-5 opacity-0 absolute top-0 left-0" />
+                      </div>
+                    )}
+                  </span>
+                </a>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <HeaderNavigation links={links.filter((link) => link.links?.length)} currentPath={currentPath} />
+    <div
+      class:list={[
+        'hidden lg:flex items-center lg:self-center lg:mb-0 fixed w-full lg:w-auto lg:static justify-end left-0 rtl:left-auto rtl:right-0 bottom-0 p-3 lg:p-0 lg:justify-self-end z-50',
+        { 'ml-auto rtl:ml-0 rtl:mr-auto': position === 'left' },
+      ]}
+    >
+      <div class="items-center flex justify-between w-full lg:w-auto">
+        <div class="hidden lg:flex">
+          <LanguagePicker />
+          {
+            actions?.length ? (
+              <span class="ml-4 rtl:ml-0 rtl:mr-4">
+                {actions.map((btnProps) => (
+                  <Button {...btnProps} class="ml-2 py-2.5 px-5.5 lg:px-6 font-semibold shadow-none text-sm w-auto" />
+                ))}
+              </span>
+            ) : (
+              ''
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Function to extract SVG path from Icon component and apply it as mask
+  function applySVGMask() {
+    // Get all icon background elements
+    const iconBackgrounds = document.querySelectorAll('.icon-gold-background');
+
+    iconBackgrounds.forEach((background) => {
+      // Find the corresponding Icon SVG
+      const container = background.closest('.icon-gold-container');
+      if (!container) return;
+
+      const svgElement = container.querySelector('svg');
+      if (!svgElement) return;
+
+      // Clone the SVG to avoid modifying the original
+      const svgClone = svgElement.cloneNode(true) as Element;
+
+      // Remove any fill attributes to ensure mask works properly
+      const paths = svgClone.querySelectorAll('path');
+      paths.forEach((path) => {
+        if (path.hasAttribute('fill')) {
+          path.setAttribute('fill', '#000000');
+        }
+      });
+
+      // Convert SVG to a data URL for use as mask
+      const svgString = new XMLSerializer().serializeToString(svgClone);
+      const encodedSvg = encodeURIComponent(svgString).replace(/'/g, '%27').replace(/"/g, '%22');
+
+      const svgUrl = `data:image/svg+xml,${encodedSvg}`;
+
+      // Apply the SVG as mask
+      (background as HTMLElement).style.maskImage = `url("${svgUrl}")`;
+      (background as HTMLElement).style.webkitMaskImage = `url("${svgUrl}")`;
+    });
+  }
+
+  // Initialize icon masks when the DOM is ready and after each page navigation
+  function initializeIconMasks() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', applySVGMask);
+    } else {
+      applySVGMask();
+    }
+  }
+
+  // Run on initial load
+  initializeIconMasks();
+
+  // Run after each Astro page navigation
+  document.addEventListener('astro:page-load', applySVGMask);
+</script>
