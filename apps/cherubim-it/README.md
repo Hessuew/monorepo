@@ -21,8 +21,7 @@ The website includes:
 
 ### Prerequisites
 
-- Bun (latest version recommended)
-- Node.js version matching the `engines` range in `package.json` when using npm instead of Bun
+- Bun version specified in the repository root `.bun-version`
 
 ### Installation
 
@@ -37,8 +36,6 @@ bun install --frozen-lockfile
 # Start the Cherubim IT development server
 bun run --filter rukouksen_seurakunta dev
 ```
-
-When using Node.js, replace `bun install` with `npm install` and `bun run` with `npm run`.
 
 ### Building for Production
 

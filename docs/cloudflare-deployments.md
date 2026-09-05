@@ -14,6 +14,8 @@ The Pages root directory is relative to the repository root. The output director
 | `urfit-child`    | `apps/urfit-child`    | `bun install --cwd ../.. --frozen-lockfile && bun run build` | `dist`           | `apps/urfit-child/**`, `package.json`, `bun.lock`, `.bun-version`    | `apps/flamethefreeze/**`, `apps/cherubim-it/**`, `workers/**` |
 | `cherubim-it`    | `apps/cherubim-it`    | `bun install --cwd ../.. --frozen-lockfile && bun run build` | `dist`           | `apps/cherubim-it/**`, `package.json`, `bun.lock`, `.bun-version`    | `apps/flamethefreeze/**`, `apps/urfit-child/**`, `workers/**` |
 
+Set the Pages environment variable `BUN_VERSION=1.3.10` for both production and preview builds in all three projects. Keep it synchronized with the root `.bun-version` so Cloudflare’s builder uses the repository’s pinned Bun runtime.
+
 The app-local build command is intentional: after the root install, `bun run build` executes in the configured Pages root and uses that app's Astro config. A root lockfile or root manifest change is included because it can affect every package. App-specific CMS media paths remain relative to the corresponding `apps/*` tree.
 
 ## Cloudflare Workers Builds

@@ -3,7 +3,6 @@
   "name": "flamethefreeze-worker",
   "main": "src/index.ts",
   "compatibility_date": "2023-12-27",
-  "compatibility_flags": ["nodejs_compat"],
   "keep_vars": true,
   "observability": {
     "enabled": true,
