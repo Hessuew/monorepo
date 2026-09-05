@@ -1,0 +1,297 @@
+---
+import FilterContainer from '~/components/filters/FilterContainer.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+
+const { gridId, types = [], categories = [], height = '600px', width = '100%', data, columnDefs = [] } = Astro.props;
+
+// Default column definitions if not provided
+const defaultColumnDefs = [
+  {
+    headerName: '#',
+    field: 'id',
+    width: 80,
+    sortable: true,
+    sort: 'desc',
+  },
+  {
+    headerName: 'Category & Type',
+    field: 'categoryAndType',
+    sortable: true,
+    width: 'auto',
+  },
+  {
+    headerName: 'Date',
+    field: 'date',
+    sortable: true,
+    width: 150,
+  },
+  {
+    headerName: 'Source',
+    field: 'source',
+    sortable: true,
+    width: 240,
+  },
+  {
+    headerName: 'Title',
+    field: 'title',
+    sortable: true,
+    width: 480,
+  },
+];
+
+const finalColumnDefs = columnDefs.length > 0 ? columnDefs : defaultColumnDefs;
+---
+
+{
+  (types.length > 0 || categories.length > 0) && (
+    <FilterContainer
+      options={[types, categories]}
+      allLabels={['All Types', 'All Categories']}
+      classes={{
+        container: 'py-0 lg:py-0 md:py-0 mb-8',
+      }}
+      gridId={gridId}
+    />
+  )
+}
+
+<WidgetWrapper containerClass="py-0 lg:py-0 md:py-0">
+  <div class="ag-grid-container">
+    <div class="ag-theme-quartz" style={`height: ${height}; width: ${width};`} id={gridId}></div>
+  </div>
+</WidgetWrapper>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-grid.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-theme-quartz.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js" is:inline></script>
+
+<script
+  is:inline
+  define:vars={{
+    gridId,
+    data,
+    finalColumnDefs,
+  }}
+>
+  (function () {
+    let gridInstance = null;
+
+    function initGrid() {
+      // Clean up any existing grid instance
+      if (gridInstance) {
+        gridInstance.destroy();
+        gridInstance = null;
+      }
+
+      let currentTypeFilter = 'All Types';
+      let currentCategoryFilter = 'All Categories';
+
+      function updateFilterState(button) {
+        const filterType = button.getAttribute('data-filter-type');
+        const filterButtons = button.closest('[data-filter-buttons]').querySelectorAll('button');
+
+        // Reset selected state for all buttons in this group
+        filterButtons.forEach((btn) => btn.setAttribute('data-selected', 'false'));
+
+        // Set selected state for clicked button
+        button.setAttribute('data-selected', 'true');
+
+        return filterType;
+      }
+
+      const gridOptions = {
+        columnDefs: [
+          ...finalColumnDefs.map((col) => {
+            if (col.field === 'title') {
+              return {
+                ...col,
+                /**
+                 * @param {Object} params - Cell renderer parameters
+                 * @param {Object} params.data - Row data
+                 * @param {string} params.data.title - Title
+                 */
+                cellRenderer: (params) => {
+                  return `<div class='flex flex-col hidden'>
+                    <h3 class='text-lg font-semibold title-link'>${params.data.title}</h3>
+                    <p class='text-sm text-gray-600'>${params.data.source}</p>
+                  </div>`;
+                },
+              };
+            }
+            if (col.field === 'date') {
+              return {
+                ...col,
+                /**
+                 * @param {Object} params - Cell renderer parameters
+                 * @param {Object} params.data - Row data
+                 * @param {string} params.data.title - Title
+                 * @param {string} params.value - Cell value
+                 */
+                cellRenderer: (params) => {
+                  return `<div class='flex flex-col'>
+                    <h3 class='text-lg font-semibold title-link'>${params.data.title}</h3>
+                    <p class='text-sm text-gray-600'>Published on: ${params.value}</p>
+                  </div>`;
+                },
+              };
+            }
+            if (col.field === 'type') {
+              return {
+                ...col,
+                /**
+                 * @param {Object} params - Cell renderer parameters
+                 * @param {Object} params.data - Row data
+                 * @param {string} params.data.category - Category
+                 * @param {string} params.data.type - Type
+                 */
+                cellRenderer: (params) => {
+                  return `<div class='mt-2 flex flex-wrap gap-2'>
+                    <span class='bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 text-xs font-medium mr-2 px-2.5 py-0.5 rounded'>${params.data.type}</span>
+                    <span class='bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 text-xs font-medium mr-2 px-2.5 py-0.5 rounded'>${params.data.category}</span>
+                  </div>`;
+                },
+              };
+            }
+
+            return col;
+          }),
+        ],
+        rowData: data,
+        defaultColDef: {
+          resizable: false,
+        },
+        pagination: true,
+        paginationPageSize: 20,
+        sortingOrder: ['desc', 'asc', null],
+        rowClass: 'cursor-pointer',
+        getRowClass: () => {
+          return 'ag-row-hover';
+        },
+        onRowClicked: (params) => {
+          if (params.data.url) {
+            window.open(params.data.url, '_blank');
+          }
+        },
+        isExternalFilterPresent: () => {
+          return true;
+        },
+        doesExternalFilterPass: (node) => {
+          const data = node.data;
+          if (!data) return true;
+
+          const typeMatch =
+            currentTypeFilter === 'All Types' ||
+            (data.type && data.type.toLowerCase() === currentTypeFilter.toLowerCase());
+          const categoryMatch =
+            currentCategoryFilter === 'All Categories' ||
+            (data.category && data.category.toLowerCase() === currentCategoryFilter.toLowerCase());
+
+          return typeMatch && categoryMatch;
+        },
+        onGridReady: (params) => {
+          const gridApi = params.api;
+
+          // Quick filter setup
+          const quickFilterInput = document.getElementById(`${gridId}-quick-filter`);
+          if (quickFilterInput) {
+            quickFilterInput.addEventListener('input', () => {
+              gridApi.setGridOption('quickFilterText', quickFilterInput.value);
+            });
+          }
+
+          // Add event listeners for filter buttons
+          const filterButtons = document.querySelectorAll(`[data-filter-type]`);
+          filterButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+              const filterType = updateFilterState(button);
+              const filterValue = button.textContent.trim();
+
+              if (filterType === 'type') {
+                currentTypeFilter = filterValue;
+              } else if (filterType === 'category') {
+                currentCategoryFilter = filterValue;
+              }
+
+              gridApi.onFilterChanged();
+            });
+          });
+        },
+      };
+
+      const gridDiv = document.getElementById(gridId);
+      if (gridDiv) {
+        gridInstance = agGrid.createGrid(gridDiv, gridOptions);
+      }
+
+      // Add cleanup on page navigation
+      document.addEventListener('astro:before-preparation', () => {
+        if (gridInstance) {
+          gridInstance.destroy();
+          gridInstance = null;
+        }
+      });
+    }
+
+    // Ensure the script runs after the DOM is fully loaded
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initGrid);
+    } else {
+      initGrid();
+    }
+  })();
+</script>
+
+<style>
+  :root {
+    width: 100%;
+    height: 100%;
+  }
+
+  .ag-theme-quartz {
+    --ag-row-height: 68px;
+    --ag-foreground-color: var(--aw-color-text-default);
+    --ag-background-color: transparent;
+    --ag-header-foreground-color: var(--aw-color-text-muted);
+    --ag-header-background-color: transparent;
+    --ag-odd-row-background-color: transparent;
+    --ag-row-border-color: rgb(229 231 235);
+    --ag-border-color: transparent;
+    --ag-font-family: var(--aw-font-sans);
+    --ag-font-size: 14px;
+    --ag-header-column-separator-display: none;
+    --ag-selected-row-background-color: rgb(243 244 246 / 50%);
+    --ag-row-hover-color: transparent;
+    --ag-header-column-resize-handle-display: none;
+    --ag-grid-size: 6px;
+    --ag-list-item-height: 40px;
+  }
+
+  /* Dark theme overrides */
+  :global(.dark) .ag-theme-quartz {
+    --ag-foreground-color: rgb(226 232 240);
+    --ag-background-color: transparent;
+    --ag-header-foreground-color: rgb(148 163 184);
+    --ag-header-background-color: transparent;
+    --ag-odd-row-background-color: transparent;
+    --ag-row-border-color: rgb(51 65 85 / 50%);
+    --ag-selected-row-background-color: rgb(30 41 59 / 50%);
+    --ag-row-hover-color: transparent;
+  }
+
+  .ag-grid-container {
+    @apply p-2 rounded-lg shadow-md;
+  }
+
+  :global(.ag-row) {
+    transition: background-color 0.2s ease;
+  }
+
+  :global(.ag-row:hover .title-link) {
+    @apply text-secondary;
+  }
+
+  :global(.title-link) {
+    @apply text-primary transition-colors duration-0;
+  }
+</style>

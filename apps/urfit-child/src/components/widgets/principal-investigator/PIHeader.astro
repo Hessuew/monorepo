@@ -1,0 +1,18 @@
+---
+import Header from '~/components/widgets/Header.astro';
+---
+
+<Header
+  classes={{ nav: 'pl-20 xl:pl-0' }}
+  links={[
+    { text: 'Description', href: '#' },
+    { text: 'Academic', href: '#academic' },
+    { text: 'Awards and Honours', href: '#awards-and-honours' },
+    { text: 'Editorial', href: '#editorial' },
+    { text: 'Affiliations', href: '#affiliations' },
+    { text: 'Memberships', href: '#memberships' },
+    { text: 'Contact', href: '#contact' },
+  ]}
+  isSticky
+  showToggleTheme
+/>

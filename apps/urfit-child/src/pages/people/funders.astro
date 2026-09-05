@@ -1,0 +1,250 @@
+---
+import imgALSPAC_newsletter_4_5 from '~/assets/images/funders/ALSPAC_newsletter_4-5.webp';
+import Acknowledgment from '~/components/widgets/Acknowledgment.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features4 from '~/components/widgets/Features4.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Spacer from '~/components/widgets/Spacer.astro';
+import { ENDPOINTS } from '~/config/endpoints';
+import { items } from '~/data/funders';
+import Layout from '~/layouts/PageLayout.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Funders | urFIT-child Research Group',
+  description:
+    'Our research is supported by prestigious organizations including the Academy of Finland, Finnish Cultural Foundation, and European Association for the Study of Obesity. Learn about the partners enabling our groundbreaking childhood health research.',
+  ignoreTitleTemplate: true,
+  openGraph: {
+    title: 'Funders | urFIT-child Research Group',
+    description:
+      'Our research is supported by prestigious organizations including the Academy of Finland, Finnish Cultural Foundation, and European Association for the Study of Obesity. Learn about the partners enabling our groundbreaking childhood health research.',
+    type: 'website',
+    image: items[0].image,
+    article: {
+      publishedTime: '2025-01-17T05:15:16+02:00',
+      modifiedTime: '2025-01-17T05:15:16+02:00',
+      authors: ['urFIT-child Research Group'],
+      tags: [
+        'research funding',
+        'academic grants',
+        'research support',
+        'scientific funding',
+        'childhood health research',
+        'research partnerships',
+      ],
+    },
+  },
+  twitter: {
+    handle: '@urFIT-child',
+    site: '@urFIT-child',
+    cardType: 'summary_large_image',
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    classes={{
+      labelContainer: 'pb-0 md:pb-0 lg:pb-0',
+      title: 'pb-0 md:pb-0 lg:pb-0',
+    }}
+    tagline="Our Supporters"
+    title="Research Funders"
+    subtitle="We are grateful to our funders who make this important research possible."
+  />
+
+  <Features4
+    items={items}
+    columns={3}
+    classes={{
+      container: 'max-w-7xl xl:max-w-[1280px] mx-auto px-4 sm:px-6 xl:px-[24px] py-8 xl:py-[32px]',
+      items: {
+        container: 'gap-6 xl:gap-[24px]',
+      },
+    }}
+  />
+
+  <Spacer />
+
+  <Acknowledgment>
+    <Fragment slot="content">
+      <div class="space-y-6 xl:space-y-[24px]">
+        <p>
+          We are extremely grateful to all the families who took part in this study, the midwives for their help in
+          recruiting them, and the whole ALSPAC team, which includes interviewers, computer and laboratory technicians,
+          clerical workers, research scientists, volunteers, managers, receptionists and nurses. The UK Medical Research
+          Council and Wellcome (Grant ref: 217065/Z/19/Z) and the University of Bristol provide core support for ALSPAC.
+        </p>
+        <p>
+          We extend our deepest gratitude to our esteemed funding partners who have placed their trust in the
+          urFIT-child Research Project. Your support goes far beyond financial backing – it represents a shared
+          commitment to advancing children's health and well-being.
+        </p>
+
+        <p>
+          Each breakthrough, discovery, and step forward in our research is a direct result of your investment in our
+          vision. Your support enables our dedicated team to pursue innovative approaches, utilize cutting-edge
+          technology, and maintain the highest standards of scientific inquiry.
+        </p>
+
+        <p>
+          As valued members of the urFIT-child community, you are integral to our mission of improving children's
+          cardiovascular health and fitness. Together, we are building a healthier future for the next generation, and
+          your partnership makes this important work possible.
+        </p>
+
+        <div class="pt-8 xl:pt-[32px] text-center">
+          <p
+            class="text-lg md:text-xl xl:text-[20px] xl:leading-[28px] font-bold text-primary dark:text-primary-dark mb-2 xl:mb-[8px]"
+          >
+            Thank You
+          </p>
+          <p
+            class="text-sm md:text-base xl:text-[16px] xl:leading-[24px] text-gray-600 dark:text-gray-400 font-medium italic"
+          >
+            for being part of our journey to improve children's health
+          </p>
+        </div>
+      </div>
+    </Fragment>
+  </Acknowledgment>
+
+  <Hero id="section1">
+    <Fragment slot="title">
+      <div
+        class="mb-8 md:mx-auto md:mb-12 xl:mb-[48px] text-center intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        <h2
+          class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl xl:text-[30px] xl:leading-[36px]"
+        >
+          2024 ALSPAC newsletter
+        </h2>
+      </div>
+    </Fragment>
+    <Fragment slot="image">
+      <!-- Ebook Widget *************** -->
+
+      <div
+        class="w-full flex justify-center pb-10 xl:pb-[40px] intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        <div
+          class="w-full flex justify-center pb-10 xl:pb-[40px] h-[520px] lg:h-[640px] pdf-container"
+          data-pdf-src={`${ENDPOINTS.publicFiles}/your_life_in_science_2024_newsletter_ALSPAC.pdf`}
+        >
+          <!-- PDF Loading State -->
+          <div
+            class="pdf-preview max-w-2xl xl:max-w-[672px] w-full h-full bg-gray-100 dark:bg-slate-800 rounded-lg shadow-sm flex items-center justify-center"
+          >
+            <div class="text-center">
+              <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+              <p class="text-gray-600 dark:text-slate-400">Loading ALSPAC Newsletter...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Fragment>
+  </Hero>
+
+  <Hero
+    id="description"
+    image={{
+      src: imgALSPAC_newsletter_4_5,
+      alt: 'ALSPAC newsletter pages 4-5',
+      height: 1638,
+      width: 2312,
+    }}
+    imageText="ALSPAC newsletter pages 4 & 5"
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    title="Meet Prof. Andrew Agbaje"
+    subtitle="Discover the pioneering research and global impact of our Principal Investigator, a leading voice in pediatric health and childhood obesity."
+    actions={[
+      {
+        variant: 'tertiary',
+        target: '_self',
+        text: 'Learn about Prof. Andrew Agbaje',
+        href: getPermalink('/people/andrew-agbaje'),
+        icon: 'tabler:user-circle',
+      },
+    ]}
+  />
+</Layout>
+
+<script>
+  function loadPdf(container: HTMLElement) {
+    const pdfSrc = container.dataset.pdfSrc;
+    if (!pdfSrc) return;
+
+    // Show loading state
+    const preview = container.querySelector('.pdf-preview');
+    if (preview) {
+      preview.innerHTML = `
+        <div class="flex items-center justify-center h-full">
+          <div class="text-center">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p class="text-gray-600 dark:text-slate-400">Loading PDF...</p>
+          </div>
+        </div>
+      `;
+    }
+
+    // Load the PDF iframe
+    setTimeout(() => {
+      container.innerHTML = `
+        <iframe
+          aria-label="Your Life in Science Newsletter 2024"
+          title="Your Life in Science Newsletter 2024"
+          src="${pdfSrc}"
+          width="100%"
+          height="100%"
+          class="max-w-2xl xl:max-w-[672px] w-full h-full rounded-lg shadow-sm"
+          loading="lazy">
+        </iframe>
+      `;
+    }, 500); // Small delay to show loading state
+  }
+
+  function setUpPdfLazyLoading() {
+    const pdfContainers = document.querySelectorAll('.pdf-container[data-pdf-src]');
+
+    // Set up intersection observer for automatic loading when scrolled into view
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const container = entry.target as HTMLElement;
+            // Auto-load when 30% of the container is visible
+            if (entry.intersectionRatio >= 0.3) {
+              loadPdf(container);
+              observer.unobserve(container);
+            }
+          }
+        });
+      },
+      {
+        rootMargin: '50px', // Start observing when PDF is 50px away
+        threshold: [0.1, 0.3, 0.5], // Trigger at 30% visibility
+      }
+    );
+
+    pdfContainers.forEach((container) => observer.observe(container));
+  }
+
+  // Initialize PDF lazy loading
+  function initializePdfLazyLoading() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(setUpPdfLazyLoading, 1000);
+      });
+    } else {
+      setTimeout(setUpPdfLazyLoading, 1000);
+    }
+  }
+
+  initializePdfLazyLoading();
+  document.addEventListener('astro:page-load', initializePdfLazyLoading);
+</script>

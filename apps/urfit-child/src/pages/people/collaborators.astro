@@ -1,0 +1,187 @@
+---
+import imgFesc from '~/assets/images/collaborators/ESC Congress 2025 FESC.webp';
+import imgNnf from '~/assets/images/collaborators/Nnf Cbc26 053 Scaled.webp';
+import imgNovo from '~/assets/images/collaborators/Novo Nordisk Conference Award.webp';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features4 from '~/components/widgets/Features4.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import { items } from '~/data/collaborators';
+import Layout from '~/layouts/PageLayout.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Research Collaborators | Pediatric & Cardiovascular Experts',
+  description:
+    "Meet our distinguished international collaborators including Prof. Justin Zachariah, Prof. Dike Ojji, and Dr. Sartorio Alessandro, who contribute their expertise to advance children's health and fitness research worldwide.",
+  ignoreTitleTemplate: true,
+  openGraph: {
+    title: 'Research Collaborators | Pediatric & Cardiovascular Experts',
+    description:
+      "Meet our distinguished international collaborators including Prof. Justin Zachariah, Prof. Dike Ojji, and Dr. Sartorio Alessandro, who contribute their expertise to advance children's health and fitness research worldwide.",
+    type: 'website',
+    image: imgNnf,
+    article: {
+      publishedTime: '2025-01-17T05:12:41+02:00',
+      modifiedTime: '2025-01-17T05:12:41+02:00',
+      authors: ['urFIT-child Research Group'],
+      tags: [
+        'Justin Zachariah',
+        'pediatric cardiology',
+        'global health research',
+        'cardiovascular research',
+        'Dike Ojji',
+        'Carolyn Summerbell',
+        'childhood obesity research',
+        'international scientific collaboration',
+        'health partnerships',
+        'academic research network',
+      ],
+    },
+  },
+  twitter: {
+    handle: '@urFIT-child',
+    site: '@urFIT-child',
+    cardType: 'summary_large_image',
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    classes={{
+      labelContainer: 'pb-0 md:pb-0 lg:pb-0',
+      title: 'pb-0 md:pb-0 lg:pb-0',
+    }}
+    tagline="Our Network"
+    title="Meet Our Distinguished Collaborators"
+    subtitle="Join us in our mission to transform children's health through collaborative research. Our network of world-class experts brings diverse perspectives and innovative approaches to tackle complex challenges."
+  />
+
+  <Features4
+    items={items}
+    columns={2}
+    isProfile
+    classes={{
+      container: 'max-w-7xl xl:max-w-[1280px] mx-auto px-4 sm:px-6 xl:px-[24px] py-8 xl:py-[32px]',
+      items: {
+        container: 'gap-6 xl:gap-[24px]',
+        image: 'mb-2 xl:mb-[8px] rounded-full overflow-hidden',
+        title: 'text-xl xl:text-[20px] xl:leading-[28px]',
+        subtitle: 'text-primary',
+      },
+    }}
+  />
+
+  <Content
+    id="collaborators-2"
+    tagline="Collaborative Excellence"
+    title="Impactful Partnerships in Action"
+    subtitle="Our collaborative achievements showcase the power of working together to advance children's health research."
+    classes={{
+      container: 'pb-0 md:py-0 lg:py-0 xl:py-0',
+    }}
+    image={{
+      src: imgNovo,
+      alt: 'Prof Agbaje with Dr Christoph Saner at an award ceremony.',
+    }}
+    imageText="Recognition of excellence: Our collaborative research was honored at the Novo Nordisk Foundation Conference"
+    items={[
+      {
+        title: 'Global Network',
+        description: `Building bridges across continents, we collaborate with leading institutions to share knowledge, resources, and expertise in children's health research.`,
+        icon: 'tabler:world',
+      },
+      {
+        title: 'Innovative Research',
+        description: `Together with our partners, we pioneer groundbreaking studies that combine diverse methodologies and perspectives to unlock new insights in pediatric health.`,
+        icon: 'tabler:microscope',
+      },
+      {
+        title: 'Lasting Impact',
+        description: `Our collaborative efforts translate into real-world solutions, influencing health policies and improving children's lives across communities.`,
+        icon: 'tabler:chart-arrows',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3
+        class="text-2xl sm:text-3xl xl:text-[30px] xl:leading-[36px] mb-2 xl:mb-[8px] font-bold tracking-tight dark:text-white"
+      >
+        Celebrating Joint Achievements
+      </h3>
+      Our collaborative spirit has been recognized through prestigious awards and breakthrough discoveries. Together, we're
+      creating a future where every child has the opportunity to thrive.
+    </Fragment>
+  </Content>
+
+  <Content
+    id="collaborators-3"
+    isReversed
+    image={{
+      src: imgNnf,
+      alt: 'A chat with a Prof in the US we interact occasionally.',
+    }}
+    imageText="Knowledge exchange in action: Engaging discussions with international experts strengthen our research network"
+    classes={{
+      container: 'pt-0 md:pb-16 md:pt-0 lg:pb-20 lg:pt-0 xl:pb-[80px] xl:pt-0',
+    }}
+    items={[
+      {
+        title: 'Knowledge Exchange',
+        description: `Regular symposiums foster dynamic exchange of ideas and methodologies, enriching our research approaches and outcomes.`,
+        icon: 'tabler:arrows-exchange',
+      },
+      {
+        title: 'Shared Vision',
+        description: `United by our commitment to children's health, we collaborate across disciplines to develop comprehensive solutions to complex health challenges.`,
+        icon: 'tabler:target-arrow',
+      },
+      {
+        title: 'Future Innovation',
+        description: `Our partnerships drive continuous innovation, pushing boundaries to discover new ways of understanding and improving children's fitness and health.`,
+        icon: 'tabler:bulb',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3
+        class="text-2xl sm:text-3xl xl:text-[30px] xl:leading-[36px] mb-2 xl:mb-[8px] font-bold tracking-tight dark:text-white"
+      >
+        Fostering Global Connections
+      </h3>
+      Through regular interactions with leading experts worldwide, we create an environment where innovative ideas flourish
+      and transformative research takes shape. These partnerships enrich our understanding and accelerate progress in children's
+      health research.
+    </Fragment>
+  </Content>
+
+  <Hero
+    image={{
+      src: imgFesc,
+      alt: 'ESC Congress 2025 FESC - Prof A. Agbaje (Kuopio, FI) , Dr V. Zorzanelli Rocha (Sao Paulo, BR)',
+      height: 1734,
+      width: 2600,
+      class: 'border rounded-lg',
+    }}
+    imageText="ESC Congress 2025 FESC - Prof A. Agbaje (Kuopio, FI) , Dr V. Zorzanelli Rocha (Sao Paulo, BR)."
+    imageLoading="lazy"
+    classes={{ labelContainer: 'pt-4 md:pt-4 lg:pt-4 xl:pt-[16px]' }}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    title="Meet the supporters behind the science"
+    subtitle="Discover how our dedicated funders empower groundbreaking pediatric health research and make lasting impact possible."
+    actions={[
+      {
+        variant: 'tertiary',
+        target: '_self',
+        text: 'Meet our funders',
+        href: getPermalink('/people/funders'),
+        icon: 'tabler:cash',
+      },
+    ]}
+  />
+</Layout>

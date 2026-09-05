@@ -1,0 +1,13 @@
+diff --git a/node_modules/@astro-community/astro-embed-youtube/YouTube.astro b/node_modules/@astro-community/astro-embed-youtube/YouTube.astro
+index 0d4c0f5..58d2f69 100644
+--- a/node_modules/@astro-community/astro-embed-youtube/YouTube.astro
++++ b/node_modules/@astro-community/astro-embed-youtube/YouTube.astro
+@@ -45,7 +45,7 @@ const href = `https://youtube.com/watch?v=${videoid}`;
+ 	{...attrs}
+ 	style={`background-image: url('${posterURL}');`}
+ >
+-	<a {href} class="lty-playbtn">
++	<a {href} class="lty-playbtn" aria-label={attrs.playlabel || "Play video"}>
+ 		<span class="lyt-visually-hidden">{attrs.playlabel}</span>
+ 	</a>
+ </lite-youtube>

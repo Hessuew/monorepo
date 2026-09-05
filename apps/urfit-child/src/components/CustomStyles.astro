@@ -1,0 +1,52 @@
+---
+// Using system font stack for optimal performance
+// No font imports needed - using native OS fonts
+---
+
+<style is:inline>
+  :root {
+    --aw-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --aw-font-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --aw-font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --aw-color-primary: #5a8cc9;
+    --aw-color-secondary: rgb(1 97 239);
+    --aw-color-accent: #30588d;
+    --aw-color-theme: #5a8cc9;
+    --aw-color-page: white;
+
+    --aw-color-text-heading: rgb(0 0 0);
+    --aw-color-text-default: rgb(16 16 16);
+    --aw-color-text-muted: rgb(16 16 16 / 66%);
+    --aw-color-bg-page: white;
+
+    --aw-color-bg-page-dark: rgb(3 6 32);
+
+    ::selection {
+      background-color: lavender;
+    }
+  }
+
+  .dark {
+    --aw-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --aw-font-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --aw-font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+    --aw-color-primary: rgb(1 97 239);
+    --aw-color-secondary: #5a8cc9;
+    --aw-color-accent: #30588d;
+    --aw-color-theme: #5a8cc9;
+    --aw-color-page: rgb(3 6 32);
+
+    --aw-color-text-heading: rgb(247, 248, 248);
+    --aw-color-text-default: rgb(229 236 246);
+    --aw-color-text-muted: rgb(229 236 246 / 66%);
+    --aw-color-bg-page: rgb(3 6 32);
+
+    --aw-color-bg-page-dark: rgb(3 6 32);
+
+    ::selection {
+      background-color: black;
+      color: snow;
+    }
+  }
+</style>

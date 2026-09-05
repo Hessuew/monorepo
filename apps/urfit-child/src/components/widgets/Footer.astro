@@ -1,0 +1,178 @@
+---
+import LinkedIn_logo from '~/assets/images/footer/LinkedIn_logo.webp';
+import orcid_logo from '~/assets/images/footer/orcid_logo.webp';
+import PubMed_logo from '~/assets/images/footer/PubMed_logo.webp';
+import ResearchGate_logo from '~/assets/images/footer/ResearchGate_logo.webp';
+import uefLogo from '~/assets/images/funders/UEF Logo.png';
+import { getPermalink } from '~/utils/permalinks';
+import Image from 'astro/components/Image.astro';
+import { twMerge } from 'tailwind-merge';
+
+export interface Props {
+  theme?: string;
+}
+
+const links = [
+  {
+    title: 'About',
+    links: [
+      { text: 'Principal Investigator Andrew Agbaje', href: getPermalink('/people/andrew-agbaje') },
+      { text: 'Team', href: getPermalink('/people/team') },
+      { text: 'Collaborators', href: getPermalink('/people/collaborators') },
+      { text: 'Funders', href: getPermalink('/people/funders') },
+      { text: 'Thesis', href: getPermalink('/materials/thesis') },
+      { text: 'Key Articles', href: getPermalink('/materials/key-articles') },
+    ],
+  },
+  {
+    title: 'Resources',
+    links: [
+      { text: 'Publications', href: getPermalink('/materials/publications') },
+      { text: 'Videos and Podcasts', href: getPermalink('/materials/videos-and-podcasts') },
+      { text: 'Infographics', href: getPermalink('/materials/infografics') },
+      { text: 'Press Releases', href: getPermalink('/materials/press-releases') },
+      { text: 'Waist to height ratio calculator', href: getPermalink('/waist-height-calculator') },
+      { text: 'Call to Action', href: getPermalink('/call-to-action') },
+      { text: 'Non-academic', href: getPermalink('/non-academic') },
+    ],
+  },
+];
+
+const socialLinks = [
+  {
+    ariaLabel: 'UEF',
+    href: 'https://uefconnect.uef.fi/en/group/understanding-fitness-and-cardiometabolic-health-in-little-darlings-urfit-child',
+    image: {
+      src: uefLogo,
+      alt: 'UEF',
+    },
+  },
+  {
+    ariaLabel: 'ResearchGate',
+    href: 'https://www.researchgate.net/profile/Andrew-Agbaje',
+    image: {
+      src: ResearchGate_logo,
+      alt: 'ResearchGate',
+    },
+  },
+  {
+    ariaLabel: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/andrew-agbaje-5783b253',
+    image: {
+      src: LinkedIn_logo,
+      alt: 'LinkedIn',
+    },
+  },
+  {
+    ariaLabel: 'ORCID',
+    href: 'https://orcid.org/0000-0001-5138-3441',
+    image: {
+      src: orcid_logo,
+      alt: 'ORCID',
+    },
+  },
+  {
+    ariaLabel: 'PubMed',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/?term=Agbaje+AO&cauthor_id=36214333',
+    image: {
+      src: PubMed_logo,
+      alt: 'PubMed',
+    },
+  },
+];
+
+const { theme = 'light' } = Astro.props;
+---
+
+<footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-gray-200 dark:border-slate-800 not-prose']}>
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+  <div class="relative max-w-7xl xl:max-w-[1280px] mx-auto px-4 sm:px-6 xl:px-[24px] dark:text-slate-300">
+    <div
+      class="grid grid-cols-12 gap-4 sm:gap-8 xl:gap-[32px] gap-y-8 xl:gap-y-[32px] pt-8 pb-4 md:pt-12 xl:pt-[48px] md:pb-8 xl:pb-[32px]"
+    >
+      <div class="col-span-12 lg:col-span-4">
+        <div class="mb-2 xl:mb-[8px]">
+          <a class="inline-block font-bold text-xl xl:text-[20px] xl:leading-[28px]" href="/">urFIT-child</a>
+        </div>
+        <div class="text-sm xl:text-[14px] xl:leading-[20px] text-muted lg:max-w-[320px]">
+          UndeRstanding FITness and Cardiometabolic Health In Little Darlings
+        </div>
+      </div>
+      {
+        links.map(({ title, links }, index) => (
+          <div class={twMerge('col-span-6 md:col-span-3 lg:col-span-2 lg:min-w-[200px]', index === 0 && 'lg:min-w-0')}>
+            <div class="dark:text-gray-300 font-medium mb-2 xl:mb-[8px] xl:text-[16px] xl:leading-[24px]">{title}</div>
+            {links && Array.isArray(links) && (
+              <ul class="text-sm xl:text-[14px] xl:leading-[20px]">
+                {links.map(({ text, href }) => (
+                  <li class="mb-2 xl:mb-[8px]">
+                    <a
+                      class="text-muted hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out"
+                      href={href}
+                    >
+                      {text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))
+      }
+    </div>
+    <div class="md:flex md:items-end md:justify-between py-6 xl:py-[24px]">
+      <div
+        class="text-sm text-center sm:text-left pb-4 sm:pb-0 xl:text-[14px] xl:leading-[20px] mr-4 xl:mr-[16px] dark:text-muted"
+      >
+        © {new Date().getFullYear()} urFIT-child · All rights reserved
+      </div>
+      <div class="flex flex-col items-center sm:items-end sm:justify-end">
+        {
+          socialLinks?.length ? (
+            <nav aria-label="Social media links" class="flex mb-4">
+              {socialLinks.map(({ ariaLabel, href, image }) => (
+                <div class="group relative">
+                  <a
+                    class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm xl:text-[14px] xl:leading-[20px] p-2.5 xl:p-[10px] inline-flex items-center"
+                    aria-label={ariaLabel}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {image && (
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        class="w-5 xl:w-[20px] h-5 xl:h-[20px] object-contain"
+                        width={400}
+                        height={400}
+                        loading={'lazy'}
+                        decoding={'async'}
+                      />
+                    )}
+                  </a>
+                  <span class="absolute -top-10 xl:-top-[40px] left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-gray-800 px-2 xl:px-[10px] py-1 xl:py-[8px] text-sm xl:text-[14px] xl:leading-[20px] text-white opacity-0 transition-opacity delay-500 group-hover:opacity-100 dark:bg-gray-200 dark:text-gray-800">
+                    {ariaLabel}
+                  </span>
+                </div>
+              ))}
+            </nav>
+          ) : (
+            ''
+          )
+        }
+        <div class="text-end">
+          <p class="text-sm xl:text-[14px] xl:leading-[20px] mr-3 xl:mr-[12px] dark:text-muted">
+            Designed and developed by
+            <a
+              href="https://cherubim-it.com"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              class="text-blue-600 font-semibold transition-all duration-300 hover:underline">Cherubim IT</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

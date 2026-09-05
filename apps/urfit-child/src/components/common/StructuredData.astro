@@ -1,0 +1,84 @@
+---
+import logoUrl from '~/assets/images/index/urfit-child-research-group-logo.webp';
+import imgAndrew2 from '~/assets/images/principalInvestigator/andrew-agbaje-award-lecture.webp';
+import { getImage } from 'astro:assets';
+import { SITE } from 'astrowind:config';
+
+export interface Props {
+  type?: 'index' | 'calculator' | 'person';
+}
+
+const { type = 'index' } = Astro.props;
+
+const optimizedLogo = await getImage({ src: logoUrl });
+const optimizedPersonLogo = await getImage({ src: imgAndrew2 });
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ResearchOrganization',
+  '@id': SITE.site,
+  name: 'urFIT-child Research Group',
+  url: SITE.site,
+  logo: {
+    '@type': 'ImageObject',
+    url: new URL(optimizedLogo.src, SITE.site).toString(),
+    width: '640',
+    height: '640',
+  },
+  description:
+    'Official site of urFIT-child, led by Prof. Andrew Agbaje. Discover research on waist-to-height ratio, childhood obesity, and pediatric health diagnostics.',
+};
+
+const calculatorSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Waist to height ratio calculator WHtR – Most thorough 2025 guide',
+  url: `${SITE.site}/waist-height-calculator`,
+  applicationCategory: 'HealthApplication',
+  operatingSystem: 'All',
+  description:
+    'Waist to height ratio calculator WHtR 2025 based on 30 years of WHtR data. Discover normal waist to height ratio and healthy waist to height ratio values.',
+  offers: {
+    '@type': 'Offer',
+    price: '0.00',
+    priceCurrency: 'USD',
+  },
+  publisher: {
+    '@type': 'ResearchOrganization',
+    name: 'urFIT-child Research Group',
+    url: SITE.site,
+  },
+};
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Andrew O Agbaje',
+  jobTitle: 'Principal Investigator',
+  url: `${SITE.site}/andrew-agbaje`,
+  description:
+    'Discover the official site of Prof. Andrew O. Agbaje, leading expert in child health, epidemiology, and WHtR research at the University of Eastern Finland.',
+  affiliation: {
+    '@type': 'ResearchOrganization',
+    name: 'urFIT-child Research Group',
+    url: SITE.site,
+  },
+  sameAs: [
+    'https://uefconnect.uef.fi/en/group/understanding-fitness-and-cardiometabolic-health-in-little-darlings-urfit-child',
+    'https://www.researchgate.net/profile/Andrew-Agbaje',
+    'https://www.linkedin.com/in/andrew-agbaje-5783b253',
+    'https://orcid.org/0000-0001-5138-3441',
+    'https://pubmed.ncbi.nlm.nih.gov/?term=Agbaje+AO&cauthor_id=36214333',
+  ],
+  image: {
+    '@type': 'ImageObject',
+    url: new URL(optimizedPersonLogo.src, SITE.site).toString(),
+    width: '640',
+    height: '640',
+  },
+};
+
+const schema = type === 'calculator' ? calculatorSchema : type === 'person' ? personSchema : organizationSchema;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
