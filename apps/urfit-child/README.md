@@ -72,8 +72,8 @@ The urFIT research group is a leading authority in pediatric health and fitness 
 
 ### Prerequisites
 
-- Bun (latest version)
-- Node.js (v18 or higher)
+- Bun version specified in the repository root `.bun-version`
+- Node.js version supported by the package `engines` declaration
 - Cloudflare account (for email subscriptions)
 - Cloudflare Workers CLI (wrangler) (for email subscriptions)
 
@@ -110,13 +110,12 @@ apps/urfit-child/
 └── src/
     ├── assets/         # Static assets (images, styles)
     ├── components/     # Shared Astro components
-    ├── content/        # Blog related content
     ├── data/            # Data for different pages
-    ├── layouts/        # Shared layout components
+    ├── layouts/         # Shared layout components
     ├── pages/           # Route pages
     ├── utils/           # Helper functions
     ├── config/          # Shared configuration
-    ├── navigation/      # Navigation of the website
+    ├── navigation.ts    # Navigation of the website
     └── types.d.ts       # TypeScript definitions
 
 workers/
@@ -136,12 +135,8 @@ workers/
 
 #### Email Subscription Worker
 
-The project includes a Cloudflare Worker that handles email subscriptions:
-
-- Located in `workers/subscribe/`
-- Processes newsletter sign-ups
-- Sends confirmation emails with custom templates
-- Manages subscription status
+Newsletter subscriptions use the separate `workers/subscribe/` Worker. See the
+[Cloudflare deployment settings](../../docs/cloudflare-deployments.md) for its workspace commands and deployment configuration.
 
 ### Commands
 

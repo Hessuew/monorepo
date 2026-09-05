@@ -1,7 +1,5 @@
 # Cherubim IT Website
 
-![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/Hessuew/cherubim_it?utm_source=oss&utm_medium=github&utm_campaign=Hessuew%2Fcherubim_it&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
-
 ## 🎯 Project Overview
 
 The website includes:

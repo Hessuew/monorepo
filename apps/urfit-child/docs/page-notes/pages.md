@@ -4,8 +4,8 @@
 
 🌐 **Live Website**: [https://urfit-child.com](https://urfit-child.com)
 
-This directory contains the file-based Astro routes for the urFIT research group website. See the root
-[README](../../README.md#-pages) for the authoritative user-facing page and navigation inventory.
+This directory contains the file-based Astro routes for the urFIT research group website. See the
+[urFIT-child README](../../README.md) for the authoritative user-facing page and navigation inventory.
 
 ## 🎯 SEO Optimization Features
 
