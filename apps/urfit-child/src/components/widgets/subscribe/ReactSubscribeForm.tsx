@@ -84,7 +84,11 @@ export default function ReactSubscribeForm() {
         return;
       }
 
-      const workerUrl = 'https://subscribe.juhani-juusola.workers.dev/subscribe';
+      const workerUrl = import.meta.env.PUBLIC_SUBSCRIBE_API_URL;
+
+      if (!workerUrl) {
+        throw new Error('Subscription service is not configured for this environment.');
+      }
 
       const response = await fetch(workerUrl, {
         method: 'POST',

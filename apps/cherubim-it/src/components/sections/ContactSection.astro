@@ -810,8 +810,15 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
           const errorMsg = document.querySelector('.error-msg') as HTMLElement;
           formData.append('cfTurnstileToken', turnstile.getResponse());
           formData.append('isCompanyForm', formState.isCompanyForm.toString());
-          // Here you would typically send the form data to your backend
-          const workerUrl = 'https://contact-form.juhani-juusola.workers.dev/contact';
+          const workerUrl =
+            import.meta.env.PUBLIC_CONTACT_API_URL ??
+            (window.location.hostname === 'cherubim-it.com'
+              ? 'https://contact-form.juhani-juusola.workers.dev/contact'
+              : undefined);
+
+          if (!workerUrl) {
+            throw new Error('Contact service is not configured for this environment.');
+          }
 
           const response = await fetch(workerUrl, {
             method: 'POST',

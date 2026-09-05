@@ -1,0 +1,28 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "subscribe",
+  "main": "src/index.tsx",
+  "compatibility_date": "2026-09-05",
+  "compatibility_flags": ["nodejs_compat"],
+  "keep_vars": true,
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "r2_buckets": [
+    {
+      "binding": "PUBLIC_BUCKET",
+      "bucket_name": "urfit-child"
+    }
+  ],
+  "ratelimits": [
+    {
+      "name": "SUBSCRIPTION_RATELIMIT",
+      "namespace_id": "4321",
+      "simple": {
+        "limit": 5,
+        "period": 60
+      }
+    }
+  ]
+}

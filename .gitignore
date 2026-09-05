@@ -1,9 +1,11 @@
 # build output
-dist/
-.output/
+**/dist/
+**/.output/
+**/.astro/
+**/.wrangler/
 
 # dependencies
-node_modules/
+**/node_modules/
 
 # logs
 npm-debug.log*
@@ -22,9 +24,11 @@ pnpm-debug.log*
 package-lock.json
 pnpm-lock.yaml
 
-.astro
-
 # Cloudflare Workers
-.wrangler
-wrangler.toml
-.dev.vars
+**/wrangler.toml
+**/.dev.vars
+**/.env
+**/.env.production
+
+# Bun creates one authoritative lockfile at the repository root.
+**/bun.lockb

@@ -1,4 +1,4 @@
-name: GitHub Actions
+name: Validate monorepo
 
 on:
   pull_request:
@@ -8,47 +8,60 @@ on:
     branches:
       - main
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        bun-version:
-          - latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Use Bun ${{ matrix.bun-version }}
-        uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: ${{ matrix.bun-version }}
-      - uses: actions/cache@v4
-        with:
-          path: |
-            node_modules
-          key: ${{ runner.os }}-${{ matrix.bun-version }}-bun-${{ hashFiles('**/bun.lockb') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.bun-version }}-bun-
-      - name: Install root dependencies
-        run: bun install
-      - run: bun run build
-      # - run: bun test
+env:
+  BUN_VERSION: 1.3.10
 
-  check:
+jobs:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Use Bun
-        uses: oven-sh/setup-bun@v1
+
+      - name: Use Bun ${{ env.BUN_VERSION }}
+        uses: oven-sh/setup-bun@v2
         with:
-          bun-version: latest
-      - uses: actions/cache@v4
+          bun-version: ${{ env.BUN_VERSION }}
+
+      - name: Cache Bun install
+        uses: actions/cache@v4
         with:
           path: |
             node_modules
-          key: ${{ runner.os }}-bun-latest-${{ hashFiles('**/bun.lockb') }}
+            apps/*/node_modules
+            workers/*/node_modules
+          key: ${{ runner.os }}-bun-${{ env.BUN_VERSION }}-${{ hashFiles('bun.lock', 'package.json', 'apps/*/package.json', 'workers/*/package.json') }}
           restore-keys: |
-            ${{ runner.os }}-bun-latest-
-      - name: Install root dependencies
-        run: bun install
-      - name: Run check
-        run: bun run check
+            ${{ runner.os }}-bun-${{ env.BUN_VERSION }}-
+
+      - name: Install workspace dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build Flame the Freeze
+        run: bun run build:flamethefreeze
+
+      - name: Build urFIT-child
+        run: bun run build:urfit-child
+
+      - name: Build Cherubim IT
+        run: bun run build:cherubim-it
+
+      - name: Test Flame the Freeze
+        run: bun run test:flamethefreeze
+
+      - name: Test urFIT-child
+        run: bun run test:urfit-child
+
+      - name: Test Cherubim IT
+        run: bun run test:cherubim-it
+
+      - name: Check Flame the Freeze
+        run: bun run check:flamethefreeze
+
+      - name: Check urFIT-child
+        run: bun run check:urfit-child
+
+      - name: Check Cherubim IT
+        run: bun run check:cherubim-it
+
+      - name: Check Workers
+        run: bun run check:workers

@@ -1,4 +1,5 @@
 ---
+import { YouTube } from '@astro-community/astro-embed-youtube';
 import imgFlame from '~/assets/images/non-academic/Flame the Freeze website.webp';
 import imgOrangeSparks from '~/assets/images/non-academic/Orange Sparks.webp';
 import Image from '~/components/common/Image.astro';
@@ -14,7 +15,6 @@ import PressMe from '~/components/widgets/PressMe.astro';
 import Spacer from '~/components/widgets/Spacer.astro';
 import { ENDPOINTS } from '~/config/endpoints';
 import Layout from '~/layouts/PageLayout.astro';
-import { YouTube } from 'astro-embed';
 
 const metadata = {
   title: 'Beyond Academia | Mental and Spiritual Realms',
@@ -124,8 +124,8 @@ const metadata = {
           >
             <p class="mb-2 xl:mb-[8px]">
               We know that thou art a teacher come from God:
-              <span class="font-semibold text-primary-600 dark:text-primary-400">for no man can do these</span> miracles
-              that thou doest,
+              <span class="font-semibold text-primary-600 dark:text-primary-400">for no man can do these</span> miracles that
+              thou doest,
               <span class="font-semibold text-primary-600 dark:text-primary-400">except God be with him.</span>
             </p>
             <cite class="text-sm xl:text-[14px] xl:leading-[20px] text-gray-600 dark:text-gray-400">— John 3:2 KJV</cite

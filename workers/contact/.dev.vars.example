@@ -1,0 +1,2 @@
+RESEND_API_KEY=replace-with-a-local-development-secret
+CLOUDFLARE_TURNSTILE_SECRET=replace-with-a-local-development-secret

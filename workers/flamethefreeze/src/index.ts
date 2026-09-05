@@ -1,9 +1,22 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 
-interface Env {
-  PUBLIC_BUCKET: R2Bucket;
-}
+const isAllowedOrigin = (value: string | undefined): boolean => {
+  if (!value) return false;
+
+  try {
+    const url = new URL(value);
+    const isLocal = url.protocol === 'http:' && url.hostname === 'localhost' && url.port === '4321';
+    const isProduction = url.protocol === 'https:' && url.hostname === 'flamethefreeze.com';
+    const isPages =
+      url.protocol === 'https:' &&
+      (url.hostname === 'flamethefreeze.pages.dev' || url.hostname.endsWith('.flamethefreeze.pages.dev'));
+
+    return isLocal || isProduction || isPages;
+  } catch {
+    return false;
+  }
+};
 
 const app = new Hono<{ Bindings: Env }>();
 
@@ -11,7 +24,7 @@ const app = new Hono<{ Bindings: Env }>();
 app.use(
   "/*",
   cors({
-    origin: ["https://flamethefreeze.pages.dev", "https://flamethefreeze.com"],
+    origin: (origin) => (isAllowedOrigin(origin) ? origin : ''),
     allowMethods: ["GET", "POST", "OPTIONS"],
     allowHeaders: ["Content-Type", "Range", "X-Requested-With"],
   })

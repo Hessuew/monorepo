@@ -1,112 +1,27 @@
-# Flame the Freeze🔥
+# Flame the Freeze monorepo
 
-<img src="https://yt3.googleusercontent.com/fzp8ZVdzpbHrXiFELv2cuKiOfRCpM3kpsgyqmL3mP-wQQIDlOFHS_YNuRDZBGlGCg9FgxHl22Ao=s900-c-k-c0x00ffffff-no-rj" alt="Flame the Freeze book cover">
+This repository contains three independent Astro sites and three independent Cloudflare Workers. Bun is the only workspace package manager; the repository uses one root lockfile and a pinned Bun version.
 
----
+## Workspace members
 
-## About Us
+- `apps/flamethefreeze` — Flame the Freeze static Astro site
+- `apps/urfit-child` — urFIT-child static Astro site
+- `apps/cherubim-it` — Cherubim IT static Astro site
+- `workers/flamethefreeze` — Flame public-files Worker
+- `workers/subscribe` — urFIT-child subscription/files Worker
+- `workers/contact` — Cherubim IT contact-form Worker
 
-"Flame the Freeze" is a platform dedicated to **God's Word working today** in real-life situations.
+Each app and Worker keeps its own package manifest, runtime configuration, content, assets, domain metadata, and deployment identity. The root scripts only orchestrate independent workspace commands.
 
-### Mission
+## Install and validate
 
-To awaken the body of Christ, shake off spiritual frost, and ignite a revival of God's manifestations in the 21st century.
+```sh
+bun install --frozen-lockfile
+bun run build
+bun test
+bun run check
+```
 
----
+Run an individual package from the root with a filtered script, for example `bun run build:urfit-child` or `bun run check:worker:contact`. From an app or Worker directory, run the package-local script after the root install, or use `bun install --cwd ../.. --frozen-lockfile` first when running in a clean Cloudflare builder.
 
-## Table of Contents
-
-- [About Us](#about-us)
-- [Features](#features)
-- [Content](#content)
-- [Get Involved](#get-involved)
-- [Contact](#contact)
-- [License](#license)
-
----
-
-## Features
-
-### What We Do
-
-#### Wake Up the Body of Christ
-
-It's time for the bride of Christ to awaken from slumber and spiritual death.
-
-#### Shake Out All Frost
-
-God intends to shake the church out of every freeze it's trapped in.
-
-#### Kindle it to Full Flame 🔥
-
-Our mission is to ignite the frozen spiritual elements.
-
-#### Revive the Manifestations of the Spirit
-
-Seeking a revival of apostolic signs and wonders across the body of Christ.
-
-#### Remove Barriers and Borders
-
-Promoting genuine Christlikeness transcending denominational, cultural, racial, and other boundaries.
-
-#### See a Massive Harvest of Souls and Genuine Revival
-
-Initiating a mass salvation of souls and restoration within the body of Christ.
-
----
-
-## Content
-
-### God's Kingdom
-
-The church of God must reflect His kingdom on earth through:
-
-- Renewal
-- Revival
-- Refreshment
-- Restoration
-- Revolutionization
-- Reinvigoration
-- Reinstatement
-
-A spiritual embassy and surgical theatre where human lives are completely transformed.
-
-### Battling Against
-
-- Wars
-- Diseases
-- Famine
-- Despair
-- Addictions
-- Oppression
-- Gross darkness
-
-The glory of God groans for manifestation in the midst of these adversities.
-
----
-
-## Get Involved
-
-### Want to Join?
-
-Do you desire to be part of this chariot of fire that will change the globe? Join us in lifting the name of our Lord Jesus Christ. Browse the current online meetings in [English](https://flamethefreeze.com/en/events#meetings) or [Finnish](https://flamethefreeze.com/fi/events#meetings) for schedules and joining details.
-
----
-
-## Contact
-
-For inquiries, reach out to us at [flamethefreeze@gmail.com](mailto:flamethefreeze@gmail.com).
-
----
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-Made by Juhani Juusola out of love for God • All rights reserved.
-
-## Acknowledgements
-
-Initially created by [onWidget](https://onwidget.com), made with [AstroWind](https://github.com/onwidget/astrowind) which is maintained by a community of [contributors](https://github.com/onwidget/astrowind/graphs/contributors).
+Cloudflare Pages and Workers roots, commands, production branches, preview behavior, and watch paths are recorded in [docs/cloudflare-deployments.md](docs/cloudflare-deployments.md).
