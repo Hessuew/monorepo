@@ -36,6 +36,7 @@ app.use(
   cors({
     origin: (origin) => (isAllowedOrigin(origin) ? origin : ''),
     allowMethods: ['POST', 'OPTIONS'],
+    allowHeaders: ['Content-Type', 'X-Requested-With'],
   })
 );
 
