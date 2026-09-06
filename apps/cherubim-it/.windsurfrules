@@ -1,18 +1,10 @@
-# rukouksen_seurakunta
+# Cherubim IT
 
 Every time you choose to apply a rule(s), explicitly state the rule(s) in the output. You can abbreviate the rule description to a single word or phrase.
 
 ## Project Context
 
-The official website of the Prayer church.
-
-- Objectives: Provide a single source of truth for all the content of the church
-- Target audience: Members and visitors of the church
-- Key features:
-  - Easy navigation
-  - Easy to search
-  - Easy to read
-  - Great UI/UX
+See [README.md](README.md) for the Cherubim IT site overview.
 
 ## Code Style and Structure
 
@@ -20,22 +12,7 @@ The official website of the Prayer church.
 - Use functional and declarative programming patterns; avoid classes
 - Prefer iteration and modularization over code duplication
 - Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError)
-- Structure repository files as follows:
-
-```
-├── src/
-    ├── assets/         # favicon, images, and tailwind styles
-    ├── components/     # Shared Astro components
-    ├── content/        # Blog related content
-    ├── data/           # Data for different pages
-    ├── layouts/        # Shared layout components
-    ├── pages/         # Route pages
-    ├── utils/         # Helper functions
-    ├── config         # Shared configuration
-    ├── navigation     # Navigation of the website
-    ├── types.d.ts     # Types of the website
-    └── tests/         # Unit and integration tests
-```
+- See [README.md](README.md#-project-structure) for the app-local structure and the [root README](../../README.md) for workspace boundaries.
 
 ## Tech Stack
 

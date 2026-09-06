@@ -20,22 +20,7 @@ Website for a research group containing all the content of the group in a single
 - Use functional and declarative programming patterns; avoid classes
 - Prefer iteration and modularization over code duplication
 - Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError)
-- Structure repository files as follows:
-
-```
-├── src/
-    ├── assets/         # favicon, images, and tailwind styles
-    ├── components/     # Shared Astro components
-    ├── content/        # Blog related content
-    ├── data/           # Data for different pages
-    ├── layouts/        # Shared layout components
-    ├── pages/         # Route pages
-    ├── utils/         # Helper functions
-    ├── config         # Shared configuration
-    ├── navigation     # Navigation of the website
-    ├── types.d.ts     # Types of the website
-    └── tests/         # Unit and integration tests
-```
+- See [README.md](README.md#-project-structure) for the app-local structure and the [root README](../../README.md) for workspace boundaries.
 
 ## Tech Stack
 
