@@ -1,16 +1,7 @@
 import { useTranslations } from '~/i18n/utils';
 import React, { useEffect, useRef, useState } from 'react';
 
-// Add CSS styles using template literal
-const styles = `
-  .hide-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .hide-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-` as const;
+import './filters.css';
 
 interface FilterContainerProps {
   textSearchPlaceholder: string;
@@ -187,7 +178,6 @@ export default function ReactFilterContainer({
 
   return (
     <div className='w-full' data-filter-root>
-      <style>{styles}</style>
       <div className='flex flex-col gap-4'>
         <div className='flex flex-wrap-reverse items-center gap-4'>
           <div className='flex-1 min-w-0'>
