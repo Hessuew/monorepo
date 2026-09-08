@@ -1,0 +1,59 @@
+---
+import imgPrayerChurchKuopio from '~/assets/images/other/rukous_seurakunta_kuopio_jesus_fest.webp';
+import Features3 from '~/components/widgets/Features3.astro';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Features3
+  id="sinulle"
+  tagline={t('forYou')}
+  title={t('whatYouWillExperience')}
+  subtitle={t('1cor2:4-5')}
+  columns={3}
+  classes={{ headline: { subtitle: 'max-w-5xl xl:max-w-[1024px] mx-auto' } }}
+  items={[
+    {
+      title: t('forYou.items1.title'),
+      description: t('forYou.items1.description'),
+      icon: 'tabler:square-number-1',
+    },
+
+    {
+      title: t('forYou.items2.title'),
+      description: t('forYou.items2.description'),
+      icon: 'tabler:square-number-2',
+    },
+    {
+      title: t('forYou.items3.title'),
+      description: t('forYou.items3.description'),
+      icon: 'tabler:square-number-3',
+    },
+    {
+      title: t('forYou.items4.title'),
+      description: t('forYou.items4.description'),
+      icon: 'tabler:square-number-4',
+    },
+    {
+      title: t('forYou.items5.title'),
+      description: t('forYou.items5.description'),
+      icon: 'tabler:square-number-5',
+    },
+    {
+      title: t('forYou.items6.title'),
+      description: t('forYou.items6.description'),
+      icon: 'tabler:square-number-6',
+    },
+    {
+      title: t('forYou.items7.title'),
+      description: `${t('forYou.items7.description')}`,
+      icon: 'tabler:square-number-7',
+    },
+  ]}
+  image={{
+    src: imgPrayerChurchKuopio,
+    alt: t('prayerChurchMeetingImageAlt'),
+  }}
+/>

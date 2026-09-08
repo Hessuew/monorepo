@@ -1,0 +1,197 @@
+---
+import jesusFest2026En from '~/assets/images/events/jesus_fest_kuopio_2026_en.webp';
+import jesusFest2026Fi from '~/assets/images/events/jesus_fest_kuopio_2026_fi.webp';
+import Image from '~/components/common/Image.astro';
+import GradientText from '~/components/ui/GradientText.astro';
+import ContentSection from '~/components/widgets/ContentSection.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import StepsOriginal from '~/components/widgets/StepsOriginal.astro';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Rukouksen seurakunta | Jesus Fest Kuopio 2026',
+  description:
+    'Jesus Fest Kuopio 2026 - Rukousta, sanaa, pelastumisia, parannuksen tekoa, ihmeitä ja merkkejä. Tule kohtaamaan elävä Jeesus Kuopioon. Rukouksen seurakunta, Savilahti, Kuopio.',
+  ignoreTitleTemplate: true,
+  canonical: 'https://rukouksenseurakunta.fi/jesus-fest',
+  openGraph: {
+    title: 'Rukouksen seurakunta | Jesus Fest Kuopio 2026',
+    description:
+      'Jesus Fest Kuopio 2026 - Rukousta, sanaa, pelastumisia, parannuksen tekoa, ihmeitä ja merkkejä. Tule kohtaamaan elävä Jeesus Kuopioon.',
+    type: 'website',
+    image: jesusFest2026Fi,
+    article: {
+      publishedTime: '2025-03-03T05:03:23+02:00',
+      modifiedTime: '2026-06-09T00:00:00+03:00',
+      authors: ['Rukouksen seurakunta'],
+      tags: [
+        'Jesus Fest Kuopio',
+        'Jesus Fest',
+        'Jesus Fest 2026',
+        'Rukouksen seurakunta',
+        'Rukouksen seurakunta Kuopio',
+        'Savilahti',
+        'Kuopio',
+        'Kuopio seurakunta',
+      ],
+    },
+  },
+  twitter: {
+    handle: '@RukouksenSrk',
+    site: '@RukouksenSrk',
+    cardType: 'summary_large_image',
+  },
+};
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout metadata={metadata}>
+  <Hero tagline={t('events')} title={t('jesusFest2026Title')}>
+    <Fragment slot="image">
+      <div class="relative m-auto max-w-5xl text-center">
+        <Image
+          class="mx-auto rounded-md w-full"
+          widths={[400, 768, 1024, 2040]}
+          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+          loading="eager"
+          decoding="async"
+          objectPosition="top top"
+          width={1024}
+          height={576}
+          src={lang === 'en' ? jesusFest2026En : jesusFest2026Fi}
+          alt={t('jesusFest2026ImageAlt')}
+        />
+      </div>
+
+      <p class="text-center text-sm xl:text-[14px] xl:leading-[20px] text-muted dark:text-slate-400 mb-12 xl:mb-[48px]">
+        {t('jesusFest2026ImageText')}
+      </p>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span>{t('eventsSubtitleItem1')}</span><br />
+      <div class="flex justify-center">
+        <span
+          class="flex flex-col gap-2 pb-8 xl:pb-[32px] text-left text-xl xl:text-[20px] xl:leading-[28px] text-muted dark:text-slate-300 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        >
+          <span>{t('eventsSubtitleItem2')}<span class="text-white"> </span></span>
+          <span>{t('eventsSubtitleItem3')}<span class="text-white">👩‍🦽‍➡️✨🏃‍♀️‍➡️</span></span>
+          <span>{t('eventsSubtitleItem4')}<span class="text-white"></span></span>
+          <span>{t('eventsSubtitleItem5')}<span class="text-white"></span></span>
+        </span>
+      </div>
+      <span
+        class="text-xl xl:text-[20px] xl:leading-[28px] text-muted dark:text-slate-300 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        >{t('eventsSubtitle')}</span
+      >
+      <br />
+      <br />
+    </Fragment>
+  </Hero>
+
+  <ContentSection classes={{ content: 'm-auto max-w-5xl xl:max-w-[1024px]' }}>
+    <Fragment slot="title">
+      <GradientText class="text-3xl md:text-4xl xl:text-[36px] xl:leading-[40px]">
+        Jesus Fest Kuopio 2026
+      </GradientText>
+    </Fragment>
+
+    <Fragment slot="default">
+      <div class="">
+        <GradientText
+          class="text-2xl md:text-3xl xl:text-[30px] xl:leading-[36px] font-bold leading-tighter tracking-tighter mb-4 font-heading text-gray-200 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        >
+          {t('aboutTheEvent')}
+        </GradientText>
+
+        <p
+          class="text-xl text-muted intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        >
+          {t('aboutTheEventText')}
+        </p>
+
+        <br />
+
+        <GradientText
+          class="text-lg xl:text-[20px] xl:leading-[28px] font-bold leading-tighter tracking-tighter mb-4 font-heading text-gray-200 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        >
+          {t('reasonForTheEvent')}
+        </GradientText>
+        <p
+          class="text-xl text-muted intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        >
+          {t('reasonForTheEventText')}
+          <br />
+          <br />
+          {t('reasonForTheEventText2')}
+        </p>
+
+        <br />
+        <GradientText
+          class="text-lg xl:text-[20px] xl:leading-[28px] font-bold leading-tighter tracking-tighter mb-4 font-heading text-gray-200 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        >
+          {t('whyYouShouldCome')}
+        </GradientText>
+        <p
+          class="text-xl text-muted mb-2 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        >
+          {t('whyYouShouldComeText')}
+        </p>
+      </div>
+    </Fragment>
+
+    <StepsOriginal
+      classes={{ container: 'py-0 md:py-0 lg:py-0 xl:py-0' }}
+      items={[
+        {
+          title: t('step1.title'),
+          description: t('step1.description'),
+          icon: 'tabler:eye',
+        },
+        {
+          title: t('step2.title'),
+          description: t('step2.description'),
+          icon: 'tabler:heart',
+        },
+        {
+          title: t('step3.title'),
+          description: t('step3.description'),
+          icon: 'tabler:book',
+        },
+        {
+          title: t('step4.title'),
+          description: t('step4.description'),
+          icon: 'tabler:compass',
+        },
+        {
+          title: t('step5.title'),
+          description: t('step5.description'),
+          icon: 'tabler:key',
+        },
+        {
+          title: t('step6.title'),
+          description: t('step6.description'),
+          icon: 'tabler:bible',
+        },
+        {
+          title: t('step7.title'),
+          description: t('step7.description'),
+          icon: 'tabler:crown',
+        },
+      ]}
+    />
+
+    <div class="relative m-auto max-w-5xl text-center pt-4">
+      <GradientText
+        class="text-center text-3xl xl:text-[30px] xl:leading-[36px] font-bold leading-tighter tracking-tighter mb-4 font-heading text-gray-200 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        {t('haveYouHeard')}
+        <br />
+        {t('haveYouHeard2')}
+      </GradientText>
+    </div>
+  </ContentSection>
+</Layout>

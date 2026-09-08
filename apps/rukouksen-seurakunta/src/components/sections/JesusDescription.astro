@@ -1,0 +1,107 @@
+---
+import GradientText from '~/components/ui/GradientText.astro';
+import Jesus from '~/components/widgets/Jesus.astro';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+import { twMerge } from 'tailwind-merge';
+
+const styleStyle = {
+  backgroundPosition: 'center',
+  backgroundAttachment: 'local',
+  backgroundRepeat: 'repeat',
+  backgroundSize: '100% 100%',
+};
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Jesus classes={{ container: 'px-4 max-w-5xl' }}>
+  <Fragment slot="title">
+    <div class="py-4">
+      <GradientText imageNro={2} class="text-3xl xs:text-4xl md:text-5xl">
+        <div class="">
+          <GradientText
+            animate={false}
+            class="pr-1"
+            imageNro={2}
+            backgroundStyles={{ ...styleStyle, backgroundSize: '200% 400%', backgroundPosition: '10% 40%' }}
+          >
+            {t('thisSameJesus')}
+          </GradientText>
+          <span>{t('cameToSaveHisPeopleFromIts')}</span>
+        </div>
+      </GradientText>
+    </div>
+
+    <div class="py-4">
+      <GradientText
+        imageNro={2}
+        backgroundStyles={{ ...styleStyle, backgroundSize: '200% 400%', backgroundPosition: '40% 100%' }}
+        class="w-full text-[8vw] sm:text-[8vw] md:text-[8vw] lg:text-[6vw] font-bold leading-none pb-10"
+      >
+        <div class="flex flex-col">
+          <div class={twMerge('flex flex-row items-center justify-center', lang === 'en' && 'gap-2')}>
+            1. {t('notIn')}<div class="border-b-2 mt-0.5 border-white">{t('ssä')}</div>
+          </div>
+          <div class={twMerge('flex flex-row items-center justify-center', lang === 'en' && 'gap-2')}>
+            2. {t('butFrom')}<span class="border-b-2 border-white mt-[3px]">{t('stä')}</span>
+          </div>
+        </div>
+      </GradientText>
+    </div>
+
+    <div class="md:py-12">
+      <GradientText class="text-3xl sm:text-4xl md:text-5xl font-bold leading-none pb-2">
+        <div class="flex flex-col gap-2">
+          <span>{t('areYouFreeFromAllTheSins')}</span>
+          <span>{t('wouldYouLikeToBe')}</span>
+        </div>
+      </GradientText>
+    </div>
+
+    <div class="w-full flex justify-center items-center text-lg md:text-2xl">
+      <div class="flex flex-col xs:flex-row xs:gap-6 text-start text-muted font-normal pt-4">
+        <div class="xs:hidden flex flex-col gap-2">
+          <div class="flex flex-col">
+            <span class="font-medium">{t('address')}: </span>
+            <span>Zoom</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-medium">{t('time')}: </span>
+            <span>{t('time1')}</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-medium">{t('address')} 2:</span>
+            <span>{t('address2')}</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-medium">{t('time')} 2: </span>
+            <span>{t('time2')}</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-medium">{t('phone')} </span>
+            <span>{t('phone2')}</span>
+          </div>
+          <span class="font-medium">{t('email')} </span>
+          <span>{t('email2')}</span>
+        </div>
+        <div class="hidden xs:flex xs:flex-col">
+          <span>{t('address')}:</span>
+          <span>{t('time')}:</span>
+          <span>{t('address')} 2: </span>
+          <span>{t('time')} 2: </span>
+          <span>{t('phone')} </span>
+          <span>{t('email')} </span>
+        </div>
+        <div class="hidden xs:flex xs:flex-col">
+          <span>Zoom</span>
+          <span>{t('time1')}</span>
+          <span>{t('address2')}</span>
+          <span>{t('time2')}</span>
+          <span>{t('phone2')}</span>
+          <span>{t('email2')}</span>
+        </div>
+      </div>
+    </div>
+  </Fragment>
+</Jesus>

@@ -1,0 +1,90 @@
+---
+import Stats from '~/components/widgets/Stats.astro';
+---
+
+<style>
+  @keyframes bounce {
+    0%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-20px);
+    }
+  }
+  .dots-container {
+    display: inline-flex;
+    align-items: baseline;
+    margin-left: 4px;
+  }
+  .dot {
+    display: inline-block;
+    color: #fbbf24; /* orange-600 to match the gradient */
+    font-size: 1em; /* Scale with parent text size */
+    line-height: 1;
+  }
+  .wave-wrapper:not(.visible) .dot {
+    animation: none !important;
+  }
+  .visible .dot-1 {
+    animation: bounce 2s ease-in-out 3 0s;
+  }
+  .visible .dot-2 {
+    animation: bounce 2s ease-in-out 3 0.2s;
+  }
+  .visible .dot-3 {
+    animation: bounce 2s ease-in-out 3 0.4s;
+  }
+</style>
+
+<Stats classes={{ container: 'max-w-6xl mx-auto', item: 'md:w-full' }}>
+  <Fragment slot="subtitle">
+    <div class="text-center w-full wave-wrapper">
+      <div
+        class="flex flex-wrap items-center justify-center bg-gradient-to-r from-orange-600 to-yellow-400 text-transparent bg-clip-text italic text-4xl xs:text-5xl md:text-6xl font-bold leading-tighter tracking-tighter pb-1"
+      >
+        <span>Do you accept the&nbsp;</span>
+        <span class="inline-flex items-baseline whitespace-nowrap">
+          invitation<span class="dots-container">
+            <span class="dot dot-1">.</span><span class="dot dot-2">.</span><span class="dot dot-3">.</span>
+          </span>
+        </span>
+      </div>
+    </div>
+  </Fragment>
+</Stats>
+
+<script>
+  function setupWaveObserver() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px',
+      }
+    );
+
+    document.querySelectorAll('.wave-wrapper').forEach((wrapper) => {
+      if (wrapper && !wrapper.classList.contains('visible')) {
+        observer.observe(wrapper);
+      }
+    });
+  }
+
+  // Run immediately
+  setupWaveObserver();
+
+  // Run again after page load to catch any dynamically loaded elements
+  window.addEventListener('load', setupWaveObserver);
+
+  // Run when Astro view transitions complete
+  document.addEventListener('astro:page-load', setupWaveObserver);
+</script>

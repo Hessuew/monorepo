@@ -1,12 +1,13 @@
 # Flame the Freeze monorepo
 
-This repository contains three independent Astro sites and three independent Cloudflare Workers. Bun is the only workspace package manager; the repository uses one root lockfile and a pinned Bun version.
+This repository contains four independent Astro sites and three independent Cloudflare Workers. Bun is the only workspace package manager; the repository uses one root lockfile and a pinned Bun version.
 
 ## Workspace members
 
 - `apps/flamethefreeze` — Flame the Freeze static Astro site
 - `apps/urfit-child` — urFIT-child static Astro site
 - `apps/cherubim-it` — Cherubim IT static Astro site
+- `apps/rukouksen-seurakunta` — Rukouksen seurakunta static Astro site
 - `workers/flamethefreeze` — Flame public-files Worker
 - `workers/subscribe` — urFIT-child subscription/files Worker
 - `workers/contact` — Cherubim IT contact-form Worker

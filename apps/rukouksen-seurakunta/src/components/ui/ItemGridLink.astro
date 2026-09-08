@@ -1,0 +1,146 @@
+---
+import type { ItemLink } from '~/types';
+import Image from 'astro/components/Image.astro';
+import { twMerge } from 'tailwind-merge';
+
+interface Props {
+  items: ItemLink[];
+  columns?: 1 | 2 | 3 | 4;
+  classes?: {
+    container?: string;
+    item?: string;
+    itemContainer?: string;
+    text?: string;
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    image?: string;
+  };
+  isProfile?: boolean;
+}
+
+const { items, columns = 3, classes = {}, isProfile = false } = Astro.props;
+---
+
+<div
+  class={twMerge(
+    `grid gap-8 gap-x-12 sm:gap-y-8 grid-auto-flow-row ${
+      columns === 4
+        ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
+        : columns === 3
+          ? 'lg:grid-cols-3 sm:grid-cols-2'
+          : columns === 2
+            ? 'sm:grid-cols-2'
+            : ''
+    }`,
+    classes.container
+  )}
+>
+  {
+    items.map((item, index) => {
+      return (
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={twMerge(
+            'block no-underline hover:no-underline group opacity-0 translate-y-6 md:translate-y-12 duration-[1500ms] ease-out intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade',
+            'focus:outline-none focus:ring-2 focus:ring-primary rounded-lg',
+            classes.item
+          )}
+          aria-label={`Visit ${item.title} website`}
+          role="listitem"
+        >
+          <div class="bg-white dark:bg-transparent rounded-lg shadow-lg dark:shadow-none p-6 h-full transition-all duration-300 hover:bg-gray-100/0 dark:hover:bg-white/0 group-hover:shadow-xl dark:group-hover:shadow-none">
+            <div class={twMerge('flex flex-col items-center h-full', classes.itemContainer)}>
+              {isProfile ? (
+                <div
+                  class={twMerge(
+                    'mb-4 relative rounded-full overflow-hidden',
+                    'w-32 h-32 border-2 border-gray-200 dark:border-gray-700',
+                    'transition-transform duration-300 ease-out group-hover:scale-105',
+                    classes.image
+                  )}
+                >
+                  {item.image ? (
+                    <Image
+                      src={item.image.src}
+                      alt={item.image.alt}
+                      class="w-full h-full object-cover object-center"
+                      width={item.image.width ?? 256}
+                      height={item.image.height ?? 256}
+                      loading={index < 6 ? 'eager' : 'lazy'}
+                      decoding={index < 6 ? 'sync' : 'async'}
+                    />
+                  ) : (
+                    <div class="w-full h-full bg-gray-100 dark:bg-transparent" />
+                  )}
+                </div>
+              ) : (
+                item.image && (
+                  <div
+                    class={twMerge(
+                      'mb-4 flex items-center justify-center bg-white dark:bg-white rounded-lg p-4',
+                      'w-full aspect-[3/2] max-w-[240px]',
+                      'transition-transform duration-300 ease-out group-hover:scale-105',
+                      classes.image
+                    )}
+                  >
+                    <Image
+                      src={item.image.src}
+                      alt={item.title}
+                      width={item.image.width}
+                      height={item.image.height}
+                      class="h-full w-full object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                )
+              )}
+              <div class={twMerge('text-center flex flex-col flex-1', classes.text)}>
+                <div>
+                  <h3 class={twMerge('text-xl font-semibold text-gray-800 dark:text-gray-100', classes.title)}>
+                    {item.title}
+                  </h3>
+                  {item.subtitle && (
+                    <p class={twMerge('mt-2 text-sm text-gray-600 dark:text-gray-400', classes.subtitle)}>
+                      {item.subtitle}
+                    </p>
+                  )}
+                  {item.description && (
+                    <p
+                      class={twMerge('mt-2 text-sm text-gray-500 dark:text-gray-400', classes.description)}
+                      set:html={item.description}
+                    />
+                  )}
+                </div>
+                {item.url && (
+                  <span
+                    class="w-full justify-center text-sm text-primary mt-auto pt-2 inline-flex items-center gap-1 transition-all duration-300 group-hover:gap-2"
+                    aria-hidden="true"
+                  >
+                    Visit website
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 transition-transform duration-300 transform group-hover:translate-x-1"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      role="presentation"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                )}
+              </div>
+            </div>
+          </div>
+        </a>
+      );
+    })
+  }
+</div>

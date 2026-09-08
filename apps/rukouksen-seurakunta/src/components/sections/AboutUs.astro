@@ -1,0 +1,86 @@
+---
+import akosua_zoomed_in from '~/assets/images/deacons/rukous_seurakunta_akosua.webp';
+import ida_zoomed_in from '~/assets/images/deacons/rukous_seurakunta_ida_zoomed_in.webp';
+// import ahunsi_zoomed2 from '~/assets/images/elders/rukous_seurakunta_ahunsi.webp';
+import greta from '~/assets/images/elders/rukous_seurakunta_greta.jpg';
+import juhani_helsinki from '~/assets/images/elders/rukous_seurakunta_juhani_juusola.webp';
+import mahi from '~/assets/images/elders/rukous_seurakunta_mahi.webp';
+import ImageTextSection from '~/components/widgets/ImageTextSection.astro';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<ImageTextSection
+  id="meista"
+  tagline={t('aboutUs')}
+  title={t('workersOfTheGospel')}
+  subtitle={t('toYou')}
+  classes={{
+    headline: {
+      subtitle: 'max-w-5xl xl:max-w-[1024px] mx-auto text-base md:text-lg lg:text-xl xl:text-[20px] xl:leading-[28px]',
+    },
+  }}
+  items={[
+    {
+      title: t('juhaniJuusola'),
+      name: 'Juhani Juusola',
+      content: `1) ${t('juhaniJuusolaContent2')}`,
+      image: {
+        src: juhani_helsinki,
+        alt: t('juhaniJuusolaImageAlt'),
+      },
+      isReversed: false,
+    },
+    {
+      title: t('greta'),
+      name: 'Greta',
+      content: `1) ${t('gretaContent1')} <br /> <br /> 2) ${t('gretaContent2')}`,
+      image: {
+        src: greta,
+        alt: t('gretaImageAlt'),
+      },
+      isReversed: true,
+    },
+    // {
+    //   title: t('ahunsi'),
+    //   name: 'Ahunsimere',
+    //   image: {
+    //     src: ahunsi_zoomed2,
+    //     alt: t('ahunsiImageAlt'),
+    //   },
+    //   isReversed: true,
+    // },
+    {
+      title: t('mahidere'),
+      name: 'Mahidere',
+      content: `1) ${t('mahiContent1')}`,
+      image: {
+        src: mahi,
+        alt: t('mahidereImageAlt'),
+      },
+      isReversed: false,
+    },
+    {
+      title: t('akosua'),
+      name: 'Akosua',
+      content: `1) ${t('akosuaContent1')} <br /> <br /> 2) ${t('akosuaContent2')} <br /> <br /> 3) ${t('akosuaContent3')}`,
+      image: {
+        src: akosua_zoomed_in,
+        alt: t('akosuaImageAlt'),
+      },
+      isReversed: true,
+    },
+    {
+      title: t('ida'),
+      name: 'Ida',
+      content: `1) ${t('idaContent1')}`,
+      image: {
+        src: ida_zoomed_in,
+        alt: t('idaImageAlt'),
+      },
+      isReversed: false,
+    },
+  ]}
+/>

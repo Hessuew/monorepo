@@ -1,0 +1,94 @@
+---
+import Headline from '~/components/ui/Headline.astro';
+import ItemGridLink from '~/components/ui/ItemGridLink.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import type { ItemLink } from '~/types';
+import { twMerge } from 'tailwind-merge';
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  items: Array<ItemLink>;
+  columns?: 1 | 2 | 3 | 4;
+  id?: string;
+  isDark?: boolean;
+  bg?: string;
+  isProfile?: boolean;
+  classes?: {
+    container?: string;
+    title?: Record<string, string | Record<string, string>>;
+    subtitle?: string;
+    items?: {
+      container?: string;
+      itemContainer?: string;
+      item?: string;
+      text?: string;
+      title?: string;
+      subtitle?: string;
+      description?: string;
+      image?: string;
+    };
+  };
+}
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
+  items = [],
+  columns = 3,
+  id,
+  isDark = false,
+  isProfile = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+---
+
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  animated={false}
+  containerClass={twMerge('max-w-7xl mx-auto', classes?.container)}
+  bg={bg}
+>
+  {
+    (title || subtitle || tagline) && (
+      <div class="mb-12 md:mx-auto md:mb-16 text-center max-w-3xl">
+        <Headline
+          title={title}
+          subtitle={subtitle}
+          tagline={tagline}
+          classes={{
+            container: 'max-w-xl sm:mx-auto lg:max-w-2xl',
+            title: twMerge(
+              'text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading',
+              classes?.title?.title?.toString() || ''
+            ),
+            ...((classes?.title as Record<string, string>) ?? {}),
+          }}
+        />
+      </div>
+    )
+  }
+  <div class={`${classes?.container ?? ''}`}>
+    <div id="itemsContainer">
+      <ItemGridLink
+        items={items}
+        columns={columns}
+        isProfile={isProfile}
+        classes={{
+          container: classes?.items?.container,
+          item: classes?.items?.item,
+          itemContainer: classes?.items?.itemContainer,
+          text: classes?.items?.text,
+          title: classes?.items?.title,
+          subtitle: classes?.items?.subtitle,
+          description: classes?.items?.description,
+          image: classes?.items?.image,
+        }}
+      />
+    </div>
+  </div>
+</WidgetWrapper>

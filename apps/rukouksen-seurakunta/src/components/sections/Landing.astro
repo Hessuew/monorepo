@@ -1,0 +1,63 @@
+---
+import logo from '~/assets/images/other/rukous_seurakunta_logo.webp';
+import GradientText from '~/components/ui/GradientText.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+
+const styleStyle = {
+  backgroundPosition: 'center',
+  backgroundAttachment: 'local',
+  backgroundRepeat: 'repeat',
+  backgroundSize: '100% 100%',
+};
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Hero
+  image={{
+    src: logo,
+    alt: t('prayerChurchImageAlt'),
+    width: 600,
+    height: 600,
+  }}
+  imageText={t('prayerChurchImageText')}
+>
+  <Fragment slot="title">
+    <GradientText
+      animate={false}
+      imageNro={2}
+      class="w-full text-[14vw] xs:text-[14vw] sm:text-[14vw] md:text-[12vw] lg:text-[10vw] font-bold leading-none"
+      backgroundStyles={styleStyle}
+    >
+      <div class="flex flex-col">
+        <span>{t('prayer')}</span>
+        <span>{t('church')}</span>
+      </div>
+    </GradientText>
+  </Fragment>
+
+  <Fragment slot="subtitle">
+    <span set:html={t('prayerDefinesTheChurch')} />
+    <span class="italic">
+      '{t('mark11:17')}'
+    </span>
+    {t('theWayThePeoplePray')}
+    <br />
+    <br />
+    {t('thisDoesNotMean')}
+    <br />
+    <br />
+    {t('theFireIsMissing')}
+    <br />
+    <br />
+    <GradientText
+      imageNro={2}
+      backgroundStyles={{ ...styleStyle, backgroundSize: '200% 100%', backgroundPosition: '10% 20%' }}
+      class="italic font-bold text-xl pr-1"
+    >
+      {t('whereIsYourFire')}
+    </GradientText>
+  </Fragment>
+</Hero>

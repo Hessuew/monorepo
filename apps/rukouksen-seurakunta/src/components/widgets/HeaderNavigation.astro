@@ -1,0 +1,218 @@
+---
+import { getPermalink } from '~/utils/permalinks';
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import type { MenuLink } from './Header.astro';
+
+interface Props {
+  links: Array<MenuLink>;
+  currentPath: string;
+}
+
+const { links, currentPath } = Astro.props;
+---
+
+<div
+  class="dropdown-menu absolute top-[56px] left-[28%] xl:left-[26%] lg:backdrop-blur-md lg:bg-white/80 dark:lg:bg-[#030621e6]/80 drop-shadow-xl lg:border border-gray-200 dark:border-gray-800 transition-all duration-300 ease-in-out hidden rounded-md"
+  data-navigation-menu
+>
+  <div class="w-[30rem]">
+    <div
+      class="flex overflow-hidden relative transition-[height] duration-300 ease-in-out"
+      style="height: 180px;"
+      data-nav-container
+    >
+      {
+        links.map((headerLinks, index) => (
+          <div
+            class:list={[
+              'w-full h-full flex-shrink-0 transition-all duration-500 ease-in-out transform absolute inset-0',
+              { 'translate-x-0 opacity-100 z-10': index === 0 },
+              { 'translate-x-[30%] opacity-0 z-0': index > 0 },
+            ]}
+            role="tabpanel"
+            id={`nav-panel-${index}`}
+            data-nav-panel={index}
+          >
+            <div class="lg:flex lg:flex-row lg:items-start lg:gap-4 lg:p-4 h-full">
+              <ul class="w-1/2">
+                {headerLinks.links
+                  ?.filter((link) => !link.image)
+                  .map(({ text, href, icon, description }) => (
+                    <li>
+                      <a
+                        class:list={[
+                          'first:rounded-t last:rounded-b hover:text-primary py-1 px-2 block whitespace-no-wrap',
+                          { 'aw-link-active': href === currentPath },
+                        ]}
+                        href={getPermalink(`${href}`)}
+                      >
+                        <div class="flex items-center gap-2">
+                          {icon && <Icon name={icon} class="w-5 h-5" />}
+                          <div>
+                            <div class="font-medium">{text}</div>
+                            {description && <div class="text-sm text-muted">{description}</div>}
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  ))}
+              </ul>
+              <ul class="lg:w-1/2 lg:space-y-2 lg:block">
+                {headerLinks.links
+                  ?.filter((link) => link.image)
+                  .map(({ text, href, image }) => (
+                    <li class="group">
+                      <a
+                        class="relative block h-24 rounded-lg transform-gpu overflow-hidden ring-0 ring-white dark:ring-gray-700 group-hover:ring-1 transition duration-200"
+                        href={getPermalink(`${href}`)}
+                      >
+                        {image && (
+                          <Image
+                            src={image.src}
+                            alt={image?.alt}
+                            width={400}
+                            height={300}
+                            class="absolute inset-0 w-full h-full object-cover object-center opacity-60 group-hover:opacity-75 group-hover:scale-105 transition duration-500 transform-gpu"
+                          />
+                        )}
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
+                        <div class="absolute bottom-0 left-0 p-4 py-2">
+                          <span class="text-white font-medium">{text}</span>
+                        </div>
+                      </a>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<script>
+  function setupNavigation() {
+    const menu = document.querySelector('[data-navigation-menu]') as HTMLElement;
+    const container = menu?.querySelector('[data-nav-container]') as HTMLElement;
+    const panels = menu?.querySelectorAll('[data-nav-panel]');
+    const headerButtons = document.querySelectorAll('[data-nav-button]');
+    let activePanel = 0;
+    let isMouseOverMenu = false;
+    const mdBreakpoint = 768; // Tailwind's md breakpoint
+
+    function isMediumScreen() {
+      return window.innerWidth >= mdBreakpoint;
+    }
+
+    function setActiveButton(index: number) {
+      headerButtons.forEach((button, i) => {
+        const span = button.querySelector('span');
+        const icon = button.querySelector('svg');
+        if (i === index) {
+          span?.classList.add('text-primary');
+          icon?.classList.add('rotate-180');
+        } else {
+          span?.classList.remove('text-primary');
+          icon?.classList.remove('rotate-180');
+        }
+      });
+    }
+
+    function clearActiveButton() {
+      headerButtons.forEach((button) => {
+        const span = button.querySelector('span');
+        const icon = button.querySelector('svg');
+        span?.classList.remove('text-primary');
+        icon?.classList.remove('rotate-180');
+      });
+    }
+
+    function showPanel(index: number) {
+      if (!isMediumScreen()) return;
+
+      const direction = index > activePanel ? 1 : -1;
+      const height = index === 0 ? 14.5 : index === 2 ? 9 : 16.5;
+
+      menu?.classList.remove('hidden');
+
+      // Animate container height
+      if (container) {
+        container.style.height = `${height}rem`;
+      }
+      if (menu) {
+        menu.style.left = index === 2 ? '31%' : '29%';
+      }
+
+      if (index !== activePanel) {
+        panels?.forEach((panel, i) => {
+          if (i === index) {
+            console.log('showing panel', i, direction);
+            // Panel sliding in
+            (panel as HTMLElement).style.transform = `translateX(${direction * 30}%)`; // Start from right/left
+            panel.classList.remove('opacity-0', 'z-0');
+            panel.classList.add('z-10');
+            requestAnimationFrame(() => {
+              (panel as HTMLElement).style.transform = 'translateX(0)';
+              panel.classList.add('opacity-100');
+            });
+          } else {
+            // Panel sliding out
+            (panel as HTMLElement).style.transform = 'translateX(0)';
+            panel.classList.remove('z-10');
+            panel.classList.add('z-0');
+            requestAnimationFrame(() => {
+              (panel as HTMLElement).style.transform = `translateX(${-direction * 30}%)`;
+              panel.classList.remove('opacity-100');
+              panel.classList.add('opacity-0');
+            });
+          }
+        });
+      }
+
+      activePanel = index;
+      setActiveButton(index);
+    }
+
+    headerButtons.forEach((button, index) => {
+      button.addEventListener('mouseenter', () => {
+        showPanel(index);
+      });
+    });
+
+    menu?.addEventListener('mouseenter', () => {
+      isMouseOverMenu = true;
+    });
+
+    menu?.addEventListener('mouseleave', () => {
+      isMouseOverMenu = false;
+      menu?.classList.add('hidden');
+      clearActiveButton();
+    });
+
+    document.addEventListener('mouseover', (e) => {
+      const target = e.target as HTMLElement;
+      if (
+        !menu?.contains(target) &&
+        !Array.from(headerButtons).some((button) => button.contains(target)) &&
+        !isMouseOverMenu
+      ) {
+        menu?.classList.add('hidden');
+        clearActiveButton();
+      }
+    });
+  }
+
+  // Initialize navigation when the DOM is ready and after each page navigation
+  function initializeNavigation() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupNavigation);
+    } else {
+      setupNavigation();
+    }
+  }
+
+  initializeNavigation();
+  document.addEventListener('astro:page-load', initializeNavigation);
+</script>

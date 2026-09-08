@@ -1,0 +1,134 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import { publicationsByYear, sortedYears } from '~/data/publications';
+import { twMerge } from 'tailwind-merge';
+
+interface Props {
+  columns?: 1 | 2 | 3 | 4;
+  classes?: {
+    container?: string;
+    item?: string;
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    image?: string;
+  };
+}
+
+const { columns = 2, classes = {} } = Astro.props;
+---
+
+<WidgetWrapper animated={false} containerClass="py-0 lg:py-0 md:py-0">
+  <div class="max-w-7xl mx-auto" role="region" aria-label="Publications">
+    {
+      sortedYears.map((year) => (
+        <div class="mb-16 sm:mb-24 item-year-card" role="region" aria-label={`Publications from ${year}`}>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 sm:mb-12 text-center intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade">
+            {year}
+          </h2>
+
+          <div
+            class={twMerge(
+              `grid gap-8 gap-x-12 sm:gap-y-8 grid-auto-flow-row ${
+                columns === 4
+                  ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
+                  : columns === 3
+                    ? 'lg:grid-cols-3 sm:grid-cols-2'
+                    : columns === 2
+                      ? 'sm:grid-cols-2'
+                      : ''
+              }`,
+              classes.container
+            )}
+            role="list"
+          >
+            {publicationsByYear[year].map((publication) => {
+              return (
+                <a
+                  href={
+                    publication.url ? publication.url : publication.doi ? `https://doi.org/${publication.doi}` : '#'
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class={twMerge(
+                    'item-card block no-underline hover:no-underline group duration-[1500ms] ease-out intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade',
+                    'focus:outline-none focus:ring-2 focus:ring-primary rounded-lg',
+                    !publication.url && !publication.doi && 'cursor-default pointer-events-none'
+                  )}
+                  data-intersect
+                  data-type={publication.type}
+                  data-category={publication.category || ''}
+                  aria-label={`View publication: ${publication.title}`}
+                  role="listitem"
+                >
+                  <div
+                    class={twMerge(
+                      'bg-white dark:bg-slate-900 rounded-lg shadow-lg dark:shadow-none p-6 h-full transition-all duration-300 group-hover:shadow-xl dark:group-hover:shadow-none',
+                      classes.item
+                    )}
+                    aria-labelledby={`publication-${publication.title.toLowerCase().replace(/\s+/g, '-')}`}
+                  >
+                    <div class="flex flex-col h-full">
+                      <div class="text-sm font-medium text-primary-600 dark:text-primary-400 mb-3">
+                        {new Date(publication.date).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric',
+                        })}
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">{publication.title}</h3>
+                      <p class="text-gray-600 dark:text-gray-300 mb-4">{publication.authors}</p>
+                      <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">
+                        {publication.journal && <span class="italic">{publication.journal}</span>}
+                        {publication.volume && <span>, {publication.volume}</span>}
+                        {publication.pages && <span>, {publication.pages}</span>}
+                      </p>
+
+                      <div class="flex flex-wrap gap-2">
+                        {publication.type && (
+                          <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300 ring-1 ring-inset ring-blue-700/10 dark:ring-blue-700/30">
+                            {publication.type}
+                          </span>
+                        )}
+                        {publication.category && (
+                          <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-50 text-green-700 dark:bg-green-900/50 dark:text-green-300 ring-1 ring-inset ring-green-700/10 dark:ring-green-700/30">
+                            {publication.category}
+                          </span>
+                        )}
+                      </div>
+
+                      {(publication.url || publication.doi) && (
+                        <div class="mt-auto pt-4">
+                          <span
+                            class="text-sm text-primary mt-2 inline-flex items-center gap-1 transition-all duration-300 group-hover:gap-2"
+                            aria-hidden="true"
+                          >
+                            View publication
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="h-4 w-4 transition-transform duration-300 transform group-hover:translate-x-1"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              aria-hidden="true"
+                              role="presentation"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</WidgetWrapper>
