@@ -1,0 +1,42 @@
+---
+import GradientText from '~/components/ui/GradientText.astro';
+import Jesus from '~/components/widgets/Jesus.astro';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+
+const styleStyle = {
+  backgroundPosition: 'center',
+  backgroundAttachment: 'local',
+  backgroundRepeat: 'repeat',
+  backgroundSize: '100% 100%',
+};
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Jesus classes={{ container: 'max-w-none w-full px-4 overflow-x-hidden' }}>
+  <Fragment slot="title">
+    <div class="py-4">
+      <GradientText imageNro={2} class="text-3xl xs:text-4xl md:text-5xl pb-1">
+        {t('ourFireIsNotA')}
+      </GradientText>
+    </div>
+    <div class="overflow-hidden mx-auto -my-4">
+      <GradientText imageNro={2} class="w-full text-[26vw] font-bold leading-none" backgroundStyles={styleStyle}>
+        {t('jesus')}
+      </GradientText>
+    </div>
+    <div class="py-4">
+      <GradientText
+        imageNro={2}
+        backgroundStyles={{ ...styleStyle, backgroundSize: '100% 200%', backgroundPosition: '10% 20%' }}
+        class="w-full text-[10vw] sm:text-[14vw] md:text-[10vw] lg:text-[6vw] font-bold leading-none"
+      >
+        <div class="flex flex-col">
+          <span>{t('christ')}</span>
+          <span>{t('theSonOfGod')}</span>
+        </div>
+      </GradientText>
+    </div>
+  </Fragment>
+</Jesus>

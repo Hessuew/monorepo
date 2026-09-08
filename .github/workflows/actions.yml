@@ -33,32 +33,11 @@ jobs:
       - name: Install workspace dependencies
         run: bun install --frozen-lockfile
 
-      - name: Build Flame the Freeze
-        run: bun run build:flamethefreeze
+      - name: Build apps
+        run: bun run build
 
-      - name: Build urFIT-child
-        run: bun run build:urfit-child
+      - name: Test apps
+        run: bun run test
 
-      - name: Build Cherubim IT
-        run: bun run build:cherubim-it
-
-      - name: Test Flame the Freeze
-        run: bun run test:flamethefreeze
-
-      - name: Test urFIT-child
-        run: bun run test:urfit-child
-
-      - name: Test Cherubim IT
-        run: bun run test:cherubim-it
-
-      - name: Check Flame the Freeze
-        run: bun run check:flamethefreeze
-
-      - name: Check urFIT-child
-        run: bun run check:urfit-child
-
-      - name: Check Cherubim IT
-        run: bun run check:cherubim-it
-
-      - name: Check Workers
-        run: bun run check:workers
+      - name: Check apps and Workers
+        run: bun run check

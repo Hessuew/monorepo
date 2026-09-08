@@ -1,0 +1,64 @@
+---
+import Steps from '~/components/widgets/Steps.astro';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Steps
+  id="mihin-uskomme"
+  tagline={t('whatDoWeBelieveIn')}
+  title={t('theBeliefsOfTheChurch')}
+  isReversed={true}
+  classes={{ container: 'lg:pb-0 md:pb-0', items: { icon: 'border-0 text-primary w-16 h-16' } }}
+  items={[
+    {
+      title: t('allNeedSalvation'),
+      description: [
+        {
+          text: t('allNeedSalvationDescription1'),
+        },
+        {
+          text: t('allNeedSalvationDescription2'),
+        },
+        {
+          text: t('allNeedSalvationDescription3'),
+        },
+      ],
+      icon: 'tabler:number-1',
+    },
+    {
+      title: t('jesusIsTheSonOfGod'),
+      description: [
+        { text: t('jesusIsTheSonOfGodDescription1') },
+        { text: t('jesusIsTheSonOfGodDescription2') },
+        { text: t('jesusIsTheSonOfGodDescription3') },
+      ],
+      icon: 'tabler:number-2',
+    },
+    {
+      title: t('preachingTheGospel'),
+      description: [
+        { text: t('preachingTheGospelDescription1') },
+        { text: t('preachingTheGospelDescription2') },
+        { text: t('preachingTheGospelDescription3') },
+      ],
+      icon: 'tabler:number-3',
+    },
+    {
+      title: t('signsAndWonders'),
+      description: [{ text: t('signsAndWondersDescription1') }, { text: t('signsAndWondersDescription2') }],
+      icon: 'tabler:number-4',
+    },
+    {
+      title: t('prayer2'),
+      description: [
+        { text: t('prayer2Description1') },
+        { text: t('prayer2Description2') },
+        { text: t('prayer2Description3') },
+      ],
+      icon: 'tabler:number-5',
+    },
+  ]}
+/>

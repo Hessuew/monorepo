@@ -1,0 +1,233 @@
+---
+import akosua from '~/assets/images/deacons/rukous_seurakunta_akosua.webp';
+import ida from '~/assets/images/deacons/rukous_seurakunta_ida.webp';
+import ahunsi_zoomed from '~/assets/images/elders/rukous_seurakunta_ahunsi_zoomed.webp';
+import mahi from '~/assets/images/elders/rukous_seurakunta_mahi.webp';
+import iina from '~/assets/images/testimonials/rukous_seurakunta_iina.webp';
+import maria from '~/assets/images/testimonials/rukous_seurakunta_maria.webp';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+import { Icon } from 'astro-icon/components';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Testimonials
+  id="todistuksia"
+  tagline={t('testimonials')}
+  title={t('whatDoPeopleSay')}
+  testimonials={[
+    // {
+    //   testimonial: t('testimonialNonMentioned1.t'),
+    //   name: t('testimonialNonMentioned1.name'),
+    //   job: t('testimonialNonMentioned1.job'),
+    //   image: {
+    //     src: '',
+    //     alt: '',
+    //   },
+    //   isPositive: false,
+    // },
+    {
+      testimonial: t('testimonialMaria.t'),
+      name: t('testimonialMaria.name'),
+      job: t('testimonialMaria.job'),
+      extraContent: t('testimonialMaria.t2'),
+      waveSm: true,
+      image: {
+        src: maria,
+        alt: '',
+      },
+      isPositive: true,
+    },
+    {
+      testimonial: t('testimonialGood2.t'),
+      name: t('testimonialGood2.name'),
+      job: t('testimonialGood2.job'),
+      extraContent: t('testimonialGood2.t2'),
+      image: {
+        src: '',
+        alt: '',
+      },
+      isPositive: true,
+    },
+    {
+      testimonial: t('testimonialAkosua.t'),
+      name: t('testimonialAkosua.name'),
+      job: t('testimonialAkosua.job'),
+      image: {
+        src: akosua,
+        alt: t('akosuaImageAlt'),
+      },
+      isPositive: true,
+    },
+    // {
+    //   testimonial: t('testimonialNonMentioned2.t'),
+    //   name: t('testimonialNonMentioned1.name'),
+    //   job: t('testimonialNonMentioned2.job'),
+    //   image: {
+    //     src: '',
+    //     alt: '',
+    //   },
+    //   isPositive: false,
+    // },
+    {
+      testimonial: t('testimonialCJ.t'),
+      name: t('testimonialCJ.name'),
+      job: t('testimonialCJ.job'),
+      extraContent: t('testimonialCJ.t2'),
+      image: {
+        src: '',
+        alt: '',
+      },
+      isPositive: true,
+    },
+    {
+      testimonial: t('testimonialMahi.t'),
+      name: t('testimonialMahi.name'),
+      job: t('testimonialMahi.job'),
+      extraContent: t('testimonialMahi.t2'),
+      waveLg: true,
+      image: {
+        src: mahi,
+        alt: t('mahidereImageAlt'),
+      },
+      isPositive: true,
+    },
+    {
+      testimonial: t('testimonialNonMentioned3.t'),
+      name: t('testimonialNonMentioned1.name'),
+      job: t('testimonialNonMentioned3.job'),
+      image: {
+        src: '',
+        alt: '',
+      },
+      isPositive: false,
+    },
+    {
+      testimonial: t('testimonialIda.t'),
+      name: t('testimonialIda.name'),
+      job: t('testimonialIda.job'),
+      extraContent: t('testimonialIda.t2'),
+      waveMd: true,
+      image: {
+        src: ida,
+        alt: t('idaImageAlt'),
+      },
+      isPositive: true,
+    },
+    // {
+    //   testimonial: t('testimonialNonMentioned5.t'),
+    //   name: t('testimonialNonMentioned1.name'),
+    //   job: t('testimonialNonMentioned5.job'),
+    //   image: {
+    //     src: '',
+    //     alt: '',
+    //   },
+    //   isPositive: false,
+    // },
+    {
+      testimonial: t('testimonialGood3.t'),
+      name: t('testimonialGood3.name'),
+      job: t('testimonialGood3.job'),
+      extraContent: t('testimonialGood3.t2'),
+      image: {
+        src: '',
+        alt: '',
+      },
+      isPositive: true,
+    },
+    {
+      testimonial: t('testimonialGood1.t'),
+      name: t('testimonialGood1.name'),
+      job: t('testimonialGood1.job'),
+      extraContent: t('testimonialGood1.t2'),
+      image: {
+        src: '',
+        alt: '',
+      },
+      isPositive: true,
+    },
+    // {
+    //   testimonial: t('testimonialNonMentioned4.t'),
+    //   name: t('testimonialNonMentioned1.name'),
+    //   job: t('testimonialNonMentioned4.job'),
+    //   image: {
+    //     src: '',
+    //     alt: '',
+    //   },
+    //   isPositive: false,
+    // },
+    {
+      testimonial: t('testimonialAhunsi.t'),
+      name: t('testimonialAhunsi.name'),
+      job: t('testimonialAhunsi.job'),
+      image: {
+        src: ahunsi_zoomed,
+        alt: t('ahunsiImageAlt'),
+      },
+      isPositive: true,
+    },
+    {
+      testimonial: t('testimonialBenwillis.t'),
+      name: t('testimonialBenwillis.name'),
+      job: t('testimonialBenwillis.job'),
+      image: {
+        src: '',
+        alt: '',
+      },
+      isPositive: false,
+    },
+    {
+      testimonial: t('testimonialIina.t'),
+      name: t('testimonialIina.name'),
+      job: t('testimonialIina.job'),
+      image: {
+        src: iina,
+        alt: t('testimonialIina.imageAlt'),
+      },
+      isPositive: true,
+    },
+  ]}
+>
+  <Fragment slot="subtitle">
+    {t('luke6:26')}
+    <br />
+    <br />
+    <div class="text-muted text-base md:text-lg lg:text-xl">
+      <div
+        class="flex flex-row gap-4 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        <Icon name={'tabler:thumb-up'} class="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
+        {t('john18:20-21')}
+      </div>
+      <br />
+      <br />
+      <div
+        class="flex flex-row gap-4 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        <div class="flex flex-col gap-1">
+          <Icon name={'tabler:thumb-up'} class="w-8 h-8 text-green-600 flex-shrink-0" />
+          <Icon name={'tabler:thumb-down'} class="w-8 h-8 text-red-600 flex-shrink-0" />
+        </div>
+        {t('john7:12')}
+      </div>
+      <br />
+      <br />
+      <div
+        class="flex flex-row gap-4 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        <Icon name={'tabler:thumb-down'} class="w-8 h-8 text-red-600 flex-shrink-0 mt-1" />
+        {t('acts17:6')}
+      </div>
+      <br />
+      <br />
+      <div
+        class="flex flex-row gap-4 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        <Icon name={'tabler:thumb-up'} class="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
+        {t('3john1:12')}
+      </div>
+    </div>
+  </Fragment>
+</Testimonials>

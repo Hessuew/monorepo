@@ -1,0 +1,19 @@
+---
+interface Props {
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { size = 'md' } = Astro.props;
+
+// Heights in pixels:
+// sm: 4rem/6rem (64px/96px)
+// md: 8rem/12rem (128px/192px)
+// lg: 12rem/16rem (192px/256px)
+const heights = {
+  sm: 'h-16 md:h-24',
+  md: 'h-32 md:h-48',
+  lg: 'h-48 md:h-64',
+};
+---
+
+<div class={heights[size]} role="separator" aria-hidden="true"></div>

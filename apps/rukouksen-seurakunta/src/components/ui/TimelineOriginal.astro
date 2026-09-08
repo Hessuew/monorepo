@@ -1,0 +1,108 @@
+---
+import imgGold from '~/assets/images/rukous_seurakunta_gold_small.webp';
+import type { Item } from '~/types';
+import { Icon } from 'astro-icon/components';
+import { twMerge } from 'tailwind-merge';
+import ItemDescription from './ItemDescription.astro';
+
+export interface Props {
+  items?: Array<Item>;
+  defaultIcon?: string;
+  classes?: Record<string, string>;
+}
+
+const { items = [], classes = {}, defaultIcon } = Astro.props as Props;
+
+const {
+  container: containerClass = '',
+  panel: panelClass = '',
+  title: titleClass = '',
+  icon: defaultIconClass = 'text-primary dark:text-slate-200 border-primary dark:border-blue-700',
+  line: lineClass = '',
+} = classes;
+---
+
+{
+  items && items.length && (
+    <div class={containerClass}>
+      {items.map(({ title, description, icon, classes: itemClasses = {} }, index = 0) => (
+        <div
+          class={twMerge(
+            'flex intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade',
+            panelClass,
+            itemClasses?.panel
+          )}
+        >
+          <div class="flex flex-col items-center mr-4 xl:mr-[16px] rtl:mr-0 rtl:ml-4 xl:rtl:mr-[16px]">
+            <div>
+              <div class="flex items-center justify-center">
+                {(icon || defaultIcon) && (
+                  <div
+                    class="flex items-center justify-center p-[2px]"
+                    style={{
+                      background: `linear-gradient(to right, transparent, transparent), url(${imgGold.src})`,
+                      backgroundSize: 'cover',
+                      borderRadius: '9999px',
+                    }}
+                  >
+                    <div class="flex items-center justify-center w-10 h-10 xl:w-[40px] xl:h-[40px] p-2 xl:p-[8px] rounded-full bg-page">
+                      <div
+                        class="icon-gold-container"
+                        style={{
+                          position: 'relative',
+                          width: '40px',
+                          height: '40px',
+                        }}
+                      >
+                        <div
+                          class="icon-gold-background"
+                          style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            backgroundImage: `url(${imgGold.src})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
+                            WebkitMaskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='0' height='0'%3E%3C/svg%3E")`,
+                            maskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='0' height='0'%3E%3C/svg%3E")`,
+                            WebkitMaskSize: 'contain',
+                            maskSize: 'contain',
+                            WebkitMaskRepeat: 'no-repeat',
+                            maskRepeat: 'no-repeat',
+                            WebkitMaskPosition: 'center',
+                            maskPosition: 'center',
+                          }}
+                          data-icon-name={icon || defaultIcon}
+                        />
+                        <Icon
+                          name={icon || defaultIcon}
+                          class={twMerge('w-7 h-7 opacity-0', defaultIconClass, itemClasses?.icon)}
+                          style="position: absolute; top: 0; left: 0;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+            {index !== items.length - 1 && (
+              <div class={twMerge('w-px h-full bg-black/10 dark:bg-slate-400/50', lineClass, itemClasses?.line)} />
+            )}
+          </div>
+          <div class={`pt-1 xl:pt-[4px] ${index !== items.length - 1 ? 'pb-8 xl:pb-[32px]' : ''}`}>
+            {title && (
+              <p
+                class={twMerge('text-xl xl:text-[20px] xl:leading-[28px] font-bold', titleClass, itemClasses?.title)}
+                set:html={title}
+              />
+            )}
+            <ItemDescription description={description} classes={itemClasses} />
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}

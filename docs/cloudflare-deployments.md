@@ -1,6 +1,6 @@
 # Cloudflare deployment settings
 
-These settings are the repository-side contract for the three Pages projects and three Workers. Configure them in Cloudflare; this repository does not mutate Cloudflare dashboards or deploy anything automatically.
+These settings are the repository-side contract for the four Pages projects and three Workers. Configure them in Cloudflare; this repository does not mutate Cloudflare dashboards or deploy anything automatically.
 
 All projects use `main` as the production branch. Pages should keep branch/PR previews enabled. Workers should use the non-production command shown below so previews upload a version without promoting it to production.
 
@@ -10,11 +10,12 @@ The Pages root directory is relative to the repository root. The output director
 
 | Project          | Root directory        | Build command                                                | Output directory | Include watch paths                                  | Exclude watch paths                                           |
 | ---------------- | --------------------- | ------------------------------------------------------------ | ---------------- | ---------------------------------------------------- | ------------------------------------------------------------- |
-| `flamethefreeze` | `apps/flamethefreeze` | `bun install --cwd ../.. --frozen-lockfile && bun run build` | `dist`           | `apps/flamethefreeze/**`, `package.json`, `bun.lock`, `.bun-version` | `apps/urfit-child/**`, `apps/cherubim-it/**`, `workers/**`    |
-| `urfit-child`    | `apps/urfit-child`    | `bun install --cwd ../.. --frozen-lockfile && bun run build` | `dist`           | `apps/urfit-child/**`, `package.json`, `bun.lock`, `.bun-version`    | `apps/flamethefreeze/**`, `apps/cherubim-it/**`, `workers/**` |
-| `cherubim-it`    | `apps/cherubim-it`    | `bun install --cwd ../.. --frozen-lockfile && bun run build` | `dist`           | `apps/cherubim-it/**`, `package.json`, `bun.lock`, `.bun-version`    | `apps/flamethefreeze/**`, `apps/urfit-child/**`, `workers/**` |
+| `flamethefreeze`       | `apps/flamethefreeze`       | `bun install --cwd ../.. --frozen-lockfile && bun run build` | `dist`           | `apps/flamethefreeze/**`, `package.json`, `bun.lock`, `.bun-version`       | `apps/urfit-child/**`, `apps/cherubim-it/**`, `apps/rukouksen-seurakunta/**`, `workers/**` |
+| `urfit-child`           | `apps/urfit-child`           | `bun install --cwd ../.. --frozen-lockfile && bun run build` | `dist`           | `apps/urfit-child/**`, `package.json`, `bun.lock`, `.bun-version`           | `apps/flamethefreeze/**`, `apps/cherubim-it/**`, `apps/rukouksen-seurakunta/**`, `workers/**` |
+| `cherubim-it`           | `apps/cherubim-it`           | `bun install --cwd ../.. --frozen-lockfile && bun run build` | `dist`           | `apps/cherubim-it/**`, `package.json`, `bun.lock`, `.bun-version`           | `apps/flamethefreeze/**`, `apps/urfit-child/**`, `apps/rukouksen-seurakunta/**`, `workers/**` |
+| `rukouksen-seurakunta`  | `apps/rukouksen-seurakunta`  | `bun install --cwd ../.. --frozen-lockfile && bun run build` | `dist`           | `apps/rukouksen-seurakunta/**`, `package.json`, `bun.lock`, `.bun-version`  | `apps/flamethefreeze/**`, `apps/urfit-child/**`, `apps/cherubim-it/**`, `workers/**` |
 
-Set the Pages environment variable `BUN_VERSION=1.3.10` for both production and preview builds in all three projects. Keep it synchronized with the root `.bun-version` so Cloudflare’s builder uses the repository’s pinned Bun runtime.
+Set the Pages environment variable `BUN_VERSION=1.3.10` for both production and preview builds in all four projects. Keep it synchronized with the root `.bun-version` so Cloudflare’s builder uses the repository’s pinned Bun runtime.
 
 The app-local build command is intentional: after the root install, `bun run build` executes in the configured Pages root and uses that app's Astro config. A root lockfile or root manifest change is included because it can affect every package. CMS `media_folder` and collection `folder` paths are repository-relative and include the corresponding `apps/<site>/` prefix; their authoritative values live in each app’s `public/decapcms/config.yml`.
 

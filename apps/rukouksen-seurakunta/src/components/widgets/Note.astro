@@ -1,0 +1,37 @@
+---
+interface Props {
+  text?: string;
+  author?: string;
+  highlight?: boolean;
+}
+
+const {
+  text = "Let's keep fighting for kids' health, because today's kids are tomorrow's adults",
+  author,
+  highlight = false,
+} = Astro.props;
+---
+
+<div class="w-full py-16">
+  <section
+    class:list={[
+      'not-prose intersect-once intersect-quarter motion-reduce:opacity-100 motion-safe:opacity-0 motion-safe:intersect:animate-fade p-8 rounded-lg',
+      {
+        'bg-transparent': !highlight,
+        'bg-blue-50 dark:bg-slate-800 shadow-sm': highlight,
+      },
+    ]}
+  >
+    <blockquote class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+      <span class="text-4xl text-blue-600/25 dark:text-blue-400/25 font-serif">"</span>
+      <p class="text-xl md:text-2xl font-serif italic mb-4 text-slate-700 dark:text-slate-300">
+        {text}
+      </p>
+      {
+        author && (
+          <cite class="text-sm md:text-base font-medium text-slate-600 dark:text-slate-400 font-sans">— {author}</cite>
+        )
+      }
+    </blockquote>
+  </section>
+</div>

@@ -1,0 +1,51 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+import ReactFilterContainer from './ReactFilterContainer';
+
+interface Props {
+  options: string[] | string[][];
+  allLabels?: string[];
+  showSearch?: boolean;
+  id?: string;
+  classes?: Record<string, string>;
+  isDark?: boolean;
+  bg?: string;
+  gridId?: string;
+  targetId?: string;
+}
+
+const {
+  options,
+  allLabels = ['All'],
+  showSearch = true,
+  id,
+  classes = {},
+  isDark = false,
+  bg = await Astro.slots.render('bg'),
+  gridId,
+  targetId,
+} = Astro.props;
+
+const containerId =
+  id ||
+  `filter-container-${JSON.stringify(options)
+    .split('')
+    .reduce((a, b) => ((a << 5) - a + b.charCodeAt(0)) | 0, 0)}`;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<WidgetWrapper id={containerId} isDark={isDark} containerClass={classes?.container ?? `max-w-7xl mx-auto`} bg={bg}>
+  <ReactFilterContainer
+    client:load
+    textSearchPlaceholder={t('search')}
+    options={options}
+    allLabels={allLabels}
+    showSearch={showSearch}
+    gridId={gridId}
+    targetId={targetId}
+    lang={lang}
+  />
+</WidgetWrapper>

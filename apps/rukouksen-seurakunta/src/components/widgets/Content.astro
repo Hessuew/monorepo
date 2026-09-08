@@ -1,0 +1,116 @@
+---
+import Image from '~/components/common/Image.astro';
+import Button from '~/components/ui/Button.astro';
+import ItemGrid from '~/components/ui/ItemGrid.astro';
+import type { Content as Props } from '~/types';
+import Headline from '../ui/Headline.astro';
+import WidgetWrapper from '../ui/WidgetWrapper.astro';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline,
+  tagline2,
+  content = await Astro.slots.render('content'),
+  callToAction,
+  defaultIcon = 'tabler:check',
+  items = [],
+  columns,
+  image = await Astro.slots.render('image'),
+  imageText = await Astro.slots.render('imageText'),
+  isReversed = false,
+  isAfterContent = false,
+
+  id,
+  animated = true,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+
+const {
+  icon: defaultIconClass = 'flex h-7 w-7 items-center justify-center rounded-full bg-green-600 dark:bg-green-700 text-gray-50 p-1',
+} = classes;
+---
+
+<WidgetWrapper
+  animated={animated}
+  id={id}
+  isDark={isDark}
+  containerClass={`max-w-7xl mx-auto ${isAfterContent ? 'pt-0 md:pt-0 lg:pt-0' : ''} ${classes?.container ?? ''}`}
+  bg={bg}
+>
+  <Headline
+    title={title}
+    subtitle={subtitle}
+    tagline={tagline}
+    tagline2={tagline2}
+    classes={{
+      container: 'max-w-xl sm:mx-auto lg:max-w-xl',
+      title: 'text-4xl md:text-5xl font-bold tracking-tighter mb-4 font-heading',
+      subtitle: 'max-w-3xl mx-auto sm:text-center text-xl text-muted dark:text-slate-400',
+    }}
+  />
+  <div class="mx-auto max-w-7xl p-4 md:px-8">
+    <div class={`md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-16`}>
+      <section class="md:basis-1/2" aria-labelledby="content-heading">
+        <h2 id="content-heading" class="sr-only">Main Content</h2>
+        {content && <div class="mb-12 text-lg dark:text-slate-400 " set:html={content} />}
+
+        {
+          callToAction && (
+            <div class="mt-[-40px] mb-8 text-primary">
+              <Button variant="link" {...callToAction} />
+            </div>
+          )
+        }
+
+        <ItemGrid
+          items={items}
+          columns={columns}
+          defaultIcon={defaultIcon}
+          classes={{
+            container: `gap-y-4 md:gap-y-8`,
+            panel: 'max-w-none',
+            title: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+            description: 'text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2',
+            icon: defaultIconClass as string,
+            action: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+          }}
+        />
+      </section>
+      <div
+        aria-hidden="true"
+        class="mt-10 md:mt-0 md:basis-1/2 intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+      >
+        {
+          image && (
+            <figure class="relative mx-auto max-w-4xl">
+              {typeof image === 'string' ? (
+                <div class="image-container" aria-label={imageText || 'Content image'}>
+                  <Fragment set:html={image} />
+                </div>
+              ) : (
+                <Image
+                  class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
+                  width={500}
+                  height={500}
+                  widths={[400, 768, 1024]}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 768px, 1024px"
+                  layout="responsive"
+                  loading="lazy"
+                  decoding="async"
+                  alt={imageText || 'Content image'}
+                  {...image}
+                />
+              )}
+              {imageText && (
+                <figcaption class="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">{imageText}</figcaption>
+              )}
+            </figure>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</WidgetWrapper>

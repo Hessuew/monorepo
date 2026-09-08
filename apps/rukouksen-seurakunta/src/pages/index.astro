@@ -1,0 +1,113 @@
+---
+import logo from '~/assets/images/other/rukous_seurakunta_logo.webp';
+import AboutUs from '~/components/sections/AboutUs.astro';
+import BottomGrid from '~/components/sections/BottomGrid.astro';
+import ForYou from '~/components/sections/ForYou.astro';
+import JesusDescription from '~/components/sections/JesusDescription.astro';
+import JesusIntroduction from '~/components/sections/JesusIntroduction.astro';
+import Landing from '~/components/sections/Landing.astro';
+import TestimonialsSection from '~/components/sections/TestimonialsSection.astro';
+import WhatWeBelieve from '~/components/sections/WhatWeBelieve.astro';
+import ContactWidget from '~/components/widgets/ContactWidget.astro';
+import Spacer from '~/components/widgets/Spacer.astro';
+import SpeechBubbleIcon from '~/components/widgets/SpeechBubbleIcon.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Rukouksen Seurakunta – Seurakunta Kuopio (täällä rukoillaan)',
+  description:
+    'Tervetuloa rukouksen seurakuntaan Kuopiossa. Seurakunta Kuopio, tämä on hyvä seurakunta, jossa Pyhä Henki liikkuu ja Jeesus on Herra.',
+  ignoreTitleTemplate: true,
+  canonical: 'https://rukouksenseurakunta.fi',
+  openGraph: {
+    title: 'Rukouksen Seurakunta – Seurakunta Kuopio (täällä rukoillaan)',
+    description:
+      'Tervetuloa rukouksen seurakuntaan Kuopiossa. Seurakunta Kuopio, tämä on hyvä seurakunta, jossa Pyhä Henki liikkuu ja Jeesus on Herra.',
+    type: 'website',
+    image: logo,
+    article: {
+      publishedTime: '2025-03-03T05:03:23+02:00',
+      modifiedTime: '2025-03-03T05:03:23+02:00',
+      authors: ['Rukouksen seurakunta'],
+      tags: [
+        'Rukouksen seurakunta',
+        'Rukouksen seurakunta Kuopio',
+        'seurakunta Kuopio',
+        'seurakunta Savilahti',
+        'Savilahden seurakunta',
+      ],
+    },
+  },
+  twitter: {
+    handle: '@RukouksenSrk',
+    site: '@RukouksenSrk',
+    cardType: 'summary_large_image',
+  },
+};
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout metadata={metadata}>
+  <Landing />
+
+  <JesusIntroduction />
+
+  <JesusDescription />
+
+  <WhatWeBelieve />
+
+  <AboutUs />
+
+  <TestimonialsSection />
+
+  <SpeechBubbleIcon
+    position="bottom-right"
+    size="lg"
+    classes={{
+      icon: 'text-yellow-500 hover:text-yellow-600',
+      container: 'mb-16 mr-4',
+    }}
+  />
+
+  <Stats
+    id="lukuja"
+    tagline={t('practicalNumbersFrom2025')}
+    classes={{ container: 'pb-0 md:pb-0 lg:pb-0 xl:pb-0' }}
+    stats={[
+      { title: t('stats2.title1'), amount: 3 },
+      { title: t('stats1.title2'), amount: 2631, extra1: '+' },
+      { title: t('stats1.title3'), amount: 129 },
+      { title: t('stats1.title4'), amount: 8 },
+    ]}
+  />
+
+  <Stats
+    id="lukuja2"
+    stats={[
+      { title: t('stats2.title2'), amount: 102600, extra1: '+' },
+      { title: t('stats1.title1'), amount: 30 },
+      { title: t('stats2.title3'), amount: 4, extra2: 'h +' },
+      // { title: t('stats2.title2'), amount: 2200, extra1: '+', extra2: '€' },
+      // { title: t('stats2.title4'), amount: 4 },
+    ]}
+  />
+
+  <ForYou />
+
+  <ContactWidget
+    title={t('contactTitle')}
+    subtitle={t('contactSubtitle')}
+    prayerZoomLink="https://flamethefreeze.zoom.us/j/82297139976?pwd=2ZCDgn6UVPyuqKeKsh8CWBN3IQhiXu.1"
+    bibleStudyZoomLink="https://flamethefreeze.zoom.us/j/89840579351?pwd=Hr5ZAcJHbUVrybCIIySL6sT6Vw7Rly.1"
+    email="rukouksenseurakunta@gmail.com"
+    phone="+358 46 5714 634"
+  />
+
+  <Spacer size="md" />
+
+  <BottomGrid />
+</Layout>

@@ -1,0 +1,76 @@
+---
+import Stats from '~/components/widgets/Stats.astro';
+---
+
+<style>
+  @keyframes letterFade {
+    0% {
+      color: transparent;
+    }
+    100% {
+      color: black;
+    }
+  }
+
+  .animate-letter {
+    opacity: 0;
+    display: inline-block;
+    animation-delay: inherit;
+    color: transparent;
+  }
+
+  .wave-wrapper.visible .animate-letter {
+    opacity: 1;
+    animation: letterFade 2s ease-in-out forwards;
+  }
+</style>
+
+<Stats classes={{ container: 'max-w-6xl mx-auto', item: 'md:w-full' }}>
+  <Fragment slot="subtitle">
+    <div class="text-center w-full wave-wrapper flex flex-col">
+      <div
+        class="inline-flex flex-row text-4xl xs:text-5xl md:text-8xl font-medium leading-tighter tracking-tighter pr-3"
+      >
+        <span class="animate-letter" style="animation-delay: 1600ms;">C</span>
+        <span class="animate-letter" style="animation-delay: 1650ms;">o</span>
+        <span class="animate-letter" style="animation-delay: 1700ms;">m</span>
+        <span class="animate-letter" style="animation-delay: 1750ms;">e</span>
+        <span class="animate-letter" style="animation-delay: 1800ms;">!</span>
+      </div>
+    </div>
+  </Fragment>
+</Stats>
+
+<script>
+  function setupWaveObserver() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px',
+      }
+    );
+
+    document.querySelectorAll('.wave-wrapper').forEach((wrapper) => {
+      if (wrapper && !wrapper.classList.contains('visible')) {
+        observer.observe(wrapper);
+      }
+    });
+  }
+
+  // Run immediately
+  setupWaveObserver();
+
+  // Run again after page load to catch any dynamically loaded elements
+  window.addEventListener('load', setupWaveObserver);
+
+  // Run when Astro view transitions complete
+  document.addEventListener('astro:page-load', setupWaveObserver);
+</script>

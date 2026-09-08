@@ -1,0 +1,41 @@
+---
+import type { Item } from '~/types';
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  impactFactor?: string | number;
+  impactLabel?: string;
+  items?: Array<Item>;
+}
+
+const { impactFactor, impactLabel, items } = Astro.props;
+---
+
+<div class="my-8">
+  {
+    impactFactor && (
+      <div class="flex items-center justify-center text-center mb-1">
+        <span class="text-6xl font-extrabold text-gray-900 dark:text-white">{impactFactor}</span>
+      </div>
+    )
+  }
+  {impactLabel && <span class="text-base leading-6 lowercase text-gray-800 dark:text-slate-400">{impactLabel}</span>}
+</div>
+
+{
+  items && (
+    <ul class="my-8 md:my-10 space-y-2 text-left" aria-label="Impact features">
+      {items.map(
+        ({ description, icon }) =>
+          description && (
+            <li class="mb-1.5 flex items-start space-x-3 leading-7">
+              <div class="rounded-full bg-primary mt-1">
+                <Icon name={icon ? icon : 'tabler:check'} class="w-5 h-5 font-bold p-1 text-white" aria-hidden="true" />
+              </div>
+              <span class="text-gray-900 dark:text-white">{description}</span>
+            </li>
+          )
+      )}
+    </ul>
+  )
+}

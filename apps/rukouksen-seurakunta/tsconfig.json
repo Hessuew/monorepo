@@ -1,0 +1,22 @@
+{
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  },
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": [
+    "dist/",
+    "src/components/ui/calculator/",
+    "src/components/widgets/list/InfoGraficsList.astro",
+    "src/components/widgets/list/KeyArticlesList.astro",
+    "src/components/widgets/list/PressReleasesList.astro",
+    "src/components/widgets/list/PublicationsList.astro"
+  ]
+}

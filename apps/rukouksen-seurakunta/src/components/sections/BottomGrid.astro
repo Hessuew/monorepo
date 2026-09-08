@@ -1,0 +1,80 @@
+---
+import GradientText from '~/components/ui/GradientText.astro';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+import { twMerge } from 'tailwind-merge';
+
+const styleStyle = {
+  backgroundPosition: 'center',
+  backgroundAttachment: 'local',
+  backgroundRepeat: 'repeat',
+  backgroundSize: '100% 100%',
+};
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="mx-auto -my-4 text-center relative z-0 h-[20rem] sm:h-[24rem] lg:h-[40rem] w-full overflow-hidden mb-20">
+  <div class="absolute -right-20 top-0 -translate-y-0 w-full h-full">
+    <div class="relative w-full h-full">
+      <!-- Oval-like highlight area with radial gradient -->
+      <div
+        class="absolute -right-20 top-0 w-full h-full rounded-full"
+        style="background: radial-gradient(ellipse at center, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 40%, rgba(255,255,255,0) 70%);"
+      >
+      </div>
+
+      <!-- Grid pattern container - clipped to the highlight area -->
+      <div class="absolute right-0 top-0 w-full h-full overflow-hidden">
+        <div class="absolute right-5 top-0 w-5/6 h-full overflow-hidden rounded-full">
+          <!-- Horizontal grid lines with fixed spacing for 40px height -->
+          {
+            Array.from({ length: 15 }).map((_, i) => {
+              if (i === 0) {
+                return null;
+              }
+              return (
+                <div
+                  class="absolute right-0 h-[0.5px] w-full opacity-10"
+                  style={`top: ${i * 72}px; background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 30%, rgba(255,255,255,0.3) 70%, rgba(255,255,255,0) 100%);`}
+                />
+              );
+            })
+          }
+
+          <!-- Vertical grid lines with fixed spacing for 40px width -->
+          {
+            Array.from({ length: 15 }).map((_, i) => (
+              <div
+                class="absolute top-0 w-[0.5px] h-full opacity-10"
+                style={`right: ${i * 72}px; background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 30%, rgba(255,255,255,0.3) 70%, rgba(255,255,255,0) 100%);`}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="w-full overflow-hidden absolute bottom-0 left-0">
+    <div class="w-[112vw] relative -left-[6vw] overflow-visible">
+      <GradientText
+        imageNro={2}
+        animate={false}
+        class={twMerge('inline-block font-bold leading-none', lang === 'en' ? 'text-[35vw]' : 'text-[29vw]')}
+        backgroundStyles={styleStyle}
+      >
+        {t('jesus')}
+      </GradientText>
+
+      <div class="-mt-6 md:-mt-10 lg:-mt-20">
+        <GradientText
+          imageNro={2}
+          backgroundStyles={{ ...styleStyle, backgroundSize: '100% 200%', backgroundPosition: '10% 20%' }}
+          class="w-full text-[10vw] md:text-[10vw] lg:text-[6vw] font-bold leading-none"
+        >
+          {t('christIsLord')}
+        </GradientText>
+      </div>
+    </div>
+  </div>
+</div>
