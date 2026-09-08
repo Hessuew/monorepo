@@ -1,0 +1,278 @@
+---
+import imgAhunsi from '~/assets/images/team/Ahunsi_Adeniran.webp';
+import imgBasil from '~/assets/images/team/Basil Apaokwueze.webp';
+import imgAndrew from '~/assets/images/thesis/Andrew Agbaje RT.webp';
+import imgKate from '~/assets/images/thesis/Kate Sansum Exeter.webp';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: "Doctoral & Master's Theses | Advanced Research in Child Health",
+  description:
+    "Explore groundbreaking doctoral and master's theses advancing scientific knowledge in pediatric health, cardiovascular research, and physical activity. In-depth academic research from our distinguished scholars.",
+  ignoreTitleTemplate: true,
+  openGraph: {
+    title: "Doctoral & Master's Theses | Advanced Research in Child Health",
+    description:
+      "Explore groundbreaking doctoral and master's theses advancing scientific knowledge in pediatric health, cardiovascular research, and physical activity. In-depth academic research from our distinguished scholars.",
+    type: 'website',
+    image: imgAndrew,
+    article: {
+      publishedTime: '2025-01-17T05:26:32+02:00',
+      modifiedTime: '2025-01-17T05:26:32+02:00',
+      authors: ['urFIT-child Research Group'],
+      tags: [
+        'doctoral thesis',
+        "master's thesis",
+        'academic research',
+        'scholarly work',
+        'pediatric research',
+        'cardiovascular studies',
+        'physical activity research',
+      ],
+    },
+  },
+  twitter: {
+    handle: '@urFIT-child',
+    site: '@urFIT-child',
+    cardType: 'summary_large_image',
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    classes={{ labelContainer: 'pb-0 md:pb-0 lg:pb-0' }}
+    tagline="Theses"
+    title="Doctoral & Master's Theses"
+    subtitle="Advancing scientific knowledge through rigorous academic research and scholarly contributions."
+  />
+
+  <!-- Content Widget ****************** -->
+
+  <Content
+    id="thesis-1"
+    isReversed={false}
+    image={{
+      src: imgAndrew,
+      alt: 'Andrew Agbaje',
+    }}
+    items={[
+      {
+        title: 'PhD Thesis',
+        description: `Comprehensive analysis of cardiometabolic factors' impact on cardiovascular health in young populations`,
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Research Impact',
+        description: `Contributing to the understanding of cardiovascular health determinants in youth through innovative methodologies`,
+        icon: 'tabler:chart-dots',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <div class="space-y-8">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+          <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-2xl mb-2">
+            Doctoral Thesis - Andrew Agbaje
+          </h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            The Effect of Cardiometabolic Factors, Body Composition, Cardiorespiratory Fitness, Sedentary Time, and
+            Physical Activity on Arterial and Cardiac Structure and Function in Children and Adolescents and Young
+            Adults
+          </p>
+          <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-4">
+            <span class="mr-2"><i class="fas fa-university"></i> University of Portsmouth, UK</span>
+            <span class="mx-2">•</span>
+            <span>Published: March 8, 2024</span>
+          </div>
+          <a
+            href="https://pure.port.ac.uk/ws/portalfiles/portal/84067319/Agbaje_PhD_commentary_The_effect_of_cardiometabolic_factors_body_composition_cardiorespiratory_fitness_sedentary_time_and.pdf"
+            class="inline-flex items-center text-blue-600 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download PhD thesis (PDF)"
+            role="document"
+          >
+            Access Thesis <i class="ml-2 fas fa-download"></i>
+          </a>
+        </div>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget ****************** -->
+
+  <Content
+    id="thesis-2"
+    isReversed={true}
+    image={{
+      src: imgKate,
+      alt: 'Sansum M. Kate',
+    }}
+    items={[
+      {
+        title: "Master's Thesis",
+        description: `Investigation of physical activity effects on cardiovascular markers in children`,
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'Key Findings',
+        description: `Exploring the relationship between physical activity patterns and cardiovascular health indicators in youth`,
+        icon: 'tabler:bulb',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <div class="space-y-8">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+          <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-2xl mb-2">
+            Master's Thesis - Sansum M. Kate
+          </h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            Associations between physical activity and sedentary time with endothelial function, arterial stiffness,
+            arterial elasticity, and clustered cardiometabolic risk in children: The ALSPAC Study
+          </p>
+          <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-4">
+            <span class="mr-2"><i class="fas fa-university"></i> University of Exeter, UK</span>
+            <span class="mx-2">•</span>
+            <span>Published: June 22, 2022</span>
+          </div>
+          <a
+            href="http://hdl.handle.net/10871/130013"
+            class="inline-flex items-center text-blue-600 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download PhD thesis (PDF)"
+            role="document"
+          >
+            Access Thesis <i class="ml-2 fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget ****************** -->
+
+  <Content
+    id="thesis-3"
+    isReversed={false}
+    image={{
+      src: imgBasil,
+      alt: 'Basil Apaokwueze',
+    }}
+    items={[
+      {
+        title: "Master's Thesis",
+        description: `Investigating the cross-sectional relationships between sedentary behavior and physical activity patterns with liver enzyme levels in adolescent populations`,
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'Key Findings',
+        description: `Utilizing the ALSPAC UK cohort to examine how lifestyle factors influence hepatic health markers in young people`,
+        icon: 'tabler:bulb',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <div class="space-y-8">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+          <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-2xl mb-2">
+            Master's Thesis - Basil Apaokwueze
+          </h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            Cross-Sectional Associations between Sedentary Time and Physical Activity with Liver Enzymes in Adolescents:
+            The ALSPAC UK Cohort.
+          </p>
+          <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-4">
+            <span class="mr-2"><i class="fas fa-university"></i> University of Eastern Finland</span>
+            <span class="mx-2">•</span>
+            <span>Published: May 22, 2025</span>
+          </div>
+          <a
+            href="https://erepo.uef.fi/items/ddc6fb77-e748-48f8-9b68-a48fa9aec7a3"
+            class="inline-flex items-center text-blue-600 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download Master's thesis (PDF)"
+            role="document"
+          >
+            Access Thesis <i class="ml-2 fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget ****************** -->
+
+  <Content
+    id="thesis-4"
+    isReversed={true}
+    image={{
+      src: imgAhunsi,
+      alt: 'Ahunsi Adeniran',
+    }}
+    items={[
+      {
+        title: "Master's Thesis",
+        description: `Examining sex- and adiposity-based associations of accelerometer-measured physical activity with apolipoprotein B`,
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'NHANES Study',
+        description: `Population-based research using data from the National Health and Nutrition Examination Survey`,
+        icon: 'tabler:chart-dots',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <div class="space-y-8">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+          <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-2xl mb-2">
+            Master's Thesis - Ahunsi Adeniran
+          </h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            Sex and Adiposity-based Associations of Accelerometer-measured Physical Activity and Apolipoprotein B: The
+            NHANES Study
+          </p>
+          <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-gray-600 dark:text-gray-400 mb-4">
+            <span><i class="fas fa-university"></i> University of Eastern Finland</span>
+            <span aria-hidden="true">•</span>
+            <span>Published: June 18, 2026</span>
+          </div>
+          <a
+            href="https://erepo.uef.fi/handle/123456789/38435"
+            class="inline-flex items-center text-blue-600 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Access Ahunsi Adeniran's master's thesis"
+            role="document"
+          >
+            Access Thesis <i class="ml-2 fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    title="Meet Prof. Andrew Agbaje"
+    subtitle="Discover the pioneering research and global impact of our Principal Investigator, a leading voice in pediatric health and childhood obesity."
+    actions={[
+      {
+        variant: 'tertiary',
+        target: '_self',
+        text: 'Learn about Prof. Andrew Agbaje',
+        href: getPermalink('/people/andrew-agbaje'),
+        icon: 'tabler:user-circle',
+      },
+    ]}
+  />
+</Layout>

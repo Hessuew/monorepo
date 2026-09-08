@@ -1,0 +1,75 @@
+---
+import Image from '~/components/common/Image.astro';
+import Headline from '~/components/ui/Headline.astro';
+import ItemGrid from '~/components/ui/ItemGrid.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import type { Features as Props } from '~/types';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
+  image,
+  items = [],
+  columns,
+  defaultIcon,
+  isBeforeContent,
+  isAfterContent,
+
+  id,
+  animated = true,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+---
+
+<WidgetWrapper
+  id={id}
+  animated={animated}
+  isDark={isDark}
+  containerClass={`${isBeforeContent ? 'md:pb-8 lg:pb-12' : ''} ${isAfterContent ? 'pt-0 md:pt-0 lg:pt-0' : ''} ${
+    classes?.container ?? ''
+  }`}
+  bg={bg}
+>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
+
+  <div aria-hidden="true" class="aspect-w-16 aspect-h-7">
+    {
+      image && (
+        <div class="relative m-auto max-w-5xl">
+          {typeof image === 'string' ? (
+            <Fragment set:html={image} />
+          ) : (
+            <Image
+              widths={[400, 768, 1024, 2040]}
+              sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+              loading="eager"
+              decoding="async"
+              objectPosition="top top"
+              width={2040}
+              height={800}
+              {...image}
+            />
+          )}
+        </div>
+      )
+    }
+  </div>
+
+  <ItemGrid
+    items={items}
+    columns={columns}
+    defaultIcon={defaultIcon}
+    classes={{
+      container: 'mt-12',
+      panel: 'max-w-full sm:max-w-md',
+      title: 'text-lg font-semibold',
+      description: 'mt-0.5',
+      // icon: 'flex-shrink-0 mt-1 text-secondary w-6 h-6',
+      icon: 'flex-shrink-0 mt-1 text-primary w-6 h-6',
+      ...((classes?.items as object) ?? {}),
+    }}
+  />
+</WidgetWrapper>

@@ -1,0 +1,70 @@
+---
+const stars = [
+  ...Array.from({ length: 100 }).map(() => ({
+    x: 100 + Math.random() * 20, // Start from right side, slightly off-screen
+    y: Math.random() * 100,
+    size: Math.random() * 3 + 1,
+    speed: Math.random() * 20 + 50,
+    opacity: Math.random() * 0.7 + 0.3,
+  })),
+];
+---
+
+<div class="relative w-full">
+  {/* Main content with stars */}
+  <div class="relative w-full min-h-screen overflow-hidden dark:bg-gradient-to-b from-black via-page to-black">
+    {/* Stars background layer */}
+    <div class="absolute inset-0 z-0 overflow-hidden" aria-hidden="true" role="presentation">
+      {
+        stars.map((star) => (
+          <div
+            class="star absolute bg-white rounded-full"
+            style={{
+              top: `${star.y}%`,
+              left: `${star.x}%`,
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              opacity: star.opacity,
+              animationName: 'moveLeft',
+              animationDuration: `${star.speed}s`,
+              animationTimingFunction: 'linear',
+              animationIterationCount: 'infinite',
+              animationDelay: `-${Math.random() * star.speed}s`,
+            }}
+          />
+        ))
+      }
+    </div>
+
+    {/* Content layer */}
+    <div class="relative z-10">
+      <slot />
+    </div>
+  </div>
+
+  {/* Gradient transition section */}
+  <div class="relative h-0">
+    <div class="absolute inset-x-0 -top-0 h-80 dark:bg-gradient-to-b from-black to-white dark:to-[rgb(3,6,32)]"></div>
+  </div>
+</div>
+
+<style>
+  @keyframes moveLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-120% - 120vw));
+    }
+  }
+
+  .star {
+    pointer-events: none;
+    will-change: transform;
+    position: absolute;
+  }
+</style>
+
+<script is:inline>
+  // No additional script needed
+</script>

@@ -1,0 +1,159 @@
+---
+interface Props {
+  animate?: boolean;
+  classes?: string;
+  stroke?: string;
+  strokeWidth?: number;
+  delay?: number;
+  gradientFrom?: string;
+  gradientTo?: string;
+  gradientId?: string;
+}
+
+const {
+  animate = true,
+  classes = '',
+  stroke = 'currentColor',
+  strokeWidth = 2,
+  delay = 0,
+  gradientId = 'knowledgeGradient',
+  gradientFrom = '#1a0024',
+  gradientTo = 'rgba(255, 170, 64)',
+} = Astro.props;
+
+// Determine Tailwind color class
+const strokeClass = stroke.startsWith('text-') ? stroke : '';
+---
+
+<div class={animate ? 'wave-wrapper3' : 'static-wrapper3'}>
+  <svg class={`curvy-wave3 ${classes} ${strokeClass}`} viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color={gradientFrom}></stop>
+        <stop offset="100%" stop-color={gradientTo}></stop>
+      </linearGradient>
+    </defs>
+
+    <path
+      d="M8,19V11H5a3,3,0,0,0-3,3V32a1,1,0,0,0,.56.89,1,1,0,0,0,1-.1L8.71,29H22.15A2.77,2.77,0,0,0,25,26.13V25H14A6,6,0,0,1,8,19Z"
+      fill="none"
+      stroke={`url(#${gradientId})`}
+      stroke-width={strokeWidth}
+      stroke-linecap="round"
+      class={animate ? 'wave-path3' : 'static-path3'}
+      style={animate
+        ? `
+        stroke-dasharray: 1400;
+        stroke-dashoffset: 1400;
+        animation-delay: ${delay}ms;
+      `
+        : ''}></path>
+    <path
+      d="M30,13.5A7.48,7.48,0,0,1,22.78,4H14a3,3,0,0,0-3,3V19a3,3,0,0,0,3,3H27.55l4.78,3.71a1,1,0,0,0,1,.11,1,1,0,0,0,.57-.9V12.37A7.45,7.45,0,0,1,30,13.5Z"
+      fill="none"
+      stroke={`url(#${gradientId})`}
+      stroke-width={strokeWidth}
+      stroke-linecap="round"
+      class={animate ? 'wave-path3' : 'static-path3'}
+      style={animate
+        ? `
+        stroke-dasharray: 1400;
+        stroke-dashoffset: 1400;
+        animation-delay: ${delay}ms;
+      `
+        : ''}></path>
+    <circle
+      cx="30"
+      cy="6"
+      r="5"
+      fill="none"
+      stroke={`url(#${gradientId})`}
+      stroke-width={strokeWidth}
+      stroke-linecap="round"
+      class={animate ? 'wave-path3' : 'static-path3'}
+      style={animate
+        ? `
+        stroke-dasharray: 1400;
+        stroke-dashoffset: 1400;
+        animation-delay: ${delay}ms;
+      `
+        : ''}></circle>
+  </svg>
+
+  <style is:inline>
+    .wave-wrapper3 {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      align-items: end;
+      display: flex;
+    }
+
+    .wave-path3 {
+      opacity: 0;
+    }
+
+    .wave-path3.visible {
+      opacity: 1;
+      animation: drawWave3 12s ease-in-out forwards;
+    }
+
+    @keyframes drawWave3 {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
+
+  <script>
+    function setupWaveObserver() {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              entry.target.querySelectorAll('.wave-path3').forEach((el) => el.classList.add('visible'));
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: '50px',
+        }
+      );
+
+      document.querySelectorAll('.wave-wrapper3').forEach((wrapper) => {
+        if (wrapper && !wrapper.classList.contains('visible')) {
+          observer.observe(wrapper);
+        }
+      });
+    }
+
+    // Run immediately
+    setupWaveObserver();
+
+    // Run again after page load to catch any dynamically loaded elements
+    window.addEventListener('load', setupWaveObserver);
+
+    // Run when Astro view transitions complete
+    document.addEventListener('astro:page-load', setupWaveObserver);
+  </script>
+</div>
+
+<style is:global>
+  .curvy-wave3 {
+    width: 100%;
+    height: 100%;
+  }
+
+  .static-wrapper3 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .static-path3 {
+    opacity: 1;
+  }
+</style>

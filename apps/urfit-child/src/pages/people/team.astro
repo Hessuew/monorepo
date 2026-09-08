@@ -1,0 +1,95 @@
+---
+import imgAndrew from '~/assets/images/team/Andrew Headshot.webp';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features4 from '~/components/widgets/Features4.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import { items } from '~/data/team';
+import Layout from '~/layouts/PageLayout.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Research Team | urFIT-child Research Group',
+  description:
+    "Meet the dedicated researchers and scientists behind the urFIT-child Research Group, working to advance children's health and fitness.",
+  ignoreTitleTemplate: true,
+  openGraph: {
+    title: 'Research Team | urFIT-child Research Group',
+    description:
+      "Meet the dedicated researchers and scientists behind the urFIT-child Research Group, working to advance children's health and fitness.",
+    type: 'website',
+    image: imgAndrew,
+    article: {
+      publishedTime: '2025-01-17T05:18:14+02:00',
+      modifiedTime: '2025-01-17T05:18:14+02:00',
+      authors: ['urFIT-child Research Group'],
+      tags: [
+        'research team',
+        'scientists',
+        'researchers',
+        'pediatric research',
+        'health research',
+        'academic team',
+        'research expertise',
+      ],
+    },
+  },
+  twitter: {
+    handle: '@urFIT-child',
+    site: '@urFIT-child',
+    cardType: 'summary_large_image',
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    classes={{
+      labelContainer: 'pb-0 md:pb-0 lg:pb-0',
+      title: 'pb-0 md:pb-0 lg:pb-0',
+    }}
+    tagline="Team"
+    title="urFIT-child Team"
+  >
+    <Fragment slot="subtitle">
+      <div class="max-w-3xl xl:max-w-[768px] mx-auto">
+        <p
+          class="text-xl xl:text-[20px] xl:leading-[28px] text-muted mb-6 xl:mb-[24px] dark:text-slate-300 intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade"
+        >
+          Meet our dedicated team of researchers working to improve children's cardiometabolic health and fitness.
+        </p>
+      </div>
+    </Fragment>
+  </Hero>
+
+  <Features4
+    items={items}
+    columns={3}
+    isProfile={true}
+    classes={{
+      container:
+        'max-w-7xl xl:max-w-[1280px] mx-auto px-4 sm:px-6 xl:px-[24px] pb-8 xl:pb-[32px] pt-4 sm:pt-8 lg:pt-8 xl:pt-[32px] relative bg-grid',
+      items: {
+        container: 'gap-6 xl:gap-[24px]',
+        image: 'mb-2 xl:mb-[8px] rounded-full overflow-hidden',
+        title: 'text-xl xl:text-[20px] xl:leading-[28px]',
+        subtitle: 'text-primary',
+      },
+    }}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    title="Meet our collaborators"
+    subtitle="Learn how our global network of collaborators helps drive innovative pediatric health research and supports our mission."
+    actions={[
+      {
+        variant: 'tertiary',
+        target: '_self', // Opens in the same tab
+        text: 'Meet our collaborators',
+        href: getPermalink('/people/collaborators'),
+        icon: 'tabler:world',
+      },
+    ]}
+  />
+</Layout>

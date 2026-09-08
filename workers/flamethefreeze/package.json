@@ -5,7 +5,11 @@
   "scripts": {
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
-    "start": "wrangler dev"
+    "start": "wrangler dev",
+    "preview": "wrangler versions upload",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "check": "bun run typecheck",
+    "dry-run": "wrangler deploy --dry-run"
   },
   "dependencies": {
     "@hono/zod-validator": "^0.4.3",
@@ -13,8 +17,8 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250805.0",
+    "@types/node": "^26.4.1",
     "typescript": "^5.9.2",
-    "wrangler": "4.27.0"
+    "wrangler": "^4.36.0"
   }
 }

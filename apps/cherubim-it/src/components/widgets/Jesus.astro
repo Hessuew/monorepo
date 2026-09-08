@@ -1,0 +1,39 @@
+---
+import type { Stats as Props } from '~/types';
+import { twMerge } from 'tailwind-merge';
+import WidgetWrapper from '../ui/WidgetWrapper.astro';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+
+const { title: titleClass = '', subtitle: subtitleClass = '' } = classes as Record<string, string>;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <div
+    class={twMerge(
+      'mb-8 md:mx-auto md:mb-12 text-center intersect-once intersect-tenth sm:intersect-quarter intercept-no-queue motion-safe:opacity-0 motion-safe:intersect:animate-fade w-full'
+    )}
+  >
+    {
+      title && (
+        <div
+          class={twMerge(
+            'overflow-visible font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl w-full',
+            titleClass
+          )}
+        >
+          <slot name="title" />
+        </div>
+      )
+    }
+    {subtitle && <p class={twMerge('mt-4 text-muted mx-auto', subtitleClass)} set:html={subtitle} />}
+  </div>
+</WidgetWrapper>

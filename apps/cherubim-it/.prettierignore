@@ -1,0 +1,7 @@
+dist
+node_modules
+.github
+.changeset
+.astro
+.wrangler
+src/components/widgets/AnimatedChildSvg.astro

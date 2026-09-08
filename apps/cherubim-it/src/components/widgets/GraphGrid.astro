@@ -1,0 +1,72 @@
+---
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import type { GraphGrid as Props } from '~/types';
+import { Icon } from 'astro-icon/components';
+import { twMerge } from 'tailwind-merge';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
+  items = [],
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto px-4 ${classes?.container ?? ''}`} bg={bg}>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
+
+  <div
+    class={'relative flex py-4 sm:py-6 px-2 sm:px-6 w-full rounded-lg sm:backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 overflow-hidden'}
+  >
+    <div
+      class={'overflow-x-auto scrollbar-visible gap-4 sm:gap-6 py-2 sm:py-4 flex flex-row w-full justify-between scroll-smooth'}
+    >
+      {
+        items &&
+          items.map(({ title, icon, colorClass, subtitle, rows, classes: itemClasses }) => (
+            <div class="flex-none">
+              <div class="flex flex-col gap-2 md:gap-5">
+                <div class="w-fit relative inline-block">
+                  <div class={twMerge(`flex whitespace-nowrap items-center gap-2 text-base sm:text-xl font-bold pb-2`)}>
+                    {title}
+                    {icon && <Icon name={icon.text} class={twMerge('w-6 h-6', icon.class)} aria-hidden="true" />}
+                    {colorClass && (
+                      <div class={twMerge(colorClass, 'absolute bottom-1 sm:bottom-0 left-0 h-1 sm:h-2 w-[75%]')} />
+                    )}
+                  </div>
+                </div>
+                <div class="flex-row flex -mt-2 h-6">
+                  <p
+                    class={twMerge('text-sm sm:text-base w-10 sm:w-12 text-muted', itemClasses?.subtitle)}
+                    set:html={subtitle?.text1}
+                  />
+                  <p class={twMerge('text-sm sm:text-base w-1 text-muted')}>{subtitle ? '|' : ''}</p>
+                  {subtitle && (
+                    <p
+                      class={twMerge('text-sm sm:text-base text-muted pl-2', itemClasses?.subtitle)}
+                      set:html={subtitle?.text2}
+                    />
+                  )}
+                </div>
+                {rows.map(({ text1, text2 }) => (
+                  <div class="flex-row flex">
+                    <p class={twMerge('text-sm sm:text-base w-10 sm:w-12 text-muted')} set:html={text1} />
+                    {text2 && <p class={twMerge('text-sm sm:text-base text-muted')}>|</p>}
+                    {text2 && (
+                      <p class={twMerge('text-sm sm:text-base w-12 sm:w-[50px] text-muted pl-2')} set:html={text2} />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+      }
+    </div>
+  </div>
+</WidgetWrapper>

@@ -1,0 +1,457 @@
+---
+import imgGold2 from '~/assets/images/gold_original.webp';
+import imgGold from '~/assets/images/gold_small.webp';
+import Button from '~/components/ui/Button.astro';
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import TestimonialCard from '~/components/widgets/TestimonialCard.astro';
+import TestimonialCardContainer from '~/components/widgets/TestimonIalCardContainer';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+import type { Testimonials as Props } from '~/types';
+
+const {
+  title = '',
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = '',
+  testimonials = [],
+  callToAction,
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Calculate total testimonials
+const totalTestimonials = testimonials.length;
+
+// For small/medium screens (2 columns)
+// Distribute testimonials evenly between two columns
+const halfCount = Math.ceil(totalTestimonials / 2);
+const smFirstColumnItems = testimonials.slice(0, halfCount);
+const smSecondColumnItems = testimonials.slice(halfCount);
+
+// For large screens (3 columns)
+// Distribute testimonials evenly between three columns
+const lgFirstColumnItems = testimonials.slice(0, 6);
+const lgSecondColumnItems = testimonials.slice(6, 11);
+const lgThirdColumnItems = testimonials.slice(11);
+
+const defaultBackgroundStyles = {
+  backgroundImage: `url(${imgGold.src})`,
+  color: 'transparent',
+  backgroundRepeat: 'no-repeat',
+  backgroundAttachment: 'local',
+  backgroundPosition: '0% 10%',
+  backgroundSize: 'cover',
+};
+---
+
+<script>
+  let selectedTestimonial: {
+    name?: string;
+    job?: string;
+    title?: string;
+    testimonial?: string;
+    extraContent?: string;
+    image?: string;
+  } | null = null;
+
+  function closeModal() {
+    const modal = document.getElementById('testimonial-modal');
+    const modalContent = document.getElementById('testimonial-modal-content');
+
+    if (modal) {
+      modal.classList.remove('visible');
+      setTimeout(() => {
+        modal.style.display = 'none';
+        selectedTestimonial = null;
+        if (modalContent) {
+          modalContent.innerHTML = '';
+        }
+      }, 300);
+    }
+  }
+
+  async function openModal(testimonialCard: HTMLElement, modal: HTMLDivElement, modalContent: HTMLDivElement) {
+    try {
+      // Add close button
+      const closeButton = document.createElement('button');
+      closeButton.type = 'button';
+      closeButton.setAttribute('aria-label', 'Close modal');
+      closeButton.className =
+        'absolute top-4 right-4 z-50 rounded-full p-2 hover:bg-white/40 dark:hover:bg-white/40 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white';
+      closeButton.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      `;
+      closeButton.addEventListener('click', closeModal);
+      modalContent.appendChild(closeButton);
+
+      // Create testimonial content
+      const testimonialContainer = document.createElement('div');
+      testimonialContainer.className = 'testimonial-container p-6 max-w-3xl mx-auto';
+
+      // Create header with image, name and job
+      if (selectedTestimonial?.name || selectedTestimonial?.job) {
+        const headerContainer = document.createElement('div');
+        headerContainer.className = 'flex items-start gap-4 mb-4';
+
+        // Add image if available
+        const imageContainer = document.createElement('div');
+        imageContainer.className = 'flex-shrink-0';
+
+        if (selectedTestimonial?.image) {
+          const image = document.createElement('img');
+          image.src = selectedTestimonial.image;
+          image.alt = selectedTestimonial?.name || 'Testimonial author';
+          image.className = 'h-16 w-16 rounded-full border border-slate-600';
+          image.style.objectFit = 'cover';
+          image.style.objectPosition = 'center';
+
+          // Special styling for CJ (matching the TestimonialCard component)
+          if (selectedTestimonial?.name === 'CJ') {
+            image.classList.remove('border', 'border-slate-600');
+            image.style.transform = 'scale(1.025)';
+          }
+
+          imageContainer.appendChild(image);
+        } else {
+          // Empty container with border styling when no image
+          const emptyAvatar = document.createElement('div');
+          emptyAvatar.className = 'min-h-12 min-w-12 rounded-full border border-slate-600';
+          imageContainer.appendChild(emptyAvatar);
+        }
+
+        headerContainer.appendChild(imageContainer);
+
+        // Name and job info
+        const textInfo = document.createElement('div');
+        textInfo.className = 'flex-grow';
+
+        if (selectedTestimonial?.name) {
+          const nameEl = document.createElement('h3');
+          nameEl.className = 'text-xl font-bold text-black';
+          nameEl.textContent = selectedTestimonial.name;
+          textInfo.appendChild(nameEl);
+        }
+
+        if (selectedTestimonial?.job) {
+          const jobEl = document.createElement('p');
+          jobEl.className = 'text-sm text-black/70';
+          jobEl.textContent = selectedTestimonial.job;
+          textInfo.appendChild(jobEl);
+        }
+
+        headerContainer.appendChild(textInfo);
+        testimonialContainer.appendChild(headerContainer);
+      }
+
+      // Create title if exists
+      if (selectedTestimonial?.title) {
+        const titleEl = document.createElement('h4');
+        titleEl.className = 'text-lg font-medium text-black mb-2';
+        titleEl.textContent = selectedTestimonial.title;
+        testimonialContainer.appendChild(titleEl);
+      }
+
+      // Create combined content container
+      const contentContainer = document.createElement('div');
+      contentContainer.className = 'bg-white/60 rounded-lg p-4 text-black max-h-[50vh] overflow-y-auto';
+
+      // Combine testimonial and extra content
+      let combinedContent = '';
+
+      if (selectedTestimonial?.extraContent) {
+        combinedContent += selectedTestimonial.extraContent;
+      }
+
+      if (combinedContent) {
+        const contentEl = document.createElement('div');
+        contentEl.innerHTML = combinedContent;
+        contentContainer.appendChild(contentEl);
+      }
+
+      testimonialContainer.appendChild(contentContainer);
+      modalContent.appendChild(testimonialContainer);
+
+      // Show modal
+      modal.style.display = 'flex';
+      // Force a reflow to enable the transition
+      void modal.offsetWidth;
+      modal.classList.add('visible');
+
+      // Add event listener to close on Escape key
+      const handleEscapeKey = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          closeModal();
+          document.removeEventListener('keydown', handleEscapeKey);
+        }
+      };
+      document.addEventListener('keydown', handleEscapeKey);
+
+      // Add event listener to close on click outside
+      const handleOutsideClick = (e: MouseEvent) => {
+        if (e.target === modal) {
+          closeModal();
+          modal.removeEventListener('click', handleOutsideClick);
+        }
+      };
+      modal.addEventListener('click', handleOutsideClick);
+    } catch (error) {
+      console.error('Error opening modal:', error);
+    }
+  }
+
+  // Handle click on testimonial card
+  const handleTestimonialClick = async (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    const testimonialCard = target.closest('[data-has-extra-content="true"]') as HTMLElement;
+
+    if (!testimonialCard) return;
+
+    const modal = document.getElementById('testimonial-modal') as HTMLDivElement;
+    const modalContent = document.getElementById('testimonial-modal-content') as HTMLDivElement;
+
+    if (!modal || !modalContent) return;
+
+    // Clear modal content
+    modalContent.innerHTML = '';
+
+    selectedTestimonial = {
+      name: testimonialCard.dataset.name,
+      job: testimonialCard.dataset.job,
+      title: testimonialCard.dataset.title,
+      testimonial: testimonialCard.dataset.testimonial,
+      extraContent: testimonialCard.dataset.extraContent,
+      image: testimonialCard.dataset.image,
+    };
+
+    await openModal(testimonialCard, modal, modalContent);
+  };
+
+  // Function to set up testimonial card click handlers
+  function setupTestimonialCards() {
+    // Add event listeners to testimonial cards with extra content
+    const testimonialCards = document.querySelectorAll('[data-has-extra-content="true"]');
+    testimonialCards.forEach((card) => {
+      // Remove any existing event listeners to prevent duplicates
+      card.removeEventListener('click', handleTestimonialClick);
+      // Add fresh event listener
+      card.addEventListener('click', handleTestimonialClick);
+    });
+  }
+
+  // Add event listeners when the DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    setupTestimonialCards();
+  });
+
+  // Run when Astro view transitions complete
+  document.addEventListener('astro:page-load', () => {
+    setupTestimonialCards();
+  });
+</script>
+
+<style>
+  #testimonial-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  #testimonial-modal.visible {
+    opacity: 1;
+  }
+
+  #testimonial-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  @media (max-width: 640px) {
+    #testimonial-modal-content {
+      max-height: 85vh;
+    }
+  }
+</style>
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <Headline
+    title={title}
+    subtitle={subtitle}
+    tagline={tagline}
+    classes={{
+      container: 'text-center',
+      title: 'text-3xl sm:text-4xl md:text-5xl',
+      subtitle: 'text-xl',
+    }}
+  />
+
+  <!-- Testimonial counter -->
+  <div class="pb-4 w-full items-end flex justify-end">
+    <div
+      class="relative rounded-full p-0.5 w-24"
+      style={{
+        backgroundImage: `url(${imgGold2.src})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      <div class="flex items-center gap-2 px-6 py-2 text-sm font-medium rounded-full bg-page">
+        <span class="font-semibold">{totalTestimonials}{t('kpl')}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" {...id ? { id: 'testimonialsContainer' } : {}}>
+    <TestimonialCardContainer client:load>
+      <div class="hidden lg:block">
+        <div class="grid grid-cols-3 gap-8">
+          <div class="space-y-8">
+            {
+              lgFirstColumnItems.map((item) => (
+                <TestimonialCard
+                  title={item.title}
+                  testimonial={item.testimonial}
+                  name={item.name}
+                  job={item.job}
+                  image={item.image}
+                  isPositive={item.isPositive}
+                  extraContent={item.extraContent}
+                  waveLg={item.waveLg}
+                  waveMd={item.waveMd}
+                  waveSm={item.waveSm}
+                />
+              ))
+            }
+          </div>
+          <div class="space-y-8">
+            {
+              lgSecondColumnItems.map((item) => (
+                <TestimonialCard
+                  title={item.title}
+                  testimonial={item.testimonial}
+                  name={item.name}
+                  job={item.job}
+                  image={item.image}
+                  isPositive={item.isPositive}
+                  extraContent={item.extraContent}
+                  waveLg={item.waveLg}
+                  waveMd={item.waveMd}
+                  waveSm={item.waveSm}
+                />
+              ))
+            }
+          </div>
+          <div class="space-y-8">
+            {
+              lgThirdColumnItems.map((item) => (
+                <TestimonialCard
+                  title={item.title}
+                  testimonial={item.testimonial}
+                  name={item.name}
+                  job={item.job}
+                  image={item.image}
+                  isPositive={item.isPositive}
+                  extraContent={item.extraContent}
+                  waveLg={item.waveLg}
+                  waveMd={item.waveMd}
+                  waveSm={item.waveSm}
+                />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:hidden">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div class="space-y-8">
+            {
+              smFirstColumnItems.map((item) => (
+                <TestimonialCard
+                  title={item.title}
+                  testimonial={item.testimonial}
+                  name={item.name}
+                  job={item.job}
+                  image={item.image}
+                  isPositive={item.isPositive}
+                  extraContent={item.extraContent}
+                  waveLg={item.waveLg}
+                  waveMd={item.waveMd}
+                  waveSm={item.waveSm}
+                />
+              ))
+            }
+          </div>
+          <div class="space-y-8">
+            {
+              smSecondColumnItems.map((item) => (
+                <TestimonialCard
+                  title={item.title}
+                  testimonial={item.testimonial}
+                  name={item.name}
+                  job={item.job}
+                  image={item.image}
+                  isPositive={item.isPositive}
+                  extraContent={item.extraContent}
+                  waveLg={item.waveLg}
+                  waveMd={item.waveMd}
+                  waveSm={item.waveSm}
+                />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </TestimonialCardContainer>
+  </div>
+
+  {
+    callToAction && (
+      <div class="mt-14 text-center">
+        <Button {...callToAction} />
+      </div>
+    )
+  }
+</WidgetWrapper>
+
+<!-- Testimonial Modal -->
+<div
+  id="testimonial-modal"
+  class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 transition-opacity duration-300"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modal-title"
+  style="display: none;"
+>
+  <div
+    id="testimonial-modal-content"
+    class="relative bg-gradient-to-b from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 max-w-4xl w-full rounded-lg"
+    style={defaultBackgroundStyles}
+  >
+    <!-- Content will be dynamically inserted here -->
+  </div>
+</div>

@@ -1,0 +1,170 @@
+---
+interface Props {
+  animate?: boolean;
+  classes?: string;
+  stroke?: string;
+  strokeWidth?: number;
+  delay?: number;
+  gradientFrom?: string;
+  gradientTo?: string;
+  gradientId?: string;
+}
+
+const {
+  animate = true,
+  classes = '',
+  stroke = 'currentColor',
+  strokeWidth = 1,
+  delay = 0,
+  gradientId = 'loveGradient',
+  gradientFrom = '#1a0024',
+  gradientTo = 'rgba(255, 170, 64)',
+} = Astro.props;
+
+// Determine Tailwind color class
+const strokeClass = stroke.startsWith('text-') ? stroke : '';
+---
+
+<div class={animate ? 'wave-wrapper8' : 'static-wrapper8'}>
+  <svg class={`curvy-wave ${classes} ${strokeClass}`} viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
+        <stop offset="10%" stop-color={gradientFrom}></stop>
+        <stop offset="100%" stop-color={gradientTo}></stop>
+      </linearGradient>
+    </defs>
+    <path
+      d="m24.135 2.761-3.311 5.027 5.011-3.299a5.9 5.9 0 0 0-1.7-1.728m-6.28-.889 2.969 5.916-.362-6.173a9.8 9.8 0 0 0-2.607.257m-3.601 1.591 6.57 4.325-3.758-5.708a10 10 0 0 0-2.812 1.383M.276 6.582l20.546 1.206-11.898-5.97C5.298 1.071 1.36 2.29.276 6.582m25.896-1.477-5.348 2.683 6.055-.355q-.207-1.326-.707-2.328m.802 3.044-6.149-.361 5.998 3.01a10 10 0 0 0 .151-2.649"
+      fill="none"
+      stroke={`url(#${gradientId})`}
+      stroke-width={strokeWidth}
+      stroke-linecap="round"
+      class={animate ? 'wave-path8' : 'static-path8'}
+      style={animate
+        ? `
+        stroke-dasharray: 1400;
+        stroke-dashoffset: 1400;
+        animation-delay: ${delay}ms;
+      `
+        : ''}></path>
+    <path
+      d="m20.824 7.788 2.705-5.391a7.2 7.2 0 0 0-2.349-.707zL0 9.01c.032 2.823 1.282 5.438 3.013 7.714zL4.527 18.517c1.957 2.102 4.188 3.813 5.94 5.005L20.824 7.79 12.33 24.721c.724.438 1.172.676 1.172.676s3.246-1.715 6.557-4.564z"
+      fill="none"
+      stroke={`url(#${gradientId})`}
+      stroke-width={strokeWidth}
+      stroke-linecap="round"
+      class={animate ? 'wave-path8' : 'static-path8'}
+      style={animate
+        ? `
+        stroke-dasharray: 1400;
+        stroke-dashoffset: 1400;
+        animation-delay: ${delay}ms;
+      `
+        : ''}></path>
+    <path
+      d="m24.763 15.639-3.938-7.852.686 11.713c1.19-1.156 2.325-2.451 3.252-3.861"
+      fill="none"
+      stroke="rgba(255, 170, 64, 0.7)"
+      stroke-width={strokeWidth}
+      stroke-linecap="round"
+      class={animate ? 'wave-path8' : 'static-path8'}
+      style={animate
+        ? `
+        stroke-dasharray: 1400;
+        stroke-dashoffset: 1400;
+        animation-delay: ${delay}ms;
+      `
+        : ''}></path>
+    <path
+      d="m26.636 11.614-5.812-3.826 4.529 6.882c.553-.974.995-1.995 1.283-3.056"
+      fill="none"
+      stroke="rgba(255, 170, 64, 0.7)"
+      stroke-width={strokeWidth}
+      stroke-linecap="round"
+      class={animate ? 'wave-path8' : 'static-path8'}
+      style={animate
+        ? `
+        stroke-dasharray: 1400;
+        stroke-dashoffset: 1400;
+        animation-delay: ${delay}ms;
+      `
+        : ''}></path>
+  </svg>
+
+  <style is:inline>
+    .wave-wrapper8 {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      align-items: end;
+      display: flex;
+    }
+
+    .wave-path8 {
+      opacity: 0;
+    }
+
+    .wave-path8.visible {
+      opacity: 1;
+      animation: drawWave 12s ease-in-out forwards;
+    }
+
+    @keyframes drawWave {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
+
+  <script>
+    function setupWaveObserver() {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              entry.target.querySelectorAll('.wave-path8').forEach((el) => el.classList.add('visible'));
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: '50px',
+        }
+      );
+
+      document.querySelectorAll('.wave-wrapper8').forEach((wrapper) => {
+        if (wrapper && !wrapper.classList.contains('visible')) {
+          observer.observe(wrapper);
+        }
+      });
+    }
+
+    // Run immediately
+    setupWaveObserver();
+
+    // Run again after page load to catch any dynamically loaded elements
+    window.addEventListener('load', setupWaveObserver);
+
+    // Run when Astro view transitions complete
+    document.addEventListener('astro:page-load', setupWaveObserver);
+  </script>
+</div>
+
+<style is:global>
+  .curvy-wave {
+    width: 100%;
+    height: 100%;
+  }
+
+  .static-wrapper8 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .static-path8 {
+    opacity: 1;
+  }
+</style>

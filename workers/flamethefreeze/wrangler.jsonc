@@ -1,0 +1,17 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "flamethefreeze-worker",
+  "main": "src/index.ts",
+  "compatibility_date": "2023-12-27",
+  "keep_vars": true,
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "r2_buckets": [
+    {
+      "binding": "PUBLIC_BUCKET",
+      "bucket_name": "flamethefreeze"
+    }
+  ]
+}

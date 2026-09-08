@@ -1,0 +1,153 @@
+---
+import imgGold from '~/assets/images/gold2.webp';
+import Stats from '~/components/widgets/Stats.astro';
+import GradientText from '../ui/GradientText.astro';
+
+const mainText = 'Tule!';
+const secondaryText = 'Ja kohtaa Jeesus';
+const baseDelay = 800;
+const secondaryDelay = 1600;
+const delayIncrement = 50;
+const underlineDelay = baseDelay + mainText.length * delayIncrement + 500; // Add delay after last letter
+---
+
+<style define:vars={{ imgGoldUrl: `url(${imgGold.src})`, underlineDelay: `${underlineDelay}ms` }}>
+  @keyframes letterFade {
+    0% {
+      color: #09183f;
+    }
+    100% {
+      color: transparent;
+    }
+  }
+
+  @keyframes drawUnderline {
+    0% {
+      width: 0;
+      opacity: 0;
+    }
+    100% {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+
+  .animate-letter {
+    opacity: 0;
+    color: #09183f;
+    display: inline-block;
+    animation-delay: inherit;
+    background-image: var(--imgGoldUrl);
+    background-repeat: no-repeat;
+    background-position: 10% 80%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    visibility: hidden; /* Hide the letters completely before animation */
+  }
+
+  .wave-wrapper.visible .animate-letter {
+    opacity: 1;
+    visibility: visible; /* Show letters when animation starts */
+    animation: letterFade 2s ease-in-out forwards;
+  }
+
+  .text-underline {
+    position: relative;
+  }
+
+  .text-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    height: 4px;
+    width: 0;
+    opacity: 0;
+    background-image: var(--imgGoldUrl);
+    background-repeat: no-repeat;
+    background-position: 10% 80%;
+    background-size: cover;
+    visibility: hidden;
+  }
+
+  .wave-wrapper.visible .text-underline::after {
+    visibility: visible;
+    animation: drawUnderline 1s ease-out forwards;
+    animation-delay: var(--underlineDelay);
+  }
+
+  .space-char {
+    display: inline-block;
+    width: 0.2em;
+  }
+</style>
+
+<Stats classes={{ container: 'max-w-6xl mx-auto', item: 'md:w-full' }}>
+  <Fragment slot="subtitle">
+    <div class="text-4xl md:text-5xl font-bold text-center italic">
+      <GradientText class="pr-3">Henki</GradientText>
+      <span class="pr-3">ja</span>
+      <GradientText class="pr-1">morsian</GradientText> sanovat:
+    </div>
+    <div class="text-center w-full wave-wrapper pt-6 flex flex-col items-center">
+      <div
+        class="text-transparent bg-clip-text text-4xl xs:text-6xl md:text-7xl font-bold leading-tighter tracking-tighter text-underline mb-4"
+      >
+        {
+          Array.from(mainText).map((char, index) => (
+            <span class="animate-letter" style={`animation-delay: ${baseDelay + index * delayIncrement}ms;`}>
+              {char}
+            </span>
+          ))
+        }
+      </div>
+      <div class="text-transparent bg-clip-text text-4xl md:text-5xl font-bold leading-tighter tracking-tighter pt-6">
+        {
+          Array.from(secondaryText).map((char, index) =>
+            char === ' ' ? (
+              <span class="space-char" />
+            ) : (
+              <span class="animate-letter" style={`animation-delay: ${secondaryDelay + index * delayIncrement}ms;`}>
+                {char}
+              </span>
+            )
+          )
+        }
+      </div>
+    </div>
+  </Fragment>
+</Stats>
+
+<script>
+  function setupWaveObserver() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px',
+      }
+    );
+
+    document.querySelectorAll('.wave-wrapper').forEach((wrapper) => {
+      if (wrapper && !wrapper.classList.contains('visible')) {
+        observer.observe(wrapper);
+      }
+    });
+  }
+
+  // Run immediately
+  setupWaveObserver();
+
+  // Run again after page load to catch any dynamically loaded elements
+  window.addEventListener('load', setupWaveObserver);
+
+  // Run when Astro view transitions complete
+  document.addEventListener('astro:page-load', setupWaveObserver);
+</script>

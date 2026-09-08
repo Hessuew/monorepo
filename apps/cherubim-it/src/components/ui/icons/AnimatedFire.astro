@@ -1,0 +1,131 @@
+---
+interface Props {
+  animate?: boolean;
+  classes?: string;
+  stroke?: string;
+  strokeWidth?: number;
+  delay?: number;
+  gradientFrom?: string;
+  gradientTo?: string;
+  gradientId?: string;
+}
+
+const {
+  animate = true,
+  classes = '',
+  stroke = 'currentColor',
+  strokeWidth = 40,
+  delay = 0,
+  gradientId = 'fireGradient',
+  gradientFrom = '#1a0024',
+  gradientTo = 'rgba(255, 170, 64)',
+} = Astro.props;
+
+// Determine Tailwind color class
+const strokeClass = stroke.startsWith('text-') ? stroke : '';
+---
+
+<div class={animate ? 'wave-wrapper2' : 'static-wrapper2'}>
+  <svg
+    class={`curvy-wave2 ${classes} ${strokeClass} w-full h-full`}
+    viewBox="0 0 16 16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color={gradientFrom}></stop>
+        <stop offset="100%" stop-color={gradientTo}></stop>
+      </linearGradient>
+    </defs>
+
+    <path
+      d="M10.454 4.397c-.425-.947-1.263-1.941-2.558-3.005A24 24 0 0 0 6 0c0 .802-.127 1.528-.336 2.2-.419 1.346-1.167 2.472-1.878 3.543C2.862 7.133 2 8.43 2 10a6 6 0 0 0 12 0c0-.593-.093-1.175-.26-1.741a8.6 8.6 0 0 0-.958-2.09q-.156-.254-.328-.5c0 .844-.387 1.644-.952 2.321-.208.25-.44.483-.686.696a6.5 6.5 0 0 1-1.383.916c-.432.21-.63-.236-.285-.57l.006-.006q.579-.559.958-1.124c.485-.727.717-1.467.67-2.233a3.7 3.7 0 0 0-.328-1.272m1.534 5.917a8.4 8.4 0 0 1-1.682 1.087 2.4 2.4 0 0 1-1.607.194 2.23 2.23 0 0 1-1.505-1.212c-.547-1.144-.01-2.234.564-2.79 1.095-1.057 1.11-1.671.96-2.144-.147-.467-.55-1.104-1.408-1.912C6.8 4.82 6.1 5.877 5.522 6.744l-.07.105C4.455 8.35 4 9.14 4 10a4 4 0 0 0 7.988.314"
+      fill="none"
+      stroke={`url(#${gradientId})`}
+      stroke-width={strokeWidth}
+      stroke-linecap="round"
+      class={animate ? 'wave-path2' : 'static-path2'}
+      style={animate
+        ? `
+        stroke-dasharray: 1400;
+        stroke-dashoffset: 1400;
+        animation-delay: ${delay}ms;
+      `
+        : ''}></path>
+  </svg>
+
+  <style is:inline>
+    .wave-wrapper2 {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .wave-path2 {
+      opacity: 0;
+    }
+
+    .wave-path2.visible {
+      opacity: 1;
+      animation: drawWave 2s ease-out forwards;
+    }
+
+    @keyframes drawWave {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
+
+  <script>
+    function setupWaveObserver() {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              entry.target.querySelector('.wave-path2')?.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: '50px',
+        }
+      );
+
+      document.querySelectorAll('.wave-wrapper2').forEach((wrapper) => {
+        if (wrapper && !wrapper.classList.contains('visible')) {
+          observer.observe(wrapper);
+        }
+      });
+    }
+
+    // Run immediately
+    setupWaveObserver();
+
+    // Run again after page load to catch any dynamically loaded elements
+    window.addEventListener('load', setupWaveObserver);
+
+    // Run when Astro view transitions complete
+    document.addEventListener('astro:page-load', setupWaveObserver);
+  </script>
+</div>
+
+<style is:global>
+  .curvy-wave2 {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .static-wrapper2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .static-path2 {
+    opacity: 1;
+  }
+</style>

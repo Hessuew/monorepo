@@ -1,0 +1,217 @@
+---
+import email_example from '~/assets/images/emailSection/church-website-email-report-example.webp';
+import img_gmail from '~/assets/images/emailSection/church-website-monthly-updates.png';
+import img_money from '~/assets/images/emailSection/church-website-seo-traffic.webp';
+import Image from '~/components/common/Image.astro';
+import type { Project } from '~/components/sections/CardsSection.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+
+const projects: Array<Project> = [
+  {
+    image: {
+      src: img_gmail,
+      alt: 'Monthly email updates – church website design support feature',
+    },
+    id: 'urFitChild',
+    title: 'Monthly updates',
+    description:
+      'We provide monthly updates on how we’ve enhanced your church website design—keeping you informed and involved in the ongoing growth and impact of your digital ministry presence.',
+    size: '',
+    url: '',
+  },
+  {
+    image: {
+      src: img_money,
+      alt: 'Weekly visits and SEO optimization – church website design feature',
+    },
+    id: 'money',
+    title: 'Visits & SEO',
+    description:
+      'We provide weekly visitor reports and actively optimize your church website for search engines—helping your ministry grow its digital presence through effective church website design and performance.',
+    size: '',
+    url: '',
+  },
+];
+---
+
+<WidgetWrapper id={'email'} animated={false}>
+  <section class="relative flex flex-col lg:flex-row gap-20 xl:gap-[80px] z-10 p-8 sm:p-20 xl:p-[80px]">
+    <div class="flex flex-col justify-center w-full">
+      <div class="pb-7 xl:pb-[28px]">
+        <h2 class="text-4xl md:text-7xl xl:text-[72px] font-semibold tracking-tighter text-start text-white">
+          Delivering&nbsp;
+          <br class="block xs:hidden md:block" />
+          exceptional&nbsp;
+          <br class="block xs:hidden md:block" />
+          experiences.
+        </h2>
+        <p class="text-[15px] font-normal leading-tight tracking-tight sm:text-[18px] mt-3 xl:mt-[16px]">
+          <!-- We prioritize your satisfaction. Our custom websites deliver measurable results while our ongoing support
+          ensures you're never left wondering about performance or updates. When you work with us, you're not just
+          buying a website—you're investing in a partnership focused on your success. -->
+          We prioritize your satisfaction. Our custom church websites are built to deliver measurable results — with fast
+          performance, SEO optimization, and an ongoing support partnership you can count on. With us, you're not just getting
+          a church website; you're investing in a digital foundation for your ministry's long-term success.
+          <br class="hidden md:block" />
+        </p>
+      </div>
+
+      <ul
+        class="relative z-10 mt-12 md:mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 md:max-w-[520px] lg:mt-10 xl:mt-[40px] md:gap-16 xl:gap-[64px] lg:gap-y-7 xl:gap-y-[28px] lg:max-w-none mx-auto xl:mx-0"
+      >
+        {
+          projects.map((project) => (
+            <li>
+              <div class="w-16 h-16">
+                <Image
+                  class={`min-h-16 min-w-16 xl:min-h-[64px] xl:min-w-[64px] rounded-lg`}
+                  width={64}
+                  height={64}
+                  widths={[400, 768]}
+                  layout="fixed"
+                  loading="lazy"
+                  decoding="async"
+                  style={`object-fit: cover; object-position: center;`}
+                  {...project.image}
+                />
+              </div>
+              <h3 class="mt-5 font-title text-[20px] leading-none tracking-tighter lg:mt-4 xl:mt-[16px] lg:max-w-full lg:text-[28px] md:mt-3.5 sm:mt-2.5 sm:max-w-32 sm:text-[20px]">
+                {project.title}
+              </h3>
+              <p class="mt-3.5 text-muted text-[15px] font-medium leading-snug tracking-tighter lg:mt-2.5 xl:mt-[10px] md:mt-2 md:leading-tight sm:mt-1 max-w-none sm:max-w-[284px]">
+                {project.description}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="cards flex w-full h-full justify-center">
+      <div class="three-d-wrapper w-full max-w-[500px]">
+        <div class="card2 w-full max-w-[500px] aspect-[1192/1482]">
+          <Image
+            class="w-full h-full"
+            layout="fixed"
+            loading="lazy"
+            decoding="async"
+            style={`object-fit: cover; object-position: center;`}
+            src={email_example.src}
+            alt="Example email report – ongoing church website design improvements"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</WidgetWrapper>
+
+<style>
+  .card2 {
+    border-color: rgba(255, 255, 255, 0.4);
+    border-image: none;
+    border-style: inset;
+    border-image: none;
+    border-style: groove;
+    border-width: 3px;
+    border-bottom-width: 2px;
+    position: relative;
+    overflow: hidden;
+    overflow: hidden;
+    z-index: 10;
+    touch-action: none;
+    isolation: isolate;
+
+    border-radius: 5% / 3.5%;
+    /* box-shadow:
+      -5px -5px 5px -5px var(--color1),
+      5px 5px 5px -5px var(--color2),
+      -7px -7px 10px -5px transparent,
+      7px 7px 10px -5px transparent,
+      0 0 5px 0px rgba(255, 255, 255, 0),
+      0 55px 35px -20px rgba(0, 0, 0, 0.5); */
+
+    box-shadow:
+      -20px -20px 30px -25px var(--color1),
+      20px 20px 30px -25px var(--color2),
+      -7px -7px 10px -5px var(--color1),
+      7px 7px 10px -5px var(--color2),
+      0 0 13px 4px rgba(255, 255, 255, 0.3),
+      0 55px 35px -20px rgba(0, 0, 0, 0.5);
+
+    transition:
+      transform 0.5s ease,
+      box-shadow 0.2s ease;
+    will-change: transform, filter;
+
+    background-color: #040712;
+    background-image: var(--front);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    transform-origin: center;
+  }
+
+  .card2-content {
+    position: relative;
+    z-index: 20;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .card2:before,
+  .card2:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    mix-blend-mode: color-dodge;
+    transition: all 0.33s ease;
+    pointer-events: none;
+  }
+
+  .card2:before {
+    background-position: var(--grad-pos, 50% 50%);
+    background-size: 300% 300%;
+    background-image: linear-gradient(
+      115deg,
+      transparent 0%,
+      var(--color1) 25%,
+      transparent 47%,
+      transparent 53%,
+      var(--color2) 75%,
+      transparent 100%
+    );
+    opacity: 0.5;
+    filter: brightness(0.5) contrast(1);
+    z-index: 1;
+  }
+
+  /* .card2.animated {
+    transition: none;
+    animation-fill-mode: forwards;
+    transform-style: preserve-3d;
+    animation: holoCard2 6s ease 0s 1 forwards;
+    &:before {
+      transition: none;
+      animation: holoGradient2 6s ease 0s 1 forwards;
+    }
+  }
+
+  @keyframes holoCard2 {
+    0%,
+    50% {
+      transform: translateY(100px) rotateZ(-4deg) rotateX(26deg) rotateY(-20deg);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(0px) rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+      opacity: 1;
+    }
+  } */
+</style>

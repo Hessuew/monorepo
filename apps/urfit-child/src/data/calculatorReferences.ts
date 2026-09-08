@@ -1,0 +1,100 @@
+interface Reference {
+  title: string;
+  subtitle: string;
+  description: string;
+  url?: string;
+}
+
+export const references: Reference[] = [
+  {
+    title: 'The Journal of Nutrition',
+    subtitle:
+      'Novel Waist-to-Height Ratio Estimated Fat Mass Pediatric Cut-offs Predict Hypertension Better than Body Mass Index in Multiracial US Youths and Adults: The NHANES 2015 – 2023 Cycle',
+    description: 'Ali MW, Corsi DR, Agbaje AO. J Nutr. 2026 Feb 18. https://doi.org/10.1016/j.tjnut.2026.101426',
+    url: 'https://doi.org/10.1016/j.tjnut.2026.101426',
+  },
+  {
+    title: 'Journal of the Endocrine Society',
+    subtitle:
+      'Novel Pediatric Waist-to-height Ratio Fat Mass Cutoff Predicts Liver Steatosis and Fibrosis Better than Body Mass Index',
+    description: 'Agbaje AO. J Endocr Soc. 2025 May 3;9(7):bvaf079.',
+    url: 'https://doi.org/10.1210/jendso/bvaf079',
+  },
+  {
+    title: 'Obesity and Endocrinology',
+    subtitle:
+      'BMI triples overweight prevalence in 7600 children compared with waist-to-height ratio: The ALSPAC Study',
+    description: 'Agbaje AO. Obesity and Endocrinology. 2025;wjaf002.',
+    url: 'https://doi.org/10.1093/obendo/wjaf002',
+  },
+  {
+    title: 'Pediatric Research',
+    subtitle:
+      'Waist-circumference-to-height-ratio had better longitudinal agreement with DEXA-measured fat mass than BMI in 7237 children',
+    description: 'Agbaje AO. Pediatr Res. 2024 Oct;96(5)5:1369-1380.',
+    url: 'https://doi.org/10.1038/s41390-024-03112-8',
+  },
+  {
+    title: 'Nature Medicine',
+    subtitle: 'Time for a new framework that treats obesity in children as an adiposity-based chronic disease',
+    description: "Manco M, Helgason T, Körner A, Nowicka P, O'Malley G, Baker JL. Nat Med. 2024 Dec;30(12):3396.",
+    url: 'https://doi.org/10.1038/s41591-024-03292-0',
+  },
+  {
+    title: 'European Association for the Study of Obesity',
+    subtitle: 'Changing the way we measure childhood obesity',
+    description:
+      'Interview with Andrew Agbaje discussing the implications of the research findings for childhood obesity measurement.',
+    url: 'https://easo.org/changing-the-way-we-measure-childhood-obesity-in-conversation-with-andrew-agbaje/',
+  },
+  {
+    title: 'BBC World News',
+    subtitle: 'Live TV Interview',
+    description: 'Discussion on the importance of waist-to-height ratio in measuring childhood obesity.',
+    url: 'https://www.youtube.com/watch?v=OiA9HlVHsuw',
+  },
+  {
+    title: 'The Lancet Diabetes & Endocrinology',
+    subtitle: 'Definition and diagnostic criteria of clinical obesity',
+    description: 'Rubino F, Cummings DE, Eckel RH, et al. The Lancet Diabetes & Endocrinology 2025.',
+    url: 'https://doi.org/10.1016/S2213-8587(24)00316-4',
+  },
+  {
+    title: 'European Heart Journal',
+    subtitle: 'Near-universal prevalence of central adiposity in heart failure with preserved ejection fraction',
+    description: 'Peikert A, Vaduganathan M, Claggett BL et al. Eur Heart J. 2025 Jan 28:ehaf057.',
+    url: 'https://doi.org/10.1093/eurheartj/ehaf057',
+  },
+  {
+    title: 'Journal of Cachexia, Sarcopenia and Muscle',
+    subtitle: 'Association Between Waist-to-Height Ratio Estimated Fat Mass Categories and Incident Fractures',
+    description: 'Cho Y, Jhee JH, Hong N, et al. J Cachexia Sarcopenia Muscle. 2025 Jun;16(3):e13834.',
+    url: 'https://doi.org/10.1002/jcsm.13834',
+  },
+  {
+    title: 'Archives of Disease in Childhood',
+    subtitle:
+      'Associations of waist circumference to height ratio and body mass index through childhood and adolescence on blood pressure and risk of young adult hepatic steatosis',
+    description: 'Mandal S, Leary SD, Timpson N, et al. Arch Dis Child. 2025 May 26:archdischild-2024-328140.',
+    url: 'https://doi.org/10.1136/archdischild-2024-328140',
+  },
+  {
+    title: 'European Heart Journal',
+    subtitle: 'Anthropometric measures and adverse outcomes in heart failure with reduced ejection fraction',
+    description: 'Butt JH, Petrie MC, Jhund PS et al. Eur Heart J. 2023 Apr 1;44(13):1136-1153.',
+    url: 'https://doi.org/10.1093/eurheartj/ehad083',
+  },
+  {
+    title: 'BMC Medicine',
+    subtitle:
+      'Establishing international optimal cut-offs of waist-to-height ratio for predicting cardiometabolic risk in children and adolescents aged 6-18 years',
+    description: 'Zong X, Kelishadi R, Hong YM, et al. BMC Med. 2023 Nov 15;21(1):442.',
+    url: 'https://doi.org/10.1186/s12916-023-03169-y',
+  },
+  {
+    title: 'Journal of the American College of Cardiology',
+    subtitle: 'Adiposopathy is "sick fat" a cardiovascular disease?',
+    description: 'Bays HE. J Am Coll Cardiol. 2011 Jun 21;57(25):2461-73.',
+    url: 'https://doi.org/10.1016/j.jacc.2011.02.038',
+  },
+];

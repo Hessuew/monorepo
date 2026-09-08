@@ -1,0 +1,65 @@
+---
+import imgGold from '~/assets/images/gold_small.webp';
+import { twMerge } from 'tailwind-merge';
+
+const {
+  text,
+  class: className = '',
+  isHeading = false,
+  animate = true,
+  backgroundStyles = {},
+} = Astro.props as {
+  text?: string;
+  class?: string;
+  isHeading?: boolean;
+  animate?: boolean;
+  backgroundStyles?: Record<string, string>;
+};
+
+// Get content from either text prop or default slot
+const content = text || (await Astro.slots.render('default'));
+
+// Check if the content contains flex layout classes
+const hasFlexClasses = className.includes('flex');
+
+const defaultBackgroundStyles = {
+  backgroundImage: `url(${imgGold.src})`,
+  WebkitBackgroundClip: 'text',
+  backgroundClip: 'text',
+  color: 'transparent',
+  backgroundRepeat: 'no-repeat',
+  backgroundAttachment: 'local', // Ensures the background stays with the text
+  backgroundPosition: '10% 80%', // Moves it slightly down
+};
+
+// Merge default styles with custom styles
+const commonStyles = {
+  ...defaultBackgroundStyles,
+  ...backgroundStyles,
+};
+
+const commonClasses = twMerge(
+  'text-primary highlight',
+  className,
+  animate &&
+    'intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-tenth sm:intersect-quarter'
+);
+
+// Add display: inline-grid to commonClasses if hasFlexClasses is true
+const finalClasses = hasFlexClasses ? twMerge(commonClasses, 'inline-grid') : commonClasses;
+---
+
+{
+  isHeading ? (
+    <h1
+      class={twMerge(
+        'inline-block text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading',
+        finalClasses
+      )}
+      style={commonStyles}
+      set:html={content}
+    />
+  ) : (
+    <span class={twMerge(finalClasses, 'inline-block max-w-full')} style={commonStyles} set:html={content} />
+  )
+}

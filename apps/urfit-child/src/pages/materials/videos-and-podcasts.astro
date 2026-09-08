@@ -1,0 +1,66 @@
+---
+import imgVideosAndPodcasts from '~/assets/images/navigation/Smoking During Childhood.webp';
+import FilterContainer from '~/components/filters/FilterContainer.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import VideosAndPodcastsList from '~/components/widgets/list/VideosAndPodcastsList.astro';
+import Spacer from '~/components/widgets/Spacer.astro';
+import { platforms } from '~/data/videosAndPodcasts';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Videos & Podcasts | Research Insights in Child Health',
+  description:
+    'Watch and listen to our researchers discuss groundbreaking findings in pediatric health through engaging video presentations and in-depth podcast interviews. Featuring latest research on cardiovascular health and physical activity.',
+  ignoreTitleTemplate: true,
+  openGraph: {
+    title: 'Videos & Podcasts | Research Insights in Child Health',
+    description:
+      'Watch and listen to our researchers discuss groundbreaking findings in pediatric health through engaging video presentations and in-depth podcast interviews. Featuring latest research on cardiovascular health and physical activity.',
+    type: 'website',
+    image: imgVideosAndPodcasts,
+    article: {
+      publishedTime: '2025-01-17T05:27:40+02:00',
+      modifiedTime: '2025-01-17T05:27:40+02:00',
+      authors: ['urFIT-child Research Group'],
+      tags: [
+        'research videos',
+        'scientific podcasts',
+        'video presentations',
+        'research interviews',
+        'pediatric health',
+        'cardiovascular research',
+        'physical activity studies',
+      ],
+    },
+  },
+  twitter: {
+    handle: '@urFIT-child',
+    site: '@urFIT-child',
+    cardType: 'summary_large_image',
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Media Coverage"
+    title="Research in Action"
+    subtitle="Watch and listen to our researchers discuss key findings, methodologies, and implications of our longitudinal studies through engaging video presentations and in-depth podcast interviews."
+  />
+
+  <FilterContainer
+    options={[platforms]}
+    allLabels={['All Platforms']}
+    showSearch={true}
+    targetId="videos-and-podcasts-list"
+    classes={{
+      container: 'py-0 lg:py-0 md:py-0 xl:py-[0px] xl:mb-0',
+    }}
+  />
+
+  <div id="videos-and-podcasts-list">
+    <VideosAndPodcastsList />
+  </div>
+
+  <Spacer size="sm" />
+</Layout>

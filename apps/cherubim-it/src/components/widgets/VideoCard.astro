@@ -1,0 +1,159 @@
+---
+// VideoCard.astro - A component that displays a video with a thumbnail overlay
+
+import Image from '~/components/common/Image.astro';
+import type { ImageMetadata } from 'astro';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  video: {
+    videoSrc: string;
+    videoTitle: string;
+    title: string;
+    description: string;
+    thumbnailSrc: {
+      src: ImageMetadata;
+      alt: string;
+    };
+  };
+}
+
+const { video } = Astro.props;
+---
+
+<section>
+  <div class="w-full rounded-3xl xl:rounded-[24px] bg-transparent">
+    <div class="video-container relative rounded-3xl xl:rounded-[24px] overflow-hidden">
+      <Icon
+        name="tabler:hand-click"
+        class="absolute top-[12px] right-[12px] text-white w-6 h-6 xl:w-[24px] xl:h-[24px] -rotate-12"
+      />
+      <!-- Video element -->
+      <video
+        title={video.videoTitle}
+        muted
+        playsinline
+        preload="auto"
+        class="rounded-3xl xl:rounded-[24px] w-full min-h-[180px]"
+      >
+        <source src={video.videoSrc} type="video/mp4" />
+        <Image
+          class={'mx-auto rounded-md w-full'}
+          widths={[400, 768, 1024, 2040]}
+          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+          loading="eager"
+          width={video.thumbnailSrc.src.width || 1024}
+          height={video.thumbnailSrc.src.height || 576}
+          {...video.thumbnailSrc}
+        />
+      </video>
+
+      <!-- Content below video -->
+      <div class="pt-6 pl-4 xl:pt-[24px] xl:pl-[16px]">
+        <slot name="icon" />
+
+        <h3
+          class="mt-5 font-title text-black max-w-48 text-[20px] leading-none tracking-tighter xl:mt-[16px] lg:mt-4 lg:max-w-full lg:text-[28px] md:mt-2.5 md:max-w-32 md:text-[24px]"
+        >
+          {video.title}
+        </h3>
+
+        <p
+          class="mt-3.5 text-black text-[15px] font-medium leading-snug tracking-tighter xl:mt-[10px] lg:mt-2.5 md:mt-2 md:leading-tight sm:mt-1 max-w-none"
+        >
+          {video.description}
+        </p>
+      </div>
+    </div>
+
+    <style>
+      .video-container:hover .thumbnail {
+        opacity: 0;
+      }
+
+      .video-container:focus-within .thumbnail {
+        opacity: 0;
+      }
+
+      .play-button-overlay {
+        pointer-events: none; /* Allows clicks to pass through to the video container */
+      }
+
+      .video-container:hover .play-button-overlay {
+        opacity: 0;
+        transform: scale(1.1);
+      }
+
+      .video-container:focus-within .play-button-overlay {
+        opacity: 0;
+        transform: scale(1.1);
+      }
+
+      /* Add a subtle pulse animation to draw attention without being too distracting */
+      @keyframes subtle-pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.03);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .play-button-circle {
+        animation: subtle-pulse 3s infinite ease-in-out;
+      }
+
+      .video-container:hover .play-button-circle {
+        animation: none;
+      }
+
+      /* Ensure video takes up proper space even before loading */
+      video {
+        background-color: #f3f4f6; /* Light gray background while loading */
+      }
+
+      /* Add specific styles for mobile devices */
+      @media (max-width: 640px) {
+        .video-container {
+          min-height: 200px;
+        }
+      }
+    </style>
+
+    <script>
+      // Client-side script to handle video play/pause on hover and touch
+      document.addEventListener('DOMContentLoaded', () => {
+        const videoContainers = document.querySelectorAll('.video-container');
+
+        videoContainers.forEach((container) => {
+          const video = container.querySelector('video');
+
+          if (video) {
+            // Force video to load first frame
+            video.load();
+
+            // Let the native video click behavior work
+            // We don't need to add our own click handler for the video itself
+            // as it will naturally play/pause when clicked
+
+            // Play video on hover for desktop
+            container.addEventListener('mouseenter', () => {
+              video.play().catch((e) => console.log('Play prevented:', e));
+            });
+
+            // Accessibility: Play video on focus
+            container.addEventListener('focusin', () => {
+              video.play().catch((e) => console.log('Play prevented:', e));
+            });
+
+            // Make container focusable for keyboard navigation
+            container.setAttribute('tabindex', '0');
+          }
+        });
+      });
+    </script>
+  </div>
+</section>

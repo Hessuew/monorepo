@@ -1,0 +1,67 @@
+---
+import Features3 from '../Features3.astro';
+import Spacer from '../Spacer.astro';
+
+// src/config/editorial-items.ts
+export const editorialItems = [
+  {
+    title: 'American & International',
+    flag: '🇺🇸',
+    description: [
+      'American Heart Association (AHA), Dallas, US',
+      'American College of Cardiology (ACC), US',
+      'American Society of Nutrition (ASN), US',
+      'American Physiological Society (APS), US',
+      'American College of Sports Medicine (ACSM), Indianapolis, US',
+      'North American Society for Pediatric Exercise Medicine (NASPEM), Canada/US',
+      'International Epidemiology Association (IEA), US',
+      'Endocrine Society, US',
+      'International Society of Behavioral Nutrition and Physical Activity (ISBNPA), Sweden',
+    ],
+  },
+  {
+    title: 'European Memberships',
+    flag: '🇪🇺',
+    description: [
+      'European Society of Cardiology (ESC), France',
+      'European Atherosclerosis Society (EAS), Sweden',
+      'Association for Research into Arterial Structure and Physiology (Artery Society), UK',
+      'European Association of Preventive Cardiology (EAPC), France',
+      'European Association for the Study of Obesity (EASO), UK',
+    ],
+  },
+  {
+    title: 'Finnish Memberships',
+    flag: '🇫🇮',
+    description: [
+      'Finnish Epidemiology Society (FES), Finland',
+      'Finnish Association for the Study of Obesity (FASO), Finland',
+      'Tampere Society for Associate Professors, Finland',
+    ],
+  },
+];
+---
+
+<Features3
+  id="memberships"
+  title="Memberships in Leading Scientific Societies"
+  subtitle="An active member of American, European, and Finnish research communities, Prof. Agbaje contributes to advancing global health, cardiology, and epidemiology."
+  columns={3}
+  classes={{
+    headline: {
+      title: 'max-w-3xl xl:max-w-[768px] mx-auto text-3xl md:text-4xl xl:text-[36px] xl:leading-[40px]',
+    },
+  }}
+  items={editorialItems.map((item) => ({
+    ...item,
+    description: item.description.map((j) => `• ${j}`).join('<br/>'),
+  }))}
+>
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
+</Features3>
+
+<!-- Spacer ******************* -->
+
+<Spacer size="sm" />
