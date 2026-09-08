@@ -1,7 +1,5 @@
 # Rukouksen Seurakunta - Prayer Church Finland
 
-![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/Hessuew/rukouksen_seurakunta?utm_source=oss&utm_medium=github&utm_campaign=Hessuew%2Frukouksen_seurakunta&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
-
 ## 🙏 About Prayer Church
 
 Welcome to [Rukouksen Seurakunta](https://rukouksenseurakunta.fi/) - a vibrant Christian community in Finland dedicated to prayer, worship, and spiritual growth. Our church serves as a beacon of faith, bringing together believers from all walks of life to experience the Holy Spirit and power of God.
@@ -110,19 +108,7 @@ _"For where two or three gather in my name, there am I with them." - Matthew 18:
 - Mobile-first design
 - Accessible to all users
 
-```
-src/
-├── assets/         # Static assets (images, styles)
-├── components/     # Shared Astro components
-├── content/        # Blog related content
-├── data/          # Data for different pages
-├── layouts/       # Shared layout components
-├── pages/         # Route pages
-├── utils/         # Helper functions
-├── config/        # Shared configuration
-├── navigation/    # Navigation of the website
-└── types.d.ts     # TypeScript definitions
-```
+App source lives in [`src/`](src/); site configuration is owned by [`src/config.yaml`](src/config.yaml) and [`astro.config.ts`](astro.config.ts).
 
 ## 🧪 Development
 
@@ -135,11 +121,16 @@ src/
 
 ### Commands
 
+Follow the [root setup instructions](../../README.md#install-and-validate) to install workspace dependencies. Run these commands from `apps/rukouksen-seurakunta`:
+
 - `bun run dev` - Start development server
 - `bun run build` - Build for production
 - `bun run preview` - Preview production build
-- `bun run lint` - Lint code
-- `bun run format` - Format code
+- `bun run check` - Run Astro, ESLint, and Prettier checks
+- `bun run fix:eslint` - Apply ESLint fixes
+- `bun run fix:prettier` - Format code
+
+For Cloudflare Pages configuration, see the [deployment settings](../../docs/cloudflare-deployments.md).
 
 ## 📝 Contributing
 

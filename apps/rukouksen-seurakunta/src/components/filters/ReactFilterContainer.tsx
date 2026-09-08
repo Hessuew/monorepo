@@ -1,6 +1,5 @@
 import { useTranslations } from '~/i18n/utils';
 import React, { useEffect, useRef, useState } from 'react';
-
 import './filters.css';
 
 interface FilterContainerProps {
