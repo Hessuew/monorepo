@@ -65,7 +65,7 @@ export default function FeaturesCard({
 
         {/* Actual card content */}
         <div
-          className={`${getBorderClass()} item overflow-visible relative flex aspect-[0.7372] flex-shrink-0 flex-col rounded-[24px] p-[18px] pb-[25px] text-white transition-all duration-500`}
+          className={`${getBorderClass()} item overflow-visible relative flex aspect-[0.7372] shrink-0 flex-col rounded-[24px] p-[18px] pb-[25px] text-white transition-all duration-500`}
         >
           {/* Gradient background overlay */}
           <div

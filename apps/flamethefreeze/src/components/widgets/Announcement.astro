@@ -40,7 +40,7 @@ const t = useTranslations(lang);
     <div class="flex flex-col space-y-3 lg:hidden relative z-10">
       <!-- Top row: Main announcement -->
       <div class="flex items-center space-x-2">
-        <div class="relative flex-shrink-0">
+        <div class="relative shrink-0">
           <div
             class="w-2.5 h-2.5 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full animate-pulse shadow-lg shadow-orange-500/50"
           >
@@ -50,7 +50,7 @@ const t = useTranslations(lang);
           >
           </div>
         </div>
-        <span class="text-white font-semibold text-shadow-sm text-sm leading-tight flex-1"
+        <span class="text-white font-semibold text-shadow-xs text-sm leading-tight flex-1"
           >{t("announcement.text")}</span
         >
       </div>
@@ -68,7 +68,7 @@ const t = useTranslations(lang);
             {rebuildProgress.current}/{rebuildProgress.total}
           </span>
           <div
-            class="w-12 h-1.5 bg-gray-800 rounded-full overflow-hidden border border-orange-500/20 shadow-inner flex-shrink-0"
+            class="w-12 h-1.5 bg-gray-800 rounded-full overflow-hidden border border-orange-500/20 shadow-inner shrink-0"
           >
             <div
               class="h-full bg-gradient-to-r from-orange-500 via-yellow-500 to-orange-600 rounded-full transition-all duration-500 ease-out shadow-lg relative"
@@ -83,7 +83,7 @@ const t = useTranslations(lang);
         </div>
 
         <!-- Status section -->
-        <div class="flex items-center space-x-1 flex-shrink-0 ml-2">
+        <div class="flex items-center space-x-1 shrink-0 ml-2">
           {
             siteRebuildStatus?.status === "completed" && (
               <div class="flex items-center space-x-1 bg-green-500/20 px-2 py-1 rounded-full border border-green-500/30">
@@ -134,7 +134,7 @@ const t = useTranslations(lang);
           >
           </div>
         </div>
-        <span class="text-white font-semibold text-shadow-sm text-base xl:text-[16px] xl:leading-[24px]"
+        <span class="text-white font-semibold text-shadow-xs text-base xl:text-[16px] xl:leading-[24px]"
           >{t("announcement.text")}</span
         >
       </div>

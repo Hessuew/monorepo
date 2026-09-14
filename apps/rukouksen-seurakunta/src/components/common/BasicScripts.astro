@@ -3,8 +3,10 @@
 ---
 
 <script is:inline define:vars={{ defaultTheme: 'light' }}>
+  // prettier-ignore
+  initialized: {
   if (window.basic_script) {
-    return;
+    break initialized;
   }
 
   window.basic_script = true;
@@ -186,6 +188,7 @@
 
   // // Initial setup
   // setupThemeToggle();
+  }
 </script>
 
 <script is:inline>

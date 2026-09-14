@@ -278,7 +278,7 @@ const { nav: navClass = '' } = classes;
     // Function to safely toggle menu items
     function toggleMenuItem(content: HTMLElement, chevron: Element | null, forceClose?: boolean): void {
       // Determine if we should show or hide
-      let shouldShow = true;
+      let shouldShow: boolean;
 
       if (forceClose === true) {
         // Force close mode

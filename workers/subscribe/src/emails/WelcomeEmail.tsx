@@ -1,4 +1,4 @@
-import { Body, Container, Head, Heading, Html, Link, Preview, Section, Text } from '@react-email/components';
+import { Body, Container, Head, Heading, Html, Link, Preview, Section, Text } from 'react-email';
 
 export const WelcomeEmail = () => {
   const baseUrl = 'https://urfit-child.com';

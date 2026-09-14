@@ -46,7 +46,7 @@ const t = useTranslations(lang);
       <div class="video-showcase-container overflow-hidden">
         <div class="video-showcase-grid flex gap-6 xl:gap-[24px] transition-transform duration-500">
           {videos.map((video, index) => (
-            <div class="video-card flex-shrink-0 w-[calc(50%-12px)] xs:w-[calc(40%-12px)] sm:w-[calc(30%-12px)] xl:w-[calc(30%-16px)]">
+            <div class="video-card shrink-0 w-[calc(50%-12px)] xs:w-[calc(40%-12px)] sm:w-[calc(30%-12px)] xl:w-[calc(30%-16px)]">
               <a href={video.link || video.href} target="_blank" class="group block">
                 <div class="relative overflow-hidden rounded-xl xl:rounded-[12px] bg-slate-800 hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl">
                   <Image
@@ -91,7 +91,7 @@ const t = useTranslations(lang);
                     <ul class="space-y-1 xl:space-y-[4px]">
                       {video.features.map((feature) => (
                         <li class="flex items-center text-sm xl:text-[14px] xl:leading-[20px] text-muted">
-                          <Icon name="tabler:check" class="w-4 h-4 xl:w-[16px] xl:h-[16px] text-white mr-2 xl:mr-[8px] flex-shrink-0" />
+                          <Icon name="tabler:check" class="w-4 h-4 xl:w-[16px] xl:h-[16px] text-white mr-2 xl:mr-[8px] shrink-0" />
                           {feature}
                         </li>
                       ))}
@@ -108,7 +108,7 @@ const t = useTranslations(lang);
       <div class="navigation-controls absolute inset-y-0 right-0 flex items-center z-10">
         <!-- Previous Arrow -->
         <button 
-          class="nav-arrow nav-prev absolute right-16 sm:right-20 xl:right-[80px] w-10 h-10 sm:w-12 sm:h-12 xl:w-[48px] xl:h-[48px] bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          class="nav-arrow nav-prev absolute right-16 sm:right-20 xl:right-[80px] w-10 h-10 sm:w-12 sm:h-12 xl:w-[48px] xl:h-[48px] bg-white/90 backdrop-blur-xs rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2"
           aria-label="View previous videos"
           tabindex="0"
         >
@@ -117,7 +117,7 @@ const t = useTranslations(lang);
         
         <!-- Next Arrow -->
         <button 
-          class="nav-arrow nav-next absolute right-0 translate-x-1 sm:translate-x-2 xl:translate-x-[8px] w-10 h-10 sm:w-12 sm:h-12 xl:w-[48px] xl:h-[48px] bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          class="nav-arrow nav-next absolute right-0 translate-x-1 sm:translate-x-2 xl:translate-x-[8px] w-10 h-10 sm:w-12 sm:h-12 xl:w-[48px] xl:h-[48px] bg-white/90 backdrop-blur-xs rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2"
           aria-label="View more videos"
           tabindex="0"
         >
@@ -175,7 +175,7 @@ const t = useTranslations(lang);
                   <ul class="space-y-1 xl:space-y-[4px]">
                     {video.features.map((feature) => (
                       <li class="flex items-center text-sm xl:text-[14px] xl:leading-[20px] text-muted">
-                        <Icon name="tabler:check" class="w-4 h-4 xl:w-[16px] xl:h-[16px] text-white mr-2 xl:mr-[8px] flex-shrink-0" />
+                        <Icon name="tabler:check" class="w-4 h-4 xl:w-[16px] xl:h-[16px] text-white mr-2 xl:mr-[8px] shrink-0" />
                         {feature}
                       </li>
                     ))}

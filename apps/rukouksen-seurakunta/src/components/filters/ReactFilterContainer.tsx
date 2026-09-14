@@ -225,7 +225,7 @@ export default function ReactFilterContainer({
                 <input
                   id={gridId ? `${gridId}-quick-filter` : 'search-input'}
                   type='text'
-                  className='w-full px-4 py-2 rounded-lg border border-gray-600 bg-gray-800 text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600'
+                  className='w-full px-4 py-2 rounded-lg border border-gray-600 bg-gray-800 text-gray-300 focus:outline-hidden focus:ring-2 focus:ring-blue-600'
                   placeholder={textSearchPlaceholder}
                   value={filters.search}
                   onChange={handleSearch}

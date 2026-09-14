@@ -42,7 +42,7 @@ app.use(
 
 // Validation schema
 const subscribeSchema = z.object({
-  email: z.string().email().nonempty(),
+  email: z.email().nonempty(),
 });
 
 // CSRF protection middleware

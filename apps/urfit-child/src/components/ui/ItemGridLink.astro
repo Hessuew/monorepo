@@ -47,7 +47,7 @@ const { items, columns = 3, classes = {}, isProfile = false } = Astro.props;
             rel="noopener noreferrer"
             class={twMerge(
               'block no-underline hover:no-underline group translate-y-6 md:translate-y-12 xl:translate-y-[48px] duration-0 ease-out intersect-once intersect-tenth intercept-no-queue motion-safe:intersect:animate-fade',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg focus-visible:duration-0 focus-visible:transition-none focus:duration-0 focus:transition-none ring-0 ring-transparent transition-none',
+              'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary rounded-lg focus-visible:duration-0 focus-visible:transition-none focus:duration-0 focus:transition-none ring-0 ring-transparent transition-none',
               classes.item
             )}
             aria-label={`Visit ${item.title} website`}

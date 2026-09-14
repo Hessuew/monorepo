@@ -83,7 +83,7 @@ const defaultBackgroundStyles = {
       closeButton.type = 'button';
       closeButton.setAttribute('aria-label', 'Close modal');
       closeButton.className =
-        'absolute top-4 right-4 z-50 rounded-full p-2 hover:bg-white/40 dark:hover:bg-white/40 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white';
+        'absolute top-4 right-4 z-50 rounded-full p-2 hover:bg-white/40 dark:hover:bg-white/40 transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-white';
       closeButton.innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -103,7 +103,7 @@ const defaultBackgroundStyles = {
 
         // Add image if available
         const imageContainer = document.createElement('div');
-        imageContainer.className = 'flex-shrink-0';
+        imageContainer.className = 'shrink-0';
 
         if (selectedTestimonial?.image) {
           const image = document.createElement('img');
@@ -441,7 +441,7 @@ const defaultBackgroundStyles = {
 <!-- Testimonial Modal -->
 <div
   id="testimonial-modal"
-  class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 transition-opacity duration-300"
+  class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 transition-opacity duration-300"
   role="dialog"
   aria-modal="true"
   aria-labelledby="modal-title"
