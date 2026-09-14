@@ -1,6 +1,6 @@
 # Dependency refresh
 
-Updated 2026-09-14 with Bun 1.3.10. The four Astro applications and three Cloudflare Workers now resolve their direct dependencies from the current stable release lines recorded in `package.json` and `bun.lock`.
+Updated 2026-09-14 with Bun 1.3.10. The four Astro applications and three Cloudflare Workers now resolve their direct dependencies from suitable release lines recorded in `package.json` and `bun.lock`; compatibility holds are listed below.
 
 ## Migrations included
 

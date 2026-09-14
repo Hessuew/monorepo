@@ -26,3 +26,5 @@ bun run check
 Run an individual package from the root with a filtered script, for example `bun run build:urfit-child` or `bun run check:worker:contact`. From an app or Worker directory, run the package-local script after the root install, or use `bun install --cwd ../.. --frozen-lockfile` first when running in a clean Cloudflare builder.
 
 Cloudflare Pages and Workers roots, commands, production branches, preview behavior, and watch paths are recorded in [docs/cloudflare-deployments.md](docs/cloudflare-deployments.md).
+
+Dependency migrations and intentional compatibility holds are recorded in [docs/dependency-refresh.md](docs/dependency-refresh.md).

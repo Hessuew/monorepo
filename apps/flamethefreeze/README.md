@@ -113,6 +113,6 @@ Initially created by [onWidget](https://onwidget.com), made with [AstroWind](htt
 
 ## Hosting
 
-For Netlify, use the repository root as the base directory and `apps/flamethefreeze` as the package directory containing [netlify.toml](netlify.toml). The configuration runs `bun run --filter flamethefreeze build`, publishes `apps/flamethefreeze/dist`, and sets `BUN_VERSION=1.3.10` under `[build.environment]`. Keep that version synchronized with the root `.bun-version` and `packageManager` pin.
+For Netlify, use the repository root as the base directory and `apps/flamethefreeze` as the package directory containing [netlify.toml](netlify.toml). The configuration runs `bun run --filter flamethefreeze build`, publishes `apps/flamethefreeze/dist`, and sets `BUN_VERSION=1.3.10` and `NODE_VERSION=22.22.3` under `[build.environment]`. Keep those versions synchronized with the root `.bun-version`, `packageManager` pin, and package `engines` declaration.
 
 See [Cloudflare deployment settings](../../docs/cloudflare-deployments.md) for this app’s Pages settings and the separate Worker configuration.
