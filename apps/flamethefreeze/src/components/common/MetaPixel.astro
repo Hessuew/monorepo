@@ -25,6 +25,16 @@
     window.flameTheFreezeMetaPixelPageViewListener = () => fbq("track", "PageView");
     document.addEventListener("astro:page-load", window.flameTheFreezeMetaPixelPageViewListener);
   }
+  if (!window.flameTheFreezeMetaPixelClickListener) {
+    // Campaign conversion names: FlyerDownloadClick and ZoomRegistrationClick.
+    const trackedMetaPixelEvents = new Set(["FlyerDownloadClick", "ZoomRegistrationClick"]);
+    window.flameTheFreezeMetaPixelClickListener = (event) => {
+      const trackedLink = event.target?.closest?.("[data-meta-pixel-event]");
+      const eventName = trackedLink?.getAttribute?.("data-meta-pixel-event");
+      if (eventName && trackedMetaPixelEvents.has(eventName)) fbq("trackCustom", eventName);
+    };
+    document.addEventListener("click", window.flameTheFreezeMetaPixelClickListener);
+  }
   /* eslint-enable @typescript-eslint/no-unused-expressions, prefer-spread, prefer-rest-params */
 </script>
 <noscript

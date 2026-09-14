@@ -96,6 +96,7 @@ const metadata: MetaData = {
         <a
           href={flyer.src}
           download="hour-of-encounter-flyer.jpg"
+          data-meta-pixel-event="FlyerDownloadClick"
           aria-label={t("hourOfEncounter.downloadFlyer")}
           class="mx-auto mt-4 inline-flex min-h-12 items-center justify-center rounded-full border border-white/25 bg-white/5 px-6 py-3 font-semibold text-white transition hover:border-white/50 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
         >
@@ -169,6 +170,7 @@ const metadata: MetaData = {
             href={HOUR_OF_ENCOUNTER.registrationUrl}
             target="_blank"
             rel="noopener noreferrer"
+            data-meta-pixel-event="ZoomRegistrationClick"
             class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/25 bg-white/5 px-6 py-3 font-semibold text-white transition hover:border-white/50 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
           >
             {t("hourOfEncounter.registerFutureEvents")}
