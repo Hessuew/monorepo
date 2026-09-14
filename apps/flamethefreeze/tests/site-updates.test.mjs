@@ -47,6 +47,16 @@ describe("requested site updates", () => {
       const download = linksIn(html).find(({ attributes }) => attributes.download === "hour-of-encounter-flyer.jpg");
 
       expect(download).toBeDefined();
+      expect(download.attributes["data-meta-pixel-event"]).toBe("FlyerDownloadClick");
+      const preview = linksIn(html).find(
+        ({ attributes }) =>
+          attributes["aria-label"] ===
+          (label === "Download the Hour of Encounter flyer"
+            ? "Open the full-size Hour of Encounter flyer in a new tab"
+            : "Avaa Hour of Encounter -esite täysikokoisena uuteen välilehteen")
+      );
+      expect(preview).toBeDefined();
+      expect(preview.attributes["data-meta-pixel-event"]).toBeUndefined();
       expect(download.attributes["aria-label"]).toBe(label);
       expect(download.text).toContain(label);
       expect(new URL(download.attributes.href, "https://flamethefreeze.com").pathname).toMatch(
@@ -65,6 +75,10 @@ describe("requested site updates", () => {
       const registration = linksIn(html).find(({ attributes }) => attributes.href === registrationUrl);
 
       expect(registration).toBeDefined();
+      expect(registration.attributes["data-meta-pixel-event"]).toBe("ZoomRegistrationClick");
+      const joinLink = linksIn(html).find(({ attributes }) => attributes.href === "https://zoom.us/j/89683570736");
+      expect(joinLink).toBeDefined();
+      expect(joinLink.attributes["data-meta-pixel-event"]).toBeUndefined();
       expect(registration.text).toContain(label);
       expect(html).not.toContain("Add recurring event to calendar");
     }
@@ -97,6 +111,8 @@ describe("requested site updates", () => {
 
     const pageLoadListeners = listeners.get("astro:page-load") ?? [];
     expect(pageLoadListeners).toHaveLength(1);
+    const clickListeners = listeners.get("click") ?? [];
+    expect(clickListeners).toHaveLength(1);
     expect(insertedScripts).toHaveLength(1);
     expect([...context.fbq.queue].map((entry) => Array.from(entry))).toEqual([["init", "1774128133609281"]]);
 
@@ -106,6 +122,24 @@ describe("requested site updates", () => {
       ["init", "1774128133609281"],
       ["track", "PageView"],
       ["track", "PageView"],
+    ]);
+
+    const trackedEvents = [];
+    const trackedAnchors = {
+      flyer: { getAttribute: () => "FlyerDownloadClick" },
+      registration: { getAttribute: () => "ZoomRegistrationClick" },
+    };
+    const click = (target) => clickListeners[0]({ target: { closest: () => target } });
+    const originalFbq = context.fbq;
+    context.fbq = (...args) => trackedEvents.push(args);
+    click(trackedAnchors.flyer);
+    click(trackedAnchors.registration);
+    click({ getAttribute: () => "UnrelatedClick" });
+    click(null);
+    context.fbq = originalFbq;
+    expect(trackedEvents).toEqual([
+      ["trackCustom", "FlyerDownloadClick"],
+      ["trackCustom", "ZoomRegistrationClick"],
     ]);
 
     const noscriptImage = [...html.matchAll(/<noscript>([\s\S]*?)<\/noscript>/g)]
