@@ -17,6 +17,8 @@ The Pages root directory is relative to the repository root. The output director
 
 Set the Pages environment variable `BUN_VERSION=1.3.10` for both production and preview builds in all four projects. Keep it synchronized with the root `.bun-version` so Cloudflare’s builder uses the repository’s pinned Bun runtime.
 
+Astro 7 requires Node.js 22.12 or newer. Keep the Pages runtime at Node.js 22.22.3; the legacy `cherubim-it` and `rukouksen-seurakunta` project roots pin that runtime with their app-local `.node-version` files so an older Pages build image cannot fall back to Node.js 18.
+
 The app-local build command is intentional: after the root install, `bun run build` executes in the configured Pages root and uses that app's Astro config. A root lockfile or root manifest change is included because it can affect every package. CMS `media_folder` and collection `folder` paths are repository-relative and include the corresponding `apps/<site>/` prefix; their authoritative values live in each app’s `public/decapcms/config.yml`.
 
 ## Cloudflare Workers Builds
