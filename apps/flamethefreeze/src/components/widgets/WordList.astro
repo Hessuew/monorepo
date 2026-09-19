@@ -98,7 +98,7 @@ const colorThemes = {
                       class={`flex flex-col lg:flex-row ${isLeft ? "lg:flex-row-reverse lg:pr-10 xl:pr-[40px]" : " lg:pl-10 xl:pl-[40px]"} gap-6 xl:gap-[24px] lg:items-center`}
                     >
                       {/* Image Section */}
-                      <div class="flex justify-center lg:justify-start flex-shrink-0">
+                      <div class="flex justify-center lg:justify-start shrink-0">
                         <div class="relative overflow-hidden rounded-xl xl:rounded-[12px] shadow-lg group-hover:shadow-xl transition-all duration-500 w-80 h-80 sm:w-96 sm:h-96 md:w-80 md:h-80 lg:w-72 lg:h-72 xl:w-[280px] xl:h-[280px]">
                           <Image
                             src={item.image}
@@ -133,7 +133,7 @@ const colorThemes = {
                           </div>
 
                           <p
-                            class="text-3xl xl:text-[32px] xl:leading-[40px] font-bold text-white mb-3 xl:mb-[12px] drop-shadow-sm"
+                            class="text-3xl xl:text-[32px] xl:leading-[40px] font-bold text-white mb-3 xl:mb-[12px] drop-shadow-xs"
                             set:html={item.title}
                           />
 
@@ -176,7 +176,7 @@ const colorThemes = {
                               <div class="mt-4 xl:mt-[16px] pl-6 xl:pl-[24px]">
                                 <div class="flex flex-wrap gap-2 xl:gap-[8px]">
                                   {item.keywords.map((keyword) => (
-                                    <span class={`px-3 py-1 text-xs xl:text-[12px] font-medium rounded-full bg-gradient-to-r ${theme.gradient} text-white/90 shadow-sm`}>
+                                    <span class={`px-3 py-1 text-xs xl:text-[12px] font-medium rounded-full bg-gradient-to-r ${theme.gradient} text-white/90 shadow-xs`}>
                                       {keyword}
                                     </span>
                                   ))}

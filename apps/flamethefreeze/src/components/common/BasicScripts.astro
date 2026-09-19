@@ -3,8 +3,10 @@
 ---
 
 <script is:inline define:vars={{}}>
+  // prettier-ignore
+  initialized: {
   if (window.basic_script) {
-    return;
+    break initialized;
   }
 
   window.basic_script = true;
@@ -134,6 +136,7 @@
     onLoad();
     onPageShow();
   });
+  }
 </script>
 
 <script is:inline>

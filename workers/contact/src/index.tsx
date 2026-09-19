@@ -43,7 +43,7 @@ app.use(
 // Base validation schema
 const baseContactFormSchema = {
   username: z.string().nonempty('Name is required'),
-  emailAddress: z.string().email('Invalid email address').nonempty('Email is required'),
+  emailAddress: z.email({ error: 'Invalid email address' }).nonempty('Email is required'),
   message: z.string().min(10, 'Message must be at least 10 characters'),
   role: z.string().optional(),
   cfTurnstileToken: z.string().nonempty('Please complete the verification'),

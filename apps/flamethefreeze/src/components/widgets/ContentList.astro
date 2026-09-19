@@ -157,7 +157,7 @@ const colorThemes = {
 
           return (
             <div
-              class="group relative transition-all duration-500 ease-out hover:scale-[1.01] focus:scale-[1.01] outline-none focus:outline-none intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade content-item"
+              class="group relative transition-all duration-500 ease-out hover:scale-[1.01] focus:scale-[1.01] outline-hidden focus:outline-hidden intersect-once intersect-tenth sm:intersect-quarter motion-safe:opacity-0 motion-safe:intersect:animate-fade content-item"
               data-index={index}
               tabindex="0"
             >
@@ -171,7 +171,7 @@ const colorThemes = {
                       class={`flex flex-col lg:flex-row ${isLeft ? "lg:flex-row-reverse lg:pr-10 xl:pr-[40px]" : " lg:pl-10 xl:pl-[40px]"} gap-6 xl:gap-[24px] lg:items-center`}
                     >
                       {/* Large Number Badge Section */}
-                      <div class="absolute md:relative flex justify-center lg:justify-start flex-shrink-0 z-20">
+                      <div class="absolute md:relative flex justify-center lg:justify-start shrink-0 z-20">
                         <div class="relative overflow-hidden rounded-xl xl:rounded-[12px] transition-all duration-700 w-24 h-24 md:w-60 md:h-60 xl:w-[240px] xl:h-[240px]">
                           <div class={`w-full h-full ${theme.iconBg} flex items-center justify-center rounded-full`}>
                             <div class="text-center relative z-10">
@@ -192,7 +192,7 @@ const colorThemes = {
                         {/* Header Section */}
                         <div class="mb-8 xl:mb-[32px] relative">
                           <div class="flex flex-col md:flex-row gap-4 xl:gap-[16px] pb-0 items-start">
-                            <div class="flex-shrink-0 relative group/image self-center">
+                            <div class="shrink-0 relative group/image self-center">
                               <div class="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-red-500/20 rounded-xl opacity-0 group-focus:opacity-100 transition-opacity duration-500" />
                               <Image
                                 class="relative z-10 rounded-xl w-80 h-80 md:w-[160px] md:h-[160px] object-cover shadow-lg border border-white/10 group-focus:border-orange-400/30 transition-all duration-500 group-focus:shadow-xl group-focus:shadow-orange-500/25 group-focus:scale-105"
@@ -212,7 +212,7 @@ const colorThemes = {
                               </div>
 
                               <p
-                                class="text-2xl xl:text-[28px] xl:leading-[36px] font-bold text-white md:mb-3 xl:mb-[12px] drop-shadow-sm"
+                                class="text-2xl xl:text-[28px] xl:leading-[36px] font-bold text-white md:mb-3 xl:mb-[12px] drop-shadow-xs"
                                 set:html={item.title}
                               />
 
@@ -253,7 +253,7 @@ const colorThemes = {
                                       >
                                         <div class="flex items-start gap-4">
                                           <div
-                                            class={`w-1 h-full min-h-[60px] bg-gradient-to-b ${theme.gradient} rounded-full flex-shrink-0 mt-1`}
+                                            class={`w-1 h-full min-h-[60px] bg-gradient-to-b ${theme.gradient} rounded-full shrink-0 mt-1`}
                                           />
                                           <div class="flex-1">
                                             <h4 class="text-white text-base xl:text-lg leading-relaxed xl:leading-loose font-normal">
@@ -266,7 +266,7 @@ const colorThemes = {
                                   ) : (
                                     <div class="flex items-center gap-4 xl:gap-5 group/item">
                                       {/* <div
-                                        class={`w-2 h-2 ${theme.accent} rounded-full flex-shrink-0 mt-2.5 shadow-sm group-hover/item:scale-125 transition-transform duration-300`}
+                                        class={`w-2 h-2 ${theme.accent} rounded-full shrink-0 mt-2.5 shadow-xs group-hover/item:scale-125 transition-transform duration-300`}
                                       /> */}
                                       <span class="text-2xl xl:text-[24px]">{desc.emoji}</span>
                                       <div class="flex-1">

@@ -4,10 +4,11 @@ import { fileURLToPath } from "url";
 import partytown from "@astrojs/partytown";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import type { AstroIntegration } from "astro";
 import compress from "astro-compress";
 import icon from "astro-icon";
+import { unified } from "@astrojs/markdown-remark";
 import { defineConfig } from "astro/config";
 import { lazyImagesRehypePlugin, readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from "./src/utils/frontmatter";
 import astrowind from "./vendor/integration";
@@ -24,9 +25,6 @@ export default defineConfig({
   integrations: [
     react({
       include: ["**/React*.tsx", "**/React*.jsx"],
-    }),
-    tailwind({
-      applyBaseStyles: false,
     }),
     sitemap(),
     // mdx(),
@@ -76,11 +74,14 @@ export default defineConfig({
   },
 
   markdown: {
-    remarkPlugins: [readingTimeRemarkPlugin],
-    rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],
+    processor: unified({
+      remarkPlugins: [readingTimeRemarkPlugin],
+      rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],
+    }),
   },
 
   vite: {
+    plugins: [tailwindcss()],
     resolve: {
       alias: {
         "~": path.resolve(__dirname, "./src"),

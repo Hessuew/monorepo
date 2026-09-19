@@ -1,5 +1,4 @@
 import typographyPlugin from '@tailwindcss/typography';
-import animate from 'tailwindcss-animate';
 import defaultTheme from 'tailwindcss/defaultTheme';
 import plugin from 'tailwindcss/plugin';
 
@@ -113,7 +112,6 @@ export default {
     plugin(({ addVariant }) => {
       addVariant('intersect', '&:not([no-intersect])');
     }),
-    animate,
   ],
   darkMode: ['class', 'class'],
 };

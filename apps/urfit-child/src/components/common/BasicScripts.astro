@@ -3,8 +3,10 @@ import { UI } from 'astrowind:config';
 ---
 
 <script is:inline define:vars={{ defaultTheme: UI.theme }}>
+  // prettier-ignore
+  initialized: {
   if (window.basic_script) {
-    return;
+    break initialized;
   }
 
   window.basic_script = true;
@@ -187,6 +189,7 @@ import { UI } from 'astrowind:config';
 
   // Initial setup
   setupThemeToggle();
+  }
 </script>
 
 <script is:inline>

@@ -196,7 +196,7 @@ export function ReactCalculator(): React.JSX.Element {
               placeholder='0 cm'
               min='0'
               max='300'
-              className='text-base xl:text-[16px] xl:leading-[24px] w-full py-3 pl-4 pr-2 xl:py-[12px] xl:pl-[16px] xl:pr-[8px] block rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600'
+              className='text-base xl:text-[16px] xl:leading-[24px] w-full py-3 pl-4 pr-2 xl:py-[12px] xl:pl-[16px] xl:pr-[8px] block rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:outline-hidden focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600'
               aria-describedby='waist-error'
             />
           </div>
@@ -221,7 +221,7 @@ export function ReactCalculator(): React.JSX.Element {
               placeholder='0 cm'
               min='0'
               max='300'
-              className='text-base xl:text-[16px] xl:leading-[24px] w-full py-3 pl-4 pr-2 xl:py-[12px] xl:pl-[16px] xl:pr-[8px] block rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600'
+              className='text-base xl:text-[16px] xl:leading-[24px] w-full py-3 pl-4 pr-2 xl:py-[12px] xl:pl-[16px] xl:pr-[8px] block rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:outline-hidden focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600'
               aria-describedby='height-error'
             />
           </div>

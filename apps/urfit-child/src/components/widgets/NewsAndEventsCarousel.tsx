@@ -74,7 +74,7 @@ export function NewsAndEventsCarousel({
             type='button'
             onClick={showPrev}
             aria-label='Previous photo'
-            className='absolute left-3 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer'
+            className='absolute left-3 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-xs transition-colors hover:bg-black/75 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary cursor-pointer'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -92,7 +92,7 @@ export function NewsAndEventsCarousel({
             type='button'
             onClick={showNext}
             aria-label='Next photo'
-            className='absolute right-3 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer'
+            className='absolute right-3 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-xs transition-colors hover:bg-black/75 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary cursor-pointer'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -107,7 +107,7 @@ export function NewsAndEventsCarousel({
             </svg>
           </button>
           <div
-            className='absolute bottom-3 right-3 z-20 rounded-full bg-black/60 px-2.5 py-0.5 text-xs font-medium text-white backdrop-blur-sm'
+            className='absolute bottom-3 right-3 z-20 rounded-full bg-black/60 px-2.5 py-0.5 text-xs font-medium text-white backdrop-blur-xs'
             aria-live='polite'
           >
             {currentIndex + 1} / {images.length}

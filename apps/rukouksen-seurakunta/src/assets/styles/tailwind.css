@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@config "../../../tailwind.config.js";
 
 @layer utilities {
   .bg-page {
@@ -26,15 +25,15 @@
   }
 
   .btn-primary {
-    @apply btn font-semibold bg-primary text-white border-primary hover:bg-secondary hover:border-secondary hover:text-white;
+    @apply inline-flex items-center justify-center rounded-full border-slate-500 border bg-transparent font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-slate-800 hover:border-slate-800 text-slate-300 cursor-pointer font-semibold bg-primary text-white border-primary hover:bg-secondary hover:border-secondary hover:text-white;
   }
 
   .btn-secondary {
-    @apply btn;
+    @apply inline-flex items-center justify-center rounded-full border-slate-500 border bg-transparent font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-slate-800 hover:border-slate-800 text-slate-300 cursor-pointer;
   }
 
   .btn-tertiary {
-    @apply btn border-none shadow-none text-gray-400 hover:text-white;
+    @apply inline-flex items-center justify-center rounded-full border-slate-500 border bg-transparent font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-slate-800 hover:border-slate-800 text-slate-300 cursor-pointer border-none shadow-none text-gray-400 hover:text-white;
   }
 }
 
