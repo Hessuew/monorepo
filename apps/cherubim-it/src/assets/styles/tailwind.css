@@ -598,6 +598,11 @@ flameTheFreeze dark purple:
   }
 }
 
+/* Keep the site shell dark when legacy section styles set a global body background. */
+body.bg-page {
+  background-color: var(--aw-color-bg-page);
+}
+
 /* Modifier classes for shiny-cta */
 .shiny-cta-orange {
   --shiny-cta-highlight: var(--orange);
