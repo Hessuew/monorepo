@@ -49,8 +49,8 @@ const t = useTranslations(lang || "en");
           <div
             class:list={[
               "w-full h-full shrink-0 transition-all duration-500 ease-in-out transform absolute inset-0",
-              { "translate-x-0 opacity-100 z-10": index === 0 },
-              { "translate-x-[30%] opacity-0 z-0": index > 0 },
+              { "opacity-100 z-10": index === 0 },
+              { "opacity-0 z-0": index > 0 },
             ]}
             role="tabpanel"
             id={`nav-panel-${index}`}
