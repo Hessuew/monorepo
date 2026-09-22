@@ -1,4 +1,7 @@
+import imgAgbajeCorsiEnimahEscMunich from '~/assets/images/news-and-events/agbaje-corsi-enimah-esc-munich-2026.webp';
 import imgAgbajeCorsiMadrid from '~/assets/images/news-and-events/agbaje-douglas-corsi-esc-madrid-2025.webp';
+import imgAgbajeJenniferBakerNutrition from '~/assets/images/news-and-events/agbaje-jennifer-baker-nutrition-2026.webp';
+import imgAgbajeLewandowskiLapidaireEscMunich from '~/assets/images/news-and-events/agbaje-lewandowski-lapidaire-esc-munich-2026.webp';
 import imgAgbajeZorzanelliMadrid from '~/assets/images/news-and-events/agbaje-zorzanelli-rocha-esc-madrid-2025.webp';
 import imgAgbajeAsnExecutive from '~/assets/images/news-and-events/andrew-agbaje-asn-foundation-executive-2025.webp';
 import imgAgbajeCatiaMartins1 from '~/assets/images/news-and-events/andrew-agbaje-catia-martins-networking-1.webp';
@@ -9,11 +12,16 @@ import imgAgbajeEndoAward from '~/assets/images/news-and-events/andrew-agbaje-en
 import imgAgbajeFinkelsteinAward from '~/assets/images/news-and-events/andrew-agbaje-julia-finkelstein-award-2025.webp';
 import imgAgbajeMoustaidMoussaSuskind from '~/assets/images/news-and-events/andrew-agbaje-naima-moustaid-moussa-robert-suskind-2025.webp';
 import imgAgbajeNutritionPresentation from '~/assets/images/news-and-events/andrew-agbaje-nutrition-presentation-2025.webp';
+import imgCorsiEnimahPostOralEscMunich from '~/assets/images/news-and-events/corsi-enimah-post-oral-presentation-esc-munich-2026.webp';
+import imgCorsiOralEscMunich from '~/assets/images/news-and-events/corsi-oral-presentation-esc-munich-2026.webp';
 import imgCorsiAhaNewOrleans from '~/assets/images/news-and-events/douglas-corsi-aha-scientific-sessions-new-orleans-2025.webp';
 import imgCorsiEscMadrid1 from '~/assets/images/news-and-events/douglas-corsi-esc-madrid-presentation-1.webp';
 import imgCorsiEscMadrid2 from '~/assets/images/news-and-events/douglas-corsi-esc-madrid-presentation-2.webp';
 import imgCorsiEscMadrid3 from '~/assets/images/news-and-events/douglas-corsi-esc-madrid-presentation-3.webp';
 import imgCorsiFusterForum from '~/assets/images/news-and-events/douglas-corsi-fuster-prevention-forum-june-2026.webp';
+import imgEnimahAbstractEscMunich from '~/assets/images/news-and-events/enimah-abstract-presentation-esc-munich-2026.webp';
+import imgEnimahAgbajeGuidelineEscMunich from '~/assets/images/news-and-events/enimah-agbaje-clinical-guideline-esc-munich-2026.webp';
+import imgFusterCorsiAgbajeEscMunich from '~/assets/images/news-and-events/fuster-corsi-agbaje-esc-munich-2026.webp';
 import imgMahidereEcoIstanbul1 from '~/assets/images/news-and-events/mahidere-ali-european-congress-obesity-istanbul-1.webp';
 import imgMahidereEcoIstanbul2 from '~/assets/images/news-and-events/mahidere-ali-european-congress-obesity-istanbul-2.webp';
 import type { ImageMetadata } from 'astro';
@@ -27,6 +35,68 @@ interface NewsAndEvent {
 }
 
 export const newsAndEvents: NewsAndEvent[] = [
+  {
+    id: 'agbaje-corsi-enimah-esc-congress-2026',
+    dateLabel: 'August 2026',
+    datetime: '2026-08',
+    caption:
+      'Discussion between Professor Agbaje and his PhD students (Drs Douglas Corsi and Eugene Enimah) at the European Society of Cardiology Congress in Munich, Germany, August 2026',
+    images: [imgAgbajeCorsiEnimahEscMunich],
+  },
+  {
+    id: 'agbaje-lewandowski-lapidaire-esc-congress-2026',
+    dateLabel: 'August 2026',
+    datetime: '2026-08',
+    caption:
+      'Oxford University, UK research collaborators Associate Professor Adam Lewandowski and Principal Investigator Dr Winok Lapidaire with Professor Agbaje at the European Society of Cardiology Congress in Munich, Germany, August 2026',
+    images: [imgAgbajeLewandowskiLapidaireEscMunich],
+  },
+  {
+    id: 'fuster-corsi-agbaje-esc-congress-2026',
+    dateLabel: 'August 2026',
+    datetime: '2026-08',
+    caption:
+      "World's best cardiologist and preventive cardiology champion, 83-year-old Professor Valentin Fuster with Dr Douglas Corsi and Professor Agbaje at the ESC Congress in Munich, August 2026.",
+    images: [imgFusterCorsiAgbajeEscMunich],
+  },
+  {
+    id: 'corsi-enimah-post-oral-esc-congress-2026',
+    dateLabel: 'August 2026',
+    datetime: '2026-08',
+    caption:
+      'Dr Douglas Corsi and Eugene Enimah post-oral presentation at the ESC Congress in Munich, Germany, August 2026.',
+    images: [imgCorsiEnimahPostOralEscMunich],
+  },
+  {
+    id: 'corsi-oral-presentation-esc-congress-2026',
+    dateLabel: 'August 2026',
+    datetime: '2026-08',
+    caption: "Dr Douglas Corsi's oral presentation at the ESC Congress in Munich, Germany, August 2026.",
+    images: [imgCorsiOralEscMunich],
+  },
+  {
+    id: 'enimah-abstract-presentation-esc-congress-2026',
+    dateLabel: 'August 2026',
+    datetime: '2026-08',
+    caption: 'Dr Eugene Enimah abstract presentation at the ESC Congress in Munich, Germany, August 2026.',
+    images: [imgEnimahAbstractEscMunich],
+  },
+  {
+    id: 'enimah-agbaje-clinical-guideline-esc-congress-2026',
+    dateLabel: 'August 2026',
+    datetime: '2026-08',
+    caption:
+      'Dr Eugene Enimah and Professor discussing the new clinical guideline at ESC Congress in Munich, Germany, August 2026.',
+    images: [imgEnimahAgbajeGuidelineEscMunich],
+  },
+  {
+    id: 'agbaje-jennifer-baker-nutrition-2026',
+    dateLabel: 'July 2026',
+    datetime: '2026-07',
+    caption:
+      'President-Elect (2024 – 2027) of the European Association for the Study of Obesity, Associate Professor Jennifer Baker and Professor Agbaje at the American Society for Nutrition Scientific Conference NUTRITION 2026 in Washington, DC, US, July 2026',
+    images: [imgAgbajeJenniferBakerNutrition],
+  },
   {
     id: 'douglas-corsi-fuster-prevention-forum-2026',
     dateLabel: 'June 2026',

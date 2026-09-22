@@ -25,6 +25,8 @@ export function NewsAndEventsCarousel({
   }
 
   const hasMultiple = images.length > 1;
+  const firstImage = typeof images[0] === 'string' ? undefined : images[0];
+  const aspectRatio = firstImage?.width && firstImage.height ? `${firstImage.width} / ${firstImage.height}` : '4 / 3';
 
   function showPrev(): void {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
@@ -36,7 +38,8 @@ export function NewsAndEventsCarousel({
 
   return (
     <div
-      className='relative aspect-[4/3] w-full overflow-hidden bg-slate-100 dark:bg-slate-800'
+      className='relative w-full overflow-hidden bg-slate-100 dark:bg-slate-800'
+      style={{ aspectRatio }}
       role={hasMultiple ? 'region' : undefined}
       aria-roledescription={hasMultiple ? 'carousel' : undefined}
       aria-label={hasMultiple ? `Photo gallery for ${caption}` : undefined}
@@ -55,13 +58,16 @@ export function NewsAndEventsCarousel({
             role={hasMultiple ? 'group' : undefined}
             aria-roledescription={hasMultiple ? 'slide' : undefined}
             aria-label={hasMultiple ? `${index + 1} of ${images.length}` : undefined}
-            aria-hidden={!isActive}
+            aria-hidden={hasMultiple ? !isActive : undefined}
           >
             <img
               src={src}
               alt={alt}
               className='h-full w-full object-cover object-center'
+              width={typeof image === 'string' ? undefined : image.width}
+              height={typeof image === 'string' ? undefined : image.height}
               loading={eager && index === 0 ? 'eager' : 'lazy'}
+              fetchPriority={eager && index === 0 ? 'high' : 'auto'}
               decoding='async'
             />
           </div>
