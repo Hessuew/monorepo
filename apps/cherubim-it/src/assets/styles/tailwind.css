@@ -598,7 +598,7 @@ flameTheFreeze dark purple:
   }
 }
 
-/* Keep the site shell dark when legacy section styles set a global body background. */
+/* Ensure Tailwind v4's base background styles do not override the layout's dark body theme. */
 body.bg-page {
   background-color: var(--aw-color-bg-page);
 }
