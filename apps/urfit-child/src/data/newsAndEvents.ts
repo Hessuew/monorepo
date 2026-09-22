@@ -40,7 +40,7 @@ export const newsAndEvents: NewsAndEvent[] = [
     dateLabel: 'August 2026',
     datetime: '2026-08',
     caption:
-      'Discussion between Professor Agbaje and his PhD students Drs Douglas Corsi and Eugene Enimah at the European Society of Cardiology Congress in Munich, Germany, August 2026.',
+      'Discussion between Professor Agbaje and his PhD students (Drs Douglas Corsi and Eugene Enimah) at the European Society of Cardiology Congress in Munich, Germany, August 2026',
     images: [imgAgbajeCorsiEnimahEscMunich],
   },
   {
@@ -48,7 +48,7 @@ export const newsAndEvents: NewsAndEvent[] = [
     dateLabel: 'August 2026',
     datetime: '2026-08',
     caption:
-      'Oxford University research collaborators Associate Professor Adam Lewandowski and Principal Investigator Dr Winok Lapidaire with Professor Agbaje at the European Society of Cardiology Congress in Munich, Germany, August 2026.',
+      'Oxford University, UK research collaborators Associate Professor Adam Lewandowski and Principal Investigator Dr Winok Lapidaire with Professor Agbaje at the European Society of Cardiology Congress in Munich, Germany, August 2026',
     images: [imgAgbajeLewandowskiLapidaireEscMunich],
   },
   {
@@ -56,7 +56,7 @@ export const newsAndEvents: NewsAndEvent[] = [
     dateLabel: 'August 2026',
     datetime: '2026-08',
     caption:
-      'Professor Valentin Fuster with Dr Douglas Corsi and Professor Agbaje at the ESC Congress in Munich, August 2026.',
+      "World's best cardiologist and preventive cardiology champion, 83-year-old Professor Valentin Fuster with Dr Douglas Corsi and Professor Agbaje at the ESC Congress in Munich, August 2026.",
     images: [imgFusterCorsiAgbajeEscMunich],
   },
   {
@@ -86,7 +86,7 @@ export const newsAndEvents: NewsAndEvent[] = [
     dateLabel: 'August 2026',
     datetime: '2026-08',
     caption:
-      'Dr Eugene Enimah and Professor Agbaje discussing the new clinical guideline at the ESC Congress in Munich, Germany, August 2026.',
+      'Dr Eugene Enimah and Professor discussing the new clinical guideline at ESC Congress in Munich, Germany, August 2026.',
     images: [imgEnimahAgbajeGuidelineEscMunich],
   },
   {
@@ -94,7 +94,7 @@ export const newsAndEvents: NewsAndEvent[] = [
     dateLabel: 'July 2026',
     datetime: '2026-07',
     caption:
-      'President-Elect (2024–2027) of the European Association for the Study of Obesity, Associate Professor Jennifer Baker, and Professor Agbaje at the American Society for Nutrition Scientific Conference NUTRITION 2026 in Washington, DC, US, July 2026.',
+      'President-Elect (2024 – 2027) of the European Association for the Study of Obesity, Associate Professor Jennifer Baker and Professor Agbaje at the American Society for Nutrition Scientific Conference NUTRITION 2026 in Washington, DC, US, July 2026',
     images: [imgAgbajeJenniferBakerNutrition],
   },
   {
