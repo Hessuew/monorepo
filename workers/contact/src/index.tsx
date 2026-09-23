@@ -5,6 +5,8 @@ import { cors } from 'hono/cors';
 import { Resend } from 'resend';
 import { z } from 'zod';
 import { NewContactSubmissionEmail } from './emails/NewContactSubmissionEmail';
+import { handleScheduled } from './monthlyStats';
+import type { StatsEnv } from './monthlyStats';
 
 type WorkerEnv = Env & {
   RESEND_API_KEY: string;
@@ -183,4 +185,9 @@ app.post('/contact', csrfProtection, zValidator('form', contactFormSchema), asyn
   }
 });
 
-export default app;
+export default {
+  fetch: app.fetch,
+  scheduled: (event: ScheduledEvent, env: Env, ctx: ExecutionContext) => {
+    ctx.waitUntil(handleScheduled(event, env as Env & StatsEnv));
+  },
+};

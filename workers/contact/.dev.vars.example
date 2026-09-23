@@ -1,2 +1,6 @@
 RESEND_API_KEY=replace-with-a-local-development-secret
 CLOUDFLARE_TURNSTILE_SECRET=replace-with-a-local-development-secret
+CF_ACCOUNT_ID=replace-with-your-cloudflare-account-id
+CF_WEB_ANALYTICS_SITE_TAG=replace-with-urfit-child-web-analytics-site-tag
+CF_ANALYTICS_API_TOKEN=replace-with-analytics-read-api-token
+REPORT_RECIPIENTS=replace-with-comma-separated-recipient-emails
