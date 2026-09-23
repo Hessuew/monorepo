@@ -33,6 +33,22 @@ Set each Worker’s root directory to the directory containing its `wrangler.jso
 
 The checked-in Wrangler configs intentionally contain no secret values. Keep Resend, Turnstile, and any account-specific runtime values in Cloudflare Variables & Secrets or a local `.dev.vars` file. `keep_vars` is enabled so existing dashboard-managed runtime variables are not removed by a config-only deployment.
 
+## Scheduled reports
+
+The `contact-form` Worker also runs a monthly cron (`0 8 1 * *`) that emails the urFIT-child visit statistics report through Resend from `cherubim-it.com`. The numbers come from Cloudflare Web Analytics (RUM) via the GraphQL Analytics API, so the `urfit-child` Pages project must have Web Analytics enabled (Workers & Pages → `urfit-child` → Metrics → Enable under Web Analytics).
+
+Set these on the Worker in Cloudflare Variables & Secrets (or `workers/contact/.dev.vars` locally):
+
+| Name                       | Kind   | Purpose                                                        |
+| -------------------------- | ------ | -------------------------------------------------------------- |
+| `RESEND_API_KEY`           | secret | Resend API key (shared with the contact form sends)            |
+| `CF_ACCOUNT_ID`            | var    | Cloudflare account ID                                          |
+| `CF_WEB_ANALYTICS_SITE_TAG`| var    | Web Analytics site tag for `urfit-child.com`                   |
+| `CF_ANALYTICS_API_TOKEN`   | secret | API token with account-level Analytics read access             |
+| `REPORT_RECIPIENTS`        | var    | Comma-separated report recipient addresses                     |
+
+Test the handler locally with `wrangler dev --test-scheduled` and `curl "http://localhost:8787/__scheduled?cron=0+8+1+*+*"`.
+
 ## Preview safety
 
 - The urFIT-child subscription form reads `PUBLIC_SUBSCRIBE_API_URL`; configure a preview Worker URL for previews and the production Worker URL for production. It does not silently send preview submissions to production.
