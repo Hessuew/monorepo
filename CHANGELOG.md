@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.27.0](https://github.com/Hessuew/monorepo/compare/v3.26.0...v3.27.0) (2026-09-23)
+
+
+### Features
+
+* **contact:** add monthly stats email cron ([f46c013](https://github.com/Hessuew/monorepo/commit/f46c0130890efa7bc82e5246fec1ee44bcae0877))
+* **contact:** add monthly stats email cron ([#309](https://github.com/Hessuew/monorepo/issues/309)) ([e384c94](https://github.com/Hessuew/monorepo/commit/e384c941e4a7aa25d0474e78ede523f4163c61f7))
+
 ## [3.26.0](https://github.com/Hessuew/monorepo/compare/v3.25.0...v3.26.0) (2026-09-23)
 
 
