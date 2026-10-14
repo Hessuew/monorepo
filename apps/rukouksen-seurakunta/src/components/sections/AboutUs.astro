@@ -1,10 +1,9 @@
 ---
 import akosua_zoomed_in from '~/assets/images/deacons/rukous_seurakunta_akosua.webp';
-import ida_zoomed_in from '~/assets/images/deacons/rukous_seurakunta_ida_zoomed_in.webp';
 // import ahunsi_zoomed2 from '~/assets/images/elders/rukous_seurakunta_ahunsi.webp';
-import greta from '~/assets/images/elders/rukous_seurakunta_greta.jpg';
-import juhani_helsinki from '~/assets/images/elders/rukous_seurakunta_juhani_juusola.webp';
+import ama from '~/assets/images/elders/rukous_seurakunta_ama.jpeg';
 import mahi from '~/assets/images/elders/rukous_seurakunta_mahi.webp';
+import sari from '~/assets/images/elders/rukous_seurakunta_sari.jpeg';
 import ImageTextSection from '~/components/widgets/ImageTextSection.astro';
 import { getLangFromUrl, useTranslations } from '~/i18n/utils';
 
@@ -23,26 +22,6 @@ const t = useTranslations(lang);
     },
   }}
   items={[
-    {
-      title: t('juhaniJuusola'),
-      name: 'Juhani Juusola',
-      content: `1) ${t('juhaniJuusolaContent2')}`,
-      image: {
-        src: juhani_helsinki,
-        alt: t('juhaniJuusolaImageAlt'),
-      },
-      isReversed: false,
-    },
-    {
-      title: t('greta'),
-      name: 'Greta',
-      content: `1) ${t('gretaContent1')} <br /> <br /> 2) ${t('gretaContent2')}`,
-      image: {
-        src: greta,
-        alt: t('gretaImageAlt'),
-      },
-      isReversed: true,
-    },
     // {
     //   title: t('ahunsi'),
     //   name: 'Ahunsimere',
@@ -73,14 +52,20 @@ const t = useTranslations(lang);
       isReversed: true,
     },
     {
-      title: t('ida'),
-      name: 'Ida',
-      content: `1) ${t('idaContent1')}`,
+      title: t('ama'),
+      name: 'Ama',
       image: {
-        src: ida_zoomed_in,
-        alt: t('idaImageAlt'),
+        src: ama,
+        alt: t('amaImageAlt'),
       },
-      isReversed: false,
+    },
+    {
+      title: t('sari'),
+      name: 'Sari',
+      image: {
+        src: sari,
+        alt: t('sariImageAlt'),
+      },
     },
   ]}
 />
