@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.28.0](https://github.com/Hessuew/monorepo/compare/v3.27.0...v3.28.0) (2026-10-14)
+
+
+### Features
+
+* **rukouksen-seurakunta:** update About Us workers roster ([8004f59](https://github.com/Hessuew/monorepo/commit/8004f59f92d7454aeae07904cef8850d07a7e1a2))
+
 ## [3.27.0](https://github.com/Hessuew/monorepo/compare/v3.26.0...v3.27.0) (2026-09-23)
 
 
